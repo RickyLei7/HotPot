@@ -1,0 +1,559 @@
+@import "tailwindcss";
+
+:root {
+  --background: #120d0b;
+  --foreground: #fff6df;
+  --ink: #17100c;
+  --paper: #fff3d1;
+  --paper-soft: #f9e5b7;
+  --gold: #f6c94c;
+  --red: #7f1716;
+  --red-bright: #b02620;
+  --teal: #0d6b62;
+  --cream: #fff8ea;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background:
+    linear-gradient(180deg, rgba(18, 13, 11, 0.92), rgba(18, 13, 11, 0.72)),
+    url("/assets/soup-lineup.webp") center top / 1400px auto fixed;
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+section {
+  scroll-margin-top: 92px;
+}
+
+.site-nav {
+  align-items: center;
+  backdrop-filter: blur(18px);
+  background: rgba(18, 13, 11, 0.9);
+  border-bottom: 1px solid rgba(246, 201, 76, 0.28);
+  display: grid;
+  gap: 16px;
+  grid-template-columns: auto 1fr auto;
+  left: 0;
+  padding: 12px clamp(16px, 4vw, 54px);
+  position: sticky;
+  right: 0;
+  top: 0;
+  z-index: 20;
+}
+
+.brand-mark img {
+  height: 54px;
+  width: auto;
+}
+
+.nav-links {
+  display: flex;
+  gap: clamp(14px, 3vw, 34px);
+  justify-content: center;
+}
+
+.nav-links a,
+.nav-call {
+  color: var(--cream);
+  font-size: 0.94rem;
+  font-weight: 700;
+}
+
+.nav-call,
+.primary-action,
+.secondary-action,
+.map-link {
+  align-items: center;
+  border-radius: 999px;
+  display: inline-flex;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0 20px;
+  white-space: nowrap;
+}
+
+.nav-call,
+.primary-action,
+.map-link {
+  background: var(--gold);
+  color: var(--ink);
+}
+
+.secondary-action {
+  border: 1px solid rgba(255, 246, 223, 0.55);
+  color: var(--cream);
+}
+
+.hero {
+  align-items: center;
+  display: grid;
+  gap: clamp(32px, 5vw, 80px);
+  grid-template-columns: minmax(0, 1fr) minmax(300px, 520px);
+  min-height: calc(100vh - 79px);
+  padding: clamp(56px, 8vw, 112px) clamp(18px, 5vw, 76px) clamp(38px, 6vw, 72px);
+}
+
+.hero-copy {
+  max-width: 760px;
+}
+
+.eyebrow {
+  color: var(--gold);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0;
+  margin: 0 0 14px;
+  text-transform: uppercase;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  color: var(--cream);
+  font-size: clamp(3rem, 9vw, 7.6rem);
+  font-weight: 900;
+  line-height: 0.94;
+  margin-bottom: 24px;
+  max-width: 980px;
+}
+
+h2 {
+  color: var(--cream);
+  font-size: clamp(2rem, 4.6vw, 4.4rem);
+  font-weight: 850;
+  line-height: 1.02;
+  margin-bottom: 0;
+  max-width: 980px;
+}
+
+h3 {
+  font-size: 1.08rem;
+  margin-bottom: 10px;
+}
+
+.hero-text {
+  color: rgba(255, 246, 223, 0.86);
+  font-size: clamp(1.05rem, 2vw, 1.35rem);
+  line-height: 1.65;
+  max-width: 650px;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 30px;
+}
+
+.primary-action,
+.secondary-action {
+  font-size: 1rem;
+  font-weight: 850;
+}
+
+.hero-plate {
+  aspect-ratio: 4 / 5;
+  border: 1px solid rgba(246, 201, 76, 0.38);
+  border-radius: 8px;
+  box-shadow: 0 26px 70px rgba(0, 0, 0, 0.38);
+  overflow: hidden;
+}
+
+.hero-plate img {
+  height: 100%;
+  object-fit: cover;
+  object-position: 47% 18%;
+  width: 100%;
+}
+
+.quick-info {
+  background: var(--red);
+  border-block: 1px solid rgba(246, 201, 76, 0.46);
+  display: grid;
+  gap: 1px;
+  grid-template-columns: repeat(4, 1fr);
+  padding: 1px;
+}
+
+.quick-info div {
+  background: rgba(18, 13, 11, 0.34);
+  color: var(--cream);
+  min-height: 116px;
+  padding: 24px;
+}
+
+.quick-info span {
+  color: var(--gold);
+  display: block;
+  font-size: clamp(1.6rem, 3vw, 2.8rem);
+  font-weight: 900;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.feature-band,
+.chef-section,
+.menu-section,
+.two-column,
+.snacks-section,
+.full-menu,
+.visit {
+  padding: clamp(62px, 8vw, 112px) clamp(18px, 5vw, 76px);
+}
+
+.feature-band {
+  background: var(--ink);
+}
+
+.chef-section {
+  background:
+    linear-gradient(90deg, rgba(127, 23, 22, 0.92), rgba(31, 22, 17, 0.92)),
+    url("/assets/hero-beef-noodle.webp") right center / min(45vw, 620px) auto no-repeat;
+  display: grid;
+  gap: clamp(28px, 5vw, 70px);
+  grid-template-columns: minmax(260px, 0.85fr) minmax(0, 1.15fr);
+}
+
+.chef-intro {
+  align-self: start;
+  position: sticky;
+  top: 110px;
+}
+
+.chef-lead {
+  color: rgba(255, 248, 234, 0.9);
+  font-size: clamp(1.15rem, 2vw, 1.45rem);
+  line-height: 1.75;
+  margin-top: 22px;
+}
+
+.chef-story {
+  background: rgba(255, 248, 234, 0.95);
+  border: 1px solid rgba(246, 201, 76, 0.36);
+  border-radius: 8px;
+  color: var(--ink);
+  line-height: 1.82;
+  padding: clamp(24px, 4vw, 46px);
+}
+
+.chef-story p {
+  margin-bottom: 18px;
+}
+
+.chef-story p:last-child {
+  margin-bottom: 0;
+}
+
+.chef-story blockquote {
+  border-left: 5px solid var(--red);
+  color: var(--red);
+  font-size: clamp(1.35rem, 3vw, 2.1rem);
+  font-weight: 900;
+  line-height: 1.45;
+  margin: 30px 0;
+  padding-left: 22px;
+}
+
+.section-heading {
+  margin-bottom: clamp(28px, 5vw, 46px);
+}
+
+.section-heading.compact {
+  margin-bottom: 24px;
+}
+
+.set-grid,
+.snack-grid,
+.visit-grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.set-grid article,
+.snack-grid article,
+.visit-grid article {
+  background: rgba(255, 248, 234, 0.95);
+  border: 1px solid rgba(246, 201, 76, 0.3);
+  border-radius: 8px;
+  color: var(--ink);
+  padding: 24px;
+}
+
+.set-grid p,
+.snack-grid p,
+.visit-grid p {
+  line-height: 1.55;
+  margin-bottom: 0;
+}
+
+.menu-section,
+.full-menu {
+  background: var(--paper);
+  color: var(--ink);
+}
+
+.menu-section .eyebrow,
+.full-menu .eyebrow {
+  color: var(--red-bright);
+}
+
+.menu-section h2,
+.full-menu h2 {
+  color: var(--ink);
+}
+
+.wide-food {
+  border-radius: 8px;
+  box-shadow: 0 18px 45px rgba(60, 26, 12, 0.22);
+  height: auto;
+  margin-bottom: 24px;
+  width: 100%;
+}
+
+.soup-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.soup-list span,
+.drink-panel span {
+  background: #ffffff;
+  border: 1px solid rgba(127, 23, 22, 0.18);
+  border-radius: 999px;
+  color: var(--ink);
+  font-weight: 750;
+  padding: 10px 14px;
+}
+
+.two-column {
+  background: #1f1611;
+  display: grid;
+  gap: clamp(28px, 5vw, 54px);
+  grid-template-columns: 1fr 1fr;
+}
+
+.price-list {
+  background: rgba(255, 248, 234, 0.96);
+  border-radius: 8px;
+  color: var(--ink);
+  overflow: hidden;
+}
+
+.price-list div {
+  align-items: center;
+  border-bottom: 1px solid rgba(127, 23, 22, 0.14);
+  display: grid;
+  gap: 18px;
+  grid-template-columns: 1fr auto;
+  min-height: 64px;
+  padding: 16px 20px;
+}
+
+.price-list div:last-child {
+  border-bottom: 0;
+}
+
+.price-list strong {
+  color: var(--red);
+  font-size: 1.08rem;
+}
+
+.drink-panel {
+  background: var(--paper-soft);
+  border-radius: 8px;
+  color: var(--ink);
+  overflow: hidden;
+}
+
+.drink-panel img {
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  object-position: right center;
+  width: 100%;
+}
+
+.drink-panel div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 18px;
+}
+
+.snacks-section {
+  background: #2a130f;
+}
+
+.snack-grid {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.snack-grid article {
+  min-height: 132px;
+}
+
+.snack-grid p {
+  color: var(--red);
+  font-size: 1.3rem;
+  font-weight: 900;
+}
+
+.menu-images {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.menu-images a {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 20px 55px rgba(42, 19, 15, 0.2);
+  max-height: 760px;
+  overflow: auto;
+}
+
+.menu-images img {
+  width: 100%;
+}
+
+.visit {
+  background:
+    linear-gradient(90deg, rgba(18, 13, 11, 0.93), rgba(18, 13, 11, 0.82)),
+    url("/assets/snack-lineup.webp") center / cover;
+}
+
+.visit-grid {
+  margin-bottom: 28px;
+}
+
+.visit-grid a {
+  color: var(--red);
+  font-weight: 850;
+}
+
+.map-link {
+  font-weight: 900;
+}
+
+@media (max-width: 900px) {
+  .site-nav {
+    grid-template-columns: 1fr auto;
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+  .hero,
+  .chef-section,
+  .two-column,
+  .menu-images {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    min-height: auto;
+  }
+
+  .hero-plate {
+    max-height: 560px;
+  }
+
+  .chef-section {
+    background:
+      linear-gradient(180deg, rgba(127, 23, 22, 0.94), rgba(31, 22, 17, 0.94)),
+      url("/assets/hero-beef-noodle.webp") right top / 640px auto no-repeat;
+  }
+
+  .chef-intro {
+    position: static;
+  }
+
+  .quick-info,
+  .set-grid,
+  .visit-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .snack-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .brand-mark img {
+    height: 42px;
+  }
+
+  .site-nav {
+    padding-inline: 12px;
+  }
+
+  .nav-call {
+    min-height: 40px;
+    padding-inline: 16px;
+  }
+
+  .hero,
+  .feature-band,
+  .chef-section,
+  .menu-section,
+  .two-column,
+  .snacks-section,
+  .full-menu,
+  .visit {
+    padding-inline: 16px;
+  }
+
+  .quick-info,
+  .set-grid,
+  .snack-grid,
+  .visit-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .quick-info div {
+    min-height: 92px;
+  }
+
+  .hero-actions {
+    display: grid;
+  }
+
+  .primary-action,
+  .secondary-action {
+    width: 100%;
+  }
+}

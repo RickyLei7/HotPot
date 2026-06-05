@@ -639,16 +639,46 @@ h3 {
 
 @media (max-width: 560px) {
   .brand-mark img {
-    height: 42px;
+    height: 40px;
   }
 
   .site-nav {
-    padding-inline: 12px;
+    align-items: center;
+    gap: 10px 12px;
+    grid-template-columns: 1fr auto;
+    padding: 10px 14px 12px;
+  }
+
+  .brand-mark {
+    min-width: 0;
   }
 
   .nav-call {
-    min-height: 40px;
-    padding-inline: 16px;
+    font-size: 1rem;
+    font-weight: 900;
+    justify-self: end;
+    min-height: 44px;
+    min-width: 104px;
+    padding-inline: 22px;
+  }
+
+  .nav-links {
+    display: grid;
+    gap: 7px;
+    grid-column: 1 / -1;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    overflow: visible;
+    padding: 0;
+    width: 100%;
+  }
+
+  .nav-links a {
+    background: rgba(255, 248, 234, 0.075);
+    border-color: rgba(246, 201, 76, 0.2);
+    font-size: 0.82rem;
+    min-height: 34px;
+    padding: 7px 4px;
+    text-align: center;
   }
 
   .hero,

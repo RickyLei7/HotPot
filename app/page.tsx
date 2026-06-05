@@ -118,7 +118,33 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="feature-band" id="specials">
+      <section className="ayce-promo" id="specials">
+        <div className="ayce-copy">
+          <p className="eyebrow">Coming soon</p>
+          <h2>All-You-Can-Eat Hot Pot is on the way.</h2>
+          <p>$28.99 + tax · Soup base included · Final launch details coming soon.</p>
+          <a className="secondary-action" href="#ayce-poster">
+            View Poster
+          </a>
+        </div>
+        <a className="ayce-card" href="#ayce-poster" aria-label="View All-You-Can-Eat Hot Pot poster">
+          <span>Coming Soon</span>
+          <img src="/assets/ayce-coming-soon.png" alt="All-You-Can-Eat Hot Pot coming soon poster" />
+        </a>
+      </section>
+
+      <div className="poster-modal" id="ayce-poster" role="dialog" aria-label="All-You-Can-Eat Hot Pot coming soon poster">
+        <a className="modal-backdrop" href="#specials" aria-label="Close poster"></a>
+        <div className="poster-frame">
+          <a className="modal-close" href="#specials" aria-label="Close poster">
+            Close
+          </a>
+          <span className="modal-label">Coming Soon</span>
+          <img src="/assets/ayce-coming-soon.png" alt="All-You-Can-Eat Hot Pot coming soon poster" />
+        </div>
+      </div>
+
+      <section className="feature-band">
         <div className="section-heading">
           <p className="eyebrow">Hotpot set</p>
           <h2>Start with one soup, one meat, and one rice or noodle side.</h2>

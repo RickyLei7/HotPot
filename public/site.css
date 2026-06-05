@@ -338,9 +338,33 @@ h3 { font-size: 1.08rem; margin-bottom: 10px; }
   .snack-grid { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 560px) {
-  .brand-mark img { height: 42px; }
-  .site-nav { padding-inline: 12px; }
-  .nav-call { min-height: 40px; padding-inline: 16px; }
+  .brand-mark img { height: 46px; }
+  .site-nav {
+    gap: 12px;
+    grid-template-columns: 1fr auto;
+    padding: 12px 14px 14px;
+  }
+  .brand-mark { min-width: 0; }
+  .nav-call {
+    justify-self: end;
+    min-height: 38px;
+    padding-inline: 18px;
+  }
+  .nav-links {
+    display: grid;
+    gap: 8px;
+    grid-column: 1 / -1;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    overflow: visible;
+    padding: 0;
+    width: 100%;
+  }
+  .nav-links a {
+    font-size: 0.88rem;
+    min-height: 38px;
+    padding: 8px 6px;
+    text-align: center;
+  }
   .hero, .feature-band, .chef-section, .menu-section, .two-column, .snacks-section, .full-menu, .visit { padding-inline: 16px; }
   .quick-info, .dish-showcase, .set-grid, .snack-grid, .visit-grid { grid-template-columns: 1fr; }
   .quick-info div { min-height: 92px; }

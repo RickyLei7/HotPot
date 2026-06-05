@@ -16,7 +16,7 @@ body {
   margin: 0;
   background:
     linear-gradient(180deg, rgba(18, 13, 11, 0.92), rgba(18, 13, 11, 0.72)),
-    url("assets/soup-lineup.webp") center top / 1400px auto fixed;
+    url("assets/dish-spicy.webp") center top / 1400px auto fixed;
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
@@ -56,7 +56,9 @@ section { scroll-margin-top: 92px; }
   align-items: center;
   display: grid;
   gap: clamp(32px, 5vw, 80px);
-  grid-template-columns: minmax(0, 1fr) minmax(300px, 520px);
+  grid-template-columns: minmax(520px, 1.08fr) minmax(420px, 0.92fr);
+  margin: 0 auto;
+  max-width: 1540px;
   min-height: calc(100vh - 79px);
   padding: clamp(56px, 8vw, 112px) clamp(18px, 5vw, 76px) clamp(38px, 6vw, 72px);
 }
@@ -72,11 +74,11 @@ section { scroll-margin-top: 92px; }
 h1, h2, h3, p { margin-top: 0; }
 h1 {
   color: var(--cream);
-  font-size: clamp(3rem, 9vw, 7.6rem);
+  font-size: clamp(3.2rem, 6.6vw, 6.8rem);
   font-weight: 900;
-  line-height: 0.94;
+  line-height: 0.98;
   margin-bottom: 24px;
-  max-width: 980px;
+  max-width: 900px;
 }
 h2 {
   color: var(--cream);
@@ -96,13 +98,13 @@ h3 { font-size: 1.08rem; margin-bottom: 10px; }
 .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 30px; }
 .primary-action, .secondary-action { font-size: 1rem; font-weight: 850; }
 .hero-plate {
-  aspect-ratio: 4 / 5;
+  aspect-ratio: 5 / 6;
   border: 1px solid rgba(246, 201, 76, 0.38);
   border-radius: 8px;
   box-shadow: 0 26px 70px rgba(0, 0, 0, 0.38);
   overflow: hidden;
 }
-.hero-plate img { height: 100%; object-fit: cover; object-position: 47% 18%; width: 100%; }
+.hero-plate img { height: 100%; object-fit: cover; object-position: center; width: 100%; }
 .quick-info {
   background: var(--red);
   border-block: 1px solid rgba(246, 201, 76, 0.46);
@@ -128,14 +130,19 @@ h3 { font-size: 1.08rem; margin-bottom: 10px; }
 .feature-band, .chef-section, .menu-section, .two-column, .snacks-section, .full-menu, .visit {
   padding: clamp(62px, 8vw, 112px) clamp(18px, 5vw, 76px);
 }
+.feature-band > *, .menu-section > *, .two-column > *, .snacks-section > *, .full-menu > *, .visit > * {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1400px;
+}
 .feature-band { background: var(--ink); }
 .chef-section {
   background:
-    linear-gradient(90deg, rgba(127, 23, 22, 0.92), rgba(31, 22, 17, 0.92)),
-    url("assets/hero-beef-noodle.webp") right center / min(45vw, 620px) auto no-repeat;
+    linear-gradient(90deg, rgba(127, 23, 22, 0.94), rgba(31, 22, 17, 0.96)),
+    url("assets/dish-popcorn-chicken.webp") center / cover;
   display: grid;
-  gap: clamp(28px, 5vw, 70px);
-  grid-template-columns: minmax(260px, 0.85fr) minmax(0, 1.15fr);
+  gap: clamp(24px, 4vw, 48px);
+  grid-template-columns: minmax(220px, 0.72fr) minmax(300px, 0.84fr) minmax(460px, 1.44fr);
 }
 .chef-intro { align-self: start; position: sticky; top: 110px; }
 .chef-lead {
@@ -144,13 +151,30 @@ h3 { font-size: 1.08rem; margin-bottom: 10px; }
   line-height: 1.75;
   margin-top: 22px;
 }
+.chef-photo {
+  align-self: start;
+  border: 1px solid rgba(246, 201, 76, 0.4);
+  border-radius: 8px;
+  box-shadow: 0 28px 70px rgba(0, 0, 0, 0.34);
+  margin: 0;
+  overflow: hidden;
+  position: sticky;
+  top: 110px;
+}
+.chef-photo img {
+  aspect-ratio: 4 / 5;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 18%;
+  width: 100%;
+}
 .chef-story {
   background: rgba(255, 248, 234, 0.95);
   border: 1px solid rgba(246, 201, 76, 0.36);
   border-radius: 8px;
   color: var(--ink);
   line-height: 1.82;
-  padding: clamp(24px, 4vw, 46px);
+  padding: clamp(26px, 3vw, 42px);
 }
 .chef-story p { margin-bottom: 18px; }
 .chef-story p:last-child { margin-bottom: 0; }
@@ -162,6 +186,11 @@ h3 { font-size: 1.08rem; margin-bottom: 10px; }
   line-height: 1.45;
   margin: 30px 0;
   padding-left: 22px;
+}
+.chef-english {
+  border-top: 1px solid rgba(127, 23, 22, 0.18);
+  margin-top: 28px;
+  padding-top: 24px;
 }
 .section-heading { margin-bottom: clamp(28px, 5vw, 46px); }
 .section-heading.compact { margin-bottom: 24px; }
@@ -182,8 +211,35 @@ h3 { font-size: 1.08rem; margin-bottom: 10px; }
   box-shadow: 0 18px 45px rgba(60, 26, 12, 0.22);
   height: auto;
   margin-bottom: 24px;
+  max-height: 720px;
+  object-fit: cover;
+  object-position: center;
   width: 100%;
 }
+.dish-showcase {
+  display: grid;
+  gap: 22px;
+  grid-template-columns: repeat(3, 1fr);
+  margin-bottom: 26px;
+}
+.featured-dish, .signature-snack {
+  background: #fff8ea;
+  border: 1px solid rgba(127, 23, 22, 0.18);
+  border-radius: 8px;
+  box-shadow: 0 18px 45px rgba(60, 26, 12, 0.18);
+  color: var(--ink);
+  overflow: hidden;
+}
+.featured-dish img {
+  aspect-ratio: 4 / 3;
+  height: auto;
+  object-fit: cover;
+  object-position: center;
+  width: 100%;
+}
+.featured-dish div, .signature-snack div { padding: 20px; }
+.featured-dish h3, .signature-snack h3 { font-size: 1.28rem; margin-bottom: 6px; }
+.featured-dish p, .signature-snack p { margin-bottom: 0; }
 .soup-list { display: flex; flex-wrap: wrap; gap: 10px; }
 .soup-list span, .drink-panel span {
   background: #ffffff;
@@ -215,10 +271,23 @@ h3 { font-size: 1.08rem; margin-bottom: 10px; }
 .drink-panel img { aspect-ratio: 16 / 9; object-fit: cover; object-position: right center; width: 100%; }
 .drink-panel div { display: flex; flex-wrap: wrap; gap: 10px; padding: 18px; }
 .snacks-section { background: #2a130f; }
+.signature-snack {
+  align-items: center;
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.65fr);
+  margin: 0 auto 24px;
+}
+.signature-snack img {
+  aspect-ratio: 16 / 7;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  width: 100%;
+}
 .snack-grid { grid-template-columns: repeat(4, 1fr); }
 .snack-grid article { min-height: 132px; }
 .snack-grid p { color: var(--red); font-size: 1.3rem; font-weight: 900; }
-.menu-images { display: grid; gap: 18px; grid-template-columns: repeat(2, 1fr); }
+.menu-images { display: grid; gap: 26px; grid-template-columns: repeat(2, 1fr); }
 .menu-images a {
   background: #fff;
   border-radius: 8px;
@@ -235,9 +304,25 @@ h3 { font-size: 1.08rem; margin-bottom: 10px; }
 .visit-grid { margin-bottom: 28px; }
 .visit-grid a { color: var(--red); font-weight: 850; }
 .map-link { font-weight: 900; }
-@media (max-width: 900px) {
+@media (max-width: 1100px) {
   .site-nav { grid-template-columns: 1fr auto; }
-  .nav-links { display: none; }
+  .nav-links {
+    display: flex;
+    gap: 8px;
+    grid-column: 1 / -1;
+    justify-content: flex-start;
+    overflow-x: auto;
+    padding: 2px 0 4px;
+    scrollbar-width: none;
+  }
+  .nav-links::-webkit-scrollbar { display: none; }
+  .nav-links a {
+    background: rgba(255, 248, 234, 0.1);
+    border: 1px solid rgba(246, 201, 76, 0.24);
+    border-radius: 999px;
+    flex: 0 0 auto;
+    padding: 9px 14px;
+  }
   .hero, .chef-section, .two-column, .menu-images { grid-template-columns: 1fr; }
   .hero { min-height: auto; }
   .hero-plate { max-height: 560px; }
@@ -247,7 +332,9 @@ h3 { font-size: 1.08rem; margin-bottom: 10px; }
       url("assets/hero-beef-noodle.webp") right top / 640px auto no-repeat;
   }
   .chef-intro { position: static; }
-  .quick-info, .set-grid, .visit-grid { grid-template-columns: repeat(2, 1fr); }
+  .chef-photo { max-height: 680px; position: static; }
+  .quick-info, .dish-showcase, .set-grid, .visit-grid { grid-template-columns: repeat(2, 1fr); }
+  .signature-snack { grid-template-columns: 1fr; }
   .snack-grid { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 560px) {
@@ -255,7 +342,7 @@ h3 { font-size: 1.08rem; margin-bottom: 10px; }
   .site-nav { padding-inline: 12px; }
   .nav-call { min-height: 40px; padding-inline: 16px; }
   .hero, .feature-band, .chef-section, .menu-section, .two-column, .snacks-section, .full-menu, .visit { padding-inline: 16px; }
-  .quick-info, .set-grid, .snack-grid, .visit-grid { grid-template-columns: 1fr; }
+  .quick-info, .dish-showcase, .set-grid, .snack-grid, .visit-grid { grid-template-columns: 1fr; }
   .quick-info div { min-height: 92px; }
   .hero-actions { display: grid; }
   .primary-action, .secondary-action { width: 100%; }

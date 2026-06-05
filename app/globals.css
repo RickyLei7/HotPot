@@ -32,7 +32,7 @@ body {
   margin: 0;
   background:
     linear-gradient(180deg, rgba(18, 13, 11, 0.92), rgba(18, 13, 11, 0.72)),
-    url("/assets/soup-lineup.webp") center top / 1400px auto fixed;
+    url("/assets/dish-spicy.webp") center top / 1400px auto fixed;
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
@@ -114,7 +114,9 @@ section {
   align-items: center;
   display: grid;
   gap: clamp(32px, 5vw, 80px);
-  grid-template-columns: minmax(0, 1fr) minmax(300px, 520px);
+  grid-template-columns: minmax(520px, 1.08fr) minmax(420px, 0.92fr);
+  margin: 0 auto;
+  max-width: 1540px;
   min-height: calc(100vh - 79px);
   padding: clamp(56px, 8vw, 112px) clamp(18px, 5vw, 76px) clamp(38px, 6vw, 72px);
 }
@@ -141,11 +143,11 @@ p {
 
 h1 {
   color: var(--cream);
-  font-size: clamp(3rem, 9vw, 7.6rem);
+  font-size: clamp(3.2rem, 6.6vw, 6.8rem);
   font-weight: 900;
-  line-height: 0.94;
+  line-height: 0.98;
   margin-bottom: 24px;
-  max-width: 980px;
+  max-width: 900px;
 }
 
 h2 {
@@ -183,7 +185,7 @@ h3 {
 }
 
 .hero-plate {
-  aspect-ratio: 4 / 5;
+  aspect-ratio: 5 / 6;
   border: 1px solid rgba(246, 201, 76, 0.38);
   border-radius: 8px;
   box-shadow: 0 26px 70px rgba(0, 0, 0, 0.38);
@@ -193,7 +195,7 @@ h3 {
 .hero-plate img {
   height: 100%;
   object-fit: cover;
-  object-position: 47% 18%;
+  object-position: center;
   width: 100%;
 }
 
@@ -232,17 +234,28 @@ h3 {
   padding: clamp(62px, 8vw, 112px) clamp(18px, 5vw, 76px);
 }
 
+.feature-band > *,
+.menu-section > *,
+.two-column > *,
+.snacks-section > *,
+.full-menu > *,
+.visit > * {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1400px;
+}
+
 .feature-band {
   background: var(--ink);
 }
 
 .chef-section {
   background:
-    linear-gradient(90deg, rgba(127, 23, 22, 0.92), rgba(31, 22, 17, 0.92)),
-    url("/assets/hero-beef-noodle.webp") right center / min(45vw, 620px) auto no-repeat;
+    linear-gradient(90deg, rgba(127, 23, 22, 0.94), rgba(31, 22, 17, 0.96)),
+    url("/assets/dish-popcorn-chicken.webp") center / cover;
   display: grid;
-  gap: clamp(28px, 5vw, 70px);
-  grid-template-columns: minmax(260px, 0.85fr) minmax(0, 1.15fr);
+  gap: clamp(24px, 4vw, 48px);
+  grid-template-columns: minmax(220px, 0.72fr) minmax(300px, 0.84fr) minmax(460px, 1.44fr);
 }
 
 .chef-intro {
@@ -258,13 +271,32 @@ h3 {
   margin-top: 22px;
 }
 
+.chef-photo {
+  align-self: start;
+  border: 1px solid rgba(246, 201, 76, 0.4);
+  border-radius: 8px;
+  box-shadow: 0 28px 70px rgba(0, 0, 0, 0.34);
+  margin: 0;
+  overflow: hidden;
+  position: sticky;
+  top: 110px;
+}
+
+.chef-photo img {
+  aspect-ratio: 4 / 5;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 18%;
+  width: 100%;
+}
+
 .chef-story {
   background: rgba(255, 248, 234, 0.95);
   border: 1px solid rgba(246, 201, 76, 0.36);
   border-radius: 8px;
   color: var(--ink);
   line-height: 1.82;
-  padding: clamp(24px, 4vw, 46px);
+  padding: clamp(26px, 3vw, 42px);
 }
 
 .chef-story p {
@@ -283,6 +315,12 @@ h3 {
   line-height: 1.45;
   margin: 30px 0;
   padding-left: 22px;
+}
+
+.chef-english {
+  border-top: 1px solid rgba(127, 23, 22, 0.18);
+  margin-top: 28px;
+  padding-top: 24px;
 }
 
 .section-heading {
@@ -339,7 +377,51 @@ h3 {
   box-shadow: 0 18px 45px rgba(60, 26, 12, 0.22);
   height: auto;
   margin-bottom: 24px;
+  max-height: 720px;
+  object-fit: cover;
+  object-position: center;
   width: 100%;
+}
+
+.dish-showcase {
+  display: grid;
+  gap: 22px;
+  grid-template-columns: repeat(3, 1fr);
+  margin-bottom: 26px;
+}
+
+.featured-dish,
+.signature-snack {
+  background: #fff8ea;
+  border: 1px solid rgba(127, 23, 22, 0.18);
+  border-radius: 8px;
+  box-shadow: 0 18px 45px rgba(60, 26, 12, 0.18);
+  color: var(--ink);
+  overflow: hidden;
+}
+
+.featured-dish img {
+  aspect-ratio: 4 / 3;
+  height: auto;
+  object-fit: cover;
+  object-position: center;
+  width: 100%;
+}
+
+.featured-dish div,
+.signature-snack div {
+  padding: 20px;
+}
+
+.featured-dish h3,
+.signature-snack h3 {
+  font-size: 1.28rem;
+  margin-bottom: 6px;
+}
+
+.featured-dish p,
+.signature-snack p {
+  margin-bottom: 0;
 }
 
 .soup-list {
@@ -416,6 +498,21 @@ h3 {
   background: #2a130f;
 }
 
+.signature-snack {
+  align-items: center;
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.65fr);
+  margin: 0 auto 24px;
+}
+
+.signature-snack img {
+  aspect-ratio: 16 / 7;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  width: 100%;
+}
+
 .snack-grid {
   grid-template-columns: repeat(4, 1fr);
 }
@@ -432,7 +529,7 @@ h3 {
 
 .menu-images {
   display: grid;
-  gap: 18px;
+  gap: 26px;
   grid-template-columns: repeat(2, 1fr);
 }
 
@@ -467,13 +564,31 @@ h3 {
   font-weight: 900;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1100px) {
   .site-nav {
     grid-template-columns: 1fr auto;
   }
 
   .nav-links {
+    display: flex;
+    gap: 8px;
+    grid-column: 1 / -1;
+    justify-content: flex-start;
+    overflow-x: auto;
+    padding: 2px 0 4px;
+    scrollbar-width: none;
+  }
+
+  .nav-links::-webkit-scrollbar {
     display: none;
+  }
+
+  .nav-links a {
+    background: rgba(255, 248, 234, 0.1);
+    border: 1px solid rgba(246, 201, 76, 0.24);
+    border-radius: 999px;
+    flex: 0 0 auto;
+    padding: 9px 14px;
   }
 
   .hero,
@@ -501,10 +616,20 @@ h3 {
     position: static;
   }
 
+  .chef-photo {
+    max-height: 680px;
+    position: static;
+  }
+
   .quick-info,
+  .dish-showcase,
   .set-grid,
   .visit-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .signature-snack {
+    grid-template-columns: 1fr;
   }
 
   .snack-grid {
@@ -538,6 +663,7 @@ h3 {
   }
 
   .quick-info,
+  .dish-showcase,
   .set-grid,
   .snack-grid,
   .visit-grid {

@@ -48,6 +48,12 @@ const drinks = [
   "Specialty Sodas",
 ];
 
+const featuredSoups = [
+  ["日式壽喜鍋", "Sukiyaki", "/assets/dish-sukiyaki.webp"],
+  ["泰式酸辣冬陰鍋", "Tom Yum Kung", "/assets/dish-tom-yum.webp"],
+  ["經典麻辣鍋", "Spicy Hotpot", "/assets/dish-spicy.webp"],
+];
+
 export default function Home() {
   return (
     <main>
@@ -89,7 +95,7 @@ export default function Home() {
           </div>
         </div>
         <div className="hero-plate" aria-label="Signature Taiwanese beef noodle soup">
-          <img src="/assets/hero-beef-noodle.webp" alt="Signature Taiwanese beef noodle soup" />
+          <img src="/assets/dish-beef-noodle.webp" alt="Signature Taiwanese beef noodle soup" />
         </div>
       </section>
 
@@ -136,30 +142,50 @@ export default function Home() {
       <section className="chef-section" id="chef">
         <div className="chef-intro">
           <p className="eyebrow">Meet Our Chef</p>
-          <h2>Chef James</h2>
+          <h2>主廚 James</h2>
           <p className="chef-lead">
-            对于 Chef James 来说，一锅好汤不仅是一道料理，更是一份温暖人心的记忆。
+            對於 Chef James 來說，一鍋好湯不僅是一道料理，更是一份溫暖人心的記憶。
           </p>
         </div>
+        <figure className="chef-photo">
+          <img src="/assets/chef-james.webp" alt="Chef James in the kitchen" />
+        </figure>
         <div className="chef-story">
           <p>
-            James 出生于台湾，从小在充满烟火气息的传统家庭中长大。儿时厨房里飘散的汤香、夜市里热腾腾的小吃，以及家人围坐共享美食的幸福时光，都成为他日后踏入餐饮行业最深刻的启发。
+            James 出生於臺灣，從小在充滿煙火氣息的傳統家庭中長大。兒時廚房裡飄散的湯香、夜市裡熱騰騰的小吃，以及家人圍坐共享美食的幸福時光，都成為他日後踏入餐飲行業最深刻的啟發。
           </p>
           <p>
-            拥有超过 30 年餐饮经验的 James，曾在台湾及海外多家知名餐厅担任主厨与餐饮顾问，专注研究亚洲风味料理、火锅汤底与传统家常菜。他始终相信，真正打动人心的美食，不是复杂的技巧，而是对食材的尊重与对品质的坚持。
+            擁有超過 30 年餐飲經驗的 James，曾在臺灣及海外多家知名餐廳擔任主廚與餐飲顧問，專注研究亞洲風味料理、火鍋湯底與傳統家常菜。他始終相信，真正打動人心的美食，不是複雜的技巧，而是對食材的尊重與對品質的堅持。
           </p>
           <p>
-            来到加拿大后，James 希望把台湾人记忆中的温暖味道带给更多家庭。因此，他将台湾经典风味与日式精致饮食文化融合，打造出属于 Centre Street Japanese Hotpot 的独特特色。
+            來到加拿大後，James 希望把臺灣人記憶中的溫暖味道帶給更多家庭。因此，他將臺灣經典風味與日式精緻飲食文化融合，打造出屬於 Centre Street Japanese Hotpot 的獨特特色。
           </p>
           <p>
-            从每天熬制的汤底，到精心挑选的肉品、新鲜蔬菜以及台湾特色小吃，每一个细节都凝聚着 James 对料理的热爱与坚持。
+            從每天熬製的湯底，到精心挑選的肉品、新鮮蔬菜以及臺灣特色小吃，每一個細節都凝聚著 James 對料理的熱愛與堅持。
           </p>
           <blockquote>
-            “最好的火锅，不只是让人吃饱，而是让人想起家。”
+            “最好的火鍋，不只是讓人吃飽，而是讓人想起家。”
           </blockquote>
           <p>
-            今天，当您来到 Centre Street Japanese Hotpot，品尝的不仅是一顿火锅，更是一位拥有三十多年经验的台湾主厨，倾注心血与故事所呈现的美味旅程。
+            今天，當您來到 Centre Street Japanese Hotpot，品嘗的不僅是一頓火鍋，更是一位擁有三十多年經驗的臺灣主廚，傾注心血與故事所呈現的美味旅程。
           </p>
+          <div className="chef-english">
+            <p>
+              For Chef James, a good pot of soup is more than a dish. It is a warm memory that brings people home.
+            </p>
+            <p>
+              Born in Taiwan and raised in a traditional family kitchen, James grew up surrounded by simmering broths, lively night-market snacks, and the joy of sharing food around the table. Those memories became the heart of his culinary journey.
+            </p>
+            <p>
+              With more than 30 years of restaurant experience, James has worked as a chef and food consultant in Taiwan and abroad, focusing on Asian cuisine, hotpot soup bases, and comforting homestyle dishes. He believes truly memorable food comes from respect for ingredients and a steady commitment to quality.
+            </p>
+            <p>
+              After coming to Canada, James set out to share the warmth of Taiwanese flavors with more families. At Centre Street Japanese Hotpot, he blends classic Taiwanese taste with the refinement of Japanese dining, from daily prepared soup bases to carefully selected meats, fresh vegetables, and Taiwanese snacks.
+            </p>
+            <p>
+              Every visit is more than a hotpot meal. It is a flavorful journey shaped by a Taiwanese chef with decades of experience, dedication, and story.
+            </p>
+          </div>
         </div>
       </section>
 
@@ -168,7 +194,17 @@ export default function Home() {
           <p className="eyebrow">Choose your broth</p>
           <h2>From mellow chicken soup to spicy satay and bright tomato.</h2>
         </div>
-        <img className="wide-food" src="/assets/soup-lineup.webp" alt="Hotpot soup base lineup" />
+        <div className="dish-showcase">
+          {featuredSoups.map(([title, subtitle, src]) => (
+            <article className="featured-dish" key={title}>
+              <img src={src} alt={`${title} ${subtitle}`} />
+              <div>
+                <h3>{title}</h3>
+                <p>{subtitle}</p>
+              </div>
+            </article>
+          ))}
+        </div>
         <div className="soup-list" aria-label="Soup bases">
           {soups.map((soup) => (
             <span key={soup}>{soup}</span>
@@ -212,7 +248,14 @@ export default function Home() {
           <p className="eyebrow">Appetizers</p>
           <h2>Taiwanese snacks, crispy sides, and easy shareables.</h2>
         </div>
-        <img className="wide-food" src="/assets/snack-lineup.webp" alt="Appetizer lineup" />
+        <article className="signature-snack">
+          <img src="/assets/dish-popcorn-chicken.webp" alt="Signature Taiwanese popcorn chicken" />
+          <div>
+            <p className="eyebrow">Signature</p>
+            <h3>招牌臺式鹽酥雞</h3>
+            <p>Signature Taiwanese Popcorn Chicken · $9.89</p>
+          </div>
+        </article>
         <div className="snack-grid">
           {snacks.map(([item, price]) => (
             <article key={item}>

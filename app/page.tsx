@@ -77,8 +77,8 @@ export default function Home() {
           <p className="eyebrow">Japanese & Taiwanese Mini Hotpot · 一人一锅</p>
           <h1>Centre Street Japanese Hotpot</h1>
           <p className="hero-text">
-            Calgary hotpot for one, with fresh soup bases, sizzling Taiwanese
-            snacks, rice and noodle bowls, and milk tea made for the table.
+            Calgary hotpot for one, with fresh soup bases, Taiwanese snacks,
+            rice and noodle bowls, and milk tea made for sharing.
           </p>
           <div className="hero-actions">
             <a className="primary-action" href="tel:+14034553188">
@@ -233,7 +233,7 @@ export default function Home() {
             <h2>Sweetness and ice your way, with hot tea available too.</h2>
           </div>
           <div className="drink-panel">
-            <img src="/assets/drink-lineup.webp" alt="Milk tea and specialty drinks" />
+            <img src="/assets/milk-tea-menu.png" alt="Pearl milk tea menu" />
             <div>
               {drinks.map((drink) => (
                 <span key={drink}>{drink}</span>

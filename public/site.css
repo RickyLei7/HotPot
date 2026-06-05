@@ -38,7 +38,7 @@ section { scroll-margin-top: 92px; }
   top: 0;
   z-index: 20;
 }
-.brand-mark img { height: 54px; width: auto; }
+.brand-mark img { height: 54px; mix-blend-mode: screen; width: auto; }
 .nav-links { display: flex; gap: clamp(14px, 3vw, 34px); justify-content: center; }
 .nav-links a, .nav-call { color: var(--cream); font-size: 0.94rem; font-weight: 700; }
 .nav-call, .primary-action, .secondary-action, .map-link {
@@ -349,6 +349,8 @@ h3 { font-size: 1.08rem; margin-bottom: 10px; }
   .nav-call {
     font-size: 1rem;
     font-weight: 900;
+    grid-column: 2;
+    grid-row: 1;
     justify-self: end;
     min-height: 44px;
     min-width: 104px;
@@ -358,6 +360,7 @@ h3 { font-size: 1.08rem; margin-bottom: 10px; }
     display: grid;
     gap: 7px;
     grid-column: 1 / -1;
+    grid-row: 2;
     grid-template-columns: repeat(4, minmax(0, 1fr));
     overflow: visible;
     padding: 0;

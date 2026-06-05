@@ -233,7 +233,7 @@ export default function Home() {
             <h2>Sweetness and ice your way, with hot tea available too.</h2>
           </div>
           <div className="drink-panel">
-            <img src="/assets/milk-tea-menu.png" alt="Pearl milk tea menu" />
+            <img src="/assets/milk-tea-photo.png" alt="Pearl milk tea" />
             <div>
               {drinks.map((drink) => (
                 <span key={drink}>{drink}</span>

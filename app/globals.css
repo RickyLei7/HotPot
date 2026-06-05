@@ -482,9 +482,9 @@ h3 {
 }
 
 .drink-panel img {
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 4 / 3;
   object-fit: cover;
-  object-position: right center;
+  object-position: center 58%;
   width: 100%;
 }
 

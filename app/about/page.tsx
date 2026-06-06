@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import AboutContent from "../about-content";
 
 export const metadata: Metadata = {
-  title: "About Centre Street Japanese HotPot | Japanese Hot Pot Restaurant in Calgary",
+  title: "About Centre Street Japanese HotPot | 鼎鑽火鍋 Calgary",
   description:
     "Learn about Centre Street Japanese HotPot, a Japanese hot pot restaurant in Calgary serving premium meats, fresh seafood, fresh vegetables, signature broths, and house-made sauces.",
 };
@@ -15,8 +15,9 @@ export default function AboutPage() {
           <img src="/assets/brand-logo-wide.webp" alt="Centre Street Japanese Hotpot" />
         </a>
         <div className="nav-links">
-          <a href="/#menu">Menu</a>
+          <a href="/menu">Menu</a>
           <a href="/about">About</a>
+          <a href="/faq">FAQ</a>
           <a href="/#specials">Specials</a>
           <a href="/#visit">Visit</a>
         </div>

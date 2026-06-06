@@ -14,9 +14,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Centre Street Japanese Hotpot | Calgary Mini Hotpot",
+  title: "Centre Street Japanese HotPot | Japanese Hot Pot Restaurant in Calgary",
   description:
-    "Centre Street Japanese Hotpot in Calgary serves Japanese and Taiwanese mini hotpot, snacks, rice and noodle dishes, and milk tea.",
+    "Centre Street Japanese HotPot is a Calgary hot pot restaurant serving Japanese-style hot pot, premium meats, fresh seafood, signature broths, Taiwanese snacks, and milk tea.",
   icons: {
     icon: "/favicon.svg",
     shortcut: "/favicon.svg",

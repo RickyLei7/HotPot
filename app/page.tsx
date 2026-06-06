@@ -64,8 +64,9 @@ export default function Home() {
           <img src="/assets/brand-logo-wide.webp" alt="Centre Street Japanese Hotpot" />
         </a>
         <div className="nav-links">
-          <a href="#menu">Menu</a>
+          <a href="/menu">Menu</a>
           <a href="/about">About</a>
+          <a href="/faq">FAQ</a>
           <a href="#specials">Specials</a>
           <a href="#visit">Visit</a>
         </div>

@@ -264,7 +264,7 @@ export default function Home() {
       <section className="visit" id="visit">
         <div className="section-heading compact">
           <p className="eyebrow">Visit us</p>
-          <h2>2243-2213 Centre St. N., Calgary, AB T2E 2T4</h2>
+          <h2>2213 Centre St N #2243, Calgary, AB T2E 2T4</h2>
         </div>
         <div className="visit-grid">
           <article>

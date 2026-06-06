@@ -127,7 +127,7 @@ h3 { font-size: 1.08rem; margin-bottom: 10px; }
   line-height: 1;
   margin-bottom: 8px;
 }
-.feature-band, .ayce-promo, .chef-section, .menu-section, .two-column, .snacks-section, .full-menu, .visit {
+.feature-band, .ayce-promo, .about-section, .menu-section, .two-column, .snacks-section, .full-menu, .visit {
   padding: clamp(62px, 8vw, 112px) clamp(18px, 5vw, 76px);
 }
 .feature-band > *, .ayce-promo > *, .menu-section > *, .two-column > *, .snacks-section > *, .full-menu > *, .visit > * {
@@ -237,39 +237,22 @@ h3 { font-size: 1.08rem; margin-bottom: 10px; }
   top: 14px;
   z-index: 3;
 }
-.chef-section {
+.about-section {
   background:
     linear-gradient(90deg, rgba(127, 23, 22, 0.94), rgba(31, 22, 17, 0.96)),
-    url("assets/dish-popcorn-chicken.webp") center / cover;
+    url("assets/soup-lineup.webp") center / cover;
   display: grid;
   gap: clamp(24px, 4vw, 48px);
-  grid-template-columns: minmax(220px, 0.72fr) minmax(300px, 0.84fr) minmax(460px, 1.44fr);
+  grid-template-columns: minmax(260px, 0.72fr) minmax(520px, 1.28fr);
 }
-.chef-intro { align-self: start; position: sticky; top: 110px; }
-.chef-lead {
+.about-intro { align-self: start; position: sticky; top: 110px; }
+.about-lead {
   color: rgba(255, 248, 234, 0.9);
   font-size: clamp(1.15rem, 2vw, 1.45rem);
   line-height: 1.75;
   margin-top: 22px;
 }
-.chef-photo {
-  align-self: start;
-  border: 1px solid rgba(246, 201, 76, 0.4);
-  border-radius: 8px;
-  box-shadow: 0 28px 70px rgba(0, 0, 0, 0.34);
-  margin: 0;
-  overflow: hidden;
-  position: sticky;
-  top: 110px;
-}
-.chef-photo img {
-  aspect-ratio: 4 / 5;
-  height: 100%;
-  object-fit: cover;
-  object-position: 50% 18%;
-  width: 100%;
-}
-.chef-story {
+.about-story, .about-highlights {
   background: rgba(255, 248, 234, 0.95);
   border: 1px solid rgba(246, 201, 76, 0.36);
   border-radius: 8px;
@@ -277,21 +260,32 @@ h3 { font-size: 1.08rem; margin-bottom: 10px; }
   line-height: 1.82;
   padding: clamp(26px, 3vw, 42px);
 }
-.chef-story p { margin-bottom: 18px; }
-.chef-story p:last-child { margin-bottom: 0; }
-.chef-story blockquote {
-  border-left: 5px solid var(--red);
-  color: var(--red);
-  font-size: clamp(1.35rem, 3vw, 2.1rem);
-  font-weight: 900;
-  line-height: 1.45;
-  margin: 30px 0;
-  padding-left: 22px;
-}
-.chef-english {
+.about-story p { margin-bottom: 18px; }
+.about-story p:last-child { margin-bottom: 0; }
+.about-english {
   border-top: 1px solid rgba(127, 23, 22, 0.18);
   margin-top: 28px;
   padding-top: 24px;
+}
+.about-highlights { grid-column: 1 / -1; }
+.about-highlights .eyebrow { color: var(--red-bright); }
+.about-highlights h2 { color: var(--ink); }
+.about-highlight-grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(4, 1fr);
+}
+.about-highlight-grid article {
+  background: #fff8ea;
+  border: 1px solid rgba(127, 23, 22, 0.16);
+  border-radius: 8px;
+  min-height: 132px;
+  padding: 22px;
+}
+.about-highlight-grid p {
+  color: var(--red);
+  line-height: 1.5;
+  margin-bottom: 0;
 }
 .section-heading { margin-bottom: clamp(28px, 5vw, 46px); }
 .section-heading.compact { margin-bottom: 24px; }
@@ -424,16 +418,16 @@ h3 { font-size: 1.08rem; margin-bottom: 10px; }
     flex: 0 0 auto;
     padding: 9px 14px;
   }
-  .hero, .ayce-promo, .chef-section, .two-column, .menu-images { grid-template-columns: 1fr; }
+  .hero, .ayce-promo, .about-section, .two-column, .menu-images { grid-template-columns: 1fr; }
   .hero { min-height: auto; }
   .hero-plate { max-height: 560px; }
-  .chef-section {
+  .about-section {
     background:
       linear-gradient(180deg, rgba(127, 23, 22, 0.94), rgba(31, 22, 17, 0.94)),
       url("assets/hero-beef-noodle.webp") right top / 640px auto no-repeat;
   }
-  .chef-intro { position: static; }
-  .chef-photo { max-height: 680px; position: static; }
+  .about-intro { position: static; }
+  .about-highlight-grid { grid-template-columns: repeat(2, 1fr); }
   .quick-info, .dish-showcase, .set-grid, .visit-grid { grid-template-columns: repeat(2, 1fr); }
   .signature-snack { grid-template-columns: 1fr; }
   .snack-grid { grid-template-columns: repeat(2, 1fr); }
@@ -476,8 +470,8 @@ h3 { font-size: 1.08rem; margin-bottom: 10px; }
     padding: 7px 4px;
     text-align: center;
   }
-  .hero, .feature-band, .ayce-promo, .chef-section, .menu-section, .two-column, .snacks-section, .full-menu, .visit { padding-inline: 16px; }
-  .quick-info, .dish-showcase, .set-grid, .snack-grid, .visit-grid { grid-template-columns: 1fr; }
+  .hero, .feature-band, .ayce-promo, .about-section, .menu-section, .two-column, .snacks-section, .full-menu, .visit { padding-inline: 16px; }
+  .quick-info, .dish-showcase, .set-grid, .about-highlight-grid, .snack-grid, .visit-grid { grid-template-columns: 1fr; }
   .quick-info div { min-height: 92px; }
   .hero-actions { display: grid; }
   .primary-action, .secondary-action { width: 100%; }

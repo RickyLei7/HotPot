@@ -1,3 +1,5 @@
+import AboutContent from "./about-content";
+
 const soups = [
   "Chicken & Spicy Yuan Yang Pot",
   "Spicy",
@@ -63,7 +65,7 @@ export default function Home() {
         </a>
         <div className="nav-links">
           <a href="#menu">Menu</a>
-          <a href="#chef">Chef</a>
+          <a href="/about">About</a>
           <a href="#specials">Specials</a>
           <a href="#visit">Visit</a>
         </div>
@@ -165,55 +167,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="chef-section" id="chef">
-        <div className="chef-intro">
-          <p className="eyebrow">Meet Our Chef</p>
-          <h2>主廚 James</h2>
-          <p className="chef-lead">
-            對於 Chef James 來說，一鍋好湯不僅是一道料理，更是一份溫暖人心的記憶。
-          </p>
-        </div>
-        <figure className="chef-photo">
-          <img src="/assets/chef-james.webp" alt="Chef James in the kitchen" />
-        </figure>
-        <div className="chef-story">
-          <p>
-            James 出生於臺灣，從小在充滿煙火氣息的傳統家庭中長大。兒時廚房裡飄散的湯香、夜市裡熱騰騰的小吃，以及家人圍坐共享美食的幸福時光，都成為他日後踏入餐飲行業最深刻的啟發。
-          </p>
-          <p>
-            擁有超過 30 年餐飲經驗的 James，曾在臺灣及海外多家知名餐廳擔任主廚與餐飲顧問，專注研究亞洲風味料理、火鍋湯底與傳統家常菜。他始終相信，真正打動人心的美食，不是複雜的技巧，而是對食材的尊重與對品質的堅持。
-          </p>
-          <p>
-            來到加拿大後，James 希望把臺灣人記憶中的溫暖味道帶給更多家庭。因此，他將臺灣經典風味與日式精緻飲食文化融合，打造出屬於 Centre Street Japanese Hotpot 的獨特特色。
-          </p>
-          <p>
-            從每天熬製的湯底，到精心挑選的肉品、新鮮蔬菜以及臺灣特色小吃，每一個細節都凝聚著 James 對料理的熱愛與堅持。
-          </p>
-          <blockquote>
-            “最好的火鍋，不只是讓人吃飽，而是讓人想起家。”
-          </blockquote>
-          <p>
-            今天，當您來到 Centre Street Japanese Hotpot，品嘗的不僅是一頓火鍋，更是一位擁有三十多年經驗的臺灣主廚，傾注心血與故事所呈現的美味旅程。
-          </p>
-          <div className="chef-english">
-            <p>
-              For Chef James, a good pot of soup is more than a dish. It is a warm memory that brings people home.
-            </p>
-            <p>
-              Born in Taiwan and raised in a traditional family kitchen, James grew up surrounded by simmering broths, lively night-market snacks, and the joy of sharing food around the table. Those memories became the heart of his culinary journey.
-            </p>
-            <p>
-              With more than 30 years of restaurant experience, James has worked as a chef and food consultant in Taiwan and abroad, focusing on Asian cuisine, hotpot soup bases, and comforting homestyle dishes. He believes truly memorable food comes from respect for ingredients and a steady commitment to quality.
-            </p>
-            <p>
-              After coming to Canada, James set out to share the warmth of Taiwanese flavors with more families. At Centre Street Japanese Hotpot, he blends classic Taiwanese taste with the refinement of Japanese dining, from daily prepared soup bases to carefully selected meats, fresh vegetables, and Taiwanese snacks.
-            </p>
-            <p>
-              Every visit is more than a hotpot meal. It is a flavorful journey shaped by a Taiwanese chef with decades of experience, dedication, and story.
-            </p>
-          </div>
-        </div>
-      </section>
+      <AboutContent />
 
       <section className="menu-section" id="menu">
         <div className="section-heading">

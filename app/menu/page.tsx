@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 };
 
 const soups = [
-  "Chicken & Spicy Yuan Yang Pot",
+  "Chicken & Spicy Pot",
   "Spicy",
   "Sukiyaki",
   "Tom Yum Kung",
@@ -45,7 +45,7 @@ const riceNoodles = [
 ];
 
 const snacks = [
-  ["Signature Taiwanese Popcorn Chicken", "$9.89"],
+  ["Signature Taiwanese Fried Chicken", "$9.89"],
   ["Takoyaki (6pcs)", "$8.89"],
   ["Crispy Chicken Cutlet", "$9.89"],
   ["Golden Fried Buns", "$6.89"],
@@ -53,6 +53,29 @@ const snacks = [
   ["Deep Fried King Mushroom", "$7.89"],
   ["Crispy Wontons (8pcs)", "$8.89"],
   ["Deep Fried Dumplings (8pcs)", "$8.89"],
+  ["Chicken Spring Rolls (6pc)", "$6.89"],
+  ["Veggie Spring Rolls (6pc)", "$6.89"],
+  ["French Fries", "$6.89"],
+  ["Sweet Potato Fries", "$6.89"],
+  ["Golden Onion Rings", "$8.89"],
+  ["Fish Balls (6pc)", "$7.89"],
+  ["Chinese Donut", "$6.89"],
+  ["Luncheon Meat (Spam)", "$6.89"],
+  ["Korean Fish Cake", "$6.89"],
+  ["Edamame", "$5.89"],
+];
+
+const drinks = [
+  ["Classic Teas", "$4.95"],
+  ["Flavoured Black / Green Tea", "$5.95"],
+  ["Milk Teas", "$5.95"],
+  ["Sea Salt Cream", "$5.95"],
+  ["Specialty Teas", "$5.95"],
+  ["Yogurt Drinks", "$5.95"],
+  ["Smoothies", "$7.95"],
+  ["Specialty Sodas", "$6.95"],
+  ["Soft Drinks", "$2.00"],
+  ["Toppings", "+$0.75"],
 ];
 
 export default function MenuPage() {
@@ -115,6 +138,18 @@ export default function MenuPage() {
               <div key={item}><span>{item}</span><strong>{price}</strong></div>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="menu-section">
+        <div className="section-heading compact">
+          <p className="eyebrow">Milk tea & drinks</p>
+          <h2>Tea, milk tea, specialty drinks, smoothies, sodas, and toppings.</h2>
+        </div>
+        <div className="price-list">
+          {drinks.map(([item, price]) => (
+            <div key={item}><span>{item}</span><strong>{price}</strong></div>
+          ))}
         </div>
       </section>
     </main>

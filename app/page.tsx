@@ -1,7 +1,7 @@
 import AboutContent from "./about-content";
 
 const soups = [
-  "Chicken & Spicy Yuan Yang Pot",
+  "Chicken & Spicy Pot",
   "Spicy",
   "Sukiyaki",
   "Tom Yum Kung",
@@ -29,7 +29,7 @@ const riceNoodles = [
 ];
 
 const snacks = [
-  ["Signature Taiwanese Popcorn Chicken", "$9.89"],
+  ["Signature Taiwanese Fried Chicken", "$9.89"],
   ["Takoyaki (6pcs)", "$8.89"],
   ["Crispy Chicken Cutlet", "$9.89"],
   ["Golden Fried Buns", "$6.89"],
@@ -37,17 +37,28 @@ const snacks = [
   ["Deep Fried King Mushroom", "$7.89"],
   ["Crispy Wontons (8pcs)", "$8.89"],
   ["Deep Fried Dumplings (8pcs)", "$8.89"],
+  ["Chicken Spring Rolls (6pc)", "$6.89"],
+  ["Veggie Spring Rolls (6pc)", "$6.89"],
+  ["French Fries", "$6.89"],
+  ["Sweet Potato Fries", "$6.89"],
+  ["Golden Onion Rings", "$8.89"],
+  ["Fish Balls (6pc)", "$7.89"],
+  ["Chinese Donut", "$6.89"],
+  ["Luncheon Meat (Spam)", "$6.89"],
+  ["Korean Fish Cake", "$6.89"],
+  ["Edamame", "$5.89"],
 ];
 
 const drinks = [
-  "Classic Teas",
-  "Flavoured Black / Green Tea",
-  "Milk Teas",
-  "Sea Salt Cream",
-  "Specialty Teas",
-  "Yogurt Drinks",
-  "Smoothies",
-  "Specialty Sodas",
+  "Classic Teas $4.95",
+  "Flavoured Black / Green Tea $5.95",
+  "Milk Teas $5.95",
+  "Sea Salt Cream $5.95",
+  "Specialty Teas $5.95",
+  "Yogurt Drinks $5.95",
+  "Smoothies $7.95",
+  "Specialty Sodas $6.95",
+  "Soft Drinks $2.00",
 ];
 
 const featuredSoups = [
@@ -230,11 +241,11 @@ export default function Home() {
           <h2>Taiwanese snacks, crispy sides, and easy shareables.</h2>
         </div>
         <article className="signature-snack">
-          <img src="/assets/dish-popcorn-chicken.webp" alt="Signature Taiwanese popcorn chicken" />
+            <img src="/assets/dish-popcorn-chicken.webp" alt="Signature Taiwanese fried chicken" />
           <div>
             <p className="eyebrow">Signature</p>
             <h3>招牌臺式鹽酥雞</h3>
-            <p>Signature Taiwanese Popcorn Chicken · $9.89</p>
+            <p>Signature Taiwanese Fried Chicken · $9.89</p>
           </div>
         </article>
         <div className="snack-grid">
@@ -249,7 +260,7 @@ export default function Home() {
 
       <section className="full-menu">
         <div className="section-heading">
-          <p className="eyebrow">Original menu</p>
+          <p className="eyebrow">Full menu images</p>
           <h2>Browse the full in-store menu.</h2>
         </div>
         <div className="menu-images">

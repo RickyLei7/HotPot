@@ -4,6 +4,16 @@ export const metadata: Metadata = {
   title: "FAQ | Centre Street Japanese HotPot Calgary",
   description:
     "Frequently asked questions about Centre Street Japanese HotPot in Calgary, including reservations, Japanese hot pot, seafood options, group dining, location, and soup bases.",
+  alternates: {
+    canonical: "/faq",
+  },
+  openGraph: {
+    title: "FAQ | Centre Street Japanese HotPot Calgary",
+    description:
+      "Frequently asked questions about reservations, Japanese hot pot, seafood options, group dining, location, and soup bases.",
+    url: "https://centrestjhotpot.ca/faq/",
+    images: ["/assets/snack-lineup.webp"],
+  },
 };
 
 const faqs = [

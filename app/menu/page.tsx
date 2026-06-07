@@ -4,6 +4,16 @@ export const metadata: Metadata = {
   title: "Menu | Centre Street Japanese HotPot Calgary",
   description:
     "Explore the Centre Street Japanese HotPot menu in Calgary, including Japanese-style hot pot soup bases, premium meats, rice and noodle bowls, Taiwanese snacks, and milk tea.",
+  alternates: {
+    canonical: "/menu",
+  },
+  openGraph: {
+    title: "Menu | Centre Street Japanese HotPot Calgary",
+    description:
+      "Explore Japanese-style hot pot soup bases, premium meats, rice and noodle bowls, Taiwanese snacks, and milk tea in Calgary.",
+    url: "https://centrestjhotpot.ca/menu/",
+    images: ["/assets/dish-sukiyaki.webp"],
+  },
 };
 
 const soups = [

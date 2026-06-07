@@ -14,9 +14,25 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://centrestjhotpot.ca"),
   title: "Centre Street Japanese HotPot | Japanese Hot Pot Restaurant in Calgary",
   description:
     "Centre Street Japanese HotPot is a Calgary hot pot restaurant serving Japanese-style hot pot, premium meats, fresh seafood, signature broths, Taiwanese snacks, and milk tea.",
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    title: "Centre Street Japanese HotPot | Japanese Hot Pot Restaurant in Calgary",
+    description:
+      "Japanese-style hot pot, premium meats, fresh seafood, signature broths, Taiwanese snacks, and milk tea in Calgary.",
+    url: "https://centrestjhotpot.ca/",
+    siteName: "Centre Street Japanese HotPot",
+    images: ["/assets/hero-beef-noodle.webp"],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+  },
   icons: {
     icon: "/favicon.svg",
     shortcut: "/favicon.svg",

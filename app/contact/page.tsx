@@ -4,6 +4,16 @@ export const metadata: Metadata = {
   title: "Contact Centre Street Japanese HotPot | Calgary Location",
   description:
     "Contact Centre Street Japanese HotPot in Calgary. Find our address, phone number, hours, Google Maps directions, and dining information.",
+  alternates: {
+    canonical: "/contact",
+  },
+  openGraph: {
+    title: "Contact Centre Street Japanese HotPot | Calgary Location",
+    description:
+      "Find the Centre Street Japanese HotPot Calgary address, phone number, hours, Google Maps directions, and dining information.",
+    url: "https://centrestjhotpot.ca/contact/",
+    images: ["/assets/hero-beef-noodle.webp"],
+  },
 };
 
 export default function ContactPage() {

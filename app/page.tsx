@@ -67,7 +67,7 @@ export default function Home() {
           <a href="/menu">Menu</a>
           <a href="/about">About</a>
           <a href="/faq">FAQ</a>
-          <a href="#specials">Specials</a>
+          <a href="/contact">Contact</a>
           <a href="#visit">Visit</a>
         </div>
         <a className="nav-call" href="tel:+14034553188">

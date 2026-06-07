@@ -45,6 +45,7 @@ export default function RootLayout({
             gtag('config', 'G-JN2E0S7E36');
           `}
         </Script>
+        <Script src="/analytics.js" strategy="afterInteractive" />
         {children}
       </body>
     </html>

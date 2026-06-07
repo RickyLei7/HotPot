@@ -417,6 +417,11 @@ h3 { font-size: 1.08rem; margin-bottom: 10px; }
     linear-gradient(90deg, rgba(18, 13, 11, 0.94), rgba(31, 22, 17, 0.82)),
     url("assets/snack-lineup.webp") center / cover;
 }
+.contact-page-hero {
+  background:
+    linear-gradient(90deg, rgba(18, 13, 11, 0.94), rgba(127, 23, 22, 0.78)),
+    url("assets/hero-beef-noodle.webp") center / cover;
+}
 .content-section {
   background: var(--paper);
   color: var(--ink);

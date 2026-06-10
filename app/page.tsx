@@ -75,6 +75,7 @@ export default function Home() {
           <img src="/assets/brand-logo-wide.webp" alt="Centre Street Japanese Hotpot" />
         </a>
         <div className="nav-links">
+          <a href="/">Home</a>
           <a href="/menu">Menu</a>
           <a href="/about">About</a>
           <a href="/faq">FAQ</a>
@@ -176,6 +177,21 @@ export default function Home() {
             <h3>Pick your side</h3>
             <p>Rice, instant noodles, glass noodles, ramen, udon, or braised pork rice +$1.</p>
           </article>
+        </div>
+      </section>
+
+      <section className="category-section" aria-label="Browse menu categories">
+        <div className="section-heading compact">
+          <p className="eyebrow">Browse by category</p>
+          <h2>Find what you want faster.</h2>
+        </div>
+        <div className="category-strip">
+          <a href="/menu#hotpot-set"><span className="category-icon">SET</span><strong>Hot Pot Set</strong></a>
+          <a href="/menu#soup-bases"><span className="category-icon">SOUP</span><strong>Soup Bases</strong></a>
+          <a href="/menu#rice-noodles"><span className="category-icon">RICE</span><strong>Rice & Noodles</strong></a>
+          <a href="/menu#drinks"><span className="category-icon">TEA</span><strong>Drinks</strong></a>
+          <a href="/menu#appetizers"><span className="category-icon">SNK</span><strong>Appetizers</strong></a>
+          <a href="/menu#full-menu"><span className="category-icon">IMG</span><strong>Full Menu</strong></a>
         </div>
       </section>
 

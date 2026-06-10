@@ -24,6 +24,7 @@ export default function ContactPage() {
           <img src="/assets/brand-logo-wide.webp" alt="Centre Street Japanese Hotpot" />
         </a>
         <div className="nav-links">
+          <a href="/">Home</a>
           <a href="/menu">Menu</a>
           <a href="/about">About</a>
           <a href="/faq">FAQ</a>

@@ -144,7 +144,7 @@ export default function Home() {
         </div>
         <a className="ayce-card" href="#ayce-poster" aria-label="View All-You-Can-Eat Hot Pot poster">
           <span>Coming Soon</span>
-          <img src="/assets/ayce-coming-soon.png" alt="All-You-Can-Eat Hot Pot coming soon poster" />
+          <img src="/assets/ayce-coming-soon-height.png" alt="All-You-Can-Eat Hot Pot coming soon poster with kids pricing by height" />
         </a>
       </section>
 
@@ -155,7 +155,7 @@ export default function Home() {
             Close
           </a>
           <span className="modal-label">Coming Soon</span>
-          <img src="/assets/ayce-coming-soon.png" alt="All-You-Can-Eat Hot Pot coming soon poster" />
+          <img src="/assets/ayce-coming-soon-height.png" alt="All-You-Can-Eat Hot Pot coming soon poster with kids pricing by height" />
         </div>
       </div>
 

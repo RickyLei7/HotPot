@@ -42,7 +42,7 @@ section { scroll-margin-top: 92px; }
 .brand-mark img { height: 54px; mix-blend-mode: screen; width: auto; }
 .nav-links { display: flex; gap: clamp(12px, 2.6vw, 30px); justify-content: center; }
 .nav-links a, .nav-call { color: var(--cream); font-size: 0.94rem; font-weight: 700; }
-.nav-call, .primary-action, .secondary-action, .map-link {
+.nav-call, .primary-action, .secondary-action {
   align-items: center;
   border-radius: 999px;
   display: inline-flex;
@@ -51,7 +51,7 @@ section { scroll-margin-top: 92px; }
   padding: 0 20px;
   white-space: nowrap;
 }
-.nav-call, .primary-action, .map-link { background: var(--gold); color: var(--ink); }
+.nav-call, .primary-action { background: var(--gold); color: var(--ink); }
 .secondary-action { border: 1px solid rgba(255, 246, 223, 0.55); color: var(--cream); }
 .hero {
   align-items: center;
@@ -444,9 +444,60 @@ h3 { font-size: 1.08rem; margin-bottom: 10px; }
     linear-gradient(90deg, rgba(18, 13, 11, 0.93), rgba(18, 13, 11, 0.82)),
     url("assets/snack-lineup.webp") center / cover;
 }
-.visit-grid { margin-bottom: 28px; }
+.visit-grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  margin-bottom: 28px;
+}
 .visit-grid a { color: var(--red); font-weight: 850; }
-.map-link { font-weight: 900; }
+.social-follow {
+  align-items: center;
+  background: rgba(255, 248, 234, 0.94);
+  border: 1px solid rgba(246, 201, 76, 0.36);
+  border-left: 5px solid var(--gold);
+  border-radius: 8px;
+  color: var(--ink);
+  display: grid;
+  gap: 18px;
+  grid-template-columns: minmax(260px, 0.82fr) minmax(320px, 1.18fr);
+  padding: clamp(20px, 3vw, 28px);
+}
+.social-follow .eyebrow { color: var(--red-bright); }
+.social-follow h3 {
+  font-size: clamp(1.25rem, 2.4vw, 1.8rem);
+  line-height: 1.12;
+  margin-bottom: 0;
+}
+.social-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.social-links a {
+  align-items: center;
+  background: var(--ink);
+  border: 1px solid rgba(246, 201, 76, 0.46);
+  border-radius: 999px;
+  color: var(--cream);
+  display: inline-flex;
+  font-weight: 900;
+  gap: 9px;
+  min-height: 46px;
+  padding: 8px 15px 8px 8px;
+}
+.social-links span {
+  align-items: center;
+  background: var(--gold);
+  border-radius: 999px;
+  color: var(--ink);
+  display: inline-flex;
+  font-size: 0.72rem;
+  font-weight: 950;
+  height: 30px;
+  justify-content: center;
+  min-width: 30px;
+}
 .page-hero {
   align-items: center;
   background:
@@ -517,7 +568,7 @@ h3 { font-size: 1.08rem; margin-bottom: 10px; }
     flex: 0 0 auto;
     padding: 9px 14px;
   }
-  .hero, .ayce-promo, .about-section, .two-column, .menu-images { grid-template-columns: 1fr; }
+  .hero, .ayce-promo, .about-section, .social-follow, .two-column, .menu-images { grid-template-columns: 1fr; }
   .hero { min-height: auto; }
   .hero-plate { max-height: 560px; }
   .about-section {
@@ -579,7 +630,7 @@ h3 { font-size: 1.08rem; margin-bottom: 10px; }
   .soup-list { grid-template-columns: 1fr; }
   .quick-info div { min-height: 92px; }
   .hero-actions { display: grid; }
-  .primary-action, .secondary-action { width: 100%; }
+  .primary-action, .secondary-action, .social-links a { width: 100%; }
   .ayce-card img { aspect-ratio: 16 / 10; }
   .poster-modal { padding: 10px; }
   .poster-frame { max-height: 94vh; max-width: 96vw; }

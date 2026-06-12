@@ -1,4 +1,5 @@
 import AboutContent from "./about-content";
+import { SocialLinks } from "./social-links";
 
 const soups = [
   "Chicken & Spicy Pot",
@@ -314,14 +315,13 @@ export default function Home() {
             <p>Hotpot · Milk Tea · Light Meals · Snacks · Family Dining</p>
           </article>
         </div>
-        <a
-          className="map-link"
-          href="https://www.google.com/maps/place/Centre+Street+Japanese+Hotpot/@51.072234,-114.0656247,17z/data=!3m1!4b1!4m6!3m5!1s0x537165667f6ee1f3:0x1a418403f487f9b3!8m2!3d51.0722307!4d-114.0630498!16s%2Fg%2F11bwndz8pj"
-          target="_blank"
-          rel="noreferrer"
-        >
-          Open in Google Maps
-        </a>
+        <div className="social-follow">
+          <div>
+            <p className="eyebrow">Follow & find us</p>
+            <h3>See new dishes, updates, reviews, and directions.</h3>
+          </div>
+          <SocialLinks />
+        </div>
       </section>
     </main>
   );

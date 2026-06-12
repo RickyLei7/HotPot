@@ -97,8 +97,7 @@ section {
 
 .nav-call,
 .primary-action,
-.secondary-action,
-.map-link {
+.secondary-action {
   align-items: center;
   border-radius: 999px;
   display: inline-flex;
@@ -109,8 +108,7 @@ section {
 }
 
 .nav-call,
-.primary-action,
-.map-link {
+.primary-action {
   background: var(--gold);
   color: var(--ink);
 }
@@ -520,11 +518,16 @@ h3 {
 }
 
 .set-grid,
-.snack-grid,
-.visit-grid {
+.snack-grid {
   display: grid;
   gap: 16px;
   grid-template-columns: repeat(3, 1fr);
+}
+
+.visit-grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
 }
 
 .set-grid article,
@@ -755,8 +758,59 @@ h3 {
   font-weight: 850;
 }
 
-.map-link {
+.social-follow {
+  align-items: center;
+  background: rgba(255, 248, 234, 0.94);
+  border: 1px solid rgba(246, 201, 76, 0.36);
+  border-left: 5px solid var(--gold);
+  border-radius: 8px;
+  color: var(--ink);
+  display: grid;
+  gap: 18px;
+  grid-template-columns: minmax(260px, 0.82fr) minmax(320px, 1.18fr);
+  padding: clamp(20px, 3vw, 28px);
+}
+
+.social-follow .eyebrow {
+  color: var(--red-bright);
+}
+
+.social-follow h3 {
+  font-size: clamp(1.25rem, 2.4vw, 1.8rem);
+  line-height: 1.12;
+  margin-bottom: 0;
+}
+
+.social-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.social-links a {
+  align-items: center;
+  background: var(--ink);
+  border: 1px solid rgba(246, 201, 76, 0.46);
+  border-radius: 999px;
+  color: var(--cream);
+  display: inline-flex;
   font-weight: 900;
+  gap: 9px;
+  min-height: 46px;
+  padding: 8px 15px 8px 8px;
+}
+
+.social-links span {
+  align-items: center;
+  background: var(--gold);
+  border-radius: 999px;
+  color: var(--ink);
+  display: inline-flex;
+  font-size: 0.72rem;
+  font-weight: 950;
+  height: 30px;
+  justify-content: center;
+  min-width: 30px;
 }
 
 .page-hero {
@@ -850,6 +904,7 @@ h3 {
   .hero,
   .ayce-promo,
   .about-section,
+  .social-follow,
   .two-column,
   .menu-images {
     grid-template-columns: 1fr;
@@ -996,7 +1051,8 @@ h3 {
   }
 
   .primary-action,
-  .secondary-action {
+  .secondary-action,
+  .social-links a {
     width: 100%;
   }
 

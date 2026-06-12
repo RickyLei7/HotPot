@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "FAQ | Centre Street Japanese HotPot Calgary",
@@ -34,8 +35,20 @@ const faqs = [
     "We are located at 2213 Centre St N #2243, Calgary, AB T2E 2T4.",
   ],
   [
+    "What type of restaurant is Centre Street Japanese HotPot?",
+    "Centre Street Japanese HotPot is a Japanese hot pot restaurant in Calgary serving individual hot pot, soup bases, meats, seafood, vegetables, Taiwanese snacks, rice and noodle bowls, and milk tea.",
+  ],
+  [
+    "Can I view the menu online?",
+    "Yes. View our online menu for hot pot sets, soup bases, rice and noodles, appetizers, drinks, and full menu images.",
+  ],
+  [
     "Do you offer group dining?",
     "Yes. Centre Street Japanese HotPot is suitable for family dinners, friends, celebrations, and group dining. Please call ahead for larger groups.",
+  ],
+  [
+    "Is All-You-Can-Eat Hot Pot available?",
+    "All-You-Can-Eat Hot Pot is listed as coming soon. Please check the website or call (403) 455-3188 for the latest launch details.",
   ],
   [
     "What soup bases do you offer?",
@@ -47,16 +60,16 @@ export default function FaqPage() {
   return (
     <main>
       <nav className="site-nav" aria-label="Main navigation">
-        <a className="brand-mark" href="/" aria-label="Centre Street Japanese Hotpot home">
+        <Link className="brand-mark" href="/" aria-label="Centre Street Japanese Hotpot home">
           <img src="/assets/brand-logo-wide.webp" alt="Centre Street Japanese Hotpot" />
-        </a>
+        </Link>
         <div className="nav-links">
-          <a href="/">Home</a>
-          <a href="/menu">Menu</a>
-          <a href="/about">About</a>
-          <a href="/faq">FAQ</a>
-          <a href="/contact">Contact</a>
-          <a href="/#visit">Visit</a>
+          <Link href="/">Home</Link>
+          <Link href="/menu">Menu</Link>
+          <Link href="/about">About</Link>
+          <Link href="/faq">FAQ</Link>
+          <Link href="/contact">Contact</Link>
+          <Link href="/#visit">Visit</Link>
         </div>
         <a className="nav-call" href="tel:+14034553188">Call</a>
       </nav>

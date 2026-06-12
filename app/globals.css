@@ -784,23 +784,23 @@ h3 {
 .social-links {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 12px;
 }
 
 .social-links a {
   align-items: center;
-  background: var(--ink);
+  background: rgba(23, 16, 12, 0.96);
   border: 1px solid rgba(246, 201, 76, 0.46);
   border-radius: 999px;
   color: var(--cream);
   display: inline-flex;
   font-weight: 900;
-  gap: 9px;
+  gap: 10px;
   min-height: 46px;
-  padding: 8px 15px 8px 8px;
+  padding: 8px 16px 8px 8px;
 }
 
-.social-links span {
+.social-icon {
   align-items: center;
   background: var(--gold);
   border-radius: 999px;
@@ -811,6 +811,24 @@ h3 {
   height: 30px;
   justify-content: center;
   min-width: 30px;
+}
+
+.social-facebook .social-icon {
+  background: #1877f2;
+  color: #fff;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.2rem;
+}
+
+.social-instagram .social-icon {
+  background: linear-gradient(135deg, #f58529, #dd2a7b 52%, #515bd4);
+  color: #fff;
+  font-size: 1.25rem;
+}
+
+.social-red .social-icon {
+  background: #ff2442;
+  color: #fff;
 }
 
 .page-hero {

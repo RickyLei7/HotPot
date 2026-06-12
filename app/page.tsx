@@ -1,4 +1,5 @@
 import AboutContent from "./about-content";
+import Link from "next/link";
 import { SocialLinks } from "./social-links";
 
 const soups = [
@@ -76,11 +77,11 @@ export default function Home() {
           <img src="/assets/brand-logo-wide.webp" alt="Centre Street Japanese Hotpot" />
         </a>
         <div className="nav-links">
-          <a href="/">Home</a>
-          <a href="/menu">Menu</a>
-          <a href="/about">About</a>
-          <a href="/faq">FAQ</a>
-          <a href="/contact">Contact</a>
+          <Link href="/">Home</Link>
+          <Link href="/menu">Menu</Link>
+          <Link href="/about">About</Link>
+          <Link href="/faq">FAQ</Link>
+          <Link href="/contact">Contact</Link>
           <a href="#visit">Visit</a>
         </div>
         <a className="nav-call" href="tel:+14034553188">
@@ -187,12 +188,12 @@ export default function Home() {
           <h2>Find what you want faster.</h2>
         </div>
         <div className="category-strip">
-          <a href="/menu#hotpot-set"><span className="category-icon">SET</span><strong>Hot Pot Set</strong></a>
-          <a href="/menu#soup-bases"><span className="category-icon">SOUP</span><strong>Soup Bases</strong></a>
-          <a href="/menu#rice-noodles"><span className="category-icon">RICE</span><strong>Rice & Noodles</strong></a>
-          <a href="/menu#drinks"><span className="category-icon">TEA</span><strong>Drinks</strong></a>
-          <a href="/menu#appetizers"><span className="category-icon">SNK</span><strong>Appetizers</strong></a>
-          <a href="/menu#full-menu"><span className="category-icon">IMG</span><strong>Full Menu</strong></a>
+          <Link href="/menu#hotpot-set"><span className="category-icon">SET</span><strong>Hot Pot Set</strong></Link>
+          <Link href="/menu#soup-bases"><span className="category-icon">SOUP</span><strong>Soup Bases</strong></Link>
+          <Link href="/menu#rice-noodles"><span className="category-icon">RICE</span><strong>Rice & Noodles</strong></Link>
+          <Link href="/menu#drinks"><span className="category-icon">TEA</span><strong>Drinks</strong></Link>
+          <Link href="/menu#appetizers"><span className="category-icon">SNK</span><strong>Appetizers</strong></Link>
+          <Link href="/menu#full-menu"><span className="category-icon">IMG</span><strong>Full Menu</strong></Link>
         </div>
       </section>
 
@@ -318,7 +319,7 @@ export default function Home() {
         <div className="social-follow">
           <div>
             <p className="eyebrow">Follow & find us</p>
-            <h3>See new dishes, updates, reviews, and directions.</h3>
+            <h3>See new dishes, updates, and behind-the-scenes moments.</h3>
           </div>
           <SocialLinks />
         </div>

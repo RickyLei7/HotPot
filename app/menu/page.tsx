@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Menu | Centre Street Japanese HotPot Calgary",
@@ -82,16 +83,16 @@ export default function MenuPage() {
   return (
     <main>
       <nav className="site-nav" aria-label="Main navigation">
-        <a className="brand-mark" href="/" aria-label="Centre Street Japanese Hotpot home">
+        <Link className="brand-mark" href="/" aria-label="Centre Street Japanese Hotpot home">
           <img src="/assets/brand-logo-wide.webp" alt="Centre Street Japanese Hotpot" />
-        </a>
+        </Link>
         <div className="nav-links">
-          <a href="/">Home</a>
-          <a href="/menu">Menu</a>
-          <a href="/about">About</a>
-          <a href="/faq">FAQ</a>
-          <a href="/contact">Contact</a>
-          <a href="/#visit">Visit</a>
+          <Link href="/">Home</Link>
+          <Link href="/menu">Menu</Link>
+          <Link href="/about">About</Link>
+          <Link href="/faq">FAQ</Link>
+          <Link href="/contact">Contact</Link>
+          <Link href="/#visit">Visit</Link>
         </div>
         <a className="nav-call" href="tel:+14034553188">Call</a>
       </nav>

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { SocialLinks } from "../social-links";
 
 export const metadata: Metadata = {
@@ -21,16 +22,16 @@ export default function ContactPage() {
   return (
     <main>
       <nav className="site-nav" aria-label="Main navigation">
-        <a className="brand-mark" href="/" aria-label="Centre Street Japanese Hotpot home">
+        <Link className="brand-mark" href="/" aria-label="Centre Street Japanese Hotpot home">
           <img src="/assets/brand-logo-wide.webp" alt="Centre Street Japanese Hotpot" />
-        </a>
+        </Link>
         <div className="nav-links">
-          <a href="/">Home</a>
-          <a href="/menu">Menu</a>
-          <a href="/about">About</a>
-          <a href="/faq">FAQ</a>
-          <a href="/contact">Contact</a>
-          <a href="/#visit">Visit</a>
+          <Link href="/">Home</Link>
+          <Link href="/menu">Menu</Link>
+          <Link href="/about">About</Link>
+          <Link href="/faq">FAQ</Link>
+          <Link href="/contact">Contact</Link>
+          <Link href="/#visit">Visit</Link>
         </div>
         <a className="nav-call" href="tel:+14034553188">Call</a>
       </nav>
@@ -64,6 +65,10 @@ export default function ContactPage() {
           <article>
             <h3>Email</h3>
             <p><a href="mailto:CentreStJHotpot@gmail.com">CentreStJHotpot@gmail.com</a></p>
+          </article>
+          <article>
+            <h3>Directions</h3>
+            <p><a href="https://www.google.com/maps/place/Centre+Street+Japanese+Hotpot/@51.072234,-114.0656247,17z/data=!3m1!4b1!4m6!3m5!1s0x537165667f6ee1f3:0x1a418403f487f9b3!8m2!3d51.0722307!4d-114.0630498!16s%2Fg%2F11bwndz8pj" target="_blank" rel="noreferrer">Open Google Maps</a></p>
           </article>
           <article>
             <h3>Social</h3>

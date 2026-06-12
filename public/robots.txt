@@ -2,3 +2,6 @@ User-agent: *
 Allow: /
 
 Sitemap: https://centrestjhotpot.ca/sitemap.xml
+
+# AI-readable restaurant facts
+# https://centrestjhotpot.ca/llms.txt

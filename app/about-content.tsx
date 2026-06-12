@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const highlights = [
   ["日式火鍋用餐體驗", "Japanese-style hot pot experience"],
   ["精選優質肉品與新鮮海鮮", "Premium quality meats and fresh seafood"],
@@ -68,7 +70,7 @@ export default function AboutContent({
                 Our menu features carefully selected meats, fresh seafood, seasonal vegetables, and flavorful broths prepared to highlight the natural taste of every ingredient. We believe that great hot pot starts with quality ingredients, which is why we focus on freshness, variety, and consistency in every meal we serve.
               </p>
               <p>
-                Whether you're enjoying a family dinner, gathering with friends, celebrating a special occasion, or trying hot pot for the first time, our team is committed to providing friendly service and a welcoming atmosphere.
+                Whether you&apos;re enjoying a family dinner, gathering with friends, celebrating a special occasion, or trying hot pot for the first time, our team is committed to providing friendly service and a welcoming atmosphere.
               </p>
               <p>
                 Located in Calgary, Centre Street Japanese HotPot is proud to serve our local community and share the joy of hot pot with guests from all backgrounds.
@@ -83,7 +85,7 @@ export default function AboutContent({
             </p>
           )}
         </div>
-        {!isStandalone && <a className="map-link" href="/about">Read More About Us</a>}
+        {!isStandalone && <Link className="map-link" href="/about">Read More About Us</Link>}
       </div>
 
       <div className="about-highlights">

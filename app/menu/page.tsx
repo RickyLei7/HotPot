@@ -189,10 +189,10 @@ export default function MenuPage() {
         </div>
         <div className="menu-images">
           <a href="/menu/front-1.png" target="_blank" rel="noreferrer">
-            <img src="/menu/front-1.png" alt="Full hot pot menu front page" />
+            <img src="/menu/front-1-preview.webp" alt="Full hot pot menu front page" width="900" height="1347" loading="lazy" decoding="async" />
           </a>
           <a href="/menu/back-1.png" target="_blank" rel="noreferrer">
-            <img src="/menu/back-1.png" alt="Full hot pot menu back page" />
+            <img src="/menu/back-1-preview.webp" alt="Full hot pot menu back page" width="900" height="1347" loading="lazy" decoding="async" />
           </a>
         </div>
       </section>

@@ -128,15 +128,22 @@ h3 { font-size: 1.08rem; margin-bottom: 10px; }
   line-height: 1;
   margin-bottom: 8px;
 }
-.feature-band, .ayce-promo, .about-section, .menu-section, .two-column, .snacks-section, .full-menu, .visit, .page-hero, .content-section, .category-section {
+.feature-band, .ayce-promo, .weekly-picks, .about-section, .menu-section, .two-column, .snacks-section, .full-menu, .visit, .page-hero, .content-section, .category-section {
   padding: clamp(62px, 8vw, 112px) clamp(18px, 5vw, 76px);
 }
-.feature-band > *, .ayce-promo > *, .menu-section > *, .two-column > *, .snacks-section > *, .full-menu > *, .visit > *, .page-hero > *, .content-section > *, .category-section > * {
+.feature-band > *, .ayce-promo > *, .weekly-picks > *, .menu-section > *, .two-column > *, .snacks-section > *, .full-menu > *, .visit > *, .page-hero > *, .content-section > *, .category-section > * {
   margin-left: auto;
   margin-right: auto;
   max-width: 1400px;
 }
 .feature-band { background: var(--ink); }
+.weekly-picks { background: var(--paper); color: var(--ink); }
+.weekly-picks .eyebrow, .weekly-picks h2 { color: var(--ink); }
+.weekly-picks-grid { display: grid; gap: 16px; grid-template-columns: repeat(3, 1fr); }
+.weekly-picks-grid article { background: #fff8ea; border: 1px solid rgba(127, 23, 22, 0.16); border-radius: 8px; color: var(--ink); overflow: hidden; }
+.weekly-picks-grid img { aspect-ratio: 4 / 3; height: auto; object-fit: cover; width: 100%; }
+.weekly-picks-grid div { padding: 20px; }
+.weekly-picks-grid p { line-height: 1.55; margin-bottom: 0; }
 .ayce-promo {
   align-items: center;
   background:
@@ -153,6 +160,7 @@ h3 { font-size: 1.08rem; margin-bottom: 10px; }
   line-height: 1.65;
   margin: 22px 0 26px;
 }
+.ayce-actions { display: flex; flex-wrap: wrap; gap: 14px; }
 .ayce-card {
   background: rgba(255, 248, 234, 0.96);
   border: 1px solid rgba(246, 201, 76, 0.45);
@@ -320,7 +328,7 @@ h3 { font-size: 1.08rem; margin-bottom: 10px; }
   .about-section { background: linear-gradient(180deg, rgba(127, 23, 22, 0.94), rgba(31, 22, 17, 0.94)), url("assets/hero-beef-noodle.webp") right top / 640px auto no-repeat; }
   .about-intro { position: static; }
   .about-highlight-grid { grid-template-columns: repeat(2, 1fr); }
-  .quick-info, .dish-showcase, .set-grid, .visit-grid { grid-template-columns: repeat(2, 1fr); }
+  .quick-info, .dish-showcase, .set-grid, .weekly-picks-grid, .visit-grid { grid-template-columns: repeat(2, 1fr); }
   .category-strip { grid-template-columns: repeat(3, 1fr); }
   .soup-list { grid-template-columns: repeat(3, 1fr); }
   .signature-snack { grid-template-columns: 1fr; }
@@ -334,8 +342,8 @@ h3 { font-size: 1.08rem; margin-bottom: 10px; }
   .nav-call { font-size: 1rem; font-weight: 900; grid-column: 2; grid-row: 1; justify-self: end; min-height: 44px; min-width: 104px; padding-inline: 22px; }
   .nav-links { display: flex; gap: 7px; grid-column: 1 / -1; grid-row: 2; justify-content: flex-start; overflow-x: auto; padding: 0 0 2px; width: 100%; }
   .nav-links a { background: rgba(255, 248, 234, 0.075); border-color: rgba(246, 201, 76, 0.2); flex: 0 0 auto; font-size: 0.82rem; min-height: 34px; min-width: 76px; padding: 7px 12px; text-align: center; }
-  .hero, .feature-band, .ayce-promo, .about-section, .menu-section, .two-column, .snacks-section, .full-menu, .visit, .page-hero, .content-section, .category-section { padding-inline: 16px; }
-  .quick-info, .dish-showcase, .set-grid, .about-highlight-grid, .snack-grid, .visit-grid { grid-template-columns: 1fr; }
+  .hero, .feature-band, .ayce-promo, .weekly-picks, .about-section, .menu-section, .two-column, .snacks-section, .full-menu, .visit, .page-hero, .content-section, .category-section { padding-inline: 16px; }
+  .quick-info, .dish-showcase, .set-grid, .about-highlight-grid, .weekly-picks-grid, .snack-grid, .visit-grid { grid-template-columns: 1fr; }
   .category-strip { grid-template-columns: repeat(2, 1fr); }
   .soup-list { grid-template-columns: 1fr; }
   .quick-info div { min-height: 92px; }

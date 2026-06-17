@@ -101,6 +101,9 @@ export default function Home() {
             <a className="primary-action" href="tel:+14034553188">
               (403) 455-3188
             </a>
+            <a className="secondary-action" href="#specials">
+              AYCE Coming Soon
+            </a>
             <a
               className="secondary-action"
               href="https://www.google.com/maps/place/Centre+Street+Japanese+Hotpot/@51.072234,-114.0656247,17z/data=!3m1!4b1!4m6!3m5!1s0x537165667f6ee1f3:0x1a418403f487f9b3!8m2!3d51.0722307!4d-114.0630498!16s%2Fg%2F11bwndz8pj"
@@ -135,18 +138,53 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="weekly-picks" aria-label="This week's recommended order">
+        <div>
+          <p className="eyebrow">This week</p>
+          <h2>Make it a full table: hot pot, snack, and milk tea.</h2>
+        </div>
+        <div className="weekly-picks-grid">
+          <article>
+            <img src="/assets/dish-sukiyaki.webp" alt="Sukiyaki hot pot" width="900" height="675" loading="lazy" decoding="async" />
+            <div>
+              <h3>Start with hot pot</h3>
+              <p>Choose a broth, meat, vegetables, and rice or noodles.</p>
+            </div>
+          </article>
+          <article>
+            <img src="/assets/dish-popcorn-chicken.webp" alt="Taiwanese fried chicken" width="900" height="675" loading="lazy" decoding="async" />
+            <div>
+              <h3>Add a shareable snack</h3>
+              <p>Taiwanese fried chicken, takoyaki, spring rolls, and more.</p>
+            </div>
+          </article>
+          <article>
+            <img src="/assets/milk-tea-photo.webp" alt="Pearl milk tea" width="900" height="1200" loading="lazy" decoding="async" />
+            <div>
+              <h3>Finish with milk tea</h3>
+              <p>Drinks are 10% off with hotpot or a signature meal.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
       <section className="ayce-promo" id="specials">
         <div className="ayce-copy">
           <p className="eyebrow">Coming soon</p>
           <h2>All-You-Can-Eat Hot Pot is on the way.</h2>
           <p>$28.99 + tax · Soup base included · Final launch details coming soon.</p>
-          <a className="secondary-action" href="#ayce-poster">
-            View Poster
-          </a>
+          <div className="ayce-actions">
+            <a className="primary-action" href="tel:+14034553188">
+              Call for Launch Details
+            </a>
+            <a className="secondary-action" href="#ayce-poster">
+              View Poster
+            </a>
+          </div>
         </div>
         <a className="ayce-card" href="#ayce-poster" aria-label="View All-You-Can-Eat Hot Pot poster">
           <span>Coming Soon</span>
-          <img src="/assets/ayce-coming-soon-height.png" alt="All-You-Can-Eat Hot Pot coming soon poster with kids pricing by height" />
+          <img src="/assets/ayce-coming-soon-preview.webp" alt="All-You-Can-Eat Hot Pot coming soon poster with kids pricing by height" width="620" height="876" loading="lazy" decoding="async" />
         </a>
       </section>
 
@@ -157,7 +195,7 @@ export default function Home() {
             Close
           </a>
           <span className="modal-label">Coming Soon</span>
-          <img src="/assets/ayce-coming-soon-height.png" alt="All-You-Can-Eat Hot Pot coming soon poster with kids pricing by height" />
+          <img src="/assets/ayce-coming-soon-height.png" alt="All-You-Can-Eat Hot Pot coming soon poster with kids pricing by height" width="1055" height="1491" loading="lazy" decoding="async" />
         </div>
       </div>
 
@@ -243,7 +281,7 @@ export default function Home() {
             <h2>Sweetness and ice your way, with hot tea available too.</h2>
           </div>
           <div className="drink-panel">
-            <img src="/assets/milk-tea-photo.png" alt="Pearl milk tea" />
+            <img src="/assets/milk-tea-photo.webp" alt="Pearl milk tea" width="900" height="1200" loading="lazy" decoding="async" />
             <div>
               {drinks.map((drink) => (
                 <span key={drink}>{drink}</span>
@@ -283,10 +321,10 @@ export default function Home() {
         </div>
         <div className="menu-images">
           <a href="/menu/front-1.png" target="_blank" rel="noreferrer">
-            <img src="/menu/front-1.png" alt="Full hotpot menu front" />
+            <img src="/menu/front-1-preview.webp" alt="Full hotpot menu front" width="900" height="1347" loading="lazy" decoding="async" />
           </a>
           <a href="/menu/back-1.png" target="_blank" rel="noreferrer">
-            <img src="/menu/back-1.png" alt="Full hotpot menu back" />
+            <img src="/menu/back-1-preview.webp" alt="Full hotpot menu back" width="900" height="1347" loading="lazy" decoding="async" />
           </a>
         </div>
       </section>

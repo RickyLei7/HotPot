@@ -4,14 +4,14 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "FAQ | Centre Street Japanese HotPot Calgary",
   description:
-    "Frequently asked questions about Centre Street Japanese HotPot in Calgary, including reservations, Japanese hot pot, seafood options, group dining, location, and soup bases.",
+    "Frequently asked questions about Centre Street Japanese HotPot and 鼎鑽火鍋 in Calgary, including reservations, Japanese hot pot, seafood options, group dining, location, soup bases, and AYCE updates.",
   alternates: {
     canonical: "/faq",
   },
   openGraph: {
     title: "FAQ | Centre Street Japanese HotPot Calgary",
     description:
-      "Frequently asked questions about reservations, Japanese hot pot, seafood options, group dining, location, and soup bases.",
+      "Frequently asked questions about Centre Street Japanese HotPot, 鼎鑽火鍋, Calgary hot pot, reservations, group dining, location, and soup bases.",
     url: "https://centrestjhotpot.ca/faq/",
     images: ["/assets/snack-lineup.webp"],
   },
@@ -54,11 +54,44 @@ const faqs = [
     "What soup bases do you offer?",
     "Soup base options include Sukiyaki, Tom Yum Kung, Spicy, Miso, Tomato, Satay, Kimchi, Curry, Pickled Cabbage, and more.",
   ],
+  [
+    "What is the Chinese name of Centre Street Japanese HotPot?",
+    "The Chinese name of Centre Street Japanese HotPot is 鼎鑽火鍋.",
+  ],
+  [
+    "Where can I eat hot pot in Calgary?",
+    "Centre Street Japanese HotPot is a Calgary hot pot restaurant on Centre Street N, serving Japanese-style individual hot pot, soup bases, meats, seafood, vegetables, Taiwanese snacks, rice and noodle bowls, and milk tea.",
+  ],
+  [
+    "卡尔加里哪里可以吃火锅？",
+    "鼎鑽火鍋 Centre Street Japanese HotPot 位于 2213 Centre St N #2243, Calgary, AB T2E 2T4，提供日式个人火锅、多款汤底、肉类、海鲜、蔬菜、小吃、饭面和奶茶。",
+  ],
+  [
+    "Is Centre Street Japanese HotPot good for family or group dining?",
+    "Yes. Centre Street Japanese HotPot is suitable for family dinners, friends, celebrations, and group dining. Please call ahead for larger groups or special occasions.",
+  ],
 ];
 
 export default function FaqPage() {
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map(([question, answer]) => ({
+      "@type": "Question",
+      name: question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: answer,
+      },
+    })),
+  };
+
   return (
     <main>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
       <nav className="site-nav" aria-label="Main navigation">
         <Link className="brand-mark" href="/" aria-label="Centre Street Japanese Hotpot home">
           <img src="/assets/brand-logo-wide.webp" alt="Centre Street Japanese Hotpot" />
@@ -80,7 +113,7 @@ export default function FaqPage() {
           <h1>Frequently Asked Questions</h1>
           <p className="hero-text">
             Answers about reservations, Japanese hot pot, seafood options, group dining,
-            and visiting Centre Street Japanese HotPot in Calgary.
+            and visiting Centre Street Japanese HotPot, also known as 鼎鑽火鍋, in Calgary.
           </p>
         </div>
       </section>

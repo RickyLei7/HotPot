@@ -54,23 +54,24 @@ const snacks = [
   ["Deep Fried King Mushroom", "$7.89"],
   ["Crispy Wontons (8pcs)", "$8.89"],
   ["Deep Fried Dumplings (8pcs)", "$8.89"],
-  ["Chicken Spring Rolls (6pc)", "$6.89"],
-  ["Veggie Spring Rolls (6pc)", "$6.89"],
-  ["French Fries", "$6.89"],
-  ["Sweet Potato Fries", "$6.89"],
-  ["Golden Onion Rings", "$8.89"],
-  ["Fish Balls (6pc)", "$7.89"],
-  ["Chinese Donut", "$6.89"],
-  ["Luncheon Meat (Spam)", "$6.89"],
-  ["Korean Fish Cake", "$6.89"],
-  ["Edamame", "$5.89"],
+  ["Chicken Spring Rolls (6pc)", "$8.89"],
+  ["Veggie Spring Rolls (6pc)", "$8.89"],
+  ["Popcorn Chicken", "$6.89"],
+  ["French Fries", "$6.49"],
+  ["Sweet Potato Fries", "$6.49"],
+  ["Golden Onion Rings", "$6.49"],
+  ["Fish Balls (6pc)", "$6.89"],
+  ["Chinese Donut", "$6.49"],
+  ["Luncheon Meat (Spam)", "$6.49"],
+  ["Korean Fish Cake", "$6.49"],
+  ["Edamame", "$6.49"],
 ];
 
 const drinks = [
   ["Classic Teas", "$4.95"],
   ["Flavoured Black / Green Tea", "$5.95"],
   ["Milk Teas", "$5.95"],
-  ["Sea Salt Cream", "$5.95"],
+  ["Sea Salt Cream", "$6.95"],
   ["Specialty Teas", "$5.95"],
   ["Yogurt Drinks", "$5.95"],
   ["Smoothies", "$7.95"],
@@ -132,6 +133,7 @@ export default function MenuPage() {
           <article><h3>Included</h3><p>1 soup base, large veggie set, 1 meat, and 1 rice or noodle side.</p></article>
           <article><h3>Choose your meat</h3><p>AAA beef, lamb, pork, or chicken. Extra meat is $3.69.</p></article>
           <article><h3>Pick your side</h3><p>Rice, instant noodles, glass noodles, ramen, udon, or braised pork rice +$1.</p></article>
+          <article><h3>Add-ons</h3><p>Split pot +$2. Veggie set $9, shrimp (4pc) $6, tofu, beef balls, and other add-ons $3.</p></article>
         </div>
       </section>
 

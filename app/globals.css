@@ -569,6 +569,13 @@ h3 {
 .snack-grid {
   display: grid;
   gap: 16px;
+}
+
+.set-grid {
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.snack-grid {
   grid-template-columns: repeat(3, 1fr);
 }
 

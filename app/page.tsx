@@ -39,23 +39,24 @@ const snacks = [
   ["Deep Fried King Mushroom", "$7.89"],
   ["Crispy Wontons (8pcs)", "$8.89"],
   ["Deep Fried Dumplings (8pcs)", "$8.89"],
-  ["Chicken Spring Rolls (6pc)", "$6.89"],
-  ["Veggie Spring Rolls (6pc)", "$6.89"],
-  ["French Fries", "$6.89"],
-  ["Sweet Potato Fries", "$6.89"],
-  ["Golden Onion Rings", "$8.89"],
-  ["Fish Balls (6pc)", "$7.89"],
-  ["Chinese Donut", "$6.89"],
-  ["Luncheon Meat (Spam)", "$6.89"],
-  ["Korean Fish Cake", "$6.89"],
-  ["Edamame", "$5.89"],
+  ["Chicken Spring Rolls (6pc)", "$8.89"],
+  ["Veggie Spring Rolls (6pc)", "$8.89"],
+  ["Popcorn Chicken", "$6.89"],
+  ["French Fries", "$6.49"],
+  ["Sweet Potato Fries", "$6.49"],
+  ["Golden Onion Rings", "$6.49"],
+  ["Fish Balls (6pc)", "$6.89"],
+  ["Chinese Donut", "$6.49"],
+  ["Luncheon Meat (Spam)", "$6.49"],
+  ["Korean Fish Cake", "$6.49"],
+  ["Edamame", "$6.49"],
 ];
 
 const drinks = [
   "Classic Teas $4.95",
   "Flavoured Black / Green Tea $5.95",
   "Milk Teas $5.95",
-  "Sea Salt Cream $5.95",
+  "Sea Salt Cream $6.95",
   "Specialty Teas $5.95",
   "Yogurt Drinks $5.95",
   "Smoothies $7.95",
@@ -318,6 +319,10 @@ export default function Home() {
         <div className="section-heading">
           <p className="eyebrow">Full menu images</p>
           <h2>Browse the full in-store menu.</h2>
+          <div className="menu-download-actions">
+            <a className="primary-action" href="/menu/centre-street-japanese-hotpot-menu.pdf" download>Download PDF</a>
+            <a className="secondary-action dark" href="/menu/centre-street-japanese-hotpot-menu.pdf" target="_blank" rel="noreferrer">Open PDF</a>
+          </div>
         </div>
         <div className="menu-images">
           <a href="/menu/front-1.png" target="_blank" rel="noreferrer">

@@ -118,6 +118,11 @@ section {
   color: var(--cream);
 }
 
+.secondary-action.dark {
+  border-color: rgba(127, 23, 22, 0.26);
+  color: var(--ink);
+}
+
 .hero {
   align-items: center;
   display: grid;
@@ -784,6 +789,13 @@ h3 {
   display: grid;
   gap: 26px;
   grid-template-columns: repeat(2, 1fr);
+}
+
+.menu-download-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 18px;
 }
 
 .menu-images a {

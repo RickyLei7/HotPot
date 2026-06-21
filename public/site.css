@@ -53,6 +53,7 @@ section { scroll-margin-top: 92px; }
 }
 .nav-call, .primary-action { background: var(--gold); color: var(--ink); }
 .secondary-action { border: 1px solid rgba(255, 246, 223, 0.55); color: var(--cream); }
+.secondary-action.dark { border-color: rgba(127, 23, 22, 0.26); color: var(--ink); }
 .hero {
   align-items: center;
   display: grid;
@@ -295,6 +296,7 @@ h3 { font-size: 1.08rem; margin-bottom: 10px; }
 .snack-grid article { min-height: 132px; }
 .snack-grid p { color: var(--red); font-size: 1.3rem; font-weight: 900; }
 .menu-images { display: grid; gap: 26px; grid-template-columns: repeat(2, 1fr); }
+.menu-download-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 18px; }
 .menu-images a { background: #fff; border-radius: 8px; box-shadow: 0 20px 55px rgba(42, 19, 15, 0.2); max-height: 760px; overflow: auto; }
 .menu-images img { width: 100%; }
 .visit { background: linear-gradient(90deg, rgba(18, 13, 11, 0.93), rgba(18, 13, 11, 0.82)), url("assets/snack-lineup.webp") center / cover; }

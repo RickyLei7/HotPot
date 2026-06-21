@@ -188,6 +188,10 @@ export default function MenuPage() {
         <div className="section-heading">
           <p className="eyebrow">Full menu images</p>
           <h2>Browse the full in-store menu.</h2>
+          <div className="menu-download-actions">
+            <a className="primary-action" href="/menu/centre-street-japanese-hotpot-menu.pdf" download>Download PDF</a>
+            <a className="secondary-action dark" href="/menu/centre-street-japanese-hotpot-menu.pdf" target="_blank" rel="noreferrer">Open PDF</a>
+          </div>
         </div>
         <div className="menu-images">
           <a href="/menu/front-1.png" target="_blank" rel="noreferrer">

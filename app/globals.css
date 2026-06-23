@@ -26,6 +26,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
@@ -35,6 +36,7 @@ body {
     url("/assets/dish-spicy.webp") center top / 1400px auto fixed;
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
 }
 
 a {
@@ -80,6 +82,7 @@ section {
 .brand-mark img {
   height: 54px;
   mix-blend-mode: screen;
+  max-width: min(58vw, 260px);
   width: auto;
 }
 
@@ -1046,16 +1049,11 @@ h3 {
 
   .nav-links {
     display: flex;
+    flex-wrap: wrap;
     gap: 8px;
     grid-column: 1 / -1;
     justify-content: flex-start;
-    overflow-x: auto;
     padding: 2px 0 4px;
-    scrollbar-width: none;
-  }
-
-  .nav-links::-webkit-scrollbar {
-    display: none;
   }
 
   .nav-links a {
@@ -1130,6 +1128,7 @@ h3 {
 @media (max-width: 560px) {
   .brand-mark img {
     height: 40px;
+    max-width: 52vw;
   }
 
   .site-nav {
@@ -1144,35 +1143,36 @@ h3 {
   }
 
   .nav-call {
-    font-size: 1rem;
+    font-size: 0.95rem;
     font-weight: 900;
     grid-column: 2;
     grid-row: 1;
     justify-self: end;
     min-height: 44px;
-    min-width: 104px;
-    padding-inline: 22px;
+    min-width: 106px;
+    padding-inline: 18px;
   }
 
   .nav-links {
-    display: flex;
+    display: grid;
     gap: 7px;
     grid-column: 1 / -1;
     grid-row: 2;
-    justify-content: flex-start;
-    overflow-x: auto;
-    padding: 0 0 2px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    padding: 0;
     width: 100%;
   }
 
   .nav-links a {
+    align-items: center;
     background: rgba(255, 248, 234, 0.075);
     border-color: rgba(246, 201, 76, 0.2);
-    flex: 0 0 auto;
+    display: flex;
     font-size: 0.82rem;
+    justify-content: center;
     min-height: 34px;
-    min-width: 76px;
-    padding: 7px 12px;
+    min-width: 0;
+    padding: 7px 8px;
     text-align: center;
   }
 

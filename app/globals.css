@@ -770,7 +770,8 @@ h3 {
   border-radius: 6px;
   color: var(--ink);
   font-weight: 750;
-  padding: 12px 14px;
+  min-height: 46px;
+  padding: 11px 13px;
 }
 
 .drink-panel span {
@@ -796,9 +797,9 @@ h3 {
   border-bottom: 1px solid rgba(127, 23, 22, 0.14);
   display: grid;
   gap: 18px;
-  grid-template-columns: 1fr auto;
-  min-height: 64px;
-  padding: 16px 20px;
+  grid-template-columns: minmax(0, 1fr) auto;
+  min-height: 54px;
+  padding: 13px 18px;
 }
 
 .price-list div:last-child {
@@ -825,9 +826,9 @@ h3 {
 }
 
 .drink-panel div {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
   gap: 10px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   padding: 18px;
 }
 
@@ -1207,7 +1208,36 @@ h3 {
   }
 
   .soup-list {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .soup-list span,
+  .drink-panel span {
+    align-items: center;
+    display: flex;
+    font-size: 0.92rem;
+    min-height: 44px;
+    padding: 9px 10px;
+  }
+
+  .price-list div {
+    gap: 10px;
+    min-height: 48px;
+    padding: 10px 12px;
+  }
+
+  .price-list span {
+    font-size: 0.94rem;
+    line-height: 1.25;
+  }
+
+  .price-list strong {
+    font-size: 0.98rem;
+  }
+
+  .drink-panel div {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    padding: 12px;
   }
 
   .quick-info div {

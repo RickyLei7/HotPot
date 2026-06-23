@@ -2,74 +2,6 @@ import AboutContent from "./about-content";
 import Link from "next/link";
 import { SocialLinks } from "./social-links";
 
-const soups = [
-  "Chicken & Spicy Pot",
-  "Spicy",
-  "Sukiyaki",
-  "Tom Yum Kung",
-  "Chinese Herbs",
-  "Chicken Soup",
-  "Pork Soup",
-  "Sesame Oil",
-  "Pickled Cabbage",
-  "Curry",
-  "Satay",
-  "Kimchi",
-  "Milk",
-  "Tomato",
-  "Miso",
-];
-
-const riceNoodles = [
-  ["Signature Taiwanese Beef Noodle Soup", "$16.99"],
-  ["Braised Pork Rice", "$12.99"],
-  ["Taiwanese Fried Chicken Rice / Noodle", "$14.99"],
-  ["Wonton Soup with Rice / Noodle", "$14.99"],
-  ["Unagi Rice Bowl", "$18.99"],
-  ["Beef Brisket Rice", "$16.99"],
-  ["Sukiyaki Beef Rice", "$16.99"],
-];
-
-const snacks = [
-  ["Signature Taiwanese Fried Chicken", "$9.89"],
-  ["Takoyaki (6pcs)", "$8.89"],
-  ["Crispy Chicken Cutlet", "$9.89"],
-  ["Golden Fried Buns", "$6.89"],
-  ["Crispy Squid Legs", "$9.89"],
-  ["Deep Fried King Mushroom", "$7.89"],
-  ["Crispy Wontons (8pcs)", "$8.89"],
-  ["Deep Fried Dumplings (8pcs)", "$8.89"],
-  ["Chicken Spring Rolls (6pc)", "$8.89"],
-  ["Veggie Spring Rolls (6pc)", "$8.89"],
-  ["Popcorn Chicken", "$6.89"],
-  ["French Fries", "$6.49"],
-  ["Sweet Potato Fries", "$6.49"],
-  ["Golden Onion Rings", "$6.49"],
-  ["Fish Balls (6pc)", "$6.89"],
-  ["Chinese Donut", "$6.49"],
-  ["Luncheon Meat (Spam)", "$6.49"],
-  ["Korean Fish Cake", "$6.49"],
-  ["Edamame", "$6.49"],
-];
-
-const drinks = [
-  "Classic Teas $4.95",
-  "Flavoured Black / Green Tea $5.95",
-  "Milk Teas $5.95",
-  "Sea Salt Cream $6.95",
-  "Specialty Teas $5.95",
-  "Yogurt Drinks $5.95",
-  "Smoothies $7.95",
-  "Specialty Sodas $6.95",
-  "Soft Drinks $2.00",
-];
-
-const featuredSoups = [
-  ["日式壽喜鍋", "Sukiyaki", "/assets/dish-sukiyaki.webp"],
-  ["泰式酸辣冬陰鍋", "Tom Yum Kung", "/assets/dish-tom-yum.webp"],
-  ["經典麻辣鍋", "Spicy Hotpot", "/assets/dish-spicy.webp"],
-];
-
 export default function Home() {
   return (
     <main>
@@ -245,27 +177,6 @@ export default function Home() {
         </div>
       </div>
 
-      <section className="feature-band">
-        <div className="section-heading">
-          <p className="eyebrow">Hotpot set</p>
-          <h2>Start with one soup, one meat, and one rice or noodle side.</h2>
-        </div>
-        <div className="set-grid">
-          <article>
-            <h3>Included</h3>
-            <p>1 soup base, large veggie set, 1 meat, and 1 rice or noodle side.</p>
-          </article>
-          <article>
-            <h3>Choose your meat</h3>
-            <p>AAA beef, lamb, pork, or chicken. Extra meat is $3.69.</p>
-          </article>
-          <article>
-            <h3>Pick your side</h3>
-            <p>Rice, instant noodles, glass noodles, ramen, udon, or braised pork rice +$1.</p>
-          </article>
-        </div>
-      </section>
-
       <section className="category-section" aria-label="Browse menu categories">
         <div className="section-heading compact">
           <p className="eyebrow">Browse by category</p>
@@ -283,83 +194,6 @@ export default function Home() {
       </section>
 
       <AboutContent />
-
-      <section className="menu-section" id="menu">
-        <div className="section-heading">
-          <p className="eyebrow">Choose your broth</p>
-          <h2>From mellow chicken soup to spicy satay and bright tomato.</h2>
-        </div>
-        <div className="dish-showcase">
-          {featuredSoups.map(([title, subtitle, src]) => (
-            <article className="featured-dish" key={title}>
-              <img src={src} alt={`${title} ${subtitle}`} />
-              <div>
-                <h3>{title}</h3>
-                <p>{subtitle}</p>
-              </div>
-            </article>
-          ))}
-        </div>
-        <div className="soup-list" aria-label="Soup bases">
-          {soups.map((soup) => (
-            <span key={soup}>{soup}</span>
-          ))}
-        </div>
-      </section>
-
-      <section className="two-column">
-        <div>
-          <div className="section-heading compact">
-            <p className="eyebrow">Signature rice & noodles</p>
-            <h2>Comfort bowls for lunch, dinner, or takeout cravings.</h2>
-          </div>
-          <div className="price-list">
-            {riceNoodles.map(([item, price]) => (
-              <div key={item}>
-                <span>{item}</span>
-                <strong>{price}</strong>
-              </div>
-            ))}
-          </div>
-        </div>
-        <div>
-          <div className="section-heading compact">
-            <p className="eyebrow">Milk tea & drinks</p>
-            <h2>Sweetness and ice your way, with hot tea available too.</h2>
-          </div>
-          <div className="drink-panel">
-            <img src="/assets/milk-tea-photo.webp" alt="Pearl milk tea" width="900" height="1200" loading="lazy" decoding="async" />
-            <div>
-              {drinks.map((drink) => (
-                <span key={drink}>{drink}</span>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="snacks-section">
-        <div className="section-heading">
-          <p className="eyebrow">Appetizers</p>
-          <h2>Taiwanese snacks, crispy sides, and easy shareables.</h2>
-        </div>
-        <article className="signature-snack">
-            <img src="/assets/dish-popcorn-chicken.webp" alt="Signature Taiwanese fried chicken" />
-          <div>
-            <p className="eyebrow">Signature</p>
-            <h3>招牌臺式鹽酥雞</h3>
-            <p>Signature Taiwanese Fried Chicken · $9.89</p>
-          </div>
-        </article>
-        <div className="snack-grid">
-          {snacks.map(([item, price]) => (
-            <article key={item}>
-              <h3>{item}</h3>
-              <p>{price}</p>
-            </article>
-          ))}
-        </div>
-      </section>
 
       <section className="full-menu">
         <div className="section-heading">

@@ -298,16 +298,16 @@ h3 { font-size: 1.08rem; margin-bottom: 10px; }
 .featured-dish h3, .signature-snack h3 { font-size: 1.28rem; margin-bottom: 6px; }
 .featured-dish p, .signature-snack p { margin-bottom: 0; }
 .soup-list { display: grid; gap: 10px; grid-template-columns: repeat(5, 1fr); }
-.soup-list span, .drink-panel span { background: rgba(255, 248, 234, 0.7); border: 1px solid rgba(127, 23, 22, 0.12); border-left: 4px solid var(--gold); border-radius: 6px; color: var(--ink); font-weight: 750; padding: 12px 14px; }
+.soup-list span, .drink-panel span { background: rgba(255, 248, 234, 0.7); border: 1px solid rgba(127, 23, 22, 0.12); border-left: 4px solid var(--gold); border-radius: 6px; color: var(--ink); font-weight: 750; min-height: 46px; padding: 11px 13px; }
 .drink-panel span { border-left-color: rgba(127, 23, 22, 0.3); }
 .two-column { background: #1f1611; display: grid; gap: clamp(28px, 5vw, 54px); grid-template-columns: 1fr 1fr; }
 .price-list { background: rgba(255, 248, 234, 0.96); border-radius: 8px; color: var(--ink); overflow: hidden; }
-.price-list div { align-items: center; border-bottom: 1px solid rgba(127, 23, 22, 0.14); display: grid; gap: 18px; grid-template-columns: 1fr auto; min-height: 64px; padding: 16px 20px; }
+.price-list div { align-items: center; border-bottom: 1px solid rgba(127, 23, 22, 0.14); display: grid; gap: 18px; grid-template-columns: minmax(0, 1fr) auto; min-height: 54px; padding: 13px 18px; }
 .price-list div:last-child { border-bottom: 0; }
 .price-list strong { color: var(--red); font-size: 1.08rem; }
 .drink-panel { background: var(--paper-soft); border-radius: 8px; color: var(--ink); overflow: hidden; }
 .drink-panel img { aspect-ratio: 4 / 3; object-fit: cover; object-position: center 58%; width: 100%; }
-.drink-panel div { display: flex; flex-wrap: wrap; gap: 10px; padding: 18px; }
+.drink-panel div { display: grid; gap: 10px; grid-template-columns: repeat(2, minmax(0, 1fr)); padding: 18px; }
 .snacks-section { background: #2a130f; }
 .signature-snack { align-items: center; display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.65fr); margin: 0 auto 24px; }
 .signature-snack img { aspect-ratio: 16 / 7; height: 100%; object-fit: cover; object-position: center; width: 100%; }
@@ -368,7 +368,12 @@ h3 { font-size: 1.08rem; margin-bottom: 10px; }
   .hero, .feature-band, .combo-promo, .ayce-promo, .weekly-picks, .about-section, .menu-section, .two-column, .snacks-section, .full-menu, .visit, .page-hero, .content-section, .category-section { padding-inline: 16px; }
   .quick-info, .dish-showcase, .set-grid, .about-highlight-grid, .weekly-picks-grid, .snack-grid, .visit-grid { grid-template-columns: 1fr; }
   .category-strip { grid-template-columns: repeat(2, 1fr); }
-  .soup-list { grid-template-columns: 1fr; }
+  .soup-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .soup-list span, .drink-panel span { align-items: center; display: flex; font-size: 0.92rem; min-height: 44px; padding: 9px 10px; }
+  .price-list div { gap: 10px; min-height: 48px; padding: 10px 12px; }
+  .price-list span { font-size: 0.94rem; line-height: 1.25; }
+  .price-list strong { font-size: 0.98rem; }
+  .drink-panel div { grid-template-columns: repeat(2, minmax(0, 1fr)); padding: 12px; }
   .quick-info div { min-height: 92px; }
   .hero-actions { display: grid; }
   .primary-action, .secondary-action, .social-links a { width: 100%; }

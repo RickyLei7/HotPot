@@ -9,6 +9,10 @@
     "dev": "vinext dev",
     "build": "vinext build && rm -rf dist/_appgen_meta && mkdir -p dist/_appgen_meta && if [ -f .openai/hosting.json ]; then cp .openai/hosting.json dist/_appgen_meta/appgarden.json; fi && if [ -d drizzle ]; then cp -R drizzle dist/_appgen_meta/drizzle; fi",
     "start": "vinext start",
+    "check:html": "html-validate \"public/**/*.html\"",
+    "check:lighthouse": "lhci autorun --config=lighthouserc.cjs",
+    "check:site": "npm run check:html && npm run check:visual && npm run check:lighthouse",
+    "check:visual": "node scripts/visual-check.mjs",
     "lint": "eslint . --ignore-pattern dist --ignore-pattern .next",
     "db:generate": "drizzle-kit generate"
   },
@@ -20,6 +24,7 @@
   },
   "devDependencies": {
     "@cloudflare/vite-plugin": "1.37.1",
+    "@lhci/cli": "^0.15.1",
     "@tailwindcss/postcss": "4.2.1",
     "@types/node": "22.19.19",
     "@types/react": "19.2.14",
@@ -29,6 +34,9 @@
     "drizzle-kit": "0.31.10",
     "eslint": "9.39.4",
     "eslint-config-next": "16.2.6",
+    "html-validate": "^11.5.3",
+    "playwright": "^1.61.0",
+    "qrcode": "^1.5.4",
     "react-server-dom-webpack": "19.2.6",
     "tailwindcss": "4.2.1",
     "typescript": "5.9.3",

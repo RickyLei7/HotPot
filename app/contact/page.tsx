@@ -5,14 +5,14 @@ import { SocialLinks } from "../social-links";
 export const metadata: Metadata = {
   title: "Contact Centre Street Japanese HotPot | Calgary Location",
   description:
-    "Contact Centre Street Japanese HotPot in Calgary. Find our address, phone number, hours, Google Maps directions, and dining information.",
+    "Call Centre Street Japanese HotPot in Calgary to reserve a table, ask about group dining, check today's availability, or find our address, phone number, hours, and directions.",
   alternates: {
     canonical: "/contact",
   },
   openGraph: {
     title: "Contact Centre Street Japanese HotPot | Calgary Location",
     description:
-      "Find the Centre Street Japanese HotPot Calgary address, phone number, hours, Google Maps directions, and dining information.",
+      "Call Centre Street Japanese HotPot in Calgary for reservations, group dining, today's availability, address, hours, and Google Maps directions.",
     url: "https://centrestjhotpot.ca/contact/",
     images: ["/assets/hero-beef-noodle.webp"],
   },
@@ -33,7 +33,7 @@ export default function ContactPage() {
           <Link href="/contact">Contact</Link>
           <Link href="/#visit">Visit</Link>
         </div>
-        <a className="nav-call" href="tel:+14034553188">Call</a>
+        <a className="nav-call" href="tel:+14034553188">Reserve</a>
       </nav>
 
       <section className="page-hero contact-page-hero">
@@ -41,8 +41,8 @@ export default function ContactPage() {
           <p className="eyebrow">Contact & Location</p>
           <h1>Visit Centre Street Japanese HotPot in Calgary</h1>
           <p className="hero-text">
-            Find us at 2213 Centre St N #2243 in Calgary for Japanese-style hot pot,
-            Taiwanese snacks, rice and noodle bowls, and milk tea.
+            Call us to reserve a table, ask about group dining, or check today&apos;s availability
+            before visiting for Japanese-style hot pot, Taiwanese snacks, and milk tea.
           </p>
         </div>
       </section>
@@ -59,8 +59,9 @@ export default function ContactPage() {
             <p>Sat-Sun 12:00-22:30</p>
           </article>
           <article>
-            <h3>Phone</h3>
-            <p><a href="tel:+14034553188">(403) 455-3188</a></p>
+            <h3>Reservations</h3>
+            <p><a href="tel:+14034553188">Call to reserve: (403) 455-3188</a></p>
+            <p>Ask about group dining and today&apos;s availability.</p>
           </article>
           <article>
             <h3>Email</h3>

@@ -43,6 +43,10 @@ const faqs = [
     "Yes. View our online menu for hot pot sets, soup bases, rice and noodles, appetizers, drinks, and full menu images.",
   ],
   [
+    "Do you have combo sets?",
+    "Yes. Centre Street Japanese HotPot offers a Solo Hot Pot Combo for $24.99 with 1 personal hot pot and 1 drink, and a Couple Hot Pot Combo for $58.99 with 2 personal hot pots, 2 drinks, and 1 appetizer. Prices are before tax.",
+  ],
+  [
     "Do you offer group dining?",
     "Yes. Centre Street Japanese HotPot is suitable for family dinners, friends, celebrations, and group dining. Please call ahead for larger groups.",
   ],
@@ -104,7 +108,7 @@ export default function FaqPage() {
           <Link href="/contact">Contact</Link>
           <Link href="/#visit">Visit</Link>
         </div>
-        <a className="nav-call" href="tel:+14034553188">Call</a>
+        <a className="nav-call" href="tel:+14034553188">Reserve</a>
       </nav>
 
       <section className="page-hero faq-page-hero">

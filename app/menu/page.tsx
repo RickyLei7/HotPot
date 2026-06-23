@@ -95,7 +95,7 @@ export default function MenuPage() {
           <Link href="/contact">Contact</Link>
           <Link href="/#visit">Visit</Link>
         </div>
-        <a className="nav-call" href="tel:+14034553188">Call</a>
+        <a className="nav-call" href="tel:+14034553188">Reserve</a>
       </nav>
 
       <section className="page-hero menu-page-hero">
@@ -116,12 +116,33 @@ export default function MenuPage() {
         </div>
         <div className="category-strip">
           <a href="#hotpot-set"><span className="category-icon">SET</span><strong>Hot Pot Set</strong></a>
+          <a href="#combo-specials"><span className="category-icon">CMB</span><strong>Combos</strong></a>
           <a href="#soup-bases"><span className="category-icon">SOUP</span><strong>Soup Bases</strong></a>
           <a href="#rice-noodles"><span className="category-icon">RICE</span><strong>Rice & Noodles</strong></a>
           <a href="#drinks"><span className="category-icon">TEA</span><strong>Drinks</strong></a>
           <a href="#appetizers"><span className="category-icon">SNK</span><strong>Appetizers</strong></a>
           <a href="#full-menu"><span className="category-icon">IMG</span><strong>Full Menu</strong></a>
         </div>
+      </section>
+
+      <section className="combo-promo menu-combo" id="combo-specials">
+        <div className="combo-copy">
+          <p className="eyebrow">Combo specials</p>
+          <h2>Solo Hot Pot Combo and Couple Hot Pot Combo.</h2>
+          <p>
+            Solo Combo includes 1 personal hot pot and 1 drink for $24.99.
+            Couple Combo includes 2 personal hot pots, 2 drinks, and 1 appetizer for $58.99.
+            Split pot upgrade +$2. Prices are before tax.
+          </p>
+          <div className="combo-price-grid">
+            <article><span>$24.99</span><h3>Solo Hot Pot Combo</h3><p>1 personal hot pot and 1 drink.</p></article>
+            <article><span>$58.99</span><h3>Couple Hot Pot Combo</h3><p>2 personal hot pots, 2 drinks, and 1 appetizer.</p></article>
+          </div>
+          <div className="combo-actions">
+            <a className="primary-action" href="tel:+14034553188">Call to Reserve</a>
+          </div>
+        </div>
+        <img className="combo-poster" src="/assets/combo-hot-pot-special.webp" alt="Solo and Couple Hot Pot Combo specials" width="820" height="1230" loading="lazy" decoding="async" />
       </section>
 
       <section className="menu-section" id="hotpot-set">

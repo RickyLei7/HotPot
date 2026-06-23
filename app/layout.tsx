@@ -67,6 +67,9 @@ export default function RootLayout({
         </Script>
         <Script src="/analytics.js" strategy="afterInteractive" />
         {children}
+        <a className="reserve-sticky" href="tel:+14034553188">
+          Call to Reserve · (403) 455-3188
+        </a>
       </body>
     </html>
   );

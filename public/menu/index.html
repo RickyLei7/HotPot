@@ -46,6 +46,14 @@
           },
           {
             "@type": "MenuSection",
+            "name": "Combo Specials",
+            "hasMenuItem": [
+              {"@type": "MenuItem", "name": "Solo Hot Pot Combo", "description": "1 personal hot pot and 1 drink.", "offers": {"@type": "Offer", "price": "24.99", "priceCurrency": "CAD"}},
+              {"@type": "MenuItem", "name": "Couple Hot Pot Combo", "description": "2 personal hot pots, 2 drinks, and 1 appetizer.", "offers": {"@type": "Offer", "price": "58.99", "priceCurrency": "CAD"}}
+            ]
+          },
+          {
+            "@type": "MenuSection",
             "name": "Hot Pot Soup Bases",
             "hasMenuItem": [
               {"@type": "MenuItem", "name": "Chicken & Spicy Pot"},
@@ -108,7 +116,7 @@
         <a href="/contact/">Contact</a>
         <a href="/#visit">Visit</a>
       </div>
-      <a class="nav-call" href="tel:+14034553188">Call</a>
+      <a class="nav-call" href="tel:+14034553188">Reserve</a>
     </nav>
 
     <main>
@@ -130,12 +138,29 @@
         </div>
         <div class="category-strip">
           <a href="#hotpot-set"><span class="category-icon">SET</span><strong>Hot Pot Set</strong></a>
+          <a href="#combo-specials"><span class="category-icon">CMB</span><strong>Combos</strong></a>
           <a href="#soup-bases"><span class="category-icon">SOUP</span><strong>Soup Bases</strong></a>
           <a href="#rice-noodles"><span class="category-icon">RICE</span><strong>Rice & Noodles</strong></a>
           <a href="#drinks"><span class="category-icon">TEA</span><strong>Drinks</strong></a>
           <a href="#appetizers"><span class="category-icon">SNK</span><strong>Appetizers</strong></a>
           <a href="#full-menu"><span class="category-icon">IMG</span><strong>Full Menu</strong></a>
         </div>
+      </section>
+
+      <section class="combo-promo menu-combo" id="combo-specials">
+        <div class="combo-copy">
+          <p class="eyebrow">Combo specials</p>
+          <h2>Solo Hot Pot Combo and Couple Hot Pot Combo.</h2>
+          <p>Solo Combo includes 1 personal hot pot and 1 drink for $24.99. Couple Combo includes 2 personal hot pots, 2 drinks, and 1 appetizer for $58.99. Split pot upgrade +$2. Prices are before tax.</p>
+          <div class="combo-price-grid">
+            <article><span>$24.99</span><h3>Solo Hot Pot Combo</h3><p>1 personal hot pot and 1 drink.</p></article>
+            <article><span>$58.99</span><h3>Couple Hot Pot Combo</h3><p>2 personal hot pots, 2 drinks, and 1 appetizer.</p></article>
+          </div>
+          <div class="combo-actions">
+            <a class="primary-action" href="tel:+14034553188">Call to Reserve</a>
+          </div>
+        </div>
+        <img class="combo-poster" src="/assets/combo-hot-pot-special.webp" alt="Solo and Couple Hot Pot Combo specials" width="820" height="1230" loading="lazy" decoding="async" />
       </section>
 
       <section class="menu-section" id="hotpot-set">
@@ -255,5 +280,6 @@
         </div>
       </section>
     </main>
+    <a class="reserve-sticky" href="tel:+14034553188">Call to Reserve · (403) 455-3188</a>
   </body>
 </html>

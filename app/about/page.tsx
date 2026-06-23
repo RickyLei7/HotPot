@@ -34,7 +34,7 @@ export default function AboutPage() {
           <Link href="/#visit">Visit</Link>
         </div>
         <a className="nav-call" href="tel:+14034553188">
-          Call
+          Reserve
         </a>
       </nav>
 

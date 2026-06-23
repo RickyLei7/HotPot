@@ -86,7 +86,7 @@ export default function Home() {
           <a href="#visit">Visit</a>
         </div>
         <a className="nav-call" href="tel:+14034553188">
-          Call
+          Reserve
         </a>
       </nav>
 
@@ -96,11 +96,15 @@ export default function Home() {
           <h1>Centre Street Japanese Hotpot</h1>
           <p className="hero-text">
             Calgary hotpot for one, with fresh soup bases, Taiwanese snacks,
-            rice and noodle bowls, and milk tea made for sharing.
+            rice and noodle bowls, and milk tea made for sharing. Call us to reserve a table
+            or ask about today&apos;s availability.
           </p>
           <div className="hero-actions">
             <a className="primary-action" href="tel:+14034553188">
-              (403) 455-3188
+              Call (403) 455-3188 to Reserve
+            </a>
+            <a className="secondary-action" href="#combo-specials">
+              View Combo Specials
             </a>
             <a className="secondary-action" href="#specials">
               AYCE Coming Soon
@@ -120,10 +124,51 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="combo-promo" id="combo-specials">
+        <div className="combo-copy">
+          <p className="eyebrow">Combo specials</p>
+          <h2>Solo and couple hot pot combos made for easy table ordering.</h2>
+          <p>
+            Choose a Solo Hot Pot Combo with 1 personal hot pot and 1 drink for $24.99,
+            or a Couple Hot Pot Combo with 2 personal hot pots, 2 drinks, and 1 appetizer
+            for $58.99. Prices are before tax.
+          </p>
+          <div className="combo-price-grid" aria-label="Combo special prices">
+            <article>
+              <span>$24.99</span>
+              <h3>Solo Hot Pot Combo</h3>
+              <p>1 personal hot pot and 1 drink.</p>
+            </article>
+            <article>
+              <span>$58.99</span>
+              <h3>Couple Hot Pot Combo</h3>
+              <p>2 personal hot pots, 2 drinks, and 1 appetizer.</p>
+            </article>
+          </div>
+          <div className="combo-actions">
+            <a className="primary-action" href="tel:+14034553188">
+              Reserve a Combo Table
+            </a>
+            <Link className="secondary-action dark" href="/menu#combo-specials">
+              See Combo Details
+            </Link>
+          </div>
+        </div>
+        <img
+          className="combo-poster"
+          src="/assets/combo-hot-pot-special.webp"
+          alt="Solo Hot Pot Combo and Couple Hot Pot Combo specials"
+          width="820"
+          height="1230"
+          loading="lazy"
+          decoding="async"
+        />
+      </section>
+
       <section className="quick-info" aria-label="Restaurant highlights">
         <div>
-          <span>$19.99</span>
-          Start with your hot pot
+          <span>$24.99</span>
+          Solo hot pot combo
         </div>
         <div>
           <span>15</span>
@@ -228,6 +273,7 @@ export default function Home() {
         </div>
         <div className="category-strip">
           <Link href="/menu#hotpot-set"><span className="category-icon">SET</span><strong>Hot Pot Set</strong></Link>
+          <Link href="/menu#combo-specials"><span className="category-icon">CMB</span><strong>Combos</strong></Link>
           <Link href="/menu#soup-bases"><span className="category-icon">SOUP</span><strong>Soup Bases</strong></Link>
           <Link href="/menu#rice-noodles"><span className="category-icon">RICE</span><strong>Rice & Noodles</strong></Link>
           <Link href="/menu#drinks"><span className="category-icon">TEA</span><strong>Drinks</strong></Link>
@@ -348,8 +394,9 @@ export default function Home() {
           <article>
             <h3>Contact</h3>
             <p>
-              <a href="tel:+14034553188">(403) 455-3188</a>
+              <a href="tel:+14034553188">Call to reserve: (403) 455-3188</a>
             </p>
+            <p>Reservations, group dining, and today&apos;s availability.</p>
             <p>
               <a href="mailto:CentreStJHotpot@gmail.com">CentreStJHotpot@gmail.com</a>
             </p>

@@ -138,9 +138,6 @@ export default function MenuPage() {
             <article><span>$24.99</span><h3>Solo Hot Pot Combo</h3><p>1 personal hot pot and 1 drink.</p></article>
             <article><span>$58.99</span><h3>Couple Hot Pot Combo</h3><p>2 personal hot pots, 2 drinks, and 1 appetizer.</p></article>
           </div>
-          <div className="combo-actions">
-            <a className="primary-action" href="tel:+14034553188">Call to Reserve</a>
-          </div>
         </div>
         <img className="combo-poster" src="/assets/combo-hot-pot-special.webp" alt="Solo and Couple Hot Pot Combo specials" width="820" height="1230" loading="lazy" decoding="async" />
       </section>

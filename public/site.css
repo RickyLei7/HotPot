@@ -155,7 +155,7 @@ h3 { font-size: 1.08rem; margin-bottom: 10px; }
 .combo-price-grid { display: grid; gap: 14px; grid-template-columns: repeat(2, minmax(0, 1fr)); margin: 28px 0; }
 .combo-price-grid article { background: rgba(255, 248, 234, 0.94); border: 1px solid rgba(246, 201, 76, 0.38); border-left: 5px solid var(--gold); border-radius: 8px; color: var(--ink); padding: 22px; }
 .combo-price-grid span { color: var(--red); display: block; font-size: clamp(2rem, 4vw, 3.4rem); font-weight: 950; line-height: 1; margin-bottom: 12px; }
-.combo-price-grid article p { color: rgba(23, 16, 12, 0.78); line-height: 1.5; margin-bottom: 0; }
+.combo-copy .combo-price-grid article p { color: rgba(23, 16, 12, 0.78); line-height: 1.5; margin-bottom: 0; }
 .combo-actions { display: flex; flex-wrap: wrap; gap: 12px; }
 .combo-poster { border: 1px solid rgba(246, 201, 76, 0.44); border-radius: 8px; box-shadow: 0 26px 80px rgba(0, 0, 0, 0.42); justify-self: end; max-height: 760px; object-fit: contain; width: min(100%, 420px); }
 .weekly-picks { background: var(--paper); color: var(--ink); }
@@ -317,8 +317,8 @@ h3 { font-size: 1.08rem; margin-bottom: 10px; }
 .snack-grid p { color: var(--red); font-size: 1.3rem; font-weight: 900; }
 .menu-images { display: grid; gap: 26px; grid-template-columns: repeat(2, 1fr); }
 .menu-download-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 18px; }
-.menu-images a { background: #fff; border-radius: 8px; box-shadow: 0 20px 55px rgba(42, 19, 15, 0.2); max-height: 760px; overflow: auto; }
-.menu-images img { width: 100%; }
+.menu-images a { background: #fff; border-radius: 8px; box-shadow: 0 20px 55px rgba(42, 19, 15, 0.2); max-height: 560px; overflow: hidden; }
+.menu-images img { height: min(52vw, 560px); object-fit: cover; object-position: top; width: 100%; }
 .visit { background: linear-gradient(90deg, rgba(18, 13, 11, 0.93), rgba(18, 13, 11, 0.82)), url("assets/snack-lineup.webp") center / cover; }
 .visit-grid { margin-bottom: 28px; }
 .visit-grid a { color: var(--red); font-weight: 850; }
@@ -392,11 +392,25 @@ h3 { font-size: 1.08rem; margin-bottom: 10px; }
   .quick-info div { min-height: 92px; }
   .hero-actions { display: grid; }
   .primary-action, .secondary-action, .social-links a { width: 100%; }
-  .reserve-sticky { align-items: center; background: var(--gold); bottom: 12px; border-radius: 999px; box-shadow: 0 14px 36px rgba(0, 0, 0, 0.34); color: var(--ink); display: flex; font-size: 1rem; font-weight: 950; justify-content: center; left: 14px; min-height: 50px; padding: 0 18px; position: fixed; right: 14px; z-index: 30; }
-  body { padding-bottom: 72px; }
+  .reserve-sticky { align-items: center; background: var(--gold); bottom: max(8px, env(safe-area-inset-bottom)); border-radius: 999px; box-shadow: 0 14px 36px rgba(0, 0, 0, 0.34); color: var(--ink); display: flex; font-size: 0.92rem; font-weight: 950; justify-content: center; left: 14px; min-height: 46px; padding: 0 18px; position: fixed; right: 14px; z-index: 30; }
+  body { padding-bottom: 84px; }
   .combo-promo, .ayce-promo { grid-template-columns: 1fr; }
   .combo-poster, .ayce-card { justify-self: stretch; width: 100%; }
-  .combo-price-grid { grid-template-columns: 1fr; }
+  .combo-price-grid { gap: 8px; grid-template-columns: repeat(2, minmax(0, 1fr)); margin: 16px 0 0; }
+  .combo-copy p:not(.eyebrow) { font-size: 0.98rem; line-height: 1.55; margin: 14px 0 16px; }
+  .combo-price-grid article { min-height: 118px; padding: 12px 10px; }
+  .combo-price-grid span { font-size: 1.8rem; margin-bottom: 8px; }
+  .combo-price-grid h3 { font-size: 0.92rem; line-height: 1.14; margin-bottom: 8px; }
+  .combo-copy .combo-price-grid article p { color: rgba(23, 16, 12, 0.76); font-size: 0.78rem; line-height: 1.22; }
+  .menu-combo .combo-poster { justify-self: center; max-height: none; width: min(100%, 318px); }
+  .menu-text-section .dish-showcase { display: none; }
+  .about-highlight-grid { gap: 10px; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .about-highlight-grid article { min-height: 0; padding: 12px; }
+  .about-highlight-grid h3 { font-size: 0.92rem; line-height: 1.18; margin-bottom: 8px; }
+  .about-highlight-grid p { font-size: 0.82rem; line-height: 1.25; }
+  .menu-images { gap: 10px; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .menu-images a { max-height: 220px; }
+  .menu-images img { height: 220px; }
   .ayce-card img { aspect-ratio: 16 / 10; }
   .poster-modal { padding: 10px; }
   .poster-frame { max-height: 94vh; max-width: 96vw; }

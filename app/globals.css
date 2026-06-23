@@ -1125,21 +1125,9 @@ h3 {
   }
 }
 
-@media (max-width: 560px) {
+@media (max-width: 760px) {
   .brand-mark img {
-    height: 40px;
     max-width: 52vw;
-  }
-
-  .site-nav {
-    align-items: center;
-    gap: 10px 12px;
-    grid-template-columns: 1fr auto;
-    padding: 10px 14px 12px;
-  }
-
-  .brand-mark {
-    min-width: 0;
   }
 
   .nav-call {
@@ -1174,6 +1162,23 @@ h3 {
     min-width: 0;
     padding: 7px 8px;
     text-align: center;
+  }
+}
+
+@media (max-width: 560px) {
+  .brand-mark img {
+    height: 40px;
+  }
+
+  .site-nav {
+    align-items: center;
+    gap: 10px 12px;
+    grid-template-columns: 1fr auto;
+    padding: 10px 14px 12px;
+  }
+
+  .brand-mark {
+    min-width: 0;
   }
 
   .hero,

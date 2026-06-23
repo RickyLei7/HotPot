@@ -358,13 +358,16 @@ h3 { font-size: 1.08rem; margin-bottom: 10px; }
   .snack-grid { grid-template-columns: repeat(2, 1fr); }
   .ayce-card { justify-self: stretch; max-width: none; }
 }
-@media (max-width: 560px) {
-  .brand-mark img { height: 40px; max-width: 52vw; }
-  .site-nav { align-items: center; gap: 10px 12px; grid-template-columns: 1fr auto; padding: 10px 14px 12px; }
-  .brand-mark { min-width: 0; }
+@media (max-width: 760px) {
+  .brand-mark img { max-width: 52vw; }
   .nav-call { font-size: 0.95rem; font-weight: 900; grid-column: 2; grid-row: 1; justify-self: end; min-height: 44px; min-width: 106px; padding-inline: 18px; }
   .nav-links { display: grid; gap: 7px; grid-column: 1 / -1; grid-row: 2; grid-template-columns: repeat(3, minmax(0, 1fr)); padding: 0; width: 100%; }
   .nav-links a { align-items: center; background: rgba(255, 248, 234, 0.075); border-color: rgba(246, 201, 76, 0.2); display: flex; font-size: 0.82rem; justify-content: center; min-height: 34px; min-width: 0; padding: 7px 8px; text-align: center; }
+}
+@media (max-width: 560px) {
+  .brand-mark img { height: 40px; }
+  .site-nav { align-items: center; gap: 10px 12px; grid-template-columns: 1fr auto; padding: 10px 14px 12px; }
+  .brand-mark { min-width: 0; }
   .hero, .feature-band, .combo-promo, .ayce-promo, .weekly-picks, .about-section, .menu-section, .two-column, .snacks-section, .full-menu, .visit, .page-hero, .content-section, .category-section { padding-inline: 16px; }
   .quick-info, .dish-showcase, .set-grid, .about-highlight-grid, .weekly-picks-grid, .snack-grid, .visit-grid { grid-template-columns: 1fr; }
   .category-strip { grid-template-columns: repeat(2, 1fr); }

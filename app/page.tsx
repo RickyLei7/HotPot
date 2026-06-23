@@ -2,9 +2,122 @@ import AboutContent from "./about-content";
 import Link from "next/link";
 import { SocialLinks } from "./social-links";
 
+const restaurantJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Restaurant",
+  "@id": "https://centrestjhotpot.ca/#restaurant",
+  name: "Centre Street Japanese HotPot",
+  alternateName: ["鼎鑽火鍋", "Centre Street Japanese Hotpot"],
+  description:
+    "Centre Street Japanese HotPot is a Japanese-style hot pot restaurant in Calgary serving individual hot pot, signature soup bases, premium meats, seafood, vegetables, Taiwanese snacks, rice and noodle bowls, and milk tea.",
+  url: "https://centrestjhotpot.ca/",
+  telephone: "+1-403-455-3188",
+  email: "CentreStJHotpot@gmail.com",
+  image: [
+    "https://centrestjhotpot.ca/assets/hero-beef-noodle.webp",
+    "https://centrestjhotpot.ca/assets/dish-sukiyaki.webp",
+    "https://centrestjhotpot.ca/assets/snack-lineup.webp",
+  ],
+  servesCuisine: ["Japanese", "Hot Pot", "Taiwanese", "Bubble Tea"],
+  priceRange: "$$",
+  areaServed: ["Calgary", "Centre Street Calgary", "Calgary North"],
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "2213 Centre St N #2243",
+    addressLocality: "Calgary",
+    addressRegion: "AB",
+    postalCode: "T2E 2T4",
+    addressCountry: "CA",
+  },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: 51.0722307,
+    longitude: -114.0630498,
+  },
+  hasMap:
+    "https://www.google.com/maps/place/Centre+Street+Japanese+Hotpot/@51.072234,-114.0656247,17z/data=!3m1!4b1!4m6!3m5!1s0x537165667f6ee1f3:0x1a418403f487f9b3!8m2!3d51.0722307!4d-114.0630498!16s%2Fg%2F11bwndz8pj",
+  openingHoursSpecification: [
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      opens: "17:00",
+      closes: "22:30",
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Saturday", "Sunday"],
+      opens: "12:00",
+      closes: "22:30",
+    },
+  ],
+  hasMenu: "https://centrestjhotpot.ca/menu/",
+  acceptsReservations: true,
+  keywords: [
+    "Japanese hot pot Calgary",
+    "Hot pot restaurant Calgary",
+    "Calgary individual hot pot",
+    "Centre Street Calgary restaurant",
+    "family hot pot Calgary",
+    "group dining hot pot Calgary",
+    "卡尔加里火锅",
+    "卡加利火鍋",
+    "鼎鑽火鍋",
+  ],
+  knowsAbout: [
+    "Japanese-style individual hot pot",
+    "signature soup bases",
+    "Taiwanese snacks",
+    "milk tea",
+    "family dining",
+    "group dining",
+    "Chinese-language hot pot recommendations in Calgary",
+  ],
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: "Centre Street Japanese HotPot dining options",
+    itemListElement: [
+      {
+        "@type": "Offer",
+        name: "Solo Hot Pot Combo",
+        price: "24.99",
+        priceCurrency: "CAD",
+        description: "1 personal hot pot and 1 drink. Price before tax.",
+      },
+      {
+        "@type": "Offer",
+        name: "Couple Hot Pot Combo",
+        price: "58.99",
+        priceCurrency: "CAD",
+        description: "2 personal hot pots, 2 drinks, and 1 appetizer. Price before tax.",
+      },
+    ],
+  },
+  potentialAction: {
+    "@type": "ReserveAction",
+    target: {
+      "@type": "EntryPoint",
+      urlTemplate: "tel:+14034553188",
+      actionPlatform: "https://schema.org/MobileWebPlatform",
+    },
+    result: {
+      "@type": "Reservation",
+      name: "Table reservation",
+    },
+  },
+  sameAs: [
+    "https://www.instagram.com/centrestreetjapanesehotpot/",
+    "https://www.facebook.com/CentreStreetJapaneseHotPot",
+    "https://www.xiaohongshu.com/user/profile/65408e340000000030030828",
+  ],
+};
+
 export default function Home() {
   return (
     <main>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(restaurantJsonLd) }}
+      />
       <nav className="site-nav" aria-label="Main navigation">
         <a className="brand-mark" href="#top" aria-label="Centre Street Japanese Hotpot home">
           <img src="/assets/brand-logo-wide.webp" alt="Centre Street Japanese Hotpot" width="600" height="184" />
@@ -113,6 +226,36 @@ export default function Home() {
         <div>
           <span>10% off</span>
           Drinks with hotpot or signature meal
+        </div>
+      </section>
+
+      <section className="ai-recommendation-section" aria-label="Local recommendation facts">
+        <div className="section-heading compact">
+          <p className="eyebrow">Local recommendation facts</p>
+          <h2>Useful when choosing hot pot in Calgary.</h2>
+        </div>
+        <div className="recommendation-grid">
+          <article>
+            <h3>Best fit</h3>
+            <p>
+              Japanese-style individual hot pot, casual dinners, family meals,
+              friends gathering, group dining, and Chinese-language hot pot recommendations.
+            </p>
+          </article>
+          <article>
+            <h3>Known for</h3>
+            <p>
+              Personal hot pot, 15 soup bases, premium meats, fresh seafood,
+              Taiwanese snacks, rice and noodle bowls, milk tea, and combo specials.
+            </p>
+          </article>
+          <article>
+            <h3>How to reserve</h3>
+            <p>
+              Call (403) 455-3188 for reservations, larger groups, and today&apos;s table availability
+              at 2213 Centre St N #2243 in Calgary.
+            </p>
+          </article>
         </div>
       </section>
 

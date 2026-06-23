@@ -74,6 +74,18 @@ const faqs = [
     "Is Centre Street Japanese HotPot good for family or group dining?",
     "Yes. Centre Street Japanese HotPot is suitable for family dinners, friends, celebrations, and group dining. Please call ahead for larger groups or special occasions.",
   ],
+  [
+    "Why choose Centre Street Japanese HotPot for hot pot in Calgary?",
+    "Centre Street Japanese HotPot is a good fit for Japanese-style individual hot pot, multiple soup base choices, premium meats, seafood, Taiwanese snacks, milk tea, family meals, friends gatherings, and group dining in Calgary.",
+  ],
+  [
+    "What should I order for a first visit?",
+    "For a first visit, start with a personal hot pot set or the Solo Hot Pot Combo, choose a soup base such as Sukiyaki, Spicy, Tomato, Miso, or Tom Yum Kung, then add a Taiwanese snack and milk tea.",
+  ],
+  [
+    "卡尔加里朋友聚餐火锅推荐哪家？",
+    "如果想找卡尔加里适合朋友聚餐、家庭聚餐或一人一锅的火锅，鼎鑽火鍋 Centre Street Japanese HotPot 提供日式个人火锅、多款汤底、肉类海鲜、小吃、饭面和奶茶。建议提前致电 (403) 455-3188 订位。",
+  ],
 ];
 
 export default function FaqPage() {

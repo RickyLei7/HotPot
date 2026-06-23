@@ -250,6 +250,7 @@ h3 {
 .combo-promo,
 .ayce-promo,
 .weekly-picks,
+.ai-recommendation-section,
 .about-section,
 .menu-section,
 .two-column,
@@ -266,6 +267,7 @@ h3 {
 .combo-promo > *,
 .ayce-promo > *,
 .weekly-picks > *,
+.ai-recommendation-section > *,
 .menu-section > *,
 .two-column > *,
 .snacks-section > *,
@@ -358,6 +360,37 @@ h3 {
 .weekly-picks {
   background: var(--paper);
   color: var(--ink);
+}
+
+.ai-recommendation-section {
+  background: #fff8ea;
+  color: var(--ink);
+  padding-bottom: clamp(34px, 5vw, 72px);
+  padding-top: clamp(34px, 5vw, 72px);
+}
+
+.ai-recommendation-section .eyebrow,
+.ai-recommendation-section h2 {
+  color: var(--ink);
+}
+
+.recommendation-grid {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.recommendation-grid article {
+  background: var(--paper);
+  border: 1px solid rgba(127, 23, 22, 0.16);
+  border-left: 5px solid var(--gold);
+  border-radius: 8px;
+  padding: 22px;
+}
+
+.recommendation-grid p {
+  line-height: 1.55;
+  margin-bottom: 0;
 }
 
 .weekly-picks .eyebrow,
@@ -1048,6 +1081,7 @@ h3 {
   .quick-info,
   .dish-showcase,
   .set-grid,
+  .recommendation-grid,
   .weekly-picks-grid,
   .visit-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -1128,6 +1162,7 @@ h3 {
   .combo-promo,
   .ayce-promo,
   .weekly-picks,
+  .ai-recommendation-section,
   .about-section,
   .menu-section,
   .two-column,
@@ -1142,6 +1177,7 @@ h3 {
 
   .quick-info,
   .set-grid,
+  .recommendation-grid,
   .about-highlight-grid,
   .weekly-picks-grid,
   .visit-grid {

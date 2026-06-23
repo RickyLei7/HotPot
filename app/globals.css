@@ -329,7 +329,8 @@ h3 {
   margin-bottom: 12px;
 }
 
-.combo-price-grid p {
+.combo-price-grid article p {
+  color: rgba(23, 16, 12, 0.78);
   line-height: 1.5;
   margin-bottom: 0;
 }

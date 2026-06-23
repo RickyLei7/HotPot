@@ -598,8 +598,8 @@ h3 {
 .category-section {
   background: var(--paper);
   color: var(--ink);
-  padding-bottom: clamp(34px, 5vw, 66px);
-  padding-top: clamp(34px, 5vw, 66px);
+  padding-bottom: clamp(24px, 3.8vw, 48px);
+  padding-top: clamp(24px, 3.8vw, 48px);
 }
 
 .category-section .eyebrow,
@@ -609,21 +609,22 @@ h3 {
 
 .category-strip {
   display: grid;
-  gap: 14px;
-  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(142px, 1fr));
 }
 
 .category-strip a {
+  align-items: center;
   background: #fff8ea;
   border: 1px solid rgba(127, 23, 22, 0.16);
   border-radius: 8px;
   color: var(--ink);
   display: grid;
-  gap: 8px;
-  min-height: 112px;
-  padding: 18px 14px;
-  place-items: center;
-  text-align: center;
+  gap: 10px;
+  grid-template-columns: auto minmax(0, 1fr);
+  min-height: 58px;
+  padding: 10px 12px;
+  text-align: left;
 }
 
 .category-icon {
@@ -632,11 +633,11 @@ h3 {
   border-radius: 999px;
   color: var(--gold);
   display: inline-flex;
-  font-size: 0.78rem;
+  font-size: 0.66rem;
   font-weight: 900;
-  height: 42px;
+  height: 34px;
   justify-content: center;
-  width: 42px;
+  width: 34px;
 }
 
 .category-strip strong {
@@ -645,17 +646,17 @@ h3 {
 }
 
 .section-heading {
-  margin-bottom: clamp(28px, 5vw, 46px);
+  margin-bottom: clamp(20px, 3.6vw, 34px);
 }
 
 .section-heading.compact {
-  margin-bottom: 24px;
+  margin-bottom: 18px;
 }
 
 .set-grid,
 .snack-grid {
   display: grid;
-  gap: 16px;
+  gap: 12px;
 }
 
 .set-grid {
@@ -681,7 +682,7 @@ h3 {
   border-radius: 6px;
   color: var(--ink);
   cursor: default;
-  padding: 24px;
+  padding: 18px;
 }
 
 .set-grid p,
@@ -761,8 +762,8 @@ h3 {
 
 .soup-list {
   display: grid;
-  gap: 10px;
-  grid-template-columns: repeat(5, 1fr);
+  gap: 8px;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
 }
 
 .soup-list span,
@@ -773,8 +774,8 @@ h3 {
   border-radius: 6px;
   color: var(--ink);
   font-weight: 750;
-  min-height: 46px;
-  padding: 11px 13px;
+  min-height: 42px;
+  padding: 9px 12px;
 }
 
 .drink-panel span {
@@ -784,7 +785,7 @@ h3 {
 .two-column {
   background: #1f1611;
   display: grid;
-  gap: clamp(28px, 5vw, 54px);
+  gap: clamp(22px, 4vw, 38px);
   grid-template-columns: 1fr 1fr;
 }
 
@@ -799,10 +800,10 @@ h3 {
   align-items: center;
   border-bottom: 1px solid rgba(127, 23, 22, 0.14);
   display: grid;
-  gap: 18px;
+  gap: 14px;
   grid-template-columns: minmax(0, 1fr) auto;
-  min-height: 54px;
-  padding: 13px 18px;
+  min-height: 48px;
+  padding: 11px 16px;
 }
 
 .price-list div:last-child {
@@ -830,9 +831,9 @@ h3 {
 
 .drink-panel div {
   display: grid;
-  gap: 10px;
+  gap: 8px;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  padding: 18px;
+  padding: 14px;
 }
 
 .snacks-section {
@@ -859,7 +860,7 @@ h3 {
 }
 
 .snack-grid article {
-  min-height: 132px;
+  min-height: 104px;
 }
 
 .snack-grid p {
@@ -1210,6 +1211,41 @@ h3 {
 
   .category-strip {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .category-section {
+    padding-bottom: 22px;
+    padding-top: 22px;
+  }
+
+  .category-section .section-heading {
+    margin-bottom: 14px;
+  }
+
+  .category-section h2 {
+    font-size: clamp(1.5rem, 7vw, 2.15rem);
+    line-height: 1.08;
+  }
+
+  .category-strip {
+    gap: 8px;
+  }
+
+  .category-strip a {
+    gap: 8px;
+    min-height: 48px;
+    padding: 8px 9px;
+  }
+
+  .category-icon {
+    font-size: 0.58rem;
+    height: 28px;
+    width: 28px;
+  }
+
+  .category-strip strong {
+    font-size: 0.86rem;
+    line-height: 1.12;
   }
 
   .soup-list {

@@ -1266,6 +1266,12 @@ h3 {
     padding: 12px;
   }
 
+  .drink-panel img {
+    aspect-ratio: auto;
+    height: 150px;
+    object-position: center 42%;
+  }
+
   .quick-info div {
     min-height: 92px;
   }

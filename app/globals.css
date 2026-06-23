@@ -654,18 +654,13 @@ h3 {
   margin-bottom: 18px;
 }
 
-.set-grid,
-.snack-grid {
+.set-grid {
   display: grid;
   gap: 12px;
 }
 
 .set-grid {
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-}
-
-.snack-grid {
-  grid-template-columns: repeat(3, 1fr);
 }
 
 .visit-grid {
@@ -675,7 +670,6 @@ h3 {
 }
 
 .set-grid article,
-.snack-grid article,
 .visit-grid article {
   background: rgba(255, 243, 209, 0.72);
   border: 1px solid rgba(127, 23, 22, 0.12);
@@ -687,7 +681,6 @@ h3 {
 }
 
 .set-grid p,
-.snack-grid p,
 .visit-grid p {
   line-height: 1.55;
   margin-bottom: 0;
@@ -709,66 +702,13 @@ h3 {
   color: var(--ink);
 }
 
-.wide-food {
-  border-radius: 8px;
-  box-shadow: 0 18px 45px rgba(60, 26, 12, 0.22);
-  height: auto;
-  margin-bottom: 24px;
-  max-height: 720px;
-  object-fit: cover;
-  object-position: center;
-  width: 100%;
-}
-
-.dish-showcase {
-  display: grid;
-  gap: 22px;
-  grid-template-columns: repeat(3, 1fr);
-  margin-bottom: 26px;
-}
-
-.featured-dish,
-.signature-snack {
-  background: #fff8ea;
-  border: 1px solid rgba(127, 23, 22, 0.18);
-  border-radius: 8px;
-  box-shadow: 0 18px 45px rgba(60, 26, 12, 0.18);
-  color: var(--ink);
-  overflow: hidden;
-}
-
-.featured-dish img {
-  aspect-ratio: 4 / 3;
-  height: auto;
-  object-fit: cover;
-  object-position: center;
-  width: 100%;
-}
-
-.featured-dish div,
-.signature-snack div {
-  padding: 20px;
-}
-
-.featured-dish h3,
-.signature-snack h3 {
-  font-size: 1.28rem;
-  margin-bottom: 6px;
-}
-
-.featured-dish p,
-.signature-snack p {
-  margin-bottom: 0;
-}
-
 .soup-list {
   display: grid;
   gap: 8px;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
 }
 
-.soup-list span,
-.drink-panel span {
+.soup-list span {
   background: rgba(255, 248, 234, 0.7);
   border: 1px solid rgba(127, 23, 22, 0.12);
   border-left: 4px solid var(--gold);
@@ -777,10 +717,6 @@ h3 {
   font-weight: 750;
   min-height: 42px;
   padding: 9px 12px;
-}
-
-.drink-panel span {
-  border-left-color: rgba(127, 23, 22, 0.3);
 }
 
 .two-column {
@@ -816,58 +752,8 @@ h3 {
   font-size: 1.08rem;
 }
 
-.drink-panel {
-  background: var(--paper-soft);
-  border-radius: 8px;
-  color: var(--ink);
-  overflow: hidden;
-}
-
-.drink-panel img {
-  aspect-ratio: 4 / 3;
-  object-fit: cover;
-  object-position: center 58%;
-  width: 100%;
-}
-
-.drink-panel div {
-  display: grid;
-  gap: 8px;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  padding: 14px;
-}
-
 .snacks-section {
   background: #2a130f;
-}
-
-.signature-snack {
-  align-items: center;
-  display: grid;
-  grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.65fr);
-  margin: 0 auto 24px;
-}
-
-.signature-snack img {
-  aspect-ratio: 16 / 7;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  width: 100%;
-}
-
-.snack-grid {
-  grid-template-columns: repeat(4, 1fr);
-}
-
-.snack-grid article {
-  min-height: 104px;
-}
-
-.snack-grid p {
-  color: var(--red);
-  font-size: 1.3rem;
-  font-weight: 900;
 }
 
 .menu-images {
@@ -1101,7 +987,6 @@ h3 {
   }
 
   .quick-info,
-  .dish-showcase,
   .set-grid,
   .weekly-picks-grid,
   .visit-grid {
@@ -1114,14 +999,6 @@ h3 {
 
   .soup-list {
     grid-template-columns: repeat(3, 1fr);
-  }
-
-  .signature-snack {
-    grid-template-columns: 1fr;
-  }
-
-  .snack-grid {
-    grid-template-columns: repeat(2, 1fr);
   }
 
   .ayce-card {
@@ -1204,11 +1081,9 @@ h3 {
   }
 
   .quick-info,
-  .dish-showcase,
   .set-grid,
   .about-highlight-grid,
   .weekly-picks-grid,
-  .snack-grid,
   .visit-grid {
     grid-template-columns: 1fr;
   }
@@ -1270,29 +1145,7 @@ h3 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .snack-grid {
-    gap: 8px;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .snack-grid article {
-    min-height: 78px;
-    padding: 10px 11px;
-  }
-
-  .snack-grid h3 {
-    font-size: 0.9rem;
-    line-height: 1.12;
-    margin-bottom: 8px;
-  }
-
-  .snack-grid p {
-    font-size: 0.96rem;
-    line-height: 1;
-  }
-
-  .soup-list span,
-  .drink-panel span {
+  .soup-list span {
     align-items: center;
     display: flex;
     font-size: 0.92rem;
@@ -1313,17 +1166,6 @@ h3 {
 
   .price-list strong {
     font-size: 0.98rem;
-  }
-
-  .drink-panel div {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    padding: 12px;
-  }
-
-  .drink-panel img {
-    aspect-ratio: auto;
-    height: 150px;
-    object-position: center 42%;
   }
 
   .quick-info div {
@@ -1360,6 +1202,9 @@ h3 {
   }
 
   body {
+    background:
+      linear-gradient(180deg, rgba(18, 13, 11, 0.92), rgba(18, 13, 11, 0.72)),
+      url("/assets/dish-spicy.webp") center top / 900px auto scroll;
     padding-bottom: 84px;
   }
 
@@ -1409,10 +1254,6 @@ h3 {
   }
 
   .menu-combo .combo-poster {
-    display: none;
-  }
-
-  .menu-text-section .dish-showcase {
     display: none;
   }
 

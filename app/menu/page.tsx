@@ -80,9 +80,77 @@ const drinks = [
   ["Toppings", "+$0.75"],
 ];
 
+const menuJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Menu",
+  name: "Centre Street Japanese HotPot Menu",
+  url: "https://centrestjhotpot.ca/menu/",
+  hasMenuSection: [
+    {
+      "@type": "MenuSection",
+      name: "Hot Pot Set",
+      hasMenuItem: [
+        {
+          "@type": "MenuItem",
+          name: "Start with Your Hot Pot",
+          description: "Includes 1 soup base, large veggies set, 1 meat, and 1 rice or noodle side.",
+          offers: { "@type": "Offer", price: "19.99", priceCurrency: "CAD" },
+        },
+        { "@type": "MenuItem", name: "Split Pot Upgrade", offers: { "@type": "Offer", price: "2.00", priceCurrency: "CAD" } },
+        { "@type": "MenuItem", name: "Extra Meat", offers: { "@type": "Offer", price: "3.69", priceCurrency: "CAD" } },
+        { "@type": "MenuItem", name: "Extra Rice or Noodle Side", offers: { "@type": "Offer", price: "2.00", priceCurrency: "CAD" } },
+      ],
+    },
+    {
+      "@type": "MenuSection",
+      name: "Combo Specials",
+      hasMenuItem: [
+        { "@type": "MenuItem", name: "Solo Hot Pot Combo", description: "1 personal hot pot and 1 drink.", offers: { "@type": "Offer", price: "24.99", priceCurrency: "CAD" } },
+        { "@type": "MenuItem", name: "Couple Hot Pot Combo", description: "2 personal hot pots, 2 drinks, and 1 appetizer.", offers: { "@type": "Offer", price: "58.99", priceCurrency: "CAD" } },
+      ],
+    },
+    {
+      "@type": "MenuSection",
+      name: "Hot Pot Soup Bases",
+      hasMenuItem: soups.map((name) => ({ "@type": "MenuItem", name })),
+    },
+    {
+      "@type": "MenuSection",
+      name: "Rice and Noodles",
+      hasMenuItem: riceNoodles.map(([name, price]) => ({
+        "@type": "MenuItem",
+        name,
+        offers: { "@type": "Offer", price: price.replace("$", ""), priceCurrency: "CAD" },
+      })),
+    },
+    {
+      "@type": "MenuSection",
+      name: "Appetizers",
+      hasMenuItem: snacks.map(([name, price]) => ({
+        "@type": "MenuItem",
+        name,
+        offers: { "@type": "Offer", price: price.replace("$", ""), priceCurrency: "CAD" },
+      })),
+    },
+    {
+      "@type": "MenuSection",
+      name: "Drinks",
+      hasMenuItem: drinks.map(([name, price]) => ({
+        "@type": "MenuItem",
+        name,
+        offers: { "@type": "Offer", price: price.replace("$", "").replace("+", ""), priceCurrency: "CAD" },
+      })),
+    },
+  ],
+};
+
 export default function MenuPage() {
   return (
     <main>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(menuJsonLd) }}
+      />
       <nav className="site-nav" aria-label="Main navigation">
         <Link className="brand-mark" href="/" aria-label="Centre Street Japanese Hotpot home">
           <img src="/assets/brand-logo-wide.webp" alt="Centre Street Japanese Hotpot" />

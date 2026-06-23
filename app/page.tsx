@@ -7,7 +7,7 @@ export default function Home() {
     <main>
       <nav className="site-nav" aria-label="Main navigation">
         <a className="brand-mark" href="#top" aria-label="Centre Street Japanese Hotpot home">
-          <img src="/assets/brand-logo-wide.webp" alt="Centre Street Japanese Hotpot" />
+          <img src="/assets/brand-logo-wide.webp" alt="Centre Street Japanese Hotpot" width="600" height="184" />
         </a>
         <div className="nav-links">
           <Link href="/">Home</Link>
@@ -52,7 +52,7 @@ export default function Home() {
           </div>
         </div>
         <div className="hero-plate" aria-label="Signature Taiwanese beef noodle soup">
-          <img src="/assets/dish-beef-noodle.webp" alt="Signature Taiwanese beef noodle soup" />
+          <img src="/assets/dish-beef-noodle.webp" alt="Signature Taiwanese beef noodle soup" width="1024" height="559" />
         </div>
       </section>
 

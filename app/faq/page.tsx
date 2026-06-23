@@ -98,7 +98,7 @@ export default function FaqPage() {
       />
       <nav className="site-nav" aria-label="Main navigation">
         <Link className="brand-mark" href="/" aria-label="Centre Street Japanese Hotpot home">
-          <img src="/assets/brand-logo-wide.webp" alt="Centre Street Japanese Hotpot" />
+          <img src="/assets/brand-logo-wide.webp" alt="Centre Street Japanese Hotpot" width="600" height="184" />
         </Link>
         <div className="nav-links">
           <Link href="/">Home</Link>

@@ -708,6 +708,43 @@ h3 {
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
 }
 
+.dish-showcase {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-bottom: 20px;
+}
+
+.featured-dish {
+  background: #fff8ea;
+  border: 1px solid rgba(127, 23, 22, 0.18);
+  border-radius: 8px;
+  box-shadow: 0 12px 30px rgba(60, 26, 12, 0.14);
+  color: var(--ink);
+  overflow: hidden;
+}
+
+.featured-dish img {
+  aspect-ratio: 4 / 3;
+  height: auto;
+  object-fit: cover;
+  object-position: center;
+  width: 100%;
+}
+
+.featured-dish div {
+  padding: 14px 16px;
+}
+
+.featured-dish h3 {
+  font-size: 1.08rem;
+  margin-bottom: 4px;
+}
+
+.featured-dish p {
+  margin-bottom: 0;
+}
+
 .soup-list span {
   background: rgba(255, 248, 234, 0.7);
   border: 1px solid rgba(127, 23, 22, 0.12);
@@ -750,6 +787,27 @@ h3 {
 .price-list strong {
   color: var(--red);
   font-size: 1.08rem;
+}
+
+.drink-panel {
+  background: var(--paper-soft);
+  border-radius: 8px;
+  color: var(--ink);
+  display: grid;
+  grid-template-columns: minmax(240px, 0.5fr) minmax(0, 1fr);
+  overflow: hidden;
+}
+
+.drink-panel img {
+  height: 100%;
+  max-height: 420px;
+  object-fit: cover;
+  object-position: center 46%;
+  width: 100%;
+}
+
+.drink-panel .price-list {
+  border-radius: 0;
 }
 
 .snacks-section {
@@ -960,6 +1018,7 @@ h3 {
   .about-section,
   .social-follow,
   .two-column,
+  .drink-panel,
   .menu-images {
     grid-template-columns: 1fr;
   }
@@ -987,6 +1046,7 @@ h3 {
   }
 
   .quick-info,
+  .dish-showcase,
   .set-grid,
   .weekly-picks-grid,
   .visit-grid {
@@ -1145,6 +1205,29 @@ h3 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .dish-showcase {
+    gap: 10px;
+    grid-template-columns: 1fr;
+  }
+
+  .featured-dish {
+    display: grid;
+    grid-template-columns: 96px minmax(0, 1fr);
+  }
+
+  .featured-dish img {
+    aspect-ratio: auto;
+    height: 100%;
+  }
+
+  .featured-dish div {
+    padding: 12px;
+  }
+
+  .featured-dish h3 {
+    font-size: 0.96rem;
+  }
+
   .soup-list span {
     align-items: center;
     display: flex;
@@ -1166,6 +1249,11 @@ h3 {
 
   .price-list strong {
     font-size: 0.98rem;
+  }
+
+  .drink-panel img {
+    height: 150px;
+    max-height: none;
   }
 
   .quick-info div {

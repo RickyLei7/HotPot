@@ -228,6 +228,20 @@ export default function MenuPage() {
           <p className="eyebrow">Soup bases</p>
           <h2>Signature broths for Japanese hot pot in Calgary.</h2>
         </div>
+        <div className="dish-showcase">
+          <article className="featured-dish">
+            <img src="/assets/dish-sukiyaki.webp" alt="Sukiyaki Japanese hot pot broth in Calgary" width="900" height="675" loading="lazy" decoding="async" />
+            <div><h3>日式壽喜鍋</h3><p>Sukiyaki</p></div>
+          </article>
+          <article className="featured-dish">
+            <img src="/assets/dish-tom-yum.webp" alt="Tom Yum Kung hot pot soup base" width="900" height="675" loading="lazy" decoding="async" />
+            <div><h3>泰式酸辣冬陰鍋</h3><p>Tom Yum Kung</p></div>
+          </article>
+          <article className="featured-dish">
+            <img src="/assets/dish-spicy.webp" alt="Spicy hot pot soup base at Centre Street Japanese HotPot" width="900" height="675" loading="lazy" decoding="async" />
+            <div><h3>經典麻辣鍋</h3><p>Spicy Hotpot</p></div>
+          </article>
+        </div>
         <div className="soup-list" aria-label="Soup bases">
           {soups.map((soup) => <span key={soup}>{soup}</span>)}
         </div>
@@ -263,10 +277,13 @@ export default function MenuPage() {
           <p className="eyebrow">Milk tea & drinks</p>
           <h2>Tea, milk tea, specialty drinks, smoothies, sodas, and toppings.</h2>
         </div>
-        <div className="price-list">
-          {drinks.map(([item, price]) => (
-            <div key={item}><span>{item}</span><strong>{price}</strong></div>
-          ))}
+        <div className="drink-panel">
+          <img src="/assets/milk-tea-photo.webp" alt="Milk tea drinks at Centre Street Japanese HotPot Calgary" width="900" height="1200" loading="lazy" decoding="async" />
+          <div className="price-list">
+            {drinks.map(([item, price]) => (
+              <div key={item}><span>{item}</span><strong>{price}</strong></div>
+            ))}
+          </div>
         </div>
       </section>
 

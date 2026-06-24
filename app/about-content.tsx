@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 const highlights = [
-  ["日式火鍋用餐體驗", "Japanese-style hot pot experience"],
+  ["台式與日式火鍋用餐體驗", "Taiwanese and Japanese-style hot pot experience"],
   ["精選優質肉品與新鮮海鮮", "Premium quality meats and fresh seafood"],
   ["每日供應新鮮蔬菜與食材", "Fresh vegetables prepared daily"],
   ["多款特色湯底選擇", "Multiple signature broth selections"],
@@ -35,7 +35,7 @@ export default function AboutContent({
           {isStandalone ? (
             <>
               <p>
-                在鼎鑽火鍋，我們相信火鍋不只是美食，更是一種與家人朋友共享歡樂時光的方式。我們以日式火鍋文化為靈感，結合對食材品質與用餐體驗的堅持，希望為每位顧客帶來溫暖、舒適且難忘的火鍋體驗。
+                在鼎鑽火鍋，我們相信火鍋不只是美食，更是一種與家人朋友共享歡樂時光的方式。我們以台式與日式火鍋文化為靈感，結合對食材品質與用餐體驗的堅持，希望為每位顧客帶來溫暖、舒適且難忘的火鍋體驗。
               </p>
               <p>
                 我們精選優質肉品、新鮮海鮮、當季蔬菜及多款特色湯底，讓每一份食材都能展現最自然鮮美的風味。我們始終堅持新鮮、品質與穩定，致力於為顧客提供值得信賴的餐點與服務。
@@ -64,7 +64,7 @@ export default function AboutContent({
           {isStandalone ? (
             <>
               <p>
-                At Centre Street Japanese HotPot, we are passionate about bringing people together through the warmth and comfort of hot pot dining. Inspired by the quality, simplicity, and attention to detail found in Japanese hot pot traditions, we strive to create a memorable dining experience for every guest.
+                At Centre Street Japanese HotPot, we are passionate about bringing people together through the warmth and comfort of hot pot dining. Inspired by Taiwanese hot pot and Japanese-style individual hot pot traditions, we strive to create a memorable dining experience for every guest.
               </p>
               <p>
                 Our menu features carefully selected meats, fresh seafood, seasonal vegetables, and flavorful broths prepared to highlight the natural taste of every ingredient. We believe that great hot pot starts with quality ingredients, which is why we focus on freshness, variety, and consistency in every meal we serve.
@@ -81,7 +81,7 @@ export default function AboutContent({
             </>
           ) : (
             <p>
-              We focus on Japanese-style hot pot, fresh ingredients, flavorful broths, and friendly service for family dinners, group gatherings, and everyday Calgary dining.
+              We focus on Taiwanese and Japanese-style individual hot pot, fresh ingredients, flavorful broths, and friendly service for family dinners, group gatherings, and everyday Calgary dining.
             </p>
           )}
         </div>

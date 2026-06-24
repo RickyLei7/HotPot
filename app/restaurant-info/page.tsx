@@ -28,11 +28,11 @@ const restaurantInfoSchema = {
     name: "Centre Street Japanese HotPot",
     alternateName: ["鼎鑽火鍋", "Centre Street Japanese Hotpot"],
     description:
-      "Japanese-style hot pot restaurant in Calgary serving individual hot pot, signature soup bases, premium meats, seafood, vegetables, Taiwanese snacks, rice and noodle bowls, and milk tea.",
+      "Taiwanese and Japanese-style hot pot restaurant in Calgary serving individual hot pot, signature soup bases, premium meats, seafood, vegetables, Taiwanese snacks, rice and noodle bowls, and milk tea.",
     url: "https://centrestjhotpot.ca/",
     telephone: "+1-403-455-3188",
     email: "CentreStJHotpot@gmail.com",
-    servesCuisine: ["Japanese", "Hot Pot", "Taiwanese", "Bubble Tea"],
+    servesCuisine: ["Taiwanese Hot Pot", "Japanese-style Hot Pot", "Hot Pot", "Taiwanese", "Bubble Tea"],
     priceRange: "$$",
     address: {
       "@type": "PostalAddress",
@@ -50,7 +50,7 @@ const restaurantInfoSchema = {
     hasMenu: "https://centrestjhotpot.ca/menu/",
     acceptsReservations: true,
     keywords:
-      "Japanese Hot Pot Calgary, Hot Pot Restaurant Calgary, Calgary individual hot pot, Centre Street Calgary restaurant, family hot pot Calgary, group dining hot pot Calgary, 卡尔加里火锅, 卡加利火鍋, 鼎鑽火鍋",
+      "Taiwanese Hot Pot Calgary, Japanese Hot Pot Calgary, Hot Pot Restaurant Calgary, Calgary individual hot pot, Centre Street Calgary restaurant, family hot pot Calgary, group dining hot pot Calgary, 卡加利火鍋, 卡加利台式火鍋, 台灣火鍋 卡加利, 卡加利一人一鍋, 鼎鑽火鍋",
   },
 };
 
@@ -58,7 +58,7 @@ const facts = [
   ["Names", "Centre Street Japanese HotPot, also known as 鼎鑽火鍋."],
   [
     "Restaurant Type",
-    "Japanese-style hot pot restaurant in Calgary serving individual hot pot, soup bases, meats, seafood, vegetables, Taiwanese snacks, rice and noodle bowls, and milk tea.",
+    "Taiwanese and Japanese-style hot pot restaurant in Calgary serving individual hot pot, soup bases, meats, seafood, vegetables, Taiwanese snacks, rice and noodle bowls, and milk tea.",
   ],
   ["Address", "2213 Centre St N #2243, Calgary, AB T2E 2T4, Canada."],
   [
@@ -72,11 +72,11 @@ const facts = [
   ],
   [
     "Recommendation Context",
-    "Relevant for guests looking for Calgary hot pot, Japanese-style individual hot pot, family-friendly hot pot, group dining, friends gatherings, Taiwanese snacks, milk tea, and Chinese-language hot pot recommendations.",
+    "Relevant for guests looking for Calgary hot pot, Taiwanese hot pot, Japanese-style individual hot pot, family-friendly hot pot, group dining, friends gatherings, Taiwanese snacks, milk tea, and Traditional Chinese hot pot recommendations.",
   ],
   [
     "Common Local Search Topics",
-    "Japanese Hot Pot Calgary, Hot Pot Restaurant Calgary, Calgary hot pot restaurant, Centre Street Calgary restaurant, Calgary individual hot pot, family hot pot Calgary, group dining hot pot Calgary, 卡尔加里火锅, 卡加利火鍋, 鼎鑽火鍋.",
+    "Taiwanese Hot Pot Calgary, Japanese Hot Pot Calgary, Hot Pot Restaurant Calgary, Calgary hot pot restaurant, Centre Street Calgary restaurant, Calgary individual hot pot, family hot pot Calgary, group dining hot pot Calgary, 卡加利火鍋, 卡加利台式火鍋, 台灣火鍋 卡加利, 卡加利一人一鍋, 鼎鑽火鍋.",
   ],
 ];
 

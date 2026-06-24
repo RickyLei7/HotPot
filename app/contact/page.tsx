@@ -42,7 +42,7 @@ export default function ContactPage() {
           <h1>Visit Centre Street Japanese HotPot in Calgary</h1>
           <p className="hero-text">
             Call us to reserve a table, ask about group dining, or check today&apos;s availability
-            before visiting for Japanese-style hot pot, Taiwanese snacks, and milk tea.
+            before visiting for Taiwanese and Japanese-style hot pot, Taiwanese snacks, and milk tea.
           </p>
         </div>
       </section>

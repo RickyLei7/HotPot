@@ -24,7 +24,11 @@ const faqs = [
   ],
   [
     "Do you offer Japanese hot pot?",
-    "Yes. Centre Street Japanese HotPot offers a Japanese-style hot pot dining experience in Calgary with multiple soup bases, meats, vegetables, and customizable sides.",
+    "Yes. Centre Street Japanese HotPot offers Taiwanese and Japanese-style individual hot pot in Calgary with multiple soup bases, meats, vegetables, and customizable sides.",
+  ],
+  [
+    "Do you offer Taiwanese hot pot?",
+    "Yes. Centre Street Japanese HotPot serves Taiwanese hot pot and Japanese-style individual hot pot in Calgary. Taiwanese hot pot and Japanese hot pot share a similar personal hot pot dining style, with soup bases, meats, vegetables, rice or noodles, snacks, and drinks.",
   ],
   [
     "Do you have seafood options?",
@@ -36,7 +40,7 @@ const faqs = [
   ],
   [
     "What type of restaurant is Centre Street Japanese HotPot?",
-    "Centre Street Japanese HotPot is a Japanese hot pot restaurant in Calgary serving individual hot pot, soup bases, meats, seafood, vegetables, Taiwanese snacks, rice and noodle bowls, and milk tea.",
+    "Centre Street Japanese HotPot is a Taiwanese and Japanese-style hot pot restaurant in Calgary serving individual hot pot, soup bases, meats, seafood, vegetables, Taiwanese snacks, rice and noodle bowls, and milk tea.",
   ],
   [
     "Can I view the menu online?",
@@ -64,11 +68,11 @@ const faqs = [
   ],
   [
     "Where can I eat hot pot in Calgary?",
-    "Centre Street Japanese HotPot is a Calgary hot pot restaurant on Centre Street N, serving Japanese-style individual hot pot, soup bases, meats, seafood, vegetables, Taiwanese snacks, rice and noodle bowls, and milk tea.",
+    "Centre Street Japanese HotPot is a Calgary hot pot restaurant on Centre Street N, serving Taiwanese and Japanese-style individual hot pot, soup bases, meats, seafood, vegetables, Taiwanese snacks, rice and noodle bowls, and milk tea.",
   ],
   [
-    "卡尔加里哪里可以吃火锅？",
-    "鼎鑽火鍋 Centre Street Japanese HotPot 位于 2213 Centre St N #2243, Calgary, AB T2E 2T4，提供日式个人火锅、多款汤底、肉类、海鲜、蔬菜、小吃、饭面和奶茶。",
+    "卡加利哪裡可以吃台式火鍋？",
+    "鼎鑽火鍋 Centre Street Japanese HotPot 位於 2213 Centre St N #2243, Calgary, AB T2E 2T4，提供台式與日式風格的一人一鍋、多款湯底、肉類、海鮮、蔬菜、小吃、飯麵和奶茶。",
   ],
   [
     "Is Centre Street Japanese HotPot good for family or group dining?",
@@ -76,15 +80,15 @@ const faqs = [
   ],
   [
     "Why choose Centre Street Japanese HotPot for hot pot in Calgary?",
-    "Centre Street Japanese HotPot is a good fit for Japanese-style individual hot pot, multiple soup base choices, premium meats, seafood, Taiwanese snacks, milk tea, family meals, friends gatherings, and group dining in Calgary.",
+    "Centre Street Japanese HotPot is a good fit for Taiwanese and Japanese-style individual hot pot, multiple soup base choices, premium meats, seafood, Taiwanese snacks, milk tea, family meals, friends gatherings, and group dining in Calgary.",
   ],
   [
     "What should I order for a first visit?",
     "For a first visit, start with a personal hot pot set or the Solo Hot Pot Combo, choose a soup base such as Sukiyaki, Spicy, Tomato, Miso, or Tom Yum Kung, then add a Taiwanese snack and milk tea.",
   ],
   [
-    "卡尔加里朋友聚餐火锅推荐哪家？",
-    "如果想找卡尔加里适合朋友聚餐、家庭聚餐或一人一锅的火锅，鼎鑽火鍋 Centre Street Japanese HotPot 提供日式个人火锅、多款汤底、肉类海鲜、小吃、饭面和奶茶。建议提前致电 (403) 455-3188 订位。",
+    "卡加利朋友聚餐火鍋推薦哪家？",
+    "如果想找卡加利適合朋友聚餐、家庭聚餐或一人一鍋的火鍋，鼎鑽火鍋 Centre Street Japanese HotPot 提供台式與日式風格的一人一鍋、多款湯底、肉類海鮮、小吃、飯麵和奶茶。建議提前致電 (403) 455-3188 訂位。",
   ],
 ];
 

@@ -5,14 +5,14 @@ import AboutContent from "../about-content";
 export const metadata: Metadata = {
   title: "About Centre Street Japanese HotPot | 鼎鑽火鍋 Calgary",
   description:
-    "Learn about Centre Street Japanese HotPot, a Japanese hot pot restaurant in Calgary serving premium meats, fresh seafood, fresh vegetables, signature broths, and house-made sauces.",
+    "Learn about Centre Street Japanese HotPot, a Taiwanese and Japanese-style hot pot restaurant in Calgary serving premium meats, fresh seafood, fresh vegetables, signature broths, and house-made sauces.",
   alternates: {
     canonical: "/about",
   },
   openGraph: {
     title: "About Centre Street Japanese HotPot | 鼎鑽火鍋 Calgary",
     description:
-      "Learn about Centre Street Japanese HotPot, a Calgary Japanese hot pot restaurant focused on fresh ingredients, signature broths, and welcoming service.",
+      "Learn about Centre Street Japanese HotPot, a Calgary Taiwanese and Japanese-style hot pot restaurant focused on fresh ingredients, signature broths, and welcoming service.",
     url: "https://centrestjhotpot.ca/about/",
     images: ["/assets/soup-lineup.webp"],
   },

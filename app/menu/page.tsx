@@ -4,14 +4,14 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Menu | Centre Street Japanese HotPot Calgary",
   description:
-    "Explore the Centre Street Japanese HotPot menu in Calgary, including Japanese-style hot pot soup bases, premium meats, rice and noodle bowls, Taiwanese snacks, and milk tea.",
+    "Explore the Centre Street Japanese HotPot menu in Calgary, including Taiwanese and Japanese-style hot pot soup bases, premium meats, rice and noodle bowls, Taiwanese snacks, and milk tea.",
   alternates: {
     canonical: "/menu",
   },
   openGraph: {
     title: "Menu | Centre Street Japanese HotPot Calgary",
     description:
-      "Explore Japanese-style hot pot soup bases, premium meats, rice and noodle bowls, Taiwanese snacks, and milk tea in Calgary.",
+      "Explore Taiwanese and Japanese-style hot pot soup bases, premium meats, rice and noodle bowls, Taiwanese snacks, and milk tea in Calgary.",
     url: "https://centrestjhotpot.ca/menu/",
     images: ["/assets/dish-sukiyaki.webp"],
   },
@@ -169,9 +169,9 @@ export default function MenuPage() {
       <section className="page-hero menu-page-hero">
         <div>
           <p className="eyebrow">Menu</p>
-          <h1>Japanese Hot Pot Menu in Calgary</h1>
+          <h1>Taiwanese & Japanese Hot Pot Menu in Calgary</h1>
           <p className="hero-text">
-            Choose from Japanese-style hot pot soup bases, premium meats, fresh seafood, vegetables,
+            Choose from Taiwanese and Japanese-style hot pot soup bases, premium meats, fresh seafood, vegetables,
             rice and noodle bowls, Taiwanese snacks, and milk tea.
           </p>
         </div>

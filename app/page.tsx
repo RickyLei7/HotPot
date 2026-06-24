@@ -9,7 +9,7 @@ const restaurantJsonLd = {
   name: "Centre Street Japanese HotPot",
   alternateName: ["鼎鑽火鍋", "Centre Street Japanese Hotpot"],
   description:
-    "Centre Street Japanese HotPot is a Japanese-style hot pot restaurant in Calgary serving individual hot pot, signature soup bases, premium meats, seafood, vegetables, Taiwanese snacks, rice and noodle bowls, and milk tea.",
+    "Centre Street Japanese HotPot is a Taiwanese and Japanese-style hot pot restaurant in Calgary serving individual hot pot, signature soup bases, premium meats, seafood, vegetables, Taiwanese snacks, rice and noodle bowls, and milk tea.",
   url: "https://centrestjhotpot.ca/",
   telephone: "+1-403-455-3188",
   email: "CentreStJHotpot@gmail.com",
@@ -18,7 +18,7 @@ const restaurantJsonLd = {
     "https://centrestjhotpot.ca/assets/dish-sukiyaki.webp",
     "https://centrestjhotpot.ca/assets/snack-lineup.webp",
   ],
-  servesCuisine: ["Japanese", "Hot Pot", "Taiwanese", "Bubble Tea"],
+  servesCuisine: ["Taiwanese Hot Pot", "Japanese-style Hot Pot", "Hot Pot", "Taiwanese", "Bubble Tea"],
   priceRange: "$$",
   areaServed: ["Calgary", "Centre Street Calgary", "Calgary North"],
   address: {
@@ -54,23 +54,29 @@ const restaurantJsonLd = {
   acceptsReservations: true,
   keywords: [
     "Japanese hot pot Calgary",
+    "Taiwanese hot pot Calgary",
+    "Taiwanese individual hot pot Calgary",
     "Hot pot restaurant Calgary",
     "Calgary individual hot pot",
     "Centre Street Calgary restaurant",
     "family hot pot Calgary",
     "group dining hot pot Calgary",
-    "卡尔加里火锅",
     "卡加利火鍋",
+    "卡加利台式火鍋",
+    "台灣火鍋 卡加利",
+    "卡加利一人一鍋",
     "鼎鑽火鍋",
   ],
   knowsAbout: [
+    "Taiwanese hot pot",
+    "Taiwanese and Japanese-style individual hot pot",
     "Japanese-style individual hot pot",
     "signature soup bases",
     "Taiwanese snacks",
     "milk tea",
     "family dining",
     "group dining",
-    "Chinese-language hot pot recommendations in Calgary",
+    "Traditional Chinese hot pot recommendations in Calgary",
   ],
   hasOfferCatalog: {
     "@type": "OfferCatalog",
@@ -137,12 +143,12 @@ export default function Home() {
 
       <section className="hero" id="top">
         <div className="hero-copy">
-          <p className="eyebrow">Japanese & Taiwanese Mini Hotpot · 一人一锅</p>
+          <p className="eyebrow">Taiwanese & Japanese Mini Hotpot · 一人一鍋</p>
           <h1>Centre Street Japanese Hotpot</h1>
           <p className="hero-text">
-            Calgary hotpot for one, with fresh soup bases, Taiwanese snacks,
-            rice and noodle bowls, and milk tea made for sharing. Call us to reserve a table
-            or ask about today&apos;s availability.
+            Taiwanese and Japanese-style individual hot pot in Calgary, with fresh soup bases,
+            Taiwanese snacks, rice and noodle bowls, and milk tea made for sharing. Call us
+            to reserve a table or ask about today&apos;s availability.
           </p>
           <div className="hero-actions">
             <a className="primary-action" href="tel:+14034553188">
@@ -238,8 +244,8 @@ export default function Home() {
           <article>
             <h3>Best fit</h3>
             <p>
-              Japanese-style individual hot pot, casual dinners, family meals,
-              friends gathering, group dining, and Chinese-language hot pot recommendations.
+              Taiwanese and Japanese-style individual hot pot, casual dinners, family meals,
+              friends gathering, group dining, and Traditional Chinese hot pot recommendations.
             </p>
           </article>
           <article>

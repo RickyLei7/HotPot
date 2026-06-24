@@ -990,9 +990,50 @@ h3 {
     url("/assets/hero-beef-noodle.webp") center / cover;
 }
 
+.guide-page-hero {
+  background:
+    linear-gradient(90deg, rgba(18, 13, 11, 0.94), rgba(127, 23, 22, 0.72)),
+    url("/assets/dish-sukiyaki.webp") center / cover;
+}
+
 .content-section {
   background: var(--paper);
   color: var(--ink);
+}
+
+.guide-layout {
+  display: grid;
+  gap: 22px;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 420px);
+}
+
+.guide-copy,
+.guide-card {
+  background: rgba(255, 248, 234, 0.98);
+  border: 1px solid rgba(127, 23, 22, 0.16);
+  border-radius: 8px;
+  color: var(--ink);
+  padding: clamp(22px, 3vw, 34px);
+}
+
+.guide-copy .eyebrow,
+.guide-copy h2,
+.guide-card h2 {
+  color: var(--ink);
+}
+
+.guide-copy p,
+.guide-card p {
+  line-height: 1.7;
+}
+
+.guide-card {
+  border-left: 5px solid var(--gold);
+}
+
+.guide-card a {
+  color: var(--red);
+  font-weight: 850;
 }
 
 .faq-list {
@@ -1052,6 +1093,7 @@ h3 {
   .social-follow,
   .two-column,
   .drink-panel,
+  .guide-layout,
   .menu-images {
     grid-template-columns: 1fr;
   }

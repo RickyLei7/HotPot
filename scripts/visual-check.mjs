@@ -7,7 +7,7 @@ import path from "node:path";
 const root = process.cwd();
 const publicDir = path.join(root, "public");
 const outputDir = path.join(root, "reports", "visual-check");
-const pages = ["/", "/menu/", "/about/", "/faq/", "/contact/", "/restaurant-info/"];
+const pages = ["/", "/menu/", "/about/", "/faq/", "/contact/", "/restaurant-info/", "/calgary-hot-pot-guide/"];
 const viewports = [
   { name: "mobile", width: 390, height: 844, isMobile: true },
   { name: "desktop", width: 1440, height: 1000, isMobile: false },

@@ -2,7 +2,7 @@ module.exports = {
   ci: {
     collect: {
       staticDistDir: "./public",
-      url: ["/", "/menu/", "/about/", "/faq/", "/contact/", "/restaurant-info/"],
+      url: ["/", "/menu/", "/about/", "/faq/", "/contact/", "/restaurant-info/", "/calgary-hot-pot-guide/"],
       numberOfRuns: 1,
       settings: {
         chromeFlags: "--headless=new --no-sandbox",

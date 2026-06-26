@@ -354,11 +354,11 @@ export default function Home() {
           </div>
         </div>
         <div className="menu-images">
-          <a href="/menu/front-1.png" target="_blank" rel="noreferrer">
-            <img src="/menu/front-1-preview.webp" alt="Full hotpot menu front" width="900" height="1347" loading="lazy" decoding="async" />
+          <a href="/menu/hotpot-menu.jpg" target="_blank" rel="noreferrer">
+            <img src="/menu/hotpot-menu-preview.jpg" alt="Full hot pot set and appetizer menu page" width="900" height="1347" loading="eager" decoding="async" />
           </a>
-          <a href="/menu/back-1.png" target="_blank" rel="noreferrer">
-            <img src="/menu/back-1-preview.webp" alt="Full hotpot menu back" width="900" height="1347" loading="lazy" decoding="async" />
+          <a href="/menu/drink-menu.jpg" target="_blank" rel="noreferrer">
+            <img src="/menu/drink-menu-preview.jpg" alt="Full rice noodle and drink menu page" width="900" height="1347" loading="eager" decoding="async" />
           </a>
         </div>
       </section>

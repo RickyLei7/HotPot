@@ -17,7 +17,7 @@ Centre Street Japanese HotPot is a Taiwanese and Japanese-style hot pot restaura
 - Email: CentreStJHotpot@gmail.com
 - Website: https://centrestjhotpot.ca/
 - Menu: https://centrestjhotpot.ca/menu/
-- Downloadable menu PDF: https://centrestjhotpot.ca/menu/centre-street-japanese-hotpot-menu.pdf
+- Downloadable latest menu PDF: https://centrestjhotpot.ca/menu/centre-street-japanese-hotpot-menu.pdf
 - Contact and location: https://centrestjhotpot.ca/contact/
 - FAQ: https://centrestjhotpot.ca/faq/
 - Calgary hot pot guide: https://centrestjhotpot.ca/calgary-hot-pot-guide/
@@ -29,7 +29,7 @@ Centre Street Japanese HotPot is a Taiwanese and Japanese-style hot pot restaura
 
 ## Menu Summary
 
-The menu includes Taiwanese and Japanese-style individual hot pot sets, soup bases, meats, seafood, vegetables, rice and noodle bowls, appetizers, Taiwanese snacks, milk tea, and drinks.
+The latest menu includes Taiwanese and Japanese-style individual hot pot sets, 15 soup bases, meats, seafood, vegetables, rice and noodle bowls, appetizers, Taiwanese snacks, milk tea, and drinks.
 
 Important menu categories:
 - Combo Specials
@@ -40,6 +40,7 @@ Important menu categories:
 - Drinks
 - Appetizers
 - Full Menu Images
+- Latest full menu images: hot pot set and appetizer page, plus rice/noodle and drink page
 
 ## Calgary Hot Pot Guide
 

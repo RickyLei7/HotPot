@@ -327,6 +327,8 @@ h3 { font-size: 1.08rem; margin-bottom: 10px; }
 .social-icon { align-items: center; background: var(--gold); border-radius: 999px; color: var(--ink); display: inline-flex; font-size: 0.72rem; font-weight: 950; height: 30px; justify-content: center; min-width: 30px; }
 .social-facebook .social-icon { background: #1877f2; color: #fff; font-family: Arial, Helvetica, sans-serif; font-size: 1.2rem; }
 .social-instagram .social-icon { background: linear-gradient(135deg, #f58529, #dd2a7b 52%, #515bd4); color: #fff; font-size: 1.25rem; }
+.social-threads .social-icon { background: #fff; color: #111; font-family: Arial, Helvetica, sans-serif; font-size: 1rem; }
+.social-tiktok .social-icon { background: #010101; color: #25f4ee; font-family: Arial, Helvetica, sans-serif; font-size: 1.05rem; text-shadow: 1px 1px 0 #fe2c55; }
 .social-red .social-icon { background: #ff2442; color: #fff; }
 .page-hero { align-items: center; background: linear-gradient(90deg, rgba(18, 13, 11, 0.94), rgba(127, 23, 22, 0.78)), url("assets/soup-lineup.webp") center / cover; display: grid; min-height: 52vh; }
 .menu-page-hero { background: linear-gradient(90deg, rgba(18, 13, 11, 0.94), rgba(127, 23, 22, 0.74)), url("assets/dish-sukiyaki.webp") center / cover; }

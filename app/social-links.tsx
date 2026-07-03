@@ -12,7 +12,19 @@ const socialLinks = [
     className: "social-facebook",
   },
   {
-    label: "小红书",
+    label: "Threads",
+    shortLabel: "@",
+    href: "https://www.threads.com/@centrestreetjapanesehotpot",
+    className: "social-threads",
+  },
+  {
+    label: "TikTok",
+    shortLabel: "♪",
+    href: "https://www.tiktok.com/@stjapanesehotpot",
+    className: "social-tiktok",
+  },
+  {
+    label: "小紅書",
     shortLabel: "小",
     href: "https://www.xiaohongshu.com/user/profile/65408e340000000030030828",
     className: "social-red",

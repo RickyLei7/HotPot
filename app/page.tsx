@@ -16,7 +16,7 @@ const restaurantJsonLd = {
   image: [
     "https://centrestjhotpot.ca/assets/hero-beef-noodle.webp",
     "https://centrestjhotpot.ca/assets/dish-sukiyaki.webp",
-    "https://centrestjhotpot.ca/assets/ayce-hotpot.jpg",
+    "https://centrestjhotpot.ca/assets/ayce-hotpot.webp",
   ],
   servesCuisine: ["Taiwanese Hot Pot", "Japanese-style Hot Pot", "Hot Pot", "Taiwanese", "Bubble Tea"],
   priceRange: "$$",
@@ -132,6 +132,8 @@ const restaurantJsonLd = {
   sameAs: [
     "https://www.instagram.com/centrestreetjapanesehotpot/",
     "https://www.facebook.com/CentreStreetJapaneseHotPot",
+    "https://www.threads.com/@centrestreetjapanesehotpot",
+    "https://www.tiktok.com/@stjapanesehotpot",
     "https://www.xiaohongshu.com/user/profile/65408e340000000030030828",
   ],
 };
@@ -237,8 +239,8 @@ export default function Home() {
 
       <section className="quick-info" aria-label="Restaurant highlights">
         <div>
-          <span>$24.99</span>
-          Solo hot pot combo
+          <span>$28.99</span>
+          AYCE hot pot
         </div>
         <div>
           <span>15</span>
@@ -333,7 +335,7 @@ export default function Home() {
         </div>
         <a className="ayce-card" href="#ayce-poster" aria-label="View All-You-Can-Eat Hot Pot poster">
           <span>$28.99 + tax</span>
-          <img src="/assets/ayce-hotpot-preview.jpg" alt="All-You-Can-Eat Hot Pot poster with $28.99 pricing, meat selection, snack upgrade, and kids pricing by height" width="588" height="760" loading="lazy" decoding="async" />
+          <img src="/assets/ayce-hotpot-preview.webp" alt="All-You-Can-Eat Hot Pot poster with $28.99 pricing, meat selection, snack upgrade, and kids pricing by height" width="588" height="760" loading="lazy" decoding="async" />
         </a>
       </section>
 
@@ -344,7 +346,7 @@ export default function Home() {
             Close
           </a>
           <span className="modal-label">$28.99 + tax</span>
-          <img src="/assets/ayce-hotpot.jpg" alt="All-You-Can-Eat Hot Pot poster with $28.99 pricing, meat selection, snack upgrade, and kids pricing by height" width="1160" height="1500" loading="lazy" decoding="async" />
+          <img src="/assets/ayce-hotpot.webp" alt="All-You-Can-Eat Hot Pot poster with $28.99 pricing, meat selection, snack upgrade, and kids pricing by height" width="1160" height="1500" loading="lazy" decoding="async" />
         </div>
       </div>
 
@@ -377,10 +379,10 @@ export default function Home() {
         </div>
         <div className="menu-images">
           <a href="/menu/hotpot-menu.jpg" target="_blank" rel="noreferrer">
-            <img src="/menu/hotpot-menu-preview.jpg" alt="Full hot pot set and appetizer menu page" width="900" height="1347" loading="eager" decoding="async" />
+            <img src="/menu/hotpot-menu-preview.webp" alt="Full hot pot set and appetizer menu page" width="601" height="900" loading="eager" decoding="async" />
           </a>
           <a href="/menu/drink-menu.jpg" target="_blank" rel="noreferrer">
-            <img src="/menu/drink-menu-preview.jpg" alt="Full rice noodle and drink menu page" width="900" height="1347" loading="eager" decoding="async" />
+            <img src="/menu/drink-menu-preview.webp" alt="Full rice noodle and drink menu page" width="601" height="900" loading="eager" decoding="async" />
           </a>
         </div>
       </section>
@@ -409,6 +411,19 @@ export default function Home() {
           <article>
             <h3>Good for</h3>
             <p>Hotpot · Milk Tea · Light Meals · Snacks · Family Dining</p>
+          </article>
+          <article>
+            <h3>Reviews</h3>
+            <p>
+              <a
+                href="https://www.google.com/maps/place/Centre+Street+Japanese+Hotpot/@51.072234,-114.0656247,17z/data=!3m1!4b1!4m6!3m5!1s0x537165667f6ee1f3:0x1a418403f487f9b3!8m2!3d51.0722307!4d-114.0630498!16s%2Fg%2F11bwndz8pj"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Review us on Google
+              </a>
+            </p>
+            <p>Your review helps more Calgary guests find us.</p>
           </article>
         </div>
         <div className="social-follow">

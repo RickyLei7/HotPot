@@ -72,6 +72,11 @@ export default function ContactPage() {
             <p><a href="https://www.google.com/maps/place/Centre+Street+Japanese+Hotpot/@51.072234,-114.0656247,17z/data=!3m1!4b1!4m6!3m5!1s0x537165667f6ee1f3:0x1a418403f487f9b3!8m2!3d51.0722307!4d-114.0630498!16s%2Fg%2F11bwndz8pj" target="_blank" rel="noreferrer">Open Google Maps</a></p>
           </article>
           <article>
+            <h3>Reviews</h3>
+            <p><a href="https://www.google.com/maps/place/Centre+Street+Japanese+Hotpot/@51.072234,-114.0656247,17z/data=!3m1!4b1!4m6!3m5!1s0x537165667f6ee1f3:0x1a418403f487f9b3!8m2!3d51.0722307!4d-114.0630498!16s%2Fg%2F11bwndz8pj" target="_blank" rel="noreferrer">Review us on Google</a></p>
+            <p>Your review helps more Calgary guests find us.</p>
+          </article>
+          <article>
             <h3>Social</h3>
             <p>Follow us for updates, photos, offers, and reviews.</p>
           </article>

@@ -4,14 +4,14 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Menu | Centre Street Japanese HotPot Calgary",
   description:
-    "Explore the Centre Street Japanese HotPot menu in Calgary, including Taiwanese and Japanese-style hot pot soup bases, premium meats, rice and noodle bowls, Taiwanese snacks, and milk tea.",
+    "Explore the Centre Street Japanese HotPot menu in Calgary, including Taiwanese and Japanese-style hot pot, all-you-can-eat hot pot, soup bases, premium meats, rice and noodle bowls, Taiwanese snacks, and milk tea.",
   alternates: {
     canonical: "/menu",
   },
   openGraph: {
     title: "Menu | Centre Street Japanese HotPot Calgary",
     description:
-      "Explore Taiwanese and Japanese-style hot pot soup bases, premium meats, rice and noodle bowls, Taiwanese snacks, and milk tea in Calgary.",
+      "Explore Taiwanese and Japanese-style hot pot, all-you-can-eat hot pot, soup bases, premium meats, rice and noodle bowls, Taiwanese snacks, and milk tea in Calgary.",
     url: "https://centrestjhotpot.ca/menu/",
     images: ["/assets/dish-sukiyaki.webp"],
   },
@@ -111,6 +111,29 @@ const menuJsonLd = {
     },
     {
       "@type": "MenuSection",
+      name: "All-You-Can-Eat Hot Pot",
+      hasMenuItem: [
+        {
+          "@type": "MenuItem",
+          name: "All-You-Can-Eat Hot Pot",
+          description: "Soup base included. Meat is ordered through the server. Time limit 1.5 hours. Price before tax.",
+          offers: { "@type": "Offer", price: "28.99", priceCurrency: "CAD" },
+        },
+        {
+          "@type": "MenuItem",
+          name: "All-You-Can-Eat Snacks Upgrade",
+          description: "Everyone at the same table must upgrade.",
+          offers: { "@type": "Offer", price: "3.99", priceCurrency: "CAD" },
+        },
+        {
+          "@type": "MenuItem",
+          name: "Kids Pricing by Height",
+          description: "Under 100 cm free. 100-140 cm $12.99. Over 140 cm adult price.",
+        },
+      ],
+    },
+    {
+      "@type": "MenuSection",
       name: "Hot Pot Soup Bases",
       hasMenuItem: soups.map((name) => ({ "@type": "MenuItem", name })),
     },
@@ -185,6 +208,7 @@ export default function MenuPage() {
         <div className="category-strip">
           <a href="#hotpot-set"><span className="category-icon">SET</span><strong>Hot Pot Set</strong></a>
           <a href="#combo-specials"><span className="category-icon">CMB</span><strong>Combos</strong></a>
+          <a href="#ayce-hotpot"><span className="category-icon">AYCE</span><strong>AYCE Hot Pot</strong></a>
           <a href="#soup-bases"><span className="category-icon">SOUP</span><strong>Soup Bases</strong></a>
           <a href="#rice-noodles"><span className="category-icon">RICE</span><strong>Rice & Noodles</strong></a>
           <a href="#drinks"><span className="category-icon">TEA</span><strong>Drinks</strong></a>
@@ -208,6 +232,19 @@ export default function MenuPage() {
           </div>
         </div>
         <img className="combo-poster" src="/assets/combo-hot-pot-special.webp" alt="Solo and Couple Hot Pot Combo specials" width="820" height="1230" loading="lazy" decoding="async" />
+      </section>
+
+      <section className="menu-section" id="ayce-hotpot">
+        <div className="section-heading">
+          <p className="eyebrow">All-you-can-eat hot pot</p>
+          <h2>AYCE Hot Pot with soup base included.</h2>
+        </div>
+        <div className="set-grid">
+          <article><h3>$28.99 + tax</h3><p>All-You-Can-Eat Hot Pot with soup base included. Meat is ordered through your server.</p></article>
+          <article><h3>Meat selection</h3><p>AAA beef, lamb, pork, and chicken. Each serving is 100g.</p></article>
+          <article><h3>Snack upgrade +$3.99</h3><p>All-you-can-eat snacks upgrade. Everyone at the same table must upgrade.</p></article>
+          <article><h3>Kids pricing by height</h3><p>Under 100 cm free. 100-140 cm $12.99. Over 140 cm adult price. Time limit is 1.5 hours.</p></article>
+        </div>
       </section>
 
       <section className="menu-section" id="hotpot-set">

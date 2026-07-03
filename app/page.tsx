@@ -9,14 +9,14 @@ const restaurantJsonLd = {
   name: "Centre Street Japanese HotPot",
   alternateName: ["鼎鑽火鍋", "Centre Street Japanese Hotpot"],
   description:
-    "Centre Street Japanese HotPot is a Taiwanese and Japanese-style hot pot restaurant in Calgary serving individual hot pot, signature soup bases, premium meats, seafood, vegetables, Taiwanese snacks, rice and noodle bowls, and milk tea.",
+    "Centre Street Japanese HotPot is a Taiwanese and Japanese-style hot pot restaurant in Calgary serving individual hot pot, all-you-can-eat hot pot, signature soup bases, premium meats, seafood, vegetables, Taiwanese snacks, rice and noodle bowls, and milk tea.",
   url: "https://centrestjhotpot.ca/",
   telephone: "+1-403-455-3188",
   email: "CentreStJHotpot@gmail.com",
   image: [
     "https://centrestjhotpot.ca/assets/hero-beef-noodle.webp",
     "https://centrestjhotpot.ca/assets/dish-sukiyaki.webp",
-    "https://centrestjhotpot.ca/assets/snack-lineup.webp",
+    "https://centrestjhotpot.ca/assets/ayce-hotpot.jpg",
   ],
   servesCuisine: ["Taiwanese Hot Pot", "Japanese-style Hot Pot", "Hot Pot", "Taiwanese", "Bubble Tea"],
   priceRange: "$$",
@@ -56,6 +56,7 @@ const restaurantJsonLd = {
     "Japanese hot pot Calgary",
     "Taiwanese hot pot Calgary",
     "Taiwanese individual hot pot Calgary",
+    "All you can eat hot pot Calgary",
     "Hot pot restaurant Calgary",
     "Calgary individual hot pot",
     "Centre Street Calgary restaurant",
@@ -65,12 +66,14 @@ const restaurantJsonLd = {
     "卡加利台式火鍋",
     "台灣火鍋 卡加利",
     "卡加利一人一鍋",
+    "卡加利火鍋自助",
     "鼎鑽火鍋",
   ],
   knowsAbout: [
     "Taiwanese hot pot",
     "Taiwanese and Japanese-style individual hot pot",
     "Japanese-style individual hot pot",
+    "all-you-can-eat hot pot",
     "signature soup bases",
     "Taiwanese snacks",
     "milk tea",
@@ -95,6 +98,22 @@ const restaurantJsonLd = {
         price: "58.99",
         priceCurrency: "CAD",
         description: "2 personal hot pots, 2 drinks, and 1 appetizer. Price before tax.",
+      },
+      {
+        "@type": "Offer",
+        name: "All-You-Can-Eat Hot Pot",
+        price: "28.99",
+        priceCurrency: "CAD",
+        description:
+          "Soup base included. Meat is ordered through the server. Time limit 1.5 hours. Price before tax.",
+      },
+      {
+        "@type": "Offer",
+        name: "All-You-Can-Eat Snacks Upgrade",
+        price: "3.99",
+        priceCurrency: "CAD",
+        description:
+          "Optional all-you-can-eat snack upgrade. Everyone at the same table must upgrade. Price before tax.",
       },
     ],
   },
@@ -158,7 +177,7 @@ export default function Home() {
               View Combo Specials
             </a>
             <a className="secondary-action" href="#specials">
-              AYCE Coming Soon
+              View AYCE Hot Pot
             </a>
             <a
               className="secondary-action"
@@ -297,12 +316,15 @@ export default function Home() {
 
       <section className="ayce-promo" id="specials">
         <div className="ayce-copy">
-          <p className="eyebrow">Coming soon</p>
-          <h2>All-You-Can-Eat Hot Pot is on the way.</h2>
-          <p>$28.99 + tax · Soup base included · Final launch details coming soon.</p>
+          <p className="eyebrow">All-you-can-eat hot pot</p>
+          <h2>All-You-Can-Eat Hot Pot is available.</h2>
+          <p>
+            $28.99 + tax · Soup base included · Meat ordered through your server · 1.5 hour limit.
+            Snack upgrade +$3.99 for the whole table.
+          </p>
           <div className="ayce-actions">
             <a className="primary-action" href="tel:+14034553188">
-              Call for Launch Details
+              Call to Reserve AYCE
             </a>
             <a className="secondary-action" href="#ayce-poster">
               View Poster
@@ -310,19 +332,19 @@ export default function Home() {
           </div>
         </div>
         <a className="ayce-card" href="#ayce-poster" aria-label="View All-You-Can-Eat Hot Pot poster">
-          <span>Coming Soon</span>
-          <img src="/assets/ayce-coming-soon-preview.webp" alt="All-You-Can-Eat Hot Pot coming soon poster with kids pricing by height" width="620" height="876" loading="lazy" decoding="async" />
+          <span>$28.99 + tax</span>
+          <img src="/assets/ayce-hotpot-preview.jpg" alt="All-You-Can-Eat Hot Pot poster with $28.99 pricing, meat selection, snack upgrade, and kids pricing by height" width="588" height="760" loading="lazy" decoding="async" />
         </a>
       </section>
 
-      <div className="poster-modal" id="ayce-poster" role="dialog" aria-label="All-You-Can-Eat Hot Pot coming soon poster">
+      <div className="poster-modal" id="ayce-poster" role="dialog" aria-label="All-You-Can-Eat Hot Pot poster">
         <a className="modal-backdrop" href="#specials" aria-label="Close poster"></a>
         <div className="poster-frame">
           <a className="modal-close" href="#specials" aria-label="Close poster">
             Close
           </a>
-          <span className="modal-label">Coming Soon</span>
-          <img src="/assets/ayce-coming-soon-height.png" alt="All-You-Can-Eat Hot Pot coming soon poster with kids pricing by height" width="1055" height="1491" loading="lazy" decoding="async" />
+          <span className="modal-label">$28.99 + tax</span>
+          <img src="/assets/ayce-hotpot.jpg" alt="All-You-Can-Eat Hot Pot poster with $28.99 pricing, meat selection, snack upgrade, and kids pricing by height" width="1160" height="1500" loading="lazy" decoding="async" />
         </div>
       </div>
 

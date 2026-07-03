@@ -56,7 +56,7 @@ const faqs = [
   ],
   [
     "Is All-You-Can-Eat Hot Pot available?",
-    "All-You-Can-Eat Hot Pot is listed as coming soon. Please check the website or call (403) 455-3188 for the latest launch details.",
+    "Yes. All-You-Can-Eat Hot Pot is $28.99 + tax with soup base included. Meat is ordered through the server. The snack upgrade is +$3.99 when everyone at the same table upgrades. Kids pricing is by height: under 100 cm free, 100-140 cm $12.99, and over 140 cm adult price. Time limit is 1.5 hours.",
   ],
   [
     "What soup bases do you offer?",

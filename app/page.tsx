@@ -267,6 +267,7 @@ export default function Home() {
             <p>
               Taiwanese and Japanese-style individual hot pot, casual dinners, family meals,
               friends gathering, group dining, and Traditional Chinese hot pot recommendations.
+              See the <Link href="/calgary-taiwanese-hot-pot">Taiwanese hot pot guide</Link>.
             </p>
           </article>
           <article>

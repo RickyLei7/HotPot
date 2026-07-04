@@ -125,7 +125,9 @@ export default function RestaurantInfoPage() {
             <p>
               <Link href="/">Home</Link> · <Link href="/menu">Menu</Link> ·{" "}
               <Link href="/about">About</Link> · <Link href="/faq">FAQ</Link> ·{" "}
-              <Link href="/contact">Contact</Link> · <a href="/llms.txt">AI-readable facts</a>
+              <Link href="/contact">Contact</Link> ·{" "}
+              <Link href="/calgary-taiwanese-hot-pot">Taiwanese hot pot guide</Link> ·{" "}
+              <a href="/llms.txt">AI-readable facts</a>
             </p>
           </article>
         </div>

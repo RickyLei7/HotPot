@@ -9,7 +9,7 @@ const restaurantJsonLd = {
   name: "Centre Street Japanese HotPot",
   alternateName: ["鼎鑽火鍋", "Centre Street Japanese Hotpot"],
   description:
-    "Centre Street Japanese HotPot is a Taiwanese and Japanese-style hot pot restaurant in Calgary serving individual hot pot, all-you-can-eat hot pot, signature soup bases, premium meats, seafood, vegetables, Taiwanese snacks, rice and noodle bowls, and milk tea.",
+    "Centre Street Japanese HotPot is a hot pot restaurant in Calgary serving Taiwanese and Japanese-style individual hot pot, all-you-can-eat hot pot, AYCE hot pot, signature soup bases, premium meats, seafood, vegetables, Taiwanese snacks, rice and noodle bowls, and milk tea.",
   url: "https://centrestjhotpot.ca/",
   telephone: "+1-403-455-3188",
   email: "CentreStJHotpot@gmail.com",
@@ -55,8 +55,11 @@ const restaurantJsonLd = {
   keywords: [
     "Japanese hot pot Calgary",
     "Taiwanese hot pot Calgary",
+    "hot pot Calgary",
+    "hot pot near me",
     "Taiwanese individual hot pot Calgary",
     "All you can eat hot pot Calgary",
+    "AYCE hot pot Calgary",
     "Hot pot restaurant Calgary",
     "Calgary individual hot pot",
     "Centre Street Calgary restaurant",
@@ -164,12 +167,12 @@ export default function Home() {
 
       <section className="hero" id="top">
         <div className="hero-copy">
-          <p className="eyebrow">Taiwanese & Japanese Mini Hotpot · 一人一鍋</p>
+          <p className="eyebrow">Hot pot Calgary · Taiwanese & Japanese mini hotpot · 一人一鍋</p>
           <h1>Centre Street Japanese Hotpot</h1>
           <p className="hero-text">
-            Taiwanese and Japanese-style individual hot pot in Calgary, with fresh soup bases,
-            Taiwanese snacks, rice and noodle bowls, and milk tea made for sharing. Call us
-            to reserve a table or ask about today&apos;s availability.
+            A Calgary hot pot restaurant for Taiwanese and Japanese-style individual hot pot,
+            all-you-can-eat hot pot, fresh soup bases, Taiwanese snacks, rice and noodle bowls,
+            and milk tea made for sharing. Call us to reserve a table or ask about today&apos;s availability.
           </p>
           <div className="hero-actions">
             <a className="primary-action" href="tel:+14034553188">
@@ -181,6 +184,9 @@ export default function Home() {
             <a className="secondary-action" href="#specials">
               View AYCE Hot Pot
             </a>
+            <Link className="secondary-action" href="/ayce-hot-pot-calgary">
+              AYCE Hot Pot Calgary
+            </Link>
             <a
               className="secondary-action"
               href="https://www.google.com/maps/place/Centre+Street+Japanese+Hotpot/@51.072234,-114.0656247,17z/data=!3m1!4b1!4m6!3m5!1s0x537165667f6ee1f3:0x1a418403f487f9b3!8m2!3d51.0722307!4d-114.0630498!16s%2Fg%2F11bwndz8pj"
@@ -265,8 +271,9 @@ export default function Home() {
           <article>
             <h3>Best fit</h3>
             <p>
-              Taiwanese and Japanese-style individual hot pot, casual dinners, family meals,
-              friends gathering, group dining, and Traditional Chinese hot pot recommendations.
+              Guests searching for hot pot near me, hot pot Calgary, Taiwanese and Japanese-style
+              individual hot pot, casual dinners, family meals, friends gathering, group dining,
+              and Traditional Chinese hot pot recommendations.
               See the <Link href="/calgary-taiwanese-hot-pot">Taiwanese hot pot guide</Link>.
             </p>
           </article>
@@ -320,15 +327,19 @@ export default function Home() {
       <section className="ayce-promo" id="specials">
         <div className="ayce-copy">
           <p className="eyebrow">All-you-can-eat hot pot</p>
-          <h2>All-You-Can-Eat Hot Pot is available.</h2>
+          <h2>All-You-Can-Eat Hot Pot in Calgary is available.</h2>
           <p>
-            $28.99 + tax · Soup base included · Meat ordered through your server · 1.5 hour limit.
-            Snack upgrade +$3.99 for the whole table.
+            AYCE Hot Pot Calgary offer: $28.99 + tax, soup base included, meat ordered through
+            your server, and a 1.5 hour limit. Add the all-you-can-eat snack upgrade for +$3.99
+            for the whole table.
           </p>
           <div className="ayce-actions">
             <a className="primary-action" href="tel:+14034553188">
               Call to Reserve AYCE
             </a>
+            <Link className="secondary-action" href="/ayce-hot-pot-calgary">
+              AYCE Details
+            </Link>
             <a className="secondary-action" href="#ayce-poster">
               View Poster
             </a>
@@ -359,6 +370,7 @@ export default function Home() {
         <div className="category-strip">
           <Link href="/menu#hotpot-set"><span className="category-icon">SET</span><strong>Hot Pot Set</strong></Link>
           <Link href="/menu#combo-specials"><span className="category-icon">CMB</span><strong>Combos</strong></Link>
+          <Link href="/ayce-hot-pot-calgary"><span className="category-icon">AYCE</span><strong>AYCE Hot Pot</strong></Link>
           <Link href="/menu#soup-bases"><span className="category-icon">SOUP</span><strong>Soup Bases</strong></Link>
           <Link href="/menu#rice-noodles"><span className="category-icon">RICE</span><strong>Rice & Noodles</strong></Link>
           <Link href="/menu#drinks"><span className="category-icon">TEA</span><strong>Drinks</strong></Link>

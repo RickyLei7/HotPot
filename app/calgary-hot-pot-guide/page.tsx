@@ -186,6 +186,7 @@ export default function CalgaryHotPotGuidePage() {
             <h2>Next step</h2>
             <p>
               Read the focused <Link href="/calgary-taiwanese-hot-pot">Taiwanese hot pot guide</Link>,
+              compare <Link href="/ayce-hot-pot-calgary">AYCE hot pot in Calgary</Link>,
               view the <Link href="/menu">menu</Link>, check <Link href="/contact">location and hours</Link>,
               or call <a href="tel:+14034553188">(403) 455-3188</a> to reserve a table.
             </p>

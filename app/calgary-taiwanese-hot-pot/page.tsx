@@ -189,6 +189,7 @@ export default function CalgaryTaiwaneseHotPotPage() {
             <h2>Related pages</h2>
             <p>
               See the <Link href="/calgary-hot-pot-guide">Calgary hot pot guide</Link>,
+              read the <Link href="/ayce-hot-pot-calgary">AYCE hot pot Calgary page</Link>,
               view the <Link href="/menu">menu</Link>, or check{" "}
               <Link href="/contact">location and hours</Link>.
             </p>

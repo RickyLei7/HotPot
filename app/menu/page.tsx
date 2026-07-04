@@ -2,16 +2,16 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Menu | Centre Street Japanese HotPot Calgary",
+  title: "Hot Pot Menu Calgary | AYCE Hot Pot & Snacks",
   description:
-    "Explore the Centre Street Japanese HotPot menu in Calgary, including Taiwanese and Japanese-style hot pot, all-you-can-eat hot pot, soup bases, premium meats, rice and noodle bowls, Taiwanese snacks, and milk tea.",
+    "Explore the Centre Street Japanese HotPot menu in Calgary, including AYCE hot pot, all-you-can-eat hot pot, Taiwanese and Japanese-style hot pot, soup bases, premium meats, rice and noodle bowls, Taiwanese snacks, and milk tea.",
   alternates: {
     canonical: "/menu",
   },
   openGraph: {
-    title: "Menu | Centre Street Japanese HotPot Calgary",
+    title: "Hot Pot Menu Calgary | AYCE Hot Pot & Snacks",
     description:
-      "Explore Taiwanese and Japanese-style hot pot, all-you-can-eat hot pot, soup bases, premium meats, rice and noodle bowls, Taiwanese snacks, and milk tea in Calgary.",
+      "Explore AYCE hot pot, Taiwanese and Japanese-style hot pot, soup bases, premium meats, rice and noodle bowls, Taiwanese snacks, and milk tea in Calgary.",
     url: "https://centrestjhotpot.ca/menu/",
     images: ["/assets/dish-sukiyaki.webp"],
   },
@@ -192,10 +192,10 @@ export default function MenuPage() {
       <section className="page-hero menu-page-hero">
         <div>
           <p className="eyebrow">Menu</p>
-          <h1>Taiwanese & Japanese Hot Pot Menu in Calgary</h1>
+          <h1>Hot Pot Menu in Calgary with AYCE Hot Pot</h1>
           <p className="hero-text">
-            Choose from Taiwanese and Japanese-style hot pot soup bases, premium meats, fresh seafood, vegetables,
-            rice and noodle bowls, Taiwanese snacks, and milk tea.
+            Choose from Taiwanese and Japanese-style hot pot soup bases, all-you-can-eat hot pot,
+            premium meats, fresh seafood, vegetables, rice and noodle bowls, Taiwanese snacks, and milk tea.
           </p>
         </div>
       </section>
@@ -237,13 +237,21 @@ export default function MenuPage() {
       <section className="menu-section" id="ayce-hotpot">
         <div className="section-heading">
           <p className="eyebrow">All-you-can-eat hot pot</p>
-          <h2>AYCE Hot Pot with soup base included.</h2>
+          <h2>AYCE Hot Pot Calgary: soup base included.</h2>
         </div>
         <div className="set-grid">
-          <article><h3>$28.99 + tax</h3><p>All-You-Can-Eat Hot Pot with soup base included. Meat is ordered through your server.</p></article>
+          <article><h3>$28.99 + tax</h3><p>All-You-Can-Eat Hot Pot in Calgary with soup base included. Meat is ordered through your server.</p></article>
           <article><h3>Meat selection</h3><p>AAA beef, lamb, pork, and chicken. Each serving is 100g.</p></article>
-          <article><h3>Snack upgrade +$3.99</h3><p>All-you-can-eat snacks upgrade. Everyone at the same table must upgrade.</p></article>
+          <article><h3>Snack upgrade +$3.99</h3><p>All-you-can-eat snacks upgrade with Taiwanese fried chicken, takoyaki, crispy squid legs, and more. Everyone at the same table must upgrade.</p></article>
           <article><h3>Kids pricing by height</h3><p>Under 100 cm free. 100-140 cm $12.99. Over 140 cm adult price. Time limit is 1.5 hours.</p></article>
+        </div>
+        <div className="combo-actions">
+          <Link className="primary-action" href="/ayce-hot-pot-calgary">
+            View AYCE Hot Pot Calgary Details
+          </Link>
+          <a className="secondary-action dark" href="tel:+14034553188">
+            Call (403) 455-3188
+          </a>
         </div>
       </section>
 

@@ -4,7 +4,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Hot Pot Menu Calgary | AYCE Hot Pot & Snacks",
   description:
-    "Explore the Centre Street Japanese HotPot menu in Calgary, including AYCE hot pot, all-you-can-eat hot pot, Taiwanese and Japanese-style hot pot, soup bases, premium meats, rice and noodle bowls, Taiwanese snacks, and milk tea.",
+    "Explore AYCE hot pot, Taiwanese and Japanese-style hot pot, soup bases, meats, rice and noodle bowls, Taiwanese snacks, and milk tea at Centre Street Japanese HotPot.",
   alternates: {
     canonical: "/menu",
   },

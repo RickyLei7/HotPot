@@ -17,14 +17,14 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://centrestjhotpot.ca"),
   title: "Centre Street Japanese HotPot | Hot Pot Calgary & AYCE Hot Pot",
   description:
-    "Centre Street Japanese HotPot, also known as 鼎鑽火鍋, is a Calgary hot pot restaurant serving Taiwanese and Japanese-style individual hot pot, AYCE hot pot, premium meats, fresh seafood, Taiwanese snacks, and milk tea.",
+    "Calgary hot pot restaurant serving Taiwanese and Japanese-style individual hot pot, AYCE hot pot, signature broths, snacks, rice and noodle bowls, and milk tea. Also known as 鼎鑽火鍋.",
   alternates: {
     canonical: "/",
   },
   openGraph: {
     title: "Centre Street Japanese HotPot | Hot Pot Calgary & AYCE Hot Pot",
     description:
-      "Taiwanese and Japanese-style individual hot pot, AYCE hot pot, premium meats, fresh seafood, signature broths, Taiwanese snacks, and milk tea in Calgary. Also known as 鼎鑽火鍋.",
+      "Calgary hot pot restaurant serving Taiwanese and Japanese-style individual hot pot, AYCE hot pot, signature broths, snacks, rice and noodle bowls, and milk tea.",
     url: "https://centrestjhotpot.ca/",
     siteName: "Centre Street Japanese HotPot",
     images: ["/assets/hero-beef-noodle.webp"],

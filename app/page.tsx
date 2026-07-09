@@ -185,7 +185,7 @@ export default function Home() {
               View AYCE Hot Pot
             </a>
             <Link className="secondary-action" href="/ayce-hot-pot-calgary">
-              AYCE Hot Pot Calgary
+              Full AYCE Menu + 15 Soup Bases
             </Link>
             <a
               className="secondary-action"

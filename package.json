@@ -9,9 +9,10 @@
     "dev": "vinext dev",
     "build": "vinext build && rm -rf dist/_appgen_meta && mkdir -p dist/_appgen_meta && if [ -f .openai/hosting.json ]; then cp .openai/hosting.json dist/_appgen_meta/appgarden.json; fi && if [ -d drizzle ]; then cp -R drizzle dist/_appgen_meta/drizzle; fi",
     "start": "vinext start",
+    "check:attribution": "node scripts/check-attribution.mjs",
     "check:html": "html-validate \"public/**/*.html\"",
     "check:lighthouse": "lhci autorun --config=lighthouserc.cjs",
-    "check:site": "npm run check:html && npm run check:visual && npm run check:lighthouse",
+    "check:site": "npm run check:attribution && npm run check:html && npm run check:visual && npm run check:lighthouse",
     "check:visual": "node scripts/visual-check.mjs",
     "lint": "eslint . --ignore-pattern dist --ignore-pattern .next --ignore-pattern _restored_hotpot_records",
     "db:generate": "drizzle-kit generate"

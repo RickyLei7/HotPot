@@ -57,15 +57,7 @@ export default function RootLayout({
           src="https://www.googletagmanager.com/gtag/js?id=G-JN2E0S7E36"
           strategy="afterInteractive"
         />
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-JN2E0S7E36');
-          `}
-        </Script>
-        <Script src="/analytics.js" strategy="afterInteractive" />
+        <Script src="/site-events.js" strategy="afterInteractive" />
         {children}
         <a className="reserve-sticky" href="tel:+14034553188">
           Call to Reserve · (403) 455-3188

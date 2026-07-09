@@ -74,6 +74,11 @@ async function inspectPage(page) {
     const metaDescription = document.querySelector('meta[name="description"]')?.content || "";
     const canonical = document.querySelector('link[rel="canonical"]')?.href || "";
     const ogImage = document.querySelector('meta[property="og:image"]')?.content || "";
+    const dataLayer = Array.isArray(window.dataLayer) ? window.dataLayer : [];
+    const campaignLanding = dataLayer.find((entry) => (
+      entry?.[0] === "event"
+      && entry?.[1] === "campaign_landing"
+    ));
     const visibleImages = images.filter((img) => (
       img.rect.width > 0
       && img.rect.height > 0
@@ -87,6 +92,9 @@ async function inspectPage(page) {
       canonical,
       ogImage,
       jsonLdCount: [...document.querySelectorAll('script[type="application/ld+json"]')].length,
+      analyticsReady: window.__hotpotAnalyticsReady === true,
+      gtagReady: typeof window.gtag === "function",
+      campaignLandingSource: campaignLanding?.[2]?.campaign_source || "",
       horizontalOverflow: root.scrollWidth - root.clientWidth,
       scrollHeight: root.scrollHeight,
       brokenImages: visibleImages.filter((img) => !img.complete || img.naturalWidth === 0).map((img) => img.src),
@@ -122,7 +130,10 @@ try {
         if (message.type() === "error") consoleErrors.push(message.text());
       });
 
-      const response = await page.goto(`${baseUrl}${pathname}`, { waitUntil: "networkidle" });
+      const pageUrl = pathname === "/"
+        ? `${baseUrl}/?utm_source=visual_check&utm_medium=test&utm_campaign=attribution_check`
+        : `${baseUrl}${pathname}`;
+      const response = await page.goto(pageUrl, { waitUntil: "networkidle" });
       await page.evaluate(async () => {
         for (let y = 0; y < document.documentElement.scrollHeight; y += Math.max(400, innerHeight - 120)) {
           scrollTo(0, y);
@@ -142,6 +153,11 @@ try {
       if (data.metaDescriptionLength < 80 || data.metaDescriptionLength > 220) routeFailures.push("meta description length out of range");
       if (!data.canonical) routeFailures.push("missing canonical");
       if (!data.ogImage) routeFailures.push("missing og:image");
+      if (!data.analyticsReady) routeFailures.push("site analytics initializer is not ready");
+      if (!data.gtagReady) routeFailures.push("gtag is not available");
+      if (pathname === "/" && data.campaignLandingSource !== "visual_check") {
+        routeFailures.push("campaign_landing did not capture the UTM source");
+      }
       if (data.horizontalOverflow > 1) routeFailures.push(`horizontal overflow ${data.horizontalOverflow}px`);
       if (data.brokenImages.length) routeFailures.push(`broken images: ${data.brokenImages.join(", ")}`);
       if (requestFailures.length) routeFailures.push(`request failures: ${requestFailures.join(", ")}`);

@@ -13,13 +13,13 @@ Destination: `https://centrestjhotpot.ca/ayce-hot-pot-calgary/`
 - Google Business Profile: `https://centrestjhotpot.ca/ayce-hot-pot-calgary/?utm_source=google_business&utm_medium=organic&utm_campaign=ayce_always_on&utm_content=profile_link`
 - Xiaohongshu: `https://centrestjhotpot.ca/ayce-hot-pot-calgary/?utm_source=xiaohongshu&utm_medium=social&utm_campaign=ayce_always_on&utm_content=profile_link`
 
-## Stampede AYCE post links
+## Current post links
 
-Use only through July 12, 2026.
+Use these for ordinary AYCE posts. Replace only the final `utm_content` value with the creative name, using lowercase letters, numbers, and underscores.
 
-- Facebook: `https://centrestjhotpot.ca/ayce-hot-pot-calgary/?utm_source=facebook&utm_medium=social&utm_campaign=stampede_ayce&utm_content=aaa_beef_snacks`
-- Threads: `https://centrestjhotpot.ca/ayce-hot-pot-calgary/?utm_source=threads&utm_medium=social&utm_campaign=stampede_ayce&utm_content=aaa_beef_snacks`
-- Google Business Profile: `https://centrestjhotpot.ca/ayce-hot-pot-calgary/?utm_source=google_business&utm_medium=organic&utm_campaign=stampede_ayce&utm_content=aaa_beef_snacks`
+- Facebook: `https://centrestjhotpot.ca/ayce-hot-pot-calgary/?utm_source=facebook&utm_medium=social&utm_campaign=ayce_always_on&utm_content=snack_upgrade`
+- Threads: `https://centrestjhotpot.ca/ayce-hot-pot-calgary/?utm_source=threads&utm_medium=social&utm_campaign=ayce_always_on&utm_content=snack_upgrade`
+- Google Business Profile: `https://centrestjhotpot.ca/ayce-hot-pot-calgary/?utm_source=google_business&utm_medium=organic&utm_campaign=ayce_always_on&utm_content=snack_upgrade`
 
 Instagram caption CTA:
 
@@ -30,7 +30,7 @@ See the full AYCE menu and all 15 soup bases through the link in our bio.
 Instagram Story link:
 
 ```text
-https://centrestjhotpot.ca/ayce-hot-pot-calgary/?utm_source=instagram&utm_medium=social&utm_campaign=stampede_ayce&utm_content=story_link
+https://centrestjhotpot.ca/ayce-hot-pot-calgary/?utm_source=instagram&utm_medium=social&utm_campaign=ayce_always_on&utm_content=story_link
 ```
 
 TikTok caption CTA when the profile website field is available:
@@ -52,4 +52,4 @@ Xiaohongshu CTA:
 - TikTok uses the profile website field only when the account is eligible.
 - Xiaohongshu does not receive long UTM URLs in ordinary post copy.
 - Replace `utm_content` with a short lowercase name for each creative.
-- Stop using `stampede_ayce` after July 12, 2026.
+- Never reuse expired promotion names or date-specific UTM campaigns.

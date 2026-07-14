@@ -47,15 +47,17 @@
     if (href.indexOf("tel:") === 0) {
       sendEvent("reservation_click", link, { method: "phone" });
       sendEvent("phone_click", link, { method: "phone" });
-      sendEvent("generate_lead", link, { method: "phone" });
+      sendEvent("generate_lead", link, { lead_type: "phone" });
     } else if (href.indexOf("mailto:") === 0) {
       sendEvent("email_click", link, { method: "email" });
     } else if (isMenuPdf(href)) {
       sendEvent(link.hasAttribute("download") ? "menu_download" : "menu_pdf_open", link);
+      sendEvent("view_item", link, { content_type: "menu" });
     } else if (href.indexOf("google.com/maps") !== -1 && text.indexOf("review") !== -1) {
       sendEvent("google_review_click", link);
     } else if (href.indexOf("google.com/maps") !== -1) {
       sendEvent("directions_click", link);
+      sendEvent("generate_lead", link, { lead_type: "directions" });
     } else if (platform) {
       sendEvent("social_click", link, { platform: platform });
       sendEvent(platform + "_click", link, { platform: platform });
@@ -65,6 +67,7 @@
       sendEvent("ayce_interest_click", link);
     } else if (href.indexOf("/menu") === 0 || href.indexOf("menu/") === 0) {
       sendEvent("menu_click", link);
+      sendEvent("view_item", link, { content_type: "menu" });
     }
   });
 })();

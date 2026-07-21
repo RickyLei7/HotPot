@@ -48,6 +48,24 @@
     }, params || {}));
   }
 
+  function sendAdsCallConversion(event, link) {
+    var navigated = false;
+    var followLink = function () {
+      if (navigated) return;
+      navigated = true;
+      window.location.href = link.href;
+    };
+
+    event.preventDefault();
+    window.gtag("event", "conversion", {
+      send_to: "AW-18149812430/gbFACOTUn9QcEM7RwM5D",
+      value: 1.0,
+      currency: "CAD",
+      event_callback: followLink,
+    });
+    window.setTimeout(followLink, 800);
+  }
+
   function isMenuPdf(href) {
     return href.indexOf("centre-street-japanese-hotpot-menu.pdf") !== -1 || /\.pdf($|\?)/.test(href);
   }
@@ -73,6 +91,7 @@
       sendEvent("reservation_click", link, { method: "phone" });
       sendEvent("phone_click", link, { method: "phone" });
       sendEvent("generate_lead", link, { method: "phone" });
+      sendAdsCallConversion(event, link);
     } else if (href.indexOf("mailto:") === 0) {
       sendEvent("email_click", link, { method: "email" });
     } else if (isMenuPdf(href)) {

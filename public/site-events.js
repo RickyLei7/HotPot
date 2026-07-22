@@ -1,5 +1,6 @@
 (function () {
   var measurementId = "G-JN2E0S7E36";
+  var googleAdsId = "AW-18149812430";
 
   window.dataLayer = window.dataLayer || [];
   window.gtag = window.gtag || function () {
@@ -9,6 +10,7 @@
   if (!window.__hotpotGaConfigured) {
     window.gtag("js", new Date());
     window.gtag("config", measurementId);
+    window.gtag("config", googleAdsId);
     window.__hotpotGaConfigured = true;
   }
   window.__hotpotAnalyticsReady = true;

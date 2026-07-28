@@ -1,15 +1,16 @@
 # Analytics Event Map
 
-Status: Updated 2026-07-09. GA initialization and events are implemented in `public/site-events.js`.
+Status: Updated 2026-07-27. GA4 and Google Ads events are implemented in `public/site-events.js`.
 
 ## Events
 
 | Event | Trigger | Revenue Meaning |
 | --- | --- | --- |
 | `campaign_landing` | Page opens with a valid `utm_source` | Attributes website visits to a platform and campaign |
+| `google_ads_landing` | Page opens with Google Ads auto-tagging ID (`gclid`, `gbraid`, or `wbraid`) | Confirms Google Ads visitors reached the site |
 | `reservation_click` | Any phone reservation CTA | Main reservation intent |
 | `phone_click` | Any phone link | High-intent call |
-| `generate_lead` | Any phone link | GA4 recommended lead event; use for reporting |
+| `generate_lead` | Phone link or Google Maps directions link | GA4 recommended lead event; use for reporting |
 | `email_click` | Email link | Contact intent |
 | `directions_click` | Google Maps link | Visit intent |
 | `google_review_click` | Google Maps review link | Review-growth signal |
@@ -36,6 +37,18 @@ In GA4 Admin -> Data display -> Events, mark these as key events once they appea
 - `menu_download`
 - `google_review_click`
 
+Observation only:
+
+- `google_ads_landing`
+
+## Google Ads Conversion Import Rule
+
+If the direct Google Ads phone conversion tag is active, do not also import `phone_click` or `generate_lead` as primary Google Ads conversions. Use this setup instead:
+
+- Primary Ads conversion: direct Google Ads phone conversion tag.
+- Optional Ads conversion: import `directions_click` from GA4 for map/direction intent.
+- Reporting only: `google_ads_landing`, `phone_click`, `generate_lead`, `menu_click`, and social clicks.
+
 Optional key events if you want to measure social growth:
 
 - `social_click`
@@ -46,7 +59,8 @@ Optional key events if you want to measure social growth:
 
 Compare these events against weekly revenue:
 
-- Use `campaign_landing` to compare Facebook, Instagram, Threads, TikTok, Google Business, and Xiaohongshu traffic.
+- Use `campaign_landing` to compare Facebook, Instagram, Threads, TikTok, Google Business, Xiaohongshu, and Google Ads tagged traffic.
+- Use `google_ads_landing` to confirm Google Ads auto-tagged visitors reached the website.
 - If `reservation_click` and `phone_click` rise, the website is helping drive reservations.
 - If `directions_click` rises and revenue rises, local intent is converting.
 - If `menu_download` or `menu_pdf_open` rises but calls do not, the menu may need stronger call/reserve prompts.

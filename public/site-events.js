@@ -17,6 +17,7 @@
 
   var campaignParams = new URLSearchParams(window.location.search);
   var campaignSource = campaignParams.get("utm_source") || "";
+  var googleClickId = campaignParams.get("gclid") || campaignParams.get("gbraid") || campaignParams.get("wbraid") || "";
   if (campaignSource && !window.__hotpotCampaignLandingSent) {
     window.gtag("event", "campaign_landing", {
       campaign_source: campaignSource,
@@ -26,6 +27,14 @@
       page_path: window.location.pathname,
     });
     window.__hotpotCampaignLandingSent = true;
+  }
+  if (googleClickId && !window.__hotpotGoogleAdsLandingSent) {
+    window.gtag("event", "google_ads_landing", {
+      page_path: window.location.pathname,
+      landing_page: window.location.pathname,
+      ads_click_id_present: true,
+    });
+    window.__hotpotGoogleAdsLandingSent = true;
   }
 
   function getText(link) {
@@ -102,6 +111,7 @@
       sendEvent("google_review_click", link);
     } else if (href.indexOf("google.com/maps") !== -1) {
       sendEvent("directions_click", link);
+      sendEvent("generate_lead", link, { method: "directions", lead_type: "directions" });
     } else if (platform) {
       sendEvent("social_click", link, { platform: platform });
       sendEvent(platform + "_click", link, { platform: platform });

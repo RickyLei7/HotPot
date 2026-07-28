@@ -4,6 +4,8 @@ Updated: 2026-07-09
 
 Destination: `https://centrestjhotpot.ca/ayce-hot-pot-calgary/`
 
+Google Ads destination: `https://centrestjhotpot.ca/google-ads-ayce-hot-pot/?utm_source=google_ads&utm_medium=cpc&utm_campaign=ayce_search&utm_content=landing_page`
+
 ## Evergreen profile links
 
 - Instagram: `https://centrestjhotpot.ca/ayce-hot-pot-calgary/?utm_source=instagram&utm_medium=social&utm_campaign=ayce_always_on&utm_content=profile_link`
@@ -20,6 +22,14 @@ Use these for ordinary AYCE posts. Replace only the final `utm_content` value wi
 - Facebook: `https://centrestjhotpot.ca/ayce-hot-pot-calgary/?utm_source=facebook&utm_medium=social&utm_campaign=ayce_always_on&utm_content=snack_upgrade`
 - Threads: `https://centrestjhotpot.ca/ayce-hot-pot-calgary/?utm_source=threads&utm_medium=social&utm_campaign=ayce_always_on&utm_content=snack_upgrade`
 - Google Business Profile: `https://centrestjhotpot.ca/ayce-hot-pot-calgary/?utm_source=google_business&utm_medium=organic&utm_campaign=ayce_always_on&utm_content=snack_upgrade`
+
+## Google Ads final URLs
+
+Use the dedicated landing page for Search Ads so the ad promise and first screen match.
+
+- Main AYCE Search Ad: `https://centrestjhotpot.ca/google-ads-ayce-hot-pot/?utm_source=google_ads&utm_medium=cpc&utm_campaign=ayce_search&utm_content=main_ad`
+- Price-focused ad: `https://centrestjhotpot.ca/google-ads-ayce-hot-pot/?utm_source=google_ads&utm_medium=cpc&utm_campaign=ayce_search&utm_content=price_28_99`
+- Directions/call-focused ad: `https://centrestjhotpot.ca/google-ads-ayce-hot-pot/?utm_source=google_ads&utm_medium=cpc&utm_campaign=ayce_search&utm_content=call_directions`
 
 Instagram caption CTA:
 

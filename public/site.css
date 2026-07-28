@@ -347,6 +347,114 @@ h3 { font-size: 1.08rem; margin-bottom: 10px; }
 .faq-list h2 { color: var(--ink); font-size: clamp(1.35rem, 2.4vw, 2rem); line-height: 1.2; margin-bottom: 14px; }
 .faq-list p { line-height: 1.7; margin-bottom: 0; }
 .faq-list a { color: var(--red); font-weight: 850; }
+
+.ads-nav .nav-links { justify-content: flex-end; }
+.ads-hero {
+  align-items: center;
+  background:
+    linear-gradient(90deg, rgba(18, 13, 11, 0.96), rgba(74, 16, 13, 0.9)),
+    url("assets/ayce-hotpot.webp") center / cover;
+  display: grid;
+  gap: clamp(24px, 5vw, 68px);
+  grid-template-columns: minmax(0, 1.05fr) minmax(280px, 0.95fr);
+  min-height: calc(100vh - 79px);
+  padding: clamp(46px, 7vw, 92px) clamp(18px, 5vw, 76px);
+}
+.ads-hero > * { margin-left: auto; margin-right: auto; max-width: 1400px; }
+.ads-hero-copy { max-width: 780px; }
+.ads-hero h1 { max-width: 780px; }
+.ads-hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+.ads-microcopy { color: rgba(255, 246, 223, 0.78); font-size: 0.96rem; line-height: 1.45; margin: 18px 0 0; }
+.ads-offer-card {
+  background: rgba(255, 248, 234, 0.96);
+  border: 1px solid rgba(246, 201, 76, 0.5);
+  border-left: 8px solid var(--gold);
+  border-radius: 8px;
+  box-shadow: 0 28px 80px rgba(0, 0, 0, 0.4);
+  color: var(--ink);
+  justify-self: end;
+  max-width: 470px;
+  padding: clamp(24px, 4vw, 38px);
+  width: 100%;
+}
+.ads-offer-card h2 { color: var(--ink); font-size: clamp(1.8rem, 3.5vw, 3.2rem); margin-bottom: 18px; }
+.ads-price {
+  color: var(--red);
+  display: block;
+  font-size: clamp(3.8rem, 8vw, 7rem);
+  font-weight: 950;
+  line-height: 0.9;
+  margin-bottom: 18px;
+}
+.ads-offer-card ul { display: grid; gap: 12px; list-style: none; margin: 0; padding: 0; }
+.ads-offer-card li {
+  background: #fff3d1;
+  border: 1px solid rgba(127, 23, 22, 0.16);
+  border-radius: 6px;
+  font-weight: 850;
+  padding: 12px 14px;
+}
+.ads-proof-strip {
+  background: var(--red);
+  border-block: 1px solid rgba(246, 201, 76, 0.48);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+.ads-proof-strip div {
+  border-right: 1px solid rgba(246, 201, 76, 0.22);
+  color: var(--cream);
+  min-height: 104px;
+  padding: 24px clamp(16px, 3vw, 30px);
+}
+.ads-proof-strip div:last-child { border-right: 0; }
+.ads-proof-strip span {
+  color: var(--gold);
+  display: block;
+  font-size: clamp(1.6rem, 3vw, 2.7rem);
+  font-weight: 950;
+  line-height: 1;
+  margin-bottom: 7px;
+}
+.ads-section { padding: clamp(48px, 7vw, 86px) clamp(18px, 5vw, 76px); }
+.ads-section > * { margin-left: auto; margin-right: auto; max-width: 1400px; }
+.ads-menu-summary { background: var(--paper); color: var(--ink); }
+.ads-menu-summary .eyebrow, .ads-menu-summary h2 { color: var(--ink); }
+.ads-grid { display: grid; gap: 14px; grid-template-columns: repeat(4, 1fr); }
+.ads-grid article {
+  background: #fff8ea;
+  border: 1px solid rgba(127, 23, 22, 0.16);
+  border-left: 5px solid var(--gold);
+  border-radius: 8px;
+  min-height: 150px;
+  padding: 20px;
+}
+.ads-grid p { line-height: 1.5; margin-bottom: 0; }
+.ads-photo-band {
+  background:
+    linear-gradient(90deg, rgba(31, 22, 17, 0.96), rgba(127, 23, 22, 0.88)),
+    url("assets/dish-spicy.webp") center / cover;
+}
+.ads-photo-band article {
+  align-items: center;
+  display: grid;
+  gap: clamp(22px, 5vw, 58px);
+  grid-template-columns: minmax(260px, 360px) minmax(0, 1fr);
+}
+.ads-photo-band img {
+  border: 1px solid rgba(246, 201, 76, 0.5);
+  border-radius: 8px;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.38);
+  max-height: 520px;
+  object-fit: cover;
+  object-position: center top;
+  width: 100%;
+}
+.ads-photo-band p:not(.eyebrow) {
+  color: rgba(255, 246, 223, 0.86);
+  font-size: clamp(1.04rem, 2vw, 1.22rem);
+  line-height: 1.6;
+  max-width: 620px;
+}
 @media (max-width: 1100px) {
   .site-nav { grid-template-columns: 1fr auto; }
   .nav-links { display: flex; flex-wrap: wrap; gap: 8px; grid-column: 1 / -1; justify-content: flex-start; padding: 2px 0 4px; }
@@ -361,6 +469,9 @@ h3 { font-size: 1.08rem; margin-bottom: 10px; }
   .category-strip { grid-template-columns: repeat(3, 1fr); }
   .soup-list { grid-template-columns: repeat(3, 1fr); }
   .ayce-card { justify-self: stretch; max-width: none; }
+  .ads-hero, .ads-photo-band article { grid-template-columns: 1fr; }
+  .ads-offer-card { justify-self: stretch; max-width: none; }
+  .ads-grid { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 760px) {
   .brand-mark img { max-width: 52vw; }
@@ -373,6 +484,23 @@ h3 { font-size: 1.08rem; margin-bottom: 10px; }
   .site-nav { align-items: center; gap: 10px 12px; grid-template-columns: 1fr auto; padding: 10px 14px 12px; }
   .brand-mark { min-width: 0; }
   .hero, .feature-band, .combo-promo, .ayce-promo, .weekly-picks, .ai-recommendation-section, .about-section, .menu-section, .two-column, .snacks-section, .full-menu, .visit, .page-hero, .content-section, .category-section { padding-inline: 16px; }
+  .ads-hero, .ads-section { padding-inline: 16px; }
+  .ads-hero { min-height: auto; padding-bottom: 28px; padding-top: 34px; }
+  .ads-hero h1 { font-size: clamp(2.6rem, 13vw, 4.2rem); }
+  .ads-hero-actions { display: grid; margin-top: 20px; }
+  .ads-microcopy { font-size: 0.88rem; }
+  .ads-offer-card { padding: 18px; }
+  .ads-price { font-size: clamp(3.2rem, 16vw, 5rem); }
+  .ads-offer-card h2 { font-size: 1.55rem; }
+  .ads-offer-card ul { gap: 8px; }
+  .ads-offer-card li { padding: 10px 12px; }
+  .ads-proof-strip { grid-template-columns: repeat(2, 1fr); }
+  .ads-proof-strip div { min-height: 78px; padding: 14px; }
+  .ads-proof-strip span { font-size: 1.55rem; }
+  .ads-grid { grid-template-columns: 1fr; }
+  .ads-grid article { min-height: 0; padding: 16px; }
+  .ads-photo-band article { gap: 18px; }
+  .ads-photo-band img { max-height: 320px; }
   .quick-info, .set-grid, .recommendation-grid, .about-highlight-grid, .weekly-picks-grid, .visit-grid { grid-template-columns: 1fr; }
   .quick-info { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .quick-info div { min-height: 82px; padding: 14px; }

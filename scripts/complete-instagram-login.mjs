@@ -4,19 +4,30 @@ import fs from "node:fs";
 import path from "node:path";
 
 const appId = "2145685099334514";
-const redirectUri = "https://centrestjhotpot.ca/instagram-auth/";
+const configuredRedirectUri = "https://centrestjhotpot.ca/instagram-auth/";
 const envPath = path.resolve(".env.instagram.local");
 
-function readCode(value) {
-  try {
-    const url = new URL(value);
-    return url.searchParams.get("code") || "";
-  } catch {
-    return value.trim();
+function readAuthorization(value) {
+  if (!value.startsWith("https://")) {
+    return { code: value.trim(), redirectUri: configuredRedirectUri };
   }
+
+  let url;
+  try {
+    url = new URL(value);
+  } catch {
+    throw new Error("Paste the full redirect URL from the browser address bar.");
+  }
+  if (url.origin !== "https://centrestjhotpot.ca" || !url.pathname.startsWith("/instagram-auth")) {
+    throw new Error("The redirect URL must be the Centre Street Instagram callback URL.");
+  }
+  return {
+    code: url.searchParams.get("code") || "",
+    redirectUri: `${url.origin}${url.pathname}`,
+  };
 }
 
-function writeLocalEnv(token, userId) {
+function writeLocalEnv(token, userId, redirectUri) {
   const contents = [
     `INSTAGRAM_ACCESS_TOKEN=${token}`,
     `INSTAGRAM_USER_ID=${userId}`,
@@ -33,7 +44,7 @@ async function main() {
   const appSecret = process.env.INSTAGRAM_APP_SECRET || "";
   const redirect = process.env.INSTAGRAM_AUTH_REDIRECT || "";
 
-  const code = readCode(redirect);
+  const { code, redirectUri } = readAuthorization(redirect);
   if (!appSecret || !code) {
     throw new Error("An app secret and authorization code are both required.");
   }
@@ -76,7 +87,7 @@ async function main() {
     throw new Error(`Instagram profile verification failed: ${JSON.stringify(profile)}`);
   }
 
-  writeLocalEnv(longLived.access_token, profile.id);
+  writeLocalEnv(longLived.access_token, profile.id, redirectUri);
   console.log(JSON.stringify({ connected: true, id: profile.id, username: profile.username, expiresIn: longLived.expires_in }, null, 2));
 }
 

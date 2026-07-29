@@ -22,7 +22,6 @@ async function config() {
     return separator > 0 && !line.startsWith("#") ? [[line.slice(0, separator), line.slice(separator + 1)]] : [];
   }));
   return {
-    userId: required(env.THREADS_USER_ID, "Missing THREADS_USER_ID in .env.threads.local."),
     accessToken: required(env.THREADS_ACCESS_TOKEN, "Missing THREADS_ACCESS_TOKEN in .env.threads.local."),
   };
 }
@@ -47,25 +46,26 @@ function ownedImage(url) {
 
 async function verify() {
   const settings = await config();
-  const account = await request(`${settings.userId}?fields=id,username`, {}, settings);
+  const account = await request("me?fields=id,username", {}, settings);
   console.log(JSON.stringify({ connected: true, account }, null, 2));
 }
 
 async function prepareOrPublish() {
   const settings = await config();
+  const account = await request("me?fields=id,username", {}, settings);
   const imageUrl = required(option("--image-url"), "Missing --image-url.");
   const captionFile = required(option("--caption-file"), "Missing --caption-file.");
   const text = (await readFile(path.resolve(root, captionFile), "utf8")).trim();
   ownedImage(imageUrl);
-  const preview = { userId: settings.userId, imageUrl, captionCharacters: [...text].length, publish: command === "publish" };
+  const preview = { userId: account.id, imageUrl, captionCharacters: [...text].length, publish: command === "publish" };
   if (command === "prepare") return console.log(JSON.stringify(preview, null, 2));
   if (option("--confirm") !== "yes") throw new Error("Publishing requires --confirm yes.");
 
-  const container = await request(`${settings.userId}/threads`, {
+  const container = await request(`${account.id}/threads`, {
     method: "POST",
     form: { media_type: "IMAGE", image_url: imageUrl, text },
   }, settings);
-  const published = await request(`${settings.userId}/threads_publish`, {
+  const published = await request(`${account.id}/threads_publish`, {
     method: "POST",
     form: { creation_id: container.id },
   }, settings);

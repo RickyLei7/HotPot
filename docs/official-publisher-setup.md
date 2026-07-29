@@ -32,6 +32,12 @@ FACEBOOK_PAGE_ID=your_page_id
 FACEBOOK_PAGE_ACCESS_TOKEN=your_page_access_token
 ```
 
+Or save the two values locally without opening an editor:
+
+```bash
+./scripts/save-facebook-page-token.sh
+```
+
 Verify:
 
 ```bash

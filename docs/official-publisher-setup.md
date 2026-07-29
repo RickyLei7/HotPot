@@ -9,7 +9,7 @@ The local publisher scripts only accept public restaurant-hosted image URLs and 
 | Instagram | `scripts/instagram-publisher.mjs` | Connected |
 | Facebook Page | `scripts/facebook-publisher.mjs` | Create a Page access token with publishing permissions |
 | Threads | `scripts/threads-publisher.mjs` | Add Threads API product and create a Threads OAuth token |
-| Google Business Profile | `scripts/google-business-publisher.mjs` | Request Business Profile API access, then create Google OAuth credentials |
+| Google Business Profile | `scripts/google-business-publisher.mjs` | Enable Business Profile APIs, create local OAuth credentials, then authorize the restaurant's Google account |
 
 ## Callback URLs
 
@@ -63,9 +63,27 @@ node scripts/threads-publisher.mjs verify
 
 ## Google Business Profile
 
-Google requires a valid business reason and project access approval before the Business Profile APIs can be enabled. In Google Cloud, create a project, request Business Profile API access, enable the My Business and Account Management APIs, configure the OAuth consent screen, and create a Web application OAuth client. Add the Google callback URL and request `https://www.googleapis.com/auth/business.manage` with offline access.
+In Google Cloud, create a dedicated project and enable the **My Business API**, **Business Profile Account Management API**, and **Business Profile Business Information API**. Configure the OAuth consent screen and create a **Desktop app** OAuth client. The local connector uses a secure loopback callback at `http://127.0.0.1:8787/google-business-auth/` and requests `https://www.googleapis.com/auth/business.manage` with offline access. Google may still require Business Profile API access approval before calls can succeed.
 
-After consent, store the access token, refresh token, OAuth client ID and secret, plus the account and location IDs.
+Save the desktop OAuth client locally:
+
+```bash
+./scripts/save-google-business-client.sh
+```
+
+Then begin the authorization flow. Keep the terminal open, open the printed URL in Chrome, and approve using the Google account that manages the Centre Street Business Profile:
+
+```bash
+node scripts/connect-google-business.mjs
+```
+
+List the available Business Profile accounts, then set the account and location IDs:
+
+```bash
+node scripts/google-business-publisher.mjs accounts
+node scripts/google-business-publisher.mjs locations
+./scripts/save-google-business-target.sh
+```
 
 Create `.env.google-business.local`:
 

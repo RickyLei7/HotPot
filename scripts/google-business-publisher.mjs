@@ -22,9 +22,9 @@ async function config() {
     return separator > 0 && !line.startsWith("#") ? [[line.slice(0, separator), line.slice(separator + 1)]] : [];
   }));
   const settings = {
-    accessToken: required(env.GOOGLE_BUSINESS_ACCESS_TOKEN, "Missing GOOGLE_BUSINESS_ACCESS_TOKEN in .env.google-business.local."),
-    accountId: required(env.GOOGLE_BUSINESS_ACCOUNT_ID, "Missing GOOGLE_BUSINESS_ACCOUNT_ID in .env.google-business.local."),
-    locationId: required(env.GOOGLE_BUSINESS_LOCATION_ID, "Missing GOOGLE_BUSINESS_LOCATION_ID in .env.google-business.local."),
+    accessToken: env.GOOGLE_BUSINESS_ACCESS_TOKEN,
+    accountId: env.GOOGLE_BUSINESS_ACCOUNT_ID,
+    locationId: env.GOOGLE_BUSINESS_LOCATION_ID,
     refreshToken: env.GOOGLE_BUSINESS_REFRESH_TOKEN,
     clientId: env.GOOGLE_BUSINESS_CLIENT_ID,
     clientSecret: env.GOOGLE_BUSINESS_CLIENT_SECRET,
@@ -33,7 +33,10 @@ async function config() {
 }
 
 async function refreshAccessTokenIfPossible(settings) {
-  if (!settings.refreshToken || !settings.clientId || !settings.clientSecret) return settings;
+  if (!settings.refreshToken || !settings.clientId || !settings.clientSecret) {
+    required(settings.accessToken, "Missing Google OAuth credentials in .env.google-business.local.");
+    return settings;
+  }
 
   const response = await fetch("https://oauth2.googleapis.com/token", {
     method: "POST",
@@ -76,12 +79,15 @@ function ownedImage(url) {
 
 async function verify() {
   const settings = await refreshAccessTokenIfPossible(await config());
+  required(settings.accountId, "Missing GOOGLE_BUSINESS_ACCOUNT_ID in .env.google-business.local.");
   const account = await request(`https://mybusinessaccountmanagement.googleapis.com/v1/accounts/${settings.accountId}`, {}, settings);
   console.log(JSON.stringify({ connected: true, account }, null, 2));
 }
 
 async function prepareOrPublish() {
   const settings = await refreshAccessTokenIfPossible(await config());
+  required(settings.accountId, "Missing GOOGLE_BUSINESS_ACCOUNT_ID in .env.google-business.local.");
+  required(settings.locationId, "Missing GOOGLE_BUSINESS_LOCATION_ID in .env.google-business.local.");
   const imageUrl = required(option("--image-url"), "Missing --image-url.");
   const captionFile = required(option("--caption-file"), "Missing --caption-file.");
   const summary = (await readFile(path.resolve(root, captionFile), "utf8")).trim();
@@ -100,6 +106,25 @@ async function prepareOrPublish() {
   console.log(JSON.stringify({ published: true, post }, null, 2));
 }
 
+async function listAccounts() {
+  const settings = await refreshAccessTokenIfPossible(await config());
+  const accounts = await request("https://mybusinessaccountmanagement.googleapis.com/v1/accounts", {}, settings);
+  console.log(JSON.stringify(accounts, null, 2));
+}
+
+async function listLocations() {
+  const settings = await refreshAccessTokenIfPossible(await config());
+  required(settings.accountId, "Missing GOOGLE_BUSINESS_ACCOUNT_ID in .env.google-business.local.");
+  const locations = await request(
+    `https://mybusinessbusinessinformation.googleapis.com/v1/accounts/${settings.accountId}/locations?readMask=name,title,storefrontAddress`,
+    {},
+    settings,
+  );
+  console.log(JSON.stringify(locations, null, 2));
+}
+
 if (command === "verify") await verify();
 else if (command === "prepare" || command === "publish") await prepareOrPublish();
-else console.log("Usage: node scripts/google-business-publisher.mjs verify|prepare|publish --image-url <https-url> --caption-file <file> --call-to-action-url <https-url> [--confirm yes]");
+else if (command === "accounts") await listAccounts();
+else if (command === "locations") await listLocations();
+else console.log("Usage: node scripts/google-business-publisher.mjs accounts|locations|verify|prepare|publish --image-url <https-url> --caption-file <file> --call-to-action-url <https-url> [--confirm yes]");

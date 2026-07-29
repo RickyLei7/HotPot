@@ -4,7 +4,7 @@ import path from "node:path";
 const root = process.cwd();
 const envPath = path.join(root, ".env.facebook.local");
 const [command = "help", ...args] = process.argv.slice(2);
-const apiVersion = "v23.0";
+const apiVersion = "v25.0";
 
 function option(name) {
   const index = args.indexOf(name);
@@ -29,13 +29,18 @@ async function config() {
 }
 
 async function graph(endpoint, { method = "GET", form } = {}, settings) {
-  const response = await fetch(`https://graph.facebook.com/${apiVersion}/${endpoint}`, {
+  const url = new URL(`https://graph.facebook.com/${apiVersion}/${endpoint}`);
+  url.searchParams.set("access_token", settings.accessToken);
+  const response = await fetch(url, {
     method,
     headers: form ? { "Content-Type": "application/x-www-form-urlencoded" } : undefined,
-    body: form ? new URLSearchParams({ ...form, access_token: settings.accessToken }) : undefined,
+    body: form ? new URLSearchParams(form) : undefined,
   });
   const body = await response.json();
-  if (!response.ok || body.error) throw new Error(`Facebook API ${response.status}: ${body.error?.message ?? "Unknown error"}`);
+  if (!response.ok || body.error) {
+    const message = String(body.error?.message ?? "Unknown error").replaceAll(settings.accessToken, "[redacted]");
+    throw new Error(`Facebook API ${response.status}: ${message}`);
+  }
   return body;
 }
 

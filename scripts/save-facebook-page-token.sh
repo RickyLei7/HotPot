@@ -18,6 +18,17 @@ if [[ ! "$page_token" =~ '^EAA' ]]; then
   exit 1
 fi
 
+# Some terminal paste managers duplicate a clipboard value. Keep the one token.
+if (( ${#page_token} % 2 == 0 )); then
+  midpoint=$(( ${#page_token} / 2 ))
+  first_half="${page_token[1,$midpoint]}"
+  second_half="${page_token[$((midpoint + 1)),-1]}"
+  if [[ "$first_half" == "$second_half" ]]; then
+    page_token="$first_half"
+    echo "A duplicated token paste was detected and reduced to one token."
+  fi
+fi
+
 umask 077
 cat > "$env_path" <<EOF
 FACEBOOK_PAGE_ID=$page_id

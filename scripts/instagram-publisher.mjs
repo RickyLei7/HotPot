@@ -10,6 +10,11 @@ function option(name) {
   return index === -1 ? undefined : args[index + 1];
 }
 
+function optionValues(name) {
+  return args.flatMap((value, index) => value === name ? [args[index + 1]] : [])
+    .filter((value) => value && !value.startsWith("--"));
+}
+
 function requireOption(name) {
   const value = option(name);
   if (!value || value.startsWith("--")) {
@@ -122,13 +127,67 @@ async function prepareOrPublish() {
   console.log(JSON.stringify({ published: true, media }, null, 2));
 }
 
+async function prepareOrPublishCarousel() {
+  const config = await loadConfig();
+  const imageUrls = optionValues("--image-url");
+  const captionFile = requireOption("--caption-file");
+  const caption = (await readFile(path.resolve(root, captionFile), "utf8")).trim();
+
+  if (imageUrls.length < 2 || imageUrls.length > 10) {
+    throw new Error("Carousel publishing requires 2 to 10 --image-url values.");
+  }
+  imageUrls.forEach(ensureRestaurantAsset);
+
+  const preview = {
+    accountId: config.INSTAGRAM_USER_ID,
+    imageUrls,
+    captionCharacters: [...caption].length,
+    publish: command === "publish-carousel",
+  };
+
+  if (command === "prepare-carousel") {
+    console.log(JSON.stringify(preview, null, 2));
+    return;
+  }
+
+  if (option("--confirm") !== "yes") {
+    throw new Error("Publishing requires --confirm yes.");
+  }
+
+  const children = [];
+  for (const imageUrl of imageUrls) {
+    const child = await graphRequest(config, `${config.INSTAGRAM_USER_ID}/media`, {
+      method: "POST",
+      form: { image_url: imageUrl, is_carousel_item: "true" },
+    });
+    await waitForContainer(config, child.id);
+    children.push(child.id);
+  }
+
+  const parent = await graphRequest(config, `${config.INSTAGRAM_USER_ID}/media`, {
+    method: "POST",
+    form: { media_type: "CAROUSEL", children: children.join(","), caption },
+  });
+  await waitForContainer(config, parent.id);
+  const published = await graphRequest(config, `${config.INSTAGRAM_USER_ID}/media_publish`, {
+    method: "POST",
+    form: { creation_id: parent.id },
+  });
+  const media = await graphRequest(config, `${published.id}?fields=id,permalink,timestamp`);
+  console.log(JSON.stringify({ published: true, media, childCount: children.length }, null, 2));
+}
+
 if (command === "verify") {
   await verify();
 } else if (command === "prepare" || command === "publish") {
   await prepareOrPublish();
+} else if (command === "prepare-carousel" || command === "publish-carousel") {
+  await prepareOrPublishCarousel();
 } else {
   console.log(`Usage:
   node scripts/instagram-publisher.mjs verify
   node scripts/instagram-publisher.mjs prepare --image-url https://centrestjhotpot.ca/assets/social/example.png --caption-file marketing/captions/example.txt
-  node scripts/instagram-publisher.mjs publish --image-url https://centrestjhotpot.ca/assets/social/example.png --caption-file marketing/captions/example.txt --confirm yes`);
+  node scripts/instagram-publisher.mjs publish --image-url https://centrestjhotpot.ca/assets/social/example.png --caption-file marketing/captions/example.txt --confirm yes
+  node scripts/instagram-publisher.mjs prepare-carousel --image-url https://centrestjhotpot.ca/assets/social/example-1.png --image-url https://centrestjhotpot.ca/assets/social/example-2.png --caption-file marketing/captions/example.txt
+  node scripts/instagram-publisher.mjs publish-carousel --image-url https://centrestjhotpot.ca/assets/social/example-1.png --image-url https://centrestjhotpot.ca/assets/social/example-2.png --caption-file marketing/captions/example.txt --confirm yes`);
 }

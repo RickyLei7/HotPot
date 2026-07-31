@@ -197,6 +197,15 @@ export default function MenuPage() {
             Choose from Taiwanese and Japanese-style hot pot soup bases, all-you-can-eat hot pot,
             premium meats, fresh seafood, vegetables, rice and noodle bowls, Taiwanese snacks, and milk tea.
           </p>
+          <div className="hero-actions">
+            <a className="primary-action" href="tel:+14034553188">Call to Reserve</a>
+            <a
+              className="secondary-action"
+              href="https://www.google.com/maps/dir/?api=1&destination=2213+Centre+St+N+%232243%2C+Calgary%2C+AB+T2E+2T4"
+            >
+              Get Directions
+            </a>
+          </div>
         </div>
       </section>
 
@@ -296,7 +305,7 @@ export default function MenuPage() {
         <div id="rice-noodles">
           <div className="section-heading compact">
             <p className="eyebrow">Rice & noodles</p>
-            <h2>Comfort bowls for lunch, dinner, or takeout.</h2>
+            <h2>Comfort bowls for dinner, weekend lunch, or takeout.</h2>
           </div>
           <div className="price-list">
             {riceNoodles.map(([item, price]) => (

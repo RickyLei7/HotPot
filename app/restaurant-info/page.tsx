@@ -47,8 +47,32 @@ const restaurantInfoSchema = {
       latitude: 51.0722307,
       longitude: -114.0630498,
     },
+    hasMap:
+      "https://www.google.com/maps/place/Centre+Street+Japanese+Hotpot/@51.072234,-114.0656247,17z/data=!3m1!4b1!4m6!3m5!1s0x537165667f6ee1f3:0x1a418403f487f9b3!8m2!3d51.0722307!4d-114.0630498!16s%2Fg%2F11bwndz8pj",
+    areaServed: ["Calgary", "Centre Street Calgary", "Calgary North"],
+    openingHoursSpecification: [
+      {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        opens: "17:00",
+        closes: "22:30",
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: ["Saturday", "Sunday"],
+        opens: "12:00",
+        closes: "22:30",
+      },
+    ],
     hasMenu: "https://centrestjhotpot.ca/menu/",
     acceptsReservations: true,
+    sameAs: [
+      "https://www.instagram.com/centrestreetjapanesehotpot/",
+      "https://www.facebook.com/CentreStreetJapaneseHotPot",
+      "https://www.threads.com/@centrestreetjapanesehotpot",
+      "https://www.tiktok.com/@stjapanesehotpot",
+      "https://www.xiaohongshu.com/user/profile/65408e340000000030030828",
+    ],
     keywords:
       "Taiwanese Hot Pot Calgary, Japanese Hot Pot Calgary, Hot Pot Restaurant Calgary, Calgary individual hot pot, Centre Street Calgary restaurant, family hot pot Calgary, group dining hot pot Calgary, 卡加利火鍋, 卡加利台式火鍋, 台灣火鍋 卡加利, 卡加利一人一鍋, 鼎鑽火鍋",
   },
@@ -126,6 +150,8 @@ export default function RestaurantInfoPage() {
               <Link href="/">Home</Link> · <Link href="/menu">Menu</Link> ·{" "}
               <Link href="/about">About</Link> · <Link href="/faq">FAQ</Link> ·{" "}
               <Link href="/contact">Contact</Link> ·{" "}
+              <Link href="/ayce-hot-pot-calgary">AYCE Hot Pot</Link> ·{" "}
+              <Link href="/calgary-hot-pot-guide">Calgary hot pot guide</Link> ·{" "}
               <Link href="/calgary-taiwanese-hot-pot">Taiwanese hot pot guide</Link> ·{" "}
               <a href="/llms.txt">AI-readable facts</a>
             </p>

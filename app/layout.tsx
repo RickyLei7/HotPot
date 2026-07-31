@@ -27,11 +27,15 @@ export const metadata: Metadata = {
       "Calgary hot pot restaurant serving Taiwanese and Japanese-style individual hot pot, AYCE hot pot, signature broths, snacks, rice and noodle bowls, and milk tea.",
     url: "https://centrestjhotpot.ca/",
     siteName: "Centre Street Japanese HotPot",
-    images: ["/assets/hero-beef-noodle.webp"],
+    images: ["/assets/ayce-hotpot-preview.webp"],
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
+    title: "Centre Street Japanese HotPot | AYCE Hot Pot Calgary",
+    description:
+      "$28.99 AYCE hot pot in Calgary with 15 soup bases. Call (403) 455-3188 to reserve.",
+    images: ["/assets/ayce-hotpot-preview.webp"],
   },
   icons: {
     icon: [

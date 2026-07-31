@@ -18,9 +18,19 @@ async function collectHtmlFiles(directory) {
 const htmlFiles = await collectHtmlFiles(publicDir);
 assert.ok(htmlFiles.length > 0, "No deployable HTML files found in public/");
 
+// OAuth return pages only confirm an external account connection. They are not
+// guest-facing site pages and intentionally do not load analytics or ad tags.
+const authCallbackPages = new Set([
+  "public/facebook-auth/index.html",
+  "public/google-business-auth/index.html",
+  "public/instagram-auth/index.html",
+  "public/threads-auth/index.html",
+]);
+
 for (const file of htmlFiles) {
   const html = await readFile(file, "utf8");
   const relativePath = path.relative(root, file);
+  if (authCallbackPages.has(relativePath)) continue;
   assert.equal(
     (html.match(/src="\/site-events\.js"/g) || []).length,
     1,

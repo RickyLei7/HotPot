@@ -352,10 +352,10 @@ export default function MenuPage() {
         </div>
         <div className="menu-images">
           <a href="/menu/hotpot-menu.jpg" target="_blank" rel="noreferrer">
-            <img src="/menu/hotpot-menu-preview.webp" alt="Full hot pot set and appetizer menu page" width="601" height="900" loading="eager" decoding="async" />
+            <img src="/menu/hotpot-menu-preview.webp" alt="Full hot pot set and appetizer menu page" width="601" height="900" loading="lazy" decoding="async" />
           </a>
           <a href="/menu/drink-menu.jpg" target="_blank" rel="noreferrer">
-            <img src="/menu/drink-menu-preview.webp" alt="Full rice noodle and drink menu page" width="601" height="900" loading="eager" decoding="async" />
+            <img src="/menu/drink-menu-preview.webp" alt="Full rice noodle and drink menu page" width="601" height="900" loading="lazy" decoding="async" />
           </a>
         </div>
       </section>

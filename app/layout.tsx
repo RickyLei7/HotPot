@@ -58,7 +58,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-JN2E0S7E36"
+          src="/t662/"
           strategy="afterInteractive"
         />
         <Script src="/site-events.js" strategy="afterInteractive" />

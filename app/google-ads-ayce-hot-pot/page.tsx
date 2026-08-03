@@ -7,7 +7,11 @@ const mapsUrl =
 export const metadata: Metadata = {
   title: "$28.99 AYCE Hot Pot Calgary | Centre Street Japanese HotPot",
   description:
-    "Google Ads landing page for Centre Street Japanese HotPot AYCE Hot Pot in Calgary. $28.99 + tax, soup base included, 15 soup bases, snack upgrade, phone reservations, directions, and full menu.",
+    "AYCE hot pot in Calgary for $28.99 + tax at Centre Street Japanese HotPot. Soup base included, 15 soup bases, snack upgrade, phone reservations, directions, and full menu.",
+  robots: {
+    index: false,
+    follow: true,
+  },
   alternates: {
     canonical: "/google-ads-ayce-hot-pot",
   },
@@ -29,7 +33,7 @@ const adsSchema = {
       url: "https://centrestjhotpot.ca/google-ads-ayce-hot-pot/",
       name: "$28.99 AYCE Hot Pot Calgary",
       description:
-        "A focused Google Ads landing page for all-you-can-eat hot pot in Calgary at Centre Street Japanese HotPot.",
+        "AYCE hot pot in Calgary for $28.99 + tax with soup base included, 15 soup bases, snack upgrade, phone reservations, and directions.",
       about: [
         "AYCE hot pot Calgary",
         "all you can eat hot pot Calgary",

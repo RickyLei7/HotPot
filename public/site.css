@@ -316,6 +316,9 @@ h3 { font-size: 1.08rem; margin-bottom: 10px; }
 .price-list div { align-items: center; border-bottom: 1px solid rgba(127, 23, 22, 0.14); display: grid; gap: 14px; grid-template-columns: minmax(0, 1fr) auto; min-height: 48px; padding: 11px 16px; }
 .price-list div:last-child { border-bottom: 0; }
 .price-list strong { color: var(--red); font-size: 1.08rem; }
+.ayce-snack-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.ayce-snack-list div { border-bottom: 1px solid rgba(127, 23, 22, 0.14); }
+.ayce-snack-list div:nth-last-child(-n + 2) { border-bottom: 0; }
 .drink-panel { background: var(--paper-soft); border-radius: 8px; color: var(--ink); display: grid; grid-template-columns: minmax(240px, 0.5fr) minmax(0, 1fr); overflow: hidden; }
 .drink-panel img { height: 100%; max-height: 420px; object-fit: cover; object-position: center 46%; width: 100%; }
 .drink-panel .price-list { border-radius: 0; }

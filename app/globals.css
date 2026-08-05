@@ -860,6 +860,19 @@ h3 {
   font-size: 1.08rem;
 }
 
+.ayce-snack-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.ayce-snack-list div {
+  border-bottom: 1px solid rgba(127, 23, 22, 0.14);
+}
+
+.ayce-snack-list div:nth-last-child(-n + 2) {
+  border-bottom: 0;
+}
+
 .drink-panel {
   background: var(--paper-soft);
   border-radius: 8px;

@@ -56,7 +56,7 @@ const faqs = [
   ],
   [
     "Is All-You-Can-Eat Hot Pot available?",
-    "Yes. All-You-Can-Eat Hot Pot is $28.99 + tax with soup base included. Meat is ordered through the server. The snack upgrade is +$3.99 when everyone at the same table upgrades. Kids pricing is by height: under 100 cm free, 100-140 cm $12.99, and over 140 cm adult price. Time limit is 1.5 hours.",
+    "Yes. All-You-Can-Eat Hot Pot is $28.99 + tax with soup base included. Meat is ordered through the server. Add 19 all-you-can-eat appetizers for +$3.99 per person; everyone at the same table must upgrade. Kids pricing is by height: under 100 cm free, 100-140 cm $12.99, and over 140 cm adult price. Time limit is 1.5 hours.",
   ],
   [
     "What soup bases do you offer?",

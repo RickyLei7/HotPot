@@ -116,7 +116,7 @@ const restaurantJsonLd = {
         price: "3.99",
         priceCurrency: "CAD",
         description:
-          "Optional all-you-can-eat snack upgrade. Everyone at the same table must upgrade. Price before tax.",
+          "Optional all-you-can-eat upgrade with 19 snacks. Everyone at the same table must upgrade. Price before tax.",
       },
     ],
   },
@@ -330,8 +330,8 @@ export default function Home() {
           <h2>All-You-Can-Eat Hot Pot in Calgary is available.</h2>
           <p>
             AYCE Hot Pot Calgary offer: $28.99 + tax, soup base included, meat ordered through
-            your server, and a 1.5 hour limit. Add the all-you-can-eat snack upgrade for +$3.99
-            for the whole table.
+            your server, and a 1.5 hour limit. Add 19 all-you-can-eat snacks for +$3.99 per
+            person. Everyone at the same table must upgrade.
           </p>
           <div className="ayce-actions">
             <a className="primary-action" href="tel:+14034553188">
@@ -347,7 +347,7 @@ export default function Home() {
         </div>
         <a className="ayce-card" href="#ayce-poster" aria-label="View All-You-Can-Eat Hot Pot poster">
           <span>$28.99 + tax</span>
-          <img src="/assets/ayce-hotpot-preview.webp" alt="All-You-Can-Eat Hot Pot poster with $28.99 pricing, meat selection, snack upgrade, and kids pricing by height" width="588" height="760" loading="lazy" decoding="async" />
+          <img src="/assets/ayce-hotpot-preview.webp" alt="AYCE Hot Pot poster with $28.99 pricing and 19-item appetizer upgrade" width="640" height="960" loading="lazy" decoding="async" />
         </a>
       </section>
 
@@ -358,7 +358,7 @@ export default function Home() {
             Close
           </a>
           <span className="modal-label">$28.99 + tax</span>
-          <img src="/assets/ayce-hotpot.webp" alt="All-You-Can-Eat Hot Pot poster with $28.99 pricing, meat selection, snack upgrade, and kids pricing by height" width="1160" height="1500" loading="lazy" decoding="async" />
+          <img src="/assets/ayce-hotpot.webp" alt="AYCE Hot Pot menu with $28.99 pricing and 19-item appetizer upgrade" width="1024" height="1536" loading="lazy" decoding="async" />
         </div>
       </div>
 

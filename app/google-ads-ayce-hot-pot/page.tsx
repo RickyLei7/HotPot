@@ -7,7 +7,7 @@ const mapsUrl =
 export const metadata: Metadata = {
   title: "$28.99 AYCE Hot Pot Calgary | Centre Street Japanese HotPot",
   description:
-    "AYCE hot pot in Calgary for $28.99 + tax at Centre Street Japanese HotPot. Soup base included, 15 soup bases, snack upgrade, phone reservations, directions, and full menu.",
+    "AYCE hot pot in Calgary for $28.99 + tax. Soup base included, 15 soup bases, and an optional 19-item AYCE appetizer upgrade for +$3.99 per person.",
   robots: {
     index: false,
     follow: true,
@@ -121,7 +121,7 @@ export default function GoogleAdsAyceHotPotPage() {
           <h1>$28.99 AYCE Hot Pot in Calgary</h1>
           <p className="hero-text">
             Centre Street Japanese HotPot serves Taiwanese and Japanese-style all-you-can-eat hot pot
-            with soup base included, 15 soup bases, server-ordered meats, and optional AYCE snacks.
+            with soup base included, 15 soup bases, server-ordered meats, and an optional 19-item AYCE appetizer upgrade.
             鼎鑽火鍋主打台式與日式風格火鍋自助，適合家庭聚餐、朋友聚會與團體訂位。
           </p>
           <div className="ads-hero-actions">
@@ -143,7 +143,7 @@ export default function GoogleAdsAyceHotPotPage() {
           <ul>
             <li>15 soup bases · 15 款湯底</li>
             <li>AAA beef, lamb, pork, chicken · 肉類由服務員下單</li>
-            <li>Snack upgrade +$3.99 · 小吃任點升級</li>
+            <li>19 snacks +$3.99/person · 19 款小吃任點</li>
             <li>1.5 hour time limit · 限時 1.5 小時</li>
           </ul>
         </div>
@@ -172,7 +172,7 @@ export default function GoogleAdsAyceHotPotPage() {
           </article>
           <article>
             <h3>Snack Upgrade</h3>
-            <p>+ $3.99 for AYCE snacks including Taiwanese fried chicken, takoyaki, crispy chicken cutlet, fried buns, and squid legs. 小吃任點需同桌升級。</p>
+            <p>+ $3.99 per person for 19 AYCE snacks, including Taiwanese fried chicken, takoyaki, crispy chicken cutlet, fried buns, squid legs, spring rolls, fries, and more. 同桌每位都需升級。</p>
           </article>
           <article>
             <h3>Kids Pricing</h3>

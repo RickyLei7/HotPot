@@ -4,7 +4,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "AYCE Hot Pot Calgary | All You Can Eat Hot Pot",
   description:
-    "AYCE Hot Pot Calgary at Centre Street Japanese HotPot. All-you-can-eat hot pot is $28.99 + tax with soup base included, server-ordered meats, snack upgrade, kids pricing, and reservations by phone.",
+    "AYCE Hot Pot Calgary for $28.99 + tax with soup base included, server-ordered meats, and an optional 19-item appetizer upgrade for +$3.99 per person.",
   alternates: {
     canonical: "/ayce-hot-pot-calgary",
   },
@@ -32,12 +32,21 @@ const ayceFaqs = [
   ],
   [
     "Can I add all-you-can-eat snacks?",
-    "Yes. The all-you-can-eat snack upgrade is +$3.99. Everyone at the same table must upgrade. Snack options include Taiwanese fried chicken, takoyaki, crispy chicken cutlet, golden fried buns, crispy squid legs, and more.",
+    "Yes. Add 19 all-you-can-eat appetizers for +$3.99 per person. Everyone at the same table must upgrade. Options include Taiwanese fried chicken, takoyaki, crispy chicken cutlet, golden fried buns, crispy squid legs, spring rolls, fries, and more.",
   ],
   [
     "Are there AYCE rules or limits?",
     "AYCE Hot Pot is dine-in only with a 1.5 hour time limit. Please order responsibly and avoid food waste.",
   ],
+];
+
+const ayceSnacks = [
+  "Signature Taiwanese Fried Chicken", "Takoyaki (6 pcs)", "Crispy Chicken Cutlet",
+  "Golden Fried Buns", "Crispy Squid Legs", "Deep Fried King Mushroom",
+  "Crispy Wontons (8 pcs)", "Deep Fried Dumplings (8 pcs)", "Chicken Spring Rolls (6 pcs)",
+  "Veggie Spring Rolls (5 pcs)", "Popcorn Chicken", "Fish Balls (6 pcs)",
+  "Chinese Donut", "French Fries", "Sweet Potato Fries", "Golden Onion Rings",
+  "Korean Fish Cake", "Luncheon Meat (Spam)", "Edamame",
 ];
 
 const ayceSchema = {
@@ -121,7 +130,7 @@ export default function AyceHotPotCalgaryPage() {
           <h1>All-You-Can-Eat Hot Pot in Calgary</h1>
           <p className="hero-text">
             Centre Street Japanese HotPot serves AYCE Hot Pot in Calgary for $28.99 + tax,
-            with soup base included, server-ordered meats, optional all-you-can-eat snacks,
+            with soup base included, server-ordered meats, an optional 19-item appetizer upgrade,
             and phone reservations for today&apos;s availability.
           </p>
           <div className="hero-actions">
@@ -153,14 +162,29 @@ export default function AyceHotPotCalgaryPage() {
             <article>
               <span>+$3.99</span>
               <h3>Snack Upgrade</h3>
-              <p>All-you-can-eat snacks for the whole table.</p>
+              <p>Choose from 19 all-you-can-eat appetizers. Everyone at the table must upgrade.</p>
             </article>
           </div>
         </div>
         <a className="ayce-card" href="/assets/ayce-hotpot.webp" aria-label="Open All-You-Can-Eat Hot Pot poster">
           <span>$28.99 + tax</span>
-          <img src="/assets/ayce-snack-duo.webp" alt="AYCE Hot Pot Calgary snack upgrade with Taiwanese fried chicken and takoyaki" width="900" height="1125" loading="lazy" decoding="async" />
+          <img src="/assets/ayce-hotpot-preview.webp" alt="AYCE Hot Pot poster with $28.99 pricing and 19-item appetizer upgrade" width="640" height="960" loading="lazy" decoding="async" />
         </a>
+      </section>
+
+      <section className="menu-section" id="ayce-snacks">
+        <div className="section-heading">
+          <p className="eyebrow">19-item appetizer upgrade</p>
+          <h2>Add 19 all-you-can-eat snacks for +$3.99 per person.</h2>
+          <p>Everyone at the same table must upgrade.</p>
+        </div>
+        <div className="price-list ayce-snack-list">
+          {ayceSnacks.map((snack) => <div key={snack}><span>{snack}</span><strong>AYCE</strong></div>)}
+        </div>
+        <div className="combo-actions">
+          <a className="primary-action" href="/menu/centre-street-ayce-menu.pdf" target="_blank" rel="noreferrer">Open AYCE Menu</a>
+          <a className="secondary-action dark" href="/menu/centre-street-ayce-menu.pdf" download>Download PDF</a>
+        </div>
       </section>
 
       <section className="weekly-picks">

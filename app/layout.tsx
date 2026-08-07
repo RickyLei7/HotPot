@@ -15,16 +15,16 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://centrestjhotpot.ca"),
-  title: "Centre Street Japanese HotPot | Hot Pot Calgary & AYCE Hot Pot",
+  title: "Hot Pot Calgary | AYCE $28.99 & 15 Soup Bases | Centre Street",
   description:
-    "Calgary hot pot restaurant serving Taiwanese and Japanese-style individual hot pot, AYCE hot pot, signature broths, snacks, rice and noodle bowls, and milk tea. Also known as 鼎鑽火鍋.",
+    "Hot pot Calgary: Taiwanese and Japanese-style personal hot pot plus AYCE $28.99 + tax, 15 soup bases, snacks and milk tea. Open Mon-Fri 5-10:30, Sat-Sun noon-10:30. Call to reserve.",
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title: "Centre Street Japanese HotPot | Hot Pot Calgary & AYCE Hot Pot",
+    title: "Hot Pot Calgary | AYCE $28.99 & 15 Soup Bases | Centre Street",
     description:
-      "Calgary hot pot restaurant serving Taiwanese and Japanese-style individual hot pot, AYCE hot pot, signature broths, snacks, rice and noodle bowls, and milk tea.",
+      "Taiwanese and Japanese-style hot pot in Calgary: AYCE $28.99 + tax, 15 soup bases, snacks and milk tea. Call to reserve.",
     url: "https://centrestjhotpot.ca/",
     siteName: "Centre Street Japanese HotPot",
     images: ["/assets/ayce-hotpot-preview.webp"],

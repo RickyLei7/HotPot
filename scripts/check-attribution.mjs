@@ -52,7 +52,8 @@ const siteEvents = await readFile(path.join(publicDir, "site-events.js"), "utf8"
 for (const requiredText of [
   "G-JN2E0S7E36",
   "campaign_landing",
-  "reservation_click",
+  "phone_click",
+  'lead_type: "phone"',
   "menu_click",
   "window.__hotpotAnalyticsReady",
 ]) {

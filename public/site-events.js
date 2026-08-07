@@ -99,9 +99,8 @@
     var platform = socialPlatform(href);
 
     if (href.indexOf("tel:") === 0) {
-      sendEvent("reservation_click", link, { method: "phone" });
       sendEvent("phone_click", link, { method: "phone" });
-      sendEvent("generate_lead", link, { method: "phone" });
+      sendEvent("generate_lead", link, { method: "phone", lead_type: "phone" });
       sendAdsCallConversion(event, link);
     } else if (href.indexOf("mailto:") === 0) {
       sendEvent("email_click", link, { method: "email" });

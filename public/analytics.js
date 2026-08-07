@@ -45,7 +45,6 @@
     var platform = socialPlatform(href);
 
     if (href.indexOf("tel:") === 0) {
-      sendEvent("reservation_click", link, { method: "phone" });
       sendEvent("phone_click", link, { method: "phone" });
       sendEvent("generate_lead", link, { lead_type: "phone" });
     } else if (href.indexOf("mailto:") === 0) {

@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     description:
       "All-you-can-eat hot pot in Calgary at Centre Street Japanese HotPot: $28.99 + tax, soup base included, meat ordered through your server, optional snack upgrade, and phone reservations.",
     url: "https://centrestjhotpot.ca/ayce-hot-pot-calgary/",
-    images: ["/assets/ayce-snack-duo.webp"],
+    images: ["/assets/ayce-hotpot-menu-preview.webp"],
   },
 };
 
@@ -166,9 +166,9 @@ export default function AyceHotPotCalgaryPage() {
             </article>
           </div>
         </div>
-        <a className="ayce-card" href="/assets/ayce-hotpot.webp" aria-label="Open All-You-Can-Eat Hot Pot poster">
+        <a className="ayce-card" href="/assets/ayce-hotpot-menu.webp" aria-label="Open All-You-Can-Eat Hot Pot poster">
           <span>$28.99 + tax</span>
-          <img src="/assets/ayce-hotpot-preview.webp" alt="AYCE Hot Pot poster with $28.99 pricing and 19-item appetizer upgrade" width="640" height="960" loading="lazy" decoding="async" />
+          <img src="/assets/ayce-hotpot-menu-preview.webp" alt="AYCE Hot Pot poster with $28.99 pricing and all 19 appetizer upgrade items" width="495" height="640" loading="lazy" decoding="async" />
         </a>
       </section>
 

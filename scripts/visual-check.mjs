@@ -45,6 +45,11 @@ function fileForUrl(url) {
 
 async function startServer() {
   const server = createServer(async (req, res) => {
+    if (req.url === "/t662/") {
+      res.writeHead(200, { "Content-Type": "text/javascript" });
+      res.end("window.dataLayer=window.dataLayer||[];window.gtag=window.gtag||function(){window.dataLayer.push(arguments)};");
+      return;
+    }
     const filePath = fileForUrl(req.url || "/");
     if (!filePath.startsWith(publicDir) || !existsSync(filePath)) {
       res.writeHead(404);

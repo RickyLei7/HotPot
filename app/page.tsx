@@ -154,6 +154,7 @@ export default function Home() {
         </a>
         <div className="nav-links">
           <Link href="/">Home</Link>
+          <Link href="/ayce-hot-pot-calgary">AYCE</Link>
           <Link href="/menu">Menu</Link>
           <Link href="/about">About</Link>
           <Link href="/faq">FAQ</Link>
@@ -165,82 +166,27 @@ export default function Home() {
         </a>
       </nav>
 
-      <section className="hero" id="top">
+      <section className="hero ayce-hero" id="top">
         <div className="hero-copy">
-          <p className="eyebrow">Hot pot Calgary · Taiwanese & Japanese mini hotpot · 一人一鍋</p>
-          <h1>Centre Street Japanese Hotpot</h1>
+          <p className="eyebrow">All-you-can-eat hot pot Calgary</p>
+          <h1>All-You-Can-Eat Hot Pot in Calgary</h1>
           <p className="hero-text">
-            A Calgary hot pot restaurant for Taiwanese and Japanese-style individual hot pot,
-            all-you-can-eat hot pot, fresh soup bases, Taiwanese snacks, rice and noodle bowls,
-            and milk tea made for sharing. Call us to reserve a table or ask about today&apos;s availability.
+            $28.99 + tax with soup base included. Choose AAA beef, lamb, pork, or chicken,
+            ordered fresh through your server. Add 19 all-you-can-eat snacks for +$3.99 per
+            person; everyone at the same table must upgrade.
           </p>
           <div className="hero-actions">
-            <a className="primary-action" href="tel:+14034553188">
-              Call (403) 455-3188 to Reserve
-            </a>
-            <a className="secondary-action" href="#combo-specials">
-              View Combo Specials
-            </a>
-            <a className="secondary-action" href="#specials">
-              View AYCE Hot Pot
-            </a>
+            <a className="primary-action" href="tel:+14034553188">Call to Reserve AYCE</a>
             <Link className="secondary-action" href="/ayce-hot-pot-calgary">
-              Full AYCE Menu + 15 Soup Bases
+              AYCE Details
             </Link>
-            <a
-              className="secondary-action"
-              href="https://www.google.com/maps/place/Centre+Street+Japanese+Hotpot/@51.072234,-114.0656247,17z/data=!3m1!4b1!4m6!3m5!1s0x537165667f6ee1f3:0x1a418403f487f9b3!8m2!3d51.0722307!4d-114.0630498!16s%2Fg%2F11bwndz8pj"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Directions
-            </a>
+            <a className="secondary-action" href="/menu/centre-street-ayce-menu.pdf" target="_blank" rel="noreferrer">Open AYCE Menu</a>
           </div>
         </div>
-        <div className="hero-plate" aria-label="Signature Taiwanese beef noodle soup">
-          <img src="/assets/dish-beef-noodle.webp" alt="Signature Taiwanese beef noodle soup" width="1024" height="559" />
-        </div>
-      </section>
-
-      <section className="combo-promo" id="combo-specials">
-        <div className="combo-copy">
-          <p className="eyebrow">Combo specials</p>
-          <h2>Solo and couple hot pot combos made for easy table ordering.</h2>
-          <p>
-            Choose a Solo Hot Pot Combo with 1 personal hot pot and 1 drink for $24.99,
-            or a Couple Hot Pot Combo with 2 personal hot pots, 2 drinks, and 1 appetizer
-            for $58.99. Prices are before tax.
-          </p>
-          <div className="combo-price-grid" aria-label="Combo special prices">
-            <article>
-              <span>$24.99</span>
-              <h3>Solo Hot Pot Combo</h3>
-              <p>1 personal hot pot and 1 drink.</p>
-            </article>
-            <article>
-              <span>$58.99</span>
-              <h3>Couple Hot Pot Combo</h3>
-              <p>2 personal hot pots, 2 drinks, and 1 appetizer.</p>
-            </article>
-          </div>
-          <div className="combo-actions">
-            <a className="primary-action" href="tel:+14034553188">
-              Reserve a Combo Table
-            </a>
-            <Link className="secondary-action dark" href="/menu#combo-specials">
-              See Combo Details
-            </Link>
-          </div>
-        </div>
-        <img
-          className="combo-poster"
-          src="/assets/combo-hot-pot-special.webp"
-          alt="Solo Hot Pot Combo and Couple Hot Pot Combo specials"
-          width="820"
-          height="1230"
-          loading="lazy"
-          decoding="async"
-        />
+        <a className="hero-plate ayce-hero-poster" href="#ayce-poster" aria-label="View the full AYCE menu poster">
+          <span>$28.99 + tax</span>
+          <img src="/assets/ayce-hotpot-menu-preview.webp" alt="Centre Street Japanese HotPot AYCE menu with all 19 appetizer upgrade items" width="495" height="640" fetchPriority="high" decoding="async" />
+        </a>
       </section>
 
       <section className="quick-info" aria-label="Restaurant highlights">
@@ -253,12 +199,12 @@ export default function Home() {
           Soup bases
         </div>
         <div>
-          <span>+$2</span>
-          Split pot upgrade
+          <span>19</span>
+          Snack choices +$3.99
         </div>
         <div>
-          <span>10% off</span>
-          Drinks with hotpot or signature meal
+          <span>1.5 hrs</span>
+          AYCE time limit
         </div>
       </section>
 
@@ -324,41 +270,14 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="ayce-promo" id="specials">
-        <div className="ayce-copy">
-          <p className="eyebrow">All-you-can-eat hot pot</p>
-          <h2>All-You-Can-Eat Hot Pot in Calgary is available.</h2>
-          <p>
-            AYCE Hot Pot Calgary offer: $28.99 + tax, soup base included, meat ordered through
-            your server, and a 1.5 hour limit. Add 19 all-you-can-eat snacks for +$3.99 per
-            person. Everyone at the same table must upgrade.
-          </p>
-          <div className="ayce-actions">
-            <a className="primary-action" href="tel:+14034553188">
-              Call to Reserve AYCE
-            </a>
-            <Link className="secondary-action" href="/ayce-hot-pot-calgary">
-              AYCE Details
-            </Link>
-            <a className="secondary-action" href="#ayce-poster">
-              View Poster
-            </a>
-          </div>
-        </div>
-        <a className="ayce-card" href="#ayce-poster" aria-label="View All-You-Can-Eat Hot Pot poster">
-          <span>$28.99 + tax</span>
-          <img src="/assets/ayce-hotpot-preview.webp" alt="AYCE Hot Pot poster with $28.99 pricing and 19-item appetizer upgrade" width="640" height="960" loading="lazy" decoding="async" />
-        </a>
-      </section>
-
       <div className="poster-modal" id="ayce-poster" role="dialog" aria-label="All-You-Can-Eat Hot Pot poster">
-        <a className="modal-backdrop" href="#specials" aria-label="Close poster"></a>
+        <a className="modal-backdrop" href="#top" aria-label="Close poster"></a>
         <div className="poster-frame">
-          <a className="modal-close" href="#specials" aria-label="Close poster">
+          <a className="modal-close" href="#top" aria-label="Close poster">
             Close
           </a>
           <span className="modal-label">$28.99 + tax</span>
-          <img src="/assets/ayce-hotpot.webp" alt="AYCE Hot Pot menu with $28.99 pricing and 19-item appetizer upgrade" width="1024" height="1536" loading="lazy" decoding="async" />
+          <img src="/assets/ayce-hotpot-menu.webp" alt="AYCE Hot Pot menu with $28.99 pricing and all 19 appetizer upgrade items" width="791" height="1024" loading="lazy" decoding="async" />
         </div>
       </div>
 
@@ -369,14 +288,30 @@ export default function Home() {
         </div>
         <div className="category-strip">
           <Link href="/menu#hotpot-set"><span className="category-icon">SET</span><strong>Hot Pot Set</strong></Link>
-          <Link href="/menu#combo-specials"><span className="category-icon">CMB</span><strong>Combos</strong></Link>
           <Link href="/ayce-hot-pot-calgary"><span className="category-icon">AYCE</span><strong>AYCE Hot Pot</strong></Link>
+          <Link href="/menu#combo-specials"><span className="category-icon">CMB</span><strong>Combos</strong></Link>
           <Link href="/menu#soup-bases"><span className="category-icon">SOUP</span><strong>Soup Bases</strong></Link>
           <Link href="/menu#rice-noodles"><span className="category-icon">RICE</span><strong>Rice & Noodles</strong></Link>
           <Link href="/menu#drinks"><span className="category-icon">TEA</span><strong>Drinks</strong></Link>
           <Link href="/menu#appetizers"><span className="category-icon">SNK</span><strong>Appetizers</strong></Link>
           <Link href="/menu#full-menu"><span className="category-icon">IMG</span><strong>Full Menu</strong></Link>
         </div>
+      </section>
+
+      <section className="combo-promo" id="combo-specials">
+        <div className="combo-copy">
+          <p className="eyebrow">Other dining options</p>
+          <h2>Solo and couple hot pot combos are still available.</h2>
+          <p>
+            Prefer an individual meal? Choose a Solo Hot Pot Combo with 1 personal hot pot and 1 drink
+            for $24.99, or a Couple Hot Pot Combo with 2 personal hot pots, 2 drinks, and 1 appetizer for $58.99.
+          </p>
+          <div className="combo-actions">
+            <a className="primary-action" href="tel:+14034553188">Reserve a Table</a>
+            <Link className="secondary-action dark" href="/menu#combo-specials">See Combo Details</Link>
+          </div>
+        </div>
+        <img className="combo-poster" src="/assets/combo-hot-pot-special.webp" alt="Solo Hot Pot Combo and Couple Hot Pot Combo specials" width="820" height="1230" loading="lazy" decoding="async" />
       </section>
 
       <AboutContent />

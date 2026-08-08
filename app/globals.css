@@ -259,6 +259,35 @@ h3 {
   width: 100%;
 }
 
+.ayce-hero {
+  background:
+    linear-gradient(90deg, rgba(18, 13, 11, 0.96), rgba(90, 19, 15, 0.9)),
+    url("/assets/dish-sukiyaki.webp") center / cover;
+  min-height: min(760px, calc(100vh - 79px));
+}
+
+.ayce-hero .hero-copy { max-width: 720px; }
+.ayce-hero .hero-text { max-width: 690px; }
+.ayce-hero-poster {
+  align-self: center;
+  justify-self: end;
+  max-width: 460px;
+  position: relative;
+}
+.ayce-hero-poster span {
+  background: var(--gold);
+  border-radius: 999px;
+  color: var(--ink);
+  font-size: 0.82rem;
+  font-weight: 900;
+  left: 14px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 14px;
+  z-index: 2;
+}
+.ayce-hero-poster img { object-fit: contain; object-position: center; }
+
 .quick-info {
   background: var(--red);
   border-block: 1px solid rgba(246, 201, 76, 0.46);
@@ -533,7 +562,7 @@ h3 {
 
 .poster-modal {
   align-items: center;
-  display: flex;
+  display: none;
   inset: 0;
   justify-content: center;
   opacity: 0;
@@ -545,6 +574,7 @@ h3 {
 }
 
 .poster-modal:target {
+  display: flex;
   opacity: 1;
   pointer-events: auto;
 }
@@ -1274,6 +1304,8 @@ h3 {
   .hero {
     min-height: auto;
   }
+  .ayce-hero { gap: 24px; padding-bottom: 28px; padding-top: 30px; }
+  .ayce-hero-poster { justify-self: center; max-width: 420px; width: min(100%, 360px); }
 
   .hero-plate {
     max-height: 560px;

@@ -117,6 +117,17 @@ h3 { font-size: 1.08rem; margin-bottom: 10px; }
   overflow: hidden;
 }
 .hero-plate img { height: 100%; object-fit: cover; object-position: center; width: 100%; }
+.ayce-hero {
+  background:
+    linear-gradient(90deg, rgba(18, 13, 11, 0.96), rgba(90, 19, 15, 0.9)),
+    url("assets/dish-sukiyaki.webp") center / cover;
+  min-height: min(760px, calc(100vh - 79px));
+}
+.ayce-hero .hero-copy { max-width: 720px; }
+.ayce-hero .hero-text { max-width: 690px; }
+.ayce-hero-poster { align-self: center; justify-self: end; max-width: 460px; position: relative; }
+.ayce-hero-poster span { background: var(--gold); border-radius: 999px; color: var(--ink); font-size: 0.82rem; font-weight: 900; left: 14px; padding: 8px 12px; position: absolute; top: 14px; z-index: 2; }
+.ayce-hero-poster img { object-fit: contain; object-position: center; }
 .quick-info {
   background: var(--red);
   border-block: 1px solid rgba(246, 201, 76, 0.46);
@@ -224,7 +235,7 @@ h3 { font-size: 1.08rem; margin-bottom: 10px; }
 .ayce-card img { aspect-ratio: 4 / 5; height: 100%; object-fit: cover; object-position: center top; width: 100%; }
 .poster-modal {
   align-items: center;
-  display: flex;
+  display: none;
   inset: 0;
   justify-content: center;
   opacity: 0;
@@ -234,7 +245,7 @@ h3 { font-size: 1.08rem; margin-bottom: 10px; }
   transition: opacity 180ms ease;
   z-index: 60;
 }
-.poster-modal:target { opacity: 1; pointer-events: auto; }
+.poster-modal:target { display: flex; opacity: 1; pointer-events: auto; }
 .modal-backdrop { background: rgba(0, 0, 0, 0.78); inset: 0; position: absolute; }
 .poster-frame {
   background: var(--paper);
@@ -472,6 +483,8 @@ h3 { font-size: 1.08rem; margin-bottom: 10px; }
   .nav-links a { background: rgba(255, 248, 234, 0.1); border: 1px solid rgba(246, 201, 76, 0.24); border-radius: 999px; flex: 0 0 auto; padding: 9px 14px; }
   .hero, .ayce-promo, .about-section, .social-follow, .two-column, .drink-panel, .guide-layout, .menu-images { grid-template-columns: 1fr; }
   .hero { min-height: auto; }
+  .ayce-hero { gap: 24px; padding-bottom: 28px; padding-top: 30px; }
+  .ayce-hero-poster { justify-self: center; max-width: 420px; width: min(100%, 360px); }
   .hero-plate { max-height: 560px; }
   .about-section { background: linear-gradient(180deg, rgba(127, 23, 22, 0.94), rgba(31, 22, 17, 0.94)), url("assets/hero-beef-noodle.webp") right top / 640px auto no-repeat; }
   .about-intro { position: static; }

@@ -317,6 +317,7 @@ h3 {
 .combo-promo,
 .ayce-promo,
 .weekly-picks,
+.beef-noodle-story,
 .ai-recommendation-section,
 .about-section,
 .menu-section,
@@ -334,6 +335,7 @@ h3 {
 .combo-promo > *,
 .ayce-promo > *,
 .weekly-picks > *,
+.beef-noodle-story > *,
 .ai-recommendation-section > *,
 .menu-section > *,
 .two-column > *,
@@ -493,6 +495,60 @@ h3 {
 .weekly-picks-grid p {
   line-height: 1.55;
   margin-bottom: 0;
+}
+
+.beef-noodle-story {
+  align-items: center;
+  background: #1f1611;
+  display: grid;
+  gap: clamp(24px, 5vw, 72px);
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+}
+
+.beef-noodle-story-media {
+  justify-self: start;
+  max-width: 560px;
+}
+
+.beef-noodle-story-media img {
+  aspect-ratio: 4 / 5;
+  border: 1px solid rgba(246, 201, 76, 0.38);
+  border-radius: 8px;
+  box-shadow: 0 26px 70px rgba(0, 0, 0, 0.34);
+  height: auto;
+  object-fit: cover;
+  width: 100%;
+}
+
+.beef-noodle-story-copy {
+  max-width: 680px;
+}
+
+.beef-noodle-story-copy h2 {
+  font-size: clamp(2rem, 4.3vw, 4rem);
+  margin-bottom: 24px;
+}
+
+.story-language p {
+  color: rgba(255, 248, 234, 0.84);
+  line-height: 1.72;
+}
+
+.story-language p:last-child {
+  margin-bottom: 0;
+}
+
+.story-language + .story-language {
+  border-top: 1px solid rgba(246, 201, 76, 0.28);
+  margin-top: 24px;
+  padding-top: 24px;
+}
+
+.story-language-english h3 {
+  color: var(--gold);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.45rem, 2.2vw, 2rem);
+  margin-bottom: 14px;
 }
 
 .ayce-promo {
@@ -1292,6 +1348,7 @@ h3 {
 
   .hero,
   .ayce-promo,
+  .beef-noodle-story,
   .about-section,
   .social-follow,
   .two-column,
@@ -1303,6 +1360,10 @@ h3 {
 
   .hero {
     min-height: auto;
+  }
+  .beef-noodle-story-media {
+    justify-self: center;
+    max-width: 440px;
   }
   .ayce-hero { gap: 24px; padding-bottom: 28px; padding-top: 30px; }
   .ayce-hero-poster { justify-self: center; max-width: 420px; width: min(100%, 360px); }
@@ -1412,6 +1473,7 @@ h3 {
   .combo-promo,
   .ayce-promo,
   .weekly-picks,
+  .beef-noodle-story,
   .ai-recommendation-section,
   .about-section,
   .menu-section,

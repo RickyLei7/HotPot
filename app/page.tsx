@@ -17,6 +17,7 @@ const restaurantJsonLd = {
     "https://centrestjhotpot.ca/assets/hero-beef-noodle.webp",
     "https://centrestjhotpot.ca/assets/dish-sukiyaki.webp",
     "https://centrestjhotpot.ca/assets/ayce-hotpot.webp",
+    "https://centrestjhotpot.ca/assets/taiwanese-beef-noodle-story.webp",
   ],
   servesCuisine: ["Taiwanese Hot Pot", "Japanese-style Hot Pot", "Hot Pot", "Taiwanese", "Bubble Tea"],
   priceRange: "$$",
@@ -226,8 +227,9 @@ export default function Home() {
           <article>
             <h3>Known for</h3>
             <p>
-              Personal hot pot, 15 soup bases, premium meats, fresh seafood,
-              Taiwanese snacks, rice and noodle bowls, milk tea, and combo specials.
+              Personal hot pot, traditional Taiwanese beef noodle soup, 15 soup bases,
+              premium meats, fresh seafood, Taiwanese snacks, rice and noodle bowls,
+              milk tea, and combo specials.
             </p>
           </article>
           <article>
@@ -267,6 +269,27 @@ export default function Home() {
               <p>Drinks are 10% off with hotpot or a signature meal.</p>
             </div>
           </article>
+        </div>
+      </section>
+
+      <section className="beef-noodle-story" aria-label="Taiwanese beef noodle story">
+        <div className="beef-noodle-story-media">
+          <img src="/assets/taiwanese-beef-noodle-story.webp" alt="Traditional Taiwanese braised beef noodle soup at Centre Street Japanese HotPot" width="1122" height="1402" fetchPriority="low" decoding="async" />
+        </div>
+        <div className="beef-noodle-story-copy">
+          <p className="eyebrow">A comforting classic</p>
+          <h2>一碗讓人想起家的台灣傳統牛肉麵</h2>
+          <div className="story-language">
+            <p>有些味道，離開家以後才知道有多想念。小時候放學、下雨天，或家人問一句「晚餐想吃什麼？」時，一碗熱騰騰的牛肉麵，常常就是最簡單的答案。</p>
+            <p>慢火熬出的濃郁湯頭、燉得軟嫩入味的牛肉、吸滿香氣的麵條，成了許多人記憶中熟悉的味道。吃到最後，心裡總有一種安定感，像回到和家人一起吃飯的那張桌子。</p>
+            <p>我們希望這碗台灣傳統牛肉麵，能讓你在忙碌的一天裡慢下來，好好吃一餐，也感覺被好好照顧。</p>
+          </div>
+          <div className="story-language story-language-english">
+            <h3>A Bowl That Feels Like Home</h3>
+            <p>Some tastes become more meaningful when you are far from home. After school, on rainy days, or when someone asked what you wanted for dinner, a steaming bowl of beef noodle soup was often the simplest answer.</p>
+            <p>Slow-simmered broth, tender braised beef, and noodles that soak up every bit of flavour create a familiar kind of comfort. It is the feeling of sitting down to a warm meal with the people you love.</p>
+            <p>We hope this traditional Taiwanese beef noodle soup gives you a moment to slow down, enjoy a good meal, and feel genuinely cared for.</p>
+          </div>
         </div>
       </section>
 

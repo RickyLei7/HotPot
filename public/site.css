@@ -150,10 +150,10 @@ h3 { font-size: 1.08rem; margin-bottom: 10px; }
   line-height: 1;
   margin-bottom: 8px;
 }
-.feature-band, .combo-promo, .ayce-promo, .weekly-picks, .ai-recommendation-section, .about-section, .menu-section, .two-column, .snacks-section, .full-menu, .visit, .page-hero, .content-section, .category-section {
+.feature-band, .combo-promo, .ayce-promo, .weekly-picks, .beef-noodle-story, .ai-recommendation-section, .about-section, .menu-section, .two-column, .snacks-section, .full-menu, .visit, .page-hero, .content-section, .category-section {
   padding: clamp(62px, 8vw, 112px) clamp(18px, 5vw, 76px);
 }
-.feature-band > *, .combo-promo > *, .ayce-promo > *, .weekly-picks > *, .ai-recommendation-section > *, .menu-section > *, .two-column > *, .snacks-section > *, .full-menu > *, .visit > *, .page-hero > *, .content-section > *, .category-section > * {
+.feature-band > *, .combo-promo > *, .ayce-promo > *, .weekly-picks > *, .beef-noodle-story > *, .ai-recommendation-section > *, .menu-section > *, .two-column > *, .snacks-section > *, .full-menu > *, .visit > *, .page-hero > *, .content-section > *, .category-section > * {
   margin-left: auto;
   margin-right: auto;
   max-width: 1400px;
@@ -189,6 +189,15 @@ h3 { font-size: 1.08rem; margin-bottom: 10px; }
 .weekly-picks-grid img { aspect-ratio: 4 / 3; height: auto; object-fit: cover; width: 100%; }
 .weekly-picks-grid div { padding: 20px; }
 .weekly-picks-grid p { line-height: 1.55; margin-bottom: 0; }
+.beef-noodle-story { align-items: center; background: #1f1611; display: grid; gap: clamp(24px, 5vw, 72px); grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); }
+.beef-noodle-story-media { justify-self: start; max-width: 560px; }
+.beef-noodle-story-media img { aspect-ratio: 4 / 5; border: 1px solid rgba(246, 201, 76, 0.38); border-radius: 8px; box-shadow: 0 26px 70px rgba(0, 0, 0, 0.34); height: auto; object-fit: cover; width: 100%; }
+.beef-noodle-story-copy { max-width: 680px; }
+.beef-noodle-story-copy h2 { font-size: clamp(2rem, 4.3vw, 4rem); margin-bottom: 24px; }
+.story-language p { color: rgba(255, 248, 234, 0.84); line-height: 1.72; }
+.story-language p:last-child { margin-bottom: 0; }
+.story-language + .story-language { border-top: 1px solid rgba(246, 201, 76, 0.28); margin-top: 24px; padding-top: 24px; }
+.story-language-english h3 { color: var(--gold); font-family: Georgia, "Times New Roman", serif; font-size: clamp(1.45rem, 2.2vw, 2rem); margin-bottom: 14px; }
 .ayce-promo {
   align-items: center;
   background:
@@ -481,7 +490,8 @@ h3 { font-size: 1.08rem; margin-bottom: 10px; }
   .site-nav { grid-template-columns: 1fr auto; }
   .nav-links { display: flex; flex-wrap: wrap; gap: 8px; grid-column: 1 / -1; justify-content: flex-start; padding: 2px 0 4px; }
   .nav-links a { background: rgba(255, 248, 234, 0.1); border: 1px solid rgba(246, 201, 76, 0.24); border-radius: 999px; flex: 0 0 auto; padding: 9px 14px; }
-  .hero, .ayce-promo, .about-section, .social-follow, .two-column, .drink-panel, .guide-layout, .menu-images { grid-template-columns: 1fr; }
+  .hero, .ayce-promo, .beef-noodle-story, .about-section, .social-follow, .two-column, .drink-panel, .guide-layout, .menu-images { grid-template-columns: 1fr; }
+  .beef-noodle-story-media { justify-self: center; max-width: 440px; }
   .hero { min-height: auto; }
   .ayce-hero { gap: 24px; padding-bottom: 28px; padding-top: 30px; }
   .ayce-hero-poster { justify-self: center; max-width: 420px; width: min(100%, 360px); }
@@ -507,7 +517,7 @@ h3 { font-size: 1.08rem; margin-bottom: 10px; }
   .brand-mark img { height: 40px; }
   .site-nav { align-items: center; gap: 10px 12px; grid-template-columns: 1fr auto; padding: 10px 14px 12px; }
   .brand-mark { min-width: 0; }
-  .hero, .feature-band, .combo-promo, .ayce-promo, .weekly-picks, .ai-recommendation-section, .about-section, .menu-section, .two-column, .snacks-section, .full-menu, .visit, .page-hero, .content-section, .category-section { padding-inline: 16px; }
+  .hero, .feature-band, .combo-promo, .ayce-promo, .weekly-picks, .beef-noodle-story, .ai-recommendation-section, .about-section, .menu-section, .two-column, .snacks-section, .full-menu, .visit, .page-hero, .content-section, .category-section { padding-inline: 16px; }
   .ads-hero, .ads-section { padding-inline: 16px; }
   .ads-hero { min-height: auto; padding-bottom: 28px; padding-top: 34px; }
   .ads-hero h1 { font-size: clamp(2.6rem, 13vw, 4.2rem); }

@@ -242,6 +242,19 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="first-visit-link" aria-label="First-time hot pot guide">
+        <div className="first-visit-link-inner">
+          <div>
+            <p className="eyebrow">New to hot pot? · 第一次吃火鍋</p>
+            <h2>Your first hot pot visit, explained simply.</h2>
+            <p>Learn how individual hot pot works, what to order, and how to plan your first table.</p>
+          </div>
+          <Link className="primary-action first-visit-action" href="/first-time-hot-pot-calgary">
+            Read the First-Visit Guide
+          </Link>
+        </div>
+      </section>
+
       <section className="weekly-picks" aria-label="This week's recommended order">
         <div>
           <p className="eyebrow">This week</p>

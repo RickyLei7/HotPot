@@ -183,6 +183,12 @@ h3 { font-size: 1.08rem; margin-bottom: 10px; }
 .recommendation-grid { display: grid; gap: 14px; grid-template-columns: repeat(3, 1fr); }
 .recommendation-grid article { background: var(--paper); border: 1px solid rgba(127, 23, 22, 0.16); border-left: 5px solid var(--gold); border-radius: 8px; padding: 22px; }
 .recommendation-grid p { line-height: 1.55; margin-bottom: 0; }
+.first-visit-link { background: var(--gold); color: var(--ink); padding: clamp(24px, 4vw, 42px) clamp(18px, 5vw, 76px); }
+.first-visit-link-inner { align-items: center; display: grid; gap: 24px; grid-template-columns: minmax(0, 1fr) auto; margin: 0 auto; max-width: 1400px; }
+.first-visit-link .eyebrow { color: var(--red); }
+.first-visit-link h2 { color: var(--ink); font-size: clamp(1.8rem, 3.4vw, 3.2rem); margin-bottom: 8px; }
+.first-visit-link p:last-child { line-height: 1.55; margin-bottom: 0; }
+.first-visit-action { background: var(--ink); color: var(--cream); }
 .weekly-picks .eyebrow, .weekly-picks h2 { color: var(--ink); }
 .weekly-picks-grid { display: grid; gap: 16px; grid-template-columns: repeat(3, 1fr); }
 .weekly-picks-grid article { background: #fff8ea; border: 1px solid rgba(127, 23, 22, 0.16); border-radius: 8px; color: var(--ink); overflow: hidden; }
@@ -493,6 +499,8 @@ h3 { font-size: 1.08rem; margin-bottom: 10px; }
   .hero, .ayce-promo, .beef-noodle-story, .about-section, .social-follow, .two-column, .drink-panel, .guide-layout, .menu-images { grid-template-columns: 1fr; }
   .beef-noodle-story-media { justify-self: center; max-width: 440px; }
   .hero { min-height: auto; }
+  .first-visit-link-inner { grid-template-columns: 1fr; }
+  .first-visit-action { justify-self: start; }
   .ayce-hero { gap: 24px; padding-bottom: 28px; padding-top: 30px; }
   .ayce-hero-poster { justify-self: center; max-width: 420px; width: min(100%, 360px); }
   .hero-plate { max-height: 560px; }

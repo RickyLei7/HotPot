@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { SiteNav } from "../site-nav";
 
 export const metadata: Metadata = {
   title: "Hot Pot Menu Calgary | AYCE Hot Pot & Snacks",
@@ -88,29 +89,6 @@ const menuJsonLd = {
   hasMenuSection: [
     {
       "@type": "MenuSection",
-      name: "Hot Pot Set",
-      hasMenuItem: [
-        {
-          "@type": "MenuItem",
-          name: "Start with Your Hot Pot",
-          description: "Includes 1 soup base, large veggies set, 1 meat, and 1 rice or noodle side.",
-          offers: { "@type": "Offer", price: "19.99", priceCurrency: "CAD" },
-        },
-        { "@type": "MenuItem", name: "Split Pot Upgrade", offers: { "@type": "Offer", price: "2.00", priceCurrency: "CAD" } },
-        { "@type": "MenuItem", name: "Extra Meat", offers: { "@type": "Offer", price: "3.69", priceCurrency: "CAD" } },
-        { "@type": "MenuItem", name: "Extra Rice or Noodle Side", offers: { "@type": "Offer", price: "2.00", priceCurrency: "CAD" } },
-      ],
-    },
-    {
-      "@type": "MenuSection",
-      name: "Combo Specials",
-      hasMenuItem: [
-        { "@type": "MenuItem", name: "Solo Hot Pot Combo", description: "1 personal hot pot and 1 drink.", offers: { "@type": "Offer", price: "24.99", priceCurrency: "CAD" } },
-        { "@type": "MenuItem", name: "Couple Hot Pot Combo", description: "2 personal hot pots, 2 drinks, and 1 appetizer.", offers: { "@type": "Offer", price: "58.99", priceCurrency: "CAD" } },
-      ],
-    },
-    {
-      "@type": "MenuSection",
       name: "All-You-Can-Eat Hot Pot",
       hasMenuItem: [
         {
@@ -130,6 +108,29 @@ const menuJsonLd = {
           name: "Kids Pricing by Height",
           description: "Under 100 cm free. 100-140 cm $12.99. Over 140 cm adult price.",
         },
+      ],
+    },
+    {
+      "@type": "MenuSection",
+      name: "Hot Pot Set",
+      hasMenuItem: [
+        {
+          "@type": "MenuItem",
+          name: "Start with Your Hot Pot",
+          description: "Includes 1 soup base, large veggies set, 1 meat, and 1 rice or noodle side.",
+          offers: { "@type": "Offer", price: "19.99", priceCurrency: "CAD" },
+        },
+        { "@type": "MenuItem", name: "Split Pot Upgrade", offers: { "@type": "Offer", price: "2.00", priceCurrency: "CAD" } },
+        { "@type": "MenuItem", name: "Extra Meat", offers: { "@type": "Offer", price: "3.69", priceCurrency: "CAD" } },
+        { "@type": "MenuItem", name: "Extra Rice or Noodle Side", offers: { "@type": "Offer", price: "2.00", priceCurrency: "CAD" } },
+      ],
+    },
+    {
+      "@type": "MenuSection",
+      name: "Combo Specials",
+      hasMenuItem: [
+        { "@type": "MenuItem", name: "Solo Hot Pot Combo", description: "1 personal hot pot and 1 drink.", offers: { "@type": "Offer", price: "24.99", priceCurrency: "CAD" } },
+        { "@type": "MenuItem", name: "Couple Hot Pot Combo", description: "2 personal hot pots, 2 drinks, and 1 appetizer.", offers: { "@type": "Offer", price: "58.99", priceCurrency: "CAD" } },
       ],
     },
     {
@@ -174,20 +175,7 @@ export default function MenuPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(menuJsonLd) }}
       />
-      <nav className="site-nav" aria-label="Main navigation">
-        <Link className="brand-mark" href="/" aria-label="Centre Street Japanese Hotpot home">
-          <img src="/assets/brand-logo-wide.webp" alt="Centre Street Japanese Hotpot" width="600" height="184" />
-        </Link>
-        <div className="nav-links">
-          <Link href="/">Home</Link>
-          <Link href="/menu">Menu</Link>
-          <Link href="/about">About</Link>
-          <Link href="/faq">FAQ</Link>
-          <Link href="/contact">Contact</Link>
-          <Link href="/#visit">Visit</Link>
-        </div>
-        <a className="nav-call" href="tel:+14034553188">Reserve</a>
-      </nav>
+      <SiteNav />
 
       <section className="page-hero menu-page-hero">
         <div>
@@ -215,32 +203,15 @@ export default function MenuPage() {
           <h2>Menu sections at a glance.</h2>
         </div>
         <div className="category-strip">
+          <a href="#ayce-hotpot"><span className="category-icon">AYCE</span><strong>AYCE Hot Pot</strong></a>
           <a href="#hotpot-set"><span className="category-icon">SET</span><strong>Hot Pot Set</strong></a>
           <a href="#combo-specials"><span className="category-icon">CMB</span><strong>Combos</strong></a>
-          <a href="#ayce-hotpot"><span className="category-icon">AYCE</span><strong>AYCE Hot Pot</strong></a>
           <a href="#soup-bases"><span className="category-icon">SOUP</span><strong>Soup Bases</strong></a>
           <a href="#rice-noodles"><span className="category-icon">RICE</span><strong>Rice & Noodles</strong></a>
           <a href="#drinks"><span className="category-icon">TEA</span><strong>Drinks</strong></a>
           <a href="#appetizers"><span className="category-icon">SNK</span><strong>Appetizers</strong></a>
           <a href="#full-menu"><span className="category-icon">IMG</span><strong>Full Menu</strong></a>
         </div>
-      </section>
-
-      <section className="combo-promo menu-combo" id="combo-specials">
-        <div className="combo-copy">
-          <p className="eyebrow">Combo specials</p>
-          <h2>Solo Hot Pot Combo and Couple Hot Pot Combo.</h2>
-          <p>
-            Solo Combo includes 1 personal hot pot and 1 drink for $24.99.
-            Couple Combo includes 2 personal hot pots, 2 drinks, and 1 appetizer for $58.99.
-            Split pot upgrade +$2. Prices are before tax.
-          </p>
-          <div className="combo-price-grid">
-            <article><span>$24.99</span><h3>Solo Hot Pot Combo</h3><p>1 personal hot pot and 1 drink.</p></article>
-            <article><span>$58.99</span><h3>Couple Hot Pot Combo</h3><p>2 personal hot pots, 2 drinks, and 1 appetizer.</p></article>
-          </div>
-        </div>
-        <img className="combo-poster" src="/assets/combo-hot-pot-special.webp" alt="Solo and Couple Hot Pot Combo specials" width="820" height="1230" loading="lazy" decoding="async" />
       </section>
 
       <section className="menu-section" id="ayce-hotpot">
@@ -267,6 +238,23 @@ export default function MenuPage() {
         </div>
       </section>
 
+      <section className="combo-promo menu-combo" id="combo-specials">
+        <div className="combo-copy">
+          <p className="eyebrow">Other dining options</p>
+          <h2>Solo and Couple Hot Pot Combos.</h2>
+          <p>
+            Solo Combo includes 1 personal hot pot and 1 drink for $24.99.
+            Couple Combo includes 2 personal hot pots, 2 drinks, and 1 appetizer for $58.99.
+            Split pot upgrade +$2. Prices are before tax.
+          </p>
+          <div className="combo-price-grid">
+            <article><span>$24.99</span><h3>Solo Hot Pot Combo</h3><p>1 personal hot pot and 1 drink.</p></article>
+            <article><span>$58.99</span><h3>Couple Hot Pot Combo</h3><p>2 personal hot pots, 2 drinks, and 1 appetizer.</p></article>
+          </div>
+        </div>
+        <img className="combo-poster" src="/assets/combo-hot-pot-special.webp" alt="Solo and Couple Hot Pot Combo specials" width="820" height="1230" loading="lazy" decoding="async" />
+      </section>
+
       <section className="menu-section" id="hotpot-set">
         <div className="section-heading">
           <p className="eyebrow">Hot pot set</p>
@@ -287,15 +275,15 @@ export default function MenuPage() {
         </div>
         <div className="dish-showcase">
           <article className="featured-dish">
-            <img src="/assets/dish-sukiyaki.webp" alt="Sukiyaki Japanese hot pot broth in Calgary" width="900" height="675" loading="lazy" decoding="async" />
+            <img src="/assets/dish-sukiyaki-640.webp" srcSet="/assets/dish-sukiyaki-320.webp 320w, /assets/dish-sukiyaki-640.webp 640w, /assets/dish-sukiyaki.webp 1024w" sizes="(max-width: 560px) 96px, (max-width: 1100px) 50vw, 33vw" alt="Sukiyaki Japanese hot pot broth in Calgary" width="900" height="675" loading="lazy" decoding="async" />
             <div><h3>日式壽喜鍋</h3><p>Sukiyaki</p></div>
           </article>
           <article className="featured-dish">
-            <img src="/assets/dish-tom-yum.webp" alt="Tom Yum Kung hot pot soup base" width="900" height="675" loading="lazy" decoding="async" />
+            <img src="/assets/dish-tom-yum-640.webp" srcSet="/assets/dish-tom-yum-320.webp 320w, /assets/dish-tom-yum-640.webp 640w, /assets/dish-tom-yum.webp 1024w" sizes="(max-width: 560px) 96px, (max-width: 1100px) 50vw, 33vw" alt="Tom Yum Kung hot pot soup base" width="900" height="675" loading="lazy" decoding="async" />
             <div><h3>泰式酸辣冬陰鍋</h3><p>Tom Yum Kung</p></div>
           </article>
           <article className="featured-dish">
-            <img src="/assets/dish-spicy.webp" alt="Spicy hot pot soup base at Centre Street Japanese HotPot" width="900" height="675" loading="lazy" decoding="async" />
+            <img src="/assets/dish-spicy-640.webp" srcSet="/assets/dish-spicy-320.webp 320w, /assets/dish-spicy-640.webp 640w, /assets/dish-spicy.webp 1024w" sizes="(max-width: 560px) 96px, (max-width: 1100px) 50vw, 33vw" alt="Spicy hot pot soup base at Centre Street Japanese HotPot" width="900" height="675" loading="lazy" decoding="async" />
             <div><h3>經典麻辣鍋</h3><p>Spicy Hotpot</p></div>
           </article>
         </div>
@@ -335,7 +323,7 @@ export default function MenuPage() {
           <h2>Tea, milk tea, specialty drinks, smoothies, sodas, and toppings.</h2>
         </div>
         <div className="drink-panel">
-          <img src="/assets/milk-tea-photo.webp" alt="Milk tea drinks at Centre Street Japanese HotPot Calgary" width="900" height="1200" loading="lazy" decoding="async" />
+          <img src="/assets/milk-tea-photo-640.webp" srcSet="/assets/milk-tea-photo-320.webp 320w, /assets/milk-tea-photo-640.webp 640w, /assets/milk-tea-photo.webp 900w" sizes="(max-width: 560px) calc(100vw - 32px), (max-width: 1100px) 100vw, 42vw" alt="Milk tea drinks at Centre Street Japanese HotPot Calgary" width="900" height="1200" loading="lazy" decoding="async" />
           <div className="price-list">
             {drinks.map(([item, price]) => (
               <div key={item}><span>{item}</span><strong>{price}</strong></div>

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import AboutContent from "../about-content";
+import { SiteNav } from "../site-nav";
 
 export const metadata: Metadata = {
   title: "About Centre Street Japanese HotPot | 鼎鑽火鍋 Calgary",
@@ -18,25 +18,23 @@ export const metadata: Metadata = {
   },
 };
 
+const aboutPageSchema = {
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  "@id": "https://centrestjhotpot.ca/about/#webpage",
+  url: "https://centrestjhotpot.ca/about/",
+  name: "About Centre Street Japanese HotPot",
+  description:
+    "The story, dining style, ingredients, and hospitality behind Centre Street Japanese HotPot and 鼎鑽火鍋 in Calgary.",
+  about: { "@id": "https://centrestjhotpot.ca/#restaurant" },
+  isPartOf: { "@id": "https://centrestjhotpot.ca/#website" },
+};
+
 export default function AboutPage() {
   return (
     <main>
-      <nav className="site-nav" aria-label="Main navigation">
-        <Link className="brand-mark" href="/" aria-label="Centre Street Japanese Hotpot home">
-          <img src="/assets/brand-logo-wide.webp" alt="Centre Street Japanese Hotpot" width="600" height="184" />
-        </Link>
-        <div className="nav-links">
-          <Link href="/">Home</Link>
-          <Link href="/menu">Menu</Link>
-          <Link href="/about">About</Link>
-          <Link href="/faq">FAQ</Link>
-          <Link href="/contact">Contact</Link>
-          <Link href="/#visit">Visit</Link>
-        </div>
-        <a className="nav-call" href="tel:+14034553188">
-          Reserve
-        </a>
-      </nav>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(aboutPageSchema) }} />
+      <SiteNav />
 
       <AboutContent isStandalone />
     </main>

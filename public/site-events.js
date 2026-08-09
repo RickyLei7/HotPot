@@ -90,9 +90,42 @@
     return "";
   }
 
+  function setupStickyReserve() {
+    var sticky = document.querySelector(".reserve-sticky");
+    if (!sticky) return;
+
+    var heroRegion = document.querySelector(".hero, .page-hero, .ads-hero");
+
+    if (!heroRegion || !("IntersectionObserver" in window)) {
+      var updateFromScroll = function () {
+        var revealAt = Math.min(360, window.innerHeight * 0.45);
+        sticky.classList.toggle("is-visible", window.scrollY > revealAt);
+      };
+      window.addEventListener("scroll", updateFromScroll, { passive: true });
+      updateFromScroll();
+      return;
+    }
+
+    var observer = new IntersectionObserver(function (entries) {
+      sticky.classList.toggle("is-visible", !entries[0].isIntersecting);
+    }, { threshold: 0.05 });
+    observer.observe(heroRegion);
+  }
+
+  setupStickyReserve();
+
   document.addEventListener("click", function (event) {
+    var openMore = document.querySelector(".nav-more[open]");
+    if (openMore && !(event.target.closest && event.target.closest(".nav-more"))) {
+      openMore.removeAttribute("open");
+    }
+
     var link = event.target.closest && event.target.closest("a");
     if (!link) return;
+
+    if (link.closest && link.closest(".nav-more-links") && openMore) {
+      openMore.removeAttribute("open");
+    }
 
     var href = link.getAttribute("href") || "";
     var text = getText(link).toLowerCase();

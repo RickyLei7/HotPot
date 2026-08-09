@@ -103,7 +103,7 @@ export default function GoogleAdsAyceHotPotPage() {
       />
       <nav className="site-nav ads-nav" aria-label="Main navigation">
         <Link className="brand-mark" href="/" aria-label="Centre Street Japanese Hotpot home">
-          <img src="/assets/brand-logo-wide.webp" alt="Centre Street Japanese Hotpot" width="600" height="184" />
+          <img src="/assets/brand-logo-wide-300.webp" srcSet="/assets/brand-logo-wide-300.webp 300w, /assets/brand-logo-wide-480.webp 480w, /assets/brand-logo-wide.webp 600w" sizes="260px" alt="Centre Street Japanese Hotpot" width="600" height="184" />
         </Link>
         <div className="nav-links">
           <Link href="/menu">Menu</Link>

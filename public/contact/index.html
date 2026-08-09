@@ -18,7 +18,7 @@
     <link rel="icon" href="/favicon.ico" sizes="any" />
     <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-    <link rel="stylesheet" href="/site.css?v=20260623-image-balance" />
+    <link rel="stylesheet" href="/site.css?v=20260809-conversion" />
     <script async src="/t662/"></script>
     <script defer src="/site-events.js"></script>
     <script type="application/ld+json">
@@ -28,15 +28,21 @@
   <body>
     <nav class="site-nav" aria-label="Main navigation">
       <a class="brand-mark" href="/" aria-label="Centre Street Japanese Hotpot home">
-        <img src="/assets/brand-logo-wide.webp" alt="Centre Street Japanese Hotpot" width="600" height="184" />
+        <img src="/assets/brand-logo-wide-300.webp" srcset="/assets/brand-logo-wide-300.webp 300w, /assets/brand-logo-wide-480.webp 480w, /assets/brand-logo-wide.webp 600w" sizes="(max-width: 760px) 52vw, 260px" alt="Centre Street Japanese Hotpot" width="600" height="184" />
       </a>
       <div class="nav-links">
         <a href="/">Home</a>
+        <a href="/ayce-hot-pot-calgary/">AYCE</a>
         <a href="/menu/">Menu</a>
-        <a href="/about/">About</a>
-        <a href="/faq/">FAQ</a>
-        <a href="/contact/">Contact</a>
-        <a href="/#visit">Visit</a>
+        <details class="nav-more">
+          <summary>More</summary>
+          <div class="nav-more-links">
+            <a href="/about/">About</a>
+            <a href="/faq/">FAQ</a>
+            <a href="/contact/">Contact</a>
+            <a href="/#visit">Visit</a>
+          </div>
+        </details>
       </div>
       <a class="nav-call" href="tel:+14034553188">Reserve</a>
     </nav>

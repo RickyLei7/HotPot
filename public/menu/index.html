@@ -18,7 +18,7 @@
     <link rel="icon" href="/favicon.ico" sizes="any" />
     <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-    <link rel="stylesheet" href="/site.css?v=20260623-image-balance" />
+    <link rel="stylesheet" href="/site.css?v=20260809-conversion" />
     <script async src="/t662/"></script>
     <script defer src="/site-events.js"></script>
     <script type="application/ld+json">
@@ -28,6 +28,15 @@
         "name": "Centre Street Japanese HotPot Menu",
         "url": "https://centrestjhotpot.ca/menu/",
         "hasMenuSection": [
+          {
+            "@type": "MenuSection",
+            "name": "All-You-Can-Eat Hot Pot",
+            "hasMenuItem": [
+              {"@type": "MenuItem", "name": "All-You-Can-Eat Hot Pot", "description": "Soup base included. Meat is ordered through the server. Time limit 1.5 hours. Price before tax.", "offers": {"@type": "Offer", "price": "28.99", "priceCurrency": "CAD"}},
+              {"@type": "MenuItem", "name": "All-You-Can-Eat Snacks Upgrade", "description": "19 all-you-can-eat appetizers. Everyone at the same table must upgrade.", "offers": {"@type": "Offer", "price": "3.99", "priceCurrency": "CAD"}},
+              {"@type": "MenuItem", "name": "Kids Pricing by Height", "description": "Under 100 cm free. 100-140 cm $12.99. Over 140 cm adult price."}
+            ]
+          },
           {
             "@type": "MenuSection",
             "name": "Hot Pot Set",
@@ -44,15 +53,6 @@
             "hasMenuItem": [
               {"@type": "MenuItem", "name": "Solo Hot Pot Combo", "description": "1 personal hot pot and 1 drink.", "offers": {"@type": "Offer", "price": "24.99", "priceCurrency": "CAD"}},
               {"@type": "MenuItem", "name": "Couple Hot Pot Combo", "description": "2 personal hot pots, 2 drinks, and 1 appetizer.", "offers": {"@type": "Offer", "price": "58.99", "priceCurrency": "CAD"}}
-            ]
-          },
-          {
-            "@type": "MenuSection",
-            "name": "All-You-Can-Eat Hot Pot",
-            "hasMenuItem": [
-              {"@type": "MenuItem", "name": "All-You-Can-Eat Hot Pot", "description": "Soup base included. Meat is ordered through the server. Time limit 1.5 hours. Price before tax.", "offers": {"@type": "Offer", "price": "28.99", "priceCurrency": "CAD"}},
-              {"@type": "MenuItem", "name": "19-Item All-You-Can-Eat Appetizer Upgrade", "description": "19 all-you-can-eat appetizers. Everyone at the same table must upgrade.", "offers": {"@type": "Offer", "price": "3.99", "priceCurrency": "CAD"}},
-              {"@type": "MenuItem", "name": "Kids Pricing by Height", "description": "Under 100 cm free. 100-140 cm $12.99. Over 140 cm adult price."}
             ]
           },
           {
@@ -122,15 +122,21 @@
   <body>
     <nav class="site-nav" aria-label="Main navigation">
       <a class="brand-mark" href="/" aria-label="Centre Street Japanese Hotpot home">
-        <img src="/assets/brand-logo-wide.webp" alt="Centre Street Japanese Hotpot" width="600" height="184" />
+        <img src="/assets/brand-logo-wide-300.webp" srcset="/assets/brand-logo-wide-300.webp 300w, /assets/brand-logo-wide-480.webp 480w, /assets/brand-logo-wide.webp 600w" sizes="(max-width: 760px) 52vw, 260px" alt="Centre Street Japanese Hotpot" width="600" height="184" />
       </a>
       <div class="nav-links">
         <a href="/">Home</a>
+        <a href="/ayce-hot-pot-calgary/">AYCE</a>
         <a href="/menu/">Menu</a>
-        <a href="/about/">About</a>
-        <a href="/faq/">FAQ</a>
-        <a href="/contact/">Contact</a>
-        <a href="/#visit">Visit</a>
+        <details class="nav-more">
+          <summary>More</summary>
+          <div class="nav-more-links">
+            <a href="/about/">About</a>
+            <a href="/faq/">FAQ</a>
+            <a href="/contact/">Contact</a>
+            <a href="/#visit">Visit</a>
+          </div>
+        </details>
       </div>
       <a class="nav-call" href="tel:+14034553188">Reserve</a>
     </nav>
@@ -157,28 +163,15 @@
           <h2>Menu sections at a glance.</h2>
         </div>
         <div class="category-strip">
+          <a href="#ayce-hotpot"><span class="category-icon">AYCE</span><strong>AYCE Hot Pot</strong></a>
           <a href="#hotpot-set"><span class="category-icon">SET</span><strong>Hot Pot Set</strong></a>
           <a href="#combo-specials"><span class="category-icon">CMB</span><strong>Combos</strong></a>
-          <a href="#ayce-hotpot"><span class="category-icon">AYCE</span><strong>AYCE Hot Pot</strong></a>
           <a href="#soup-bases"><span class="category-icon">SOUP</span><strong>Soup Bases</strong></a>
           <a href="#rice-noodles"><span class="category-icon">RICE</span><strong>Rice & Noodles</strong></a>
           <a href="#drinks"><span class="category-icon">TEA</span><strong>Drinks</strong></a>
           <a href="#appetizers"><span class="category-icon">SNK</span><strong>Appetizers</strong></a>
           <a href="#full-menu"><span class="category-icon">IMG</span><strong>Full Menu</strong></a>
         </div>
-      </section>
-
-      <section class="combo-promo menu-combo" id="combo-specials">
-        <div class="combo-copy">
-          <p class="eyebrow">Combo specials</p>
-          <h2>Solo Hot Pot Combo and Couple Hot Pot Combo.</h2>
-          <p>Solo Combo includes 1 personal hot pot and 1 drink for $24.99. Couple Combo includes 2 personal hot pots, 2 drinks, and 1 appetizer for $58.99. Split pot upgrade +$2. Prices are before tax.</p>
-          <div class="combo-price-grid">
-            <article><span>$24.99</span><h3>Solo Hot Pot Combo</h3><p>1 personal hot pot and 1 drink.</p></article>
-            <article><span>$58.99</span><h3>Couple Hot Pot Combo</h3><p>2 personal hot pots, 2 drinks, and 1 appetizer.</p></article>
-          </div>
-        </div>
-        <img class="combo-poster" src="/assets/combo-hot-pot-special.webp" alt="Solo and Couple Hot Pot Combo specials" width="820" height="1230" loading="lazy" decoding="async" />
       </section>
 
       <section class="menu-section" id="ayce-hotpot">
@@ -197,6 +190,19 @@
           <a class="primary-action" href="tel:+14034553188">Call to Reserve AYCE</a>
           <a class="secondary-action dark" href="/menu/centre-street-ayce-menu.pdf" target="_blank" rel="noreferrer">Open AYCE Menu</a>
         </div>
+      </section>
+
+      <section class="combo-promo menu-combo" id="combo-specials">
+        <div class="combo-copy">
+          <p class="eyebrow">Other dining options</p>
+          <h2>Solo and Couple Hot Pot Combos.</h2>
+          <p>Solo Combo includes 1 personal hot pot and 1 drink for $24.99. Couple Combo includes 2 personal hot pots, 2 drinks, and 1 appetizer for $58.99. Split pot upgrade +$2. Prices are before tax.</p>
+          <div class="combo-price-grid">
+            <article><span>$24.99</span><h3>Solo Hot Pot Combo</h3><p>1 personal hot pot and 1 drink.</p></article>
+            <article><span>$58.99</span><h3>Couple Hot Pot Combo</h3><p>2 personal hot pots, 2 drinks, and 1 appetizer.</p></article>
+          </div>
+        </div>
+        <img class="combo-poster" src="/assets/combo-hot-pot-special.webp" alt="Solo and Couple Hot Pot Combo specials" width="820" height="1230" loading="lazy" decoding="async" />
       </section>
 
       <section class="menu-section" id="hotpot-set">
@@ -219,15 +225,15 @@
         </div>
         <div class="dish-showcase">
           <article class="featured-dish">
-            <img src="/assets/dish-sukiyaki.webp" alt="Sukiyaki Japanese hot pot broth in Calgary" width="900" height="675" loading="lazy" decoding="async" />
+            <img src="/assets/dish-sukiyaki-640.webp" srcset="/assets/dish-sukiyaki-320.webp 320w, /assets/dish-sukiyaki-640.webp 640w, /assets/dish-sukiyaki.webp 1024w" sizes="(max-width: 560px) 96px, (max-width: 1100px) 50vw, 33vw" alt="Sukiyaki Japanese hot pot broth in Calgary" width="900" height="675" loading="lazy" decoding="async" />
             <div><h3>日式壽喜鍋</h3><p>Sukiyaki</p></div>
           </article>
           <article class="featured-dish">
-            <img src="/assets/dish-tom-yum.webp" alt="Tom Yum Kung hot pot soup base" width="900" height="675" loading="lazy" decoding="async" />
+            <img src="/assets/dish-tom-yum-640.webp" srcset="/assets/dish-tom-yum-320.webp 320w, /assets/dish-tom-yum-640.webp 640w, /assets/dish-tom-yum.webp 1024w" sizes="(max-width: 560px) 96px, (max-width: 1100px) 50vw, 33vw" alt="Tom Yum Kung hot pot soup base" width="900" height="675" loading="lazy" decoding="async" />
             <div><h3>泰式酸辣冬陰鍋</h3><p>Tom Yum Kung</p></div>
           </article>
           <article class="featured-dish">
-            <img src="/assets/dish-spicy.webp" alt="Spicy hot pot soup base at Centre Street Japanese HotPot" width="900" height="675" loading="lazy" decoding="async" />
+            <img src="/assets/dish-spicy-640.webp" srcset="/assets/dish-spicy-320.webp 320w, /assets/dish-spicy-640.webp 640w, /assets/dish-spicy.webp 1024w" sizes="(max-width: 560px) 96px, (max-width: 1100px) 50vw, 33vw" alt="Spicy hot pot soup base at Centre Street Japanese HotPot" width="900" height="675" loading="lazy" decoding="async" />
             <div><h3>經典麻辣鍋</h3><p>Spicy Hotpot</p></div>
           </article>
         </div>
@@ -291,7 +297,7 @@
             <h2>Tea, milk tea, specialty drinks, smoothies, sodas, and toppings.</h2>
           </div>
           <div class="drink-panel">
-            <img src="/assets/milk-tea-photo.webp" alt="Milk tea drinks at Centre Street Japanese HotPot Calgary" width="900" height="1200" loading="lazy" decoding="async" />
+            <img src="/assets/milk-tea-photo-640.webp" srcset="/assets/milk-tea-photo-320.webp 320w, /assets/milk-tea-photo-640.webp 640w, /assets/milk-tea-photo.webp 900w" sizes="(max-width: 560px) calc(100vw - 32px), (max-width: 1100px) 100vw, 42vw" alt="Milk tea drinks at Centre Street Japanese HotPot Calgary" width="900" height="1200" loading="lazy" decoding="async" />
             <div class="price-list">
             <div><span>Classic Teas</span><strong>$4.95</strong></div>
             <div><span>Flavoured Black / Green Tea</span><strong>$5.95</strong></div>

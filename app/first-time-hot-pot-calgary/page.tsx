@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { SiteNav } from "../site-nav";
 
 export const metadata: Metadata = {
   title: "First-Time Hot Pot Calgary | What to Order & How It Works",
@@ -48,6 +49,9 @@ const schema = {
       description:
         "A practical guide to individual hot pot, first-time ordering, AYCE hot pot, soup bases, reservations, and location details at Centre Street Japanese HotPot in Calgary.",
       url: "https://centrestjhotpot.ca/first-time-hot-pot-calgary/",
+      datePublished: "2026-08-08",
+      dateModified: "2026-08-09",
+      author: { "@id": "https://centrestjhotpot.ca/#restaurant" },
       about: [
         "first time hot pot Calgary",
         "how does hot pot work",
@@ -74,15 +78,7 @@ export default function FirstTimeHotPotCalgaryPage() {
   return (
     <main>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
-      <nav className="site-nav" aria-label="Main navigation">
-        <Link className="brand-mark" href="/" aria-label="Centre Street Japanese Hotpot home">
-          <img src="/assets/brand-logo-wide.webp" alt="Centre Street Japanese Hotpot" width="600" height="184" />
-        </Link>
-        <div className="nav-links">
-          <Link href="/">Home</Link><Link href="/ayce-hot-pot-calgary">AYCE</Link><Link href="/menu">Menu</Link><Link href="/about">About</Link><Link href="/faq">FAQ</Link><Link href="/contact">Contact</Link>
-        </div>
-        <a className="nav-call" href="tel:+14034553188">Reserve</a>
-      </nav>
+      <SiteNav />
 
       <section className="page-hero guide-page-hero">
         <div>
@@ -115,9 +111,9 @@ export default function FirstTimeHotPotCalgaryPage() {
       <section className="weekly-picks">
         <div><p className="eyebrow">A simple order path</p><h2>Three easy choices for your first table.</h2></div>
         <div className="weekly-picks-grid">
-          <article><img src="/assets/dish-sukiyaki.webp" alt="Individual hot pot soup base at Centre Street Japanese HotPot in Calgary" width="900" height="675" loading="lazy" decoding="async" /><div><h3>1. Pick a soup base</h3><p>Choose a flavour that sounds good to you, then enjoy your own personal pot.</p></div></article>
-          <article><img src="/assets/ayce-hotpot-menu-preview.webp" alt="All-you-can-eat hot pot menu in Calgary" width="495" height="640" loading="lazy" decoding="async" /><div><h3>2. Choose your meal</h3><p>Pick a Hot Pot Set or AYCE Hot Pot, then order meats through your server for AYCE.</p></div></article>
-          <article><img src="/assets/dish-popcorn-chicken.webp" alt="Taiwanese fried chicken snack for a Calgary hot pot table" width="900" height="675" loading="lazy" decoding="async" /><div><h3>3. Add a shareable side</h3><p>Taiwanese snacks and milk tea are easy additions for friends and family tables.</p></div></article>
+          <article><img src="/assets/dish-sukiyaki-640.webp" srcSet="/assets/dish-sukiyaki-320.webp 320w, /assets/dish-sukiyaki-640.webp 640w, /assets/dish-sukiyaki.webp 1024w" sizes="(max-width: 560px) 112px, (max-width: 1100px) 50vw, 33vw" alt="Individual hot pot soup base at Centre Street Japanese HotPot in Calgary" width="900" height="675" loading="lazy" decoding="async" /><div><h3>1. Pick a soup base</h3><p>Choose a flavour that sounds good to you, then enjoy your own personal pot.</p></div></article>
+          <article><img src="/assets/ayce-hotpot-menu-preview-360.webp" srcSet="/assets/ayce-hotpot-menu-preview-360.webp 360w, /assets/ayce-hotpot-menu-preview.webp 495w" sizes="(max-width: 560px) 112px, (max-width: 1100px) 50vw, 33vw" alt="All-you-can-eat hot pot menu in Calgary" width="495" height="640" loading="lazy" decoding="async" /><div><h3>2. Choose your meal</h3><p>Pick a Hot Pot Set or AYCE Hot Pot, then order meats through your server for AYCE.</p></div></article>
+          <article><img src="/assets/dish-popcorn-chicken-640.webp" srcSet="/assets/dish-popcorn-chicken-320.webp 320w, /assets/dish-popcorn-chicken-640.webp 640w, /assets/dish-popcorn-chicken.webp 1024w" sizes="(max-width: 560px) 112px, (max-width: 1100px) 50vw, 33vw" alt="Taiwanese fried chicken snack for a Calgary hot pot table" width="900" height="675" loading="lazy" decoding="async" /><div><h3>3. Add a shareable side</h3><p>Taiwanese snacks and milk tea are easy additions for friends and family tables.</p></div></article>
         </div>
       </section>
 

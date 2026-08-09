@@ -16,6 +16,8 @@ export default function AboutContent({
 }: {
   isStandalone?: boolean;
 }) {
+  const visibleHighlights = isStandalone ? highlights : highlights.slice(0, 4);
+
   return (
     <section className={isStandalone ? "about-section about-page" : "about-section"} id="about">
       <div className="about-intro">
@@ -52,7 +54,7 @@ export default function AboutContent({
             </>
           ) : (
             <p>
-              我們以日式火鍋文化為靈感，精選優質肉品、新鮮海鮮、當季蔬菜及多款特色湯底，讓每位客人都能享受溫暖、舒適的火鍋體驗。
+              我們以台式與日式火鍋文化為靈感，精選優質肉品、新鮮海鮮、當季蔬菜及多款特色湯底，讓每位客人都能享受溫暖、舒適的火鍋體驗。
             </p>
           )}
         </div>
@@ -94,7 +96,7 @@ export default function AboutContent({
           <h2>我們的特色</h2>
         </div>
         <div className="about-highlight-grid">
-          {highlights.map(([zh, en]) => (
+          {visibleHighlights.map(([zh, en]) => (
             <article key={en}>
               <h3>{zh}</h3>
               <p>{en}</p>

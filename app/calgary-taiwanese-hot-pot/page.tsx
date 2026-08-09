@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { SiteNav } from "../site-nav";
 
 export const metadata: Metadata = {
   title: "Taiwanese Hot Pot Calgary | 鼎鑽火鍋 Centre Street",
@@ -85,20 +86,7 @@ export default function CalgaryTaiwaneseHotPotPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(pageSchema) }}
       />
-      <nav className="site-nav" aria-label="Main navigation">
-        <Link className="brand-mark" href="/" aria-label="Centre Street Japanese Hotpot home">
-          <img src="/assets/brand-logo-wide.webp" alt="Centre Street Japanese Hotpot" width="600" height="184" />
-        </Link>
-        <div className="nav-links">
-          <Link href="/">Home</Link>
-          <Link href="/menu">Menu</Link>
-          <Link href="/about">About</Link>
-          <Link href="/faq">FAQ</Link>
-          <Link href="/contact">Contact</Link>
-          <Link href="/#visit">Visit</Link>
-        </div>
-        <a className="nav-call" href="tel:+14034553188">Reserve</a>
-      </nav>
+      <SiteNav />
 
       <section className="page-hero guide-page-hero">
         <div>
@@ -154,21 +142,21 @@ export default function CalgaryTaiwaneseHotPotPage() {
         </div>
         <div className="weekly-picks-grid">
           <article>
-            <img src="/assets/dish-sukiyaki.webp" alt="Taiwanese-style individual hot pot in Calgary" width="900" height="675" loading="lazy" decoding="async" />
+            <img src="/assets/dish-sukiyaki-640.webp" srcSet="/assets/dish-sukiyaki-320.webp 320w, /assets/dish-sukiyaki-640.webp 640w, /assets/dish-sukiyaki.webp 1024w" sizes="(max-width: 560px) 112px, (max-width: 1100px) 50vw, 33vw" alt="Taiwanese-style individual hot pot in Calgary" width="900" height="675" loading="lazy" decoding="async" />
             <div>
               <h3>Choose a soup base</h3>
               <p>Pick from 15 soup bases, including spicy, sukiyaki, tomato, miso, and more.</p>
             </div>
           </article>
           <article>
-            <img src="/assets/dish-popcorn-chicken.webp" alt="Taiwanese fried chicken snack in Calgary" width="900" height="675" loading="lazy" decoding="async" />
+            <img src="/assets/dish-popcorn-chicken-640.webp" srcSet="/assets/dish-popcorn-chicken-320.webp 320w, /assets/dish-popcorn-chicken-640.webp 640w, /assets/dish-popcorn-chicken.webp 1024w" sizes="(max-width: 560px) 112px, (max-width: 1100px) 50vw, 33vw" alt="Taiwanese fried chicken snack in Calgary" width="900" height="675" loading="lazy" decoding="async" />
             <div>
               <h3>Add Taiwanese snacks</h3>
               <p>Order fried chicken, takoyaki, crispy chicken cutlet, golden fried buns, and other sides.</p>
             </div>
           </article>
           <article>
-            <img src="/assets/milk-tea-photo.webp" alt="Milk tea with Taiwanese hot pot in Calgary" width="900" height="1200" loading="lazy" decoding="async" />
+            <img src="/assets/milk-tea-photo-640.webp" srcSet="/assets/milk-tea-photo-320.webp 320w, /assets/milk-tea-photo-640.webp 640w, /assets/milk-tea-photo.webp 900w" sizes="(max-width: 560px) 112px, (max-width: 1100px) 50vw, 33vw" alt="Milk tea with Taiwanese hot pot in Calgary" width="900" height="1200" loading="lazy" decoding="async" />
             <div>
               <h3>Order milk tea</h3>
               <p>Milk tea and drinks make the visit work for hot pot, snacks, and casual group dining.</p>

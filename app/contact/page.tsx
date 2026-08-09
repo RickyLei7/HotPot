@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { SocialLinks } from "../social-links";
+import { SiteNav } from "../site-nav";
 
 export const metadata: Metadata = {
   title: "Contact Centre Street Japanese HotPot | Calgary Location",
@@ -21,20 +21,7 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <main>
-      <nav className="site-nav" aria-label="Main navigation">
-        <Link className="brand-mark" href="/" aria-label="Centre Street Japanese Hotpot home">
-          <img src="/assets/brand-logo-wide.webp" alt="Centre Street Japanese Hotpot" width="600" height="184" />
-        </Link>
-        <div className="nav-links">
-          <Link href="/">Home</Link>
-          <Link href="/menu">Menu</Link>
-          <Link href="/about">About</Link>
-          <Link href="/faq">FAQ</Link>
-          <Link href="/contact">Contact</Link>
-          <Link href="/#visit">Visit</Link>
-        </div>
-        <a className="nav-call" href="tel:+14034553188">Reserve</a>
-      </nav>
+      <SiteNav />
 
       <section className="page-hero contact-page-hero">
         <div>

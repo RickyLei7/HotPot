@@ -1,6 +1,7 @@
 import AboutContent from "./about-content";
 import Link from "next/link";
 import { SocialLinks } from "./social-links";
+import { SiteNav } from "./site-nav";
 
 const restaurantJsonLd = {
   "@context": "https://schema.org",
@@ -145,27 +146,13 @@ const restaurantJsonLd = {
 export default function Home() {
   return (
     <main>
+      <link rel="preload" as="image" href="/assets/dish-sukiyaki-640.webp" media="(max-width: 760px)" />
+      <link rel="preload" as="image" href="/assets/dish-sukiyaki.webp" media="(min-width: 761px)" />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(restaurantJsonLd) }}
       />
-      <nav className="site-nav" aria-label="Main navigation">
-        <a className="brand-mark" href="#top" aria-label="Centre Street Japanese Hotpot home">
-          <img src="/assets/brand-logo-wide.webp" alt="Centre Street Japanese Hotpot" width="600" height="184" />
-        </a>
-        <div className="nav-links">
-          <Link href="/">Home</Link>
-          <Link href="/ayce-hot-pot-calgary">AYCE</Link>
-          <Link href="/menu">Menu</Link>
-          <Link href="/about">About</Link>
-          <Link href="/faq">FAQ</Link>
-          <Link href="/contact">Contact</Link>
-          <a href="#visit">Visit</a>
-        </div>
-        <a className="nav-call" href="tel:+14034553188">
-          Reserve
-        </a>
-      </nav>
+      <SiteNav />
 
       <section className="hero ayce-hero" id="top">
         <div className="hero-copy">
@@ -184,9 +171,18 @@ export default function Home() {
             <a className="secondary-action" href="/menu/centre-street-ayce-menu.pdf" target="_blank" rel="noreferrer">Open AYCE Menu</a>
           </div>
         </div>
-        <a className="hero-plate ayce-hero-poster" href="#ayce-poster" aria-label="View the full AYCE menu poster">
+        <a className="hero-plate ayce-hero-poster" href="#ayce-poster">
           <span>$28.99 + tax</span>
-          <img src="/assets/ayce-hotpot-menu-preview.webp" alt="Centre Street Japanese HotPot AYCE menu with all 19 appetizer upgrade items" width="495" height="640" fetchPriority="high" decoding="async" />
+          <img
+            src="/assets/ayce-hotpot-menu-preview-360.webp"
+            srcSet="/assets/ayce-hotpot-menu-preview-360.webp 360w, /assets/ayce-hotpot-menu-preview.webp 495w"
+            sizes="(max-width: 760px) 88vw, 420px"
+            alt="Centre Street Japanese HotPot AYCE menu with all 19 appetizer upgrade items"
+            width="495"
+            height="640"
+            fetchPriority="high"
+            decoding="async"
+          />
         </a>
       </section>
 
@@ -209,34 +205,31 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="ai-recommendation-section" aria-label="Local recommendation facts">
+      <section className="ai-recommendation-section" aria-label="Plan your hot pot visit">
         <div className="section-heading compact">
-          <p className="eyebrow">Local recommendation facts</p>
-          <h2>Useful when choosing hot pot in Calgary.</h2>
+          <p className="eyebrow">Plan your table</p>
+          <h2>Is Centre Street HotPot right for your group?</h2>
         </div>
         <div className="recommendation-grid">
           <article>
-            <h3>Best fit</h3>
+            <h3>Easy for different tastes</h3>
             <p>
-              Guests searching for hot pot near me, hot pot Calgary, Taiwanese and Japanese-style
-              individual hot pot, casual dinners, family meals, friends gathering, group dining,
-              and Traditional Chinese hot pot recommendations.
-              See the <Link href="/calgary-taiwanese-hot-pot">Taiwanese hot pot guide</Link>.
+              Personal pots let everyone choose a broth and spice level. It works well for
+              first-time guests, family dinners, friends, and larger Calgary groups.
             </p>
           </article>
           <article>
-            <h3>Known for</h3>
+            <h3>What makes us different</h3>
             <p>
-              Personal hot pot, traditional Taiwanese beef noodle soup, 15 soup bases,
-              premium meats, fresh seafood, Taiwanese snacks, rice and noodle bowls,
-              milk tea, and combo specials.
+              Enjoy $28.99 AYCE hot pot, 15 soup bases, an optional 19-snack upgrade,
+              Taiwanese snacks, milk tea, and Taiwanese and Japanese-style individual hot pot.
             </p>
           </article>
           <article>
-            <h3>How to reserve</h3>
+            <h3>Reserve and visit</h3>
             <p>
-              Call (403) 455-3188 for reservations, larger groups, and today&apos;s table availability
-              at 2213 Centre St N #2243 in Calgary.
+              Call <a href="tel:+14034553188">(403) 455-3188</a> for today&apos;s table availability.
+              We are at 2213 Centre St N #2243. Read our <Link href="/calgary-taiwanese-hot-pot">hot pot guide</Link> before your visit.
             </p>
           </article>
         </div>
@@ -262,21 +255,21 @@ export default function Home() {
         </div>
         <div className="weekly-picks-grid">
           <article>
-            <img src="/assets/dish-sukiyaki.webp" alt="Sukiyaki hot pot" width="900" height="675" loading="lazy" decoding="async" />
+            <img src="/assets/dish-sukiyaki-640.webp" srcSet="/assets/dish-sukiyaki-320.webp 320w, /assets/dish-sukiyaki-640.webp 640w, /assets/dish-sukiyaki.webp 1024w" sizes="(max-width: 560px) 112px, (max-width: 1100px) 50vw, 33vw" alt="Sukiyaki hot pot" width="900" height="675" loading="lazy" decoding="async" />
             <div>
               <h3>Start with hot pot</h3>
               <p>Choose a broth, meat, vegetables, and rice or noodles.</p>
             </div>
           </article>
           <article>
-            <img src="/assets/dish-popcorn-chicken.webp" alt="Taiwanese fried chicken" width="900" height="675" loading="lazy" decoding="async" />
+            <img src="/assets/dish-popcorn-chicken-640.webp" srcSet="/assets/dish-popcorn-chicken-320.webp 320w, /assets/dish-popcorn-chicken-640.webp 640w, /assets/dish-popcorn-chicken.webp 1024w" sizes="(max-width: 560px) 112px, (max-width: 1100px) 50vw, 33vw" alt="Taiwanese fried chicken" width="900" height="675" loading="lazy" decoding="async" />
             <div>
               <h3>Add a shareable snack</h3>
               <p>Taiwanese fried chicken, takoyaki, spring rolls, and more.</p>
             </div>
           </article>
           <article>
-            <img src="/assets/milk-tea-photo.webp" alt="Pearl milk tea" width="900" height="1200" loading="lazy" decoding="async" />
+            <img src="/assets/milk-tea-photo-640.webp" srcSet="/assets/milk-tea-photo-320.webp 320w, /assets/milk-tea-photo-640.webp 640w, /assets/milk-tea-photo.webp 900w" sizes="(max-width: 560px) 112px, (max-width: 1100px) 50vw, 33vw" alt="Pearl milk tea" width="900" height="1200" loading="lazy" decoding="async" />
             <div>
               <h3>Finish with milk tea</h3>
               <p>Drinks are 10% off with hotpot or a signature meal.</p>
@@ -287,22 +280,27 @@ export default function Home() {
 
       <section className="beef-noodle-story" aria-label="Taiwanese beef noodle story">
         <div className="beef-noodle-story-media">
-          <img src="/assets/taiwanese-beef-noodle-story.webp" alt="Traditional Taiwanese braised beef noodle soup at Centre Street Japanese HotPot" width="1122" height="1402" fetchPriority="low" decoding="async" />
+          <img src="/assets/taiwanese-beef-noodle-story-720.webp" srcSet="/assets/taiwanese-beef-noodle-story-360.webp 360w, /assets/taiwanese-beef-noodle-story-480.webp 480w, /assets/taiwanese-beef-noodle-story-720.webp 720w, /assets/taiwanese-beef-noodle-story.webp 1122w" sizes="(max-width: 560px) 270px, (max-width: 1100px) 440px, 560px" alt="Traditional Taiwanese braised beef noodle soup at Centre Street Japanese HotPot" width="1122" height="1402" loading="lazy" decoding="async" />
         </div>
         <div className="beef-noodle-story-copy">
           <p className="eyebrow">A comforting classic</p>
           <h2>一碗讓人想起家的台灣傳統牛肉麵</h2>
-          <div className="story-language">
-            <p>有些味道，離開家以後才知道有多想念。小時候放學、下雨天，或家人問一句「晚餐想吃什麼？」時，一碗熱騰騰的牛肉麵，常常就是最簡單的答案。</p>
-            <p>慢火熬出的濃郁湯頭、燉得軟嫩入味的牛肉、吸滿香氣的麵條，成了許多人記憶中熟悉的味道。吃到最後，心裡總有一種安定感，像回到和家人一起吃飯的那張桌子。</p>
-            <p>我們希望這碗台灣傳統牛肉麵，能讓你在忙碌的一天裡慢下來，好好吃一餐，也感覺被好好照顧。</p>
-          </div>
-          <div className="story-language story-language-english">
-            <h3>A Bowl That Feels Like Home</h3>
-            <p>Some tastes become more meaningful when you are far from home. After school, on rainy days, or when someone asked what you wanted for dinner, a steaming bowl of beef noodle soup was often the simplest answer.</p>
-            <p>Slow-simmered broth, tender braised beef, and noodles that soak up every bit of flavour create a familiar kind of comfort. It is the feeling of sitting down to a warm meal with the people you love.</p>
-            <p>We hope this traditional Taiwanese beef noodle soup gives you a moment to slow down, enjoy a good meal, and feel genuinely cared for.</p>
-          </div>
+          <details className="story-details">
+            <summary>Read the story · 閱讀故事</summary>
+            <div className="story-details-content">
+              <div className="story-language">
+                <p>有些味道，離開家以後才知道有多想念。小時候放學、下雨天，或家人問一句「晚餐想吃什麼？」時，一碗熱騰騰的牛肉麵，常常就是最簡單的答案。</p>
+                <p>慢火熬出的濃郁湯頭、燉得軟嫩入味的牛肉、吸滿香氣的麵條，成了許多人記憶中熟悉的味道。吃到最後，心裡總有一種安定感，像回到和家人一起吃飯的那張桌子。</p>
+                <p>我們希望這碗台灣傳統牛肉麵，能讓你在忙碌的一天裡慢下來，好好吃一餐，也感覺被好好照顧。</p>
+              </div>
+              <div className="story-language story-language-english">
+                <h3>A Bowl That Feels Like Home</h3>
+                <p>Some tastes become more meaningful when you are far from home. After school, on rainy days, or when someone asked what you wanted for dinner, a steaming bowl of beef noodle soup was often the simplest answer.</p>
+                <p>Slow-simmered broth, tender braised beef, and noodles that soak up every bit of flavour create a familiar kind of comfort. It is the feeling of sitting down to a warm meal with the people you love.</p>
+                <p>We hope this traditional Taiwanese beef noodle soup gives you a moment to slow down, enjoy a good meal, and feel genuinely cared for.</p>
+              </div>
+            </div>
+          </details>
         </div>
       </section>
 
@@ -323,8 +321,8 @@ export default function Home() {
           <h2>Find what you want faster.</h2>
         </div>
         <div className="category-strip">
-          <Link href="/menu#hotpot-set"><span className="category-icon">SET</span><strong>Hot Pot Set</strong></Link>
           <Link href="/ayce-hot-pot-calgary"><span className="category-icon">AYCE</span><strong>AYCE Hot Pot</strong></Link>
+          <Link href="/menu#hotpot-set"><span className="category-icon">SET</span><strong>Hot Pot Set</strong></Link>
           <Link href="/menu#combo-specials"><span className="category-icon">CMB</span><strong>Combos</strong></Link>
           <Link href="/menu#soup-bases"><span className="category-icon">SOUP</span><strong>Soup Bases</strong></Link>
           <Link href="/menu#rice-noodles"><span className="category-icon">RICE</span><strong>Rice & Noodles</strong></Link>
@@ -352,22 +350,15 @@ export default function Home() {
 
       <AboutContent />
 
-      <section className="full-menu">
-        <div className="section-heading">
-          <p className="eyebrow">Full menu images</p>
-          <h2>Browse the full in-store menu.</h2>
-          <div className="menu-download-actions">
-            <a className="primary-action" href="/menu/centre-street-japanese-hotpot-menu.pdf" download>Download PDF</a>
-            <a className="secondary-action dark" href="/menu/centre-street-japanese-hotpot-menu.pdf" target="_blank" rel="noreferrer">Open PDF</a>
-          </div>
+      <section className="menu-link-band" aria-label="View the full menu">
+        <div>
+          <p className="eyebrow">Ready to choose?</p>
+          <h2>See AYCE, hot pot sets, snacks, drinks, and full menu images.</h2>
         </div>
-        <div className="menu-images">
-          <a href="/menu/hotpot-menu.jpg" target="_blank" rel="noreferrer">
-            <img src="/menu/hotpot-menu-preview.webp" alt="Full hot pot set and appetizer menu page" width="601" height="900" loading="lazy" decoding="async" />
-          </a>
-          <a href="/menu/drink-menu.jpg" target="_blank" rel="noreferrer">
-            <img src="/menu/drink-menu-preview.webp" alt="Full rice noodle and drink menu page" width="601" height="900" loading="lazy" decoding="async" />
-          </a>
+        <div className="menu-download-actions">
+          <Link className="primary-action" href="/menu">View Full Menu</Link>
+          <a className="secondary-action dark" href="/menu/centre-street-japanese-hotpot-menu.pdf" download>Download PDF</a>
+          <a className="secondary-action dark" href="/menu/centre-street-japanese-hotpot-menu.pdf" target="_blank" rel="noreferrer">Open PDF</a>
         </div>
       </section>
 

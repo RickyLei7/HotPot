@@ -1,17 +1,18 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { SiteNav } from "../site-nav";
 
 export const metadata: Metadata = {
-  title: "AYCE Hot Pot Calgary | All You Can Eat Hot Pot",
+  title: "AYCE Hot Pot Calgary $28.99 | 15 Soup Bases & 19 Snacks",
   description:
-    "AYCE Hot Pot Calgary for $28.99 + tax with soup base included, server-ordered meats, and an optional 19-item appetizer upgrade for +$3.99 per person.",
+    "AYCE hot pot in Calgary for $28.99 + tax with soup base included, four meat choices and an optional 19-snack upgrade. Call (403) 455-3188 to reserve.",
   alternates: {
     canonical: "/ayce-hot-pot-calgary",
   },
   openGraph: {
-    title: "AYCE Hot Pot Calgary | All You Can Eat Hot Pot",
+    title: "AYCE Hot Pot Calgary $28.99 | 15 Soup Bases & 19 Snacks",
     description:
-      "All-you-can-eat hot pot in Calgary at Centre Street Japanese HotPot: $28.99 + tax, soup base included, meat ordered through your server, optional snack upgrade, and phone reservations.",
+      "AYCE hot pot in Calgary for $28.99 + tax with soup base included, four meat choices, 15 soup bases, and an optional 19-snack upgrade.",
     url: "https://centrestjhotpot.ca/ayce-hot-pot-calgary/",
     images: ["/assets/ayce-hotpot-menu-preview.webp"],
   },
@@ -55,9 +56,9 @@ const ayceSchema = {
     {
       "@type": "WebPage",
       "@id": "https://centrestjhotpot.ca/ayce-hot-pot-calgary/#webpage",
-      name: "AYCE Hot Pot Calgary",
+      name: "AYCE Hot Pot Calgary $28.99 | 15 Soup Bases & 19 Snacks",
       description:
-        "All-you-can-eat hot pot in Calgary at Centre Street Japanese HotPot, including price, meats, snack upgrade, kids pricing, and reservation details.",
+        "AYCE hot pot in Calgary for $28.99 + tax with soup base included, four meat choices, 15 soup bases, an optional 19-snack upgrade, kids pricing, and reservation details.",
       url: "https://centrestjhotpot.ca/ayce-hot-pot-calgary/",
       about: [
         "AYCE hot pot Calgary",
@@ -109,20 +110,7 @@ export default function AyceHotPotCalgaryPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(ayceSchema) }}
       />
-      <nav className="site-nav" aria-label="Main navigation">
-        <Link className="brand-mark" href="/" aria-label="Centre Street Japanese Hotpot home">
-          <img src="/assets/brand-logo-wide.webp" alt="Centre Street Japanese Hotpot" width="600" height="184" />
-        </Link>
-        <div className="nav-links">
-          <Link href="/">Home</Link>
-          <Link href="/menu">Menu</Link>
-          <Link href="/about">About</Link>
-          <Link href="/faq">FAQ</Link>
-          <Link href="/contact">Contact</Link>
-          <Link href="/#visit">Visit</Link>
-        </div>
-        <a className="nav-call" href="tel:+14034553188">Reserve</a>
-      </nav>
+      <SiteNav />
 
       <section className="page-hero guide-page-hero">
         <div>
@@ -166,9 +154,9 @@ export default function AyceHotPotCalgaryPage() {
             </article>
           </div>
         </div>
-        <a className="ayce-card" href="/assets/ayce-hotpot-menu.webp" aria-label="Open All-You-Can-Eat Hot Pot poster">
+        <a className="ayce-card" href="/assets/ayce-hotpot-menu.webp">
           <span>$28.99 + tax</span>
-          <img src="/assets/ayce-hotpot-menu-preview.webp" alt="AYCE Hot Pot poster with $28.99 pricing and all 19 appetizer upgrade items" width="495" height="640" loading="lazy" decoding="async" />
+          <img src="/assets/ayce-hotpot-menu-preview-360.webp" srcSet="/assets/ayce-hotpot-menu-preview-360.webp 360w, /assets/ayce-hotpot-menu-preview.webp 495w" sizes="(max-width: 760px) calc(100vw - 32px), 420px" alt="AYCE Hot Pot poster with $28.99 pricing and all 19 appetizer upgrade items" width="495" height="640" loading="lazy" decoding="async" />
         </a>
       </section>
 
@@ -194,24 +182,24 @@ export default function AyceHotPotCalgaryPage() {
         </div>
         <div className="weekly-picks-grid">
           <article>
-            <img src="/assets/ayce-fried-chicken.webp" alt="Taiwanese fried chicken snack for AYCE hot pot in Calgary" width="900" height="1125" loading="lazy" decoding="async" />
+            <img src="/assets/ayce-fried-chicken-224.webp" srcSet="/assets/ayce-fried-chicken-160.webp 160w, /assets/ayce-fried-chicken-224.webp 224w, /assets/ayce-fried-chicken-320.webp 320w, /assets/ayce-fried-chicken-640.webp 640w, /assets/ayce-fried-chicken.webp 900w" sizes="(max-width: 560px) 112px, (max-width: 1100px) 50vw, 33vw" alt="Signature Taiwanese fried chicken for AYCE snack upgrade" width="900" height="1125" loading="lazy" decoding="async" />
             <div>
-              <h3>Taiwanese fried chicken</h3>
-              <p>Crispy Taiwanese fried chicken is one of the snack upgrade favorites.</p>
+              <h3>Signature Taiwanese Fried Chicken</h3>
+              <p>Hot, crispy, and made to order as part of the AYCE snack upgrade.</p>
             </div>
           </article>
           <article>
-            <img src="/assets/ayce-takoyaki.webp" alt="Takoyaki for all-you-can-eat hot pot in Calgary" width="900" height="1125" loading="lazy" decoding="async" />
+            <img src="/assets/ayce-takoyaki-224.webp" srcSet="/assets/ayce-takoyaki-160.webp 160w, /assets/ayce-takoyaki-224.webp 224w, /assets/ayce-takoyaki-320.webp 320w, /assets/ayce-takoyaki-640.webp 640w, /assets/ayce-takoyaki.webp 900w" sizes="(max-width: 560px) 112px, (max-width: 1100px) 50vw, 33vw" alt="Takoyaki for AYCE snack upgrade in Calgary" width="900" height="1125" loading="lazy" decoding="async" />
             <div>
-              <h3>Takoyaki and crispy sides</h3>
-              <p>Snack options include takoyaki, crispy squid legs, crispy chicken cutlet, golden fried buns, and more.</p>
+              <h3>Takoyaki</h3>
+              <p>Six-piece takoyaki with sauce and bonito flakes.</p>
             </div>
           </article>
           <article>
-            <img src="/assets/dish-sukiyaki.webp" alt="Soup base for all-you-can-eat hot pot in Calgary" width="900" height="675" loading="lazy" decoding="async" />
+            <img src="/assets/ayce-snack-duo-224.webp" srcSet="/assets/ayce-snack-duo-160.webp 160w, /assets/ayce-snack-duo-224.webp 224w, /assets/ayce-snack-duo-320.webp 320w, /assets/ayce-snack-duo-640.webp 640w, /assets/ayce-snack-duo.webp 900w" sizes="(max-width: 560px) 112px, (max-width: 1100px) 50vw, 33vw" alt="AYCE snack duo with fried chicken and takoyaki" width="900" height="1125" loading="lazy" decoding="async" />
             <div>
-              <h3>Soup base included</h3>
-              <p>Start with a soup base, then build the table with meats, sides, snacks, and drinks.</p>
+              <h3>More snack choices</h3>
+              <p>Crispy chicken cutlet, golden fried buns, and crispy squid legs are also available.</p>
             </div>
           </article>
         </div>

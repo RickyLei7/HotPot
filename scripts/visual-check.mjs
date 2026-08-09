@@ -141,6 +141,7 @@ try {
         : `${baseUrl}${pathname}`;
       const response = await page.goto(pageUrl, { waitUntil: "networkidle" });
       await page.evaluate(async () => {
+        document.documentElement.style.scrollBehavior = "auto";
         for (let y = 0; y < document.documentElement.scrollHeight; y += Math.max(400, innerHeight - 120)) {
           scrollTo(0, y);
           await new Promise((resolve) => setTimeout(resolve, 80));
@@ -148,6 +149,28 @@ try {
         scrollTo(0, 0);
         await new Promise((resolve) => setTimeout(resolve, 150));
       });
+      const mobileInteraction = viewport.isMobile ? await page.evaluate(async () => {
+        const sticky = document.querySelector(".reserve-sticky");
+        const hero = document.querySelector(".hero, .page-hero, .ads-hero");
+        const stickyHiddenAtTop = sticky ? !sticky.classList.contains("is-visible") : false;
+
+        const more = document.querySelector(".nav-more");
+        const summary = more?.querySelector("summary");
+        summary?.click();
+        await new Promise((resolve) => setTimeout(resolve, 50));
+        const menuOpened = Boolean(more?.open);
+        const menuLinksVisible = [...(more?.querySelectorAll(".nav-more-links a") || [])]
+          .every((link) => link.getBoundingClientRect().height > 0);
+        summary?.click();
+        await new Promise((resolve) => requestAnimationFrame(() => requestAnimationFrame(resolve)));
+
+        scrollTo(0, hero ? hero.offsetTop + hero.offsetHeight + 80 : innerHeight * 0.75);
+        await new Promise((resolve) => setTimeout(resolve, 220));
+        const stickyVisibleAfterHero = Boolean(sticky?.classList.contains("is-visible"));
+        scrollTo(0, 0);
+        await new Promise((resolve) => setTimeout(resolve, 180));
+        return { menuOpened, menuLinksVisible, stickyHiddenAtTop, stickyVisibleAfterHero };
+      }) : null;
       const data = await inspectPage(page);
       const safeName = pathname === "/" ? "home" : pathname.replaceAll("/", "-").replace(/^-|-$/g, "");
       const screenshotPath = path.join(outputDir, `${viewport.name}-${safeName}.png`);
@@ -168,8 +191,12 @@ try {
       if (data.brokenImages.length) routeFailures.push(`broken images: ${data.brokenImages.join(", ")}`);
       if (requestFailures.length) routeFailures.push(`request failures: ${requestFailures.join(", ")}`);
       if (consoleErrors.length) routeFailures.push(`console errors: ${consoleErrors.join(" | ")}`);
+      if (viewport.isMobile && !mobileInteraction?.menuOpened) routeFailures.push("mobile More menu did not open");
+      if (viewport.isMobile && !mobileInteraction?.menuLinksVisible) routeFailures.push("mobile More links are not visible");
+      if (viewport.isMobile && !mobileInteraction?.stickyHiddenAtTop) routeFailures.push("sticky reserve is visible over the first screen");
+      if (viewport.isMobile && !mobileInteraction?.stickyVisibleAfterHero) routeFailures.push("sticky reserve did not appear after the hero");
 
-      const result = { viewport: viewport.name, pathname, screenshotPath, ...data, failures: routeFailures };
+      const result = { viewport: viewport.name, pathname, screenshotPath, ...data, mobileInteraction, failures: routeFailures };
       results.push(result);
       failures.push(...routeFailures.map((failure) => `${viewport.name} ${pathname}: ${failure}`));
       await page.close();

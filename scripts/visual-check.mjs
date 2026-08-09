@@ -16,6 +16,7 @@ const pages = [
   "/restaurant-info/",
   "/calgary-hot-pot-guide/",
   "/calgary-taiwanese-hot-pot/",
+  "/first-time-hot-pot-calgary/",
   "/ayce-hot-pot-calgary/",
 ];
 const viewports = [

@@ -7,6 +7,43 @@
     window.dataLayer.push(arguments);
   };
 
+  function loadGoogleTag() {
+    if (window.__hotpotGoogleTagLoading) return;
+    window.__hotpotGoogleTagLoading = true;
+
+    var script = document.createElement("script");
+    script.async = true;
+    script.src = "/t662/";
+    document.head.appendChild(script);
+  }
+
+  function scheduleGoogleTag() {
+    var loadFromIntent = function () {
+      loadGoogleTag();
+      window.removeEventListener("pointerdown", loadFromIntent);
+      window.removeEventListener("keydown", loadFromIntent);
+      window.removeEventListener("scroll", loadFromIntent);
+    };
+
+    window.addEventListener("pointerdown", loadFromIntent, { passive: true, once: true });
+    window.addEventListener("keydown", loadFromIntent, { once: true });
+    window.addEventListener("scroll", loadFromIntent, { passive: true, once: true });
+
+    var loadWhenPageSettles = function () {
+      if ("requestIdleCallback" in window) {
+        window.requestIdleCallback(loadGoogleTag, { timeout: 3500 });
+      } else {
+        window.setTimeout(loadGoogleTag, 2500);
+      }
+    };
+
+    if (document.readyState === "complete") {
+      loadWhenPageSettles();
+    } else {
+      window.addEventListener("load", loadWhenPageSettles, { once: true });
+    }
+  }
+
   if (!window.__hotpotGaConfigured) {
     window.gtag("js", new Date());
     window.gtag("config", measurementId);
@@ -14,6 +51,7 @@
     window.__hotpotGaConfigured = true;
   }
   window.__hotpotAnalyticsReady = true;
+  scheduleGoogleTag();
 
   var campaignParams = new URLSearchParams(window.location.search);
   var campaignSource = campaignParams.get("utm_source") || "";
@@ -132,6 +170,7 @@
     var platform = socialPlatform(href);
 
     if (href.indexOf("tel:") === 0) {
+      loadGoogleTag();
       sendEvent("phone_click", link, { method: "phone" });
       sendEvent("generate_lead", link, { method: "phone", lead_type: "phone" });
       sendAdsCallConversion(event, link);

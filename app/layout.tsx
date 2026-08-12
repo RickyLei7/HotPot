@@ -57,11 +57,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <Script
-          src="/t662/"
-          strategy="afterInteractive"
-        />
-        <Script src="/site-events.js" strategy="afterInteractive" />
+        <Script src="/site-events.js?v=20260812-performance" strategy="afterInteractive" />
         {children}
         <a className="reserve-sticky" href="tel:+14034553188">
           Call to Reserve · (403) 455-3188

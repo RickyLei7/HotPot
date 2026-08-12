@@ -247,6 +247,14 @@ h3 {
   margin-top: 30px;
 }
 
+.hero-availability {
+  color: rgba(255, 246, 223, 0.82);
+  font-size: 0.94rem;
+  font-weight: 700;
+  line-height: 1.45;
+  margin: 16px 0 0;
+}
+
 .primary-action,
 .secondary-action {
   font-size: 1rem;
@@ -1416,6 +1424,41 @@ h3 {
   line-height: 1.6;
   max-width: 620px;
 }
+
+.ayce-reserve-strip {
+  align-items: center;
+  background: var(--gold);
+  color: var(--ink);
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+  padding: 18px clamp(18px, 5vw, 76px);
+}
+
+.ayce-reserve-strip > div:first-child {
+  display: grid;
+  gap: 3px;
+}
+
+.ayce-reserve-strip strong {
+  font-size: clamp(1.2rem, 2vw, 1.6rem);
+}
+
+.ayce-reserve-strip span {
+  font-size: 0.94rem;
+  font-weight: 700;
+}
+
+.ayce-reserve-actions {
+  display: flex;
+  flex: 0 0 auto;
+  gap: 10px;
+}
+
+.ayce-reserve-strip .primary-action {
+  background: var(--ink);
+  color: var(--cream);
+}
 @media (max-width: 1100px) {
   .site-nav {
     grid-template-columns: 1fr auto;
@@ -1603,6 +1646,18 @@ h3 {
       linear-gradient(90deg, rgba(18, 13, 11, 0.96), rgba(90, 19, 15, 0.9)),
       url("/assets/dish-sukiyaki-640.webp");
   }
+
+  .ads-hero {
+    background-image:
+      linear-gradient(90deg, rgba(18, 13, 11, 0.96), rgba(74, 16, 13, 0.92)),
+      url("/assets/ayce-hotpot-preview.webp");
+  }
+
+  .ads-photo-band {
+    background-image:
+      linear-gradient(90deg, rgba(31, 22, 17, 0.96), rgba(127, 23, 22, 0.9)),
+      url("/assets/dish-spicy-640.webp");
+  }
 }
 
 @media (max-width: 560px) {
@@ -1656,6 +1711,9 @@ h3 {
   .ads-grid article { min-height: 0; padding: 16px; }
   .ads-photo-band article { gap: 18px; }
   .ads-photo-band img { max-height: 320px; }
+  .ayce-reserve-strip { align-items: stretch; display: grid; gap: 14px; padding: 16px; }
+  .ayce-reserve-actions { display: grid; grid-template-columns: 1fr 1fr; }
+  .ayce-reserve-actions a { min-width: 0; padding-inline: 12px; }
 
   .quick-info,
   .set-grid,

@@ -32,9 +32,14 @@ for (const file of htmlFiles) {
   const relativePath = path.relative(root, file);
   if (authCallbackPages.has(relativePath)) continue;
   assert.equal(
-    (html.match(/src="\/site-events\.js"/g) || []).length,
+    (html.match(/src="\/site-events\.js(?:\?[^"\s]+)?"/g) || []).length,
     1,
     `${relativePath} must load /site-events.js exactly once`,
+  );
+  assert.equal(
+    html.includes('src="/t662/"'),
+    false,
+    `${relativePath} must defer the large Google tag through /site-events.js`,
   );
   assert.equal(
     html.includes('src="/analytics.js"'),
@@ -55,6 +60,8 @@ for (const requiredText of [
   "phone_click",
   'lead_type: "phone"',
   "menu_click",
+  'script.src = "/t662/"',
+  "requestIdleCallback",
   "window.__hotpotAnalyticsReady",
 ]) {
   assert.ok(siteEvents.includes(requiredText), `site-events.js is missing ${requiredText}`);

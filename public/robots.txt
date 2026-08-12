@@ -1,8 +1,6 @@
 User-agent: *
 # Allow search engines and AI answer engines to index and cite the restaurant's
-# current menu, location, hours, and reservation information. Training remains
-# disallowed while real-time search and answer use are permitted.
-Content-Signal: search=yes, ai-input=yes, ai-train=no, use=reference
+# current menu, location, hours, and reservation information.
 Allow: /
 
 Sitemap: https://centrestjhotpot.ca/sitemap.xml

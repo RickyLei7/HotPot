@@ -104,6 +104,8 @@ const ayceSchema = {
 };
 
 export default function AyceHotPotCalgaryPage() {
+  const directionsUrl = "https://www.google.com/maps/dir/?api=1&destination=2213+Centre+St+N+%232243%2C+Calgary%2C+AB+T2E+2T4";
+
   return (
     <main>
       <script
@@ -125,10 +127,14 @@ export default function AyceHotPotCalgaryPage() {
             <a className="primary-action" href="tel:+14034553188">
               Call (403) 455-3188 to Reserve
             </a>
+            <a className="secondary-action" href={directionsUrl} target="_blank" rel="noreferrer">
+              Get Directions
+            </a>
             <Link className="secondary-action" href="/menu#ayce-hotpot">
               View Menu Details
             </Link>
           </div>
+          <p className="hero-availability">Today&apos;s table availability: call ahead · 2213 Centre St N #2243</p>
         </div>
       </section>
 
@@ -158,6 +164,17 @@ export default function AyceHotPotCalgaryPage() {
           <span>$28.99 + tax</span>
           <img src="/assets/ayce-hotpot-menu-preview-360.webp" srcSet="/assets/ayce-hotpot-menu-preview-360.webp 360w, /assets/ayce-hotpot-menu-preview.webp 495w" sizes="(max-width: 760px) calc(100vw - 32px), 420px" alt="AYCE Hot Pot poster with $28.99 pricing and all 19 appetizer upgrade items" width="495" height="640" loading="lazy" decoding="async" />
         </a>
+      </section>
+
+      <section className="ayce-reserve-strip" aria-label="AYCE reservations and location">
+        <div>
+          <strong>Planning AYCE today?</strong>
+          <span>Mon-Fri 5-10:30 PM · Sat-Sun 12-10:30 PM</span>
+        </div>
+        <div className="ayce-reserve-actions">
+          <a className="primary-action" href="tel:+14034553188">Call to Reserve</a>
+          <a className="secondary-action dark" href={directionsUrl} target="_blank" rel="noreferrer">Directions</a>
+        </div>
       </section>
 
       <section className="menu-section" id="ayce-snacks">

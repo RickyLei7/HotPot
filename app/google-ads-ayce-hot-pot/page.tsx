@@ -183,14 +183,14 @@ export default function GoogleAdsAyceHotPotPage() {
 
       <section className="ads-section ads-photo-band">
         <article>
-          <img src="/assets/ayce-hotpot-preview.webp" alt="AYCE hot pot poster showing $28.99 price and soup base included" width="588" height="760" loading="lazy" decoding="async" />
+          <img src="/assets/ayce-hotpot-menu-preview-360.webp" srcSet="/assets/ayce-hotpot-menu-preview-360.webp 360w, /assets/ayce-hotpot-menu-preview.webp 495w" sizes="(max-width: 560px) calc(100vw - 32px), 360px" alt="AYCE hot pot menu showing $28.99 price, soup base included, and 19 appetizer choices" width="495" height="640" loading="lazy" decoding="async" />
           <div>
             <p className="eyebrow">AYCE details</p>
             <h2>Call before coming with a group. 團體用餐建議先致電。</h2>
             <p>For weekend tables, larger groups, or today&apos;s availability, calling is the fastest way to confirm a table. 週末、多人聚餐或想確認座位時，直接來電最快。</p>
             <div className="ads-hero-actions">
               <a className="primary-action" href="tel:+14034553188">Call to Reserve</a>
-              <Link className="secondary-action dark" href="/ayce-hot-pot-calgary">
+              <Link className="secondary-action" href="/ayce-hot-pot-calgary">
                 Full AYCE Details
               </Link>
             </div>

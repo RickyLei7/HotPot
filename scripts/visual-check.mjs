@@ -18,6 +18,7 @@ const pages = [
   "/calgary-taiwanese-hot-pot/",
   "/first-time-hot-pot-calgary/",
   "/ayce-hot-pot-calgary/",
+  "/google-ads-ayce-hot-pot/",
 ];
 const viewports = [
   { name: "mobile", width: 390, height: 844, isMobile: true },
@@ -158,8 +159,8 @@ try {
         const summary = more?.querySelector("summary");
         summary?.click();
         await new Promise((resolve) => setTimeout(resolve, 50));
-        const menuOpened = Boolean(more?.open);
-        const menuLinksVisible = [...(more?.querySelectorAll(".nav-more-links a") || [])]
+        const menuOpened = !more || Boolean(more.open);
+        const menuLinksVisible = !more || [...more.querySelectorAll(".nav-more-links a")]
           .every((link) => link.getBoundingClientRect().height > 0);
         summary?.click();
         await new Promise((resolve) => requestAnimationFrame(() => requestAnimationFrame(resolve)));

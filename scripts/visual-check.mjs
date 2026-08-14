@@ -117,6 +117,8 @@ async function inspectPage(page) {
     }));
     const snackImageHeights = [...document.querySelectorAll(".snack-card img")]
       .map((img) => Math.round(img.getBoundingClientRect().height));
+    const soupMenuImage = document.querySelector(".soup-preview-strip img");
+    const soupMenuRect = soupMenuImage?.getBoundingClientRect();
     return {
       title: document.title,
       metaDescriptionLength: metaDescription.length,
@@ -138,6 +140,13 @@ async function inspectPage(page) {
       homepageSectionPositions,
       lightMealImages,
       snackImageHeights,
+      soupMenuImage: soupMenuImage ? {
+        src: soupMenuImage.getAttribute("src"),
+        naturalWidth: soupMenuImage.naturalWidth,
+        naturalHeight: soupMenuImage.naturalHeight,
+        displayedWidth: soupMenuRect.width,
+        displayedHeight: soupMenuRect.height,
+      } : null,
     };
   });
 }
@@ -259,6 +268,15 @@ try {
         if (data.snackImageHeights.length !== 5) routeFailures.push(`expected 5 snack images, found ${data.snackImageHeights.length}`);
         if (data.snackImageHeights.length && Math.max(...data.snackImageHeights) - Math.min(...data.snackImageHeights) > 3) {
           routeFailures.push(`snack image heights are inconsistent: ${data.snackImageHeights.join(", ")}`);
+        }
+        if (!data.soupMenuImage || data.soupMenuImage.naturalWidth === 0) {
+          routeFailures.push("full personal hot pot menu image did not load");
+        } else {
+          const naturalRatio = data.soupMenuImage.naturalWidth / data.soupMenuImage.naturalHeight;
+          const displayedRatio = data.soupMenuImage.displayedWidth / data.soupMenuImage.displayedHeight;
+          if (Math.abs(naturalRatio - displayedRatio) > 0.01) {
+            routeFailures.push(`personal hot pot menu image is cropped or distorted: ${displayedRatio.toFixed(3)} vs ${naturalRatio.toFixed(3)}`);
+          }
         }
         if (Math.abs(navTopAfterScroll ?? 999) > 1) routeFailures.push("sticky header left viewport top");
       }

@@ -959,12 +959,16 @@ h3 { font-size: 1.08rem; margin-bottom: 10px; }
   border: 1px solid rgba(127, 23, 22, 0.2);
   border-radius: 18px;
   box-shadow: 0 28px 64px rgba(59, 20, 13, 0.18);
+  justify-self: center;
+  max-width: 620px;
   overflow: hidden;
+  width: 100%;
 }
 
 .soup-preview-strip img {
+  display: block;
   height: auto;
-  object-fit: cover;
+  object-fit: contain;
   width: 100%;
 }
 

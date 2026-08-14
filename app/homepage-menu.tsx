@@ -71,7 +71,7 @@ export function HomepageMenu({ language }: { language: HomepageLanguage }) {
           <div className="hero-actions"><Link className="primary-action" href={menuPath}>{content.personal.menu}</Link></div>
         </div>
         <div className="soup-preview-strip">
-          <img src="/assets/soup-lineup.webp" alt={isZh ? "鼎鑽火鍋 15 款湯底" : "Fifteen soup base choices at Centre Street Japanese HotPot"} width="1400" height="839" loading="lazy" decoding="async" />
+          <img src="/assets/personal-hot-pot-menu-full.webp" alt={isZh ? "鼎鑽火鍋完整個人火鍋菜單與 15 款湯底" : "Full personal hot pot menu with fifteen soup base choices at Centre Street Japanese HotPot"} width="1400" height="2096" loading="lazy" decoding="async" />
         </div>
       </section>
 

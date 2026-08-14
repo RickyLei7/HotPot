@@ -6,6 +6,7 @@ type Action = { label: string; href: string; style: string };
 type Card = { title: string; text: string };
 type Section = { eyebrow: string; title: string; paragraphs: string[]; cards?: Card[] };
 type Faq = { question: string; answer: string };
+type FeatureStory = { eyebrow: string; title: string; image: string; imageAlt: string; paragraphs: string[] };
 export type ZhPageData = {
   path: string;
   englishPath: string;
@@ -20,6 +21,7 @@ export type ZhPageData = {
   actions: Action[];
   facts: { value: string; label: string }[];
   sections: Section[];
+  featureStory?: FeatureStory;
   faqs: Faq[];
 };
 
@@ -94,6 +96,10 @@ export function ZhPage({ data }: { data: ZhPageData }) {
         <div className="localized-copy">{section.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}</div>
         {section.cards?.length ? <div className="recommendation-grid localized-card-grid">{section.cards.map((card) => <article key={card.title}><h3>{card.title}</h3><p>{card.text}</p></article>)}</div> : null}
       </section>)}
+      {data.featureStory ? <section className="beef-noodle-story" aria-label="台灣傳統牛肉麵故事">
+        <div className="beef-noodle-story-media"><img src={data.featureStory.image} alt={data.featureStory.imageAlt} width="1122" height="1402" loading="lazy" decoding="async" /></div>
+        <div className="beef-noodle-story-copy"><p className="eyebrow">{data.featureStory.eyebrow}</p><h2>{data.featureStory.title}</h2><div className="story-language">{data.featureStory.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}</div></div>
+      </section> : null}
       {data.faqs.length ? <section className="content-section localized-faq" id="faq"><div className="section-heading compact"><p className="eyebrow">常見問題</p><h2>快速找到用餐前需要的答案。</h2></div><div className="faq-list">{data.faqs.map((faq) => <article key={faq.question}><h2>{faq.question}</h2><p>{faq.answer}</p></article>)}</div></section> : null}
       <section className="localized-visit" id="visit"><div><p className="eyebrow">到店用餐</p><h2>2213 Centre St N #2243, Calgary</h2><p>週一至週五 17:00-22:30｜週六、週日 12:00-22:30</p></div><div className="hero-actions"><a className="primary-action" href="tel:+14034553188">致電 (403) 455-3188 訂位</a><a className="secondary-action" href="https://www.google.com/maps/dir/?api=1&destination=2213+Centre+St+N+%232243%2C+Calgary%2C+AB+T2E+2T4" target="_blank" rel="noreferrer">Google 地圖導航</a></div></section>
     </main>

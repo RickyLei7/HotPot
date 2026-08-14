@@ -81,11 +81,24 @@ for (const [enRoute, zhRoute] of pairs) {
   const pair = { en: enRoute, zhHant: zhRoute };
   validateDocument(enHtml, enRoute, "en", pair);
   validateDocument(zhHtml, zhRoute, "zh-Hant", pair);
+  assert.doesNotMatch(zhHtml, /[税稅]/u, `${zhRoute} must not contain Chinese tax characters`);
   assert.doesNotMatch(
     enHtml.replaceAll(">中文<", "><"),
     /[\u3400-\u9fff]/u,
     `${enRoute} must not contain Chinese text outside the language switch`,
   );
+}
+
+const [englishHome, chineseHome] = await Promise.all([
+  readFile(fileForRoute("/"), "utf8"),
+  readFile(fileForRoute("/zh-hant/"), "utf8"),
+]);
+assert.ok(englishHome.includes("Traditional Taiwanese Beef Noodle Soup"), "English home must preserve the beef noodle story");
+assert.ok(englishHome.includes("A Bowl That Feels Like Home"), "English home must preserve the full beef noodle story copy");
+assert.ok(chineseHome.includes("一碗讓人想起家的台灣傳統牛肉麵"), "Chinese home must include the beef noodle story");
+assert.ok(chineseHome.includes("慢火熬出的濃郁湯頭"), "Chinese home must preserve the full beef noodle story copy");
+for (const html of [englishHome, chineseHome]) {
+  assert.match(html, /AYCE|火鍋自助/u, "Home pages must preserve AYCE content while restoring beef noodle content");
 }
 
 const factualPages = [

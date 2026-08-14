@@ -114,6 +114,7 @@ function renderPage(data) {
       ${section.cards?.length ? `<div class="recommendation-grid localized-card-grid">${section.cards.map((card) => `<article><h3>${escapeHtml(card.title)}</h3><p>${escapeHtml(card.text)}</p></article>`).join("")}</div>` : ""}
     </section>`).join("\n");
   const faqSection = data.faqs.length ? `<section class="content-section localized-faq" id="faq"><div class="section-heading compact"><p class="eyebrow">常見問題</p><h2>快速找到用餐前需要的答案。</h2></div><div class="faq-list">${data.faqs.map((faq) => `<article><h2>${escapeHtml(faq.question)}</h2><p>${escapeHtml(faq.answer)}</p></article>`).join("")}</div></section>` : "";
+  const featureStory = data.featureStory ? `<section class="beef-noodle-story" aria-label="台灣傳統牛肉麵故事"><div class="beef-noodle-story-media"><img src="${escapeHtml(data.featureStory.image)}" alt="${escapeHtml(data.featureStory.imageAlt)}" width="1122" height="1402" loading="lazy" decoding="async" /></div><div class="beef-noodle-story-copy"><p class="eyebrow">${escapeHtml(data.featureStory.eyebrow)}</p><h2>${escapeHtml(data.featureStory.title)}</h2><div class="story-language">${data.featureStory.paragraphs.map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join("")}</div></div></section>` : "";
 
   return `<!doctype html>
 <html lang="zh-Hant">
@@ -151,6 +152,7 @@ function renderPage(data) {
       </section>
       <section class="quick-info" aria-label="餐廳重點">${data.facts.map((fact) => `<div><span>${escapeHtml(fact.value)}</span>${escapeHtml(fact.label)}</div>`).join("")}</section>
       ${sections}
+      ${featureStory}
       ${faqSection}
       <section class="localized-visit" id="visit"><div><p class="eyebrow">到店用餐</p><h2>2213 Centre St N #2243, Calgary</h2><p>週一至週五 17:00-22:30｜週六、週日 12:00-22:30</p></div><div class="hero-actions"><a class="primary-action" href="tel:+14034553188">致電 (403) 455-3188 訂位</a><a class="secondary-action" href="https://www.google.com/maps/dir/?api=1&amp;destination=2213+Centre+St+N+%232243%2C+Calgary%2C+AB+T2E+2T4" target="_blank" rel="noreferrer">Google 地圖導航</a></div></section>
     </main>

@@ -3,9 +3,9 @@ import Link from "next/link";
 import { SiteNav } from "../site-nav";
 
 export const metadata: Metadata = {
-  title: "AYCE Hot Pot Calgary $28.99 | 15 Soup Bases & 19 Snacks",
+  title: "All You Can Eat Hot Pot Calgary | AYCE $28.99",
   description:
-    "AYCE hot pot in Calgary for $28.99 + tax with soup base included, four meat choices and an optional 19-snack upgrade. Call (403) 455-3188 to reserve.",
+    "Calgary all-you-can-eat hot pot for $28.99 + tax with 15 soup bases, AAA beef, lamb, pork and chicken. Soup base included. Call (403) 455-3188.",
   alternates: {
     canonical: "/ayce-hot-pot-calgary",
     languages: {
@@ -15,9 +15,9 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "AYCE Hot Pot Calgary $28.99 | 15 Soup Bases & 19 Snacks",
+    title: "All You Can Eat Hot Pot Calgary | AYCE $28.99",
     description:
-      "AYCE hot pot in Calgary for $28.99 + tax with soup base included, four meat choices, 15 soup bases, and an optional 19-snack upgrade.",
+      "Calgary all-you-can-eat hot pot for $28.99 + tax with 15 soup bases, AAA beef, lamb, pork and chicken. Soup base included.",
     url: "https://centrestjhotpot.ca/ayce-hot-pot-calgary/",
     images: ["/assets/ayce-hotpot-menu-preview.webp"],
   },
@@ -94,9 +94,9 @@ const ayceSchema = {
     {
       "@type": "WebPage",
       "@id": "https://centrestjhotpot.ca/ayce-hot-pot-calgary/#webpage",
-      name: "AYCE Hot Pot Calgary $28.99 | 15 Soup Bases & 19 Snacks",
+      name: "All You Can Eat Hot Pot Calgary | AYCE $28.99",
       description:
-        "AYCE hot pot in Calgary for $28.99 + tax with soup base included, four meat choices, 15 soup bases, an optional 19-snack upgrade, kids pricing, and reservation details.",
+        "Calgary all-you-can-eat hot pot for $28.99 + tax with 15 soup bases, AAA beef, lamb, pork and chicken, an optional 19-snack upgrade, kids pricing, and reservation details.",
       url: "https://centrestjhotpot.ca/ayce-hot-pot-calgary/",
       about: [
         "AYCE hot pot Calgary",
@@ -155,11 +155,11 @@ export default function AyceHotPotCalgaryPage() {
       <section className="page-hero guide-page-hero">
         <div>
           <p className="eyebrow">AYCE hot pot Calgary</p>
-          <h1>All-You-Can-Eat Hot Pot in Calgary</h1>
+          <h1>All-You-Can-Eat Hot Pot Calgary · $28.99</h1>
           <p className="hero-text">
-            Centre Street Japanese HotPot serves AYCE Hot Pot in Calgary for $28.99 + tax,
-            with soup base included, server-ordered meats, an optional 19-item appetizer upgrade,
-            and phone reservations for today&apos;s availability.
+            Choose from 15 soup bases, all included in the $28.99 + tax AYCE price.
+            AAA beef, lamb, pork, and chicken are ordered fresh through your server,
+            with an optional 19-item all-you-can-eat appetizer upgrade.
           </p>
           <div className="hero-actions">
             <a className="primary-action" href="tel:+14034553188">

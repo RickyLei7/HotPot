@@ -101,7 +101,7 @@ export const homepageContent: { en: HomepageContent; zhHant: HomepageContent } =
       lead: "Choose from 15 soup bases and enjoy AAA beef, lamb, pork, or chicken ordered fresh through your server.",
       detail: "Your soup base is included. Come for a relaxed family dinner, a table with friends, or a group meal on Centre Street.",
       reserve: "Call to Reserve AYCE",
-      menu: "See AYCE Details",
+      menu: "See All-You-Can-Eat Hot Pot Details",
       snackEyebrow: "Make AYCE even better",
       snackTitle: "+$3.99 for 19 All-You-Can-Eat Snacks",
       snackLead: "Start with our Signature Taiwanese Fried Chicken, then add takoyaki, crispy chicken cutlet, golden fried buns, crispy squid legs, and more.",

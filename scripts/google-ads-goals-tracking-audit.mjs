@@ -37,7 +37,11 @@ async function query(name, gaql) {
     body: JSON.stringify({ query: gaql }),
   });
   const body = await response.json().catch(() => ({}));
-  if (!response.ok) return { name, error: body.error?.message ?? "Unknown Google Ads API error" };
+  if (!response.ok) return {
+    name,
+    error: body.error?.message ?? "Unknown Google Ads API error",
+    details: body.error?.details ?? [],
+  };
   return { name, rows: (Array.isArray(body) ? body : [body]).flatMap((batch) => batch.results ?? []) };
 }
 
@@ -184,8 +188,7 @@ const reports = await Promise.all([
     metrics.conversions,
     metrics.all_conversions
   FROM landing_page_view
-  WHERE campaign.status != 'REMOVED'
-    AND segments.date DURING LAST_30_DAYS
+  WHERE segments.date DURING LAST_30_DAYS
   ORDER BY metrics.clicks DESC`),
   query("allSchedules", `SELECT
     campaign.id,

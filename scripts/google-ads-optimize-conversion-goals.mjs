@@ -65,7 +65,7 @@ const before = beforeRows.map(({ campaignConversionGoal: goal }) => ({
   resourceName: goal.resourceName,
   category: goal.category,
   origin: goal.origin,
-  biddable: goal.biddable,
+  biddable: Boolean(goal.biddable),
 }));
 const lookup = new Map(before.map((goal) => [`${goal.category}~${goal.origin}`, goal]));
 for (const key of desired.keys()) {
@@ -109,7 +109,7 @@ if (apply) {
     resourceName: goal.resourceName,
     category: goal.category,
     origin: goal.origin,
-    biddable: goal.biddable,
+    biddable: Boolean(goal.biddable),
   }));
   const afterLookup = new Map(result.after.map((goal) => [`${goal.category}~${goal.origin}`, goal.biddable]));
   for (const [key, expected] of desired) {

@@ -52,7 +52,8 @@ function textValue(html, pattern) {
 }
 
 function validateHeadingPunctuation(html, route) {
-  const headings = html.match(/<h[1-3]\b[^>]*>[\s\S]*?<\/h[1-3]>/gi) || [];
+  const displayHeadingHtml = html.replace(/<div class="faq-list">[\s\S]*?<\/div>\s*<\/section>/gi, "");
+  const headings = displayHeadingHtml.match(/<h[1-3]\b[^>]*>[\s\S]*?<\/h[1-3]>/gi) || [];
   for (const headingHtml of headings) {
     const heading = headingHtml
       .replace(/<[^>]+>/g, " ")
@@ -60,14 +61,14 @@ function validateHeadingPunctuation(html, route) {
       .replace(/\s+/g, " ")
       .trim();
 
-    // Addresses and FAQ questions use punctuation for meaning, not decoration.
-    if (/Centre St/i.test(heading) || /[?？]$/.test(heading)) continue;
+    // Addresses keep punctuation for meaning. FAQ questions are removed above.
+    if (/Centre St/i.test(heading)) continue;
 
     const withoutDecimals = heading.replace(/\d+\.\d+/g, "");
     assert.doesNotMatch(
       withoutDecimals,
-      /[，。、,.]/u,
-      `${route} heading uses decorative comma or period: ${heading}`,
+      /[，。、,.!?！？]/u,
+      `${route} display heading uses decorative punctuation: ${heading}`,
     );
   }
 }

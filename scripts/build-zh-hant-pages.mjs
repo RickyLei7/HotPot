@@ -151,8 +151,7 @@ function renderPage(data) {
         <div class="localized-hero-media"><img src="${data.image}" alt="${escapeHtml(data.imageAlt)}" width="900" height="675" fetchpriority="high" decoding="async" /></div>
       </section>
       <section class="quick-info" aria-label="餐廳重點">${data.facts.map((fact) => `<div><span>${escapeHtml(fact.value)}</span>${escapeHtml(fact.label)}</div>`).join("")}</section>
-      ${sections}
-      ${featureStory}
+      ${sections}${featureStory ? `\n      ${featureStory}` : ""}
       ${faqSection}
       <section class="localized-visit" id="visit"><div><p class="eyebrow">到店用餐</p><h2>2213 Centre St N #2243, Calgary</h2><p>週一至週五 17:00-22:30｜週六、週日 12:00-22:30</p></div><div class="hero-actions"><a class="primary-action" href="tel:+14034553188">致電 (403) 455-3188 訂位</a><a class="secondary-action" href="https://www.google.com/maps/dir/?api=1&amp;destination=2213+Centre+St+N+%232243%2C+Calgary%2C+AB+T2E+2T4" target="_blank" rel="noreferrer">Google 地圖導航</a></div></section>
     </main>

@@ -32,7 +32,7 @@ const pages = [
 ];
 const viewports = [
   { name: "mobile", width: 390, height: 844, isMobile: true },
-  { name: "desktop", width: 1440, height: 1000, isMobile: false },
+  { name: "desktop", width: 1440, height: 900, isMobile: false },
 ];
 
 const contentTypes = new Map([
@@ -105,6 +105,16 @@ async function inspectPage(page) {
       && img.rect.top < innerHeight
     ));
     const largeVisibleImages = visibleImages.filter((img) => img.rect.height > innerHeight * 0.9);
+    const homepageSectionIds = ["ayce", "personal-hot-pot", "beef-noodle", "light-meals", "drinks", "visit"];
+    const homepageSectionPositions = homepageSectionIds.map((id) => ({
+      id,
+      top: document.getElementById(id)?.offsetTop ?? -1,
+    }));
+    const lightMealImages = [...document.querySelectorAll(".light-meal-card img")].map((img) => ({
+      src: img.getAttribute("src"),
+      complete: img.complete,
+      naturalWidth: img.naturalWidth,
+    }));
     return {
       title: document.title,
       metaDescriptionLength: metaDescription.length,
@@ -123,6 +133,8 @@ async function inspectPage(page) {
       brokenImages: visibleImages.filter((img) => !img.complete || img.naturalWidth === 0).map((img) => img.src),
       largeVisibleImages: largeVisibleImages.map((img) => ({ src: img.src, height: Math.round(img.rect.height) })),
       stickyVisible: sticky ? sticky.width > 0 && sticky.height > 0 : false,
+      homepageSectionPositions,
+      lightMealImages,
     };
   });
 }
@@ -189,6 +201,13 @@ try {
         return { menuOpened, menuLinksVisible, stickyHiddenAtTop, stickyVisibleAfterHero };
       }) : null;
       const data = await inspectPage(page);
+      const navTopAfterScroll = await page.evaluate(async () => {
+        scrollTo(0, 900);
+        await new Promise((resolve) => requestAnimationFrame(() => requestAnimationFrame(resolve)));
+        const top = document.querySelector(".site-nav")?.getBoundingClientRect().top;
+        scrollTo(0, 0);
+        return top;
+      });
       const safeName = pathname === "/" ? "home" : pathname.replaceAll("/", "-").replace(/^-|-$/g, "");
       const screenshotPath = path.join(outputDir, `${viewport.name}-${safeName}.png`);
       await page.screenshot({ path: screenshotPath, fullPage: true });
@@ -228,8 +247,16 @@ try {
       if (viewport.isMobile && !mobileInteraction?.menuLinksVisible) routeFailures.push("mobile More links are not visible");
       if (viewport.isMobile && !mobileInteraction?.stickyHiddenAtTop) routeFailures.push("sticky reserve is visible over the first screen");
       if (viewport.isMobile && !mobileInteraction?.stickyVisibleAfterHero) routeFailures.push("sticky reserve did not appear after the hero");
+      if (["/", "/zh-hant/"].includes(pathname)) {
+        const positions = data.homepageSectionPositions;
+        if (positions.some(({ top }) => top < 0)) routeFailures.push("homepage section is missing");
+        if (positions.some(({ top }, index) => index > 0 && top <= positions[index - 1].top)) routeFailures.push("homepage section order is incorrect");
+        if (data.lightMealImages.length !== 6) routeFailures.push(`expected 6 light meal images, found ${data.lightMealImages.length}`);
+        if (data.lightMealImages.some((image) => !image.complete || image.naturalWidth === 0)) routeFailures.push("a light meal image did not load");
+        if (Math.abs(navTopAfterScroll ?? 999) > 1) routeFailures.push("sticky header left viewport top");
+      }
 
-      const result = { viewport: viewport.name, pathname, screenshotPath, ...data, mobileInteraction, failures: routeFailures };
+      const result = { viewport: viewport.name, pathname, screenshotPath, ...data, navTopAfterScroll, mobileInteraction, failures: routeFailures };
       results.push(result);
       failures.push(...routeFailures.map((failure) => `${viewport.name} ${pathname}: ${failure}`));
       await page.close();

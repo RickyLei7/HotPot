@@ -279,17 +279,12 @@ export default function Home() {
         <div className="beef-noodle-story-copy">
           <p className="eyebrow">A comforting classic</p>
           <h2>Traditional Taiwanese Beef Noodle Soup</h2>
-          <details className="story-details">
-            <summary>Read the story</summary>
-            <div className="story-details-content">
-              <div className="story-language story-language-english">
-                <h3>A Bowl That Feels Like Home</h3>
-                <p>Some tastes become more meaningful when you are far from home. After school, on rainy days, or when someone asked what you wanted for dinner, a steaming bowl of beef noodle soup was often the simplest answer.</p>
-                <p>Slow-simmered broth, tender braised beef, and noodles that soak up every bit of flavour create a familiar kind of comfort. It is the feeling of sitting down to a warm meal with the people you love.</p>
-                <p>We hope this traditional Taiwanese beef noodle soup gives you a moment to slow down, enjoy a good meal, and feel genuinely cared for.</p>
-              </div>
-            </div>
-          </details>
+          <div className="story-language story-language-english">
+            <h3>A Bowl That Feels Like Home</h3>
+            <p>Some tastes become more meaningful when you are far from home. After school, on rainy days, or when someone asked what you wanted for dinner, a steaming bowl of beef noodle soup was often the simplest answer.</p>
+            <p>Slow-simmered broth, tender braised beef, and noodles that soak up every bit of flavour create a familiar kind of comfort. It is the feeling of sitting down to a warm meal with the people you love.</p>
+            <p>We hope this traditional Taiwanese beef noodle soup gives you a moment to slow down, enjoy a good meal, and feel genuinely cared for.</p>
+          </div>
         </div>
       </section>
 

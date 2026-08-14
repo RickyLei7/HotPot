@@ -95,6 +95,7 @@ const [englishHome, chineseHome] = await Promise.all([
 ]);
 assert.ok(englishHome.includes("Traditional Taiwanese Beef Noodle Soup"), "English home must preserve the beef noodle story");
 assert.ok(englishHome.includes("A Bowl That Feels Like Home"), "English home must preserve the full beef noodle story copy");
+assert.ok(!englishHome.includes('<details class="story-details">'), "English home must show the beef noodle story without a collapsed disclosure");
 assert.ok(chineseHome.includes("一碗讓人想起家的台灣傳統牛肉麵"), "Chinese home must include the beef noodle story");
 assert.ok(chineseHome.includes("慢火熬出的濃郁湯頭"), "Chinese home must preserve the full beef noodle story copy");
 for (const html of [englishHome, chineseHome]) {

@@ -28,7 +28,7 @@ html {
   background: var(--background);
   color-scheme: dark;
   scroll-behavior: smooth;
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 body {
@@ -38,7 +38,7 @@ body {
     url("/assets/dish-spicy.webp") center top / 1400px auto fixed;
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 a {

@@ -104,7 +104,7 @@ const restaurantJsonLd = {
         price: "28.99",
         priceCurrency: "CAD",
         description:
-          "Soup base included. Meat is ordered through the server. Time limit 1.5 hours. Price before tax.",
+          "Soup base included. Meat is ordered through the server. Price before tax.",
       },
       {
         "@type": "Offer",
@@ -194,8 +194,8 @@ export default function Home() {
           Snack choices +$3.99
         </div>
         <div>
-          <span>1.5 hrs</span>
-          AYCE time limit
+          <span>4</span>
+          Meat choices
         </div>
       </section>
 

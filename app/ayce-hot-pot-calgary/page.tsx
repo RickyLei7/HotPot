@@ -41,8 +41,8 @@ const ayceFaqs = [
     "Yes. Add 19 all-you-can-eat appetizers for +$3.99 per person. Everyone at the same table must upgrade. Options include Taiwanese fried chicken, takoyaki, crispy chicken cutlet, golden fried buns, crispy squid legs, spring rolls, fries, and more.",
   ],
   [
-    "Are there AYCE rules or limits?",
-    "AYCE Hot Pot is dine-in only with a 1.5 hour time limit. Please order responsibly and avoid food waste.",
+    "How should guests order?",
+    "AYCE Hot Pot is dine-in only. Please order responsibly and avoid food waste.",
   ],
 ];
 
@@ -120,7 +120,7 @@ const ayceSchema = {
         "@type": "MenuItem",
         name: "AYCE Hot Pot",
         description:
-          "All-you-can-eat hot pot with soup base included, server-ordered meats, and 1.5 hour time limit.",
+          "All-you-can-eat hot pot with soup base included and server-ordered meats.",
       },
       seller: {
         "@id": "https://centrestjhotpot.ca/#restaurant",
@@ -183,7 +183,6 @@ export default function AyceHotPotCalgaryPage() {
           <p>
             The AYCE Hot Pot price is $28.99 + tax. Choose your soup base, then order meat
             through your server. Meat options include AAA beef, lamb, pork, and chicken.
-            The time limit is 1.5 hours.
           </p>
           <div className="combo-price-grid">
             <article>

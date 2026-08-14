@@ -34,7 +34,7 @@ const taiwaneseHotPotFaqs = [
   ],
   [
     "Does Centre Street Japanese HotPot offer all-you-can-eat hot pot?",
-    "Yes. All-You-Can-Eat Hot Pot is available for $28.99 + tax, with soup base included, server-ordered meats, a 1.5 hour time limit, and an optional +$3.99 snack upgrade for the whole table.",
+    "Yes. All-You-Can-Eat Hot Pot is available for $28.99 + tax, with soup base included, server-ordered meats, and an optional +$3.99 snack upgrade for the whole table.",
   ],
   [
     "How do I reserve a table?",

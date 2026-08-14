@@ -56,7 +56,7 @@ const adsSchema = {
       availability: "https://schema.org/InStock",
       url: "https://centrestjhotpot.ca/google-ads-ayce-hot-pot/",
       description:
-        "Soup base included. Meat ordered through the server. 1.5 hour limit. Price before tax.",
+        "Soup base included. Meat ordered through the server. Price before tax.",
       seller: {
         "@id": "https://centrestjhotpot.ca/#restaurant",
       },
@@ -143,7 +143,6 @@ export default function GoogleAdsAyceHotPotPage() {
             <li>15 soup bases</li>
             <li>AAA beef, lamb, pork, and chicken</li>
             <li>19 snacks for +$3.99 per person</li>
-            <li>1.5 hour time limit</li>
           </ul>
         </div>
       </section>

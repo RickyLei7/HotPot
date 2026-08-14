@@ -99,7 +99,7 @@ const menuJsonLd = {
         {
           "@type": "MenuItem",
           name: "All-You-Can-Eat Hot Pot",
-          description: "Soup base included. Meat is ordered through the server. Time limit 1.5 hours. Price before tax.",
+          description: "Soup base included. Meat is ordered through the server. Price before tax.",
           offers: { "@type": "Offer", price: "28.99", priceCurrency: "CAD" },
         },
         {
@@ -228,7 +228,7 @@ export default function MenuPage() {
           <article><h3>$28.99 + tax</h3><p>All-You-Can-Eat Hot Pot in Calgary with soup base included. Meat is ordered through your server.</p></article>
           <article><h3>Meat selection</h3><p>AAA beef, lamb, pork, and chicken. Each serving is 100g.</p></article>
           <article><h3>19 snacks · +$3.99</h3><p>Add 19 all-you-can-eat appetizers per person. Everyone at the same table must upgrade.</p></article>
-          <article><h3>Kids pricing by height</h3><p>Under 100 cm free. 100-140 cm $12.99. Over 140 cm adult price. Time limit is 1.5 hours.</p></article>
+          <article><h3>Kids pricing by height</h3><p>Under 100 cm free. 100-140 cm $12.99. Over 140 cm adult price.</p></article>
         </div>
         <div className="combo-actions">
           <Link className="primary-action" href="/ayce-hot-pot-calgary">

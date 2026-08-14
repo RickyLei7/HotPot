@@ -81,6 +81,9 @@ for (const [enRoute, zhRoute] of pairs) {
   const pair = { en: enRoute, zhHant: zhRoute };
   validateDocument(enHtml, enRoute, "en", pair);
   validateDocument(zhHtml, zhRoute, "zh-Hant", pair);
+  const timeLimitPattern = /1\.5\s*(?:hours?|hrs?|小時)|time limit|限時\s*1\.5|用餐時間(?:為)?\s*1\.5/iu;
+  assert.doesNotMatch(enHtml, timeLimitPattern, `${enRoute} must not emphasize the AYCE time limit`);
+  assert.doesNotMatch(zhHtml, timeLimitPattern, `${zhRoute} must not emphasize the AYCE time limit`);
   assert.doesNotMatch(zhHtml, /[税稅]/u, `${zhRoute} must not contain Chinese tax characters`);
   assert.doesNotMatch(
     enHtml.replaceAll(">中文<", "><"),
@@ -111,7 +114,7 @@ const factualPages = [
 ];
 for (const route of factualPages) {
   const html = await readFile(fileForRoute(route), "utf8");
-  for (const fact of ["(403) 455-3188", "2213 Centre St N #2243", "$28.99", "1.5", "$3.99"]) {
+  for (const fact of ["(403) 455-3188", "2213 Centre St N #2243", "$28.99", "$3.99"]) {
     assert.ok(html.includes(fact), `${route} is missing shared fact: ${fact}`);
   }
   assert.ok(html.includes("https://centrestjhotpot.ca/#restaurant"), `${route} must use the shared Restaurant entity`);

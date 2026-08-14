@@ -34,7 +34,7 @@ const faqs = [
   ],
   [
     "Does Centre Street Japanese HotPot have all-you-can-eat hot pot?",
-    "Yes. AYCE Hot Pot is $28.99 + tax with soup base included. Meat is ordered through the server, the time limit is 1.5 hours, and a 19-item snack upgrade is available for +$3.99 per person when everyone at the table upgrades.",
+    "Yes. AYCE Hot Pot is $28.99 + tax with soup base included. Meat is ordered through the server, and a 19-item snack upgrade is available for +$3.99 per person when everyone at the table upgrades.",
   ],
   [
     "Is hot pot suitable for a group or a first-time guest?",

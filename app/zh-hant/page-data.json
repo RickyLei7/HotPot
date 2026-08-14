@@ -3,11 +3,11 @@
     "path": "/zh-hant/",
     "englishPath": "/",
     "schemaType": "WebPage",
-    "title": "卡加利火鍋自助與一人一鍋｜鼎鑽火鍋",
-    "description": "鼎鑽火鍋位於卡加利 Centre Street，提供 $28.99 火鍋自助、15 款湯底、台式與日式風格一人一鍋、台式小吃與奶茶。致電預訂座位。",
+    "title": "卡加利 $28.99 火鍋自助與 $19.99 個人火鍋｜鼎鑽火鍋",
+    "description": "鼎鑽火鍋位於卡加利 Centre Street，提供 $28.99 火鍋自助、$19.99 個人火鍋、15 款湯底、台式牛肉麵、飯麵、小吃與奶茶。",
     "eyebrow": "卡加利台式與日式風格火鍋",
     "h1": "卡加利火鍋自助 $28.99",
-    "lead": "鼎鑽火鍋 Centre Street Japanese HotPot 提供火鍋自助與一人一鍋。火鍋自助包含鍋底，肉品由服務員協助下單；想確認今天座位，請先致電預訂。",
+    "lead": "先選 $28.99 火鍋自助，也可以用 $19.99 享用完整個人火鍋，包括湯底、菜盤、肉品與主食。",
     "image": "/assets/ayce-hotpot-menu-preview.webp",
     "imageAlt": "鼎鑽火鍋 $28.99 火鍋自助菜單",
     "actions": [
@@ -17,9 +17,9 @@
     ],
     "facts": [
       { "value": "$28.99", "label": "火鍋自助" },
+      { "value": "$19.99", "label": "完整個人火鍋" },
       { "value": "15", "label": "款特色湯底" },
-      { "value": "+$3.99", "label": "19 款小吃任點／人" },
-      { "value": "4 款", "label": "牛肉、羊肉、豬肉、雞肉" }
+      { "value": "+$3.99", "label": "19 款小吃任點／人" }
     ],
     "sections": [
       {

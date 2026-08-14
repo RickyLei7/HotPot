@@ -123,8 +123,10 @@ function validateHomepageMenuStructure(enHtml, zhHtml) {
     "sukiyaki-beef-rice",
   ];
   for (const slug of lightMealSlugs) {
-    assert.match(enHtml, new RegExp(`/assets/light-meals/${slug}-640\\.webp`));
-    assert.match(zhHtml, new RegExp(`/assets/light-meals/${slug}-640\\.webp`));
+    assert.match(enHtml, new RegExp(`/assets/light-meals/${slug}-480\\.webp`));
+    assert.match(enHtml, new RegExp(`/assets/light-meals/${slug}-1024\\.webp`));
+    assert.match(zhHtml, new RegExp(`/assets/light-meals/${slug}-480\\.webp`));
+    assert.match(zhHtml, new RegExp(`/assets/light-meals/${slug}-1024\\.webp`));
   }
 }
 

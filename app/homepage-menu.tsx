@@ -97,7 +97,7 @@ export function HomepageMenu({ language }: { language: HomepageLanguage }) {
         <div className="light-meal-grid">
           {content.lightMeals.items.map((meal) => (
             <article className="light-meal-card" key={meal.slug}>
-              <img src={`/assets/light-meals/${meal.slug}-640.webp`} srcSet={`/assets/light-meals/${meal.slug}-320.webp 320w, /assets/light-meals/${meal.slug}-640.webp 640w`} sizes="(max-width: 640px) 92vw, (max-width: 1100px) 45vw, 30vw" alt={meal.alt} width="640" height="440" loading="lazy" decoding="async" />
+              <img src={`/assets/light-meals/${meal.slug}-1024.webp`} srcSet={`/assets/light-meals/${meal.slug}-480.webp 480w, /assets/light-meals/${meal.slug}-1024.webp 1024w`} sizes="(max-width: 560px) 46vw, (max-width: 1100px) 45vw, 30vw" alt={meal.alt} width="1024" height="704" loading="lazy" decoding="async" />
               <div><h3>{meal.name}</h3><strong>{meal.price}</strong><p>{meal.description}</p></div>
             </article>
           ))}

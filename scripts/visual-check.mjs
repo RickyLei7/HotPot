@@ -112,6 +112,7 @@ async function inspectPage(page) {
     }));
     const lightMealImages = [...document.querySelectorAll(".light-meal-card img")].map((img) => ({
       src: img.getAttribute("src"),
+      currentSrc: img.currentSrc,
       complete: img.complete,
       naturalWidth: img.naturalWidth,
     }));
@@ -265,6 +266,7 @@ try {
         if (positions.some(({ top }, index) => index > 0 && top <= positions[index - 1].top)) routeFailures.push("homepage section order is incorrect");
         if (data.lightMealImages.length !== 6) routeFailures.push(`expected 6 light meal images, found ${data.lightMealImages.length}`);
         if (data.lightMealImages.some((image) => !image.complete || image.naturalWidth === 0)) routeFailures.push("a light meal image did not load");
+        if (data.lightMealImages.some((image) => !image.src?.includes("-1024.webp"))) routeFailures.push("a light meal image is not using the HD source set");
         if (data.snackImageHeights.length !== 5) routeFailures.push(`expected 5 snack images, found ${data.snackImageHeights.length}`);
         if (data.snackImageHeights.length && Math.max(...data.snackImageHeights) - Math.min(...data.snackImageHeights) > 3) {
           routeFailures.push(`snack image heights are inconsistent: ${data.snackImageHeights.join(", ")}`);

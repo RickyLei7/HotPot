@@ -96,6 +96,38 @@ function validateDocument(html, route, language, pair) {
   validateHeadingPunctuation(html, route);
 }
 
+function validateHomepageMenuStructure(enHtml, zhHtml) {
+  const sectionIds = ["ayce", "personal-hot-pot", "beef-noodle", "light-meals", "drinks", "visit"];
+  for (const [route, html] of [["/", enHtml], ["/zh-hant/", zhHtml]]) {
+    let previous = -1;
+    for (const id of sectionIds) {
+      const position = html.indexOf(`id="${id}"`);
+      assert.ok(position > previous, `${route} homepage section order is missing or incorrect: ${id}`);
+      previous = position;
+    }
+  }
+
+  assert.match(enHtml, /\$19\.99[\s\S]*15 soup bases[\s\S]*vegetable set[\s\S]*one meat[\s\S]*(rice|noodle)/i);
+  assert.match(zhHtml, /\$19\.99[\s\S]*15 款湯底[\s\S]*菜盤[\s\S]*一份肉[\s\S]*一份主食/);
+  assert.match(enHtml, /\$24\.99[\s\S]*\$58\.99/);
+  assert.match(zhHtml, /\$24\.99[\s\S]*\$58\.99/);
+  assert.match(enHtml, /Signature Taiwanese Fried Chicken/);
+  assert.match(zhHtml, /招牌台式鹽酥雞/);
+
+  const lightMealSlugs = [
+    "braised-pork-rice",
+    "fried-chicken-rice-noodle",
+    "wonton-rice-noodle",
+    "unagi-rice",
+    "beef-brisket-rice",
+    "sukiyaki-beef-rice",
+  ];
+  for (const slug of lightMealSlugs) {
+    assert.match(enHtml, new RegExp(`/assets/light-meals/${slug}-640\\.webp`));
+    assert.match(zhHtml, new RegExp(`/assets/light-meals/${slug}-640\\.webp`));
+  }
+}
+
 for (const [enRoute, zhRoute] of pairs) {
   const [enHtml, zhHtml] = await Promise.all([
     readFile(fileForRoute(enRoute), "utf8"),
@@ -119,6 +151,7 @@ const [englishHome, chineseHome] = await Promise.all([
   readFile(fileForRoute("/"), "utf8"),
   readFile(fileForRoute("/zh-hant/"), "utf8"),
 ]);
+validateHomepageMenuStructure(englishHome, chineseHome);
 assert.ok(englishHome.includes("Traditional Taiwanese Beef Noodle Soup"), "English home must preserve the beef noodle story");
 assert.ok(englishHome.includes("A Bowl That Feels Like Home"), "English home must preserve the full beef noodle story copy");
 assert.ok(!englishHome.includes('<details class="story-details">'), "English home must show the beef noodle story without a collapsed disclosure");

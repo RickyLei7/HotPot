@@ -120,6 +120,10 @@ async function inspectPage(page) {
       .map((img) => Math.round(img.getBoundingClientRect().height));
     const soupMenuImage = document.querySelector(".soup-preview-strip img");
     const soupMenuRect = soupMenuImage?.getBoundingClientRect();
+    const visitCardColors = [...document.querySelectorAll(".homepage-visit .visit-grid article")].map((card) => ({
+      heading: getComputedStyle(card.querySelector("h3")).color,
+      body: getComputedStyle(card.querySelector("p")).color,
+    }));
     return {
       title: document.title,
       metaDescriptionLength: metaDescription.length,
@@ -141,6 +145,7 @@ async function inspectPage(page) {
       homepageSectionPositions,
       lightMealImages,
       snackImageHeights,
+      visitCardColors,
       soupMenuImage: soupMenuImage ? {
         src: soupMenuImage.getAttribute("src"),
         naturalWidth: soupMenuImage.naturalWidth,
@@ -270,6 +275,10 @@ try {
         if (data.snackImageHeights.length !== 5) routeFailures.push(`expected 5 snack images, found ${data.snackImageHeights.length}`);
         if (data.snackImageHeights.length && Math.max(...data.snackImageHeights) - Math.min(...data.snackImageHeights) > 3) {
           routeFailures.push(`snack image heights are inconsistent: ${data.snackImageHeights.join(", ")}`);
+        }
+        if (data.visitCardColors.length !== 4) routeFailures.push(`expected 4 visit cards, found ${data.visitCardColors.length}`);
+        if (data.visitCardColors.some(({ heading, body }) => heading !== "rgb(255, 248, 234)" || body !== "rgb(239, 226, 203)")) {
+          routeFailures.push(`visit card text contrast is incorrect: ${JSON.stringify(data.visitCardColors)}`);
         }
         if (!data.soupMenuImage || data.soupMenuImage.naturalWidth === 0) {
           routeFailures.push("full personal hot pot menu image did not load");

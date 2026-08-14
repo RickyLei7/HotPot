@@ -57,8 +57,15 @@ const siteEvents = await readFile(path.join(publicDir, "site-events.js"), "utf8"
 for (const requiredText of [
   "G-JN2E0S7E36",
   "campaign_landing",
+  "google_ads_landing",
   "phone_click",
   'lead_type: "phone"',
+  "offer_view",
+  "offer_interest_click",
+  "page_type",
+  "session_landing_page",
+  "ads_asset_group_id",
+  "attribution_version",
   "menu_click",
   'script.src = "/t662/"',
   "requestIdleCallback",
@@ -66,5 +73,13 @@ for (const requiredText of [
 ]) {
   assert.ok(siteEvents.includes(requiredText), `site-events.js is missing ${requiredText}`);
 }
+
+assert.equal(
+  /sendEvent\("directions_click"[\s\S]{0,240}sendEvent\("generate_lead"/.test(siteEvents),
+  false,
+  "directions_click must not also be reported as generate_lead",
+);
+assert.equal(siteEvents.includes("link_url:"), false, "Raw link URLs must not be sent to Analytics");
+assert.equal(siteEvents.includes('params.get("gclid") ||'), false, "Raw Google click IDs must not be stored in event parameters");
 
 console.log(`Attribution checks passed for ${htmlFiles.length} HTML files.`);

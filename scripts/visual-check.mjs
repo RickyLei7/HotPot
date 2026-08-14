@@ -198,7 +198,7 @@ try {
       });
       const mobileInteraction = viewport.isMobile ? await page.evaluate(async () => {
         const sticky = document.querySelector(".reserve-sticky");
-        const hero = document.querySelector(".hero, .page-hero, .ads-hero");
+        const hero = document.querySelector(".hero, .page-hero, .ads-hero, .homepage-ayce, .localized-hero");
         const stickyHiddenAtTop = sticky ? !sticky.classList.contains("is-visible") : false;
 
         const more = document.querySelector(".nav-more");

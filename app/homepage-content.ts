@@ -119,7 +119,7 @@ export const homepageContent: { en: HomepageContent; zhHant: HomepageContent } =
     },
     beefNoodle: {
       eyebrow: "A comforting Taiwanese classic",
-      title: "Signature Taiwanese Beef Noodle Soup",
+      title: "Signature Traditional Taiwanese Beef Noodle Soup",
       price: "$16.99",
       storyTitle: "A Bowl That Feels Like Home",
       paragraphs: [

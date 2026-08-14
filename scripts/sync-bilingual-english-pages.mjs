@@ -49,8 +49,6 @@ for (const [englishRoute, zhHantRoute] of routePairs) {
       `\n    <script defer src="/language-routes.js?v=20260813-bilingual"></script>$1`,
     );
   }
-  html = html.replace(/site\.css\?v=[^"']+/g, "site.css?v=20260813-bilingual");
-  html = html.replace(/\/site-events\.js\?v=[^"']+/g, "/site-events.js?v=20260813-bilingual");
   html = html.replaceAll(">繁中<", ">中文<");
   html = html.replaceAll('aria-hidden="true">小</span>小紅書', 'aria-hidden="true">XHS</span>Xiaohongshu');
 
@@ -62,6 +60,12 @@ for (const [englishRoute, zhHantRoute] of routePairs) {
   const englishOnlyHtml = html.replaceAll(">中文<", "><");
   if (/[\u3400-\u9fff]/u.test(englishOnlyHtml)) {
     throw new Error(`${englishRoute} contains Chinese text outside the language switch`);
+  }
+
+  if (englishRoute === "/") {
+    for (const id of ["ayce", "personal-hot-pot", "beef-noodle", "light-meals", "drinks", "visit"]) {
+      if (!html.includes(`id="${id}"`)) throw new Error(`English homepage lost #${id}`);
+    }
   }
 
   await writeFile(file, html);

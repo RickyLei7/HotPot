@@ -2358,6 +2358,11 @@ h3 {
   line-height: 1;
 }
 
+.ayce-snack-feature h2,
+.light-meals-section h2 {
+  color: var(--red);
+}
+
 .ayce-snack-feature .section-heading > p:last-child,
 .light-meals-section .section-heading > p:last-child {
   font-size: clamp(1rem, 1.7vw, 1.22rem);

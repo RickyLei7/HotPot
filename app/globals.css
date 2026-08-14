@@ -471,6 +471,18 @@ h3 {
   width: min(100%, 420px);
 }
 
+.combo-poster-link {
+  display: block;
+  justify-self: end;
+  width: min(100%, 420px);
+}
+
+.combo-poster-link .combo-poster {
+  display: block;
+  justify-self: auto;
+  width: 100%;
+}
+
 .weekly-picks {
   background: var(--paper);
   color: var(--ink);
@@ -1510,6 +1522,8 @@ body.poster-open { overflow: hidden; }
   object-position: center top;
   width: 100%;
 }
+.ads-menu-poster { display: block; width: 100%; }
+.ads-photo-band .ads-menu-poster img { display: block; width: 100%; }
 .ads-photo-band p:not(.eyebrow) {
   color: rgba(255, 246, 223, 0.86);
   font-size: clamp(1.04rem, 2vw, 1.22rem);
@@ -2222,6 +2236,10 @@ body.poster-open { overflow: hidden; }
     display: none;
   }
 
+  .combo-promo .combo-poster-link {
+    display: none;
+  }
+
   .about-highlight-grid {
     gap: 10px;
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -2338,6 +2356,22 @@ body.poster-open { overflow: hidden; }
   overflow: hidden;
   position: relative;
   width: 100%;
+}
+
+a.homepage-ayce-media,
+a.soup-preview-strip,
+a.beef-noodle-feature-media {
+  color: inherit;
+  display: block;
+  text-decoration: none;
+}
+
+.homepage-ayce-media .poster-open-label {
+  bottom: auto;
+  left: auto;
+  right: 18px;
+  top: 18px;
+  transform: none;
 }
 
 .homepage-ayce-media img {

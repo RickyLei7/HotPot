@@ -35,9 +35,12 @@ const viewports = [
   { name: "desktop", width: 1440, height: 900, isMobile: false },
 ];
 const posterCounts = new Map([
-  ["/menu/", 2],
+  ["/", 3],
+  ["/menu/", 3],
   ["/ayce-hot-pot-calgary/", 1],
+  ["/zh-hant/", 3],
   ["/zh-hant/ayce-hot-pot-calgary/", 1],
+  ["/google-ads-ayce-hot-pot/", 1],
 ]);
 
 const contentTypes = new Map([

@@ -257,7 +257,12 @@ export default function MenuPage() {
             <article><span>$58.99</span><h3>Couple Hot Pot Combo</h3><p>2 personal hot pots, 2 drinks, and 1 appetizer.</p></article>
           </div>
         </div>
-        <img className="combo-poster" src="/assets/combo-hot-pot-special.webp" alt="Solo and Couple Hot Pot Combo specials" width="820" height="1230" loading="lazy" decoding="async" />
+        <a className="combo-poster-link poster-thumbnail" href="#combo-poster" aria-label="View the complete Solo and Couple Hot Pot Combo poster"><img className="combo-poster" src="/assets/combo-hot-pot-special.webp" alt="Solo and Couple Hot Pot Combo specials" width="820" height="1230" loading="lazy" decoding="async" /><strong className="poster-open-label">View full image</strong></a>
+      </section>
+
+      <section className="poster-modal" id="combo-poster" role="dialog" aria-modal="true" aria-labelledby="combo-poster-title" data-close-target="combo-specials">
+        <a className="modal-backdrop" href="#combo-specials" aria-label="Close combo poster" />
+        <div className="poster-frame"><span className="modal-label" id="combo-poster-title">Solo and Couple Hot Pot Combos</span><a className="modal-close" href="#combo-specials">Close</a><img src="/assets/combo-hot-pot-special.webp" alt="Complete Solo and Couple Hot Pot Combo poster" width="820" height="1230" /></div>
       </section>
 
       <section className="menu-section" id="hotpot-set">

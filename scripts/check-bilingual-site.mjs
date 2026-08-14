@@ -198,9 +198,12 @@ assert.equal([...pairs.values()].includes("/zh-hant/google-ads-ayce-hot-pot/"), 
 assert.doesNotMatch(adsHtml, /[\u3400-\u9fff]/u, "Google Ads landing page must be English-only");
 
 const posterPages = new Map([
+  ["/", ["#homepage-ayce-image", "#personal-menu-image", "#beef-noodle-story-image"]],
   ["/ayce-hot-pot-calgary/", ["#ayce-poster"]],
-  ["/menu/", ["#hotpot-menu-poster", "#drink-menu-poster"]],
+  ["/menu/", ["#combo-poster", "#hotpot-menu-poster", "#drink-menu-poster"]],
+  ["/zh-hant/", ["#homepage-ayce-image", "#personal-menu-image", "#beef-noodle-story-image"]],
   ["/zh-hant/ayce-hot-pot-calgary/", ["#localized-menu-poster"]],
+  ["/google-ads-ayce-hot-pot/", ["#ads-ayce-menu-poster"]],
 ]);
 for (const [route, targets] of posterPages) {
   const html = await readFile(fileForRoute(route), "utf8");

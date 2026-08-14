@@ -24,9 +24,9 @@
     <link rel="icon" href="/favicon.ico" sizes="any" />
     <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-    <link rel="stylesheet" href="/site.css?v=20260814-poster-modal" />
+    <link rel="stylesheet" href="/site.css?v=20260814-poster-modal-v2" />
     <script defer src="/language-routes.js?v=20260813-bilingual"></script>
-    <script defer src="/site-events.js?v=20260814-poster-modal"></script>
+    <script defer src="/site-events.js?v=20260814-poster-modal-v2"></script>
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -208,8 +208,9 @@
             <article><span>$58.99</span><h3>Couple Hot Pot Combo</h3><p>2 personal hot pots, 2 drinks, and 1 appetizer.</p></article>
           </div>
         </div>
-        <img class="combo-poster" src="/assets/combo-hot-pot-special.webp" alt="Solo and Couple Hot Pot Combo specials" width="820" height="1230" loading="lazy" decoding="async" />
+        <a class="combo-poster-link poster-thumbnail" href="#combo-poster" aria-label="View the complete Solo and Couple Hot Pot Combo poster"><img class="combo-poster" src="/assets/combo-hot-pot-special.webp" alt="Solo and Couple Hot Pot Combo specials" width="820" height="1230" loading="lazy" decoding="async" /><strong class="poster-open-label">View full image</strong></a>
       </section>
+      <section class="poster-modal" id="combo-poster" role="dialog" aria-modal="true" aria-labelledby="combo-poster-title" data-close-target="combo-specials"><a class="modal-backdrop" href="#combo-specials" aria-label="Close combo poster"></a><div class="poster-frame"><span class="modal-label" id="combo-poster-title">Solo and Couple Hot Pot Combos</span><a class="modal-close" href="#combo-specials">Close</a><img src="/assets/combo-hot-pot-special.webp" alt="Complete Solo and Couple Hot Pot Combo poster" width="820" height="1230" /></div></section>
 
       <section class="menu-section" id="hotpot-set">
         <div class="section-heading">

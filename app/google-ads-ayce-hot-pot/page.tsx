@@ -179,9 +179,9 @@ export default function GoogleAdsAyceHotPotPage() {
         </div>
       </section>
 
-      <section className="ads-section ads-photo-band">
+      <section className="ads-section ads-photo-band" id="ads-ayce-menu">
         <article>
-          <img src="/assets/ayce-hotpot-menu-preview-360.webp" srcSet="/assets/ayce-hotpot-menu-preview-360.webp 360w, /assets/ayce-hotpot-menu-preview.webp 495w" sizes="(max-width: 560px) calc(100vw - 32px), 360px" alt="AYCE hot pot menu showing $28.99 price, soup base included, and 19 appetizer choices" width="495" height="640" loading="lazy" decoding="async" />
+          <a className="ads-menu-poster poster-thumbnail" href="#ads-ayce-menu-poster" aria-label="View the complete AYCE menu"><img src="/assets/ayce-hotpot-menu-preview-360.webp" srcSet="/assets/ayce-hotpot-menu-preview-360.webp 360w, /assets/ayce-hotpot-menu-preview.webp 495w" sizes="(max-width: 560px) calc(100vw - 32px), 360px" alt="AYCE hot pot menu showing $28.99 price, soup base included, and 19 appetizer choices" width="495" height="640" loading="lazy" decoding="async" /><strong className="poster-open-label">View full menu</strong></a>
           <div>
             <p className="eyebrow">AYCE details</p>
             <h2>Call before coming with a group</h2>
@@ -195,6 +195,7 @@ export default function GoogleAdsAyceHotPotPage() {
           </div>
         </article>
       </section>
+      <section className="poster-modal" id="ads-ayce-menu-poster" role="dialog" aria-modal="true" aria-labelledby="ads-ayce-menu-poster-title" data-close-target="ads-ayce-menu"><a className="modal-backdrop" href="#ads-ayce-menu" aria-label="Close AYCE menu" /><div className="poster-frame"><span className="modal-label" id="ads-ayce-menu-poster-title">Full AYCE menu</span><a className="modal-close" href="#ads-ayce-menu">Close</a><img src="/assets/ayce-hotpot-menu.webp" alt="Complete AYCE Hot Pot menu with $28.99 pricing and 19 appetizer choices" width="791" height="1024" /></div></section>
     </main>
   );
 }

@@ -209,7 +209,7 @@ export default function AyceHotPotCalgaryPage() {
         <div className="poster-frame">
           <span className="modal-label" id="ayce-poster-title">Full AYCE menu</span>
           <a className="modal-close" href="#ayce-details" aria-label="Close full AYCE menu">Close</a>
-          <img src="/assets/ayce-hotpot-menu.webp" alt="Complete AYCE Hot Pot menu with $28.99 pricing and 19 appetizer choices" width="791" height="1024" />
+          <img src="/assets/ayce-hotpot-menu.webp" alt="Complete AYCE Hot Pot menu with $28.99 pricing and 19 appetizer choices" width="791" height="1024" loading="lazy" decoding="async" />
         </div>
       </section>
 

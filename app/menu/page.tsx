@@ -176,6 +176,7 @@ const menuJsonLd = {
 export default function MenuPage() {
   return (
     <main>
+      <link rel="preload" as="image" href="/assets/dish-sukiyaki-640.webp" media="(max-width: 760px)" />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(menuJsonLd) }}
@@ -262,7 +263,7 @@ export default function MenuPage() {
 
       <section className="poster-modal" id="combo-poster" role="dialog" aria-modal="true" aria-labelledby="combo-poster-title" data-close-target="combo-specials">
         <a className="modal-backdrop" href="#combo-specials" aria-label="Close combo poster" />
-        <div className="poster-frame"><span className="modal-label" id="combo-poster-title">Solo and Couple Hot Pot Combos</span><a className="modal-close" href="#combo-specials">Close</a><img src="/assets/combo-hot-pot-special.webp" alt="Complete Solo and Couple Hot Pot Combo poster" width="820" height="1230" /></div>
+        <div className="poster-frame"><span className="modal-label" id="combo-poster-title">Solo and Couple Hot Pot Combos</span><a className="modal-close" href="#combo-specials">Close</a><img src="/assets/combo-hot-pot-special.webp" alt="Complete Solo and Couple Hot Pot Combo poster" width="820" height="1230" loading="lazy" decoding="async" /></div>
       </section>
 
       <section className="menu-section" id="hotpot-set">
@@ -368,7 +369,7 @@ export default function MenuPage() {
         <div className="poster-frame">
           <span className="modal-label" id="hotpot-menu-poster-title">Hot pot and appetizers</span>
           <a className="modal-close" href="#full-menu" aria-label="Close hot pot menu page">Close</a>
-          <img src="/menu/hotpot-menu.jpg" alt="Complete hot pot set and appetizer menu page" width="1202" height="1800" />
+          <img src="/menu/hotpot-menu.jpg" alt="Complete hot pot set and appetizer menu page" width="1202" height="1800" loading="lazy" decoding="async" />
         </div>
       </section>
 
@@ -377,7 +378,7 @@ export default function MenuPage() {
         <div className="poster-frame">
           <span className="modal-label" id="drink-menu-poster-title">Rice noodles and drinks</span>
           <a className="modal-close" href="#full-menu" aria-label="Close rice noodle and drink menu page">Close</a>
-          <img src="/menu/drink-menu.jpg" alt="Complete rice noodle and drink menu page" width="1202" height="1800" />
+          <img src="/menu/drink-menu.jpg" alt="Complete rice noodle and drink menu page" width="1202" height="1800" loading="lazy" decoding="async" />
         </div>
       </section>
     </main>

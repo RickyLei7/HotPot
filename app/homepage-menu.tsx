@@ -35,8 +35,8 @@ export function HomepageMenu({ language }: { language: HomepageLanguage }) {
             <Link className="secondary-action" href={aycePath}>{content.ayce.menu}</Link>
           </div>
         </div>
-        <a className="homepage-ayce-media poster-thumbnail" href="#homepage-ayce-image" aria-label={isZh ? "查看完整火鍋自助圖片" : "View the complete AYCE image"}>
-          <img src="/assets/ayce-hotpot.webp" alt={isZh ? "鼎鑽火鍋火鍋自助" : "AYCE hot pot at Centre Street Japanese HotPot"} width="1024" height="1536" fetchPriority="high" decoding="async" />
+        <a className="homepage-ayce-media poster-thumbnail" href="#homepage-ayce-image" aria-label={isZh ? "15 款湯底 查看完整圖片 火鍋自助" : "15 soup bases View full image AYCE hot pot"}>
+          <img src="/assets/ayce-hotpot-720.webp" srcSet="/assets/ayce-hotpot-480.webp 480w, /assets/ayce-hotpot-720.webp 720w, /assets/ayce-hotpot.webp 1024w" sizes="(max-width: 760px) calc(100vw - 32px), 42vw" alt={isZh ? "鼎鑽火鍋火鍋自助" : "AYCE hot pot at Centre Street Japanese HotPot"} width="1024" height="1536" fetchPriority="high" decoding="async" />
           <span>15 {isZh ? "款湯底" : "soup bases"}</span>
           <strong className="poster-open-label">{isZh ? "查看完整圖片" : "View full image"}</strong>
         </a>
@@ -44,7 +44,7 @@ export function HomepageMenu({ language }: { language: HomepageLanguage }) {
 
       <section className="poster-modal" id="homepage-ayce-image" role="dialog" aria-modal="true" aria-labelledby="homepage-ayce-image-title" data-close-target="ayce">
         <a className="modal-backdrop" href="#ayce" aria-label={isZh ? "關閉完整火鍋自助圖片" : "Close complete AYCE image"} />
-        <div className="poster-frame"><span className="modal-label" id="homepage-ayce-image-title">{isZh ? "火鍋自助完整圖片" : "Complete AYCE image"}</span><a className="modal-close" href="#ayce">{isZh ? "關閉" : "Close"}</a><img src="/assets/ayce-hotpot.webp" alt={isZh ? "鼎鑽火鍋火鍋自助完整圖片" : "Complete AYCE hot pot image at Centre Street Japanese HotPot"} width="1024" height="1536" /></div>
+        <div className="poster-frame"><span className="modal-label" id="homepage-ayce-image-title">{isZh ? "火鍋自助完整圖片" : "Complete AYCE image"}</span><a className="modal-close" href="#ayce">{isZh ? "關閉" : "Close"}</a><img src="/assets/ayce-hotpot.webp" alt={isZh ? "鼎鑽火鍋火鍋自助完整圖片" : "Complete AYCE hot pot image at Centre Street Japanese HotPot"} width="1024" height="1536" loading="lazy" decoding="async" /></div>
       </section>
 
       <section className="ayce-snack-feature" aria-labelledby="snack-title">
@@ -77,19 +77,19 @@ export function HomepageMenu({ language }: { language: HomepageLanguage }) {
           <small>{content.personal.comboNote}</small>
           <div className="hero-actions"><Link className="primary-action" href={menuPath}>{content.personal.menu}</Link></div>
         </div>
-        <a className="soup-preview-strip poster-thumbnail" href="#personal-menu-image" aria-label={isZh ? "查看完整個人火鍋菜單" : "View the complete personal hot pot menu"}>
-          <img src="/assets/personal-hot-pot-menu-full.webp" alt={isZh ? "鼎鑽火鍋完整個人火鍋菜單與 15 款湯底" : "Full personal hot pot menu with fifteen soup base choices at Centre Street Japanese HotPot"} width="1400" height="2096" loading="lazy" decoding="async" />
+        <a className="soup-preview-strip poster-thumbnail" href="#personal-menu-image" aria-label={isZh ? "查看完整菜單 個人火鍋" : "View full menu Personal hot pot"}>
+          <img src="/assets/personal-hot-pot-menu-full-720.webp" srcSet="/assets/personal-hot-pot-menu-full-480.webp 480w, /assets/personal-hot-pot-menu-full-720.webp 720w, /assets/personal-hot-pot-menu-full.webp 1400w" sizes="(max-width: 760px) calc(100vw - 32px), 42vw" alt={isZh ? "鼎鑽火鍋完整個人火鍋菜單與 15 款湯底" : "Full personal hot pot menu with fifteen soup base choices at Centre Street Japanese HotPot"} width="1400" height="2096" loading="lazy" decoding="async" />
           <strong className="poster-open-label">{isZh ? "查看完整菜單" : "View full menu"}</strong>
         </a>
       </section>
 
       <section className="poster-modal" id="personal-menu-image" role="dialog" aria-modal="true" aria-labelledby="personal-menu-image-title" data-close-target="personal-hot-pot">
         <a className="modal-backdrop" href="#personal-hot-pot" aria-label={isZh ? "關閉個人火鍋菜單" : "Close personal hot pot menu"} />
-        <div className="poster-frame"><span className="modal-label" id="personal-menu-image-title">{isZh ? "完整個人火鍋菜單" : "Full personal hot pot menu"}</span><a className="modal-close" href="#personal-hot-pot">{isZh ? "關閉" : "Close"}</a><img src="/assets/personal-hot-pot-menu-full.webp" alt={isZh ? "鼎鑽火鍋完整個人火鍋菜單與 15 款湯底" : "Full personal hot pot menu with fifteen soup base choices"} width="1400" height="2096" /></div>
+        <div className="poster-frame"><span className="modal-label" id="personal-menu-image-title">{isZh ? "完整個人火鍋菜單" : "Full personal hot pot menu"}</span><a className="modal-close" href="#personal-hot-pot">{isZh ? "關閉" : "Close"}</a><img src="/assets/personal-hot-pot-menu-full.webp" alt={isZh ? "鼎鑽火鍋完整個人火鍋菜單與 15 款湯底" : "Full personal hot pot menu with fifteen soup base choices"} width="1400" height="2096" loading="lazy" decoding="async" /></div>
       </section>
 
       <section id="beef-noodle" className="beef-noodle-feature">
-        <a className="beef-noodle-feature-media poster-thumbnail" href="#beef-noodle-story-image" aria-label={isZh ? "查看完整牛肉麵故事圖片" : "View the complete beef noodle story image"}>
+        <a className="beef-noodle-feature-media poster-thumbnail" href="#beef-noodle-story-image" aria-label={isZh ? "查看完整圖片 牛肉麵故事" : "View full image Beef noodle story"}>
           <img src="/assets/taiwanese-beef-noodle-story-720.webp" srcSet="/assets/taiwanese-beef-noodle-story-360.webp 360w, /assets/taiwanese-beef-noodle-story-480.webp 480w, /assets/taiwanese-beef-noodle-story-720.webp 720w" sizes="(max-width: 760px) 88vw, 520px" alt={content.beefNoodle.alt} width="1122" height="1402" loading="lazy" decoding="async" />
           <strong className="poster-open-label">{isZh ? "查看完整圖片" : "View full image"}</strong>
         </a>
@@ -104,7 +104,7 @@ export function HomepageMenu({ language }: { language: HomepageLanguage }) {
 
       <section className="poster-modal" id="beef-noodle-story-image" role="dialog" aria-modal="true" aria-labelledby="beef-noodle-story-image-title" data-close-target="beef-noodle">
         <a className="modal-backdrop" href="#beef-noodle" aria-label={isZh ? "關閉牛肉麵故事圖片" : "Close beef noodle story image"} />
-        <div className="poster-frame"><span className="modal-label" id="beef-noodle-story-image-title">{isZh ? "台灣傳統牛肉麵" : "Traditional Taiwanese beef noodle soup"}</span><a className="modal-close" href="#beef-noodle">{isZh ? "關閉" : "Close"}</a><img src="/assets/taiwanese-beef-noodle-story.webp" alt={content.beefNoodle.alt} width="1122" height="1402" /></div>
+        <div className="poster-frame"><span className="modal-label" id="beef-noodle-story-image-title">{isZh ? "台灣傳統牛肉麵" : "Traditional Taiwanese beef noodle soup"}</span><a className="modal-close" href="#beef-noodle">{isZh ? "關閉" : "Close"}</a><img src="/assets/taiwanese-beef-noodle-story.webp" alt={content.beefNoodle.alt} width="1122" height="1402" loading="lazy" decoding="async" /></div>
       </section>
 
       <section id="light-meals" className="light-meals-section">

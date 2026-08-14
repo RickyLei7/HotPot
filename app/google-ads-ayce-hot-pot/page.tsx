@@ -195,7 +195,7 @@ export default function GoogleAdsAyceHotPotPage() {
           </div>
         </article>
       </section>
-      <section className="poster-modal" id="ads-ayce-menu-poster" role="dialog" aria-modal="true" aria-labelledby="ads-ayce-menu-poster-title" data-close-target="ads-ayce-menu"><a className="modal-backdrop" href="#ads-ayce-menu" aria-label="Close AYCE menu" /><div className="poster-frame"><span className="modal-label" id="ads-ayce-menu-poster-title">Full AYCE menu</span><a className="modal-close" href="#ads-ayce-menu">Close</a><img src="/assets/ayce-hotpot-menu.webp" alt="Complete AYCE Hot Pot menu with $28.99 pricing and 19 appetizer choices" width="791" height="1024" /></div></section>
+      <section className="poster-modal" id="ads-ayce-menu-poster" role="dialog" aria-modal="true" aria-labelledby="ads-ayce-menu-poster-title" data-close-target="ads-ayce-menu"><a className="modal-backdrop" href="#ads-ayce-menu" aria-label="Close AYCE menu" /><div className="poster-frame"><span className="modal-label" id="ads-ayce-menu-poster-title">Full AYCE menu</span><a className="modal-close" href="#ads-ayce-menu">Close</a><img src="/assets/ayce-hotpot-menu.webp" alt="Complete AYCE Hot Pot menu with $28.99 pricing and 19 appetizer choices" width="791" height="1024" loading="lazy" decoding="async" /></div></section>
     </main>
   );
 }

@@ -211,7 +211,7 @@ try {
       if (pathname.startsWith("/zh-hant/") && data.documentLanguage !== "zh-Hant") {
         routeFailures.push(`unexpected document language ${data.documentLanguage}`);
       }
-      if (pathname.startsWith("/zh-hant/") && data.activeLanguage !== "繁中") {
+      if (pathname.startsWith("/zh-hant/") && data.activeLanguage !== "中文") {
         routeFailures.push("Traditional Chinese language state is not active");
       }
       if (!pathname.startsWith("/zh-hant/") && pathname !== "/google-ads-ayce-hot-pot/" && data.activeLanguage !== "EN") {

@@ -65,7 +65,7 @@ function validateDocument(html, route, language, pair) {
   assert.ok(html.includes('class="language-switch"'), `${route} is missing the visible language switch`);
   assert.ok(html.includes(`hreflang="en-CA" lang="en-CA" href="${pair.en}"`), `${route} has the wrong English switch destination`);
   assert.ok(html.includes(`hreflang="zh-Hant-CA" lang="zh-Hant" href="${pair.zhHant}"`), `${route} has the wrong Traditional Chinese switch destination`);
-  const activeLabel = language === "en" ? "EN" : "繁中";
+  const activeLabel = language === "en" ? "EN" : "中文";
   assert.match(html, new RegExp(`class="language-option is-active"[^>]*>${activeLabel}<`), `${route} has the wrong active language`);
   assert.ok(html.includes("/language-routes.js"), `${route} must load the shared language route manifest`);
   assert.ok(html.includes("+14034553188"), `${route} must preserve the reservation phone`);
@@ -81,6 +81,11 @@ for (const [enRoute, zhRoute] of pairs) {
   const pair = { en: enRoute, zhHant: zhRoute };
   validateDocument(enHtml, enRoute, "en", pair);
   validateDocument(zhHtml, zhRoute, "zh-Hant", pair);
+  assert.doesNotMatch(
+    enHtml.replaceAll(">中文<", "><"),
+    /[\u3400-\u9fff]/u,
+    `${enRoute} must not contain Chinese text outside the language switch`,
+  );
 }
 
 const factualPages = [
@@ -101,6 +106,7 @@ for (const route of factualPages) {
 const adsHtml = await readFile(fileForRoute("/google-ads-ayce-hot-pot/"), "utf8");
 assert.ok(adsHtml.includes('content="noindex, follow"'), "Google Ads landing page must remain noindex, follow");
 assert.equal([...pairs.values()].includes("/zh-hant/google-ads-ayce-hot-pot/"), false, "Ads page must not have a Chinese pair");
+assert.doesNotMatch(adsHtml, /[\u3400-\u9fff]/u, "Google Ads landing page must be English-only");
 
 const sitemap = await readFile(path.join(publicDir, "sitemap.xml"), "utf8");
 const llms = await readFile(path.join(publicDir, "llms.txt"), "utf8");

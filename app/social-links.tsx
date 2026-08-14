@@ -24,8 +24,8 @@ const socialLinks = [
     className: "social-tiktok",
   },
   {
-    label: "小紅書",
-    shortLabel: "小",
+    label: "Xiaohongshu",
+    shortLabel: "XHS",
     href: "https://www.xiaohongshu.com/user/profile/65408e340000000030030828",
     className: "social-red",
   },

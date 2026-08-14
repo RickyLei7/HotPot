@@ -8,7 +8,7 @@ const restaurantJsonLd = {
   "@type": "Restaurant",
   "@id": "https://centrestjhotpot.ca/#restaurant",
   name: "Centre Street Japanese HotPot",
-  alternateName: ["鼎鑽火鍋", "Centre Street Japanese Hotpot"],
+  alternateName: ["Centre Street Japanese Hotpot"],
   description:
     "Centre Street Japanese HotPot is a hot pot restaurant in Calgary serving Taiwanese and Japanese-style individual hot pot, all-you-can-eat hot pot, AYCE hot pot, signature soup bases, premium meats, seafood, vegetables, Taiwanese snacks, rice and noodle bowls, and milk tea.",
   url: "https://centrestjhotpot.ca/",
@@ -67,12 +67,6 @@ const restaurantJsonLd = {
     "Centre Street Calgary restaurant",
     "family hot pot Calgary",
     "group dining hot pot Calgary",
-    "卡加利火鍋",
-    "卡加利台式火鍋",
-    "台灣火鍋 卡加利",
-    "卡加利一人一鍋",
-    "卡加利火鍋自助",
-    "鼎鑽火鍋",
   ],
   knowsAbout: [
     "Taiwanese hot pot",
@@ -238,7 +232,7 @@ export default function Home() {
       <section className="first-visit-link" aria-label="First-time hot pot guide">
         <div className="first-visit-link-inner">
           <div>
-            <p className="eyebrow">New to hot pot? · 第一次吃火鍋</p>
+            <p className="eyebrow">New to hot pot?</p>
             <h2>Your first hot pot visit, explained simply.</h2>
             <p>Learn how individual hot pot works, what to order, and how to plan your first table.</p>
           </div>
@@ -284,15 +278,10 @@ export default function Home() {
         </div>
         <div className="beef-noodle-story-copy">
           <p className="eyebrow">A comforting classic</p>
-          <h2>一碗讓人想起家的台灣傳統牛肉麵</h2>
+          <h2>Traditional Taiwanese Beef Noodle Soup</h2>
           <details className="story-details">
-            <summary>Read the story · 閱讀故事</summary>
+            <summary>Read the story</summary>
             <div className="story-details-content">
-              <div className="story-language">
-                <p>有些味道，離開家以後才知道有多想念。小時候放學、下雨天，或家人問一句「晚餐想吃什麼？」時，一碗熱騰騰的牛肉麵，常常就是最簡單的答案。</p>
-                <p>慢火熬出的濃郁湯頭、燉得軟嫩入味的牛肉、吸滿香氣的麵條，成了許多人記憶中熟悉的味道。吃到最後，心裡總有一種安定感，像回到和家人一起吃飯的那張桌子。</p>
-                <p>我們希望這碗台灣傳統牛肉麵，能讓你在忙碌的一天裡慢下來，好好吃一餐，也感覺被好好照顧。</p>
-              </div>
               <div className="story-language story-language-english">
                 <h3>A Bowl That Feels Like Home</h3>
                 <p>Some tastes become more meaningful when you are far from home. After school, on rainy days, or when someone asked what you wanted for dinner, a steaming bowl of beef noodle soup was often the simplest answer.</p>

@@ -3,7 +3,7 @@ import Link from "next/link";
 import { SiteNav } from "../site-nav";
 
 export const metadata: Metadata = {
-  title: "Taiwanese Hot Pot Calgary | 鼎鑽火鍋 Centre Street",
+  title: "Taiwanese Hot Pot Calgary | Centre Street",
   description:
     "Centre Street Japanese HotPot serves Taiwanese-style individual hot pot in Calgary with 15 soup bases, AYCE hot pot, Taiwanese snacks, milk tea, and table reservations by phone.",
   alternates: {
@@ -15,9 +15,9 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "Taiwanese Hot Pot Calgary | 鼎鑽火鍋 Centre Street",
+    title: "Taiwanese Hot Pot Calgary | Centre Street",
     description:
-      "台式火鍋卡加利：鼎鑽火鍋 offers Taiwanese-style individual hot pot, AYCE hot pot, Taiwanese snacks, milk tea, and reservations on Centre Street in Calgary.",
+      "Centre Street Japanese HotPot offers Taiwanese-style individual hot pot, AYCE hot pot, Taiwanese snacks, milk tea, and reservations on Centre Street in Calgary.",
     url: "https://centrestjhotpot.ca/calgary-taiwanese-hot-pot/",
     images: ["/assets/dish-sukiyaki.webp"],
   },
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
 const taiwaneseHotPotFaqs = [
   [
     "Where can I find Taiwanese hot pot in Calgary?",
-    "Centre Street Japanese HotPot, also known as 鼎鑽火鍋, serves Taiwanese-style and Japanese-style individual hot pot at 2213 Centre St N #2243 in Calgary.",
+    "Centre Street Japanese HotPot serves Taiwanese-style and Japanese-style individual hot pot at 2213 Centre St N #2243 in Calgary.",
   ],
   [
     "What makes Taiwanese hot pot different?",
@@ -35,10 +35,6 @@ const taiwaneseHotPotFaqs = [
   [
     "Does Centre Street Japanese HotPot offer all-you-can-eat hot pot?",
     "Yes. All-You-Can-Eat Hot Pot is available for $28.99 + tax, with soup base included, server-ordered meats, a 1.5 hour time limit, and an optional +$3.99 snack upgrade for the whole table.",
-  ],
-  [
-    "卡加利哪裡可以吃台式火鍋？",
-    "鼎鑽火鍋 Centre Street Japanese HotPot 位於 2213 Centre St N #2243, Calgary, AB T2E 2T4，提供台式與日式風格的一人一鍋、火鍋自助、台式小吃、飯麵和奶茶。",
   ],
   [
     "How do I reserve a table?",
@@ -59,10 +55,6 @@ const pageSchema = {
       about: [
         "Taiwanese hot pot Calgary",
         "Taiwanese individual hot pot Calgary",
-        "台式火鍋卡加利",
-        "卡加利台式火鍋",
-        "卡加利一人一鍋",
-        "卡加利火鍋自助",
       ],
       mainEntityOfPage: "https://centrestjhotpot.ca/calgary-taiwanese-hot-pot/",
       publisher: {
@@ -96,9 +88,9 @@ export default function CalgaryTaiwaneseHotPotPage() {
       <section className="page-hero guide-page-hero">
         <div>
           <p className="eyebrow">Taiwanese hot pot Calgary</p>
-          <h1>台式火鍋與一人一鍋，在卡加利 Centre Street。</h1>
+          <h1>Taiwanese Hot Pot on Centre Street in Calgary</h1>
           <p className="hero-text">
-            Centre Street Japanese HotPot / 鼎鑽火鍋 serves Taiwanese-style individual hot pot,
+            Centre Street Japanese HotPot serves Taiwanese-style individual hot pot,
             AYCE hot pot, Taiwanese snacks, rice and noodle bowls, and milk tea in Calgary.
           </p>
           <div className="hero-actions">
@@ -126,12 +118,12 @@ export default function CalgaryTaiwaneseHotPotPage() {
             <p>
               The menu also includes Taiwanese snacks and milk tea, so it works well for
               casual dinners, friends gatherings, family meals, and guests looking for
-              卡加利台式火鍋 or 卡加利一人一鍋.
+              Taiwanese-style individual hot pot in Calgary.
             </p>
           </article>
           <aside className="guide-card">
             <h2>Restaurant facts</h2>
-            <p><strong>Name:</strong> Centre Street Japanese HotPot / 鼎鑽火鍋</p>
+            <p><strong>Name:</strong> Centre Street Japanese HotPot</p>
             <p><strong>Focus:</strong> Taiwanese-style and Japanese-style individual hot pot</p>
             <p><strong>AYCE:</strong> $28.99 + tax, soup base included</p>
             <p><strong>Address:</strong> 2213 Centre St N #2243, Calgary, AB T2E 2T4</p>

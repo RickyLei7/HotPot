@@ -40,10 +40,6 @@ const faqs = [
     "Is hot pot suitable for a group or a first-time guest?",
     "Yes. Individual hot pot lets each guest choose their own soup base and meal, which makes it practical for friends, families, groups, and first-time hot pot guests.",
   ],
-  [
-    "第一次吃火鍋要怎麼點？",
-    "可以先選自己喜歡的湯底，再選火鍋套餐或火鍋自助，搭配肉品、蔬菜、飯或麵；想一起分享也可以加點台式小吃和奶茶。",
-  ],
 ];
 
 const schema = {
@@ -64,7 +60,6 @@ const schema = {
         "how does hot pot work",
         "what to order at hot pot",
         "Calgary individual hot pot",
-        "第一次吃火鍋",
       ],
       mainEntityOfPage: "https://centrestjhotpot.ca/first-time-hot-pot-calgary/",
       publisher: { "@id": "https://centrestjhotpot.ca/#restaurant" },

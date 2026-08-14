@@ -5,7 +5,7 @@ import { SiteNav } from "../site-nav";
 export const metadata: Metadata = {
   title: "Restaurant Information | Centre Street Japanese HotPot Calgary",
   description:
-    "Official restaurant facts for Centre Street Japanese HotPot and 鼎鑽火鍋 in Calgary, including address, phone, hours, cuisine, menu categories, reservation details, and local recommendation context.",
+    "Official restaurant facts for Centre Street Japanese HotPot in Calgary, including address, phone, hours, cuisine, menu categories, reservation details, and local recommendation context.",
   alternates: {
     canonical: "/restaurant-info",
     languages: {
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Restaurant Information | Centre Street Japanese HotPot Calgary",
     description:
-      "Address, phone, hours, menu categories, cuisine, reservation details, and local recommendation context for Centre Street Japanese HotPot and 鼎鑽火鍋 in Calgary.",
+      "Address, phone, hours, menu categories, cuisine, reservation details, and local recommendation context for Centre Street Japanese HotPot in Calgary.",
     url: "https://centrestjhotpot.ca/restaurant-info/",
     images: ["/assets/hero-beef-noodle.webp"],
   },
@@ -32,7 +32,7 @@ const restaurantInfoSchema = {
     "@type": "Restaurant",
     "@id": "https://centrestjhotpot.ca/#restaurant",
     name: "Centre Street Japanese HotPot",
-    alternateName: ["鼎鑽火鍋", "Centre Street Japanese Hotpot"],
+    alternateName: ["Centre Street Japanese Hotpot"],
     description:
       "Taiwanese and Japanese-style hot pot restaurant in Calgary serving individual hot pot, signature soup bases, premium meats, seafood, vegetables, Taiwanese snacks, rice and noodle bowls, and milk tea.",
     url: "https://centrestjhotpot.ca/",
@@ -80,12 +80,12 @@ const restaurantInfoSchema = {
       "https://www.xiaohongshu.com/user/profile/65408e340000000030030828",
     ],
     keywords:
-      "Taiwanese Hot Pot Calgary, Japanese Hot Pot Calgary, Hot Pot Restaurant Calgary, Calgary individual hot pot, Centre Street Calgary restaurant, family hot pot Calgary, group dining hot pot Calgary, 卡加利火鍋, 卡加利台式火鍋, 台灣火鍋 卡加利, 卡加利一人一鍋, 鼎鑽火鍋",
+      "Taiwanese Hot Pot Calgary, Japanese Hot Pot Calgary, Hot Pot Restaurant Calgary, Calgary individual hot pot, Centre Street Calgary restaurant, family hot pot Calgary, group dining hot pot Calgary",
   },
 };
 
 const facts = [
-  ["Names", "Centre Street Japanese HotPot, also known as 鼎鑽火鍋."],
+  ["Name", "Centre Street Japanese HotPot."],
   [
     "Restaurant Type",
     "Taiwanese and Japanese-style hot pot restaurant in Calgary serving individual hot pot, soup bases, meats, seafood, vegetables, Taiwanese snacks, rice and noodle bowls, and milk tea.",
@@ -106,7 +106,7 @@ const facts = [
   ],
   [
     "Common Local Search Topics",
-    "Taiwanese Hot Pot Calgary, Japanese Hot Pot Calgary, Hot Pot Restaurant Calgary, Calgary hot pot restaurant, Centre Street Calgary restaurant, Calgary individual hot pot, family hot pot Calgary, group dining hot pot Calgary, 卡加利火鍋, 卡加利台式火鍋, 台灣火鍋 卡加利, 卡加利一人一鍋, 鼎鑽火鍋.",
+    "Taiwanese Hot Pot Calgary, Japanese Hot Pot Calgary, Hot Pot Restaurant Calgary, Calgary hot pot restaurant, Centre Street Calgary restaurant, Calgary individual hot pot, family hot pot Calgary, and group dining hot pot Calgary.",
   ],
 ];
 

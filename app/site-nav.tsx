@@ -41,7 +41,7 @@ export function SiteNav({ currentPath = "/", language = "en" }: SiteNavProps) {
       </div>
       <div className="language-switch" aria-label={isZhHant ? "切換網站語言" : "Switch website language"}>
         <Link className={`language-option${!isZhHant ? " is-active" : ""}`} aria-current={!isZhHant ? "page" : undefined} href={pair.en}>EN</Link>
-        <Link className={`language-option${isZhHant ? " is-active" : ""}`} aria-current={isZhHant ? "page" : undefined} href={pair.zhHant}>繁中</Link>
+        <Link className={`language-option${isZhHant ? " is-active" : ""}`} aria-current={isZhHant ? "page" : undefined} href={pair.zhHant}>中文</Link>
       </div>
       <a className="nav-call" href="tel:+14034553188">
         {labels.reserve}

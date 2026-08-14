@@ -1,14 +1,14 @@
 import Link from "next/link";
 
 const highlights = [
-  ["台式與日式火鍋用餐體驗", "Taiwanese and Japanese-style hot pot experience"],
-  ["精選優質肉品與新鮮海鮮", "Premium quality meats and fresh seafood"],
-  ["每日供應新鮮蔬菜與食材", "Fresh vegetables prepared daily"],
-  ["多款特色湯底選擇", "Multiple signature broth selections"],
-  ["特製醬料自由搭配", "House-made sauces and customizable flavors"],
-  ["舒適現代的用餐環境", "Comfortable and modern dining atmosphere"],
-  ["適合家庭聚餐與朋友聚會", "Perfect for family gatherings and group dining"],
-  ["位於卡加利，交通便利", "Convenient Calgary location"],
+  "Taiwanese and Japanese-style hot pot experience",
+  "Premium quality meats and fresh seafood",
+  "Fresh vegetables prepared daily",
+  "Multiple signature broth selections",
+  "House-made sauces and customizable flavors",
+  "Comfortable and modern dining atmosphere",
+  "Perfect for family gatherings and group dining",
+  "Convenient Calgary location",
 ];
 
 export default function AboutContent({
@@ -22,7 +22,7 @@ export default function AboutContent({
     <section className={isStandalone ? "about-section about-page" : "about-section"} id="about">
       <div className="about-intro">
         <p className="eyebrow">About Us</p>
-        <h2>關於鼎鑽火鍋</h2>
+        <h2>About Centre Street Japanese HotPot</h2>
         <p className="about-lead">
           Welcome to Centre Street Japanese HotPot, a Calgary restaurant built around warm hot pot dining,
           fresh ingredients, and friendly hospitality.
@@ -30,35 +30,6 @@ export default function AboutContent({
       </div>
 
       <div className="about-story">
-        <div className="about-copy">
-          <p>
-            歡迎來到鼎鑽火鍋 Centre Street Japanese HotPot。
-          </p>
-          {isStandalone ? (
-            <>
-              <p>
-                在鼎鑽火鍋，我們相信火鍋不只是美食，更是一種與家人朋友共享歡樂時光的方式。我們以台式與日式火鍋文化為靈感，結合對食材品質與用餐體驗的堅持，希望為每位顧客帶來溫暖、舒適且難忘的火鍋體驗。
-              </p>
-              <p>
-                我們精選優質肉品、新鮮海鮮、當季蔬菜及多款特色湯底，讓每一份食材都能展現最自然鮮美的風味。我們始終堅持新鮮、品質與穩定，致力於為顧客提供值得信賴的餐點與服務。
-              </p>
-              <p>
-                無論是家庭聚餐、朋友相聚、節日慶祝，或是第一次體驗火鍋，我們都希望透過貼心的服務與舒適的環境，讓每位來訪的顧客都能感受到賓至如歸的溫暖。
-              </p>
-              <p>
-                位於卡加利的鼎鑽火鍋，很榮幸能夠服務本地社區，並與大家分享火鍋所帶來的美味與歡樂。
-              </p>
-              <p>
-                感謝您的支持與光臨。我們期待在鼎鑽火鍋歡迎您的到來，並為您創造一次又一次美好的用餐回憶。
-              </p>
-            </>
-          ) : (
-            <p>
-              我們以台式與日式火鍋文化為靈感，精選優質肉品、新鮮海鮮、當季蔬菜及多款特色湯底，讓每位客人都能享受溫暖、舒適的火鍋體驗。
-            </p>
-          )}
-        </div>
-
         <div className="about-english">
           <p>
             Welcome to Centre Street Japanese HotPot.
@@ -93,13 +64,12 @@ export default function AboutContent({
       <div className="about-highlights">
         <div className="section-heading compact">
           <p className="eyebrow">Why Choose Us</p>
-          <h2>我們的特色</h2>
+          <h2>What Makes Us Different</h2>
         </div>
         <div className="about-highlight-grid">
-          {visibleHighlights.map(([zh, en]) => (
-            <article key={en}>
-              <h3>{zh}</h3>
-              <p>{en}</p>
+          {visibleHighlights.map((highlight) => (
+            <article key={highlight}>
+              <h3>{highlight}</h3>
             </article>
           ))}
         </div>

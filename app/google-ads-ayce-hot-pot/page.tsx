@@ -65,7 +65,7 @@ const adsSchema = {
       "@type": "Restaurant",
       "@id": "https://centrestjhotpot.ca/#restaurant",
       name: "Centre Street Japanese HotPot",
-      alternateName: ["鼎鑽火鍋", "Centre Street Japanese Hotpot"],
+      alternateName: ["Centre Street Japanese Hotpot"],
       telephone: "+1-403-455-3188",
       servesCuisine: ["Taiwanese Hot Pot", "Japanese-style Hot Pot", "Hot Pot"],
       address: {
@@ -117,12 +117,11 @@ export default function GoogleAdsAyceHotPotPage() {
 
       <section className="ads-hero">
         <div className="ads-hero-copy">
-          <p className="eyebrow">AYCE Hot Pot Calgary · 卡加利火鍋自助 · Dine-in only</p>
+          <p className="eyebrow">AYCE Hot Pot Calgary · Dine-in only</p>
           <h1>$28.99 AYCE Hot Pot in Calgary</h1>
           <p className="hero-text">
             Centre Street Japanese HotPot serves Taiwanese and Japanese-style all-you-can-eat hot pot
             with soup base included, 15 soup bases, server-ordered meats, and an optional 19-item AYCE appetizer upgrade.
-            鼎鑽火鍋主打台式與日式風格火鍋自助，適合家庭聚餐、朋友聚會與團體訂位。
           </p>
           <div className="ads-hero-actions">
             <a className="primary-action" href="tel:+14034553188">
@@ -141,10 +140,10 @@ export default function GoogleAdsAyceHotPotPage() {
           <span className="ads-price">$28.99</span>
           <h2>Soup Base Included</h2>
           <ul>
-            <li>15 soup bases · 15 款湯底</li>
-            <li>AAA beef, lamb, pork, chicken · 肉類由服務員下單</li>
-            <li>19 snacks +$3.99/person · 19 款小吃任點</li>
-            <li>1.5 hour time limit · 限時 1.5 小時</li>
+            <li>15 soup bases</li>
+            <li>AAA beef, lamb, pork, and chicken</li>
+            <li>19 snacks for +$3.99 per person</li>
+            <li>1.5 hour time limit</li>
           </ul>
         </div>
       </section>
@@ -159,24 +158,24 @@ export default function GoogleAdsAyceHotPotPage() {
       <section className="ads-section ads-menu-summary">
         <div className="section-heading compact">
           <p className="eyebrow">What guests get</p>
-          <h2>Everything needed to decide before calling. 訂位前先看重點。</h2>
+          <h2>Everything needed to decide before calling.</h2>
         </div>
         <div className="ads-grid">
           <article>
             <h3>AYCE Hot Pot</h3>
-            <p>$28.99 + tax. Soup base included. Meat is ordered through your server. 包含鍋底，價格未含稅。</p>
+            <p>$28.99 + tax. Soup base included. Meat is ordered through your server.</p>
           </article>
           <article>
             <h3>Meat Selection</h3>
-            <p>AAA beef, lamb, pork, and chicken. Each serving is 100g. 可選 AAA 牛肉、羊肉、豬肉與雞肉。</p>
+            <p>AAA beef, lamb, pork, and chicken. Each serving is 100g.</p>
           </article>
           <article>
             <h3>Snack Upgrade</h3>
-            <p>+ $3.99 per person for 19 AYCE snacks, including Taiwanese fried chicken, takoyaki, crispy chicken cutlet, fried buns, squid legs, spring rolls, fries, and more. 同桌每位都需升級。</p>
+            <p>+ $3.99 per person for 19 AYCE snacks, including Taiwanese fried chicken, takoyaki, crispy chicken cutlet, fried buns, squid legs, spring rolls, fries, and more. Everyone at the table must upgrade.</p>
           </article>
           <article>
             <h3>Kids Pricing</h3>
-            <p>Under 100 cm free. 100-140 cm $12.99. Over 140 cm adult price. 兒童按身高收費。</p>
+            <p>Under 100 cm free. 100-140 cm $12.99. Over 140 cm adult price.</p>
           </article>
         </div>
       </section>
@@ -186,8 +185,8 @@ export default function GoogleAdsAyceHotPotPage() {
           <img src="/assets/ayce-hotpot-menu-preview-360.webp" srcSet="/assets/ayce-hotpot-menu-preview-360.webp 360w, /assets/ayce-hotpot-menu-preview.webp 495w" sizes="(max-width: 560px) calc(100vw - 32px), 360px" alt="AYCE hot pot menu showing $28.99 price, soup base included, and 19 appetizer choices" width="495" height="640" loading="lazy" decoding="async" />
           <div>
             <p className="eyebrow">AYCE details</p>
-            <h2>Call before coming with a group. 團體用餐建議先致電。</h2>
-            <p>For weekend tables, larger groups, or today&apos;s availability, calling is the fastest way to confirm a table. 週末、多人聚餐或想確認座位時，直接來電最快。</p>
+            <h2>Call before coming with a group.</h2>
+            <p>For weekend tables, larger groups, or today&apos;s availability, calling is the fastest way to confirm a table.</p>
             <div className="ads-hero-actions">
               <a className="primary-action" href="tel:+14034553188">Call to Reserve</a>
               <Link className="secondary-action" href="/ayce-hot-pot-calgary">

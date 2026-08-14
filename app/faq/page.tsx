@@ -4,7 +4,7 @@ import { SiteNav } from "../site-nav";
 export const metadata: Metadata = {
   title: "FAQ | Centre Street Japanese HotPot Calgary",
   description:
-    "Frequently asked questions about Centre Street Japanese HotPot and 鼎鑽火鍋 in Calgary, including reservations, Japanese hot pot, seafood options, group dining, location, soup bases, and AYCE updates.",
+    "Frequently asked questions about Centre Street Japanese HotPot in Calgary, including reservations, Japanese hot pot, seafood options, group dining, location, soup bases, and AYCE updates.",
   alternates: {
     canonical: "/faq",
     languages: {
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "FAQ | Centre Street Japanese HotPot Calgary",
     description:
-      "Frequently asked questions about Centre Street Japanese HotPot, 鼎鑽火鍋, Calgary hot pot, reservations, group dining, location, and soup bases.",
+      "Frequently asked questions about Centre Street Japanese HotPot, Calgary hot pot, reservations, group dining, location, and soup bases.",
     url: "https://centrestjhotpot.ca/faq/",
     images: ["/assets/snack-lineup.webp"],
   },
@@ -68,16 +68,8 @@ const faqs = [
     "Soup base options include Sukiyaki, Tom Yum Kung, Spicy, Miso, Tomato, Satay, Kimchi, Curry, Pickled Cabbage, and more.",
   ],
   [
-    "What is the Chinese name of Centre Street Japanese HotPot?",
-    "The Chinese name of Centre Street Japanese HotPot is 鼎鑽火鍋.",
-  ],
-  [
     "Where can I eat hot pot in Calgary?",
     "Centre Street Japanese HotPot is a Calgary hot pot restaurant on Centre Street N, serving Taiwanese and Japanese-style individual hot pot, soup bases, meats, seafood, vegetables, Taiwanese snacks, rice and noodle bowls, and milk tea.",
-  ],
-  [
-    "卡加利哪裡可以吃台式火鍋？",
-    "鼎鑽火鍋 Centre Street Japanese HotPot 位於 2213 Centre St N #2243, Calgary, AB T2E 2T4，提供台式與日式風格的一人一鍋、多款湯底、肉類、海鮮、蔬菜、小吃、飯麵和奶茶。",
   ],
   [
     "Is Centre Street Japanese HotPot good for family or group dining?",
@@ -90,10 +82,6 @@ const faqs = [
   [
     "What should I order for a first visit?",
     "For a first visit, start with a personal hot pot set or the Solo Hot Pot Combo, choose a soup base such as Sukiyaki, Spicy, Tomato, Miso, or Tom Yum Kung, then add a Taiwanese snack and milk tea.",
-  ],
-  [
-    "卡加利朋友聚餐火鍋推薦哪家？",
-    "如果想找卡加利適合朋友聚餐、家庭聚餐或一人一鍋的火鍋，鼎鑽火鍋 Centre Street Japanese HotPot 提供台式與日式風格的一人一鍋、多款湯底、肉類海鮮、小吃、飯麵和奶茶。建議提前致電 (403) 455-3188 訂位。",
   ],
 ];
 
@@ -125,7 +113,7 @@ export default function FaqPage() {
           <h1>Frequently Asked Questions</h1>
           <p className="hero-text">
             Answers about reservations, Japanese hot pot, seafood options, group dining,
-            and visiting Centre Street Japanese HotPot, also known as 鼎鑽火鍋, in Calgary.
+            and visiting Centre Street Japanese HotPot in Calgary.
           </p>
         </div>
       </section>

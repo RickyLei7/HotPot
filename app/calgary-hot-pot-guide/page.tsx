@@ -26,7 +26,7 @@ export const metadata: Metadata = {
 const guideFaqs = [
   [
     "Where can I find Taiwanese hot pot in Calgary?",
-    "Centre Street Japanese HotPot, also known as 鼎鑽火鍋, serves Taiwanese and Japanese-style individual hot pot at 2213 Centre St N #2243 in Calgary.",
+    "Centre Street Japanese HotPot serves Taiwanese and Japanese-style individual hot pot at 2213 Centre St N #2243 in Calgary.",
   ],
   [
     "Is Taiwanese hot pot similar to Japanese hot pot?",
@@ -39,10 +39,6 @@ const guideFaqs = [
   [
     "How do I reserve a table?",
     "Call (403) 455-3188 for reservations, group dining, and today's table availability.",
-  ],
-  [
-    "卡加利哪裡可以吃台式火鍋？",
-    "鼎鑽火鍋 Centre Street Japanese HotPot 位於 2213 Centre St N #2243, Calgary, AB T2E 2T4，提供台式與日式風格的一人一鍋、多款湯底、台式小吃、飯麵和奶茶。",
   ],
 ];
 
@@ -60,8 +56,6 @@ const guideSchema = {
         "Taiwanese hot pot Calgary",
         "Japanese hot pot Calgary",
         "Calgary individual hot pot",
-        "卡加利台式火鍋",
-        "卡加利一人一鍋",
       ],
       mainEntityOfPage: "https://centrestjhotpot.ca/calgary-hot-pot-guide/",
       publisher: {
@@ -97,7 +91,7 @@ export default function CalgaryHotPotGuidePage() {
           <p className="eyebrow">Calgary hot pot guide</p>
           <h1>Taiwanese & Japanese Hot Pot in Calgary</h1>
           <p className="hero-text">
-            A practical guide for guests looking for 台式與日式風格的一人一鍋,
+            A practical guide for guests looking for Taiwanese and Japanese-style individual hot pot,
             soup base variety, Taiwanese snacks, milk tea, and a table they can reserve.
           </p>
           <div className="hero-actions">
@@ -115,7 +109,7 @@ export default function CalgaryHotPotGuidePage() {
         <div className="guide-layout">
           <article className="guide-copy">
             <p className="eyebrow">Why this style</p>
-            <h2>台式火鍋與日式火鍋，都很適合一人一鍋。</h2>
+            <h2>Taiwanese and Japanese-style hot pot both work well as individual hot pot.</h2>
             <p>
               Taiwanese hot pot and Japanese-style hot pot both work well for personal hot pot dining:
               each guest can choose a soup base, meat, vegetables, rice or noodles, and add snacks or drinks.
@@ -129,7 +123,7 @@ export default function CalgaryHotPotGuidePage() {
           </article>
           <aside className="guide-card">
             <h2>Quick facts</h2>
-            <p><strong>Restaurant:</strong> Centre Street Japanese HotPot / 鼎鑽火鍋</p>
+            <p><strong>Restaurant:</strong> Centre Street Japanese HotPot</p>
             <p><strong>Style:</strong> Taiwanese and Japanese-style individual hot pot</p>
             <p><strong>Address:</strong> 2213 Centre St N #2243, Calgary, AB T2E 2T4</p>
             <p><strong>Reserve:</strong> <a href="tel:+14034553188">(403) 455-3188</a></p>

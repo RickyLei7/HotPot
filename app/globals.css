@@ -2240,3 +2240,571 @@ h3 {
     max-width: 96vw;
   }
 }
+
+
+/* Menu-led bilingual homepage */
+.homepage-ayce,
+.ayce-snack-feature,
+.personal-value,
+.beef-noodle-feature,
+.light-meals-section,
+.drink-feature,
+.homepage-visit {
+  padding: clamp(56px, 7vw, 104px) clamp(18px, 5vw, 76px);
+}
+
+.homepage-ayce,
+.personal-value,
+.beef-noodle-feature,
+.drink-feature {
+  align-items: center;
+  display: grid;
+  gap: clamp(30px, 5vw, 76px);
+  grid-template-columns: minmax(0, 1.05fr) minmax(360px, 0.95fr);
+}
+
+.homepage-ayce {
+  background:
+    radial-gradient(circle at 82% 18%, rgba(246, 201, 76, 0.13), transparent 28%),
+    linear-gradient(120deg, #120d0b 0%, #2d100e 52%, #751713 100%);
+  min-height: calc(100vh - 79px);
+}
+
+.homepage-ayce-copy,
+.personal-value-copy,
+.beef-noodle-feature-copy,
+.drink-feature-copy {
+  margin-left: auto;
+  max-width: 760px;
+  width: 100%;
+}
+
+.homepage-ayce h1,
+.personal-value h2 {
+  font-size: clamp(3.2rem, 7vw, 7rem);
+  font-weight: 950;
+  letter-spacing: -0.055em;
+  line-height: 0.95;
+  margin-bottom: 24px;
+}
+
+.homepage-lead {
+  font-size: clamp(1.1rem, 2vw, 1.42rem);
+  font-weight: 720;
+  line-height: 1.55;
+}
+
+.homepage-ayce-copy > p:not(.eyebrow),
+.beef-noodle-feature-copy > p {
+  color: rgba(255, 246, 223, 0.86);
+  line-height: 1.68;
+}
+
+.homepage-ayce-media {
+  border: 1px solid rgba(246, 201, 76, 0.42);
+  border-radius: 18px;
+  box-shadow: 0 34px 90px rgba(0, 0, 0, 0.4);
+  justify-self: center;
+  max-width: 500px;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.homepage-ayce-media img {
+  aspect-ratio: 4 / 5;
+  height: auto;
+  object-fit: cover;
+  width: 100%;
+}
+
+.homepage-ayce-media span {
+  background: var(--gold);
+  border-radius: 999px;
+  bottom: 18px;
+  color: var(--ink);
+  font-size: 0.92rem;
+  font-weight: 950;
+  left: 18px;
+  padding: 10px 14px;
+  position: absolute;
+}
+
+.ayce-snack-feature {
+  background: var(--paper);
+  color: var(--ink);
+}
+
+.ayce-snack-feature .section-heading,
+.light-meals-section .section-heading,
+.homepage-visit .section-heading {
+  margin: 0 auto 34px;
+  max-width: 1400px;
+}
+
+.ayce-snack-feature .eyebrow,
+.light-meals-section .eyebrow {
+  color: var(--red);
+}
+
+.ayce-snack-feature h2,
+.light-meals-section h2,
+.homepage-visit h2,
+.beef-noodle-feature h2,
+.drink-feature h2 {
+  font-size: clamp(2.35rem, 5.2vw, 5.2rem);
+  font-weight: 920;
+  letter-spacing: -0.045em;
+  line-height: 1;
+}
+
+.ayce-snack-feature .section-heading > p:last-child,
+.light-meals-section .section-heading > p:last-child {
+  font-size: clamp(1rem, 1.7vw, 1.22rem);
+  line-height: 1.62;
+  max-width: 920px;
+}
+
+.snack-showcase {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  margin: 0 auto;
+  max-width: 1400px;
+}
+
+.snack-card {
+  background: #fff8ea;
+  border: 1px solid rgba(127, 23, 22, 0.16);
+  border-radius: 12px;
+  grid-column: span 1;
+  overflow: hidden;
+}
+
+.snack-card.is-featured {
+  grid-column: span 2;
+}
+
+.snack-card img {
+  aspect-ratio: 16 / 11;
+  height: auto;
+  object-fit: cover;
+  width: 100%;
+}
+
+.snack-card.is-featured img {
+  object-position: center 42%;
+}
+
+.snack-card h3 {
+  font-size: clamp(0.9rem, 1.3vw, 1.08rem);
+  line-height: 1.2;
+  margin: 0;
+  min-height: 68px;
+  padding: 16px;
+}
+
+.snack-rule {
+  line-height: 1.58;
+  margin: 24px auto 12px;
+  max-width: 1400px;
+}
+
+.text-action {
+  color: var(--red);
+  display: block;
+  font-weight: 900;
+  margin: 0 auto;
+  max-width: 1400px;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+}
+
+.personal-value {
+  background:
+    radial-gradient(circle at 14% 14%, rgba(127, 23, 22, 0.1), transparent 30%),
+    var(--paper-soft);
+  color: var(--ink);
+}
+
+.personal-value .eyebrow {
+  color: var(--red);
+}
+
+.personal-value-copy > small {
+  color: rgba(23, 16, 12, 0.72);
+  display: block;
+  font-size: 0.88rem;
+  line-height: 1.55;
+  margin-top: 18px;
+}
+
+.inclusion-grid {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin: 30px 0 20px;
+}
+
+.inclusion-grid article {
+  background: rgba(255, 248, 234, 0.86);
+  border: 1px solid rgba(127, 23, 22, 0.15);
+  border-radius: 12px;
+  min-height: 138px;
+  padding: 18px;
+}
+
+.inclusion-grid article span {
+  align-items: center;
+  background: var(--red);
+  border-radius: 999px;
+  color: var(--cream);
+  display: inline-flex;
+  font-size: 0.8rem;
+  font-weight: 900;
+  height: 28px;
+  justify-content: center;
+  margin-bottom: 14px;
+  width: 28px;
+}
+
+.inclusion-grid article p {
+  font-size: 0.96rem;
+  font-weight: 780;
+  line-height: 1.42;
+  margin-bottom: 0;
+}
+
+.split-pot-note {
+  color: var(--red);
+  font-weight: 900;
+  line-height: 1.5;
+}
+
+.soup-preview-strip {
+  border: 1px solid rgba(127, 23, 22, 0.2);
+  border-radius: 18px;
+  box-shadow: 0 28px 64px rgba(59, 20, 13, 0.18);
+  overflow: hidden;
+}
+
+.soup-preview-strip img {
+  height: auto;
+  object-fit: cover;
+  width: 100%;
+}
+
+.beef-noodle-feature {
+  background: #1f1611;
+}
+
+.beef-noodle-feature-media {
+  justify-self: center;
+  max-width: 520px;
+}
+
+.beef-noodle-feature-media img {
+  aspect-ratio: 4 / 5;
+  border: 1px solid rgba(246, 201, 76, 0.38);
+  border-radius: 16px;
+  box-shadow: 0 28px 72px rgba(0, 0, 0, 0.38);
+  height: auto;
+  object-fit: cover;
+  width: 100%;
+}
+
+.beef-noodle-feature-copy {
+  margin-left: 0;
+}
+
+.menu-price {
+  color: var(--gold);
+  display: block;
+  font-size: clamp(2.3rem, 5vw, 4.9rem);
+  line-height: 1;
+  margin: 24px 0 30px;
+}
+
+.beef-noodle-feature h3 {
+  color: var(--gold);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.35rem, 2.2vw, 2rem);
+}
+
+.light-meals-section {
+  background: var(--paper);
+  color: var(--ink);
+}
+
+.light-meal-grid {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin: 0 auto 28px;
+  max-width: 1400px;
+}
+
+.light-meal-card {
+  background: #fff8ea;
+  border: 1px solid rgba(127, 23, 22, 0.14);
+  border-radius: 14px;
+  box-shadow: 0 12px 30px rgba(64, 23, 12, 0.08);
+  overflow: hidden;
+}
+
+.light-meal-card img {
+  aspect-ratio: 16 / 11;
+  height: auto;
+  object-fit: cover;
+  width: 100%;
+}
+
+.light-meal-card > div {
+  padding: 20px;
+}
+
+.light-meal-card h3 {
+  font-size: clamp(1.05rem, 1.65vw, 1.35rem);
+  line-height: 1.2;
+  margin-bottom: 8px;
+}
+
+.light-meal-card strong {
+  color: var(--red);
+  font-size: 1.18rem;
+}
+
+.light-meal-card p {
+  color: rgba(23, 16, 12, 0.7);
+  line-height: 1.5;
+  margin: 10px 0 0;
+}
+
+.light-meals-section > .primary-action {
+  margin-left: max(0px, calc((100vw - 1400px) / 2));
+}
+
+.drink-feature {
+  background:
+    linear-gradient(120deg, rgba(74, 16, 13, 0.98), rgba(127, 23, 22, 0.94)),
+    url("/assets/milk-tea-photo.webp") center / cover;
+}
+
+.drink-feature > img {
+  border: 1px solid rgba(246, 201, 76, 0.42);
+  border-radius: 18px;
+  justify-self: center;
+  max-height: 650px;
+  object-fit: cover;
+  width: min(100%, 430px);
+}
+
+.drink-feature-copy > p {
+  color: rgba(255, 246, 223, 0.86);
+  line-height: 1.62;
+}
+
+.drink-discount {
+  color: var(--gold);
+  display: block;
+  font-size: clamp(1.25rem, 2.3vw, 2rem);
+  line-height: 1.3;
+  margin: 22px 0;
+}
+
+.drink-category-grid {
+  display: grid;
+  gap: 8px 18px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.drink-category-grid p {
+  align-items: baseline;
+  border-bottom: 1px solid rgba(255, 246, 223, 0.2);
+  display: flex;
+  gap: 12px;
+  justify-content: space-between;
+  margin: 0;
+  padding: 10px 0;
+}
+
+.drink-category-grid strong {
+  color: var(--gold);
+  white-space: nowrap;
+}
+
+.homepage-visit {
+  background: var(--background);
+  padding-bottom: clamp(96px, 9vw, 130px);
+}
+
+.homepage-visit .visit-grid {
+  margin: 0 auto;
+  max-width: 1400px;
+}
+
+.homepage-visit .visit-grid article {
+  background: rgba(255, 248, 234, 0.08);
+  border: 1px solid rgba(246, 201, 76, 0.2);
+  border-radius: 12px;
+}
+
+.homepage-visit .visit-grid a {
+  color: var(--gold);
+  font-weight: 850;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.homepage-visit .social-follow {
+  margin: 28px auto 0;
+  max-width: 1400px;
+}
+
+@media (max-width: 1100px) {
+  .homepage-ayce,
+  .personal-value,
+  .beef-noodle-feature,
+  .drink-feature {
+    grid-template-columns: 1fr;
+  }
+
+  .homepage-ayce {
+    min-height: auto;
+  }
+
+  .homepage-ayce-copy,
+  .personal-value-copy,
+  .beef-noodle-feature-copy,
+  .drink-feature-copy {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 880px;
+  }
+
+  .homepage-ayce-media {
+    max-height: 540px;
+  }
+
+  .homepage-ayce-media img {
+    aspect-ratio: 16 / 10;
+  }
+
+  .inclusion-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .snack-showcase {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .light-meal-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .drink-feature > img {
+    max-height: 440px;
+    width: min(100%, 600px);
+  }
+}
+
+@media (max-width: 560px) {
+  .homepage-ayce,
+  .ayce-snack-feature,
+  .personal-value,
+  .beef-noodle-feature,
+  .light-meals-section,
+  .drink-feature,
+  .homepage-visit {
+    padding: 38px 16px;
+  }
+
+  .homepage-ayce {
+    padding-top: 34px;
+  }
+
+  .homepage-ayce h1,
+  .personal-value h2 {
+    font-size: clamp(2.8rem, 14.2vw, 4.4rem);
+  }
+
+  .homepage-ayce-media img {
+    aspect-ratio: 4 / 3;
+  }
+
+  .snack-showcase {
+    gap: 10px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .snack-card.is-featured {
+    grid-column: span 2;
+  }
+
+  .snack-card h3 {
+    font-size: 0.88rem;
+    min-height: 58px;
+    padding: 12px 10px;
+  }
+
+  .inclusion-grid {
+    gap: 9px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    margin-top: 22px;
+  }
+
+  .inclusion-grid article {
+    min-height: 126px;
+    padding: 14px 12px;
+  }
+
+  .inclusion-grid article p {
+    font-size: 0.86rem;
+  }
+
+  .light-meal-grid {
+    gap: 10px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .light-meal-card > div {
+    padding: 13px 11px 15px;
+  }
+
+  .light-meal-card h3 {
+    font-size: 0.92rem;
+    min-height: 44px;
+  }
+
+  .light-meal-card strong {
+    font-size: 1rem;
+  }
+
+  .light-meal-card p {
+    font-size: 0.78rem;
+    line-height: 1.35;
+  }
+
+  .light-meals-section > .primary-action {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .beef-noodle-feature-media {
+    max-width: 310px;
+  }
+
+  .drink-category-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .drink-feature > img {
+    max-height: 340px;
+    width: min(84vw, 330px);
+  }
+
+  .homepage-visit {
+    padding-bottom: 98px;
+  }
+}

@@ -317,6 +317,8 @@
       cta_location: getLocation(link),
     }, params || {}));
 
+    if (window.__hotpotMetaStandaloneEvents) return;
+
     if (name === "phone_click") {
       window.fbq("track", "Contact", {
         content_name: "Phone Reservation",

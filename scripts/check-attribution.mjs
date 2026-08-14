@@ -37,6 +37,11 @@ for (const file of htmlFiles) {
     `${relativePath} must load /site-events.js exactly once`,
   );
   assert.equal(
+    (html.match(/src="\/meta-events-1108307461722381\.js"/g) || []).length,
+    1,
+    `${relativePath} must load the Meta Pixel event script exactly once`,
+  );
+  assert.equal(
     html.includes('src="/t662/"'),
     false,
     `${relativePath} must defer the large Google tag through /site-events.js`,
@@ -54,6 +59,7 @@ for (const file of htmlFiles) {
 }
 
 const siteEvents = await readFile(path.join(publicDir, "site-events.js"), "utf8");
+const metaEvents = await readFile(path.join(publicDir, "meta-events-1108307461722381.js"), "utf8");
 for (const requiredText of [
   "G-JN2E0S7E36",
   "1108307461722381",
@@ -78,6 +84,17 @@ for (const requiredText of [
   'window.fbq("track", "ViewContent"',
 ]) {
   assert.ok(siteEvents.includes(requiredText), `site-events.js is missing ${requiredText}`);
+}
+
+for (const requiredText of [
+  "1108307461722381",
+  "window.__hotpotMetaStandaloneEvents",
+  'window.fbq("track", "PageView")',
+  'window.fbq("track", "Contact"',
+  'window.fbq("track", "FindLocation"',
+  'window.fbq("track", "ViewContent"',
+]) {
+  assert.ok(metaEvents.includes(requiredText), `meta-events script is missing ${requiredText}`);
 }
 
 assert.equal(

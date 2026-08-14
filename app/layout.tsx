@@ -74,6 +74,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <Script src="/language-routes.js?v=20260813-bilingual" strategy="afterInteractive" />
+        <Script src="/meta-events-1108307461722381.js" strategy="afterInteractive" />
         <Script src="/site-events.js?v=20260814-poster-modal-v2" strategy="afterInteractive" />
         {children}
         <a className="reserve-sticky" href="tel:+14034553188">

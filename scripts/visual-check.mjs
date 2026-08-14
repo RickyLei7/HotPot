@@ -115,6 +115,8 @@ async function inspectPage(page) {
       complete: img.complete,
       naturalWidth: img.naturalWidth,
     }));
+    const snackImageHeights = [...document.querySelectorAll(".snack-card img")]
+      .map((img) => Math.round(img.getBoundingClientRect().height));
     return {
       title: document.title,
       metaDescriptionLength: metaDescription.length,
@@ -135,6 +137,7 @@ async function inspectPage(page) {
       stickyVisible: sticky ? sticky.width > 0 && sticky.height > 0 : false,
       homepageSectionPositions,
       lightMealImages,
+      snackImageHeights,
     };
   });
 }
@@ -253,6 +256,10 @@ try {
         if (positions.some(({ top }, index) => index > 0 && top <= positions[index - 1].top)) routeFailures.push("homepage section order is incorrect");
         if (data.lightMealImages.length !== 6) routeFailures.push(`expected 6 light meal images, found ${data.lightMealImages.length}`);
         if (data.lightMealImages.some((image) => !image.complete || image.naturalWidth === 0)) routeFailures.push("a light meal image did not load");
+        if (data.snackImageHeights.length !== 5) routeFailures.push(`expected 5 snack images, found ${data.snackImageHeights.length}`);
+        if (data.snackImageHeights.length && Math.max(...data.snackImageHeights) - Math.min(...data.snackImageHeights) > 3) {
+          routeFailures.push(`snack image heights are inconsistent: ${data.snackImageHeights.join(", ")}`);
+        }
         if (Math.abs(navTopAfterScroll ?? 999) > 1) routeFailures.push("sticky header left viewport top");
       }
 

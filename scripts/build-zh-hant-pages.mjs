@@ -167,7 +167,7 @@ function renderHomePage(data) {
     <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="preload" as="image" href="/assets/ayce-hotpot.webp" />
-    <link rel="stylesheet" href="/site.css?v=20260813-contrast" />
+    <link rel="stylesheet" href="/site.css?v=20260813-snack-ratio" />
     <script defer src="/language-routes.js?v=20260813-bilingual"></script>
     <script defer src="/site-events.js?v=20260813-bilingual"></script>
     <script type="application/ld+json">${jsonLd(data)}</script>

@@ -2371,6 +2371,7 @@ h3 {
 }
 
 .snack-showcase {
+  align-items: start;
   display: grid;
   gap: 14px;
   grid-template-columns: repeat(6, minmax(0, 1fr));
@@ -2398,6 +2399,7 @@ h3 {
 }
 
 .snack-card.is-featured img {
+  aspect-ratio: 3 / 1;
   object-position: center 42%;
 }
 

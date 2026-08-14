@@ -12,6 +12,11 @@ module.exports = {
         "/calgary-hot-pot-guide/",
         "/calgary-taiwanese-hot-pot/",
         "/ayce-hot-pot-calgary/",
+        "/zh-hant/",
+        "/zh-hant/menu/",
+        "/zh-hant/contact/",
+        "/zh-hant/calgary-hot-pot-guide/",
+        "/zh-hant/ayce-hot-pot-calgary/",
       ],
       numberOfRuns: 1,
       settings: {

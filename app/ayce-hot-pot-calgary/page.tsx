@@ -8,6 +8,11 @@ export const metadata: Metadata = {
     "AYCE hot pot in Calgary for $28.99 + tax with soup base included, four meat choices and an optional 19-snack upgrade. Call (403) 455-3188 to reserve.",
   alternates: {
     canonical: "/ayce-hot-pot-calgary",
+    languages: {
+      "en-CA": "/ayce-hot-pot-calgary/",
+      "zh-Hant-CA": "/zh-hant/ayce-hot-pot-calgary/",
+      "x-default": "/ayce-hot-pot-calgary/",
+    },
   },
   openGraph: {
     title: "AYCE Hot Pot Calgary $28.99 | 15 Soup Bases & 19 Snacks",
@@ -112,7 +117,7 @@ export default function AyceHotPotCalgaryPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(ayceSchema) }}
       />
-      <SiteNav />
+      <SiteNav currentPath="/ayce-hot-pot-calgary/" />
 
       <section className="page-hero guide-page-hero">
         <div>

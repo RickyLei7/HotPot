@@ -8,6 +8,11 @@ export const metadata: Metadata = {
     "Centre Street Japanese HotPot serves Taiwanese-style individual hot pot in Calgary with 15 soup bases, AYCE hot pot, Taiwanese snacks, milk tea, and table reservations by phone.",
   alternates: {
     canonical: "/calgary-taiwanese-hot-pot",
+    languages: {
+      "en-CA": "/calgary-taiwanese-hot-pot/",
+      "zh-Hant-CA": "/zh-hant/calgary-taiwanese-hot-pot/",
+      "x-default": "/calgary-taiwanese-hot-pot/",
+    },
   },
   openGraph: {
     title: "Taiwanese Hot Pot Calgary | 鼎鑽火鍋 Centre Street",
@@ -86,7 +91,7 @@ export default function CalgaryTaiwaneseHotPotPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(pageSchema) }}
       />
-      <SiteNav />
+      <SiteNav currentPath="/calgary-taiwanese-hot-pot/" />
 
       <section className="page-hero guide-page-hero">
         <div>

@@ -11,6 +11,10 @@
     if (window.__hotpotGoogleTagLoading) return;
     window.__hotpotGoogleTagLoading = true;
 
+    if (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1") {
+      return;
+    }
+
     var script = document.createElement("script");
     script.async = true;
     script.src = "/t662/";
@@ -45,9 +49,21 @@
   }
 
   if (!window.__hotpotGaConfigured) {
+    var initialPageLanguage = document.documentElement.lang || "en-CA";
+    var initialSiteLanguage = initialPageLanguage === "zh-Hant" ? "zh-Hant" : "en";
     window.gtag("js", new Date());
-    window.gtag("config", measurementId);
-    window.gtag("config", googleAdsId);
+    window.gtag("set", {
+      site_language: initialSiteLanguage,
+      page_language: initialPageLanguage,
+    });
+    window.gtag("config", measurementId, {
+      site_language: initialSiteLanguage,
+      page_language: initialPageLanguage,
+    });
+    window.gtag("config", googleAdsId, {
+      site_language: initialSiteLanguage,
+      page_language: initialPageLanguage,
+    });
     window.__hotpotGaConfigured = true;
   }
   window.__hotpotAnalyticsReady = true;
@@ -63,6 +79,8 @@
       campaign_name: campaignParams.get("utm_campaign") || "",
       campaign_content: campaignParams.get("utm_content") || "",
       page_path: window.location.pathname,
+      site_language: pageLanguage(),
+      page_language: document.documentElement.lang || "en-CA",
     });
     window.__hotpotCampaignLandingSent = true;
   }
@@ -71,6 +89,8 @@
       page_path: window.location.pathname,
       landing_page: window.location.pathname,
       ads_click_id_present: true,
+      site_language: pageLanguage(),
+      page_language: document.documentElement.lang || "en-CA",
     });
     window.__hotpotGoogleAdsLandingSent = true;
   }
@@ -88,12 +108,18 @@
     return "page";
   }
 
+  function pageLanguage() {
+    return document.documentElement.lang === "zh-Hant" ? "zh-Hant" : "en";
+  }
+
   function sendEvent(name, link, params) {
     window.gtag("event", name, Object.assign({
       link_text: getText(link),
       link_url: link.href,
       cta_location: getLocation(link),
       page_path: window.location.pathname,
+      site_language: pageLanguage(),
+      page_language: document.documentElement.lang || "en-CA",
     }, params || {}));
   }
 
@@ -168,6 +194,16 @@
     var href = link.getAttribute("href") || "";
     var text = getText(link).toLowerCase();
     var platform = socialPlatform(href);
+
+    if (link.classList && link.classList.contains("language-option")) {
+      sendEvent("language_switch", link, {
+        from_language: pageLanguage(),
+        to_language: link.getAttribute("hreflang") === "zh-Hant-CA" ? "zh-Hant" : "en",
+        source_path: window.location.pathname,
+        destination_path: new URL(link.href, window.location.href).pathname,
+      });
+      return;
+    }
 
     if (href.indexOf("tel:") === 0) {
       loadGoogleTag();

@@ -8,6 +8,11 @@ export const metadata: Metadata = {
     "Explore AYCE hot pot, Taiwanese and Japanese-style hot pot, soup bases, meats, rice and noodle bowls, Taiwanese snacks, and milk tea at Centre Street Japanese HotPot.",
   alternates: {
     canonical: "/menu",
+    languages: {
+      "en-CA": "/menu/",
+      "zh-Hant-CA": "/zh-hant/menu/",
+      "x-default": "/menu/",
+    },
   },
   openGraph: {
     title: "Hot Pot Menu Calgary | AYCE Hot Pot & Snacks",
@@ -175,7 +180,7 @@ export default function MenuPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(menuJsonLd) }}
       />
-      <SiteNav />
+      <SiteNav currentPath="/menu/" />
 
       <section className="page-hero menu-page-hero">
         <div>

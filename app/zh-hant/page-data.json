@@ -1,0 +1,456 @@
+{
+  "home": {
+    "path": "/zh-hant/",
+    "englishPath": "/",
+    "schemaType": "WebPage",
+    "title": "卡加利火鍋自助與一人一鍋｜鼎鑽火鍋",
+    "description": "鼎鑽火鍋位於卡加利 Centre Street，提供 $28.99 火鍋自助、15 款湯底、台式與日式風格一人一鍋、台式小吃與奶茶。致電預訂座位。",
+    "eyebrow": "卡加利台式與日式風格火鍋",
+    "h1": "卡加利火鍋自助，$28.99 + 稅。",
+    "lead": "鼎鑽火鍋 Centre Street Japanese HotPot 提供火鍋自助與一人一鍋。火鍋自助包含鍋底，肉品由服務員協助下單；想確認今天座位，請先致電預訂。",
+    "image": "/assets/ayce-hotpot-menu-preview.webp",
+    "imageAlt": "鼎鑽火鍋 $28.99 火鍋自助菜單",
+    "actions": [
+      { "label": "致電 (403) 455-3188 訂位", "href": "tel:+14034553188", "style": "primary-action" },
+      { "label": "查看火鍋自助", "href": "/zh-hant/ayce-hot-pot-calgary/", "style": "secondary-action" },
+      { "label": "查看完整菜單", "href": "/zh-hant/menu/", "style": "secondary-action" }
+    ],
+    "facts": [
+      { "value": "$28.99", "label": "火鍋自助，另加稅" },
+      { "value": "15", "label": "款特色湯底" },
+      { "value": "+$3.99", "label": "19 款小吃任點／人" },
+      { "value": "1.5 小時", "label": "火鍋自助用餐時間" }
+    ],
+    "sections": [
+      {
+        "eyebrow": "選擇適合你的吃法",
+        "title": "火鍋自助或一人一鍋，都能各自選湯底。",
+        "paragraphs": ["喜歡吃到飽，可以選擇 $28.99 + 稅火鍋自助；想吃得簡單，也有個人火鍋套餐與雙人套餐。每位客人都能選擇自己的湯底與辣度。"],
+        "cards": [
+          { "title": "火鍋自助", "text": "鍋底包含在 $28.99 + 稅價格內，可選 AAA 牛肉、羊肉、豬肉或雞肉，由服務員協助下單。" },
+          { "title": "一人一鍋", "text": "適合第一次吃火鍋、不同口味的家人朋友，以及想自己選湯底的客人。" },
+          { "title": "小吃與奶茶", "text": "可搭配鹽酥雞、章魚小丸子、炸物、飯麵與珍珠奶茶，讓聚餐選擇更完整。" }
+        ]
+      },
+      {
+        "eyebrow": "到店資訊",
+        "title": "位於卡加利 Centre Street。",
+        "paragraphs": ["地址：2213 Centre St N #2243, Calgary, AB T2E 2T4。週一至週五 17:00-22:30；週六、週日 12:00-22:30。家庭聚餐、朋友聚會或多人用餐，建議先致電 (403) 455-3188 訂位。"],
+        "cards": [
+          { "title": "適合家庭與朋友", "text": "一人一鍋讓大家可以選不同湯底，適合家庭聚餐、朋友相聚與團體用餐。" },
+          { "title": "第一次吃火鍋", "text": "不知道怎麼點餐也沒關係，可以先看第一次吃火鍋指南，或到店詢問服務人員。" }
+        ]
+      }
+    ],
+    "faqs": [
+      { "question": "鼎鑽火鍋有火鍋自助嗎？", "answer": "有。火鍋自助為 $28.99 + 稅，包含鍋底，肉品由服務員協助下單，用餐時間為 1.5 小時。" },
+      { "question": "需要預訂座位嗎？", "answer": "可以直接到店，但週末、團體聚餐或想確認當天座位時，建議致電 (403) 455-3188。" }
+    ]
+  },
+  "about": {
+    "path": "/zh-hant/about/",
+    "englishPath": "/about/",
+    "schemaType": "AboutPage",
+    "title": "關於鼎鑽火鍋｜Centre Street Japanese HotPot",
+    "description": "了解位於卡加利的鼎鑽火鍋：以台式與日式風格火鍋為靈感，重視新鮮食材、特色湯底、舒適環境與親切服務。",
+    "eyebrow": "關於我們",
+    "h1": "關於鼎鑽火鍋",
+    "lead": "我們相信火鍋不只是美食，更是與家人朋友一起分享時間的方式。鼎鑽火鍋以台式與日式風格一人一鍋為特色，希望讓每位客人都能舒服地選擇自己喜歡的味道。",
+    "image": "/assets/soup-lineup.webp",
+    "imageAlt": "鼎鑽火鍋多款特色湯底與火鍋食材",
+    "actions": [
+      { "label": "查看菜單", "href": "/zh-hant/menu/", "style": "primary-action" },
+      { "label": "致電訂位", "href": "tel:+14034553188", "style": "secondary-action" }
+    ],
+    "facts": [
+      { "value": "台式", "label": "熟悉溫暖的風味" },
+      { "value": "日式", "label": "講究食材與細節" },
+      { "value": "一人一鍋", "label": "每人選擇自己的湯底" },
+      { "value": "卡加利", "label": "服務本地社區" }
+    ],
+    "sections": [
+      {
+        "eyebrow": "我們重視的事",
+        "title": "新鮮、穩定，也讓人感到自在。",
+        "paragraphs": ["我們精選肉品、海鮮、蔬菜與多款湯底，希望每份食材都能呈現自然風味。無論是家庭聚餐、朋友相聚、節日慶祝，或第一次體驗火鍋，都能在這裡慢慢吃一頓舒服的飯。"],
+        "cards": [
+          { "title": "多款特色湯底", "text": "從壽喜燒、番茄、味噌到麻辣與泡菜，讓不同口味的客人各自選擇。" },
+          { "title": "肉品、海鮮與蔬菜", "text": "火鍋的味道從食材開始，因此我們重視新鮮、品質與每次出餐的穩定。" },
+          { "title": "適合一起聚餐", "text": "舒適現代的用餐環境，適合家庭、朋友、團體與日常晚餐。" }
+        ]
+      },
+      {
+        "eyebrow": "謝謝你的支持",
+        "title": "期待一次又一次在鼎鑽火鍋見到你。",
+        "paragraphs": ["鼎鑽火鍋位於 2213 Centre St N #2243。感謝每一位來店用餐、分享照片與留下意見的客人；我們會繼續把每一頓火鍋做好。"]
+      }
+    ],
+    "faqs": []
+  },
+  "menu": {
+    "path": "/zh-hant/menu/",
+    "englishPath": "/menu/",
+    "schemaType": "WebPage",
+    "title": "鼎鑽火鍋菜單｜卡加利火鍋自助、套餐與小吃",
+    "description": "查看鼎鑽火鍋繁中菜單：$28.99 火鍋自助、15 款湯底、一人一鍋套餐、肉品海鮮、飯麵、台式小吃、奶茶與完整菜單 PDF。",
+    "eyebrow": "鼎鑽火鍋菜單",
+    "h1": "火鍋自助、套餐、小吃與奶茶。",
+    "lead": "先比較火鍋自助與一人一鍋，再查看湯底、飯麵、小吃和飲品。網站文字方便快速瀏覽，完整菜單圖片與 PDF 也可以直接開啟或下載。",
+    "image": "/assets/dish-sukiyaki.webp",
+    "imageAlt": "鼎鑽火鍋日式壽喜鍋與新鮮火鍋食材",
+    "actions": [
+      { "label": "致電訂位", "href": "tel:+14034553188", "style": "primary-action" },
+      { "label": "開啟完整菜單 PDF", "href": "/menu/centre-street-japanese-hotpot-menu.pdf", "style": "secondary-action" },
+      { "label": "查看火鍋自助", "href": "/zh-hant/ayce-hot-pot-calgary/", "style": "secondary-action" }
+    ],
+    "facts": [
+      { "value": "$28.99", "label": "火鍋自助，另加稅" },
+      { "value": "$24.99", "label": "個人火鍋套餐" },
+      { "value": "15", "label": "款湯底" },
+      { "value": "+$2", "label": "鴛鴦鍋升級" }
+    ],
+    "sections": [
+      {
+        "eyebrow": "火鍋自助",
+        "title": "$28.99 + 稅，鍋底包含在內。",
+        "paragraphs": ["肉品包括 AAA 牛肉、羊肉、豬肉與雞肉，每份 100g，由服務員協助下單。用餐時間 1.5 小時。19 款小吃任點升級為 +$3.99／人，同桌客人必須一起升級。兒童身高 100cm 以下免費，100-140cm 為 $12.99，超過 140cm 為成人價。"],
+        "cards": [
+          { "title": "肉品選擇", "text": "AAA 牛肉、羊肉、豬肉、雞肉，每次由服務員協助下單。" },
+          { "title": "19 款小吃任點", "text": "包括台式鹽酥雞、章魚小丸子、香酥雞排、黃金炸饅頭、酥炸魷魚鬚、薯條、洋蔥圈、春捲等。" },
+          { "title": "用餐規則", "text": "限時 1.5 小時；請按需要點餐，避免浪費。" }
+        ]
+      },
+      {
+        "eyebrow": "一人一鍋與套餐",
+        "title": "想吃得簡單，也有個人與雙人選擇。",
+        "paragraphs": ["個人火鍋套餐 $24.99，包含一份個人火鍋與一杯飲品。雙人火鍋套餐 $58.99，包含兩份個人火鍋、兩杯飲品與一份小吃。鴛鴦鍋升級 +$2；搭配火鍋或主食，飲品可享九折。"],
+        "cards": [
+          { "title": "個人火鍋套餐", "text": "$24.99：一份個人火鍋與一杯飲品，價格另加稅。" },
+          { "title": "雙人火鍋套餐", "text": "$58.99：兩份個人火鍋、兩杯飲品與一份小吃，價格另加稅。" }
+        ]
+      },
+      {
+        "eyebrow": "15 款湯底",
+        "title": "每個人都能選自己喜歡的湯。",
+        "paragraphs": ["雞肉麻辣鍋、麻辣鍋、日式壽喜鍋、冬蔭功、藥膳鍋、雞湯鍋、豬骨鍋、麻油鍋、酸菜鍋、咖哩鍋、沙茶鍋、泡菜鍋、牛奶鍋、番茄鍋與味噌鍋。"],
+        "cards": [
+          { "title": "肉品與海鮮", "text": "可依菜單選擇牛肉、羊肉、豬肉、雞肉、海鮮與其他火鍋配料。" },
+          { "title": "飯麵與主食", "text": "包括台灣傳統牛肉麵、飯類、麵類與其他主食選擇。" },
+          { "title": "奶茶與飲品", "text": "可搭配珍珠奶茶與其他飲品；詳細口味與價格請以最新菜單為準。" }
+        ]
+      },
+      {
+        "eyebrow": "完整菜單",
+        "title": "查看最新菜單圖片與 PDF。",
+        "paragraphs": ["完整菜單包括火鍋、肉品海鮮、飯麵、小吃與飲品。價格與供應可能調整，到店前如有特定需求可致電 (403) 455-3188。"],
+        "cards": [
+          { "title": "火鍋與小吃頁", "text": "查看火鍋套餐、配料、湯底與台式小吃。" },
+          { "title": "飯麵與飲品頁", "text": "查看飯麵主食、奶茶與其他飲品。" }
+        ]
+      }
+    ],
+    "faqs": []
+  },
+  "faq": {
+    "path": "/zh-hant/faq/",
+    "englishPath": "/faq/",
+    "schemaType": "FAQPage",
+    "title": "鼎鑽火鍋常見問題｜訂位、火鍋自助與地址",
+    "description": "鼎鑽火鍋常見問題：是否接受訂位、$28.99 火鍋自助規則、15 款湯底、海鮮與小吃、兒童價格、團體用餐、地址及營業時間。",
+    "eyebrow": "常見問題",
+    "h1": "到鼎鑽火鍋用餐前，先看這裡。",
+    "lead": "以下整理訂位、火鍋自助、一人一鍋、菜單、地址與營業時間。若要確認今天座位或最新供應，直接致電最準確。",
+    "image": "/assets/dish-spicy.webp",
+    "imageAlt": "鼎鑽火鍋麻辣鍋與火鍋配料",
+    "actions": [
+      { "label": "致電詢問與訂位", "href": "tel:+14034553188", "style": "primary-action" },
+      { "label": "查看菜單", "href": "/zh-hant/menu/", "style": "secondary-action" }
+    ],
+    "facts": [
+      { "value": "電話", "label": "可致電預訂座位" },
+      { "value": "$28.99", "label": "火鍋自助，另加稅" },
+      { "value": "15", "label": "款湯底" },
+      { "value": "一人一鍋", "label": "每人選自己的湯底" }
+    ],
+    "sections": [],
+    "faqs": [
+      { "question": "鼎鑽火鍋接受訂位嗎？", "answer": "接受。請致電 (403) 455-3188 預訂；週末、多人聚餐或想確認當天座位時，建議提前來電。" },
+      { "question": "火鍋自助多少錢？", "answer": "火鍋自助為 $28.99 + 稅，包含鍋底，肉品由服務員協助下單，用餐時間為 1.5 小時。" },
+      { "question": "小吃任點如何計費？", "answer": "19 款小吃任點升級為 +$3.99／人，同一桌所有客人都必須一起升級。" },
+      { "question": "兒童火鍋自助如何收費？", "answer": "身高 100cm 以下免費；100-140cm 為 $12.99；超過 140cm 按成人價收費。" },
+      { "question": "有多少款湯底？", "answer": "目前菜單列有 15 款湯底，包括壽喜燒、番茄、味噌、牛奶、泡菜、麻辣、冬蔭功、沙茶等選擇。" },
+      { "question": "有海鮮、小吃與奶茶嗎？", "answer": "有。菜單包含肉品、海鮮、蔬菜、飯麵、台式小吃、珍珠奶茶與其他飲品。" },
+      { "question": "適合家庭或朋友聚餐嗎？", "answer": "適合。一人一鍋讓每位客人選擇自己的湯底，也有火鍋自助和多人用餐選擇。" },
+      { "question": "鼎鑽火鍋在哪裡？", "answer": "地址是 2213 Centre St N #2243, Calgary, AB T2E 2T4。" },
+      { "question": "營業時間是什麼？", "answer": "週一至週五 17:00-22:30；週六、週日 12:00-22:30。" }
+    ]
+  },
+  "contact": {
+    "path": "/zh-hant/contact/",
+    "englishPath": "/contact/",
+    "schemaType": "ContactPage",
+    "title": "鼎鑽火鍋地址與訂位｜卡加利 Centre Street",
+    "description": "鼎鑽火鍋位於 2213 Centre St N #2243, Calgary。查看電話、Google 地圖、營業時間、火鍋自助資訊與團體訂位方式。",
+    "eyebrow": "聯絡與地址",
+    "h1": "致電訂位，或直接導航到鼎鑽火鍋。",
+    "lead": "想確認今天座位、週末聚餐或團體用餐，請致電 (403) 455-3188。我們位於卡加利 Centre Street，設有火鍋自助與一人一鍋。",
+    "image": "/assets/hero-beef-noodle.webp",
+    "imageAlt": "鼎鑽火鍋台灣傳統牛肉麵與餐點",
+    "actions": [
+      { "label": "致電 (403) 455-3188", "href": "tel:+14034553188", "style": "primary-action" },
+      { "label": "Google 地圖導航", "href": "https://www.google.com/maps/dir/?api=1&destination=2213+Centre+St+N+%232243%2C+Calgary%2C+AB+T2E+2T4", "style": "secondary-action" },
+      { "label": "查看菜單", "href": "/zh-hant/menu/", "style": "secondary-action" }
+    ],
+    "facts": [
+      { "value": "2213", "label": "Centre St N #2243" },
+      { "value": "5:00 PM", "label": "週一至週五開始營業" },
+      { "value": "12:00 PM", "label": "週末開始營業" },
+      { "value": "10:30 PM", "label": "每日結束營業" }
+    ],
+    "sections": [
+      {
+        "eyebrow": "店鋪資料",
+        "title": "2213 Centre St N #2243, Calgary, AB T2E 2T4",
+        "paragraphs": ["電話：(403) 455-3188。電子郵件：CentreStJHotpot@gmail.com。週一至週五 17:00-22:30；週六、週日 12:00-22:30。"],
+        "cards": [
+          { "title": "訂位與團體用餐", "text": "週末、節日、多人聚餐或想確認當天座位時，建議先致電。" },
+          { "title": "開車與導航", "text": "點選 Google 地圖導航到 2213 Centre St N #2243，出發前可再次確認路線。" },
+          { "title": "火鍋自助", "text": "$28.99 + 稅，鍋底包含在內；肉品由服務員協助下單，限時 1.5 小時，小吃任點升級 +$3.99／人。" }
+        ]
+      }
+    ],
+    "faqs": [
+      { "question": "可以當天打電話訂位嗎？", "answer": "可以。請致電 (403) 455-3188 詢問當天座位；實際安排以店內回覆為準。" },
+      { "question": "鼎鑽火鍋離 Centre Street 近嗎？", "answer": "店鋪就在 2213 Centre St N #2243，位於卡加利 Centre Street。" }
+    ]
+  },
+  "restaurantInfo": {
+    "path": "/zh-hant/restaurant-info/",
+    "englishPath": "/restaurant-info/",
+    "schemaType": "WebPage",
+    "title": "鼎鑽火鍋官方資料｜地址、菜單、價格與營業時間",
+    "description": "鼎鑽火鍋官方餐廳資料：卡加利地址、電話、營業時間、$28.99 火鍋自助、15 款湯底、菜單、訂位方式及適合用餐情境。",
+    "eyebrow": "官方餐廳資料",
+    "h1": "鼎鑽火鍋的地址、菜單與用餐方式。",
+    "lead": "這一頁集中整理 Centre Street Japanese HotPot／鼎鑽火鍋的最新基本資料，方便客人、搜尋引擎與 AI 查找一致的地址、價格、營業時間和訂位方式。",
+    "image": "/assets/brand-logo-wide.webp",
+    "imageAlt": "Centre Street Japanese HotPot 鼎鑽火鍋標誌",
+    "actions": [
+      { "label": "致電訂位", "href": "tel:+14034553188", "style": "primary-action" },
+      { "label": "查看菜單", "href": "/zh-hant/menu/", "style": "secondary-action" },
+      { "label": "地圖導航", "href": "https://www.google.com/maps/dir/?api=1&destination=2213+Centre+St+N+%232243%2C+Calgary%2C+AB+T2E+2T4", "style": "secondary-action" }
+    ],
+    "facts": [
+      { "value": "$28.99", "label": "火鍋自助，另加稅" },
+      { "value": "15", "label": "款湯底" },
+      { "value": "+$3.99", "label": "19 款小吃任點／人" },
+      { "value": "1.5 小時", "label": "火鍋自助限時" }
+    ],
+    "sections": [
+      {
+        "eyebrow": "核心資料",
+        "title": "Centre Street Japanese HotPot／鼎鑽火鍋",
+        "paragraphs": ["餐廳類型：台式與日式風格火鍋、一人一鍋、火鍋自助、台式小吃、飯麵與奶茶。地址：2213 Centre St N #2243, Calgary, AB T2E 2T4。電話：(403) 455-3188。"],
+        "cards": [
+          { "title": "營業時間", "text": "週一至週五 17:00-22:30；週六、週日 12:00-22:30。" },
+          { "title": "訂位", "text": "接受電話訂位；家庭、朋友、團體及週末用餐建議提前致電。" },
+          { "title": "適合誰", "text": "適合第一次吃火鍋、一人一鍋、家庭晚餐、朋友聚會與多人用餐。" }
+        ]
+      },
+      {
+        "eyebrow": "火鍋自助資料",
+        "title": "$28.99 + 稅，包含鍋底。",
+        "paragraphs": ["肉品由服務員協助下單，用餐時間 1.5 小時。19 款小吃任點升級 +$3.99／人，同桌客人必須一起升級。兒童 100cm 以下免費，100-140cm 為 $12.99，超過 140cm 為成人價。"]
+      }
+    ],
+    "faqs": [
+      { "question": "鼎鑽火鍋的英文店名是什麼？", "answer": "英文店名是 Centre Street Japanese HotPot，中文店名是鼎鑽火鍋。" },
+      { "question": "如何確認最新座位與供應？", "answer": "請致電 (403) 455-3188；當天座位與個別品項供應以店內回覆為準。" }
+    ]
+  },
+  "hotPotGuide": {
+    "path": "/zh-hant/calgary-hot-pot-guide/",
+    "englishPath": "/calgary-hot-pot-guide/",
+    "schemaType": "Article",
+    "title": "卡加利火鍋指南｜一人一鍋、火鍋自助與聚餐",
+    "description": "卡加利火鍋用餐指南：比較 $28.99 火鍋自助與一人一鍋、了解 15 款湯底、小吃、奶茶、家庭團體用餐、地址及訂位方式。",
+    "eyebrow": "卡加利火鍋指南",
+    "h1": "怎麼選卡加利火鍋：先看用餐方式與同行的人。",
+    "lead": "選火鍋不只看辣不辣，也要看每個人是否想選不同湯底、是否偏好吃到飽，以及同行的是家庭、朋友還是團體。鼎鑽火鍋提供一人一鍋和火鍋自助兩種主要選擇。",
+    "image": "/assets/dish-sukiyaki.webp",
+    "imageAlt": "卡加利鼎鑽火鍋一人一鍋與壽喜鍋",
+    "actions": [
+      { "label": "查看繁中菜單", "href": "/zh-hant/menu/", "style": "primary-action" },
+      { "label": "查看火鍋自助", "href": "/zh-hant/ayce-hot-pot-calgary/", "style": "secondary-action" },
+      { "label": "致電訂位", "href": "tel:+14034553188", "style": "secondary-action" }
+    ],
+    "facts": [
+      { "value": "一人一鍋", "label": "每人選自己的湯底" },
+      { "value": "$28.99", "label": "火鍋自助，另加稅" },
+      { "value": "15", "label": "款特色湯底" },
+      { "value": "Centre St", "label": "卡加利店鋪位置" }
+    ],
+    "sections": [
+      {
+        "eyebrow": "先決定用餐方式",
+        "title": "火鍋自助適合想多吃肉；套餐適合簡單完整的一餐。",
+        "paragraphs": ["火鍋自助 $28.99 + 稅，鍋底包含在內，肉品由服務員協助下單，限時 1.5 小時。個人火鍋套餐 $24.99，包含一份個人火鍋與一杯飲品；雙人套餐 $58.99，包含兩份火鍋、兩杯飲品與一份小吃。"],
+        "cards": [
+          { "title": "不同口味的朋友", "text": "一人一鍋讓每個人選擇自己的湯底和辣度，不需要全桌吃同一鍋。" },
+          { "title": "家庭與兒童", "text": "可以選擇不辣湯底；火鍋自助兒童價格依身高計算。" },
+          { "title": "多人聚餐", "text": "團體或週末聚餐建議先致電，確認座位與當天安排。" }
+        ]
+      },
+      {
+        "eyebrow": "鼎鑽火鍋的特色",
+        "title": "台式與日式風格一人一鍋，加上台式小吃與奶茶。",
+        "paragraphs": ["菜單提供 15 款湯底、肉品海鮮、蔬菜、飯麵、鹽酥雞等小吃和奶茶。店鋪位於 2213 Centre St N #2243；請致電 (403) 455-3188 詢問座位。"]
+      }
+    ],
+    "faqs": [
+      { "question": "第一次吃火鍋適合選套餐還是自助？", "answer": "想簡單完成一餐可以先選個人套餐；想多次加點肉品，可以選 $28.99 + 稅火鍋自助。" },
+      { "question": "卡加利多人吃火鍋需要訂位嗎？", "answer": "不是所有時段都必須訂位，但週末、節日或多人聚餐建議致電 (403) 455-3188。" }
+    ]
+  },
+  "taiwaneseHotPot": {
+    "path": "/zh-hant/calgary-taiwanese-hot-pot/",
+    "englishPath": "/calgary-taiwanese-hot-pot/",
+    "schemaType": "Article",
+    "title": "卡加利台式火鍋與一人一鍋｜鼎鑽火鍋",
+    "description": "想找卡加利台式火鍋或台灣火鍋？鼎鑽火鍋提供一人一鍋、$28.99 火鍋自助、15 款湯底、台式小吃、飯麵與奶茶。",
+    "eyebrow": "卡加利台式火鍋",
+    "h1": "台式火鍋與一人一鍋，在卡加利 Centre Street。",
+    "lead": "鼎鑽火鍋把台式火鍋熟悉的湯底、小吃與奶茶，結合日式風格一人一鍋的用餐方式。每位客人都能選擇自己的湯底，也可以選火鍋自助或個人套餐。",
+    "image": "/assets/dish-spicy.webp",
+    "imageAlt": "卡加利鼎鑽火鍋台式麻辣個人鍋",
+    "actions": [
+      { "label": "查看繁中菜單", "href": "/zh-hant/menu/", "style": "primary-action" },
+      { "label": "致電訂位", "href": "tel:+14034553188", "style": "secondary-action" }
+    ],
+    "facts": [
+      { "value": "台式", "label": "湯底、小吃與熟悉風味" },
+      { "value": "一人一鍋", "label": "各自選湯與辣度" },
+      { "value": "15", "label": "款湯底" },
+      { "value": "$28.99", "label": "火鍋自助，另加稅" }
+    ],
+    "sections": [
+      {
+        "eyebrow": "台式與日式風格的交集",
+        "title": "各自選鍋，也能一起分享小吃。",
+        "paragraphs": ["台式小火鍋和日式個人鍋都重視個人湯底與食材搭配。鼎鑽火鍋提供麻辣、沙茶、酸菜、泡菜、番茄、味噌、壽喜燒等 15 款湯底，再搭配肉品、海鮮、蔬菜、飯或麵。"],
+        "cards": [
+          { "title": "卡加利一人一鍋", "text": "同行的人可以選不同口味，不辣、麻辣、番茄或壽喜燒都能同桌用餐。" },
+          { "title": "台式小吃", "text": "可搭配鹽酥雞、雞排、炸物、春捲、薯條與奶茶。" },
+          { "title": "火鍋自助", "text": "$28.99 + 稅，鍋底包含在內，肉品由服務員協助下單，限時 1.5 小時；小吃任點升級 +$3.99／人。" }
+        ]
+      },
+      {
+        "eyebrow": "店鋪位置",
+        "title": "在卡加利哪裡可以吃台式火鍋？",
+        "paragraphs": ["鼎鑽火鍋位於 2213 Centre St N #2243, Calgary, AB T2E 2T4。想找卡加利台式火鍋、台灣火鍋 卡加利、卡加利一人一鍋或朋友家庭聚餐，可以致電 (403) 455-3188 確認座位。"]
+      }
+    ],
+    "faqs": [
+      { "question": "鼎鑽火鍋是台式還是日式火鍋？", "answer": "餐廳提供台式與日式風格的一人一鍋，並有台式小吃、飯麵、奶茶與火鍋自助。" },
+      { "question": "可以每個人選不同湯底嗎？", "answer": "可以。一人一鍋讓每位客人各自選擇湯底與辣度。" }
+    ]
+  },
+  "firstTime": {
+    "path": "/zh-hant/first-time-hot-pot-calgary/",
+    "englishPath": "/first-time-hot-pot-calgary/",
+    "schemaType": "Article",
+    "title": "第一次吃火鍋怎麼點｜卡加利一人一鍋指南",
+    "description": "第一次在卡加利吃火鍋？了解如何選湯底、套餐或 $28.99 火鍋自助、肉品蔬菜、飯麵、小吃、用餐時間與訂位方式。",
+    "eyebrow": "第一次吃火鍋",
+    "h1": "第一次吃火鍋，不需要知道所有規則。",
+    "lead": "先選喜歡的湯底，再決定要吃個人套餐或火鍋自助，接著搭配肉品、蔬菜、飯或麵。想和朋友分享，也可以加點台式小吃與奶茶。",
+    "image": "/assets/dish-sukiyaki.webp",
+    "imageAlt": "第一次吃火鍋可選擇日式壽喜鍋與個人火鍋食材",
+    "actions": [
+      { "label": "查看繁中菜單", "href": "/zh-hant/menu/", "style": "primary-action" },
+      { "label": "致電訂位", "href": "tel:+14034553188", "style": "secondary-action" }
+    ],
+    "facts": [
+      { "value": "第 1 步", "label": "選湯底與辣度" },
+      { "value": "第 2 步", "label": "選套餐或火鍋自助" },
+      { "value": "第 3 步", "label": "煮肉品、蔬菜與主食" },
+      { "value": "最後", "label": "搭配小吃或奶茶" }
+    ],
+    "sections": [
+      {
+        "eyebrow": "簡單點餐順序",
+        "title": "先選湯，再選你今天想吃多少。",
+        "paragraphs": ["不吃辣可以從雞湯、番茄、味噌、牛奶或壽喜燒開始。喜歡重口味可以考慮麻辣、沙茶、泡菜、酸菜或冬蔭功。個人套餐適合簡單完整的一餐；火鍋自助適合想多次加點肉品的客人。"],
+        "cards": [
+          { "title": "個人火鍋套餐", "text": "$24.99，包含一份個人火鍋與一杯飲品，適合第一次來店或想控制份量。" },
+          { "title": "火鍋自助", "text": "$28.99 + 稅，鍋底包含在內，肉品由服務員協助下單，用餐時間 1.5 小時。" },
+          { "title": "小吃任點升級", "text": "+$3.99／人可升級 19 款小吃任點；同桌客人必須一起升級。" }
+        ]
+      },
+      {
+        "eyebrow": "用餐小提醒",
+        "title": "少量下鍋、煮熟再吃，需要時再加點。",
+        "paragraphs": ["肉片和蔬菜可以分次下鍋，避免一次放太多。不同食材所需時間不同，雞肉與豬肉請確實煮熟。若不確定怎麼操作，可以直接詢問服務人員。店鋪地址為 2213 Centre St N #2243；請致電 (403) 455-3188 訂位。"]
+      }
+    ],
+    "faqs": [
+      { "question": "第一次吃火鍋應該選什麼湯底？", "answer": "想吃清淡可以選雞湯、番茄、味噌或壽喜燒；喜歡辣味可以選麻辣、泡菜或冬蔭功。" },
+      { "question": "一人一鍋需要和朋友選同一種湯嗎？", "answer": "不需要。每位客人都可以選擇自己的湯底與辣度。" },
+      { "question": "第一次吃適合火鍋自助嗎？", "answer": "可以；如果想先熟悉點餐方式，也可以選個人火鍋套餐。" }
+    ]
+  },
+  "ayce": {
+    "path": "/zh-hant/ayce-hot-pot-calgary/",
+    "englishPath": "/ayce-hot-pot-calgary/",
+    "schemaType": "WebPage",
+    "title": "卡加利火鍋自助 $28.99｜鼎鑽火鍋 AYCE",
+    "description": "鼎鑽火鍋卡加利火鍋自助 $28.99 + 稅，包含鍋底與服務員協助下單的肉品；15 款湯底，19 款小吃任點升級 +$3.99／人。",
+    "eyebrow": "卡加利火鍋自助",
+    "h1": "$28.99 + 稅火鍋自助，現在供應中。",
+    "lead": "價格包含鍋底，可選 AAA 牛肉、羊肉、豬肉或雞肉，由服務員協助下單。用餐時間 1.5 小時；另加 +$3.99／人可升級 19 款小吃任點，同桌客人必須一起升級。",
+    "image": "/assets/ayce-hotpot-menu-preview.webp",
+    "imageAlt": "鼎鑽火鍋卡加利 $28.99 火鍋自助完整菜單",
+    "actions": [
+      { "label": "致電 (403) 455-3188 訂位", "href": "tel:+14034553188", "style": "primary-action" },
+      { "label": "Google 地圖導航", "href": "https://www.google.com/maps/dir/?api=1&destination=2213+Centre+St+N+%232243%2C+Calgary%2C+AB+T2E+2T4", "style": "secondary-action" },
+      { "label": "查看繁中菜單", "href": "/zh-hant/menu/", "style": "secondary-action" }
+    ],
+    "facts": [
+      { "value": "$28.99", "label": "成人價格，另加稅" },
+      { "value": "15", "label": "款湯底" },
+      { "value": "+$3.99", "label": "19 款小吃任點／人" },
+      { "value": "1.5 小時", "label": "用餐時間" }
+    ],
+    "sections": [
+      {
+        "eyebrow": "火鍋自助包括什麼",
+        "title": "鍋底包含在內，肉品由服務員協助下單。",
+        "paragraphs": ["可選 AAA 牛肉、羊肉、豬肉與雞肉，每份 100g。請依照需要點餐，吃完再加點，避免浪費。實際座位與個別品項供應請致電確認。"],
+        "cards": [
+          { "title": "15 款湯底", "text": "包括壽喜燒、番茄、味噌、牛奶、泡菜、麻辣、沙茶、酸菜、冬蔭功等。" },
+          { "title": "肉品選擇", "text": "AAA 牛肉、羊肉、豬肉與雞肉，每份 100g，由服務員協助下單。" },
+          { "title": "兒童價格", "text": "100cm 以下免費；100-140cm 為 $12.99；超過 140cm 按成人價收費。" }
+        ]
+      },
+      {
+        "eyebrow": "19 款小吃任點",
+        "title": "+$3.99／人，讓火鍋聚餐選擇更多。",
+        "paragraphs": ["小吃包括台式鹽酥雞、章魚小丸子、香酥雞排、黃金炸饅頭、酥炸魷魚鬚、薯條、洋蔥圈、春捲、起司豆腐、毛豆等。要升級小吃任點時，同一桌所有客人都必須一起升級。"],
+        "cards": [
+          { "title": "適合朋友分享", "text": "火鍋之外可以分次點小吃，適合多人一起嘗不同品項。" },
+          { "title": "請按需要點餐", "text": "圖片僅供參考；請珍惜食物，吃完再加點。" }
+        ]
+      },
+      {
+        "eyebrow": "到店與訂位",
+        "title": "2213 Centre St N #2243, Calgary",
+        "paragraphs": ["週一至週五 17:00-22:30；週六、週日 12:00-22:30。想確認今天座位、週末聚餐或團體用餐，請致電 (403) 455-3188。"]
+      }
+    ],
+    "faqs": [
+      { "question": "卡加利火鍋自助多少錢？", "answer": "鼎鑽火鍋火鍋自助為 $28.99 + 稅，鍋底包含在內。" },
+      { "question": "肉品如何下單？", "answer": "AAA 牛肉、羊肉、豬肉與雞肉由服務員協助下單，每份 100g。" },
+      { "question": "可以只讓部分客人升級小吃任點嗎？", "answer": "不可以。選擇 +$3.99／人小吃任點時，同桌所有客人都必須一起升級。" }
+    ]
+  }
+}

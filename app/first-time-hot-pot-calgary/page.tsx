@@ -6,7 +6,14 @@ export const metadata: Metadata = {
   title: "First-Time Hot Pot Calgary | What to Order & How It Works",
   description:
     "A practical first-time hot pot guide for Calgary: how individual hot pot works, what to order, AYCE details, soup bases, and how to reserve at Centre Street Japanese HotPot.",
-  alternates: { canonical: "/first-time-hot-pot-calgary" },
+  alternates: {
+    canonical: "/first-time-hot-pot-calgary",
+    languages: {
+      "en-CA": "/first-time-hot-pot-calgary/",
+      "zh-Hant-CA": "/zh-hant/first-time-hot-pot-calgary/",
+      "x-default": "/first-time-hot-pot-calgary/",
+    },
+  },
   openGraph: {
     title: "First-Time Hot Pot Calgary | What to Order & How It Works",
     description:
@@ -78,7 +85,7 @@ export default function FirstTimeHotPotCalgaryPage() {
   return (
     <main>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
-      <SiteNav />
+      <SiteNav currentPath="/first-time-hot-pot-calgary/" />
 
       <section className="page-hero guide-page-hero">
         <div>

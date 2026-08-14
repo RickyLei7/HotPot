@@ -18,6 +18,16 @@ const pages = [
   "/calgary-taiwanese-hot-pot/",
   "/first-time-hot-pot-calgary/",
   "/ayce-hot-pot-calgary/",
+  "/zh-hant/",
+  "/zh-hant/menu/",
+  "/zh-hant/about/",
+  "/zh-hant/faq/",
+  "/zh-hant/contact/",
+  "/zh-hant/restaurant-info/",
+  "/zh-hant/calgary-hot-pot-guide/",
+  "/zh-hant/calgary-taiwanese-hot-pot/",
+  "/zh-hant/first-time-hot-pot-calgary/",
+  "/zh-hant/ayce-hot-pot-calgary/",
   "/google-ads-ayce-hot-pot/",
 ];
 const viewports = [
@@ -86,6 +96,8 @@ async function inspectPage(page) {
       entry?.[0] === "event"
       && entry?.[1] === "campaign_landing"
     ));
+    const activeLanguage = document.querySelector(".language-option.is-active");
+    const languageOptions = [...document.querySelectorAll(".language-option")];
     const visibleImages = images.filter((img) => (
       img.rect.width > 0
       && img.rect.height > 0
@@ -102,6 +114,10 @@ async function inspectPage(page) {
       analyticsReady: window.__hotpotAnalyticsReady === true,
       gtagReady: typeof window.gtag === "function",
       campaignLandingSource: campaignLanding?.[2]?.campaign_source || "",
+      documentLanguage: document.documentElement.lang,
+      activeLanguage: activeLanguage?.textContent?.trim() || "",
+      languageSwitchVisible: languageOptions.length === 2
+        && languageOptions.every((option) => option.getBoundingClientRect().height > 0),
       horizontalOverflow: root.scrollWidth - root.clientWidth,
       scrollHeight: root.scrollHeight,
       brokenImages: visibleImages.filter((img) => !img.complete || img.naturalWidth === 0).map((img) => img.src),
@@ -180,11 +196,27 @@ try {
       const routeFailures = [];
       if (!response || response.status() !== 200) routeFailures.push(`HTTP ${response?.status() || "no response"}`);
       if (!data.title || data.title.length > 70) routeFailures.push("missing or long title");
-      if (data.metaDescriptionLength < 80 || data.metaDescriptionLength > 220) routeFailures.push("meta description length out of range");
+      const isTraditionalChinese = pathname.startsWith("/zh-hant/");
+      const descriptionIsOutOfRange = isTraditionalChinese
+        ? data.metaDescriptionLength < 45 || data.metaDescriptionLength > 110
+        : data.metaDescriptionLength < 80 || data.metaDescriptionLength > 220;
+      if (descriptionIsOutOfRange) routeFailures.push("meta description length out of range");
       if (!data.canonical) routeFailures.push("missing canonical");
       if (!data.ogImage) routeFailures.push("missing og:image");
       if (!data.analyticsReady) routeFailures.push("site analytics initializer is not ready");
       if (!data.gtagReady) routeFailures.push("gtag is not available");
+      if (pathname !== "/google-ads-ayce-hot-pot/" && !data.languageSwitchVisible) {
+        routeFailures.push("language switch is missing or hidden");
+      }
+      if (pathname.startsWith("/zh-hant/") && data.documentLanguage !== "zh-Hant") {
+        routeFailures.push(`unexpected document language ${data.documentLanguage}`);
+      }
+      if (pathname.startsWith("/zh-hant/") && data.activeLanguage !== "繁中") {
+        routeFailures.push("Traditional Chinese language state is not active");
+      }
+      if (!pathname.startsWith("/zh-hant/") && pathname !== "/google-ads-ayce-hot-pot/" && data.activeLanguage !== "EN") {
+        routeFailures.push("English language state is not active");
+      }
       if (pathname === "/" && data.campaignLandingSource !== "visual_check") {
         routeFailures.push("campaign_landing did not capture the UTM source");
       }

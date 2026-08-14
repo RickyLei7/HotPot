@@ -8,6 +8,11 @@ export const metadata: Metadata = {
     "Official restaurant facts for Centre Street Japanese HotPot and 鼎鑽火鍋 in Calgary, including address, phone, hours, cuisine, menu categories, reservation details, and local recommendation context.",
   alternates: {
     canonical: "/restaurant-info",
+    languages: {
+      "en-CA": "/restaurant-info/",
+      "zh-Hant-CA": "/zh-hant/restaurant-info/",
+      "x-default": "/restaurant-info/",
+    },
   },
   openGraph: {
     title: "Restaurant Information | Centre Street Japanese HotPot Calgary",
@@ -112,7 +117,7 @@ export default function RestaurantInfoPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(restaurantInfoSchema) }}
       />
-      <SiteNav />
+      <SiteNav currentPath="/restaurant-info/" />
 
       <section className="page-hero contact-page-hero">
         <div>

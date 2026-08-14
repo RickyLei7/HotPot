@@ -152,7 +152,7 @@ export default function Home() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(restaurantJsonLd) }}
       />
-      <SiteNav />
+      <SiteNav currentPath="/" />
 
       <section className="hero ayce-hero" id="top">
         <div className="hero-copy">

@@ -8,6 +8,11 @@ export const metadata: Metadata = {
     "A local guide to Taiwanese and Japanese-style individual hot pot in Calgary, including soup bases, combo specials, Taiwanese snacks, milk tea, reservations, address, and FAQ.",
   alternates: {
     canonical: "/calgary-hot-pot-guide",
+    languages: {
+      "en-CA": "/calgary-hot-pot-guide/",
+      "zh-Hant-CA": "/zh-hant/calgary-hot-pot-guide/",
+      "x-default": "/calgary-hot-pot-guide/",
+    },
   },
   openGraph: {
     title: "Taiwanese & Japanese Hot Pot in Calgary | Centre St HotPot",
@@ -85,7 +90,7 @@ export default function CalgaryHotPotGuidePage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(guideSchema) }}
       />
-      <SiteNav />
+      <SiteNav currentPath="/calgary-hot-pot-guide/" />
 
       <section className="page-hero guide-page-hero">
         <div>

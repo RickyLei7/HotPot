@@ -7,6 +7,11 @@ export const metadata: Metadata = {
     "Frequently asked questions about Centre Street Japanese HotPot and 鼎鑽火鍋 in Calgary, including reservations, Japanese hot pot, seafood options, group dining, location, soup bases, and AYCE updates.",
   alternates: {
     canonical: "/faq",
+    languages: {
+      "en-CA": "/faq/",
+      "zh-Hant-CA": "/zh-hant/faq/",
+      "x-default": "/faq/",
+    },
   },
   openGraph: {
     title: "FAQ | Centre Street Japanese HotPot Calgary",
@@ -112,7 +117,7 @@ export default function FaqPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
-      <SiteNav />
+      <SiteNav currentPath="/faq/" />
 
       <section className="page-hero faq-page-hero">
         <div>

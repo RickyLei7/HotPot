@@ -8,6 +8,11 @@ export const metadata: Metadata = {
     "Call Centre Street Japanese HotPot in Calgary to reserve a table, ask about group dining, check today's availability, or find our address, phone number, hours, and directions.",
   alternates: {
     canonical: "/contact",
+    languages: {
+      "en-CA": "/contact/",
+      "zh-Hant-CA": "/zh-hant/contact/",
+      "x-default": "/contact/",
+    },
   },
   openGraph: {
     title: "Contact Centre Street Japanese HotPot | Calgary Location",
@@ -21,7 +26,7 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <main>
-      <SiteNav />
+      <SiteNav currentPath="/contact/" />
 
       <section className="page-hero contact-page-hero">
         <div>

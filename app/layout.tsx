@@ -20,6 +20,11 @@ export const metadata: Metadata = {
     "Hot pot Calgary: Taiwanese and Japanese-style personal hot pot plus AYCE $28.99 + tax, 15 soup bases, snacks and milk tea. Open Mon-Fri 5-10:30, Sat-Sun noon-10:30. Call to reserve.",
   alternates: {
     canonical: "/",
+    languages: {
+      "en-CA": "/",
+      "zh-Hant-CA": "/zh-hant/",
+      "x-default": "/",
+    },
   },
   openGraph: {
     title: "Hot Pot Calgary | AYCE $28.99 & 15 Soup Bases | Centre Street",
@@ -53,11 +58,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en-CA">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <Script src="/site-events.js?v=20260812-performance" strategy="afterInteractive" />
+        <Script src="/language-routes.js?v=20260813-bilingual" strategy="afterInteractive" />
+        <Script src="/site-events.js?v=20260813-bilingual" strategy="afterInteractive" />
         {children}
         <a className="reserve-sticky" href="tel:+14034553188">
           Call to Reserve · (403) 455-3188

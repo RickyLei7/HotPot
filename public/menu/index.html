@@ -24,9 +24,9 @@
     <link rel="icon" href="/favicon.ico" sizes="any" />
     <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-    <link rel="stylesheet" href="/site.css?v=20260813-bilingual" />
+    <link rel="stylesheet" href="/site.css?v=20260814-poster-modal" />
     <script defer src="/language-routes.js?v=20260813-bilingual"></script>
-    <script defer src="/site-events.js?v=20260814-attribution-v2"></script>
+    <script defer src="/site-events.js?v=20260814-poster-modal"></script>
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -329,10 +329,12 @@
           </div>
         </div>
         <div class="menu-images">
-          <a href="/menu/hotpot-menu.jpg" target="_blank" rel="noreferrer"><img src="/menu/hotpot-menu-preview.webp" alt="Full hot pot set and appetizer menu page" width="601" height="900" loading="lazy" decoding="async" /></a>
-          <a href="/menu/drink-menu.jpg" target="_blank" rel="noreferrer"><img src="/menu/drink-menu-preview.webp" alt="Full rice noodle and drink menu page" width="601" height="900" loading="lazy" decoding="async" /></a>
+          <a class="poster-thumbnail" href="#hotpot-menu-poster" aria-label="View the complete hot pot and appetizer menu page"><img src="/menu/hotpot-menu-preview.webp" alt="Full hot pot set and appetizer menu page" width="601" height="900" loading="lazy" decoding="async" /><strong class="poster-open-label">View full page</strong></a>
+          <a class="poster-thumbnail" href="#drink-menu-poster" aria-label="View the complete rice noodle and drink menu page"><img src="/menu/drink-menu-preview.webp" alt="Full rice noodle and drink menu page" width="601" height="900" loading="lazy" decoding="async" /><strong class="poster-open-label">View full page</strong></a>
         </div>
       </section>
+      <section class="poster-modal" id="hotpot-menu-poster" role="dialog" aria-modal="true" aria-labelledby="hotpot-menu-poster-title" data-close-target="full-menu"><a class="modal-backdrop" href="#full-menu" aria-label="Close hot pot menu page"></a><div class="poster-frame"><span class="modal-label" id="hotpot-menu-poster-title">Hot pot and appetizers</span><a class="modal-close" href="#full-menu" aria-label="Close hot pot menu page">Close</a><img src="/menu/hotpot-menu.jpg" alt="Complete hot pot set and appetizer menu page" width="1202" height="1800" /></div></section>
+      <section class="poster-modal" id="drink-menu-poster" role="dialog" aria-modal="true" aria-labelledby="drink-menu-poster-title" data-close-target="full-menu"><a class="modal-backdrop" href="#full-menu" aria-label="Close rice noodle and drink menu page"></a><div class="poster-frame"><span class="modal-label" id="drink-menu-poster-title">Rice noodles and drinks</span><a class="modal-close" href="#full-menu" aria-label="Close rice noodle and drink menu page">Close</a><img src="/menu/drink-menu.jpg" alt="Complete rice noodle and drink menu page" width="1202" height="1800" /></div></section>
     </main>
     <a class="reserve-sticky" href="tel:+14034553188">Call to Reserve · (403) 455-3188</a>
   </body>

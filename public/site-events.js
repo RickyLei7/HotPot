@@ -374,8 +374,45 @@
     });
   }
 
+  function setupPosterModals() {
+    var lastTrigger = null;
+
+    function activeModal() {
+      if (!window.location.hash) return null;
+      var target = document.getElementById(window.location.hash.slice(1));
+      return target && target.classList.contains("poster-modal") ? target : null;
+    }
+
+    function syncModalState() {
+      var modal = activeModal();
+      document.body.classList.toggle("poster-open", Boolean(modal));
+      if (modal) {
+        var close = modal.querySelector(".modal-close");
+        if (close) close.focus({ preventScroll: true });
+      } else if (lastTrigger) {
+        lastTrigger.focus({ preventScroll: true });
+        lastTrigger = null;
+      }
+    }
+
+    document.addEventListener("click", function (event) {
+      var trigger = event.target.closest && event.target.closest(".poster-thumbnail");
+      if (trigger) lastTrigger = trigger;
+    });
+    document.addEventListener("keydown", function (event) {
+      if (event.key !== "Escape") return;
+      var modal = activeModal();
+      if (!modal) return;
+      var close = modal.querySelector(".modal-close");
+      if (close) close.click();
+    });
+    window.addEventListener("hashchange", syncModalState);
+    syncModalState();
+  }
+
   setupStickyReserve();
   setupOfferViews();
+  setupPosterModals();
 
   document.addEventListener("click", function (event) {
     var openMore = document.querySelector(".nav-more[open]");
@@ -418,8 +455,8 @@
     } else if (platform) {
       sendEvent("social_click", link, { platform: platform });
       sendEvent(platform + "_click", link, { platform: platform });
-    } else if (href === "#ayce-poster") {
-      sendEvent("ayce_poster_click", link, { offer_type: "ayce" });
+    } else if (link.classList && link.classList.contains("poster-thumbnail")) {
+      sendEvent("menu_image_open", link, { document_type: href.indexOf("ayce") !== -1 ? "ayce_menu" : "menu_page" });
     } else if (href.indexOf("/menu") === 0 || href.indexOf("menu/") === 0 || href.indexOf("/zh-hant/menu") === 0) {
       sendEvent("menu_click", link, { menu_context: offer || "full_menu", offer_type: offer || "menu" });
       if (offer) sendEvent("offer_interest_click", link, { offer_type: offer });

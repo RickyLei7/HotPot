@@ -34,6 +34,11 @@ const viewports = [
   { name: "mobile", width: 390, height: 844, isMobile: true },
   { name: "desktop", width: 1440, height: 900, isMobile: false },
 ];
+const posterCounts = new Map([
+  ["/menu/", 2],
+  ["/ayce-hot-pot-calgary/", 1],
+  ["/zh-hant/ayce-hot-pot-calgary/", 1],
+]);
 
 const contentTypes = new Map([
   [".css", "text/css"],
@@ -218,6 +223,22 @@ try {
         await new Promise((resolve) => setTimeout(resolve, 180));
         return { menuOpened, menuLinksVisible, stickyHiddenAtTop, stickyVisibleAfterHero };
       }) : null;
+      const posterInteraction = await page.evaluate(async () => {
+        const triggers = [...document.querySelectorAll(".poster-thumbnail")];
+        const posterResults = [];
+        for (const trigger of triggers) {
+          trigger.click();
+          await new Promise((resolve) => requestAnimationFrame(() => requestAnimationFrame(resolve)));
+          const modal = document.querySelector(".poster-modal:target");
+          const modalImage = modal?.querySelector(".poster-frame img");
+          const opened = Boolean(modal && getComputedStyle(modal).display !== "none");
+          const fullImageLoaded = Boolean(modalImage?.complete && modalImage.naturalWidth > 0 && modalImage.naturalHeight > 0);
+          document.dispatchEvent(new KeyboardEvent("keydown", { key: "Escape", bubbles: true }));
+          await new Promise((resolve) => requestAnimationFrame(() => requestAnimationFrame(resolve)));
+          posterResults.push({ opened, fullImageLoaded, closedWithEscape: !document.querySelector(".poster-modal:target") });
+        }
+        return { triggerCount: triggers.length, posterResults };
+      });
       const data = await inspectPage(page);
       const navTopAfterScroll = await page.evaluate(async () => {
         scrollTo(0, 900);
@@ -265,6 +286,13 @@ try {
       if (viewport.isMobile && !mobileInteraction?.menuLinksVisible) routeFailures.push("mobile More links are not visible");
       if (viewport.isMobile && !mobileInteraction?.stickyHiddenAtTop) routeFailures.push("sticky reserve is visible over the first screen");
       if (viewport.isMobile && !mobileInteraction?.stickyVisibleAfterHero) routeFailures.push("sticky reserve did not appear after the hero");
+      const expectedPosterCount = posterCounts.get(pathname) || 0;
+      if (posterInteraction.triggerCount !== expectedPosterCount) routeFailures.push(`expected ${expectedPosterCount} poster thumbnails, found ${posterInteraction.triggerCount}`);
+      posterInteraction.posterResults.forEach((poster, index) => {
+        if (!poster.opened) routeFailures.push(`poster ${index + 1} did not open`);
+        if (!poster.fullImageLoaded) routeFailures.push(`poster ${index + 1} full image did not load`);
+        if (!poster.closedWithEscape) routeFailures.push(`poster ${index + 1} did not close with Escape`);
+      });
       if (["/", "/zh-hant/"].includes(pathname)) {
         const positions = data.homepageSectionPositions;
         if (positions.some(({ top }) => top < 0)) routeFailures.push("homepage section is missing");
@@ -292,7 +320,7 @@ try {
         if (Math.abs(navTopAfterScroll ?? 999) > 1) routeFailures.push("sticky header left viewport top");
       }
 
-      const result = { viewport: viewport.name, pathname, screenshotPath, ...data, navTopAfterScroll, mobileInteraction, failures: routeFailures };
+      const result = { viewport: viewport.name, pathname, screenshotPath, ...data, navTopAfterScroll, mobileInteraction, posterInteraction, failures: routeFailures };
       results.push(result);
       failures.push(...routeFailures.map((failure) => `${viewport.name} ${pathname}: ${failure}`));
       await page.close();

@@ -197,10 +197,20 @@ export default function AyceHotPotCalgaryPage() {
             </article>
           </div>
         </div>
-        <a className="ayce-card" href="/assets/ayce-hotpot-menu.webp">
-          <span>$28.99 + tax</span>
+        <a className="ayce-card poster-thumbnail" href="#ayce-poster" aria-label="View the complete AYCE menu poster">
+          <span className="price-badge">$28.99 + tax</span>
           <img src="/assets/ayce-hotpot-menu-preview-360.webp" srcSet="/assets/ayce-hotpot-menu-preview-360.webp 360w, /assets/ayce-hotpot-menu-preview.webp 495w" sizes="(max-width: 760px) calc(100vw - 32px), 420px" alt="AYCE Hot Pot poster with $28.99 pricing and all 19 appetizer upgrade items" width="495" height="640" loading="lazy" decoding="async" />
+          <strong className="poster-open-label">View full menu</strong>
         </a>
+      </section>
+
+      <section className="poster-modal" id="ayce-poster" role="dialog" aria-modal="true" aria-labelledby="ayce-poster-title" data-close-target="ayce-details">
+        <a className="modal-backdrop" href="#ayce-details" aria-label="Close full AYCE menu" />
+        <div className="poster-frame">
+          <span className="modal-label" id="ayce-poster-title">Full AYCE menu</span>
+          <a className="modal-close" href="#ayce-details" aria-label="Close full AYCE menu">Close</a>
+          <img src="/assets/ayce-hotpot-menu.webp" alt="Complete AYCE Hot Pot menu with $28.99 pricing and 19 appetizer choices" width="791" height="1024" />
+        </div>
       </section>
 
       <section className="ayce-reserve-strip" aria-label="AYCE reservations and location">

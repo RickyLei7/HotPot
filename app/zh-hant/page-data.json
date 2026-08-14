@@ -423,6 +423,8 @@
     "h1": "$28.99 火鍋自助現在供應中",
     "lead": "價格包含鍋底，可選 AAA 牛肉、羊肉、豬肉或雞肉，由服務員協助下單。另加 +$3.99／人可升級 19 款小吃任點，同桌客人必須一起升級。",
     "image": "/assets/ayce-hotpot-menu-preview.webp",
+    "imageFull": "/assets/ayce-hotpot-menu.webp",
+    "imageActionLabel": "點擊查看完整火鍋自助菜單",
     "imageAlt": "鼎鑽火鍋卡加利 $28.99 火鍋自助完整菜單",
     "actions": [
       { "label": "致電 (403) 455-3188 訂位", "href": "tel:+14034553188", "style": "primary-action" },

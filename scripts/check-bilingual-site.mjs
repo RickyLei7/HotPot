@@ -197,6 +197,19 @@ assert.ok(adsHtml.includes('content="noindex, follow"'), "Google Ads landing pag
 assert.equal([...pairs.values()].includes("/zh-hant/google-ads-ayce-hot-pot/"), false, "Ads page must not have a Chinese pair");
 assert.doesNotMatch(adsHtml, /[\u3400-\u9fff]/u, "Google Ads landing page must be English-only");
 
+const posterPages = new Map([
+  ["/ayce-hot-pot-calgary/", ["#ayce-poster"]],
+  ["/menu/", ["#hotpot-menu-poster", "#drink-menu-poster"]],
+  ["/zh-hant/ayce-hot-pot-calgary/", ["#localized-menu-poster"]],
+]);
+for (const [route, targets] of posterPages) {
+  const html = await readFile(fileForRoute(route), "utf8");
+  for (const target of targets) {
+    assert.ok(html.includes(`href="${target}"`), `${route} is missing poster trigger ${target}`);
+    assert.ok(html.includes(`id="${target.slice(1)}"`), `${route} is missing poster modal ${target}`);
+  }
+}
+
 const sitemap = await readFile(path.join(publicDir, "sitemap.xml"), "utf8");
 const llms = await readFile(path.join(publicDir, "llms.txt"), "utf8");
 assert.doesNotMatch(llms, /[税稅]/u, "llms.txt must not contain Chinese tax characters");

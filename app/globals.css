@@ -718,9 +718,10 @@ h3 {
   max-width: 420px;
   overflow: hidden;
   position: relative;
+  text-decoration: none;
 }
 
-.ayce-card span,
+.ayce-card .price-badge,
 .modal-label {
   background: var(--gold);
   border-radius: 999px;
@@ -737,12 +738,32 @@ h3 {
 }
 
 .ayce-card img {
-  aspect-ratio: 4 / 5;
-  height: 100%;
-  object-fit: cover;
-  object-position: center top;
+  height: auto;
+  object-fit: contain;
   width: 100%;
 }
+
+.poster-thumbnail { cursor: zoom-in; position: relative; }
+.poster-thumbnail:focus-visible { outline: 3px solid var(--gold); outline-offset: 4px; }
+.poster-open-label {
+  background: rgba(18, 13, 11, 0.92);
+  border: 1px solid rgba(246, 201, 76, 0.58);
+  border-radius: 999px;
+  bottom: 14px;
+  color: var(--cream);
+  font-size: 0.86rem;
+  font-weight: 900;
+  left: 50%;
+  padding: 9px 14px;
+  pointer-events: none;
+  position: absolute;
+  text-align: center;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  z-index: 2;
+}
+
+.localized-hero-media.poster-thumbnail img { aspect-ratio: auto; object-fit: contain; }
 
 .poster-modal {
   align-items: center;
@@ -762,6 +783,8 @@ h3 {
   opacity: 1;
   pointer-events: auto;
 }
+
+body.poster-open { overflow: hidden; }
 
 .modal-backdrop {
   background: rgba(0, 0, 0, 0.78);
@@ -798,6 +821,7 @@ h3 {
   top: 14px;
   z-index: 3;
 }
+.modal-close:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
 
 .about-section {
   background:
@@ -1170,6 +1194,7 @@ h3 {
   box-shadow: 0 20px 55px rgba(42, 19, 15, 0.2);
   max-height: 560px;
   overflow: hidden;
+  position: relative;
 }
 
 .menu-images img {
@@ -2149,10 +2174,14 @@ h3 {
     grid-template-columns: 1fr;
   }
 
-  .combo-poster,
-  .ayce-card {
+  .combo-poster {
     justify-self: stretch;
     width: 100%;
+  }
+
+  .ayce-card {
+    justify-self: center;
+    width: min(100%, 340px);
   }
 
   .combo-price-grid {
@@ -2227,9 +2256,9 @@ h3 {
     height: 220px;
   }
 
-  .ayce-card img {
-    aspect-ratio: 16 / 10;
-  }
+  .ayce-card img { aspect-ratio: auto; height: auto; object-fit: contain; }
+  .localized-hero-media.poster-thumbnail { justify-self: center; max-width: 340px; }
+  .poster-open-label { bottom: 10px; max-width: calc(100% - 24px); white-space: normal; width: max-content; }
 
   .poster-modal {
     padding: 10px;

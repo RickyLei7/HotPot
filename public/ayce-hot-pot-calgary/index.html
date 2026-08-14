@@ -21,9 +21,9 @@
     <link rel="icon" href="/favicon.ico" sizes="any" />
     <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-    <link rel="stylesheet" href="/site.css?v=20260814-ayce-directory" />
+    <link rel="stylesheet" href="/site.css?v=20260814-poster-modal" />
     <script defer src="/language-routes.js?v=20260813-bilingual"></script>
-    <script defer src="/site-events.js?v=20260814-attribution-v2"></script>
+    <script defer src="/site-events.js?v=20260814-poster-modal"></script>
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -105,7 +105,7 @@
         </div>
       </section>
 
-      <section class="ayce-promo">
+      <section class="ayce-promo" id="ayce-details">
         <div class="ayce-copy">
           <p class="eyebrow">All-you-can-eat details</p>
           <h2>AYCE Hot Pot Calgary: $28.99 + tax</h2>
@@ -118,10 +118,20 @@
             <a class="secondary-action" href="/menu/#ayce-hotpot">Menu Details</a>
           </div>
         </div>
-        <a class="ayce-card" href="/assets/ayce-hotpot-menu.webp">
-          <span>$28.99 + tax</span>
+        <a class="ayce-card poster-thumbnail" href="#ayce-poster" aria-label="View the complete AYCE menu poster">
+          <span class="price-badge">$28.99 + tax</span>
           <img src="/assets/ayce-hotpot-menu-preview-360.webp" srcset="/assets/ayce-hotpot-menu-preview-360.webp 360w, /assets/ayce-hotpot-menu-preview.webp 495w" sizes="(max-width: 760px) calc(100vw - 32px), 420px" alt="AYCE Hot Pot poster with $28.99 pricing and all 19 appetizer upgrade items" width="495" height="640" loading="lazy" decoding="async" />
+          <strong class="poster-open-label">View full menu</strong>
         </a>
+      </section>
+
+      <section class="poster-modal" id="ayce-poster" role="dialog" aria-modal="true" aria-labelledby="ayce-poster-title" data-close-target="ayce-details">
+        <a class="modal-backdrop" href="#ayce-details" aria-label="Close full AYCE menu"></a>
+        <div class="poster-frame">
+          <span class="modal-label" id="ayce-poster-title">Full AYCE menu</span>
+          <a class="modal-close" href="#ayce-details" aria-label="Close full AYCE menu">Close</a>
+          <img src="/assets/ayce-hotpot-menu.webp" alt="Complete AYCE Hot Pot menu with $28.99 pricing and 19 appetizer choices" width="791" height="1024" />
+        </div>
       </section>
 
       <section class="ayce-reserve-strip" aria-label="AYCE reservations and location">

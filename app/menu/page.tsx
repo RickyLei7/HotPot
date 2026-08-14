@@ -347,12 +347,32 @@ export default function MenuPage() {
           </div>
         </div>
         <div className="menu-images">
-          <a href="/menu/hotpot-menu.jpg" target="_blank" rel="noreferrer">
+          <a className="poster-thumbnail" href="#hotpot-menu-poster" aria-label="View the complete hot pot and appetizer menu page">
             <img src="/menu/hotpot-menu-preview.webp" alt="Full hot pot set and appetizer menu page" width="601" height="900" loading="lazy" decoding="async" />
+            <strong className="poster-open-label">View full page</strong>
           </a>
-          <a href="/menu/drink-menu.jpg" target="_blank" rel="noreferrer">
+          <a className="poster-thumbnail" href="#drink-menu-poster" aria-label="View the complete rice noodle and drink menu page">
             <img src="/menu/drink-menu-preview.webp" alt="Full rice noodle and drink menu page" width="601" height="900" loading="lazy" decoding="async" />
+            <strong className="poster-open-label">View full page</strong>
           </a>
+        </div>
+      </section>
+
+      <section className="poster-modal" id="hotpot-menu-poster" role="dialog" aria-modal="true" aria-labelledby="hotpot-menu-poster-title" data-close-target="full-menu">
+        <a className="modal-backdrop" href="#full-menu" aria-label="Close hot pot menu page" />
+        <div className="poster-frame">
+          <span className="modal-label" id="hotpot-menu-poster-title">Hot pot and appetizers</span>
+          <a className="modal-close" href="#full-menu" aria-label="Close hot pot menu page">Close</a>
+          <img src="/menu/hotpot-menu.jpg" alt="Complete hot pot set and appetizer menu page" width="1202" height="1800" />
+        </div>
+      </section>
+
+      <section className="poster-modal" id="drink-menu-poster" role="dialog" aria-modal="true" aria-labelledby="drink-menu-poster-title" data-close-target="full-menu">
+        <a className="modal-backdrop" href="#full-menu" aria-label="Close rice noodle and drink menu page" />
+        <div className="poster-frame">
+          <span className="modal-label" id="drink-menu-poster-title">Rice noodles and drinks</span>
+          <a className="modal-close" href="#full-menu" aria-label="Close rice noodle and drink menu page">Close</a>
+          <img src="/menu/drink-menu.jpg" alt="Complete rice noodle and drink menu page" width="1202" height="1800" />
         </div>
       </section>
     </main>

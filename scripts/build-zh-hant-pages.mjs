@@ -187,9 +187,9 @@ function renderHomePage(data) {
     <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="preload" as="image" href="/assets/ayce-hotpot.webp" />
-    <link rel="stylesheet" href="/site.css?v=20260814-visit-contrast" />
+    <link rel="stylesheet" href="/site.css?v=20260814-poster-modal" />
     <script defer src="/language-routes.js?v=20260813-bilingual"></script>
-    <script defer src="/site-events.js?v=20260814-attribution-v2"></script>
+    <script defer src="/site-events.js?v=20260814-poster-modal"></script>
     <script type="application/ld+json">${jsonLd(data)}</script>
   </head>
   <body>
@@ -217,6 +217,12 @@ function renderPage(data) {
     </section>`).join("\n");
   const faqSection = data.faqs.length ? `<section class="content-section localized-faq" id="faq"><div class="section-heading compact"><p class="eyebrow">常見問題</p><h2>快速找到用餐前需要的答案</h2></div><div class="faq-list">${data.faqs.map((faq) => `<article><h2>${escapeHtml(faq.question)}</h2><p>${escapeHtml(faq.answer)}</p></article>`).join("")}</div></section>` : "";
   const featureStory = data.featureStory ? `<section class="beef-noodle-story" aria-label="台灣傳統牛肉麵故事"><div class="beef-noodle-story-media"><img src="${escapeHtml(data.featureStory.image)}" alt="${escapeHtml(data.featureStory.imageAlt)}" width="1122" height="1402" loading="lazy" decoding="async" /></div><div class="beef-noodle-story-copy"><p class="eyebrow">${escapeHtml(data.featureStory.eyebrow)}</p><h2>${escapeHtml(data.featureStory.title)}</h2><div class="story-language">${data.featureStory.paragraphs.map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join("")}</div></div></section>` : "";
+  const heroMedia = data.imageFull && data.imageActionLabel
+    ? `<a class="localized-hero-media poster-thumbnail" href="#localized-menu-poster" aria-label="${escapeHtml(data.imageActionLabel)}"><img src="${escapeHtml(data.image)}" alt="${escapeHtml(data.imageAlt)}" width="495" height="640" fetchpriority="high" decoding="async" /><strong class="poster-open-label">${escapeHtml(data.imageActionLabel)}</strong></a>`
+    : `<div class="localized-hero-media"><img src="${escapeHtml(data.image)}" alt="${escapeHtml(data.imageAlt)}" width="900" height="675" fetchpriority="high" decoding="async" /></div>`;
+  const posterModal = data.imageFull && data.imageActionLabel
+    ? `<section class="poster-modal" id="localized-menu-poster" role="dialog" aria-modal="true" aria-labelledby="localized-menu-poster-title" data-close-target="top"><a class="modal-backdrop" href="#top" aria-label="關閉完整菜單"></a><div class="poster-frame"><span class="modal-label" id="localized-menu-poster-title">完整火鍋自助菜單</span><a class="modal-close" href="#top" aria-label="關閉完整菜單">關閉</a><img src="${escapeHtml(data.imageFull)}" alt="${escapeHtml(data.imageAlt)}" width="791" height="1024" /></div></section>`
+    : "";
 
   return `<!doctype html>
 <html lang="zh-Hant">
@@ -241,18 +247,19 @@ function renderPage(data) {
     <link rel="icon" href="/favicon.ico" sizes="any" />
     <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-    <link rel="stylesheet" href="/site.css?v=20260813-bilingual" />
+    <link rel="stylesheet" href="/site.css?v=20260814-poster-modal" />
     <script defer src="/language-routes.js?v=20260813-bilingual"></script>
-    <script defer src="/site-events.js?v=20260814-attribution-v2"></script>
+    <script defer src="/site-events.js?v=20260814-poster-modal"></script>
     <script type="application/ld+json">${jsonLd(data)}</script>
   </head>
   <body>
     ${renderNav(data)}
-    <main>
+    <main id="top">
       <section class="localized-hero">
         <div class="localized-hero-copy"><p class="eyebrow">${escapeHtml(data.eyebrow)}</p><h1>${escapeHtml(data.h1)}</h1><p class="hero-text">${escapeHtml(data.lead)}</p><div class="hero-actions">${renderActions(data.actions)}</div></div>
-        <div class="localized-hero-media"><img src="${data.image}" alt="${escapeHtml(data.imageAlt)}" width="900" height="675" fetchpriority="high" decoding="async" /></div>
+        ${heroMedia}
       </section>
+      ${posterModal}
       <section class="quick-info" aria-label="餐廳重點">${data.facts.map((fact) => `<div><span>${escapeHtml(fact.value)}</span>${escapeHtml(fact.label)}</div>`).join("")}</section>
       ${sections}${featureStory ? `\n      ${featureStory}` : ""}
       ${faqSection}

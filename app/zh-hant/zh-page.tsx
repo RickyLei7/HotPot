@@ -17,6 +17,8 @@ export type ZhPageData = {
   h1: string;
   lead: string;
   image: string;
+  imageFull?: string;
+  imageActionLabel?: string;
   imageAlt: string;
   actions: Action[];
   facts: { value: string; label: string }[];
@@ -108,7 +110,7 @@ function schemaFor(data: ZhPageData) {
 
 export function ZhPage({ data }: { data: ZhPageData }) {
   return (
-    <main>
+    <main id="top">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaFor(data)) }} />
       <SiteNav currentPath={data.path} language="zh-Hant" />
       <section className="localized-hero">
@@ -116,8 +118,9 @@ export function ZhPage({ data }: { data: ZhPageData }) {
           <p className="eyebrow">{data.eyebrow}</p><h1>{data.h1}</h1><p className="hero-text">{data.lead}</p>
           <div className="hero-actions">{data.actions.map((action) => <a className={action.style} href={action.href} key={action.label}>{action.label}</a>)}</div>
         </div>
-        <div className="localized-hero-media"><img src={data.image} alt={data.imageAlt} width="900" height="675" fetchPriority="high" decoding="async" /></div>
+        {data.imageFull && data.imageActionLabel ? <a className="localized-hero-media poster-thumbnail" href="#localized-menu-poster" aria-label={data.imageActionLabel}><img src={data.image} alt={data.imageAlt} width="495" height="640" fetchPriority="high" decoding="async" /><strong className="poster-open-label">{data.imageActionLabel}</strong></a> : <div className="localized-hero-media"><img src={data.image} alt={data.imageAlt} width="900" height="675" fetchPriority="high" decoding="async" /></div>}
       </section>
+      {data.imageFull && data.imageActionLabel ? <section className="poster-modal" id="localized-menu-poster" role="dialog" aria-modal="true" aria-labelledby="localized-menu-poster-title" data-close-target="top"><a className="modal-backdrop" href="#top" aria-label="關閉完整菜單" /><div className="poster-frame"><span className="modal-label" id="localized-menu-poster-title">完整火鍋自助菜單</span><a className="modal-close" href="#top" aria-label="關閉完整菜單">關閉</a><img src={data.imageFull} alt={data.imageAlt} width="791" height="1024" /></div></section> : null}
       <section className="quick-info" aria-label="餐廳重點">{data.facts.map((fact) => <div key={fact.label}><span>{fact.value}</span>{fact.label}</div>)}</section>
       {data.sections.map((section, index) => <section className={`content-section localized-section${index % 2 ? " is-dark" : ""}`} key={section.title}>
         <div className="section-heading compact"><p className="eyebrow">{section.eyebrow}</p><h2>{section.title}</h2></div>

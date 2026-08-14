@@ -157,7 +157,7 @@ export default function GoogleAdsAyceHotPotPage() {
       <section className="ads-section ads-menu-summary">
         <div className="section-heading compact">
           <p className="eyebrow">What guests get</p>
-          <h2>Everything needed to decide before calling.</h2>
+          <h2>Everything needed to decide before calling</h2>
         </div>
         <div className="ads-grid">
           <article>
@@ -184,7 +184,7 @@ export default function GoogleAdsAyceHotPotPage() {
           <img src="/assets/ayce-hotpot-menu-preview-360.webp" srcSet="/assets/ayce-hotpot-menu-preview-360.webp 360w, /assets/ayce-hotpot-menu-preview.webp 495w" sizes="(max-width: 560px) calc(100vw - 32px), 360px" alt="AYCE hot pot menu showing $28.99 price, soup base included, and 19 appetizer choices" width="495" height="640" loading="lazy" decoding="async" />
           <div>
             <p className="eyebrow">AYCE details</p>
-            <h2>Call before coming with a group.</h2>
+            <h2>Call before coming with a group</h2>
             <p>For weekend tables, larger groups, or today&apos;s availability, calling is the fastest way to confirm a table.</p>
             <div className="ads-hero-actions">
               <a className="primary-action" href="tel:+14034553188">Call to Reserve</a>

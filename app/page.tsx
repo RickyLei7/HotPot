@@ -233,7 +233,7 @@ export default function Home() {
         <div className="first-visit-link-inner">
           <div>
             <p className="eyebrow">New to hot pot?</p>
-            <h2>Your first hot pot visit, explained simply.</h2>
+            <h2>Your first hot pot visit explained simply</h2>
             <p>Learn how individual hot pot works, what to order, and how to plan your first table.</p>
           </div>
           <Link className="primary-action first-visit-action" href="/first-time-hot-pot-calgary">
@@ -245,7 +245,7 @@ export default function Home() {
       <section className="weekly-picks" aria-label="This week's recommended order">
         <div>
           <p className="eyebrow">This week</p>
-          <h2>Make it a full table: hot pot, snack, and milk tea.</h2>
+          <h2>Make it a full table with hot pot snacks and milk tea</h2>
         </div>
         <div className="weekly-picks-grid">
           <article>
@@ -302,7 +302,7 @@ export default function Home() {
       <section className="category-section" aria-label="Browse menu categories">
         <div className="section-heading compact">
           <p className="eyebrow">Browse by category</p>
-          <h2>Find what you want faster.</h2>
+          <h2>Find what you want faster</h2>
         </div>
         <div className="category-strip">
           <Link href="/ayce-hot-pot-calgary"><span className="category-icon">AYCE</span><strong>AYCE Hot Pot</strong></Link>
@@ -319,7 +319,7 @@ export default function Home() {
       <section className="combo-promo" id="combo-specials">
         <div className="combo-copy">
           <p className="eyebrow">Other dining options</p>
-          <h2>Solo and couple hot pot combos are still available.</h2>
+          <h2>Solo and couple hot pot combos are still available</h2>
           <p>
             Prefer an individual meal? Choose a Solo Hot Pot Combo with 1 personal hot pot and 1 drink
             for $24.99, or a Couple Hot Pot Combo with 2 personal hot pots, 2 drinks, and 1 appetizer for $58.99.
@@ -337,7 +337,7 @@ export default function Home() {
       <section className="menu-link-band" aria-label="View the full menu">
         <div>
           <p className="eyebrow">Ready to choose?</p>
-          <h2>See AYCE, hot pot sets, snacks, drinks, and full menu images.</h2>
+          <h2>See AYCE hot pot sets snacks drinks and full menu images</h2>
         </div>
         <div className="menu-download-actions">
           <Link className="primary-action" href="/menu">View Full Menu</Link>
@@ -388,7 +388,7 @@ export default function Home() {
         <div className="social-follow">
           <div>
             <p className="eyebrow">Follow & find us</p>
-            <h3>See new dishes, updates, and behind-the-scenes moments.</h3>
+            <h3>See new dishes updates and behind-the-scenes moments</h3>
           </div>
           <SocialLinks />
         </div>

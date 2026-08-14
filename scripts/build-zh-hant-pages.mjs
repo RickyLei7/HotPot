@@ -113,7 +113,7 @@ function renderPage(data) {
       <div class="localized-copy">${section.paragraphs.map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join("")}</div>
       ${section.cards?.length ? `<div class="recommendation-grid localized-card-grid">${section.cards.map((card) => `<article><h3>${escapeHtml(card.title)}</h3><p>${escapeHtml(card.text)}</p></article>`).join("")}</div>` : ""}
     </section>`).join("\n");
-  const faqSection = data.faqs.length ? `<section class="content-section localized-faq" id="faq"><div class="section-heading compact"><p class="eyebrow">常見問題</p><h2>快速找到用餐前需要的答案。</h2></div><div class="faq-list">${data.faqs.map((faq) => `<article><h2>${escapeHtml(faq.question)}</h2><p>${escapeHtml(faq.answer)}</p></article>`).join("")}</div></section>` : "";
+  const faqSection = data.faqs.length ? `<section class="content-section localized-faq" id="faq"><div class="section-heading compact"><p class="eyebrow">常見問題</p><h2>快速找到用餐前需要的答案</h2></div><div class="faq-list">${data.faqs.map((faq) => `<article><h2>${escapeHtml(faq.question)}</h2><p>${escapeHtml(faq.answer)}</p></article>`).join("")}</div></section>` : "";
   const featureStory = data.featureStory ? `<section class="beef-noodle-story" aria-label="台灣傳統牛肉麵故事"><div class="beef-noodle-story-media"><img src="${escapeHtml(data.featureStory.image)}" alt="${escapeHtml(data.featureStory.imageAlt)}" width="1122" height="1402" loading="lazy" decoding="async" /></div><div class="beef-noodle-story-copy"><p class="eyebrow">${escapeHtml(data.featureStory.eyebrow)}</p><h2>${escapeHtml(data.featureStory.title)}</h2><div class="story-language">${data.featureStory.paragraphs.map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join("")}</div></div></section>` : "";
 
   return `<!doctype html>

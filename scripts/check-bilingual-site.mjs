@@ -51,6 +51,27 @@ function textValue(html, pattern) {
   return html.match(pattern)?.[1]?.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim() || "";
 }
 
+function validateHeadingPunctuation(html, route) {
+  const headings = html.match(/<h[1-3]\b[^>]*>[\s\S]*?<\/h[1-3]>/gi) || [];
+  for (const headingHtml of headings) {
+    const heading = headingHtml
+      .replace(/<[^>]+>/g, " ")
+      .replace(/&amp;/gi, "&")
+      .replace(/\s+/g, " ")
+      .trim();
+
+    // Addresses and FAQ questions use punctuation for meaning, not decoration.
+    if (/Centre St/i.test(heading) || /[?？]$/.test(heading)) continue;
+
+    const withoutDecimals = heading.replace(/\d+\.\d+/g, "");
+    assert.doesNotMatch(
+      withoutDecimals,
+      /[，。、,.]/u,
+      `${route} heading uses decorative comma or period: ${heading}`,
+    );
+  }
+}
+
 function validateDocument(html, route, language, pair) {
   const expectedLang = language === "en" ? "en-CA" : "zh-Hant";
   const htmlLang = attribute(html, /<html\b[^>]*>/i, "lang");
@@ -71,6 +92,7 @@ function validateDocument(html, route, language, pair) {
   assert.ok(html.includes("+14034553188"), `${route} must preserve the reservation phone`);
   assert.ok(textValue(html, /<title>([\s\S]*?)<\/title>/i), `${route} is missing a title`);
   assert.ok(attribute(html, /<meta\b[^>]*name=["']description["'][^>]*>/i, "content"), `${route} is missing a description`);
+  validateHeadingPunctuation(html, route);
 }
 
 for (const [enRoute, zhRoute] of pairs) {

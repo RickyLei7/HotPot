@@ -109,7 +109,7 @@ export default function CalgaryHotPotGuidePage() {
         <div className="guide-layout">
           <article className="guide-copy">
             <p className="eyebrow">Why this style</p>
-            <h2>Taiwanese and Japanese-style hot pot both work well as individual hot pot.</h2>
+            <h2>Taiwanese and Japanese-style hot pot both work well as individual hot pot</h2>
             <p>
               Taiwanese hot pot and Japanese-style hot pot both work well for personal hot pot dining:
               each guest can choose a soup base, meat, vegetables, rice or noodles, and add snacks or drinks.
@@ -134,7 +134,7 @@ export default function CalgaryHotPotGuidePage() {
       <section className="weekly-picks">
         <div>
           <p className="eyebrow">What to order</p>
-          <h2>A simple first visit order.</h2>
+          <h2>A simple first visit order</h2>
         </div>
         <div className="weekly-picks-grid">
           <article>

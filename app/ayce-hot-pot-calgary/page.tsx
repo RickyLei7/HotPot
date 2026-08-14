@@ -179,7 +179,7 @@ export default function AyceHotPotCalgaryPage() {
       <section className="ayce-promo" id="ayce-details">
         <div className="ayce-copy">
           <p className="eyebrow">All-you-can-eat hot pot</p>
-          <h2>AYCE Hot Pot with soup base included.</h2>
+          <h2>AYCE Hot Pot with soup base included</h2>
           <p>
             The AYCE Hot Pot price is $28.99 + tax. Choose your soup base, then order meat
             through your server. Meat options include AAA beef, lamb, pork, and chicken.
@@ -217,7 +217,7 @@ export default function AyceHotPotCalgaryPage() {
       <section className="menu-section" id="ayce-snacks">
         <div className="section-heading">
           <p className="eyebrow">All-you-can-eat snack upgrade</p>
-          <h2>Add all 19 snack choices for +$3.99 per person.</h2>
+          <h2>Add all 19 snack choices for +$3.99 per person</h2>
           <p>One upgrade includes every snack below. Everyone at the same table must choose the upgrade.</p>
         </div>
         <div className="ayce-snack-directory" aria-label="19 all-you-can-eat snack choices by category">
@@ -239,7 +239,7 @@ export default function AyceHotPotCalgaryPage() {
       <section className="weekly-picks">
         <div>
           <p className="eyebrow">Snack upgrade</p>
-          <h2>Add all-you-can-eat snacks to the hot pot table.</h2>
+          <h2>Add all-you-can-eat snacks to the hot pot table</h2>
         </div>
         <div className="weekly-picks-grid">
           <article>

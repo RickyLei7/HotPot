@@ -205,7 +205,7 @@ export default function MenuPage() {
       <section className="category-section" aria-label="Browse menu categories">
         <div className="section-heading compact">
           <p className="eyebrow">Browse by category</p>
-          <h2>Menu sections at a glance.</h2>
+          <h2>Menu sections at a glance</h2>
         </div>
         <div className="category-strip">
           <a href="#ayce-hotpot"><span className="category-icon">AYCE</span><strong>AYCE Hot Pot</strong></a>
@@ -222,7 +222,7 @@ export default function MenuPage() {
       <section className="menu-section" id="ayce-hotpot">
         <div className="section-heading">
           <p className="eyebrow">All-you-can-eat hot pot</p>
-          <h2>AYCE Hot Pot Calgary: soup base included.</h2>
+          <h2>AYCE Hot Pot Calgary: soup base included</h2>
         </div>
         <div className="set-grid">
           <article><h3>$28.99 + tax</h3><p>All-You-Can-Eat Hot Pot in Calgary with soup base included. Meat is ordered through your server.</p></article>
@@ -246,7 +246,7 @@ export default function MenuPage() {
       <section className="combo-promo menu-combo" id="combo-specials">
         <div className="combo-copy">
           <p className="eyebrow">Other dining options</p>
-          <h2>Solo and Couple Hot Pot Combos.</h2>
+          <h2>Solo and Couple Hot Pot Combos</h2>
           <p>
             Solo Combo includes 1 personal hot pot and 1 drink for $24.99.
             Couple Combo includes 2 personal hot pots, 2 drinks, and 1 appetizer for $58.99.
@@ -263,7 +263,7 @@ export default function MenuPage() {
       <section className="menu-section" id="hotpot-set">
         <div className="section-heading">
           <p className="eyebrow">Hot pot set</p>
-          <h2>Start with one soup, one meat, and one rice or noodle side.</h2>
+          <h2>Choose a soup plus meat and rice or noodles</h2>
         </div>
         <div className="set-grid">
           <article><h3>Included</h3><p>1 soup base, large veggie set, 1 meat, and 1 rice or noodle side.</p></article>
@@ -276,7 +276,7 @@ export default function MenuPage() {
       <section className="menu-section" id="soup-bases">
         <div className="section-heading">
           <p className="eyebrow">Soup bases</p>
-          <h2>Signature broths for Japanese hot pot in Calgary.</h2>
+          <h2>Signature broths for Japanese hot pot in Calgary</h2>
         </div>
         <div className="dish-showcase">
           <article className="featured-dish">
@@ -301,7 +301,7 @@ export default function MenuPage() {
         <div id="rice-noodles">
           <div className="section-heading compact">
             <p className="eyebrow">Rice & noodles</p>
-            <h2>Comfort bowls for dinner, weekend lunch, or takeout.</h2>
+            <h2>Comfort bowls for dinner weekend lunch or takeout</h2>
           </div>
           <div className="price-list">
             {riceNoodles.map(([item, price]) => (
@@ -312,7 +312,7 @@ export default function MenuPage() {
         <div id="appetizers">
           <div className="section-heading compact">
             <p className="eyebrow">Appetizers</p>
-            <h2>Taiwanese snacks, crispy sides, and easy shareables.</h2>
+            <h2>Taiwanese snacks and crispy shareables</h2>
           </div>
           <div className="price-list">
             {snacks.map(([item, price]) => (
@@ -325,7 +325,7 @@ export default function MenuPage() {
       <section className="menu-section" id="drinks">
         <div className="section-heading compact">
           <p className="eyebrow">Milk tea & drinks</p>
-          <h2>Tea, milk tea, specialty drinks, smoothies, sodas, and toppings.</h2>
+          <h2>Milk tea specialty drinks smoothies and more</h2>
         </div>
         <div className="drink-panel">
           <img src="/assets/milk-tea-photo-640.webp" srcSet="/assets/milk-tea-photo-320.webp 320w, /assets/milk-tea-photo-640.webp 640w, /assets/milk-tea-photo.webp 900w" sizes="(max-width: 560px) calc(100vw - 32px), (max-width: 1100px) 100vw, 42vw" alt="Milk tea drinks at Centre Street Japanese HotPot Calgary" width="900" height="1200" loading="lazy" decoding="async" />
@@ -340,7 +340,7 @@ export default function MenuPage() {
       <section className="full-menu" id="full-menu">
         <div className="section-heading">
           <p className="eyebrow">Full menu images</p>
-          <h2>Browse the full in-store menu.</h2>
+          <h2>Browse the full in-store menu</h2>
           <div className="menu-download-actions">
             <a className="primary-action" href="/menu/centre-street-japanese-hotpot-menu.pdf" download>Download PDF</a>
             <a className="secondary-action dark" href="/menu/centre-street-japanese-hotpot-menu.pdf" target="_blank" rel="noreferrer">Open PDF</a>

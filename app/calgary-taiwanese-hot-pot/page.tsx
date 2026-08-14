@@ -108,7 +108,7 @@ export default function CalgaryTaiwaneseHotPotPage() {
         <div className="guide-layout">
           <article className="guide-copy">
             <p className="eyebrow">Why guests choose it</p>
-            <h2>Taiwanese-style hot pot works for solo meals, families, and groups.</h2>
+            <h2>Taiwanese-style hot pot for solo meals families and groups</h2>
             <p>
               Taiwanese hot pot is built around choice: soup base, meat, vegetables,
               rice or noodles, sauces, snacks, and drinks. At Centre Street Japanese HotPot,
@@ -135,7 +135,7 @@ export default function CalgaryTaiwaneseHotPotPage() {
       <section className="weekly-picks">
         <div>
           <p className="eyebrow">Taiwanese hot pot meal path</p>
-          <h2>Start with broth, add snacks, finish with milk tea.</h2>
+          <h2>Start with broth add snacks and finish with milk tea</h2>
         </div>
         <div className="weekly-picks-grid">
           <article>

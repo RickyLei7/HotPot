@@ -17,7 +17,18 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://centrestjhotpot.ca"),
   title: "Hot Pot Calgary | AYCE $28.99 & 15 Soup Bases | Centre Street",
   description:
-    "Hot pot Calgary: Taiwanese and Japanese-style personal hot pot plus AYCE $28.99 + tax, 15 soup bases, snacks and milk tea. Open Mon-Fri 5-10:30, Sat-Sun noon-10:30. Call to reserve.",
+    "Hot pot in Calgary with $28.99 AYCE, complete $19.99 personal hot pot, 15 soup bases, Taiwanese beef noodle soup, snacks and milk tea. Call to reserve.",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
   alternates: {
     canonical: "/",
     languages: {
@@ -32,7 +43,7 @@ export const metadata: Metadata = {
       "Taiwanese and Japanese-style hot pot in Calgary: AYCE $28.99 + tax, 15 soup bases, snacks and milk tea. Call to reserve.",
     url: "https://centrestjhotpot.ca/",
     siteName: "Centre Street Japanese HotPot",
-    images: ["/assets/ayce-hotpot-menu-preview.webp"],
+    images: ["/assets/dish-spicy.webp"],
     type: "website",
   },
   twitter: {
@@ -40,7 +51,7 @@ export const metadata: Metadata = {
     title: "Centre Street Japanese HotPot | AYCE Hot Pot Calgary",
     description:
       "$28.99 AYCE hot pot in Calgary with 15 soup bases. Call (403) 455-3188 to reserve.",
-    images: ["/assets/ayce-hotpot-menu-preview.webp"],
+    images: ["/assets/dish-spicy.webp"],
   },
   icons: {
     icon: [

@@ -93,6 +93,10 @@ function validateDocument(html, route, language, pair) {
   assert.ok(html.includes("+14034553188"), `${route} must preserve the reservation phone`);
   assert.ok(textValue(html, /<title>([\s\S]*?)<\/title>/i), `${route} is missing a title`);
   assert.ok(attribute(html, /<meta\b[^>]*name=["']description["'][^>]*>/i, "content"), `${route} is missing a description`);
+  const robots = attribute(html, /<meta\b[^>]*name=["']robots["'][^>]*>/i, "content");
+  for (const directive of ["index", "follow", "max-image-preview:large", "max-snippet:-1", "max-video-preview:-1"]) {
+    assert.ok(robots.includes(directive), `${route} is missing robots directive: ${directive}`);
+  }
   validateHeadingPunctuation(html, route);
 }
 
@@ -143,7 +147,7 @@ for (const [enRoute, zhRoute] of pairs) {
   assert.doesNotMatch(zhHtml, timeLimitPattern, `${zhRoute} must not emphasize the AYCE time limit`);
   assert.doesNotMatch(zhHtml, /[税稅]/u, `${zhRoute} must not contain Chinese tax characters`);
   assert.doesNotMatch(
-    enHtml.replaceAll(">中文<", "><"),
+    enHtml.replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, "").replaceAll(">中文<", "><"),
     /[\u3400-\u9fff]/u,
     `${enRoute} must not contain Chinese text outside the language switch`,
   );
@@ -195,6 +199,7 @@ assert.doesNotMatch(adsHtml, /[\u3400-\u9fff]/u, "Google Ads landing page must b
 
 const sitemap = await readFile(path.join(publicDir, "sitemap.xml"), "utf8");
 const llms = await readFile(path.join(publicDir, "llms.txt"), "utf8");
+assert.doesNotMatch(llms, /[税稅]/u, "llms.txt must not contain Chinese tax characters");
 for (const [enRoute, zhRoute] of pairs) {
   for (const route of [enRoute, zhRoute]) {
     assert.ok(sitemap.includes(`<loc>${absolute(route)}</loc>`), `sitemap is missing ${route}`);
@@ -205,5 +210,17 @@ for (const [enRoute, zhRoute] of pairs) {
 for (const route of ["/zh-hant/", "/zh-hant/menu/", "/zh-hant/faq/", "/zh-hant/contact/", "/zh-hant/restaurant-info/", "/zh-hant/ayce-hot-pot-calgary/"]) {
   assert.ok(llms.includes(absolute(route)), `llms.txt is missing ${route}`);
 }
+
+for (const route of ["/facebook-auth/", "/google-business-auth/", "/instagram-auth/", "/threads-auth/"]) {
+  const html = await readFile(fileForRoute(route), "utf8");
+  assert.match(html, /<meta\b[^>]*name=["']robots["'][^>]*content=["'][^"']*noindex[^"']*nofollow/i, `${route} must remain noindex, nofollow`);
+}
+
+const homeSchema = textValue(englishHome, /<script type="application\/ld\+json">([\s\S]*?)<\/script>/i);
+for (const required of ["WebSite", "Restaurant", "鼎鑽火鍋", '"menu"', "dish-spicy.webp"]) {
+  assert.ok(homeSchema.includes(required), `English homepage schema is missing ${required}`);
+}
+const chineseFaq = await readFile(fileForRoute("/zh-hant/faq/"), "utf8");
+assert.equal((chineseFaq.match(/"@type":"FAQPage"/g) || []).length, 1, "Chinese FAQ must not duplicate its FAQPage entity");
 
 console.log(`Bilingual checks passed for ${pairs.size} English/Traditional Chinese route pairs.`);

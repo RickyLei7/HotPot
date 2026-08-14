@@ -11,6 +11,7 @@ export function HomepageMenu({ language }: { language: HomepageLanguage }) {
   const content = homepageContent[isZh ? "zhHant" : "en"];
   const menuPath = isZh ? "/zh-hant/menu/" : "/menu/";
   const aycePath = isZh ? "/zh-hant/ayce-hot-pot-calgary/" : "/ayce-hot-pot-calgary/";
+  const restaurantInfoPath = isZh ? "/zh-hant/restaurant-info/" : "/restaurant-info/";
   const snackImages = [
     { src: "/assets/ayce-fried-chicken-320.webp", srcSet: "/assets/ayce-fried-chicken-224.webp 224w, /assets/ayce-fried-chicken-320.webp 320w, /assets/ayce-fried-chicken-640.webp 640w" },
     { src: "/assets/ayce-takoyaki-320.webp", srcSet: "/assets/ayce-takoyaki-224.webp 224w, /assets/ayce-takoyaki-320.webp 320w, /assets/ayce-takoyaki-640.webp 640w" },
@@ -121,7 +122,7 @@ export function HomepageMenu({ language }: { language: HomepageLanguage }) {
       <section id="visit" className="homepage-visit">
         <div className="section-heading compact"><p className="eyebrow">{content.visit.eyebrow}</p><h2>{content.visit.title}</h2></div>
         <div className="visit-grid">
-          <article><h3>{content.visit.hoursTitle}</h3>{content.visit.hours.map((hours) => <p key={hours}>{hours}</p>)}</article>
+          <article><h3>{content.visit.hoursTitle}</h3>{content.visit.hours.map((hours) => <p key={hours}>{hours}</p>)}<Link href={restaurantInfoPath}>{content.visit.details}</Link></article>
           <article><h3>{content.visit.contactTitle}</h3><p>{content.visit.contactCopy}</p><a href="tel:+14034553188">{content.visit.reserve}</a></article>
           <article><h3>{content.visit.directions}</h3><p>2213 Centre St N #2243, Calgary, AB T2E 2T4</p><a href={directionsUrl} target="_blank" rel="noreferrer">{content.visit.directions}</a></article>
           <article><h3>{content.visit.reviewTitle}</h3><p>{content.visit.reviewCopy}</p><a href={googleReviewUrl} target="_blank" rel="noreferrer">{content.visit.review}</a></article>

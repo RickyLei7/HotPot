@@ -1,6 +1,7 @@
 # Centre Street Japanese HotPot
 
 Official website: https://centrestjhotpot.ca/
+Last verified: 2026-08-14
 
 Language versions:
 - English: https://centrestjhotpot.ca/
@@ -38,7 +39,7 @@ Centre Street Japanese HotPot is a Taiwanese and Japanese-style hot pot restaura
 - 類型：卡加利台式與日式風格一人一鍋、火鍋自助、台式小吃、飯麵與奶茶
 - 地址：2213 Centre St N #2243, Calgary, AB T2E 2T4
 - 電話：(403) 455-3188
-- 火鍋自助：$28.99 + 稅，包含鍋底，肉品由服務員協助下單
+- 火鍋自助：$28.99，包含鍋底，肉品由服務員協助下單
 - 小吃任點升級：19 款小吃，+$3.99／人，同桌客人必須一起升級
 - 湯底：15 款
 - 營業時間：週一至週五 17:00-22:30；週六、週日 12:00-22:30

@@ -14,25 +14,40 @@ function escapeHtml(value = "") {
 }
 
 function jsonLd(data) {
+  const faqMainEntity = data.faqs.map((faq) => ({
+    "@type": "Question",
+    name: faq.question,
+    acceptedAnswer: { "@type": "Answer", text: faq.answer },
+  }));
   const pageEntity = {
     "@type": data.schemaType,
     "@id": `${origin}${data.path}#webpage`,
     url: `${origin}${data.path}`,
     name: data.title,
     description: data.description,
-    inLanguage: "zh-Hant",
+    inLanguage: "zh-Hant-CA",
     isPartOf: { "@id": `${origin}/#website` },
     about: { "@id": `${origin}/#restaurant` },
   };
   if (data.schemaType === "Article") {
     pageEntity.headline = data.h1;
     pageEntity.datePublished = "2026-08-13";
-    pageEntity.dateModified = "2026-08-13";
+    pageEntity.dateModified = "2026-08-14";
     pageEntity.author = { "@id": `${origin}/#restaurant` };
     pageEntity.publisher = { "@id": `${origin}/#restaurant` };
   }
+  if (data.schemaType === "FAQPage") pageEntity.mainEntity = faqMainEntity;
 
   const graph = [
+    {
+      "@type": "WebSite",
+      "@id": `${origin}/#website`,
+      url: `${origin}/`,
+      name: "Centre Street Japanese HotPot",
+      alternateName: "鼎鑽火鍋",
+      inLanguage: ["en-CA", "zh-Hant-CA"],
+      publisher: { "@id": `${origin}/#restaurant` },
+    },
     pageEntity,
     {
       "@type": "Restaurant",
@@ -40,12 +55,18 @@ function jsonLd(data) {
       name: "Centre Street Japanese HotPot",
       alternateName: ["鼎鑽火鍋", "Centre Street Japanese Hotpot"],
       url: `${origin}/`,
-      inLanguage: ["en-CA", "zh-Hant"],
+      inLanguage: ["en-CA", "zh-Hant-CA"],
+      logo: `${origin}/assets/brand-logo-wide.webp`,
       telephone: "+1-403-455-3188",
       email: "CentreStJHotpot@gmail.com",
-      image: `${origin}/assets/ayce-hotpot-menu-preview.webp`,
+      image: [
+        `${origin}/assets/dish-spicy.webp`,
+        `${origin}/assets/soup-lineup.webp`,
+        `${origin}/assets/light-meals/fried-chicken-rice-noodle-1024.webp`,
+      ],
       servesCuisine: ["台式火鍋", "日式風格火鍋", "一人一鍋", "台式小吃", "奶茶"],
       priceRange: "$$",
+      areaServed: { "@type": "City", name: "Calgary" },
       address: {
         "@type": "PostalAddress",
         streetAddress: "2213 Centre St N #2243",
@@ -55,6 +76,8 @@ function jsonLd(data) {
         addressCountry: "CA",
       },
       geo: { "@type": "GeoCoordinates", latitude: 51.0722307, longitude: -114.0630498 },
+      hasMap: "https://www.google.com/maps/place/Centre+Street+Japanese+Hotpot/@51.072234,-114.0656247,17z",
+      menu: `${origin}/zh-hant/menu/`,
       hasMenu: `${origin}/zh-hant/menu/`,
       acceptsReservations: true,
       openingHoursSpecification: [
@@ -80,16 +103,12 @@ function jsonLd(data) {
     },
   ];
 
-  if (data.faqs.length) {
+  if (data.faqs.length && data.schemaType !== "FAQPage") {
     graph.push({
       "@type": "FAQPage",
       "@id": `${origin}${data.path}#faq`,
-      inLanguage: "zh-Hant",
-      mainEntity: data.faqs.map((faq) => ({
-        "@type": "Question",
-        name: faq.question,
-        acceptedAnswer: { "@type": "Answer", text: faq.answer },
-      })),
+      inLanguage: "zh-Hant-CA",
+      mainEntity: faqMainEntity,
     });
   }
   return JSON.stringify({ "@context": "https://schema.org", "@graph": graph }).replaceAll("<", "\\u003c");
@@ -149,6 +168,7 @@ function renderHomePage(data) {
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
     <title>${escapeHtml(data.title)}</title>
     <meta name="description" content="${escapeHtml(data.description)}" />
     <link rel="canonical" href="${origin}${data.path}" />
@@ -161,7 +181,7 @@ function renderHomePage(data) {
     <meta property="og:title" content="${escapeHtml(data.title)}" />
     <meta property="og:description" content="${escapeHtml(data.description)}" />
     <meta property="og:url" content="${origin}${data.path}" />
-    <meta property="og:image" content="${origin}/assets/ayce-hotpot.webp" />
+    <meta property="og:image" content="${origin}/assets/dish-spicy.webp" />
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="icon" href="/favicon.ico" sizes="any" />
     <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32" />
@@ -181,7 +201,7 @@ function renderHomePage(data) {
       <section id="beef-noodle" class="beef-noodle-feature"><div class="beef-noodle-feature-media"><img src="${story.image}" srcset="/assets/taiwanese-beef-noodle-story-360.webp 360w, /assets/taiwanese-beef-noodle-story-480.webp 480w, /assets/taiwanese-beef-noodle-story-720.webp 720w" sizes="(max-width: 760px) 88vw, 520px" alt="${escapeHtml(story.imageAlt)}" width="1122" height="1402" loading="lazy" decoding="async" /></div><div class="beef-noodle-feature-copy"><p class="eyebrow">讓人想起家的經典味道</p><h2>招牌台式紅燒牛肉麵</h2><strong class="menu-price">$16.99</strong><h3>${escapeHtml(story.title)}</h3>${story.paragraphs.map((paragraph) => `<p>${escapeHtml(paragraph.replaceAll("「", "").replaceAll("」", ""))}</p>`).join("")}</div></section>
       <section id="light-meals" class="light-meals-section"><div class="section-heading compact"><p class="eyebrow">不只火鍋</p><h2>台式招牌飯麵</h2><p>想吃得快速簡單，也有暖胃又有飽足感的台式飯麵選擇。</p></div><div class="light-meal-grid">${homeMeals.map(([slug, name, price, description]) => `<article class="light-meal-card"><img src="/assets/light-meals/${slug}-1024.webp" srcset="/assets/light-meals/${slug}-480.webp 480w, /assets/light-meals/${slug}-1024.webp 1024w" sizes="(max-width: 560px) 46vw, (max-width: 1100px) 45vw, 30vw" alt="鼎鑽火鍋${name}" width="1024" height="704" loading="lazy" decoding="async" /><div><h3>${name}</h3><strong>${price}</strong><p>${description}</p></div></article>`).join("")}</div><a class="primary-action" href="/zh-hant/menu/">查看完整菜單</a></section>
       <section id="drinks" class="drink-feature"><div class="drink-feature-copy"><p class="eyebrow">茶飲 奶茶與特色飲品</p><h2>每桌都能找到喜歡的飲料</h2><p>甜度和冰量都可以選擇，茶飲與奶茶也可以做熱飲。</p><strong class="drink-discount">任點火鍋或招牌餐點 飲料可享九折優惠</strong><div class="drink-category-grid">${homeDrinks.map(([name, price]) => `<p><span>${name}</span><strong>${price}</strong></p>`).join("")}</div></div><img src="/assets/milk-tea-photo-640.webp" srcset="/assets/milk-tea-photo-320.webp 320w, /assets/milk-tea-photo-640.webp 640w, /assets/milk-tea-photo.webp 900w" sizes="(max-width: 760px) 74vw, 380px" alt="鼎鑽火鍋奶茶與特色飲品" width="900" height="1200" loading="lazy" decoding="async" /></section>
-      <section id="visit" class="homepage-visit"><div class="section-heading compact"><p class="eyebrow">到店用餐</p><h2>位於卡加利 Centre Street</h2></div><div class="visit-grid"><article><h3>營業時間</h3><p>週一至週五 5:00 PM-10:30 PM</p><p>週六及週日 12:00 PM-10:30 PM</p></article><article><h3>預訂座位</h3><p>訂位、團體聚餐或想確認今天座位，歡迎直接致電。</p><a href="tel:+14034553188">致電 (403) 455-3188</a></article><article><h3>Google 地圖導航</h3><p>2213 Centre St N #2243, Calgary, AB T2E 2T4</p><a href="https://www.google.com/maps/dir/?api=1&amp;destination=2213+Centre+St+N+%232243%2C+Calgary%2C+AB+T2E+2T4" target="_blank" rel="noreferrer">Google 地圖導航</a></article><article><h3>讓更多卡加利客人找到我們</h3><p>用餐後歡迎在 Google 分享你的體驗。</p><a href="https://www.google.com/maps/place/Centre+Street+Japanese+Hotpot/@51.072234,-114.0656247,17z" target="_blank" rel="noreferrer">前往 Google 留下評論</a></article></div><div class="social-follow"><div><p class="eyebrow">追蹤我們</p><h3>看看新菜品 店內消息與日常分享</h3></div>${renderSocialLinks()}</div></section>
+      <section id="visit" class="homepage-visit"><div class="section-heading compact"><p class="eyebrow">到店用餐</p><h2>位於卡加利 Centre Street</h2></div><div class="visit-grid"><article><h3>營業時間</h3><p>週一至週五 5:00 PM-10:30 PM</p><p>週六及週日 12:00 PM-10:30 PM</p><a href="/zh-hant/restaurant-info/">查看完整餐廳資料</a></article><article><h3>預訂座位</h3><p>訂位、團體聚餐或想確認今天座位，歡迎直接致電。</p><a href="tel:+14034553188">致電 (403) 455-3188</a></article><article><h3>Google 地圖導航</h3><p>2213 Centre St N #2243, Calgary, AB T2E 2T4</p><a href="https://www.google.com/maps/dir/?api=1&amp;destination=2213+Centre+St+N+%232243%2C+Calgary%2C+AB+T2E+2T4" target="_blank" rel="noreferrer">Google 地圖導航</a></article><article><h3>讓更多卡加利客人找到我們</h3><p>用餐後歡迎在 Google 分享你的體驗。</p><a href="https://www.google.com/maps/place/Centre+Street+Japanese+Hotpot/@51.072234,-114.0656247,17z" target="_blank" rel="noreferrer">前往 Google 留下評論</a></article></div><div class="social-follow"><div><p class="eyebrow">追蹤我們</p><h3>看看新菜品 店內消息與日常分享</h3></div>${renderSocialLinks()}</div></section>
     </main>
     <a class="reserve-sticky" href="tel:+14034553188">致電訂位 · (403) 455-3188</a>
   </body>
@@ -203,6 +223,7 @@ function renderPage(data) {
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
     <title>${escapeHtml(data.title)}</title>
     <meta name="description" content="${escapeHtml(data.description)}" />
     <link rel="canonical" href="${origin}${data.path}" />

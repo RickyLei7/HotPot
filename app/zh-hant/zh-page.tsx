@@ -48,33 +48,61 @@ export function makeZhMetadata(data: ZhPageData): Metadata {
 }
 
 function schemaFor(data: ZhPageData) {
+  const faqMainEntity = data.faqs.map((faq) => ({ "@type": "Question", name: faq.question, acceptedAnswer: { "@type": "Answer", text: faq.answer } }));
+  const pageEntity: Record<string, unknown> = {
+    "@type": data.schemaType,
+    "@id": `https://centrestjhotpot.ca${data.path}#webpage`,
+    url: `https://centrestjhotpot.ca${data.path}`,
+    name: data.title,
+    description: data.description,
+    inLanguage: "zh-Hant-CA",
+    isPartOf: { "@id": "https://centrestjhotpot.ca/#website" },
+    about: { "@id": "https://centrestjhotpot.ca/#restaurant" },
+  };
+  if (data.schemaType === "FAQPage") pageEntity.mainEntity = faqMainEntity;
+
   const graph: Record<string, unknown>[] = [
     {
-      "@type": data.schemaType,
-      "@id": `https://centrestjhotpot.ca${data.path}#webpage`,
-      url: `https://centrestjhotpot.ca${data.path}`,
-      name: data.title,
-      description: data.description,
-      inLanguage: "zh-Hant",
-      isPartOf: { "@id": "https://centrestjhotpot.ca/#website" },
-      about: { "@id": "https://centrestjhotpot.ca/#restaurant" },
+      "@type": "WebSite",
+      "@id": "https://centrestjhotpot.ca/#website",
+      url: "https://centrestjhotpot.ca/",
+      name: "Centre Street Japanese HotPot",
+      alternateName: "鼎鑽火鍋",
+      inLanguage: ["en-CA", "zh-Hant-CA"],
+      publisher: { "@id": "https://centrestjhotpot.ca/#restaurant" },
     },
+    pageEntity,
     {
       "@type": "Restaurant",
       "@id": "https://centrestjhotpot.ca/#restaurant",
       name: "Centre Street Japanese HotPot",
       alternateName: ["鼎鑽火鍋", "Centre Street Japanese Hotpot"],
+      url: "https://centrestjhotpot.ca/",
+      logo: "https://centrestjhotpot.ca/assets/brand-logo-wide.webp",
+      image: [
+        "https://centrestjhotpot.ca/assets/dish-spicy.webp",
+        "https://centrestjhotpot.ca/assets/soup-lineup.webp",
+        "https://centrestjhotpot.ca/assets/light-meals/fried-chicken-rice-noodle-1024.webp",
+      ],
+      inLanguage: ["en-CA", "zh-Hant-CA"],
       telephone: "+1-403-455-3188",
+      email: "CentreStJHotpot@gmail.com",
+      servesCuisine: ["台式火鍋", "日式風格火鍋", "一人一鍋", "台式小吃", "奶茶"],
+      priceRange: "$$",
+      areaServed: { "@type": "City", name: "Calgary" },
       address: { "@type": "PostalAddress", streetAddress: "2213 Centre St N #2243", addressLocality: "Calgary", addressRegion: "AB", postalCode: "T2E 2T4", addressCountry: "CA" },
+      geo: { "@type": "GeoCoordinates", latitude: 51.0722307, longitude: -114.0630498 },
+      hasMap: "https://www.google.com/maps/place/Centre+Street+Japanese+Hotpot/@51.072234,-114.0656247,17z",
       openingHoursSpecification: [
         { "@type": "OpeningHoursSpecification", dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], opens: "17:00", closes: "22:30" },
         { "@type": "OpeningHoursSpecification", dayOfWeek: ["Saturday", "Sunday"], opens: "12:00", closes: "22:30" },
       ],
+      menu: "https://centrestjhotpot.ca/zh-hant/menu/",
       hasMenu: "https://centrestjhotpot.ca/zh-hant/menu/",
       acceptsReservations: true,
     },
   ];
-  if (data.faqs.length) graph.push({ "@type": "FAQPage", inLanguage: "zh-Hant", mainEntity: data.faqs.map((faq) => ({ "@type": "Question", name: faq.question, acceptedAnswer: { "@type": "Answer", text: faq.answer } })) });
+  if (data.faqs.length && data.schemaType !== "FAQPage") graph.push({ "@type": "FAQPage", "@id": `https://centrestjhotpot.ca${data.path}#faq`, inLanguage: "zh-Hant-CA", mainEntity: faqMainEntity });
   return { "@context": "https://schema.org", "@graph": graph };
 }
 

@@ -61,6 +61,7 @@ export type HomepageContent = {
     title: string;
     hoursTitle: string;
     hours: string[];
+    details: string;
     contactTitle: string;
     contactCopy: string;
     reserve: string;
@@ -74,12 +75,12 @@ export type HomepageContent = {
 };
 
 const englishMeals: MealCard[] = [
-  { slug: "braised-pork-rice", name: "Braised Pork Rice", price: "$12.99", description: "Braised pork over steamed rice", alt: "Taiwanese braised pork rice at Centre Street Japanese HotPot" },
-  { slug: "fried-chicken-rice-noodle", name: "Taiwanese Fried Chicken Rice or Noodle", price: "$14.99", description: "Crispy Taiwanese fried chicken served with rice or noodles", alt: "Taiwanese fried chicken rice at Centre Street Japanese HotPot" },
-  { slug: "wonton-rice-noodle", name: "Wonton Soup with Rice or Noodle", price: "$14.99", description: "Wontons in warm broth served with rice or noodles", alt: "Wonton soup with rice at Centre Street Japanese HotPot" },
-  { slug: "unagi-rice", name: "Unagi Rice Bowl", price: "$18.99", description: "Grilled unagi over steamed rice", alt: "Unagi rice bowl at Centre Street Japanese HotPot" },
-  { slug: "beef-brisket-rice", name: "Beef Brisket Rice", price: "$16.99", description: "Tender braised beef brisket over rice", alt: "Beef brisket rice at Centre Street Japanese HotPot" },
-  { slug: "sukiyaki-beef-rice", name: "Sukiyaki Beef Rice", price: "$16.99", description: "Sliced beef cooked in sweet sukiyaki sauce over rice", alt: "Sukiyaki beef rice at Centre Street Japanese HotPot" },
+  { slug: "braised-pork-rice", name: "Braised Pork Rice", price: "$12.99", description: "Braised pork over steamed rice", alt: "Taiwanese braised pork rice at Centre Street Japanese HotPot in Calgary" },
+  { slug: "fried-chicken-rice-noodle", name: "Taiwanese Fried Chicken Rice or Noodle", price: "$14.99", description: "Crispy Taiwanese fried chicken served with rice or noodles", alt: "Taiwanese fried chicken rice at Centre Street Japanese HotPot in Calgary" },
+  { slug: "wonton-rice-noodle", name: "Wonton Soup with Rice or Noodle", price: "$14.99", description: "Wontons in warm broth served with rice or noodles", alt: "Wonton soup with rice at Centre Street Japanese HotPot in Calgary" },
+  { slug: "unagi-rice", name: "Unagi Rice Bowl", price: "$18.99", description: "Grilled unagi over steamed rice", alt: "Unagi rice bowl at Centre Street Japanese HotPot in Calgary" },
+  { slug: "beef-brisket-rice", name: "Beef Brisket Rice", price: "$16.99", description: "Tender braised beef brisket over rice", alt: "Beef brisket rice at Centre Street Japanese HotPot in Calgary" },
+  { slug: "sukiyaki-beef-rice", name: "Sukiyaki Beef Rice", price: "$16.99", description: "Sliced beef cooked in sweet sukiyaki sauce over rice", alt: "Sukiyaki beef rice at Centre Street Japanese HotPot in Calgary" },
 ];
 
 const chineseMeals: MealCard[] = [
@@ -155,6 +156,7 @@ export const homepageContent: { en: HomepageContent; zhHant: HomepageContent } =
       title: "2213 Centre St N #2243 Calgary",
       hoursTitle: "Hours",
       hours: ["Monday-Friday 5:00 PM-10:30 PM", "Saturday-Sunday 12:00 PM-10:30 PM"],
+      details: "Full Restaurant Details",
       contactTitle: "Reserve your table",
       contactCopy: "Call for reservations, group dining, or today's availability.",
       reserve: "Call (403) 455-3188",
@@ -229,6 +231,7 @@ export const homepageContent: { en: HomepageContent; zhHant: HomepageContent } =
       title: "位於卡加利 Centre Street",
       hoursTitle: "營業時間",
       hours: ["週一至週五 5:00 PM-10:30 PM", "週六及週日 12:00 PM-10:30 PM"],
+      details: "查看完整餐廳資料",
       contactTitle: "預訂座位",
       contactCopy: "訂位、團體聚餐或想確認今天座位，歡迎直接致電。",
       reserve: "致電 (403) 455-3188",

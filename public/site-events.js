@@ -1,6 +1,7 @@
 (function () {
   var measurementId = "G-JN2E0S7E36";
   var googleAdsId = "AW-18149812430";
+  var metaPixelId = "1108307461722381";
   var attributionStorageKey = "hotpot_campaign_attribution_v2";
   var landingStorageKey = "hotpot_session_landing_v1";
 
@@ -8,6 +9,17 @@
   window.gtag = window.gtag || function () {
     window.dataLayer.push(arguments);
   };
+
+  window.fbq = window.fbq || function () {
+    window.fbq.callMethod
+      ? window.fbq.callMethod.apply(window.fbq, arguments)
+      : window.fbq.queue.push(arguments);
+  };
+  if (!window._fbq) window._fbq = window.fbq;
+  window.fbq.push = window.fbq;
+  window.fbq.loaded = true;
+  window.fbq.version = "2.0";
+  window.fbq.queue = window.fbq.queue || [];
 
   function cleanValue(value, limit) {
     return String(value || "")
@@ -172,6 +184,23 @@
     document.head.appendChild(script);
   }
 
+  function loadMetaPixel() {
+    if (window.__hotpotMetaPixelConfigured) return;
+    window.__hotpotMetaPixelConfigured = true;
+
+    if (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1") {
+      return;
+    }
+
+    var script = document.createElement("script");
+    script.async = true;
+    script.src = "https://connect.facebook.net/en_US/fbevents.js";
+    document.head.appendChild(script);
+
+    window.fbq("init", metaPixelId);
+    window.fbq("track", "PageView");
+  }
+
   function scheduleGoogleTag() {
     var loadFromIntent = function () {
       loadGoogleTag();
@@ -208,6 +237,7 @@
     window.__hotpotGaConfigured = true;
   }
   window.__hotpotAnalyticsReady = true;
+  loadMetaPixel();
   scheduleGoogleTag();
 
   if (hasCampaignData(directAttribution) && !window.__hotpotCampaignLandingSent) {
@@ -286,6 +316,30 @@
       link_destination: safeDestination(link),
       cta_location: getLocation(link),
     }, params || {}));
+
+    if (name === "phone_click") {
+      window.fbq("track", "Contact", {
+        content_name: "Phone Reservation",
+        content_category: "contact",
+      });
+    } else if (name === "directions_click") {
+      window.fbq("track", "FindLocation", {
+        content_name: "Centre Street Japanese HotPot",
+        content_category: "restaurant_location",
+      });
+    } else if (
+      name === "menu_click" ||
+      name === "menu_pdf_open" ||
+      name === "menu_download" ||
+      name === "menu_image_open"
+    ) {
+      window.fbq("track", "ViewContent", {
+        content_name: "Restaurant Menu",
+        content_category: "menu",
+        content_ids: ["restaurant_menu"],
+        content_type: "product",
+      });
+    }
   }
 
   function sendAdsCallConversion(event, link) {

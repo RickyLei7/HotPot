@@ -56,6 +56,7 @@ for (const file of htmlFiles) {
 const siteEvents = await readFile(path.join(publicDir, "site-events.js"), "utf8");
 for (const requiredText of [
   "G-JN2E0S7E36",
+  "1108307461722381",
   "campaign_landing",
   "google_ads_landing",
   "phone_click",
@@ -70,6 +71,11 @@ for (const requiredText of [
   'script.src = "/t662/"',
   "requestIdleCallback",
   "window.__hotpotAnalyticsReady",
+  "window.__hotpotMetaPixelConfigured",
+  'window.fbq("track", "PageView")',
+  'window.fbq("track", "Contact"',
+  'window.fbq("track", "FindLocation"',
+  'window.fbq("track", "ViewContent"',
 ]) {
   assert.ok(siteEvents.includes(requiredText), `site-events.js is missing ${requiredText}`);
 }

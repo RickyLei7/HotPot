@@ -3,8 +3,8 @@ import { SiteNav } from "../site-nav";
 import rawPages from "./page-data.json";
 
 type Action = { label: string; href: string; style: string };
-type Card = { title: string; text: string };
-type Section = { eyebrow: string; title: string; paragraphs: string[]; cards?: Card[] };
+type Card = { title: string; text: string; href?: string; actionLabel?: string };
+type Section = { eyebrow: string; title: string; paragraphs: string[]; cards?: Card[]; actions?: Action[] };
 type Faq = { question: string; answer: string };
 type FeatureStory = { eyebrow: string; title: string; image: string; imageAlt: string; paragraphs: string[] };
 export type ZhPageData = {
@@ -94,7 +94,8 @@ export function ZhPage({ data }: { data: ZhPageData }) {
       {data.sections.map((section, index) => <section className={`content-section localized-section${index % 2 ? " is-dark" : ""}`} key={section.title}>
         <div className="section-heading compact"><p className="eyebrow">{section.eyebrow}</p><h2>{section.title}</h2></div>
         <div className="localized-copy">{section.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}</div>
-        {section.cards?.length ? <div className="recommendation-grid localized-card-grid">{section.cards.map((card) => <article key={card.title}><h3>{card.title}</h3><p>{card.text}</p></article>)}</div> : null}
+        {section.actions?.length ? <div className="menu-download-actions localized-section-actions">{section.actions.map((action) => <a className={action.style} href={action.href} key={action.label} target="_blank" rel="noreferrer">{action.label}</a>)}</div> : null}
+        {section.cards?.length ? <div className="recommendation-grid localized-card-grid">{section.cards.map((card) => <article key={card.title}><h3>{card.title}</h3><p>{card.text}</p>{card.href && card.actionLabel ? <a className="card-action" href={card.href} target="_blank" rel="noreferrer">{card.actionLabel}</a> : null}</article>)}</div> : null}
       </section>)}
       {data.featureStory ? <section className="beef-noodle-story" aria-label="台灣傳統牛肉麵故事">
         <div className="beef-noodle-story-media"><img src={data.featureStory.image} alt={data.featureStory.imageAlt} width="1122" height="1402" loading="lazy" decoding="async" /></div>

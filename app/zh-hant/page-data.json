@@ -154,9 +154,12 @@
         "eyebrow": "完整菜單",
         "title": "查看最新菜單圖片與 PDF",
         "paragraphs": ["完整菜單包括火鍋、肉品海鮮、飯麵、小吃與飲品。價格與供應可能調整，到店前如有特定需求可致電 (403) 455-3188。"],
+        "actions": [
+          { "label": "開啟完整菜單 PDF", "href": "/menu/centre-street-japanese-hotpot-menu.pdf", "style": "primary-action" }
+        ],
         "cards": [
-          { "title": "火鍋與小吃頁", "text": "查看火鍋套餐、配料、湯底與台式小吃。" },
-          { "title": "飯麵與飲品頁", "text": "查看飯麵主食、奶茶與其他飲品。" }
+          { "title": "火鍋與小吃頁", "text": "查看火鍋套餐、配料、湯底與台式小吃。", "href": "/menu/hotpot-menu.jpg", "actionLabel": "查看火鍋與小吃菜單" },
+          { "title": "飯麵與飲品頁", "text": "查看飯麵主食、奶茶與其他飲品。", "href": "/menu/drink-menu.jpg", "actionLabel": "查看飯麵與飲品菜單" }
         ]
       }
     ],

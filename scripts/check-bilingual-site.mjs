@@ -127,6 +127,16 @@ for (const html of [englishHome, chineseHome]) {
   assert.match(html, /AYCE|火鍋自助/u, "Home pages must preserve AYCE content while restoring beef noodle content");
 }
 
+const chineseMenu = await readFile(fileForRoute("/zh-hant/menu/"), "utf8");
+for (const menuHref of [
+  "/menu/hotpot-menu.jpg",
+  "/menu/drink-menu.jpg",
+  "/menu/centre-street-japanese-hotpot-menu.pdf",
+]) {
+  assert.ok(chineseMenu.includes(`href="${menuHref}"`), `Chinese menu is missing visible menu link: ${menuHref}`);
+}
+assert.equal((chineseMenu.match(/class="card-action"/g) || []).length, 2, "Chinese menu must show two page-specific menu buttons");
+
 const factualPages = [
   "/zh-hant/",
   "/zh-hant/menu/",

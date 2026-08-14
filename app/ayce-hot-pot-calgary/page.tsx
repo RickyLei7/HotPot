@@ -46,13 +46,46 @@ const ayceFaqs = [
   ],
 ];
 
-const ayceSnacks = [
-  "Signature Taiwanese Fried Chicken", "Takoyaki (6 pcs)", "Crispy Chicken Cutlet",
-  "Golden Fried Buns", "Crispy Squid Legs", "Deep Fried King Mushroom",
-  "Crispy Wontons (8 pcs)", "Deep Fried Dumplings (8 pcs)", "Chicken Spring Rolls (6 pcs)",
-  "Veggie Spring Rolls (5 pcs)", "Popcorn Chicken", "Fish Balls (6 pcs)",
-  "Chinese Donut", "French Fries", "Sweet Potato Fries", "Golden Onion Rings",
-  "Korean Fish Cake", "Luncheon Meat (Spam)", "Edamame",
+const ayceSnackGroups = [
+  {
+    title: "Signature favourites",
+    snacks: [
+      "Signature Taiwanese Fried Chicken",
+      "Takoyaki (6 pcs)",
+      "Crispy Chicken Cutlet",
+      "Crispy Squid Legs",
+    ],
+  },
+  {
+    title: "Dumplings & rolls",
+    snacks: [
+      "Crispy Wontons (8 pcs)",
+      "Deep Fried Dumplings (8 pcs)",
+      "Chicken Spring Rolls (6 pcs)",
+      "Veggie Spring Rolls (5 pcs)",
+    ],
+  },
+  {
+    title: "Crispy sides",
+    snacks: [
+      "Golden Fried Buns",
+      "Deep Fried King Mushroom",
+      "Popcorn Chicken",
+      "Chinese Donut",
+      "French Fries",
+      "Sweet Potato Fries",
+      "Golden Onion Rings",
+    ],
+  },
+  {
+    title: "Hot pot extras",
+    snacks: [
+      "Fish Balls (6 pcs)",
+      "Korean Fish Cake",
+      "Luncheon Meat (Spam)",
+      "Edamame",
+    ],
+  },
 ];
 
 const ayceSchema = {
@@ -184,12 +217,19 @@ export default function AyceHotPotCalgaryPage() {
 
       <section className="menu-section" id="ayce-snacks">
         <div className="section-heading">
-          <p className="eyebrow">19-item appetizer upgrade</p>
-          <h2>Add 19 all-you-can-eat snacks for +$3.99 per person.</h2>
-          <p>Everyone at the same table must upgrade.</p>
+          <p className="eyebrow">All-you-can-eat snack upgrade</p>
+          <h2>Add all 19 snack choices for +$3.99 per person.</h2>
+          <p>One upgrade includes every snack below. Everyone at the same table must choose the upgrade.</p>
         </div>
-        <div className="price-list ayce-snack-list">
-          {ayceSnacks.map((snack) => <div key={snack}><span>{snack}</span><strong>AYCE</strong></div>)}
+        <div className="ayce-snack-directory" aria-label="19 all-you-can-eat snack choices by category">
+          {ayceSnackGroups.map((group) => (
+            <section className="ayce-snack-group" key={group.title}>
+              <h3>{group.title}<span>{group.snacks.length} choices</span></h3>
+              <ul>
+                {group.snacks.map((snack) => <li key={snack}>{snack}</li>)}
+              </ul>
+            </section>
+          ))}
         </div>
         <div className="combo-actions">
           <a className="primary-action" href="/menu/centre-street-ayce-menu.pdf" target="_blank" rel="noreferrer">Open AYCE Menu</a>

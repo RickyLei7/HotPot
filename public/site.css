@@ -357,9 +357,14 @@ h3 { font-size: 1.08rem; margin-bottom: 10px; }
 .price-list div { align-items: center; border-bottom: 1px solid rgba(127, 23, 22, 0.14); display: grid; gap: 14px; grid-template-columns: minmax(0, 1fr) auto; min-height: 48px; padding: 11px 16px; }
 .price-list div:last-child { border-bottom: 0; }
 .price-list strong { color: var(--red); font-size: 1.08rem; }
-.ayce-snack-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
-.ayce-snack-list div { border-bottom: 1px solid rgba(127, 23, 22, 0.14); }
-.ayce-snack-list div:nth-last-child(-n + 2) { border-bottom: 0; }
+.ayce-snack-directory { background: rgba(255, 248, 234, 0.96); border: 1px solid rgba(127, 23, 22, 0.16); border-radius: 8px; color: var(--ink); display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); overflow: hidden; }
+.ayce-snack-group { border-left: 1px solid rgba(127, 23, 22, 0.16); padding: 20px 22px; }
+.ayce-snack-group:first-child { border-left: 0; }
+.ayce-snack-group h3 { color: var(--red); font-size: 1rem; margin-bottom: 12px; }
+.ayce-snack-group h3 span { color: rgba(31, 22, 17, 0.62); display: block; font-size: 0.76rem; font-weight: 700; margin-top: 4px; }
+.ayce-snack-group ul { list-style: none; margin: 0; padding: 0; }
+.ayce-snack-group li { border-top: 1px solid rgba(127, 23, 22, 0.12); font-size: 0.94rem; font-weight: 720; line-height: 1.35; min-height: 44px; padding: 10px 0; }
+.ayce-snack-group li:first-child { border-top: 0; }
 .drink-panel { background: var(--paper-soft); border-radius: 8px; color: var(--ink); display: grid; grid-template-columns: minmax(240px, 0.5fr) minmax(0, 1fr); overflow: hidden; }
 .drink-panel img { height: 100%; max-height: 420px; object-fit: cover; object-position: center 46%; width: 100%; }
 .drink-panel .price-list { border-radius: 0; }
@@ -532,6 +537,9 @@ h3 { font-size: 1.08rem; margin-bottom: 10px; }
 .localized-visit h2 { font-size: clamp(1.8rem, 3.5vw, 3.4rem); }
 .localized-visit p { color: rgba(255, 246, 223, 0.84); line-height: 1.6; }
 @media (max-width: 1100px) {
+  .ayce-snack-directory { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .ayce-snack-group:nth-child(odd) { border-left: 0; }
+  .ayce-snack-group:nth-child(n + 3) { border-top: 1px solid rgba(127, 23, 22, 0.16); }
   .site-nav { grid-template-columns: 1fr auto auto; }
   .nav-links { display: flex; flex-wrap: wrap; gap: 8px; grid-column: 1 / -1; justify-content: flex-start; padding: 2px 0 4px; }
   .nav-links a { background: rgba(255, 248, 234, 0.1); border: 1px solid rgba(246, 201, 76, 0.24); border-radius: 999px; flex: 0 0 auto; padding: 9px 14px; }
@@ -572,6 +580,9 @@ h3 { font-size: 1.08rem; margin-bottom: 10px; }
   .ads-photo-band { background-image: linear-gradient(90deg, rgba(31, 22, 17, 0.96), rgba(127, 23, 22, 0.9)), url("assets/dish-spicy-640.webp"); }
 }
 @media (max-width: 560px) {
+  .ayce-snack-group { padding: 15px 14px; }
+  .ayce-snack-group h3 { font-size: 0.9rem; min-height: 48px; }
+  .ayce-snack-group li { font-size: 0.84rem; min-height: 42px; padding-block: 9px; }
   .brand-mark img { height: 40px; }
   .site-nav { align-items: center; gap: 10px 8px; grid-template-columns: minmax(0, 1fr) auto auto; padding: 10px 14px 12px; }
   .brand-mark { min-width: 0; }

@@ -4,7 +4,7 @@ import { SiteNav } from "./site-nav";
 import { SocialLinks } from "./social-links";
 
 const directionsUrl = "https://www.google.com/maps/dir/?api=1&destination=2213+Centre+St+N+%232243%2C+Calgary%2C+AB+T2E+2T4";
-const googleReviewUrl = "https://www.google.com/maps/place/Centre+Street+Japanese+Hotpot/@51.072234,-114.0656247,17z/data=!3m1!4b1!4m6!3m5!1s0x537165667f6ee1f3:0x1a418403f487f9b3!8m2!3d51.0722307!4d-114.0630498!16s%2Fg%2F11bwndz8pj";
+const googleReviewUrl = "https://g.page/r/CbP5h_QDhEEaEBM/review";
 
 export function HomepageMenu({ language }: { language: HomepageLanguage }) {
   const isZh = language === "zh-Hant";
@@ -12,6 +12,19 @@ export function HomepageMenu({ language }: { language: HomepageLanguage }) {
   const menuPath = isZh ? "/zh-hant/menu/" : "/menu/";
   const aycePath = isZh ? "/zh-hant/ayce-hot-pot-calgary/" : "/ayce-hot-pot-calgary/";
   const restaurantInfoPath = isZh ? "/zh-hant/restaurant-info/" : "/restaurant-info/";
+  const localGuideLinks = isZh
+    ? [
+        { href: "/zh-hant/calgary-hot-pot-guide/", label: "卡加利火鍋指南" },
+        { href: "/zh-hant/calgary-taiwanese-hot-pot/", label: "卡加利台式火鍋" },
+        { href: "/zh-hant/first-time-hot-pot-calgary/", label: "第一次吃火鍋指南" },
+        { href: "/zh-hant/ayce-hot-pot-calgary/", label: "卡加利火鍋自助" },
+      ]
+    : [
+        { href: "/calgary-hot-pot-guide/", label: "Calgary Hot Pot Guide" },
+        { href: "/calgary-taiwanese-hot-pot/", label: "Taiwanese Hot Pot Calgary" },
+        { href: "/first-time-hot-pot-calgary/", label: "First-Time Hot Pot Guide" },
+        { href: "/ayce-hot-pot-calgary/", label: "AYCE Hot Pot Calgary" },
+      ];
   const snackImages = [
     { src: "/assets/ayce-fried-chicken-320.webp", srcSet: "/assets/ayce-fried-chicken-224.webp 224w, /assets/ayce-fried-chicken-320.webp 320w, /assets/ayce-fried-chicken-640.webp 640w" },
     { src: "/assets/ayce-takoyaki-320.webp", srcSet: "/assets/ayce-takoyaki-224.webp 224w, /assets/ayce-takoyaki-320.webp 320w, /assets/ayce-takoyaki-640.webp 640w" },
@@ -146,6 +159,10 @@ export function HomepageMenu({ language }: { language: HomepageLanguage }) {
           <article><h3>{content.visit.reviewTitle}</h3><p>{content.visit.reviewCopy}</p><a href={googleReviewUrl} target="_blank" rel="noreferrer">{content.visit.review}</a></article>
         </div>
         <div className="social-follow"><div><p className="eyebrow">{content.visit.socialEyebrow}</p><h3>{content.visit.socialTitle}</h3></div><SocialLinks /></div>
+        <nav className="local-guide-links" aria-label={isZh ? "卡加利火鍋相關資訊" : "Calgary hot pot resources"}>
+          <strong>{isZh ? "卡加利火鍋相關資訊" : "Calgary Hot Pot Resources"}</strong>
+          <div>{localGuideLinks.map((item) => <Link href={item.href} key={item.href}>{item.label}</Link>)}</div>
+        </nav>
       </section>
     </main>
   );

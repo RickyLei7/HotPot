@@ -79,7 +79,7 @@ const restaurantJsonLd = {
 export default function Home() {
   return (
     <>
-      <link rel="preload" as="image" href="/assets/ayce-menu-2026-08-18-720.webp" imageSrcSet="/assets/ayce-menu-2026-08-18-480.webp 480w, /assets/ayce-menu-2026-08-18-720.webp 720w, /assets/ayce-menu-2026-08-18.webp 1080w" imageSizes="(max-width: 760px) calc(100vw - 32px), 42vw" />
+      <link rel="preload" as="image" href="/assets/ayce-menu-2026-08-19-720.webp" imageSrcSet="/assets/ayce-menu-2026-08-19-480.webp 480w, /assets/ayce-menu-2026-08-19-720.webp 720w, /assets/ayce-menu-2026-08-19.webp 1080w" imageSizes="(max-width: 760px) calc(100vw - 32px), 42vw" />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(restaurantJsonLd) }} />
       <HomepageMenu language="en" />
     </>

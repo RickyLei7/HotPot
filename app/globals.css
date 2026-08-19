@@ -2377,9 +2377,9 @@ body.poster-open { overflow: hidden; }
 
 .homepage-ayce-media {
   aspect-ratio: 4 / 5;
-  border: 1px solid rgba(246, 201, 76, 0.42);
-  border-radius: 18px;
-  box-shadow: 0 34px 90px rgba(0, 0, 0, 0.4);
+  border: 0;
+  border-radius: 4px;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.34);
   justify-self: center;
   max-width: 500px;
   overflow: hidden;

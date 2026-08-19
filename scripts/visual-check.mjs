@@ -128,6 +128,8 @@ async function inspectPage(page) {
       .map((img) => Math.round(img.getBoundingClientRect().height));
     const soupMenuImage = document.querySelector(".soup-preview-strip img");
     const soupMenuRect = soupMenuImage?.getBoundingClientRect();
+    const homepageAyceImage = document.querySelector(".homepage-ayce-media img");
+    const homepageAyceRect = homepageAyceImage?.getBoundingClientRect();
     const visitCardColors = [...document.querySelectorAll(".homepage-visit .visit-grid article")].map((card) => ({
       heading: getComputedStyle(card.querySelector("h3")).color,
       body: getComputedStyle(card.querySelector("p")).color,
@@ -160,6 +162,14 @@ async function inspectPage(page) {
         naturalHeight: soupMenuImage.naturalHeight,
         displayedWidth: soupMenuRect.width,
         displayedHeight: soupMenuRect.height,
+      } : null,
+      homepageAyceImage: homepageAyceImage ? {
+        src: homepageAyceImage.currentSrc || homepageAyceImage.getAttribute("src"),
+        naturalWidth: homepageAyceImage.naturalWidth,
+        naturalHeight: homepageAyceImage.naturalHeight,
+        displayedWidth: homepageAyceRect.width,
+        displayedHeight: homepageAyceRect.height,
+        objectFit: getComputedStyle(homepageAyceImage).objectFit,
       } : null,
     };
   });
@@ -235,6 +245,12 @@ try {
           const modal = document.querySelector(".poster-modal:target");
           const modalImage = modal?.querySelector(".poster-frame img");
           const opened = Boolean(modal && getComputedStyle(modal).display !== "none");
+          if (modalImage && (!modalImage.complete || modalImage.naturalWidth === 0)) {
+            await Promise.race([
+              modalImage.decode().catch(() => {}),
+              new Promise((resolve) => setTimeout(resolve, 1200)),
+            ]);
+          }
           const fullImageLoaded = Boolean(modalImage?.complete && modalImage.naturalWidth > 0 && modalImage.naturalHeight > 0);
           document.dispatchEvent(new KeyboardEvent("keydown", { key: "Escape", bubbles: true }));
           await new Promise((resolve) => requestAnimationFrame(() => requestAnimationFrame(resolve)));
@@ -318,6 +334,15 @@ try {
           const displayedRatio = data.soupMenuImage.displayedWidth / data.soupMenuImage.displayedHeight;
           if (Math.abs(naturalRatio - displayedRatio) > 0.01) {
             routeFailures.push(`personal hot pot menu image is cropped or distorted: ${displayedRatio.toFixed(3)} vs ${naturalRatio.toFixed(3)}`);
+          }
+        }
+        if (!data.homepageAyceImage || data.homepageAyceImage.naturalWidth === 0) {
+          routeFailures.push("homepage AYCE image did not load");
+        } else {
+          const naturalRatio = data.homepageAyceImage.naturalWidth / data.homepageAyceImage.naturalHeight;
+          const displayedRatio = data.homepageAyceImage.displayedWidth / data.homepageAyceImage.displayedHeight;
+          if (Math.abs(naturalRatio - displayedRatio) > 0.01 || data.homepageAyceImage.objectFit !== "contain") {
+            routeFailures.push(`homepage AYCE image is cropped or distorted: ${displayedRatio.toFixed(3)} vs ${naturalRatio.toFixed(3)}`);
           }
         }
         if (Math.abs(navTopAfterScroll ?? 999) > 1) routeFailures.push("sticky header left viewport top");

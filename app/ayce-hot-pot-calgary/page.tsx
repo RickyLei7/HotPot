@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     description:
       "Calgary all-you-can-eat hot pot for $28.99 + tax with 15 soup bases, AAA beef, lamb, pork and chicken. Soup base included.",
     url: "https://centrestjhotpot.ca/ayce-hot-pot-calgary/",
-    images: ["/assets/ayce-hotpot-menu-preview.webp"],
+    images: ["/assets/ayce-menu-2026-08-18-480.webp"],
   },
 };
 
@@ -199,7 +199,7 @@ export default function AyceHotPotCalgaryPage() {
         </div>
         <a className="ayce-card poster-thumbnail" href="#ayce-poster" aria-label="View the complete AYCE menu poster">
           <span className="price-badge">$28.99 + tax</span>
-          <img src="/assets/ayce-hotpot-menu-preview-360.webp" srcSet="/assets/ayce-hotpot-menu-preview-360.webp 360w, /assets/ayce-hotpot-menu-preview.webp 495w" sizes="(max-width: 760px) calc(100vw - 32px), 420px" alt="AYCE Hot Pot poster with $28.99 pricing and all 19 appetizer upgrade items" width="495" height="640" loading="lazy" decoding="async" />
+          <img src="/assets/ayce-menu-2026-08-18-360.webp" srcSet="/assets/ayce-menu-2026-08-18-360.webp 360w, /assets/ayce-menu-2026-08-18-480.webp 480w" sizes="(max-width: 760px) calc(100vw - 32px), 420px" alt="AYCE Hot Pot poster with $28.99 pricing and all 19 appetizer upgrade items" width="480" height="600" loading="lazy" decoding="async" />
           <strong className="poster-open-label">View full menu</strong>
         </a>
       </section>
@@ -209,7 +209,7 @@ export default function AyceHotPotCalgaryPage() {
         <div className="poster-frame">
           <span className="modal-label" id="ayce-poster-title">Full AYCE menu</span>
           <a className="modal-close" href="#ayce-details" aria-label="Close full AYCE menu">Close</a>
-          <img src="/assets/ayce-hotpot-menu.webp" alt="Complete AYCE Hot Pot menu with $28.99 pricing and 19 appetizer choices" width="791" height="1024" loading="lazy" decoding="async" />
+          <img src="/assets/ayce-menu-2026-08-18.webp" alt="Complete AYCE Hot Pot menu with $28.99 pricing and 19 appetizer choices" width="1080" height="1350" loading="lazy" decoding="async" />
         </div>
       </section>
 
@@ -241,8 +241,8 @@ export default function AyceHotPotCalgaryPage() {
           ))}
         </div>
         <div className="combo-actions">
-          <a className="primary-action" href="/menu/centre-street-ayce-menu.pdf" target="_blank" rel="noreferrer">Open AYCE Menu</a>
-          <a className="secondary-action dark" href="/menu/centre-street-ayce-menu.pdf" download>Download PDF</a>
+          <a className="primary-action" href="/menu/centre-street-ayce-menu-2026-08.pdf" target="_blank" rel="noreferrer">Open AYCE Menu</a>
+          <a className="secondary-action dark" href="/menu/centre-street-ayce-menu-2026-08.pdf" download>Download PDF</a>
         </div>
       </section>
 

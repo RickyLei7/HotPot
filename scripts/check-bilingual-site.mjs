@@ -213,6 +213,30 @@ for (const [route, targets] of posterPages) {
   }
 }
 
+const aycePosterRoutes = [
+  "/",
+  "/ayce-hot-pot-calgary/",
+  "/first-time-hot-pot-calgary/",
+  "/google-ads-ayce-hot-pot/",
+  "/zh-hant/",
+  "/zh-hant/ayce-hot-pot-calgary/",
+];
+const legacyAycePoster = /ayce-hotpot(?:-menu|-preview|-360|-480|-720)?\.webp/u;
+for (const route of aycePosterRoutes) {
+  const html = await readFile(fileForRoute(route), "utf8");
+  assert.ok(html.includes("ayce-menu-2026-08-18"), `${route} must use the current AYCE poster`);
+  assert.doesNotMatch(html, legacyAycePoster, `${route} still references a legacy AYCE poster`);
+}
+for (const asset of [
+  "ayce-menu-2026-08-18-360.webp",
+  "ayce-menu-2026-08-18-480.webp",
+  "ayce-menu-2026-08-18-720.webp",
+  "ayce-menu-2026-08-18.webp",
+]) {
+  await readFile(path.join(publicDir, "assets", asset));
+}
+await readFile(path.join(publicDir, "menu", "centre-street-ayce-menu-2026-08.pdf"));
+
 const sitemap = await readFile(path.join(publicDir, "sitemap.xml"), "utf8");
 const llms = await readFile(path.join(publicDir, "llms.txt"), "utf8");
 assert.doesNotMatch(llms, /[税稅]/u, "llms.txt must not contain Chinese tax characters");

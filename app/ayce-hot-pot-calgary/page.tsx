@@ -253,7 +253,7 @@ export default function AyceHotPotCalgaryPage() {
         </div>
         <div className="weekly-picks-grid">
           <article>
-            <img src="/assets/ayce-fried-chicken-224.webp" srcSet="/assets/ayce-fried-chicken-160.webp 160w, /assets/ayce-fried-chicken-224.webp 224w, /assets/ayce-fried-chicken-320.webp 320w, /assets/ayce-fried-chicken-640.webp 640w, /assets/ayce-fried-chicken.webp 900w" sizes="(max-width: 560px) 112px, (max-width: 1100px) 50vw, 33vw" alt="Signature Taiwanese fried chicken for AYCE snack upgrade" width="900" height="1125" loading="lazy" decoding="async" />
+            <img src="/assets/ayce-signature-fried-chicken-2026-08-18-224.webp" srcSet="/assets/ayce-signature-fried-chicken-2026-08-18-160.webp 160w, /assets/ayce-signature-fried-chicken-2026-08-18-224.webp 224w, /assets/ayce-signature-fried-chicken-2026-08-18-320.webp 320w, /assets/ayce-signature-fried-chicken-2026-08-18-640.webp 640w" sizes="(max-width: 560px) 112px, (max-width: 1100px) 50vw, 33vw" alt="Signature Taiwanese fried chicken for AYCE snack upgrade" width="640" height="360" loading="lazy" decoding="async" />
             <div>
               <h3>Signature Taiwanese Fried Chicken</h3>
               <p>Hot, crispy, and made to order as part of the AYCE snack upgrade.</p>

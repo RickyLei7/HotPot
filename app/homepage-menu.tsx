@@ -49,7 +49,7 @@ export function HomepageMenu({ language }: { language: HomepageLanguage }) {
           </div>
         </div>
         <a className="homepage-ayce-media poster-thumbnail" href="#homepage-ayce-image" aria-label={isZh ? "15 款湯底 查看完整圖片 火鍋自助" : "15 soup bases View full image AYCE hot pot"}>
-          <img src="/assets/ayce-hotpot-720.webp" srcSet="/assets/ayce-hotpot-480.webp 480w, /assets/ayce-hotpot-720.webp 720w, /assets/ayce-hotpot.webp 1024w" sizes="(max-width: 760px) calc(100vw - 32px), 42vw" alt={isZh ? "鼎鑽火鍋火鍋自助" : "AYCE hot pot at Centre Street Japanese HotPot"} width="1024" height="1536" fetchPriority="high" decoding="async" />
+          <img src="/assets/ayce-menu-2026-08-18-720.webp" srcSet="/assets/ayce-menu-2026-08-18-480.webp 480w, /assets/ayce-menu-2026-08-18-720.webp 720w, /assets/ayce-menu-2026-08-18.webp 1080w" sizes="(max-width: 760px) calc(100vw - 32px), 42vw" alt={isZh ? "鼎鑽火鍋火鍋自助" : "AYCE hot pot at Centre Street Japanese HotPot"} width="1080" height="1350" fetchPriority="high" decoding="async" />
           <span>15 {isZh ? "款湯底" : "soup bases"}</span>
           <strong className="poster-open-label">{isZh ? "查看完整圖片" : "View full image"}</strong>
         </a>
@@ -57,7 +57,7 @@ export function HomepageMenu({ language }: { language: HomepageLanguage }) {
 
       <section className="poster-modal" id="homepage-ayce-image" role="dialog" aria-modal="true" aria-labelledby="homepage-ayce-image-title" data-close-target="ayce">
         <a className="modal-backdrop" href="#ayce" aria-label={isZh ? "關閉完整火鍋自助圖片" : "Close complete AYCE image"} />
-        <div className="poster-frame"><span className="modal-label" id="homepage-ayce-image-title">{isZh ? "火鍋自助完整圖片" : "Complete AYCE image"}</span><a className="modal-close" href="#ayce">{isZh ? "關閉" : "Close"}</a><img src="/assets/ayce-hotpot.webp" alt={isZh ? "鼎鑽火鍋火鍋自助完整圖片" : "Complete AYCE hot pot image at Centre Street Japanese HotPot"} width="1024" height="1536" loading="lazy" decoding="async" /></div>
+        <div className="poster-frame"><span className="modal-label" id="homepage-ayce-image-title">{isZh ? "火鍋自助完整圖片" : "Complete AYCE image"}</span><a className="modal-close" href="#ayce">{isZh ? "關閉" : "Close"}</a><img src="/assets/ayce-menu-2026-08-18.webp" alt={isZh ? "鼎鑽火鍋火鍋自助完整圖片" : "Complete AYCE hot pot image at Centre Street Japanese HotPot"} width="1080" height="1350" loading="lazy" decoding="async" /></div>
       </section>
 
       <section className="ayce-snack-feature" aria-labelledby="snack-title">

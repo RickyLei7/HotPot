@@ -187,7 +187,7 @@ function renderHomePage(data) {
     <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="preload" as="image" href="/assets/ayce-menu-2026-08-18.webp" />
-    <link rel="stylesheet" href="/site.css?v=20260818-ayce-poster" />
+    <link rel="stylesheet" href="/site-20260819.css?v=20260818-ayce-poster" />
     <script defer src="/language-routes.js?v=20260813-bilingual"></script>
     <script defer src="/site-events.js?v=20260814-poster-modal-v2"></script>
     <script type="application/ld+json">${jsonLd(data)}</script>
@@ -250,7 +250,7 @@ function renderPage(data) {
     <link rel="icon" href="/favicon.ico" sizes="any" />
     <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-    <link rel="stylesheet" href="/site.css?v=20260818-ayce-poster" />
+    <link rel="stylesheet" href="/site-20260819.css?v=20260818-ayce-poster" />
     <script defer src="/language-routes.js?v=20260813-bilingual"></script>
     <script defer src="/site-events.js?v=20260814-poster-modal-v2"></script>
     <script type="application/ld+json">${jsonLd(data)}</script>

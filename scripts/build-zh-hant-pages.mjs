@@ -156,7 +156,7 @@ function renderSocialLinks() {
 
 function renderHomePage(data) {
   const snackCards = [
-    ["招牌台式鹽酥雞", "/assets/ayce-fried-chicken-320.webp", "/assets/ayce-fried-chicken-224.webp 224w, /assets/ayce-fried-chicken-320.webp 320w, /assets/ayce-fried-chicken-640.webp 640w", true],
+    ["招牌台式鹽酥雞", "/assets/ayce-signature-fried-chicken-2026-08-18-320.webp", "/assets/ayce-signature-fried-chicken-2026-08-18-224.webp 224w, /assets/ayce-signature-fried-chicken-2026-08-18-320.webp 320w, /assets/ayce-signature-fried-chicken-2026-08-18-640.webp 640w", true],
     ["章魚小丸子", "/assets/ayce-takoyaki-320.webp", "/assets/ayce-takoyaki-224.webp 224w, /assets/ayce-takoyaki-320.webp 320w, /assets/ayce-takoyaki-640.webp 640w", false],
     ["香酥雞排", "/assets/ayce-snacks/crispy-chicken-cutlet-320.webp", "", false],
     ["黃金炸饅頭", "/assets/ayce-snacks/golden-fried-buns-320.webp", "", false],

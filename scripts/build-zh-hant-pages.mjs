@@ -90,7 +90,7 @@ function jsonLd(data) {
         itemListElement: [
           { "@type": "Offer", name: "個人火鍋", price: "19.99", priceCurrency: "CAD", description: "包含 15 款湯底任選一款、一份大份菜盤、一份肉和一份主食。" },
           { "@type": "Offer", name: "火鍋自助", price: "28.99", priceCurrency: "CAD", description: "包含鍋底，肉品由服務員協助下單。" },
-          { "@type": "Offer", name: "19 款小吃任點升級", price: "3.99", priceCurrency: "CAD", description: "每位加價，同桌客人必須一起升級。" },
+          { "@type": "Offer", name: "19 款小吃任點升級", price: "5.99", priceCurrency: "CAD", description: "每位加價，同桌客人必須一起升級。" },
         ],
       } } : {}),
       sameAs: [
@@ -186,18 +186,18 @@ function renderHomePage(data) {
     <link rel="icon" href="/favicon.ico" sizes="any" />
     <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-    <link rel="preload" as="image" href="/assets/ayce-menu-2026-08-19.webp" />
-    <link rel="stylesheet" href="/site-20260819.css?v=20260818-ayce-poster" />
+    <link rel="preload" as="image" href="/assets/ayce-menu-2026-08-18.webp" />
+    <link rel="stylesheet" href="/site.css?v=20260818-ayce-poster" />
     <script defer src="/language-routes.js?v=20260813-bilingual"></script>
-    <script defer src="/site-events.js?v=20260814-poster-modal-v2"></script>
+    <script defer src="/site-events.js?v=20260823-phone-event-v3"></script>
     <script type="application/ld+json">${jsonLd(data)}</script>
   </head>
   <body>
     ${renderNav(data)}
     <main>
-      <section id="ayce" class="homepage-ayce"><div class="homepage-ayce-copy"><p class="eyebrow">卡加利火鍋自助</p><h1>$28.99 火鍋自助</h1><p class="homepage-lead">15 款湯底自由選擇，AAA 牛肉、羊肉、豬肉或雞肉由服務員協助新鮮下單。</p><p>鍋底已包含在價格內，適合家庭聚餐、朋友相聚與多人用餐。</p><div class="hero-actions"><a class="primary-action" href="tel:+14034553188">致電預訂火鍋自助</a><a class="secondary-action" href="/zh-hant/ayce-hot-pot-calgary/">查看火鍋自助詳情</a></div></div><a class="homepage-ayce-media poster-thumbnail" href="#homepage-ayce-image" aria-label="查看完整火鍋自助圖片"><img src="/assets/ayce-menu-2026-08-19.webp" alt="鼎鑽火鍋火鍋自助" width="1080" height="1350" fetchpriority="high" decoding="async" /><span>15 款湯底</span><strong class="poster-open-label">查看完整圖片</strong></a></section>
-      <section class="poster-modal" id="homepage-ayce-image" role="dialog" aria-modal="true" aria-labelledby="homepage-ayce-image-title" data-close-target="ayce"><a class="modal-backdrop" href="#ayce" aria-label="關閉完整火鍋自助圖片"></a><div class="poster-frame"><span class="modal-label" id="homepage-ayce-image-title">火鍋自助完整圖片</span><a class="modal-close" href="#ayce">關閉</a><img src="/assets/ayce-menu-2026-08-19.webp" alt="鼎鑽火鍋火鍋自助完整圖片" width="1080" height="1350" /></div></section>
-      <section class="ayce-snack-feature" aria-labelledby="snack-title"><div class="section-heading compact"><p class="eyebrow">火鍋自助加點選擇</p><h2 id="snack-title">+$3.99 升級 19 款小吃任點</h2><p>先吃招牌台式鹽酥雞，再選章魚小丸子、香酥雞排、黃金炸饅頭、酥炸魷魚鬚等小吃。</p></div><div class="snack-showcase">${snackCards.map(([name, src, srcset, featured]) => `<article class="snack-card${featured ? " is-featured" : ""}"><img src="${src}"${srcset ? ` srcset="${srcset}"` : ""} sizes="${featured ? "(max-width: 760px) 88vw, 420px" : "(max-width: 760px) 44vw, 220px"}" alt="${name}" width="320" height="220" loading="lazy" decoding="async" /><h3>${name}</h3></article>`).join("")}</div><p class="snack-rule"><strong>小吃任點升級每位 +$3.99，同桌客人必須一起升級。</strong> 沒有升級小吃任點也可以按菜單單點各款小吃。</p><a class="text-action" href="/zh-hant/menu/">查看完整菜單</a></section>
+      <section id="ayce" class="homepage-ayce"><div class="homepage-ayce-copy"><p class="eyebrow">卡加利火鍋自助</p><h1>$28.99 火鍋自助</h1><p class="homepage-lead">15 款湯底自由選擇，AAA 牛肉、羊肉、豬肉或雞肉由服務員協助新鮮下單。</p><p>鍋底已包含在價格內，適合家庭聚餐、朋友相聚與多人用餐。</p><div class="hero-actions"><a class="primary-action" href="tel:+14034553188">致電預訂火鍋自助</a><a class="secondary-action" href="/zh-hant/ayce-hot-pot-calgary/">查看火鍋自助詳情</a></div></div><a class="homepage-ayce-media poster-thumbnail" href="#homepage-ayce-image" aria-label="查看完整火鍋自助圖片"><img src="/assets/ayce-menu-2026-08-18.webp" alt="鼎鑽火鍋火鍋自助" width="1200" height="1553" fetchpriority="high" decoding="async" /><span>15 款湯底</span><strong class="poster-open-label">查看完整圖片</strong></a></section>
+      <section class="poster-modal" id="homepage-ayce-image" role="dialog" aria-modal="true" aria-labelledby="homepage-ayce-image-title" data-close-target="ayce"><a class="modal-backdrop" href="#ayce" aria-label="關閉完整火鍋自助圖片"></a><div class="poster-frame"><span class="modal-label" id="homepage-ayce-image-title">火鍋自助完整圖片</span><a class="modal-close" href="#ayce">關閉</a><img src="/assets/ayce-menu-2026-08-18.webp" alt="鼎鑽火鍋火鍋自助完整圖片" width="1200" height="1553" /></div></section>
+      <section class="ayce-snack-feature" aria-labelledby="snack-title"><div class="section-heading compact"><p class="eyebrow">火鍋自助加點選擇</p><h2 id="snack-title">+$5.99 升級 19 款小吃任點</h2><p>先吃招牌台式鹽酥雞，再選章魚小丸子、香酥雞排、黃金炸饅頭、酥炸魷魚鬚等小吃。</p></div><div class="snack-showcase">${snackCards.map(([name, src, srcset, featured]) => `<article class="snack-card${featured ? " is-featured" : ""}"><img src="${src}"${srcset ? ` srcset="${srcset}"` : ""} sizes="${featured ? "(max-width: 760px) 88vw, 420px" : "(max-width: 760px) 44vw, 220px"}" alt="${name}" width="320" height="220" loading="lazy" decoding="async" /><h3>${name}</h3></article>`).join("")}</div><p class="snack-rule"><strong>小吃任點升級每位 +$5.99，同桌客人必須一起升級。</strong> 沒有升級小吃任點也可以按菜單單點各款小吃。</p><a class="text-action" href="/zh-hant/menu/">查看完整菜單</a></section>
       <section id="personal-hot-pot" class="personal-value"><div class="personal-value-copy"><p class="eyebrow">完整一餐超值選擇</p><h2>$19.99 個人火鍋</h2><p class="homepage-lead">$19.99 包含 15 款湯底任選一款、一份大份菜盤、一份肉和一份主食。</p><div class="inclusion-grid"><article><span>1</span><p>15 款湯底任選一款</p></article><article><span>2</span><p>一份大份菜盤</p></article><article><span>3</span><p>一份肉可選 AAA 牛肉 羊肉 豬肉或雞肉</p></article><article><span>4</span><p>一份主食可選白飯或麵</p></article></div><p class="split-pot-note">想同時吃兩款湯底，可加 $2 升級鴛鴦鍋。</p><small>另有 $24.99 單人套餐配一杯飲料，以及 $58.99 雙人套餐配兩杯飲料和一份小吃。</small><div class="hero-actions"><a class="primary-action" href="/zh-hant/menu/">查看個人火鍋菜單</a></div></div><a class="soup-preview-strip poster-thumbnail" href="#personal-menu-image" aria-label="查看完整個人火鍋菜單"><img src="/assets/personal-hot-pot-menu-full.webp" alt="鼎鑽火鍋完整個人火鍋菜單與 15 款湯底" width="1400" height="2096" loading="lazy" decoding="async" /><strong class="poster-open-label">查看完整菜單</strong></a></section>
       <section class="poster-modal" id="personal-menu-image" role="dialog" aria-modal="true" aria-labelledby="personal-menu-image-title" data-close-target="personal-hot-pot"><a class="modal-backdrop" href="#personal-hot-pot" aria-label="關閉個人火鍋菜單"></a><div class="poster-frame"><span class="modal-label" id="personal-menu-image-title">完整個人火鍋菜單</span><a class="modal-close" href="#personal-hot-pot">關閉</a><img src="/assets/personal-hot-pot-menu-full.webp" alt="鼎鑽火鍋完整個人火鍋菜單與 15 款湯底" width="1400" height="2096" /></div></section>
       <section id="beef-noodle" class="beef-noodle-feature"><a class="beef-noodle-feature-media poster-thumbnail" href="#beef-noodle-story-image" aria-label="查看完整牛肉麵故事圖片"><img src="${story.image}" srcset="/assets/taiwanese-beef-noodle-story-360.webp 360w, /assets/taiwanese-beef-noodle-story-480.webp 480w, /assets/taiwanese-beef-noodle-story-720.webp 720w" sizes="(max-width: 760px) 88vw, 520px" alt="${escapeHtml(story.imageAlt)}" width="1122" height="1402" loading="lazy" decoding="async" /><strong class="poster-open-label">查看完整圖片</strong></a><div class="beef-noodle-feature-copy"><p class="eyebrow">讓人想起家的經典味道</p><h2>招牌台式紅燒牛肉麵</h2><strong class="menu-price">$16.99</strong><h3>${escapeHtml(story.title)}</h3>${story.paragraphs.map((paragraph) => `<p>${escapeHtml(paragraph.replaceAll("「", "").replaceAll("」", ""))}</p>`).join("")}</div></section>
@@ -221,10 +221,10 @@ function renderPage(data) {
   const faqSection = data.faqs.length ? `<section class="content-section localized-faq" id="faq"><div class="section-heading compact"><p class="eyebrow">常見問題</p><h2>快速找到用餐前需要的答案</h2></div><div class="faq-list">${data.faqs.map((faq) => `<article><h2>${escapeHtml(faq.question)}</h2><p>${escapeHtml(faq.answer)}</p></article>`).join("")}</div></section>` : "";
   const featureStory = data.featureStory ? `<section class="beef-noodle-story" aria-label="台灣傳統牛肉麵故事"><div class="beef-noodle-story-media"><img src="${escapeHtml(data.featureStory.image)}" alt="${escapeHtml(data.featureStory.imageAlt)}" width="1122" height="1402" loading="lazy" decoding="async" /></div><div class="beef-noodle-story-copy"><p class="eyebrow">${escapeHtml(data.featureStory.eyebrow)}</p><h2>${escapeHtml(data.featureStory.title)}</h2><div class="story-language">${data.featureStory.paragraphs.map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join("")}</div></div></section>` : "";
   const heroMedia = data.imageFull && data.imageActionLabel
-    ? `<a class="localized-hero-media poster-thumbnail" href="#localized-menu-poster" aria-label="${escapeHtml(data.imageActionLabel)}"><img src="${escapeHtml(data.image)}" alt="${escapeHtml(data.imageAlt)}" width="480" height="600" fetchpriority="high" decoding="async" /><strong class="poster-open-label">${escapeHtml(data.imageActionLabel)}</strong></a>`
+    ? `<a class="localized-hero-media poster-thumbnail" href="#localized-menu-poster" aria-label="${escapeHtml(data.imageActionLabel)}"><img src="${escapeHtml(data.image)}" alt="${escapeHtml(data.imageAlt)}" width="480" height="622" fetchpriority="high" decoding="async" /><strong class="poster-open-label">${escapeHtml(data.imageActionLabel)}</strong></a>`
     : `<div class="localized-hero-media"><img src="${escapeHtml(data.image)}" alt="${escapeHtml(data.imageAlt)}" width="900" height="675" fetchpriority="high" decoding="async" /></div>`;
   const posterModal = data.imageFull && data.imageActionLabel
-    ? `<section class="poster-modal" id="localized-menu-poster" role="dialog" aria-modal="true" aria-labelledby="localized-menu-poster-title" data-close-target="top"><a class="modal-backdrop" href="#top" aria-label="關閉完整菜單"></a><div class="poster-frame"><span class="modal-label" id="localized-menu-poster-title">完整火鍋自助菜單</span><a class="modal-close" href="#top" aria-label="關閉完整菜單">關閉</a><img src="${escapeHtml(data.imageFull)}" alt="${escapeHtml(data.imageAlt)}" width="1080" height="1350" /></div></section>`
+    ? `<section class="poster-modal" id="localized-menu-poster" role="dialog" aria-modal="true" aria-labelledby="localized-menu-poster-title" data-close-target="top"><a class="modal-backdrop" href="#top" aria-label="關閉完整菜單"></a><div class="poster-frame"><span class="modal-label" id="localized-menu-poster-title">完整火鍋自助菜單</span><a class="modal-close" href="#top" aria-label="關閉完整菜單">關閉</a><img src="${escapeHtml(data.imageFull)}" alt="${escapeHtml(data.imageAlt)}" width="1200" height="1553" /></div></section>`
     : "";
 
   return `<!doctype html>
@@ -250,9 +250,9 @@ function renderPage(data) {
     <link rel="icon" href="/favicon.ico" sizes="any" />
     <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-    <link rel="stylesheet" href="/site-20260819.css?v=20260818-ayce-poster" />
+    <link rel="stylesheet" href="/site.css?v=20260818-ayce-poster" />
     <script defer src="/language-routes.js?v=20260813-bilingual"></script>
-    <script defer src="/site-events.js?v=20260814-poster-modal-v2"></script>
+    <script defer src="/site-events.js?v=20260823-phone-event-v3"></script>
     <script type="application/ld+json">${jsonLd(data)}</script>
   </head>
   <body>

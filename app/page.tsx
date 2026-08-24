@@ -59,7 +59,7 @@ const restaurantJsonLd = {
         itemListElement: [
           { "@type": "Offer", name: "Personal Hot Pot", price: "19.99", priceCurrency: "CAD", description: "Includes one of 15 soup bases, one large vegetable set, one meat, and one rice or noodle side." },
           { "@type": "Offer", name: "All-You-Can-Eat Hot Pot", price: "28.99", priceCurrency: "CAD", description: "Soup base included with AAA beef, lamb, pork, or chicken ordered through the server." },
-          { "@type": "Offer", name: "All-You-Can-Eat Snacks Upgrade", price: "3.99", priceCurrency: "CAD", description: "Optional 19-snack all-you-can-eat upgrade per person. Everyone at the same table must upgrade." },
+          { "@type": "Offer", name: "All-You-Can-Eat Snacks Upgrade", price: "5.99", priceCurrency: "CAD", description: "Optional 19-snack all-you-can-eat upgrade per person. Everyone at the same table must upgrade." },
           { "@type": "Offer", name: "Solo Hot Pot Combo", price: "24.99", priceCurrency: "CAD", description: "One personal hot pot and one drink." },
           { "@type": "Offer", name: "Couple Hot Pot Combo", price: "58.99", priceCurrency: "CAD", description: "Two personal hot pots, two drinks, and one appetizer." },
         ],
@@ -79,7 +79,7 @@ const restaurantJsonLd = {
 export default function Home() {
   return (
     <>
-      <link rel="preload" as="image" href="/assets/ayce-menu-2026-08-19-720.webp" imageSrcSet="/assets/ayce-menu-2026-08-19-480.webp 480w, /assets/ayce-menu-2026-08-19-720.webp 720w, /assets/ayce-menu-2026-08-19.webp 1080w" imageSizes="(max-width: 760px) calc(100vw - 32px), 42vw" />
+      <link rel="preload" as="image" href="/assets/ayce-menu-2026-08-18-720.webp" imageSrcSet="/assets/ayce-menu-2026-08-18-480.webp 480w, /assets/ayce-menu-2026-08-18-720.webp 720w, /assets/ayce-menu-2026-08-18.webp 1200w" imageSizes="(max-width: 760px) calc(100vw - 32px), 42vw" />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(restaurantJsonLd) }} />
       <HomepageMenu language="en" />
     </>

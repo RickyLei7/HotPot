@@ -86,12 +86,11 @@ try {
   const phoneClick = eventFromLayer(phoneLayer, "phone_click");
   const lead = eventFromLayer(phoneLayer, "generate_lead");
   assert.ok(phoneClick, "phone_click was not sent");
-  assert.ok(lead, "generate_lead was not sent for the phone CTA");
+  assert.equal(Boolean(lead), false, "Phone CTA must not be duplicated as generate_lead");
   assert.equal(phoneClick[2].campaign_source, "google", "Attribution did not persist across pages");
   assert.equal(phoneClick[2].session_landing_page, "/", "Original landing page did not persist");
   assert.equal(phoneClick[2].link_destination, "phone", "Phone number must not be sent as a URL");
-  assert.equal(phoneClick[2].lead_type, undefined, "phone_click and generate_lead must remain separate event definitions");
-  assert.equal(lead[2].lead_type, "phone");
+  assert.equal(phoneClick[2].lead_type, undefined, "phone_click must remain a dedicated event definition");
   assert.equal(JSON.stringify(phoneLayer).includes("+14034553188"), false, "Phone number must not enter the data layer");
 
   const directionsPage = await context.newPage();

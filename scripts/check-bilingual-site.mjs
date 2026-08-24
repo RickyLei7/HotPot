@@ -186,7 +186,7 @@ const factualPages = [
 ];
 for (const route of factualPages) {
   const html = await readFile(fileForRoute(route), "utf8");
-  for (const fact of ["(403) 455-3188", "2213 Centre St N #2243", "$28.99", "$3.99"]) {
+  for (const fact of ["(403) 455-3188", "2213 Centre St N #2243", "$28.99", "$5.99"]) {
     assert.ok(html.includes(fact), `${route} is missing shared fact: ${fact}`);
   }
   assert.ok(html.includes("https://centrestjhotpot.ca/#restaurant"), `${route} must use the shared Restaurant entity`);
@@ -224,14 +224,14 @@ const aycePosterRoutes = [
 const legacyAycePoster = /ayce-hotpot(?:-menu|-preview|-360|-480|-720)?\.webp/u;
 for (const route of aycePosterRoutes) {
   const html = await readFile(fileForRoute(route), "utf8");
-  assert.ok(html.includes("ayce-menu-2026-08-19"), `${route} must use the current AYCE poster`);
+  assert.ok(html.includes("ayce-menu-2026-08-18"), `${route} must use the current AYCE poster`);
   assert.doesNotMatch(html, legacyAycePoster, `${route} still references a legacy AYCE poster`);
 }
 for (const asset of [
-  "ayce-menu-2026-08-19-360.webp",
-  "ayce-menu-2026-08-19-480.webp",
-  "ayce-menu-2026-08-19-720.webp",
-  "ayce-menu-2026-08-19.webp",
+  "ayce-menu-2026-08-18-360.webp",
+  "ayce-menu-2026-08-18-480.webp",
+  "ayce-menu-2026-08-18-720.webp",
+  "ayce-menu-2026-08-18.webp",
 ]) {
   await readFile(path.join(publicDir, "assets", asset));
 }

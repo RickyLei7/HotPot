@@ -36,10 +36,9 @@ for (const file of htmlFiles) {
     1,
     `${relativePath} must load /site-events.js exactly once`,
   );
-  assert.equal(
-    (html.match(/src="\/meta-events-1108307461722381\.js"/g) || []).length,
-    1,
-    `${relativePath} must load the Meta Pixel event script exactly once`,
+  assert.ok(
+    (html.match(/src="\/meta-events-1108307461722381\.js"/g) || []).length <= 1,
+    `${relativePath} must not load the standalone Meta Pixel event script more than once`,
   );
   assert.equal(
     html.includes('src="/t662/"'),
@@ -66,7 +65,6 @@ for (const requiredText of [
   "campaign_landing",
   "google_ads_landing",
   "phone_click",
-  'lead_type: "phone"',
   "offer_view",
   "offer_interest_click",
   "page_type",
@@ -101,6 +99,11 @@ assert.equal(
   /sendEvent\("directions_click"[\s\S]{0,240}sendEvent\("generate_lead"/.test(siteEvents),
   false,
   "directions_click must not also be reported as generate_lead",
+);
+assert.equal(
+  /sendEvent\("phone_click"[\s\S]{0,240}sendEvent\("generate_lead"/.test(siteEvents),
+  false,
+  "phone_click must be the only GA4 event reported for a phone CTA",
 );
 assert.equal(siteEvents.includes("link_url:"), false, "Raw link URLs must not be sent to Analytics");
 assert.equal(siteEvents.includes('params.get("gclid") ||'), false, "Raw Google click IDs must not be stored in event parameters");

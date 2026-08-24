@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     description:
       "Calgary all-you-can-eat hot pot for $28.99 + tax with 15 soup bases, AAA beef, lamb, pork and chicken. Soup base included.",
     url: "https://centrestjhotpot.ca/ayce-hot-pot-calgary/",
-    images: ["/assets/ayce-menu-2026-08-19-480.webp"],
+    images: ["/assets/ayce-menu-2026-08-18-480.webp"],
   },
 };
 
@@ -38,7 +38,7 @@ const ayceFaqs = [
   ],
   [
     "Can I add all-you-can-eat snacks?",
-    "Yes. Add 19 all-you-can-eat appetizers for +$3.99 per person. Everyone at the same table must upgrade. Options include Taiwanese fried chicken, takoyaki, crispy chicken cutlet, golden fried buns, crispy squid legs, spring rolls, fries, and more.",
+    "Yes. Add 19 all-you-can-eat appetizers for +$5.99 per person. Everyone at the same table must upgrade. Options include Taiwanese fried chicken, takoyaki, crispy chicken cutlet, golden fried buns, crispy squid legs, spring rolls, fries, and more.",
   ],
   [
     "How should guests order?",
@@ -191,7 +191,7 @@ export default function AyceHotPotCalgaryPage() {
               <p>Soup base included. Meat is ordered through your server.</p>
             </article>
             <article>
-              <span>+$3.99</span>
+              <span>+$5.99</span>
               <h3>Snack Upgrade</h3>
               <p>Choose from 19 all-you-can-eat appetizers. Everyone at the table must upgrade.</p>
             </article>
@@ -199,7 +199,7 @@ export default function AyceHotPotCalgaryPage() {
         </div>
         <a className="ayce-card poster-thumbnail" href="#ayce-poster" aria-label="View the complete AYCE menu poster">
           <span className="price-badge">$28.99 + tax</span>
-          <img src="/assets/ayce-menu-2026-08-19-360.webp" srcSet="/assets/ayce-menu-2026-08-19-360.webp 360w, /assets/ayce-menu-2026-08-19-480.webp 480w" sizes="(max-width: 760px) calc(100vw - 32px), 420px" alt="AYCE Hot Pot poster with $28.99 pricing and all 19 appetizer upgrade items" width="480" height="600" loading="lazy" decoding="async" />
+          <img src="/assets/ayce-menu-2026-08-18-360.webp" srcSet="/assets/ayce-menu-2026-08-18-360.webp 360w, /assets/ayce-menu-2026-08-18-480.webp 480w" sizes="(max-width: 760px) calc(100vw - 32px), 420px" alt="AYCE Hot Pot poster with $28.99 pricing and all 19 appetizer upgrade items" width="480" height="622" loading="lazy" decoding="async" />
           <strong className="poster-open-label">View full menu</strong>
         </a>
       </section>
@@ -209,7 +209,7 @@ export default function AyceHotPotCalgaryPage() {
         <div className="poster-frame">
           <span className="modal-label" id="ayce-poster-title">Full AYCE menu</span>
           <a className="modal-close" href="#ayce-details" aria-label="Close full AYCE menu">Close</a>
-          <img src="/assets/ayce-menu-2026-08-19.webp" alt="Complete AYCE Hot Pot menu with $28.99 pricing and 19 appetizer choices" width="1080" height="1350" loading="lazy" decoding="async" />
+          <img src="/assets/ayce-menu-2026-08-18.webp" alt="Complete AYCE Hot Pot menu with $28.99 pricing and 19 appetizer choices" width="1200" height="1553" loading="lazy" decoding="async" />
         </div>
       </section>
 
@@ -227,7 +227,7 @@ export default function AyceHotPotCalgaryPage() {
       <section className="menu-section" id="ayce-snacks">
         <div className="section-heading">
           <p className="eyebrow">All-you-can-eat snack upgrade</p>
-          <h2>Add all 19 snack choices for +$3.99 per person</h2>
+          <h2>Add all 19 snack choices for +$5.99 per person</h2>
           <p>One upgrade includes every snack below. Everyone at the same table must choose the upgrade.</p>
         </div>
         <div className="ayce-snack-directory" aria-label="19 all-you-can-eat snack choices by category">

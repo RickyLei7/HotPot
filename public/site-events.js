@@ -498,7 +498,6 @@
       loadGoogleTag();
       var intent = /reserve|reservation|book|订位|預訂|預約|预约/.test(text) ? "reservation" : "phone";
       sendEvent("phone_click", link, { method: "phone", cta_intent: intent });
-      sendEvent("generate_lead", link, { method: "phone", lead_type: "phone", cta_intent: intent });
       sendAdsCallConversion(event, link);
     } else if (href.indexOf("mailto:") === 0) {
       sendEvent("email_click", link, { method: "email" });

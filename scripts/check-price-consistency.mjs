@@ -15,10 +15,14 @@ const approvedPosterPath = "public/assets/social/2026-08-24-ayce-menu-repost/01-
 const approvedAssetAliases = [
   [approvedPosterPath, "public/assets/social/2026-08-04-ayce-19-snacks.jpg"],
   [approvedPosterPath, "public/assets/social/2026-08-13-menu-carousel/01-ayce-poster.jpg"],
-  ["public/assets/ayce-menu-2026-08-18-360.webp", "public/assets/ayce-menu-2026-08-19-360.webp"],
-  ["public/assets/ayce-menu-2026-08-18-480.webp", "public/assets/ayce-menu-2026-08-19-480.webp"],
-  ["public/assets/ayce-menu-2026-08-18-720.webp", "public/assets/ayce-menu-2026-08-19-720.webp"],
-  ["public/assets/ayce-menu-2026-08-18.webp", "public/assets/ayce-menu-2026-08-19.webp"],
+  ["public/assets/ayce-menu-2026-08-24-599-360.webp", "public/assets/ayce-menu-2026-08-18-360.webp"],
+  ["public/assets/ayce-menu-2026-08-24-599-360.webp", "public/assets/ayce-menu-2026-08-19-360.webp"],
+  ["public/assets/ayce-menu-2026-08-24-599-480.webp", "public/assets/ayce-menu-2026-08-18-480.webp"],
+  ["public/assets/ayce-menu-2026-08-24-599-480.webp", "public/assets/ayce-menu-2026-08-19-480.webp"],
+  ["public/assets/ayce-menu-2026-08-24-599-720.webp", "public/assets/ayce-menu-2026-08-18-720.webp"],
+  ["public/assets/ayce-menu-2026-08-24-599-720.webp", "public/assets/ayce-menu-2026-08-19-720.webp"],
+  ["public/assets/ayce-menu-2026-08-24-599.webp", "public/assets/ayce-menu-2026-08-18.webp"],
+  ["public/assets/ayce-menu-2026-08-24-599.webp", "public/assets/ayce-menu-2026-08-19.webp"],
 ];
 
 async function collectFiles(relativePath) {

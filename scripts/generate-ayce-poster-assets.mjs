@@ -7,7 +7,7 @@ if (!source) throw new Error("Usage: node scripts/generate-ayce-poster-assets.mj
 const root = path.resolve(import.meta.dirname, "..");
 const assets = path.join(root, "public", "assets");
 const menu = path.join(root, "public", "menu");
-const base = "ayce-menu-2026-08-19";
+const base = "ayce-menu-2026-08-24-599";
 const signatureChickenSource = path.join(assets, "dish-popcorn-chicken.webp");
 const signatureChickenBase = "ayce-signature-fried-chicken-2026-08-18";
 const sourceWidth = 1080;

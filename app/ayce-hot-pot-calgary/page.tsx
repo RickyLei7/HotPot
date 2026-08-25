@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     description:
       "Calgary all-you-can-eat hot pot for $28.99 + tax with 15 soup bases, AAA beef, lamb, pork and chicken. Soup base included.",
     url: "https://centrestjhotpot.ca/ayce-hot-pot-calgary/",
-    images: ["/assets/ayce-menu-2026-08-18-480.webp"],
+    images: ["/assets/ayce-menu-2026-08-24-599-480.webp"],
   },
 };
 
@@ -199,7 +199,7 @@ export default function AyceHotPotCalgaryPage() {
         </div>
         <a className="ayce-card poster-thumbnail" href="#ayce-poster" aria-label="View the complete AYCE menu poster">
           <span className="price-badge">$28.99 + tax</span>
-          <img src="/assets/ayce-menu-2026-08-18-360.webp" srcSet="/assets/ayce-menu-2026-08-18-360.webp 360w, /assets/ayce-menu-2026-08-18-480.webp 480w" sizes="(max-width: 760px) calc(100vw - 32px), 420px" alt="AYCE Hot Pot poster with $28.99 pricing and all 19 appetizer upgrade items" width="480" height="622" loading="lazy" decoding="async" />
+          <img src="/assets/ayce-menu-2026-08-24-599-360.webp" srcSet="/assets/ayce-menu-2026-08-24-599-360.webp 360w, /assets/ayce-menu-2026-08-24-599-480.webp 480w" sizes="(max-width: 760px) calc(100vw - 32px), 420px" alt="AYCE Hot Pot poster with $28.99 pricing and all 19 appetizer upgrade items" width="480" height="622" loading="lazy" decoding="async" />
           <strong className="poster-open-label">View full menu</strong>
         </a>
       </section>
@@ -209,7 +209,7 @@ export default function AyceHotPotCalgaryPage() {
         <div className="poster-frame">
           <span className="modal-label" id="ayce-poster-title">Full AYCE menu</span>
           <a className="modal-close" href="#ayce-details" aria-label="Close full AYCE menu">Close</a>
-          <img src="/assets/ayce-menu-2026-08-18.webp" alt="Complete AYCE Hot Pot menu with $28.99 pricing and 19 appetizer choices" width="1200" height="1553" loading="lazy" decoding="async" />
+          <img src="/assets/ayce-menu-2026-08-24-599.webp" alt="Complete AYCE Hot Pot menu with $28.99 pricing and 19 appetizer choices" width="1200" height="1553" loading="lazy" decoding="async" />
         </div>
       </section>
 

@@ -37,7 +37,7 @@ for (const file of htmlFiles) {
     `${relativePath} must load /site-events.js exactly once`,
   );
   assert.ok(
-    (html.match(/src="\/meta-events-1108307461722381\.js"/g) || []).length <= 1,
+    (html.match(/src="\/meta-events-1108307461722381\.js(?:\?[^"\s]+)?"/g) || []).length <= 1,
     `${relativePath} must not load the standalone Meta Pixel event script more than once`,
   );
   assert.equal(
@@ -80,6 +80,7 @@ for (const requiredText of [
   'window.fbq("track", "Contact"',
   'window.fbq("track", "FindLocation"',
   'window.fbq("track", "ViewContent"',
+  "}, 6500)",
 ]) {
   assert.ok(siteEvents.includes(requiredText), `site-events.js is missing ${requiredText}`);
 }
@@ -91,6 +92,8 @@ for (const requiredText of [
   'window.fbq("track", "Contact"',
   'window.fbq("track", "FindLocation"',
   'window.fbq("track", "ViewContent"',
+  "scheduleMetaPixel",
+  "paidMetaVisit ? 2500 : 7000",
 ]) {
   assert.ok(metaEvents.includes(requiredText), `meta-events script is missing ${requiredText}`);
 }

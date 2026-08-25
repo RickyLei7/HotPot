@@ -23,6 +23,7 @@ const restaurantJsonLd = {
       about: { "@id": "https://centrestjhotpot.ca/#restaurant" },
       mainEntity: { "@id": "https://centrestjhotpot.ca/#restaurant" },
       primaryImageOfPage: { "@type": "ImageObject", url: "https://centrestjhotpot.ca/assets/dish-spicy.webp" },
+      dateModified: "2026-08-25",
     },
     {
       "@type": "Restaurant",
@@ -79,7 +80,7 @@ const restaurantJsonLd = {
 export default function Home() {
   return (
     <>
-      <link rel="preload" as="image" href="/assets/ayce-menu-2026-08-24-599-720.webp" imageSrcSet="/assets/ayce-menu-2026-08-24-599-480.webp 480w, /assets/ayce-menu-2026-08-24-599-720.webp 720w, /assets/ayce-menu-2026-08-24-599.webp 1200w" imageSizes="(max-width: 760px) calc(100vw - 32px), 42vw" />
+      <link rel="preload" as="image" href="/assets/ayce-menu-2026-08-25-fast-720.webp" imageSrcSet="/assets/ayce-menu-2026-08-25-fast-480.webp 480w, /assets/ayce-menu-2026-08-25-fast-720.webp 720w, /assets/ayce-menu-2026-08-24-599.webp 1200w" imageSizes="(max-width: 760px) calc(100vw - 32px), 42vw" />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(restaurantJsonLd) }} />
       <HomepageMenu language="en" />
     </>

@@ -89,6 +89,7 @@ export default function FaqPage() {
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
+    dateModified: "2026-08-25",
     mainEntity: faqs.map(([question, answer]) => ({
       "@type": "Question",
       name: question,

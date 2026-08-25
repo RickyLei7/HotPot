@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     description:
       "Calgary all-you-can-eat hot pot for $28.99 + tax with 15 soup bases, AAA beef, lamb, pork and chicken. Soup base included.",
     url: "https://centrestjhotpot.ca/ayce-hot-pot-calgary/",
-    images: ["/assets/ayce-menu-2026-08-24-599-480.webp"],
+    images: ["/assets/ayce-menu-2026-08-25-fast-480.webp"],
   },
 };
 
@@ -93,6 +93,7 @@ const ayceSchema = {
   "@graph": [
     {
       "@type": "WebPage",
+      dateModified: "2026-08-25",
       "@id": "https://centrestjhotpot.ca/ayce-hot-pot-calgary/#webpage",
       name: "All You Can Eat Hot Pot Calgary | AYCE $28.99",
       description:
@@ -128,6 +129,7 @@ const ayceSchema = {
     },
     {
       "@type": "FAQPage",
+      dateModified: "2026-08-25",
       "@id": "https://centrestjhotpot.ca/ayce-hot-pot-calgary/#faq",
       mainEntity: ayceFaqs.map(([question, answer]) => ({
         "@type": "Question",
@@ -199,7 +201,7 @@ export default function AyceHotPotCalgaryPage() {
         </div>
         <a className="ayce-card poster-thumbnail" href="#ayce-poster" aria-label="View the complete AYCE menu poster">
           <span className="price-badge">$28.99 + tax</span>
-          <img src="/assets/ayce-menu-2026-08-24-599-360.webp" srcSet="/assets/ayce-menu-2026-08-24-599-360.webp 360w, /assets/ayce-menu-2026-08-24-599-480.webp 480w" sizes="(max-width: 760px) calc(100vw - 32px), 420px" alt="AYCE Hot Pot poster with $28.99 pricing and all 19 appetizer upgrade items" width="480" height="622" loading="lazy" decoding="async" />
+          <img src="/assets/ayce-menu-2026-08-25-fast-360.webp" srcSet="/assets/ayce-menu-2026-08-25-fast-360.webp 360w, /assets/ayce-menu-2026-08-25-fast-480.webp 480w" sizes="(max-width: 760px) calc(100vw - 32px), 420px" alt="AYCE Hot Pot poster with $28.99 pricing and all 19 appetizer upgrade items" width="480" height="622" loading="lazy" decoding="async" />
           <strong className="poster-open-label">View full menu</strong>
         </a>
       </section>

@@ -47,6 +47,7 @@ const pageSchema = {
   "@graph": [
     {
       "@type": "Article",
+      dateModified: "2026-08-25",
       "@id": "https://centrestjhotpot.ca/calgary-taiwanese-hot-pot/#article",
       headline: "Taiwanese Hot Pot in Calgary",
       description:
@@ -63,6 +64,7 @@ const pageSchema = {
     },
     {
       "@type": "FAQPage",
+      dateModified: "2026-08-25",
       "@id": "https://centrestjhotpot.ca/calgary-taiwanese-hot-pot/#faq",
       mainEntity: taiwaneseHotPotFaqs.map(([question, answer]) => ({
         "@type": "Question",

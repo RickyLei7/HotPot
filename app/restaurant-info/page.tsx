@@ -26,6 +26,7 @@ export const metadata: Metadata = {
 const restaurantInfoSchema = {
   "@context": "https://schema.org",
   "@type": "AboutPage",
+  dateModified: "2026-08-25",
   name: "Centre Street Japanese HotPot Restaurant Information",
   url: "https://centrestjhotpot.ca/restaurant-info/",
   about: {

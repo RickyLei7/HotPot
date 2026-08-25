@@ -214,11 +214,13 @@
     window.addEventListener("scroll", loadFromIntent, { passive: true, once: true });
 
     var loadWhenPageSettles = function () {
-      if ("requestIdleCallback" in window) {
-        window.requestIdleCallback(loadGoogleTag, { timeout: 3500 });
-      } else {
-        window.setTimeout(loadGoogleTag, 2500);
-      }
+      window.setTimeout(function () {
+        if ("requestIdleCallback" in window) {
+          window.requestIdleCallback(loadGoogleTag, { timeout: 2000 });
+        } else {
+          loadGoogleTag();
+        }
+      }, 6500);
     };
 
     if (document.readyState === "complete") {
@@ -237,7 +239,9 @@
     window.__hotpotGaConfigured = true;
   }
   window.__hotpotAnalyticsReady = true;
-  loadMetaPixel();
+  if (!window.__hotpotMetaStandaloneEvents) {
+    window.setTimeout(loadMetaPixel, 7000);
+  }
   scheduleGoogleTag();
 
   if (hasCampaignData(directAttribution) && !window.__hotpotCampaignLandingSent) {

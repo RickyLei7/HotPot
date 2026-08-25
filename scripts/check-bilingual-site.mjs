@@ -224,7 +224,11 @@ const aycePosterRoutes = [
 const legacyAycePoster = /ayce-hotpot(?:-menu|-preview|-360|-480|-720)?\.webp/u;
 for (const route of aycePosterRoutes) {
   const html = await readFile(fileForRoute(route), "utf8");
-  assert.ok(html.includes("ayce-menu-2026-08-24-599"), `${route} must use the current AYCE poster`);
+  assert.match(
+    html,
+    /ayce-menu-2026-08-(?:24-599|25-fast)/u,
+    `${route} must use the current AYCE poster`,
+  );
   assert.doesNotMatch(html, legacyAycePoster, `${route} still references a legacy AYCE poster`);
 }
 for (const asset of [
@@ -232,6 +236,9 @@ for (const asset of [
   "ayce-menu-2026-08-24-599-480.webp",
   "ayce-menu-2026-08-24-599-720.webp",
   "ayce-menu-2026-08-24-599.webp",
+  "ayce-menu-2026-08-25-fast-360.webp",
+  "ayce-menu-2026-08-25-fast-480.webp",
+  "ayce-menu-2026-08-25-fast-720.webp",
 ]) {
   await readFile(path.join(publicDir, "assets", asset));
 }

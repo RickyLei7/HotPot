@@ -89,6 +89,7 @@ const drinks = [
 const menuJsonLd = {
   "@context": "https://schema.org",
   "@type": "Menu",
+  dateModified: "2026-08-25",
   name: "Centre Street Japanese HotPot Menu",
   url: "https://centrestjhotpot.ca/menu/",
   hasMenuSection: [

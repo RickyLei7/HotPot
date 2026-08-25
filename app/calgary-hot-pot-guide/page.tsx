@@ -47,6 +47,7 @@ const guideSchema = {
   "@graph": [
     {
       "@type": "Article",
+      dateModified: "2026-08-25",
       "@id": "https://centrestjhotpot.ca/calgary-hot-pot-guide/#article",
       headline: "Taiwanese & Japanese Hot Pot in Calgary",
       description:
@@ -64,6 +65,7 @@ const guideSchema = {
     },
     {
       "@type": "FAQPage",
+      dateModified: "2026-08-25",
       "@id": "https://centrestjhotpot.ca/calgary-hot-pot-guide/#faq",
       mainEntity: guideFaqs.map(([question, answer]) => ({
         "@type": "Question",

@@ -15,7 +15,8 @@
   window.fbq.version = "2.0";
   window.fbq.queue = window.fbq.queue || [];
 
-  if (!window.__hotpotMetaPixelConfigured) {
+  function loadMetaPixel() {
+    if (window.__hotpotMetaPixelConfigured) return;
     window.__hotpotMetaPixelConfigured = true;
 
     if (window.location.hostname !== "localhost" && window.location.hostname !== "127.0.0.1") {
@@ -28,6 +29,37 @@
       window.fbq("track", "PageView");
     }
   }
+
+  function scheduleMetaPixel() {
+    var loadFromIntent = function () {
+      loadMetaPixel();
+      window.removeEventListener("pointerdown", loadFromIntent);
+      window.removeEventListener("keydown", loadFromIntent);
+      window.removeEventListener("scroll", loadFromIntent);
+    };
+
+    window.addEventListener("pointerdown", loadFromIntent, { passive: true, once: true });
+    window.addEventListener("keydown", loadFromIntent, { once: true });
+    window.addEventListener("scroll", loadFromIntent, { passive: true, once: true });
+
+    var params = new URLSearchParams(window.location.search);
+    var paidMetaVisit = Boolean(
+      params.get("fbclid") ||
+      /^(facebook|instagram|meta)$/i.test(params.get("utm_source") || "")
+    );
+    var delay = paidMetaVisit ? 2500 : 7000;
+    var loadWhenPageSettles = function () {
+      window.setTimeout(loadMetaPixel, delay);
+    };
+
+    if (document.readyState === "complete") {
+      loadWhenPageSettles();
+    } else {
+      window.addEventListener("load", loadWhenPageSettles, { once: true });
+    }
+  }
+
+  scheduleMetaPixel();
 
   function isMenuLink(link, href) {
     var text = (link.textContent || "").toLowerCase();

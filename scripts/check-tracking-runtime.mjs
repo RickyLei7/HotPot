@@ -76,6 +76,11 @@ try {
   assert.equal(campaignLanding[2].ads_asset_group_id, "6732359062");
   assert.equal(campaignLanding[2].page_type, "home");
   assert.equal(JSON.stringify(landingLayer).includes(gclid), false, "Raw click IDs must not enter the data layer");
+  assert.equal(
+    await page.evaluate(() => Boolean(window.__hotpotGoogleTagLoading)),
+    false,
+    "Google tag must not compete with the initial page render",
+  );
 
   await page.goto(`${baseUrl}/menu/`, { waitUntil: "networkidle" });
   await page.evaluate(() => {
@@ -92,6 +97,11 @@ try {
   assert.equal(phoneClick[2].link_destination, "phone", "Phone number must not be sent as a URL");
   assert.equal(phoneClick[2].lead_type, undefined, "phone_click must remain a dedicated event definition");
   assert.equal(JSON.stringify(phoneLayer).includes("+14034553188"), false, "Phone number must not enter the data layer");
+  assert.equal(
+    await page.evaluate(() => Boolean(window.__hotpotGoogleTagLoading)),
+    true,
+    "Phone CTA must trigger Google tag loading for the Ads conversion",
+  );
 
   const directionsPage = await context.newPage();
   await directionsPage.goto(`${baseUrl}/contact/`, { waitUntil: "networkidle" });

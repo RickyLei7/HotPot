@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     description:
       "AYCE Hot Pot in Calgary for $28.99 + tax. Soup base included, 15 soup bases, snack upgrade, and phone reservations.",
     url: "https://centrestjhotpot.ca/google-ads-ayce-hot-pot/",
-    images: ["/assets/ayce-menu-2026-08-24-599-720.webp"],
+    images: ["/assets/ayce-menu-2026-08-25-fast-720.webp"],
   },
 };
 
@@ -181,7 +181,7 @@ export default function GoogleAdsAyceHotPotPage() {
 
       <section className="ads-section ads-photo-band" id="ads-ayce-menu">
         <article>
-          <a className="ads-menu-poster poster-thumbnail" href="#ads-ayce-menu-poster" aria-label="View the complete AYCE menu"><img src="/assets/ayce-menu-2026-08-24-599-360.webp" srcSet="/assets/ayce-menu-2026-08-24-599-360.webp 360w, /assets/ayce-menu-2026-08-24-599-480.webp 480w" sizes="(max-width: 560px) calc(100vw - 32px), 360px" alt="AYCE hot pot menu showing $28.99 price, soup base included, and 19 appetizer choices" width="480" height="622" loading="lazy" decoding="async" /><strong className="poster-open-label">View full menu</strong></a>
+          <a className="ads-menu-poster poster-thumbnail" href="#ads-ayce-menu-poster" aria-label="View the complete AYCE menu"><img src="/assets/ayce-menu-2026-08-25-fast-360.webp" srcSet="/assets/ayce-menu-2026-08-25-fast-360.webp 360w, /assets/ayce-menu-2026-08-25-fast-480.webp 480w" sizes="(max-width: 560px) calc(100vw - 32px), 360px" alt="AYCE hot pot menu showing $28.99 price, soup base included, and 19 appetizer choices" width="480" height="622" loading="lazy" decoding="async" /><strong className="poster-open-label">View full menu</strong></a>
           <div>
             <p className="eyebrow">AYCE details</p>
             <h2>Call before coming with a group</h2>

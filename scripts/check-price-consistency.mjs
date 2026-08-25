@@ -10,7 +10,7 @@ const excludedFiles = new Set([
   "marketing/reports/google-ads-goals-tracking-latest.json",
 ]);
 const stalePricePattern = /(?:\+\s*)?\$?3[.,]99/giu;
-const expectedPdfSha256 = "8c92f435eb0f654995fb8f09547bcb8c2a4afc24e1636e6e5e4d9332172781f3";
+const expectedPdfSha256 = "cdf203cfa2e41a91564afd1b99853e19fb74bfb85a05c3c05a05412ed3d8197c";
 
 async function collectFiles(relativePath) {
   const absolutePath = path.join(root, relativePath);

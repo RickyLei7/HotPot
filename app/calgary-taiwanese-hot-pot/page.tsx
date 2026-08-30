@@ -5,7 +5,7 @@ import { SiteNav } from "../site-nav";
 export const metadata: Metadata = {
   title: "Taiwanese Hot Pot Calgary | Centre Street",
   description:
-    "Centre Street Japanese HotPot serves Taiwanese-style individual hot pot in Calgary with 15 soup bases, AYCE hot pot, Taiwanese snacks, milk tea, and table reservations by phone.",
+    "Find Taiwanese-style hot pot in Calgary with $28.99 AYCE, personal hot pot, 15 soup bases, Taiwanese snacks, milk tea and phone reservations.",
   alternates: {
     canonical: "/calgary-taiwanese-hot-pot",
     languages: {
@@ -47,7 +47,6 @@ const pageSchema = {
   "@graph": [
     {
       "@type": "Article",
-      dateModified: "2026-08-25",
       "@id": "https://centrestjhotpot.ca/calgary-taiwanese-hot-pot/#article",
       headline: "Taiwanese Hot Pot in Calgary",
       description:
@@ -64,7 +63,6 @@ const pageSchema = {
     },
     {
       "@type": "FAQPage",
-      dateModified: "2026-08-25",
       "@id": "https://centrestjhotpot.ca/calgary-taiwanese-hot-pot/#faq",
       mainEntity: taiwaneseHotPotFaqs.map(([question, answer]) => ({
         "@type": "Question",

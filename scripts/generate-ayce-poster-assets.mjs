@@ -1,3 +1,4 @@
+import { copyFile } from "node:fs/promises";
 import path from "node:path";
 import sharp from "sharp";
 
@@ -8,34 +9,25 @@ const root = path.resolve(import.meta.dirname, "..");
 const assets = path.join(root, "public", "assets");
 const menu = path.join(root, "public", "menu");
 const base = "ayce-menu-2026-08-24-599";
+const fastBase = "ayce-menu-2026-08-25-fast";
 const signatureChickenSource = path.join(assets, "dish-popcorn-chicken.webp");
 const signatureChickenBase = "ayce-signature-fried-chicken-2026-08-18";
-const sourceWidth = 1080;
-const sourceHeight = 1350;
-const posterCrop = { left: 90, top: 0, width: 900, height: sourceHeight };
 
-await sharp(source)
-  .extract(posterCrop)
-  .jpeg({ quality: 94 })
-  .toFile(path.join(menu, "centre-street-ayce-menu-2026-08.jpg"));
+await copyFile(source, path.join(menu, "centre-street-ayce-menu-2026-08.jpg"));
 
-for (const width of [360, 480, 720, 1080]) {
-  const suffix = width === 1080 ? "" : `-${width}`;
-  const height = Math.round(width * sourceHeight / sourceWidth);
-  const contentWidth = Math.round(width * posterCrop.width / sourceWidth);
-  const left = Math.round(width * posterCrop.left / sourceWidth);
-  const poster = await sharp(source)
-    .extract(posterCrop)
-    .resize({ width: contentWidth, height })
-    .png()
-    .toBuffer();
-
-  await sharp({
-    create: { width, height, channels: 4, background: { r: 0, g: 0, b: 0, alpha: 0 } },
-  })
-    .composite([{ input: poster, left, top: 0 }])
-    .webp({ quality: width === 1080 ? 92 : 86 })
+for (const width of [360, 480, 720, 1200]) {
+  const suffix = width === 1200 ? "" : `-${width}`;
+  await sharp(source)
+    .resize({ width, withoutEnlargement: true })
+    .webp({ quality: width === 1200 ? 92 : 86 })
     .toFile(path.join(assets, `${base}${suffix}.webp`));
+}
+
+for (const width of [360, 480, 720]) {
+  await sharp(source)
+    .resize({ width, withoutEnlargement: true })
+    .webp({ quality: 72, effort: 6 })
+    .toFile(path.join(assets, `${fastBase}-${width}.webp`));
 }
 
 for (const width of [160, 224, 320, 640]) {

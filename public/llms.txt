@@ -1,7 +1,7 @@
 # Centre Street Japanese HotPot
 
 Official website: https://centrestjhotpot.ca/
-Last verified: 2026-08-14
+Last verified: 2026-08-29
 
 Language versions:
 - English: https://centrestjhotpot.ca/

@@ -1,6 +1,6 @@
 # Website Traffic Link Kit
 
-Updated: 2026-07-09
+Updated: 2026-08-25
 
 Destination: `https://centrestjhotpot.ca/ayce-hot-pot-calgary/`
 
@@ -22,6 +22,29 @@ Use these for ordinary AYCE posts. Replace only the final `utm_content` value wi
 - Facebook: `https://centrestjhotpot.ca/ayce-hot-pot-calgary/?utm_source=facebook&utm_medium=social&utm_campaign=ayce_always_on&utm_content=snack_upgrade`
 - Threads: `https://centrestjhotpot.ca/ayce-hot-pot-calgary/?utm_source=threads&utm_medium=social&utm_campaign=ayce_always_on&utm_content=snack_upgrade`
 - Google Business Profile: `https://centrestjhotpot.ca/ayce-hot-pot-calgary/?utm_source=google_business&utm_medium=organic&utm_campaign=ayce_always_on&utm_content=snack_upgrade`
+
+## Paid social ad links
+
+Paid ads must identify the platform directly. Never use `utm_source=meta`,
+because that combines Instagram and Facebook traffic in GA4.
+
+- Instagram: `https://centrestjhotpot.ca/ayce-hot-pot-calgary/?utm_source=instagram&utm_medium=paid_social&utm_campaign=ayce_paid_social&utm_content=menu_carousel`
+- Facebook: `https://centrestjhotpot.ca/ayce-hot-pot-calgary/?utm_source=facebook&utm_medium=paid_social&utm_campaign=ayce_paid_social&utm_content=menu_carousel`
+- Threads: `https://centrestjhotpot.ca/ayce-hot-pot-calgary/?utm_source=threads&utm_medium=paid_social&utm_campaign=ayce_paid_social&utm_content=menu_carousel`
+
+Current Instagram AYCE carousel ad:
+
+```text
+https://centrestjhotpot.ca/ayce-hot-pot-calgary/?utm_source=instagram&utm_medium=paid_social&utm_campaign=ayce_menu_aug2026&utm_content=pinned_ayce_carousel
+```
+
+Paid social rules:
+
+- Use `utm_medium=paid_social` only for paid or boosted placements.
+- Use `utm_medium=social` for ordinary posts, profile links, and Stories.
+- Use `utm_source=instagram`, `facebook`, or `threads`; never use `meta`.
+- Keep one `utm_campaign` value for all ads in the same campaign.
+- Give each creative a unique `utm_content` value.
 
 ## Google Ads final URLs
 
@@ -63,3 +86,4 @@ Xiaohongshu CTA:
 - Xiaohongshu does not receive long UTM URLs in ordinary post copy.
 - Replace `utm_content` with a short lowercase name for each creative.
 - Never reuse expired promotion names or date-specific UTM campaigns.
+- Run `npm run check:social-attribution` before launching or editing paid social ads.

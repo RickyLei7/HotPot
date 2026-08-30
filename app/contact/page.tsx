@@ -5,7 +5,7 @@ import { SiteNav } from "../site-nav";
 export const metadata: Metadata = {
   title: "Contact Centre Street Japanese HotPot | Calgary Location",
   description:
-    "Call Centre Street Japanese HotPot in Calgary to reserve a table, ask about group dining, check today's availability, or find our address, phone number, hours, and directions.",
+    "Reserve a table at Centre Street Japanese HotPot in Calgary. Find our phone, Centre Street address, opening hours and Google Maps directions.",
   alternates: {
     canonical: "/contact",
     languages: {

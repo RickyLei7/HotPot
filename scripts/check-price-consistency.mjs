@@ -8,22 +8,14 @@ const activeRoots = ["app", "public", "scripts", "marketing/scripts"];
 const textExtensions = new Set([".html", ".js", ".json", ".mjs", ".ts", ".tsx", ".txt", ".xml"]);
 const excludedFiles = new Set([
   "marketing/reports/google-ads-goals-tracking-latest.json",
+  // Safety tooling intentionally contains the retired price in block messages and patterns.
+  "scripts/check-publishing-price-safety.mjs",
+  "scripts/lib/publishing-price-safety.mjs",
+  // Migration-only lookup strings are required to find and retire legacy Ads assets.
+  "scripts/google-ads-update-snack-price-5-99.mjs",
 ]);
 const stalePricePattern = /(?:\+\s*)?\$?3[.,]99/giu;
 const expectedPdfSha256 = "cdf203cfa2e41a91564afd1b99853e19fb74bfb85a05c3c05a05412ed3d8197c";
-const approvedPosterPath = "public/assets/social/2026-08-24-ayce-menu-repost/01-ayce-menu-latest-1080x1350.jpg";
-const approvedAssetAliases = [
-  [approvedPosterPath, "public/assets/social/2026-08-04-ayce-19-snacks.jpg"],
-  [approvedPosterPath, "public/assets/social/2026-08-13-menu-carousel/01-ayce-poster.jpg"],
-  ["public/assets/ayce-menu-2026-08-24-599-360.webp", "public/assets/ayce-menu-2026-08-18-360.webp"],
-  ["public/assets/ayce-menu-2026-08-24-599-360.webp", "public/assets/ayce-menu-2026-08-19-360.webp"],
-  ["public/assets/ayce-menu-2026-08-24-599-480.webp", "public/assets/ayce-menu-2026-08-18-480.webp"],
-  ["public/assets/ayce-menu-2026-08-24-599-480.webp", "public/assets/ayce-menu-2026-08-19-480.webp"],
-  ["public/assets/ayce-menu-2026-08-24-599-720.webp", "public/assets/ayce-menu-2026-08-18-720.webp"],
-  ["public/assets/ayce-menu-2026-08-24-599-720.webp", "public/assets/ayce-menu-2026-08-19-720.webp"],
-  ["public/assets/ayce-menu-2026-08-24-599.webp", "public/assets/ayce-menu-2026-08-18.webp"],
-  ["public/assets/ayce-menu-2026-08-24-599.webp", "public/assets/ayce-menu-2026-08-19.webp"],
-];
 
 async function collectFiles(relativePath) {
   const absolutePath = path.join(root, relativePath);
@@ -63,18 +55,29 @@ const pdfPath = path.join(root, "public/menu/centre-street-ayce-menu-2026-08.pdf
 const pdfSha256 = createHash("sha256").update(await readFile(pdfPath)).digest("hex");
 assert.equal(pdfSha256, expectedPdfSha256, "Public AYCE PDF is not the approved $5.99 print master");
 
-for (const [approvedAssetPath, aliasPath] of approvedAssetAliases) {
-  const approvedAssetSha256 = createHash("sha256")
-    .update(await readFile(path.join(root, approvedAssetPath)))
-    .digest("hex");
+const currentSocialPosterPath = path.join(
+  root,
+  "public/assets/social/2026-08-24-ayce-menu-repost/01-ayce-menu-latest-1080x1350.jpg",
+);
+const currentSocialPosterSha256 = createHash("sha256")
+  .update(await readFile(currentSocialPosterPath))
+  .digest("hex");
+const legacyPublicPosterAliases = [
+  "public/assets/social/2026-08-04-ayce-19-snacks.jpg",
+  "public/assets/social/2026-08-13-menu-carousel/01-ayce-poster.jpg",
+];
+
+for (const legacyAlias of legacyPublicPosterAliases) {
   const aliasSha256 = createHash("sha256")
-    .update(await readFile(path.join(root, aliasPath)))
+    .update(await readFile(path.join(root, legacyAlias)))
     .digest("hex");
   assert.equal(
     aliasSha256,
-    approvedAssetSha256,
-    `${aliasPath} does not match the approved $5.99 asset ${approvedAssetPath}`,
+    currentSocialPosterSha256,
+    `${legacyAlias} must resolve to the current $5.99 poster`,
   );
 }
 
-console.log(`Price consistency passed across ${files.length} active text files, the approved AYCE PDF, and ${approvedAssetAliases.length} legacy asset URLs.`);
+console.log(
+  `Price consistency passed across ${files.length} active text files, the approved AYCE PDF, and ${legacyPublicPosterAliases.length} legacy poster URLs.`,
+);

@@ -5,7 +5,7 @@ import { SiteNav } from "../site-nav";
 export const metadata: Metadata = {
   title: "About Centre Street Japanese HotPot | Calgary",
   description:
-    "Learn about Centre Street Japanese HotPot, a Taiwanese and Japanese-style hot pot restaurant in Calgary serving premium meats, fresh seafood, fresh vegetables, signature broths, and house-made sauces.",
+    "Meet Centre Street Japanese HotPot, a Calgary restaurant serving Taiwanese and Japanese-style hot pot, 15 soup bases, snacks and milk tea.",
   alternates: {
     canonical: "/about",
     languages: {
@@ -26,7 +26,6 @@ export const metadata: Metadata = {
 const aboutPageSchema = {
   "@context": "https://schema.org",
   "@type": "AboutPage",
-  dateModified: "2026-08-25",
   "@id": "https://centrestjhotpot.ca/about/#webpage",
   url: "https://centrestjhotpot.ca/about/",
   name: "About Centre Street Japanese HotPot",

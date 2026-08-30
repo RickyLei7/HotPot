@@ -5,7 +5,7 @@ import { SiteNav } from "../site-nav";
 export const metadata: Metadata = {
   title: "First-Time Hot Pot Calgary | What to Order & How It Works",
   description:
-    "A practical first-time hot pot guide for Calgary: how individual hot pot works, what to order, AYCE details, soup bases, and how to reserve at Centre Street Japanese HotPot.",
+    "New to hot pot in Calgary? Learn how personal and AYCE hot pot work, which soup base to choose, what to order and how to reserve a table.",
   alternates: {
     canonical: "/first-time-hot-pot-calgary",
     languages: {
@@ -53,7 +53,7 @@ const schema = {
         "A practical guide to individual hot pot, first-time ordering, AYCE hot pot, soup bases, reservations, and location details at Centre Street Japanese HotPot in Calgary.",
       url: "https://centrestjhotpot.ca/first-time-hot-pot-calgary/",
       datePublished: "2026-08-08",
-      dateModified: "2026-08-25",
+      dateModified: "2026-08-29",
       author: { "@id": "https://centrestjhotpot.ca/#restaurant" },
       about: [
         "first time hot pot Calgary",
@@ -66,7 +66,6 @@ const schema = {
     },
     {
       "@type": "FAQPage",
-      dateModified: "2026-08-25",
       "@id": "https://centrestjhotpot.ca/first-time-hot-pot-calgary/#faq",
       mainEntity: faqs.map(([question, answer]) => ({
         "@type": "Question",

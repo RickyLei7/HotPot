@@ -2204,6 +2204,17 @@ body.poster-open { overflow: hidden; }
     transform: translateY(0);
   }
 
+  .reserve-sticky.reserve-sticky-call {
+    right: calc(38% + 6px);
+  }
+
+  .reserve-sticky.sticky-directions {
+    background: #24110f;
+    border: 1px solid rgba(246, 201, 76, 0.72);
+    color: var(--cream);
+    left: calc(62% + 6px);
+  }
+
   body {
     background:
       linear-gradient(180deg, rgba(18, 13, 11, 0.92), rgba(18, 13, 11, 0.72)),

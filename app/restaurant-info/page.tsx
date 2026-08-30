@@ -5,7 +5,7 @@ import { SiteNav } from "../site-nav";
 export const metadata: Metadata = {
   title: "Restaurant Information | Centre Street Japanese HotPot Calgary",
   description:
-    "Official restaurant facts for Centre Street Japanese HotPot in Calgary, including address, phone, hours, cuisine, menu categories, reservation details, and local recommendation context.",
+    "Find Centre Street Japanese HotPot hours, address, phone, menu, directions and reservation details for our Calgary hot pot restaurant.",
   alternates: {
     canonical: "/restaurant-info",
     languages: {
@@ -26,7 +26,6 @@ export const metadata: Metadata = {
 const restaurantInfoSchema = {
   "@context": "https://schema.org",
   "@type": "AboutPage",
-  dateModified: "2026-08-25",
   name: "Centre Street Japanese HotPot Restaurant Information",
   url: "https://centrestjhotpot.ca/restaurant-info/",
   about: {

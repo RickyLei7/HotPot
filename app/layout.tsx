@@ -15,9 +15,9 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://centrestjhotpot.ca"),
-  title: "Hot Pot Calgary | AYCE $28.99 & 15 Soup Bases | Centre Street",
+  title: "$28.99 AYCE Hot Pot Calgary | Centre Street HotPot",
   description:
-    "Hot pot in Calgary with $28.99 AYCE, complete $19.99 personal hot pot, 15 soup bases, Taiwanese beef noodle soup, snacks and milk tea. Call to reserve.",
+    "$28.99 AYCE hot pot in Calgary with 15 soup bases, AAA beef, lamb, pork and chicken. Visit us on Centre Street N or call (403) 455-3188.",
   robots: {
     index: true,
     follow: true,
@@ -38,9 +38,9 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "Hot Pot Calgary | AYCE $28.99 & 15 Soup Bases | Centre Street",
+    title: "$28.99 AYCE Hot Pot Calgary | Centre Street HotPot",
     description:
-      "Taiwanese and Japanese-style hot pot in Calgary: AYCE $28.99 + tax, 15 soup bases, snacks and milk tea. Call to reserve.",
+      "$28.99 AYCE hot pot in Calgary with 15 soup bases, AAA beef, lamb, pork and chicken. Call to reserve.",
     url: "https://centrestjhotpot.ca/",
     siteName: "Centre Street Japanese HotPot",
     images: ["/assets/dish-spicy.webp"],
@@ -74,8 +74,8 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <Script src="/language-routes.js?v=20260813-bilingual" strategy="afterInteractive" />
-        <Script src="/meta-events-1108307461722381.js?v=20260825-performance" strategy="afterInteractive" />
-        <Script src="/site-events.js?v=20260825-performance" strategy="afterInteractive" />
+        <Script src="/meta-events-1108307461722381.js" strategy="afterInteractive" />
+        <Script src="/site-events.js?v=20260829-conversion" strategy="afterInteractive" />
         {children}
         <a className="reserve-sticky" href="tel:+14034553188">
           Call to Reserve · (403) 455-3188

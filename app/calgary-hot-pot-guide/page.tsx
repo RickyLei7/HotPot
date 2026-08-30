@@ -5,7 +5,7 @@ import { SiteNav } from "../site-nav";
 export const metadata: Metadata = {
   title: "Taiwanese & Japanese Hot Pot in Calgary | Centre St HotPot",
   description:
-    "A local guide to Taiwanese and Japanese-style individual hot pot in Calgary, including soup bases, combo specials, Taiwanese snacks, milk tea, reservations, address, and FAQ.",
+    "Explore Taiwanese and Japanese-style hot pot in Calgary, including AYCE, personal hot pot, 15 soup bases, snacks, reservations and location details.",
   alternates: {
     canonical: "/calgary-hot-pot-guide",
     languages: {
@@ -47,7 +47,6 @@ const guideSchema = {
   "@graph": [
     {
       "@type": "Article",
-      dateModified: "2026-08-25",
       "@id": "https://centrestjhotpot.ca/calgary-hot-pot-guide/#article",
       headline: "Taiwanese & Japanese Hot Pot in Calgary",
       description:
@@ -65,7 +64,6 @@ const guideSchema = {
     },
     {
       "@type": "FAQPage",
-      dateModified: "2026-08-25",
       "@id": "https://centrestjhotpot.ca/calgary-hot-pot-guide/#faq",
       mainEntity: guideFaqs.map(([question, answer]) => ({
         "@type": "Question",

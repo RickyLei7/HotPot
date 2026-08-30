@@ -4,7 +4,7 @@ import { SiteNav } from "../site-nav";
 export const metadata: Metadata = {
   title: "FAQ | Centre Street Japanese HotPot Calgary",
   description:
-    "Frequently asked questions about Centre Street Japanese HotPot in Calgary, including reservations, Japanese hot pot, seafood options, group dining, location, soup bases, and AYCE updates.",
+    "Answers about Centre Street Japanese HotPot reservations, $28.99 AYCE, 15 soup bases, group dining, menu options, hours and Calgary location.",
   alternates: {
     canonical: "/faq",
     languages: {
@@ -89,7 +89,6 @@ export default function FaqPage() {
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    dateModified: "2026-08-25",
     mainEntity: faqs.map(([question, answer]) => ({
       "@type": "Question",
       name: question,

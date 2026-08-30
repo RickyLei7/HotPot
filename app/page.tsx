@@ -16,14 +16,14 @@ const restaurantJsonLd = {
       "@type": "WebPage",
       "@id": "https://centrestjhotpot.ca/#webpage",
       url: "https://centrestjhotpot.ca/",
-      name: "Hot Pot Calgary | AYCE $28.99 & Personal Hot Pot $19.99",
-      description: "Centre Street Japanese HotPot in Calgary serves $28.99 AYCE hot pot, complete $19.99 personal hot pot, Taiwanese beef noodle soup, light meals, snacks and milk tea.",
+      name: "$28.99 AYCE Hot Pot Calgary | Centre Street HotPot",
+      description: "$28.99 AYCE hot pot in Calgary with 15 soup bases, AAA beef, lamb, pork and chicken. Visit us on Centre Street N or call (403) 455-3188.",
       inLanguage: "en-CA",
       isPartOf: { "@id": "https://centrestjhotpot.ca/#website" },
       about: { "@id": "https://centrestjhotpot.ca/#restaurant" },
       mainEntity: { "@id": "https://centrestjhotpot.ca/#restaurant" },
-      primaryImageOfPage: { "@type": "ImageObject", url: "https://centrestjhotpot.ca/assets/dish-spicy.webp" },
-      dateModified: "2026-08-25",
+      primaryImageOfPage: { "@type": "ImageObject", url: "https://centrestjhotpot.ca/assets/ayce-menu-2026-08-24-599.webp" },
+      dateModified: "2026-08-29",
     },
     {
       "@type": "Restaurant",
@@ -80,7 +80,8 @@ const restaurantJsonLd = {
 export default function Home() {
   return (
     <>
-      <link rel="preload" as="image" href="/assets/ayce-menu-2026-08-25-fast-720.webp" imageSrcSet="/assets/ayce-menu-2026-08-25-fast-480.webp 480w, /assets/ayce-menu-2026-08-25-fast-720.webp 720w, /assets/ayce-menu-2026-08-24-599.webp 1200w" imageSizes="(max-width: 760px) calc(100vw - 32px), 42vw" />
+      <link rel="preload" as="image" href="/assets/ayce-menu-2026-08-25-fast-480.webp" imageSrcSet="/assets/ayce-menu-2026-08-25-fast-360.webp 360w, /assets/ayce-menu-2026-08-25-fast-480.webp 480w" imageSizes="calc(100vw - 32px)" media="(max-width: 760px)" />
+      <link rel="preload" as="image" href="/assets/ayce-menu-2026-08-25-fast-720.webp" imageSrcSet="/assets/ayce-menu-2026-08-25-fast-720.webp 720w, /assets/ayce-menu-2026-08-24-599.webp 1200w" imageSizes="42vw" media="(min-width: 761px)" />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(restaurantJsonLd) }} />
       <HomepageMenu language="en" />
     </>

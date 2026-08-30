@@ -3,9 +3,9 @@ import Link from "next/link";
 import { SiteNav } from "../site-nav";
 
 export const metadata: Metadata = {
-  title: "Hot Pot Menu Calgary | AYCE Hot Pot & Snacks",
+  title: "Calgary Hot Pot Menu | AYCE $28.99 & 15 Soup Bases",
   description:
-    "Explore AYCE hot pot, Taiwanese and Japanese-style hot pot, soup bases, meats, rice and noodle bowls, Taiwanese snacks, and milk tea at Centre Street Japanese HotPot.",
+    "See our Calgary hot pot menu: $28.99 AYCE, 15 soup bases, personal hot pot, Taiwanese snacks, rice and noodles, milk tea and current prices.",
   alternates: {
     canonical: "/menu",
     languages: {
@@ -15,9 +15,9 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "Hot Pot Menu Calgary | AYCE Hot Pot & Snacks",
+    title: "Calgary Hot Pot Menu | AYCE $28.99 & 15 Soup Bases",
     description:
-      "Explore AYCE hot pot, Taiwanese and Japanese-style hot pot, soup bases, premium meats, rice and noodle bowls, Taiwanese snacks, and milk tea in Calgary.",
+      "See $28.99 AYCE, 15 soup bases, personal hot pot, Taiwanese snacks, rice and noodles, milk tea and current prices.",
     url: "https://centrestjhotpot.ca/menu/",
     images: ["/assets/dish-sukiyaki.webp"],
   },
@@ -89,7 +89,6 @@ const drinks = [
 const menuJsonLd = {
   "@context": "https://schema.org",
   "@type": "Menu",
-  dateModified: "2026-08-25",
   name: "Centre Street Japanese HotPot Menu",
   url: "https://centrestjhotpot.ca/menu/",
   hasMenuSection: [
@@ -239,7 +238,7 @@ export default function MenuPage() {
           <a className="secondary-action dark" href="tel:+14034553188">
             Call (403) 455-3188
           </a>
-          <a className="secondary-action dark" href="/menu/centre-street-ayce-menu-2026-08.pdf" target="_blank" rel="noreferrer">
+          <a className="secondary-action dark" href="/menu/centre-street-ayce-menu-2026-08.pdf?v=20260824-599" target="_blank" rel="noreferrer">
             Open AYCE Menu
           </a>
         </div>

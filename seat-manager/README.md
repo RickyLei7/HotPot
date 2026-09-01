@@ -66,7 +66,8 @@ npm run deploy:production
 - 测试 Worker 名称：`hotpot-seat-manager-staging`。
 - 正式 Worker 名称：`hotpot-seat-manager-production`。
 - 测试地址：`https://hotpot-seat-manager-staging.rickylei7.workers.dev/`。
-- 测试版本：`06bd4e3c-bfe9-4eb0-9e54-f2961e621c09`。
+- 测试版本：`89303081-120d-49bb-8a23-6900885ff5fc`。
 - 2026-09-01 已完成电脑与 iPad Mini 现场验收：实时新增、通知、订位电话、Arrived、入座、清桌和刷新持久化均通过；验收后恢复为 10 张空桌、0 排队、0 未完成订位。
 - 店主当前决定暂缓 Android 现场验收，日常先使用 iPad Mini；四种屏幕的自动化测试仍保持通过。
-- 正式服务器尚未部署，必须经过另外一次行动时确认。
+- 2026-09-01 已获店主行动时确认并部署正式 Worker、自定义域名及独立 Durable Object；正式版本为 `04640c3e-937b-42b5-81f3-1f1ae61ed498`。
+- 正式地址：`https://reservation.centrestjhotpot.ca/`。首次隐藏 PIN 登录验证通过，快照为 revision 0、0 排队、0 订位、0 占桌；原餐厅网站仍正常返回 200。

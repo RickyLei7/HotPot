@@ -26,6 +26,21 @@ test('static asset responses receive restrictive browser security headers',async
   expect(response.headers.get('Referrer-Policy')).toBe('no-referrer');
   expect(response.headers.get('X-Frame-Options')).toBe('DENY');
   expect(response.headers.get('Permissions-Policy')).toBe('camera=(), microphone=(), geolocation=()');
+  expect(response.headers.get('Strict-Transport-Security')).toBe('max-age=31536000; includeSubDomains');
+});
+
+test('plain HTTP redirects to HTTPS before reading any static asset',async()=>{
+  let assetReads=0;
+  const response=await worker.fetch(new Request('http://seat-manager.test/?device=ipad'),{
+    ASSETS:{fetch:async()=>{
+      assetReads+=1;
+      return new Response('insecure page');
+    }}
+  });
+  expect(response.status).toBe(308);
+  expect(response.headers.get('Location')).toBe('https://seat-manager.test/?device=ipad');
+  expect(response.headers.get('Cache-Control')).toBe('no-store');
+  expect(assetReads).toBe(0);
 });
 
 test('backup export and protected data remain no-store and require authentication',async()=>{

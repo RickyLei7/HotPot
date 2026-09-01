@@ -9,12 +9,20 @@ function secureAssetResponse(response){
   headers.set('Referrer-Policy','no-referrer');
   headers.set('X-Frame-Options','DENY');
   headers.set('Permissions-Policy','camera=(), microphone=(), geolocation=()');
+  headers.set('Strict-Transport-Security','max-age=31536000; includeSubDomains');
   return new Response(response.body,{status:response.status,statusText:response.statusText,headers});
 }
 
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
+    if(url.protocol!=='https:'){
+      url.protocol='https:';
+      return new Response(null,{
+        status:308,
+        headers:{Location:url.toString(),'Cache-Control':'no-store'}
+      });
+    }
     if (url.pathname.startsWith('/api/') || url.pathname === '/ws') {
       const id = env.RESTAURANT_ROOM.idFromName(env.RESTAURANT_ID);
       return env.RESTAURANT_ROOM.get(id).fetch(request);

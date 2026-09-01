@@ -1,0 +1,12 @@
+import { cp, mkdir, rm } from 'node:fs/promises';
+
+await rm('public', { recursive: true, force: true });
+await mkdir('public/client', { recursive: true });
+await mkdir('public/data', { recursive: true });
+await mkdir('public/domain', { recursive: true });
+await cp('src/client/index.html', 'public/index.html');
+await cp('src/client/styles.css', 'public/client/styles.css');
+await cp('src/client/app.js', 'public/client/app.js');
+await cp('src/data/local-repository.js', 'public/data/local-repository.js');
+await cp('src/domain/scheduler.js', 'public/domain/scheduler.js');
+await cp('src/domain/tables.js', 'public/domain/tables.js');

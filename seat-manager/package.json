@@ -1,0 +1,23 @@
+{
+  "name": "hotpot-seat-manager-online",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "engines": { "node": ">=22.13.0" },
+  "scripts": {
+    "build": "node scripts/build-client.mjs",
+    "test:domain": "node --test test/domain/*.test.js",
+    "test:worker": "node scripts/create-local-secrets.mjs && vitest run test/worker",
+    "test": "npm run test:domain && npm run test:worker",
+    "dev": "npm run build && wrangler dev --config wrangler.jsonc",
+    "e2e": "node e2e/run-local.mjs",
+    "deploy:staging": "npm run build && wrangler deploy --config wrangler.jsonc",
+    "deploy:production": "npm run build && wrangler deploy --config wrangler.production.jsonc"
+  },
+  "devDependencies": {
+    "@cloudflare/vitest-plugin": "1.1.2",
+    "playwright": "1.62.1",
+    "vitest": "^4.1.0",
+    "wrangler": "4.127.1"
+  }
+}

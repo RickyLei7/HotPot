@@ -4,6 +4,7 @@ import test from 'node:test';
 
 import {
   buildPinSecrets,
+  createHiddenReader,
   parseProvisionConfig,
   provisionPin
 } from '../../scripts/provision-pin.mjs';
@@ -84,4 +85,20 @@ test('parseProvisionConfig allows only the two reviewed Wrangler configs', () =>
   assert.throws(() => parseProvisionConfig([]), /用法/);
   assert.throws(() => parseProvisionConfig(['--config', '../wrangler.jsonc']), /用法/);
   assert.throws(() => parseProvisionConfig(['--config', 'wrangler.jsonc', '--env', 'x']), /用法/);
+});
+
+test('hidden reader uses the macOS password dialog when no interactive terminal is attached', async () => {
+  const prompts = [];
+  const readHidden = createHiddenReader({
+    input:{isTTY:false},
+    output:{isTTY:false},
+    platform:'darwin',
+    runDialog:async (prompt) => {
+      prompts.push(prompt);
+      return '4826';
+    }
+  });
+
+  assert.equal(await readHidden('输入新的 4 位 PIN: '), '4826');
+  assert.deepEqual(prompts, ['输入新的 4 位 PIN: ']);
 });

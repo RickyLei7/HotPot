@@ -61,9 +61,43 @@ export async function provisionPin({
   }
 }
 
-export function createHiddenReader({input = process.stdin, output = process.stdout} = {}) {
+export function readMacHiddenDialog(prompt, {spawnImpl = spawn} = {}) {
+  const script = [
+    'on run argv',
+    'set dialogPrompt to item 1 of argv',
+    'display dialog dialogPrompt default answer "" with hidden answer buttons {"取消", "继续"} default button "继续" with title "Hotpot Seat Manager"',
+    'return text returned of result',
+    'end run'
+  ].join('\n');
+
+  return new Promise((resolve, reject) => {
+    const child = spawnImpl('osascript', ['-e', script, prompt], {
+      stdio:['ignore', 'pipe', 'pipe']
+    });
+    let answer = '';
+    child.stdout.on('data', (chunk) => { answer += chunk; });
+    child.once('error', () => reject(new Error('无法打开安全 PIN 输入框')));
+    child.once('exit', (code) => {
+      if (code === 0) {
+        resolve(answer.replace(/[\r\n]+$/, ''));
+        answer = '';
+        return;
+      }
+      answer = '';
+      reject(new Error('已取消 PIN 输入'));
+    });
+  });
+}
+
+export function createHiddenReader({
+  input = process.stdin,
+  output = process.stdout,
+  platform = process.platform,
+  runDialog = readMacHiddenDialog
+} = {}) {
   return async (prompt) => {
     if (!input.isTTY || !output.isTTY) {
+      if (platform === 'darwin') return runDialog(prompt);
       throw new Error('PIN 必须在交互式终端中输入');
     }
 

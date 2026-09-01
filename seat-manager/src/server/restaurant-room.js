@@ -1,5 +1,7 @@
 import { DurableObject } from 'cloudflare:workers';
+import { DomainCommandError } from '../shared/contracts.js';
 import { verifyPin } from './auth-crypto.js';
+import { executeCommand } from './command-service.js';
 import { applyWrites, readSnapshot } from './persistence.js';
 import {
   activeLoginCooldown,
@@ -31,6 +33,10 @@ function unauthorized() {
 
 function originRejected() {
   return json({authenticated:false,code:'ORIGIN_REJECTED'}, 403);
+}
+
+function csrfRejected() {
+  return json({authenticated:true,code:'CSRF_REJECTED'}, 403);
 }
 
 export class RestaurantRoom extends DurableObject {
@@ -114,15 +120,67 @@ export class RestaurantRoom extends DurableObject {
     if (!hasAllowedOrigin(request, this.env)) return originRejected();
     const session = await requireSession(request, this.ctx.storage.sql, this.env, now);
     if (!session) return unauthorized();
-    if (!hasValidCsrf(request, session)) {
-      return json({authenticated:true,code:'CSRF_REJECTED'}, 403);
-    }
+    if (!hasValidCsrf(request, session)) return csrfRejected();
     deleteSession(this.ctx.storage.sql, session.tokenHash);
     return json(
       {authenticated:false},
       200,
       {'Set-Cookie':expiredSessionCookie()}
     );
+  }
+
+  async snapshot(request, now) {
+    const session = await requireSession(request, this.ctx.storage.sql, this.env, now);
+    if (!session) return unauthorized();
+    return json({snapshot:readSnapshot(this.ctx.storage.sql, this.restaurantId)});
+  }
+
+  async command(request, now) {
+    const session = await requireSession(request, this.ctx.storage.sql, this.env, now);
+    if (!session) return unauthorized();
+    if (!hasAllowedOrigin(request, this.env)) return originRejected();
+    if (!hasValidCsrf(request, session)) return csrfRejected();
+    if (!(request.headers.get('Content-Type') || '').toLowerCase().startsWith('application/json')) {
+      return json({code:'JSON_REQUIRED',message:'请求格式无效'}, 415);
+    }
+
+    let text;
+    try {
+      text = await request.text();
+    } catch {
+      return json({code:'INVALID_BODY',message:'无法读取操作资料'}, 400);
+    }
+    if (new TextEncoder().encode(text).byteLength > 32 * 1024) {
+      return json({code:'BODY_TOO_LARGE',message:'操作资料过大'}, 413);
+    }
+
+    let command;
+    try {
+      command = JSON.parse(text);
+    } catch {
+      return json({code:'INVALID_JSON',message:'操作资料格式无效'}, 400);
+    }
+
+    try {
+      const response = executeCommand(
+        this.ctx.storage,
+        this.ctx.storage.sql,
+        this.restaurantId,
+        command,
+        {now,uid:()=> crypto.randomUUID()}
+      );
+      return json(response);
+    } catch (error) {
+      if (error instanceof DomainCommandError) {
+        return json({
+          code:error.code,
+          message:error.message,
+          snapshot:readSnapshot(this.ctx.storage.sql, this.restaurantId)
+        }, error.status);
+      }
+      console.error('Command failed', error?.name || 'Error');
+      return json({code:'SERVER_ERROR',message:'服务器暂时无法完成这个操作'}, 500);
+    }
   }
 
   async fetch(request) {
@@ -136,6 +194,12 @@ export class RestaurantRoom extends DurableObject {
     }
     if (request.method === 'POST' && url.pathname === '/api/logout') {
       return this.logout(request, now);
+    }
+    if (request.method === 'GET' && url.pathname === '/api/snapshot') {
+      return this.snapshot(request, now);
+    }
+    if (request.method === 'POST' && url.pathname === '/api/commands') {
+      return this.command(request, now);
     }
     return json({code:'NOT_FOUND'}, 404);
   }

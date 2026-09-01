@@ -148,3 +148,41 @@ export function applyWrites(sql, restaurantId, writes, revision) {
     revision
   );
 }
+
+export function readCommandResult(sql, idempotencyKey, restaurantId) {
+  const row = [...sql.exec(
+    `SELECT response_json FROM command_results
+     WHERE restaurant_id = ? AND idempotency_key = ?`,
+    restaurantId,
+    idempotencyKey
+  )][0];
+  if (!row) return null;
+  try {
+    return JSON.parse(row.response_json);
+  } catch {
+    throw new DomainCommandError('INVALID_COMMAND_CACHE', '操作记录无法读取', 500);
+  }
+}
+
+export function saveCommandResult(
+  sql,
+  idempotencyKey,
+  restaurantId,
+  response,
+  createdAt,
+  expiresAt
+) {
+  sql.exec(`INSERT INTO command_results (
+      restaurant_id, idempotency_key, response_json, created_at, expires_at
+    ) VALUES (?, ?, ?, ?, ?)`,
+    restaurantId,
+    idempotencyKey,
+    JSON.stringify(response),
+    createdAt,
+    expiresAt
+  );
+}
+
+export function deleteExpiredCommandResults(sql, now) {
+  sql.exec('DELETE FROM command_results WHERE expires_at <= ?', now);
+}

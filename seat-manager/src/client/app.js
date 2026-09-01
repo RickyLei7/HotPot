@@ -1,15 +1,20 @@
 import { RESTAURANT_TABLES, formatTableCardNumber, formatTableReference } from '../domain/tables.js';
 import { OCCUPANCY_WINDOW_MS, applyReservationEdit, availableTablesAt, buildTodayReservationPreview, buildUpcomingReservationStats, canSeatWithoutReservationConflict, diningStartsAt, findBestTableCombination, findPartyWithKind, formatTableClockTime, formatWaitDuration, isTablePlanConfirmed, markWalkInNotified, nextAnonymousWalkInName, normalizeAnonymousGuestName, notificationWindowState, partitionReservationsByDay, rankTableCombinations, recommendWalkInSeat, requiresTableConfirmation, summarizeReservations, tableDropMode } from '../domain/scheduler.js';
-import { createLocalRepository } from '../data/local-repository.js';
+import { createAuthClient } from './auth.js';
+import { createRealtimeClient } from './realtime.js';
+import { createRemoteRepository } from '../data/remote-repository.js';
 
 const app=document.querySelector('#app');
-const repo=createLocalRepository(window.localStorage);
-const initial=await repo.load() || {walkins:[], reservations:[], occupancies:[]};
-let state={...initial};
+const authClient=createAuthClient({storage:window.localStorage});
+let authSession=null;
+const repo=createRemoteRepository({getCsrfToken:()=>authSession?.csrfToken??''});
+let realtimeClient=null;
+let connectionState='offline';
+let state={walkins:[],reservations:[],occupancies:[],revision:0};
 let modal=null;
 let toastTimer=null;
 let dragState=null;
-const APP_VERSION='2026.08.31';
+const APP_VERSION='2026.09.01';
 
 const uid=()=>crypto.randomUUID?.() ?? `${Date.now()}-${Math.random()}`;
 const now=()=>Date.now();
@@ -19,9 +24,53 @@ const fmtDate=ms=>new Intl.DateTimeFormat('en-CA',{weekday:'short',month:'short'
 const fmtDay=ms=>new Intl.DateTimeFormat('zh-CN',{weekday:'short',month:'numeric',day:'numeric'}).format(new Date(ms));
 const toLocalDateTimeInput=ms=>{const date=new Date(ms);date.setMinutes(date.getMinutes()-date.getTimezoneOffset());return date.toISOString().slice(0,16)};
 const minutesWait=created=>Math.max(0,Math.floor((now()-created)/60000));
-const persist=()=>repo.save(state);
+const persist=()=>{};
 function update(mutator){state=mutator(structuredClone(state));persist();render()}
 function toast(message){clearTimeout(toastTimer);let old=document.querySelector('.toast');if(old)old.remove();const el=document.createElement('div');el.className='toast';el.textContent=message;document.body.appendChild(el);toastTimer=setTimeout(()=>el.remove(),2600)}
+function renderLoading(message='正在连接餐厅资料…'){
+  app.innerHTML=`<section class="login-shell"><div class="login-card loading-card"><div class="login-mark">鼎鑽</div><h1>Hotpot Seat Manager</h1><div class="loading-line"><span></span>${esc(message)}</div></div></section>`;
+}
+function renderPin(error=''){
+  connectionState='offline';
+  app.innerHTML=`<section class="login-shell"><div class="login-card"><div class="login-mark">鼎鑽</div><p class="login-eyebrow">STAFF ONLY · 员工使用</p><h1>Hotpot Seat Manager</h1><p class="login-copy">输入店内共用的 4 位密码</p><form id="pin-form"><label for="staff-pin">Staff PIN / 员工密码</label><input id="staff-pin" name="pin" type="password" inputmode="numeric" pattern="[0-9]{4}" maxlength="4" autocomplete="off" required autofocus><button class="btn primary full" type="submit">进入订位系统</button><p class="login-error" role="alert">${esc(error)}</p></form><p class="privacy-note">不会记录员工姓名或个人 Apple / Google 账号</p></div></section>`;
+  app.querySelector('#pin-form').addEventListener('submit',submitLogin);
+}
+function loginErrorMessage(error){
+  if(error?.code==='LOGIN_COOLDOWN')return `尝试次数太多，请在 ${Math.ceil(Number(error.retryAfterSeconds||60)/60)} 分钟后再试`;
+  if(error?.code==='PIN_FORMAT')return '请输入 4 位数字密码';
+  if(error?.status===401)return '密码不正确，请重新输入';
+  return '暂时无法连接，请检查网络后重试';
+}
+async function submitLogin(event){
+  event.preventDefault();
+  const form=event.currentTarget;const pin=String(new FormData(form).get('pin')||'');
+  const button=form.querySelector('button');button.disabled=true;button.textContent='正在验证…';
+  try{authSession=await authClient.login(pin);form.reset();await startDashboard()}
+  catch(error){renderPin(loginErrorMessage(error))}
+}
+async function startDashboard(){
+  renderLoading('正在读取最新订位和桌位…');
+  state=await repo.load();
+  render();
+  realtimeClient?.disconnect();
+  realtimeClient=createRealtimeClient({
+    loadSnapshot:()=>repo.load(),
+    onSnapshot:snapshot=>{state=snapshot;render()},
+    onState:next=>{connectionState=next;render()}
+  });
+  await realtimeClient.connect();
+}
+async function logoutStaff(){
+  try{
+    await authClient.logout(authSession?.csrfToken??'');
+    realtimeClient?.disconnect();authSession=null;modal=null;state={walkins:[],reservations:[],occupancies:[],revision:0};renderPin();
+  }catch{toast('暂时无法安全退出，请检查网络后重试')}
+}
+async function bootstrap(){
+  renderLoading();
+  try{authSession=await authClient.session();await startDashboard()}
+  catch(error){if(error?.status===401)renderPin();else renderPin('暂时无法连接，请检查网络后重试')}
+}
 function refreshWaitTimers(){const tick=now();let notificationExpired=false;app.querySelectorAll('[data-wait-started]').forEach(el=>{el.textContent=formatWaitDuration(Number(el.dataset.waitStarted),tick)});app.querySelectorAll('[data-notified-started]').forEach(el=>{const windowState=notificationWindowState({status:'notified',notifiedAt:Number(el.dataset.notifiedStarted)},tick);el.textContent=formatWaitDuration(Number(el.dataset.notifiedStarted),tick);const button=el.closest('.notify-only');if(windowState.expired&&!button?.classList.contains('expired'))notificationExpired=true});if(notificationExpired&&!modal&&!dragState)render()}
 function currentOccupancy(tableId){return state.occupancies.find(o=>o.tableId===tableId && o.expectedEndAt>now())}
 function activeReservation(r){return ['confirmed','arrived'].includes(r.status)}
@@ -57,10 +106,11 @@ function render(){
   const rec=recommendation(); const recParty=rec?partyById(rec.walkInId):null; const next=nextReservation();
   const free=availableTablesAt(now(),state.occupancies).length; const waiters=waitingWalkins();
   const {today,upcoming}=activeReservationGroups();const todaySummary=summarizeReservations(today);const upcomingSummary=summarizeReservations(upcoming);
+  const connectionLabel={online:'Online / 在线',reconnecting:'Reconnecting / 重新连接',offline:'Offline / 离线'}[connectionState];
   app.innerHTML=`<div class="app-shell">
     <header class="topbar">
       <div class="brand"><h1>Hotpot Seat Manager <span class="version">v${APP_VERSION}</span></h1><p>鼎鑽火鍋 · ${new Intl.DateTimeFormat('en-CA',{weekday:'long',month:'short',day:'numeric'}).format(new Date())} · 90 min + 10 min turn</p></div>
-      <div class="top-actions"><button class="btn" data-action="add-reservation">+ Reservation</button><button class="btn primary" data-action="add-walkin">+ Walk-in</button></div>
+      <div class="header-controls"><div class="session-controls"><span class="connection-state ${connectionState}" role="status"><i></i>${connectionLabel}</span><button class="logout-button" data-action="logout">Logout / 安全退出</button></div><div class="top-actions"><button class="btn" data-action="add-reservation">+ Reservation</button><button class="btn primary" data-action="add-walkin">+ Walk-in</button></div></div>
     </header>
     <section class="stats">
       <div class="stat"><span>Free tables 空桌</span><strong>${free}</strong><div class="sub">of 10 tables</div></div>
@@ -187,10 +237,14 @@ function beginPartyDrag(e){
 
 function bindEvents(){
   app.querySelectorAll('[data-action]').forEach(el=>el.addEventListener('click',e=>{const action=el.dataset.action;if(action==='close-modal' && e.target!==el && el.classList.contains('sheet-backdrop'))return;handleAction(action,el)}));
-  app.querySelectorAll('[data-drag-party]').forEach(el=>el.addEventListener('pointerdown',beginPartyDrag));
+  const writeActions=new Set(['add-reservation','add-walkin','clear-table','notify','cancel-walkin','arrived','no-show','cancel-reservation','confirm-table-plan','manual-seat','auto-seat','confirm-drop-seat','confirm-seat']);
+  if(connectionState!=='online')app.querySelectorAll('[data-action]').forEach(el=>{if(writeActions.has(el.dataset.action))el.disabled=true});
+  if(connectionState==='online')app.querySelectorAll('[data-drag-party]').forEach(el=>el.addEventListener('pointerdown',beginPartyDrag));
   const form=app.querySelector('#party-form'); if(form)form.addEventListener('submit',submitParty);
+  if(form&&connectionState!=='online')form.querySelector('button[type="submit"]').disabled=true;
 }
 function handleAction(action,el){
+  if(action==='logout'){logoutStaff();return}
   if(action==='add-reservation'){modal={type:'add',kind:'reservation'};render();return}
   if(action==='add-walkin'){modal={type:'add',kind:'walkin'};render();return}
   if(action==='edit-reservation'){modal={type:'edit',kind:'reservation',id:el.dataset.id};render();return}
@@ -231,6 +285,6 @@ function openSeat(id,kind,initialTableIds=[]){const party=partyById(id);if(party
 function autoSeatWalkin(id){const rec=recommendation();if(!rec||rec.walkInId!==id){toast('桌位情况已变化，请重新查看建议');render();return}commitSeat(id,'walkin',rec.tableIds)}
 function commitSeat(id,kind,tableIds){const party=partyById(id);if(!party)return;const t=now();update(s=>{for(const tableId of tableIds)s.occupancies.push({tableId,partyId:id,partyName:party.name,partySize:party.partySize,seatedAt:t,expectedEndAt:t+OCCUPANCY_WINDOW_MS});if(kind==='walkin'){const w=s.walkins.find(x=>x.id===id);if(w)w.status='seated'}else{const r=s.reservations.find(x=>x.id===id);if(r)r.status='seated'}return s});modal=null;render();toast(`${party.name} → ${formatTableReference(tableIds)}`)}
 
-render();
+bootstrap();
 setInterval(refreshWaitTimers,1000);
-setInterval(()=>{if(!modal&&!dragState)render()},30000);
+setInterval(()=>{if(authSession&&!modal&&!dragState)render()},30000);

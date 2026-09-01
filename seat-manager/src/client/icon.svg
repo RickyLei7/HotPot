@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Hotpot Seat Manager">
+  <rect width="512" height="512" rx="112" fill="#9b2f27"/>
+  <path d="M145 132c-22 31 30 48 7 82M236 112c-24 37 33 54 7 97M327 132c-22 31 30 48 7 82" fill="none" stroke="#fff5cf" stroke-width="24" stroke-linecap="round"/>
+  <path d="M104 246h304c0 89-58 150-152 150s-152-61-152-150Z" fill="#fff"/>
+  <path d="M82 246h348M173 416h166" fill="none" stroke="#171717" stroke-width="24" stroke-linecap="round"/>
+  <circle cx="256" cy="309" r="32" fill="#ffb000"/>
+</svg>

@@ -1,0 +1,31 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "hotpot-seat-manager-staging",
+  "main": "src/server/worker.js",
+  "compatibility_date": "2026-09-01",
+  "assets": {
+    "directory": "./public",
+    "binding": "ASSETS",
+    "run_worker_first": ["/api/*", "/ws"]
+  },
+  "vars": {
+    "RESTAURANT_ID": "centre-street",
+    "SESSION_TTL_MS": "43200000",
+    "ALLOWED_ORIGIN": "self"
+  },
+  "secrets": {
+    "required": ["PIN_SALT", "PIN_PEPPER", "PIN_VERIFIER", "PIN_VERSION"]
+  },
+  "durable_objects": {
+    "bindings": [{"name":"RESTAURANT_ROOM","class_name":"RestaurantRoom"}]
+  },
+  "exports": {
+    "RestaurantRoom": {"type":"durable-object","storage":"sqlite"}
+  },
+  "dev": {
+    "ip": "127.0.0.1",
+    "port": 8787,
+    "local_protocol": "https"
+  },
+  "observability": {"enabled": true}
+}

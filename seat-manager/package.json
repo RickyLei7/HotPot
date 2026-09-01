@@ -11,6 +11,8 @@
     "test": "npm run test:domain && npm run test:worker",
     "dev": "npm run build && wrangler dev --config wrangler.jsonc",
     "e2e": "node e2e/run-local.mjs",
+    "provision:staging": "node scripts/provision-pin.mjs --config wrangler.jsonc",
+    "provision:production": "node scripts/provision-pin.mjs --config wrangler.production.jsonc",
     "deploy:staging": "npm run build && wrangler deploy --config wrangler.jsonc",
     "deploy:production": "npm run build && wrangler deploy --config wrangler.production.jsonc"
   },

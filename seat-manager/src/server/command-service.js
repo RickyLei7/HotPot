@@ -14,7 +14,7 @@ export function executeCommand(storage, sql, restaurantId, command, context) {
     const cached = command?.idempotencyKey
       ? readCommandResult(sql, command.idempotencyKey, restaurantId)
       : null;
-    if (cached) return cached;
+    if (cached) return {response:cached,committed:false};
 
     const current = readSnapshot(sql, restaurantId);
     const output = applyRestaurantCommand(current, command, context);
@@ -29,6 +29,6 @@ export function executeCommand(storage, sql, restaurantId, command, context) {
       context.now + COMMAND_RESULT_TTL_MS
     );
     deleteExpiredCommandResults(sql, context.now);
-    return response;
+    return {response,committed:true};
   });
 }

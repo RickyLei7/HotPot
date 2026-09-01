@@ -8,6 +8,7 @@ await mkdir('public/shared', { recursive: true });
 await cp('src/client/index.html', 'public/index.html');
 await cp('src/client/styles.css', 'public/client/styles.css');
 await cp('src/client/app.js', 'public/client/app.js');
+await cp('src/client/realtime.js', 'public/client/realtime.js');
 await cp('src/data/local-repository.js', 'public/data/local-repository.js');
 await cp('src/domain/scheduler.js', 'public/domain/scheduler.js');
 await cp('src/domain/tables.js', 'public/domain/tables.js');

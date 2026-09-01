@@ -45,6 +45,7 @@ export class RestaurantRoom extends DurableObject {
     this.ctx = ctx;
     this.env = env;
     this.restaurantId = env.RESTAURANT_ID || 'centre-street';
+    this.broadcastCount = 0;
     initializeSchema(ctx.storage.sql, this.restaurantId);
   }
 
@@ -56,6 +57,38 @@ export class RestaurantRoom extends DurableObject {
     await this.ctx.storage.transaction(async () => {
       applyWrites(this.ctx.storage.sql, this.restaurantId, writes, revision);
     });
+  }
+
+  socketAttachmentsForTest() {
+    return this.ctx.getWebSockets().map(socket => socket.deserializeAttachment());
+  }
+
+  broadcastCountForTest() {
+    return this.broadcastCount;
+  }
+
+  broadcastSnapshot(snapshot) {
+    const message=JSON.stringify({type:'snapshot',revision:snapshot.revision,snapshot});
+    this.broadcastCount+=1;
+    const now=Date.now();
+    for (const socket of this.ctx.getWebSockets()) {
+      const attachment=socket.deserializeAttachment();
+      const session=attachment?.sessionHash ? [...this.ctx.storage.sql.exec(
+        `SELECT expires_at, pin_version FROM sessions
+         WHERE token_hash = ? AND restaurant_id = ?`,
+        attachment.sessionHash,
+        this.restaurantId
+      )][0] : null;
+      const authorized=session
+        && Number(session.expires_at) > now
+        && session.pin_version === this.env.PIN_VERSION
+        && attachment.pinVersion === this.env.PIN_VERSION;
+      if (!authorized) {
+        try { socket.close(4001,'Session expired'); } catch {}
+      } else if (socket.readyState === WebSocket.OPEN) {
+        socket.send(message);
+      }
+    }
   }
 
   async login(request, now) {
@@ -162,14 +195,15 @@ export class RestaurantRoom extends DurableObject {
     }
 
     try {
-      const response = executeCommand(
+      const execution = executeCommand(
         this.ctx.storage,
         this.ctx.storage.sql,
         this.restaurantId,
         command,
         {now,uid:()=> crypto.randomUUID()}
       );
-      return json(response);
+      if (execution.committed) this.broadcastSnapshot(execution.response.snapshot);
+      return json(execution.response);
     } catch (error) {
       if (error instanceof DomainCommandError) {
         return json({
@@ -181,6 +215,30 @@ export class RestaurantRoom extends DurableObject {
       console.error('Command failed', error?.name || 'Error');
       return json({code:'SERVER_ERROR',message:'服务器暂时无法完成这个操作'}, 500);
     }
+  }
+
+  async websocket(request, now) {
+    const session=await requireSession(request,this.ctx.storage.sql,this.env,now);
+    if (!session) return unauthorized();
+    if (!hasAllowedOrigin(request,this.env)) return originRejected();
+    if ((request.headers.get('Upgrade') || '').toLowerCase() !== 'websocket') {
+      return json({code:'WEBSOCKET_UPGRADE_REQUIRED'},426);
+    }
+    const pair=new WebSocketPair();
+    const [client,server]=Object.values(pair);
+    this.ctx.acceptWebSocket(server);
+    server.serializeAttachment({sessionHash:session.tokenHash,pinVersion:session.pinVersion});
+    return new Response(null,{status:101,webSocket:client});
+  }
+
+  webSocketMessage(socket) {
+    socket.close(1008,'Server messages only');
+  }
+
+  webSocketClose() {}
+
+  webSocketError(socket) {
+    try { socket.close(1011,'WebSocket error'); } catch {}
   }
 
   async fetch(request) {
@@ -200,6 +258,9 @@ export class RestaurantRoom extends DurableObject {
     }
     if (request.method === 'POST' && url.pathname === '/api/commands') {
       return this.command(request, now);
+    }
+    if (request.method === 'GET' && url.pathname === '/ws') {
+      return this.websocket(request, now);
     }
     return json({code:'NOT_FOUND'}, 404);
   }

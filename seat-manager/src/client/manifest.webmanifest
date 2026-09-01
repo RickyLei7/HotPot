@@ -1,0 +1,16 @@
+{
+  "name": "Hotpot Seat Manager",
+  "short_name": "Seat Manager",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f6f5f2",
+  "theme_color": "#9b2f27",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

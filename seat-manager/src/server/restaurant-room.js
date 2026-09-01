@@ -168,6 +168,18 @@ export class RestaurantRoom extends DurableObject {
     return json({snapshot:readSnapshot(this.ctx.storage.sql, this.restaurantId)});
   }
 
+  async exportSnapshot(request,now){
+    const session=await requireSession(request,this.ctx.storage.sql,this.env,now);
+    if(!session)return unauthorized();
+    const date=new Date(now).toISOString().slice(0,10);
+    return json({
+      format:'hotpot-seat-manager-online-v1',
+      restaurantId:this.restaurantId,
+      exportedAt:now,
+      snapshot:readSnapshot(this.ctx.storage.sql,this.restaurantId)
+    },200,{'Content-Disposition':`attachment; filename="hotpot-seat-manager-${date}.json"`});
+  }
+
   async command(request, now) {
     const session = await requireSession(request, this.ctx.storage.sql, this.env, now);
     if (!session) return unauthorized();
@@ -255,6 +267,9 @@ export class RestaurantRoom extends DurableObject {
     }
     if (request.method === 'GET' && url.pathname === '/api/snapshot') {
       return this.snapshot(request, now);
+    }
+    if(request.method==='GET'&&url.pathname==='/api/export'){
+      return this.exportSnapshot(request,now);
     }
     if (request.method === 'POST' && url.pathname === '/api/commands') {
       return this.command(request, now);

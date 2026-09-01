@@ -328,5 +328,6 @@ function autoSeatWalkin(id){const rec=recommendation();if(!rec||rec.walkInId!==i
 function commitSeat(id,kind,tableIds,protectFutureReservations=false){const party=partyById(id);if(!party)return;submitCommand(staffCommands.seatParty(party,kind,tableIds,protectFutureReservations),()=>{modal=null;toast(`${party.name} → ${formatTableReference(tableIds)}`)})}
 
 bootstrap();
+if('serviceWorker'in navigator)window.addEventListener('load',()=>navigator.serviceWorker.register('/sw.js').catch(()=>{}));
 setInterval(refreshWaitTimers,1000);
 setInterval(()=>{if(authSession&&!modal&&!dragState)render()},30000);

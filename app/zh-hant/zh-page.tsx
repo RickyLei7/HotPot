@@ -116,6 +116,7 @@ export function ZhPage({ data }: { data: ZhPageData }) {
       <section className="localized-hero">
         <div className="localized-hero-copy">
           <p className="eyebrow">{data.eyebrow}</p><h1>{data.h1}</h1><p className="hero-text">{data.lead}</p>
+          {data.path === "/zh-hant/menu/" ? <aside className="table-menu-notice" data-table-menu-notice aria-label="店內點單說明"><strong>菜單僅供查看</strong><span>請向服務員點單。View Menu Only — Please order with your server.</span></aside> : null}
           <div className="hero-actions">{data.actions.map((action) => <a className={action.style} href={action.href} key={action.label}>{action.label}</a>)}</div>
         </div>
         {data.imageFull && data.imageActionLabel ? <a className="localized-hero-media poster-thumbnail" href="#localized-menu-poster" aria-label={data.imageActionLabel}><img src={data.image} alt={data.imageAlt} width="480" height="622" fetchPriority="high" decoding="async" /><strong className="poster-open-label">{data.imageActionLabel}</strong></a> : <div className="localized-hero-media"><img src={data.image} alt={data.imageAlt} width="900" height="675" fetchPriority="high" decoding="async" /></div>}

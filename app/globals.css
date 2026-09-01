@@ -311,6 +311,31 @@ h3 {
   margin: 16px 0 0;
 }
 
+.table-menu-notice {
+  background: rgba(255, 248, 234, 0.96);
+  border: 2px solid var(--gold);
+  border-left: 8px solid var(--gold);
+  border-radius: 10px;
+  color: var(--ink);
+  display: grid;
+  gap: 5px;
+  margin-top: 22px;
+  max-width: 650px;
+  padding: 15px 18px;
+}
+
+.table-menu-notice strong {
+  color: var(--red);
+  font-size: 1.05rem;
+  font-weight: 900;
+}
+
+.table-menu-notice span {
+  font-size: 0.96rem;
+  font-weight: 750;
+  line-height: 1.45;
+}
+
 .primary-action,
 .secondary-action {
   font-size: 1rem;

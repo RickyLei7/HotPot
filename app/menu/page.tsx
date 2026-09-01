@@ -191,6 +191,10 @@ export default function MenuPage() {
             Choose from Taiwanese and Japanese-style hot pot soup bases, all-you-can-eat hot pot,
             premium meats, fresh seafood, vegetables, rice and noodle bowls, Taiwanese snacks, and milk tea.
           </p>
+          <aside className="table-menu-notice" data-table-menu-notice aria-label="Dine-in ordering instructions">
+            <strong>View Menu Only</strong>
+            <span>Please order with your server.</span>
+          </aside>
           <div className="hero-actions">
             <a className="primary-action" href="tel:+14034553188">Call to Reserve</a>
             <a

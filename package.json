@@ -6,6 +6,7 @@
     "node": ">=22.13.0"
   },
   "scripts": {
+    "test": "node --test tests/*.test.mjs",
     "dev": "vinext dev",
     "build": "vinext build && rm -rf dist/_appgen_meta && mkdir -p dist/_appgen_meta && if [ -f .openai/hosting.json ]; then cp .openai/hosting.json dist/_appgen_meta/appgarden.json; fi && if [ -d drizzle ]; then cp -R drizzle dist/_appgen_meta/drizzle; fi",
     "start": "vinext start",
@@ -28,7 +29,8 @@
     "ads:audit": "node scripts/google-ads-audit.mjs",
     "ads:optimize": "node scripts/google-ads-optimize.mjs",
     "lint": "eslint . --ignore-pattern dist --ignore-pattern .next --ignore-pattern _restored_hotpot_records",
-    "db:generate": "drizzle-kit generate"
+    "db:generate": "drizzle-kit generate",
+    "qr:table-menu": "node scripts/generate-table-menu-qr.mjs marketing/qr-cards"
   },
   "dependencies": {
     "drizzle-orm": "0.45.2",
@@ -49,6 +51,8 @@
     "eslint": "9.39.4",
     "eslint-config-next": "16.2.6",
     "html-validate": "^11.5.3",
+    "jsqr": "^1.4.0",
+    "pdf-lib": "^1.17.1",
     "playwright": "^1.61.0",
     "qrcode": "^1.5.4",
     "react-server-dom-webpack": "19.2.6",

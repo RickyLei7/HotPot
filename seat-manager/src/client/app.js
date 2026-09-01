@@ -1,7 +1,8 @@
 import { RESTAURANT_TABLES, formatTableCardNumber, formatTableReference } from '../domain/tables.js';
-import { OCCUPANCY_WINDOW_MS, applyReservationEdit, availableTablesAt, buildTodayReservationPreview, buildUpcomingReservationStats, canSeatWithoutReservationConflict, diningStartsAt, findBestTableCombination, findPartyWithKind, formatTableClockTime, formatWaitDuration, isTablePlanConfirmed, markWalkInNotified, nextAnonymousWalkInName, normalizeAnonymousGuestName, notificationWindowState, partitionReservationsByDay, rankTableCombinations, recommendWalkInSeat, requiresTableConfirmation, summarizeReservations, tableDropMode } from '../domain/scheduler.js';
+import { availableTablesAt, buildTodayReservationPreview, buildUpcomingReservationStats, canSeatWithoutReservationConflict, diningStartsAt, findBestTableCombination, findPartyWithKind, formatTableClockTime, formatWaitDuration, isTablePlanConfirmed, normalizeAnonymousGuestName, notificationWindowState, partitionReservationsByDay, rankTableCombinations, recommendWalkInSeat, requiresTableConfirmation, summarizeReservations, tableDropMode } from '../domain/scheduler.js';
 import { createAuthClient } from './auth.js';
 import { createRealtimeClient } from './realtime.js';
+import { createStaffCommands, createWorkflowController } from './workflows.js';
 import { createRemoteRepository } from '../data/remote-repository.js';
 
 const app=document.querySelector('#app');
@@ -14,9 +15,11 @@ let state={walkins:[],reservations:[],occupancies:[],revision:0};
 let modal=null;
 let toastTimer=null;
 let dragState=null;
+let operationError=null;
+let operationPending=false;
+let pendingSuccess=null;
 const APP_VERSION='2026.09.01';
 
-const uid=()=>crypto.randomUUID?.() ?? `${Date.now()}-${Math.random()}`;
 const now=()=>Date.now();
 const esc=(s='')=>String(s).replace(/[&<>'"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]));
 const fmtTime=ms=>new Intl.DateTimeFormat('en-CA',{hour:'numeric',minute:'2-digit'}).format(new Date(ms));
@@ -24,9 +27,38 @@ const fmtDate=ms=>new Intl.DateTimeFormat('en-CA',{weekday:'short',month:'short'
 const fmtDay=ms=>new Intl.DateTimeFormat('zh-CN',{weekday:'short',month:'numeric',day:'numeric'}).format(new Date(ms));
 const toLocalDateTimeInput=ms=>{const date=new Date(ms);date.setMinutes(date.getMinutes()-date.getTimezoneOffset());return date.toISOString().slice(0,16)};
 const minutesWait=created=>Math.max(0,Math.floor((now()-created)/60000));
-const persist=()=>{};
-function update(mutator){state=mutator(structuredClone(state));persist();render()}
 function toast(message){clearTimeout(toastTimer);let old=document.querySelector('.toast');if(old)old.remove();const el=document.createElement('div');el.className='toast';el.textContent=message;document.body.appendChild(el);toastTimer=setTimeout(()=>el.remove(),2600)}
+const staffCommands=createStaffCommands();
+const workflow=createWorkflowController({
+  repository:repo,
+  getConnectionState:()=>connectionState,
+  onSnapshot:snapshot=>{state=snapshot},
+  onSuccess:result=>{
+    operationPending=false;operationError=null;
+    const callback=pendingSuccess;pendingSuccess=null;
+    callback?.(result);render();
+  },
+  onError:error=>{
+    operationPending=false;
+    if(!error.retry)pendingSuccess=null;
+    if(error.status===409&&(modal?.type==='seat'||modal?.type==='drop-confirm')){
+      modal=null;
+      error={...error,message:'桌位刚被其他设备更新，请重新选择'};
+    }
+    operationError=error;
+    if(error.status===401){
+      realtimeClient?.disconnect();authSession=null;renderPin('登录已过期，请重新输入 4 位密码');
+    }else render();
+  }
+});
+async function submitCommand(command,onSuccess){
+  operationPending=true;operationError=null;pendingSuccess=onSuccess;render();
+  return workflow.submit(command);
+}
+async function retryOperation(){
+  operationPending=true;operationError=null;render();
+  return workflow.retry();
+}
 function renderLoading(message='正在连接餐厅资料…'){
   app.innerHTML=`<section class="login-shell"><div class="login-card loading-card"><div class="login-mark">鼎鑽</div><h1>Hotpot Seat Manager</h1><div class="loading-line"><span></span>${esc(message)}</div></div></section>`;
 }
@@ -112,6 +144,8 @@ function render(){
       <div class="brand"><h1>Hotpot Seat Manager <span class="version">v${APP_VERSION}</span></h1><p>鼎鑽火鍋 · ${new Intl.DateTimeFormat('en-CA',{weekday:'long',month:'short',day:'numeric'}).format(new Date())} · 90 min + 10 min turn</p></div>
       <div class="header-controls"><div class="session-controls"><span class="connection-state ${connectionState}" role="status"><i></i>${connectionLabel}</span><button class="logout-button" data-action="logout">Logout / 安全退出</button></div><div class="top-actions"><button class="btn" data-action="add-reservation">+ Reservation</button><button class="btn primary" data-action="add-walkin">+ Walk-in</button></div></div>
     </header>
+    ${operationError?`<section class="operation-error" role="alert"><div><strong>${esc(operationError.message)}</strong><span>${operationError.retry?'资料仍保留，可以直接重试':'已载入最新资料，请重新确认后操作'}</span></div>${operationError.retry?'<button class="btn" data-action="retry-operation">Retry / 重试</button>':''}</section>`:''}
+    ${operationPending?'<section class="operation-pending" role="status">正在安全保存，请稍候…</section>':''}
     <section class="stats">
       <div class="stat"><span>Free tables 空桌</span><strong>${free}</strong><div class="sub">of 10 tables</div></div>
       <div class="stat"><span>Waiting 排队</span><strong>${waiters.length}</strong><div class="sub">${waiters.reduce((s,w)=>s+w.partySize,0)} guests</div></div>
@@ -175,8 +209,9 @@ function renderReservationStatsModal(){
 
 function renderModal(){
   if(modal.type==='add'||modal.type==='edit'){
-    const isEdit=modal.type==='edit';const isRes=modal.kind==='reservation';const existing=isEdit?state.reservations.find(r=>r.id===modal.id):null;const local=toLocalDateTimeInput(existing?.reservedAt??now());
-    return `<div class="sheet-backdrop" data-action="close-modal"><section class="sheet" role="dialog" aria-modal="true"><div class="sheet-head"><h2>${isEdit?'Edit Reservation 修改订位':isRes?'Add Reservation 新增订位':'Add Walk-in 新增排队'}</h2><button class="icon-btn" data-action="close-modal">×</button></div><form id="party-form"><div class="form-grid"><div class="field"><label>${isRes?'Name 姓名':'Name 姓名（可留空）'}</label><input ${isRes?'required':''} name="name" autocomplete="off" value="${esc(existing?.name??'')}" ${isRes?'':'placeholder="留空将自动命名"'}></div><div class="field"><label>Party size 人数</label><input required name="partySize" type="number" min="1" max="40" value="${existing?.partySize??2}"></div><div class="field"><label>Phone 电话</label><input name="phone" inputmode="tel" value="${esc(existing?.phone??'')}"></div>${isRes?`<div class="field"><label>Date & time 日期与时间</label><input required name="reservedAt" type="datetime-local" value="${local}"></div>`:''}<div class="field full"><div class="hint">${isEdit?'修改人数后如超过 6 人，需要重新确认拼桌。':isRes?'可以登记今天或未来日期；7 人以上保存后需要先确认拼桌。':'姓名留空会自动生成无名字客人编号；7 人以上需要先确认拼桌。'}</div></div></div><div class="sheet-actions"><button type="button" class="btn" data-action="close-modal">Cancel</button><button class="btn primary" type="submit">${isEdit?'Save changes 保存修改':'Save'}</button></div></form></section></div>`;
+    const isEdit=modal.type==='edit';const isRes=modal.kind==='reservation';const existing=isEdit?state.reservations.find(r=>r.id===modal.id):null;
+    const values=modal.values??{name:existing?.name??'',phone:existing?.phone??'',partySize:String(existing?.partySize??2),reservedAt:toLocalDateTimeInput(existing?.reservedAt??now())};
+    return `<div class="sheet-backdrop" data-action="close-modal"><section class="sheet" role="dialog" aria-modal="true"><div class="sheet-head"><h2>${isEdit?'Edit Reservation 修改订位':isRes?'Add Reservation 新增订位':'Add Walk-in 新增排队'}</h2><button class="icon-btn" data-action="close-modal">×</button></div><form id="party-form"><div class="form-grid"><div class="field"><label>${isRes?'Name 姓名':'Name 姓名（可留空）'}</label><input ${isRes?'required':''} name="name" autocomplete="off" value="${esc(values.name)}" ${isRes?'':'placeholder="留空将自动命名"'}></div><div class="field"><label>Party size 人数</label><input required name="partySize" type="number" min="1" max="40" value="${esc(values.partySize)}"></div><div class="field"><label>Phone 电话</label><input name="phone" inputmode="tel" value="${esc(values.phone)}"></div>${isRes?`<div class="field"><label>Date & time 日期与时间</label><input required name="reservedAt" type="datetime-local" value="${esc(values.reservedAt)}"></div>`:''}<div class="field full"><div class="hint">${isEdit?'修改人数后如超过 6 人，需要重新确认拼桌。':isRes?'可以登记今天或未来日期；7 人以上保存后需要先确认拼桌。':'姓名留空会自动生成无名客人编号；7 人以上需要先确认拼桌。'}</div></div></div><div class="sheet-actions"><button type="button" class="btn" data-action="close-modal">Cancel</button><button class="btn primary" type="submit">${isEdit?'Save changes 保存修改':'Save'}</button></div></form></section></div>`;
   }
   if(modal.type==='reservation-stats')return renderReservationStatsModal();
   if(modal.type==='drop-confirm'){
@@ -237,43 +272,50 @@ function beginPartyDrag(e){
 
 function bindEvents(){
   app.querySelectorAll('[data-action]').forEach(el=>el.addEventListener('click',e=>{const action=el.dataset.action;if(action==='close-modal' && e.target!==el && el.classList.contains('sheet-backdrop'))return;handleAction(action,el)}));
-  const writeActions=new Set(['add-reservation','add-walkin','clear-table','notify','cancel-walkin','arrived','no-show','cancel-reservation','confirm-table-plan','manual-seat','auto-seat','confirm-drop-seat','confirm-seat']);
-  if(connectionState!=='online')app.querySelectorAll('[data-action]').forEach(el=>{if(writeActions.has(el.dataset.action))el.disabled=true});
-  if(connectionState==='online')app.querySelectorAll('[data-drag-party]').forEach(el=>el.addEventListener('pointerdown',beginPartyDrag));
+  const writeActions=new Set(['add-reservation','add-walkin','clear-table','notify','cancel-walkin','arrived','no-show','cancel-reservation','confirm-table-plan','manual-seat','auto-seat','confirm-drop-seat','confirm-seat','retry-operation']);
+  if(connectionState!=='online'||operationPending)app.querySelectorAll('[data-action]').forEach(el=>{if(writeActions.has(el.dataset.action))el.disabled=true});
+  if(connectionState==='online'&&!operationPending)app.querySelectorAll('[data-drag-party]').forEach(el=>el.addEventListener('pointerdown',beginPartyDrag));
   const form=app.querySelector('#party-form'); if(form)form.addEventListener('submit',submitParty);
-  if(form&&connectionState!=='online')form.querySelector('button[type="submit"]').disabled=true;
+  if(form&&(connectionState!=='online'||operationPending))form.querySelector('button[type="submit"]').disabled=true;
 }
 function handleAction(action,el){
   if(action==='logout'){logoutStaff();return}
-  if(action==='add-reservation'){modal={type:'add',kind:'reservation'};render();return}
-  if(action==='add-walkin'){modal={type:'add',kind:'walkin'};render();return}
-  if(action==='edit-reservation'){modal={type:'edit',kind:'reservation',id:el.dataset.id};render();return}
+  if(action==='retry-operation'){retryOperation();return}
+  if(action==='add-reservation'){modal={type:'add',kind:'reservation',values:{name:'',phone:'',partySize:'2',reservedAt:toLocalDateTimeInput(now())}};render();return}
+  if(action==='add-walkin'){modal={type:'add',kind:'walkin',values:{name:'',phone:'',partySize:'2',reservedAt:''}};render();return}
+  if(action==='edit-reservation'){const reservation=state.reservations.find(item=>item.id===el.dataset.id);if(!reservation)return;modal={type:'edit',kind:'reservation',id:reservation.id,values:{name:reservation.name,phone:reservation.phone,partySize:String(reservation.partySize),reservedAt:toLocalDateTimeInput(reservation.reservedAt)}};render();return}
   if(action==='show-today-stats'){modal={type:'reservation-stats',scope:'today'};render();return}
   if(action==='show-upcoming-stats'){modal={type:'reservation-stats',scope:'upcoming'};render();return}
   if(action==='select-reservation-day'){modal={...modal,dateStart:Number(el.dataset.dateStart)};render();return}
-  if(action==='close-modal'){modal=null;render();return}
-  if(action==='clear-table'){const tableId=Number(el.dataset.table);update(s=>{s.occupancies=s.occupancies.filter(o=>o.tableId!==tableId);return s});toast(`${formatTableReference([tableId])} 已清桌`);return}
-  if(action==='notify'){const id=el.dataset.id;const contactedAt=now();update(s=>{const index=s.walkins.findIndex(x=>x.id===id);if(index>=0)s.walkins[index]=markWalkInNotified(s.walkins[index],contactedAt);return s});toast('已通知，5分钟返回窗口开始');return}
-  if(action==='cancel-walkin'){const id=el.dataset.id;update(s=>{const w=s.walkins.find(x=>x.id===id);if(w)w.status='left';return s});return}
-  if(action==='arrived'){const id=el.dataset.id;update(s=>{const r=s.reservations.find(x=>x.id===id);if(r)r.status='arrived';return s});return}
-  if(action==='no-show'){const id=el.dataset.id;update(s=>{const r=s.reservations.find(x=>x.id===id);if(r)r.status='no-show';return s});toast('订位已释放');return}
-  if(action==='cancel-reservation'){const id=el.dataset.id;update(s=>{const r=s.reservations.find(x=>x.id===id);if(r)r.status='cancelled';return s});return}
-  if(action==='confirm-table-plan'){const id=el.dataset.id;update(s=>{const party=s.walkins.find(x=>x.id===id)||s.reservations.find(x=>x.id===id);if(party)party.tablePlanConfirmed=true;return s});toast('拼桌安排已确认');return}
+  if(action==='close-modal'){workflow.clearPending();pendingSuccess=null;operationError=null;modal=null;render();return}
+  if(action==='clear-table'){const occupancy=state.occupancies.find(item=>item.tableId===Number(el.dataset.table));if(occupancy)submitCommand(staffCommands.clearTable(occupancy),()=>toast(`${formatTableReference([occupancy.tableId])} 已清桌`));return}
+  if(action==='notify'){const walkin=state.walkins.find(item=>item.id===el.dataset.id);if(walkin)submitCommand(staffCommands.notifyWalkin(walkin),()=>toast('已通知，5分钟返回窗口开始'));return}
+  if(action==='cancel-walkin'){const walkin=state.walkins.find(item=>item.id===el.dataset.id);if(walkin)submitCommand(staffCommands.cancelWalkin(walkin));return}
+  if(action==='arrived'){const reservation=state.reservations.find(item=>item.id===el.dataset.id);if(reservation)submitCommand(staffCommands.reservationStatus(reservation,'arrived'));return}
+  if(action==='no-show'){const reservation=state.reservations.find(item=>item.id===el.dataset.id);if(reservation)submitCommand(staffCommands.reservationStatus(reservation,'no-show'),()=>toast('订位已释放'));return}
+  if(action==='cancel-reservation'){const reservation=state.reservations.find(item=>item.id===el.dataset.id);if(reservation)submitCommand(staffCommands.reservationStatus(reservation,'cancelled'));return}
+  if(action==='confirm-table-plan'){const found=findPartyWithKind(state,el.dataset.id);if(found)submitCommand(staffCommands.confirmTablePlan(found.party,found.kind),()=>toast('拼桌安排已确认'));return}
   if(action==='manual-seat'){openSeat(el.dataset.id,el.dataset.kind);return}
   if(action==='auto-seat'){autoSeatWalkin(el.dataset.id);return}
   if(action==='confirm-drop-seat'){commitSeat(modal.id,modal.kind,[modal.tableId]);return}
   if(action==='toggle-table'){const id=Number(el.dataset.table);const selected=new Set(modal.selected??[]);selected.has(id)?selected.delete(id):selected.add(id);modal={...modal,selected:[...selected].sort((a,b)=>a-b)};render();return}
   if(action==='confirm-seat'){commitSeat(modal.id,modal.kind,modal.selected??[]);return}
 }
-function submitParty(e){e.preventDefault();const fd=new FormData(e.currentTarget);const partySize=Math.max(1,Math.min(40,Number(fd.get('partySize'))||1));const enteredName=String(fd.get('name')||'').trim();const name=enteredName||(modal.kind==='walkin'?nextAnonymousWalkInName(state.walkins):'');const base={id:uid(),name,phone:String(fd.get('phone')||'').trim(),partySize,createdAt:now(),tablePlanConfirmed:!requiresTableConfirmation(partySize)};if(!base.name)return;
+function submitParty(e){
+  e.preventDefault();
+  const fd=new FormData(e.currentTarget);
+  const values={name:String(fd.get('name')||''),phone:String(fd.get('phone')||''),partySize:String(fd.get('partySize')||''),reservedAt:String(fd.get('reservedAt')||'')};
+  modal={...modal,values};
+  const fields={name:values.name.trim(),phone:values.phone.trim(),partySize:Number(values.partySize)};
   if(modal.type==='edit'){
-    const reservationId=modal.id;const reservedAt=new Date(String(fd.get('reservedAt'))).getTime();const edits={name,phone:base.phone,partySize,reservedAt};
-    update(s=>{const index=s.reservations.findIndex(r=>r.id===reservationId);if(index>=0)s.reservations[index]=applyReservationEdit(s.reservations[index],edits);return s});
-    modal=null;render();toast('订位修改已保存');return;
+    const reservation=state.reservations.find(item=>item.id===modal.id);if(!reservation)return;
+    const command=staffCommands.editReservation(reservation,{...fields,reservedAt:new Date(values.reservedAt).getTime()});
+    submitCommand(command,()=>{modal=null;toast('订位修改已保存')});return;
   }
-  if(modal.kind==='walkin') update(s=>{s.walkins.push({...base,status:'waiting'});return s});
-  else {const reservedAt=new Date(String(fd.get('reservedAt'))).getTime();update(s=>{s.reservations.push({...base,reservedAt,status:'confirmed'});return s})}
-  modal=null;render();toast('Saved');
+  if(modal.kind==='walkin'){
+    submitCommand(staffCommands.createWalkin(fields),()=>{modal=null;toast('排队客人已保存')});return;
+  }
+  submitCommand(staffCommands.createReservation({...fields,reservedAt:new Date(values.reservedAt).getTime()}),()=>{modal=null;toast('订位已保存')});
 }
 function openSeat(id,kind,initialTableIds=[]){const party=partyById(id);if(party&&!isTablePlanConfirmed(party)){toast('请先确认拼桌安排');return}const free=availableTablesAt(now(),state.occupancies);let suggested=[...initialTableIds];if(!suggested.length&&party&&party.partySize<17){if(kind==='walkin'){
     for(const combo of rankTableCombinations(party.partySize,free)){
@@ -282,8 +324,8 @@ function openSeat(id,kind,initialTableIds=[]){const party=partyById(id);if(party
   } else suggested=findBestTableCombination(party.partySize,free).map(t=>t.id)}
   modal={type:'seat',id,kind,selected:suggested};render();
 }
-function autoSeatWalkin(id){const rec=recommendation();if(!rec||rec.walkInId!==id){toast('桌位情况已变化，请重新查看建议');render();return}commitSeat(id,'walkin',rec.tableIds)}
-function commitSeat(id,kind,tableIds){const party=partyById(id);if(!party)return;const t=now();update(s=>{for(const tableId of tableIds)s.occupancies.push({tableId,partyId:id,partyName:party.name,partySize:party.partySize,seatedAt:t,expectedEndAt:t+OCCUPANCY_WINDOW_MS});if(kind==='walkin'){const w=s.walkins.find(x=>x.id===id);if(w)w.status='seated'}else{const r=s.reservations.find(x=>x.id===id);if(r)r.status='seated'}return s});modal=null;render();toast(`${party.name} → ${formatTableReference(tableIds)}`)}
+function autoSeatWalkin(id){const rec=recommendation();if(!rec||rec.walkInId!==id){toast('桌位情况已变化，请重新查看建议');render();return}commitSeat(id,'walkin',rec.tableIds,true)}
+function commitSeat(id,kind,tableIds,protectFutureReservations=false){const party=partyById(id);if(!party)return;submitCommand(staffCommands.seatParty(party,kind,tableIds,protectFutureReservations),()=>{modal=null;toast(`${party.name} → ${formatTableReference(tableIds)}`)})}
 
 bootstrap();
 setInterval(refreshWaitTimers,1000);

@@ -1,0 +1,779 @@
+{
+  "images": [
+    {
+      "imageId": "ayce-individual",
+      "source": "content/table-menu/source-images/generic/build-your-own-hotpot.jpeg",
+      "position": "center"
+    },
+    {
+      "imageId": "ayce-for-two-plus",
+      "source": "content/table-menu/source-images/generic/build-your-own-hotpot.jpeg",
+      "position": "center"
+    },
+    {
+      "imageId": "personal-hot-pot",
+      "source": "content/table-menu/source-images/generic/personal-hot-pot-menu-full.webp",
+      "position": "center"
+    },
+    {
+      "imageId": "solo-hot-pot-combo",
+      "source": "content/table-menu/source-images/generic/combo-hot-pot-special.webp",
+      "position": "center"
+    },
+    {
+      "imageId": "couple-hot-pot-combo",
+      "source": "content/table-menu/source-images/generic/combo-hot-pot-special.webp",
+      "position": "center"
+    },
+    {
+      "imageId": "kokanee",
+      "source": "content/table-menu/source-images/generic/beer-special.png",
+      "position": "center"
+    },
+    {
+      "imageId": "corona-extra",
+      "source": "content/table-menu/source-images/generic/beer-special.png",
+      "position": "center"
+    },
+    {
+      "imageId": "personal-hot-pot-includes",
+      "source": "content/table-menu/source-images/generic/personal-hot-pot-menu-full.webp",
+      "position": "center"
+    },
+    {
+      "imageId": "split-pot-upgrade",
+      "source": "content/table-menu/source-images/generic/personal-hot-pot-menu-full.webp",
+      "position": "center"
+    },
+    {
+      "imageId": "chicken-spicy-pot",
+      "source": "content/table-menu/source-images/generic/dish-spicy.webp",
+      "position": "center"
+    },
+    {
+      "imageId": "spicy-soup",
+      "source": "content/table-menu/source-images/generic/dish-spicy.webp",
+      "position": "center"
+    },
+    {
+      "imageId": "sukiyaki",
+      "source": "content/table-menu/source-images/generic/dish-sukiyaki.webp",
+      "position": "center"
+    },
+    {
+      "imageId": "tom-yum-kung",
+      "source": "content/table-menu/source-images/generic/dish-tom-yum.webp",
+      "position": "center"
+    },
+    {
+      "imageId": "chinese-herbs",
+      "source": "content/table-menu/source-images/generic/soup-lineup.webp",
+      "position": "center"
+    },
+    {
+      "imageId": "chicken-soup",
+      "source": "content/table-menu/source-images/generic/soup-lineup.webp",
+      "position": "center"
+    },
+    {
+      "imageId": "pork-soup",
+      "source": "content/table-menu/source-images/generic/soup-lineup.webp",
+      "position": "center"
+    },
+    {
+      "imageId": "sesame-oil",
+      "source": "content/table-menu/source-images/generic/soup-lineup.webp",
+      "position": "center"
+    },
+    {
+      "imageId": "pickled-cabbage",
+      "source": "content/table-menu/source-images/generic/soup-lineup.webp",
+      "position": "center"
+    },
+    {
+      "imageId": "curry",
+      "source": "content/table-menu/source-images/generic/soup-lineup.webp",
+      "position": "center"
+    },
+    {
+      "imageId": "satay",
+      "source": "content/table-menu/source-images/generic/soup-lineup.webp",
+      "position": "center"
+    },
+    {
+      "imageId": "kimchi",
+      "source": "content/table-menu/source-images/generic/soup-lineup.webp",
+      "position": "center"
+    },
+    {
+      "imageId": "milk-soup",
+      "source": "content/table-menu/source-images/generic/soup-lineup.webp",
+      "position": "center"
+    },
+    {
+      "imageId": "tomato-soup",
+      "source": "content/table-menu/source-images/generic/soup-lineup.webp",
+      "position": "center"
+    },
+    {
+      "imageId": "miso",
+      "source": "content/table-menu/source-images/generic/soup-lineup.webp",
+      "position": "center"
+    },
+    {
+      "imageId": "aaa-beef",
+      "source": "content/table-menu/source-images/generic/build-your-own-hotpot.jpeg",
+      "position": "center"
+    },
+    {
+      "imageId": "lamb",
+      "source": "content/table-menu/source-images/generic/build-your-own-hotpot.jpeg",
+      "position": "center"
+    },
+    {
+      "imageId": "pork",
+      "source": "content/table-menu/source-images/generic/build-your-own-hotpot.jpeg",
+      "position": "center"
+    },
+    {
+      "imageId": "chicken",
+      "source": "content/table-menu/source-images/generic/build-your-own-hotpot.jpeg",
+      "position": "center"
+    },
+    {
+      "imageId": "rice-side",
+      "source": "content/table-menu/source-images/generic/build-your-own-hotpot.jpeg",
+      "position": "center"
+    },
+    {
+      "imageId": "instant-noodles",
+      "source": "content/table-menu/source-images/generic/build-your-own-hotpot.jpeg",
+      "position": "center"
+    },
+    {
+      "imageId": "glass-noodles",
+      "source": "content/table-menu/source-images/generic/build-your-own-hotpot.jpeg",
+      "position": "center"
+    },
+    {
+      "imageId": "ramen",
+      "source": "content/table-menu/source-images/generic/build-your-own-hotpot.jpeg",
+      "position": "center"
+    },
+    {
+      "imageId": "udon",
+      "source": "content/table-menu/source-images/generic/build-your-own-hotpot.jpeg",
+      "position": "center"
+    },
+    {
+      "imageId": "braised-pork-rice-side",
+      "source": "content/table-menu/source-images/generic/build-your-own-hotpot.jpeg",
+      "position": "center"
+    },
+    {
+      "imageId": "extra-meat",
+      "source": "content/table-menu/source-images/generic/build-your-own-hotpot.jpeg",
+      "position": "center"
+    },
+    {
+      "imageId": "extra-side",
+      "source": "content/table-menu/source-images/generic/build-your-own-hotpot.jpeg",
+      "position": "center"
+    },
+    {
+      "imageId": "ayce-snack-upgrade",
+      "source": "content/table-menu/source-images/generic/snack-lineup.webp",
+      "position": "center"
+    },
+    {
+      "imageId": "ayce-same-table-upgrade-rule",
+      "source": "content/table-menu/source-images/generic/ayce-menu.webp",
+      "position": "center"
+    },
+    {
+      "imageId": "ayce-child-100-140",
+      "source": "content/table-menu/source-images/generic/ayce-menu.webp",
+      "position": "center"
+    },
+    {
+      "imageId": "ayce-child-under-100",
+      "source": "content/table-menu/source-images/generic/ayce-menu.webp",
+      "position": "center"
+    },
+    {
+      "imageId": "ayce-child-over-140",
+      "source": "content/table-menu/source-images/generic/ayce-menu.webp",
+      "position": "center"
+    },
+    {
+      "imageId": "ayce-time-limit",
+      "source": "content/table-menu/source-images/generic/ayce-menu.webp",
+      "position": "center"
+    },
+    {
+      "imageId": "ayce-order-responsibly",
+      "source": "content/table-menu/source-images/generic/ayce-menu.webp",
+      "position": "center"
+    },
+    {
+      "imageId": "ayce-excess-leftovers",
+      "source": "content/table-menu/source-images/generic/ayce-menu.webp",
+      "position": "center"
+    },
+    {
+      "imageId": "ayce-beer-upgrade",
+      "source": "content/table-menu/source-images/generic/beer-special.png",
+      "position": "center"
+    },
+    {
+      "imageId": "combo-drink-choice-rule",
+      "source": "content/table-menu/source-images/generic/drink-lineup.webp",
+      "position": "center"
+    },
+    {
+      "imageId": "combo-appetizer-options-vary",
+      "source": "content/table-menu/source-images/generic/snack-lineup.webp",
+      "position": "center"
+    },
+    {
+      "imageId": "combo-split-pot-upgrade",
+      "source": "content/table-menu/source-images/generic/combo-hot-pot-special.webp",
+      "position": "center"
+    },
+    {
+      "imageId": "combo-prices-before-tax",
+      "source": "content/table-menu/source-images/generic/combo-hot-pot-special.webp",
+      "position": "center"
+    },
+    {
+      "imageId": "signature-taiwanese-fried-chicken",
+      "source": "content/table-menu/source-images/appetizers/signature-taiwanese-fried-chicken.png",
+      "position": "center"
+    },
+    {
+      "imageId": "takoyaki",
+      "source": "content/table-menu/source-images/appetizers/takoyaki.png",
+      "position": "center"
+    },
+    {
+      "imageId": "crispy-chicken-cutlet",
+      "source": "content/table-menu/source-images/appetizers/crispy-chicken-cutlet.png",
+      "position": "center"
+    },
+    {
+      "imageId": "golden-fried-buns",
+      "source": "content/table-menu/source-images/appetizers/golden-fried-buns.png",
+      "position": "center"
+    },
+    {
+      "imageId": "crispy-squid-legs",
+      "source": "content/table-menu/source-images/appetizers/crispy-squid-legs.png",
+      "position": "center"
+    },
+    {
+      "imageId": "deep-fried-king-mushroom",
+      "source": "content/table-menu/source-images/appetizers/deep-fried-king-mushroom.png",
+      "position": "center"
+    },
+    {
+      "imageId": "crispy-wontons",
+      "source": "content/table-menu/source-images/appetizers/crispy-wontons.png",
+      "position": "center"
+    },
+    {
+      "imageId": "deep-fried-dumplings",
+      "source": "content/table-menu/source-images/appetizers/deep-fried-dumplings.jpeg",
+      "position": "center"
+    },
+    {
+      "imageId": "chicken-spring-rolls",
+      "source": "content/table-menu/source-images/appetizers/chicken-spring-rolls.jpeg",
+      "position": "center"
+    },
+    {
+      "imageId": "veggie-spring-rolls",
+      "source": "content/table-menu/source-images/appetizers/veggie-spring-rolls.png",
+      "position": "center"
+    },
+    {
+      "imageId": "popcorn-chicken",
+      "source": "content/table-menu/source-images/appetizers/popcorn-chicken.png",
+      "position": "center"
+    },
+    {
+      "imageId": "fish-balls",
+      "source": "content/table-menu/source-images/appetizers/fish-balls.png",
+      "position": "center"
+    },
+    {
+      "imageId": "chinese-donut",
+      "source": "content/table-menu/source-images/appetizers/chinese-donut.png",
+      "position": "center"
+    },
+    {
+      "imageId": "french-fries",
+      "source": "content/table-menu/source-images/appetizers/french-fries.png",
+      "position": "center"
+    },
+    {
+      "imageId": "sweet-potato-fries",
+      "source": "content/table-menu/source-images/appetizers/sweet-potato-fries.png",
+      "position": "center"
+    },
+    {
+      "imageId": "golden-onion-rings",
+      "source": "content/table-menu/source-images/appetizers/golden-onion-rings.png",
+      "position": "center"
+    },
+    {
+      "imageId": "korean-fish-cake",
+      "source": "content/table-menu/source-images/appetizers/korean-fish-cake.png",
+      "position": "center"
+    },
+    {
+      "imageId": "luncheon-meat-spam",
+      "source": "content/table-menu/source-images/appetizers/luncheon-meat-spam.png",
+      "position": "center"
+    },
+    {
+      "imageId": "edamame",
+      "source": "content/table-menu/source-images/appetizers/edamame.png",
+      "position": "center"
+    },
+    {
+      "imageId": "signature-taiwanese-beef-noodle-soup",
+      "source": "content/table-menu/source-images/rice-noodles/signature-taiwanese-beef-noodle-soup.png",
+      "position": "center"
+    },
+    {
+      "imageId": "braised-pork-rice",
+      "source": "content/table-menu/source-images/rice-noodles/braised-pork-rice.png",
+      "position": "center"
+    },
+    {
+      "imageId": "taiwanese-fried-chicken-or-cutlet-rice-noodle",
+      "source": "content/table-menu/source-images/rice-noodles/taiwanese-fried-chicken-or-cutlet-rice-noodle.png",
+      "position": "center"
+    },
+    {
+      "imageId": "wonton-soup-rice-noodle",
+      "source": "content/table-menu/source-images/rice-noodles/wonton-soup-rice-noodle.png",
+      "position": "center"
+    },
+    {
+      "imageId": "unagi-rice-bowl",
+      "source": "content/table-menu/source-images/rice-noodles/unagi-rice-bowl.png",
+      "position": "center"
+    },
+    {
+      "imageId": "beef-brisket-rice",
+      "source": "content/table-menu/source-images/rice-noodles/beef-brisket-rice.png",
+      "position": "center"
+    },
+    {
+      "imageId": "sukiyaki-beef-rice",
+      "source": "content/table-menu/source-images/rice-noodles/sukiyaki-beef-rice.png",
+      "position": "center"
+    },
+    {
+      "imageId": "drink-discount-rule",
+      "source": "content/table-menu/source-images/generic/drink-lineup.webp",
+      "position": "center"
+    },
+    {
+      "imageId": "sweetness-levels",
+      "source": "content/table-menu/source-images/generic/drink-lineup.webp",
+      "position": "center"
+    },
+    {
+      "imageId": "ice-levels",
+      "source": "content/table-menu/source-images/generic/drink-lineup.webp",
+      "position": "center"
+    },
+    {
+      "imageId": "tea-milk-tea-hot-rule",
+      "source": "content/table-menu/source-images/generic/drink-lineup.webp",
+      "position": "center"
+    },
+    {
+      "imageId": "black-tea",
+      "source": "content/table-menu/source-images/drinks/tea-template.jpeg",
+      "position": "center"
+    },
+    {
+      "imageId": "green-tea",
+      "source": "content/table-menu/source-images/drinks/green-tea.jpg",
+      "position": "center"
+    },
+    {
+      "imageId": "oolong-tea",
+      "source": "content/table-menu/source-images/drinks/oolong-tea.jpg",
+      "position": "center"
+    },
+    {
+      "imageId": "rice-green-tea",
+      "source": "content/table-menu/source-images/drinks/rice-green-tea.jpg",
+      "position": "center"
+    },
+    {
+      "imageId": "earl-grey-tea",
+      "source": "content/table-menu/source-images/drinks/earl-grey-tea.jpg",
+      "position": "center"
+    },
+    {
+      "imageId": "japanese-brown-rice-green-tea-pot",
+      "source": "content/table-menu/source-images/drinks/rice-green-tea.jpg",
+      "position": "center"
+    },
+    {
+      "imageId": "flavoured-tea-black-tea-base",
+      "source": "content/table-menu/source-images/generic/drink-lineup.webp",
+      "position": "center"
+    },
+    {
+      "imageId": "flavoured-tea-green-tea-base",
+      "source": "content/table-menu/source-images/generic/drink-lineup.webp",
+      "position": "center"
+    },
+    {
+      "imageId": "honey-flavour",
+      "source": "content/table-menu/source-images/drinks/honey-flavour.jpg",
+      "position": "center"
+    },
+    {
+      "imageId": "lemon-flavour",
+      "source": "content/table-menu/source-images/drinks/lemon-flavour.jpg",
+      "position": "center"
+    },
+    {
+      "imageId": "mango-flavour",
+      "source": "content/table-menu/source-images/drinks/mango-flavour.jpg",
+      "position": "center"
+    },
+    {
+      "imageId": "lychee-flavour",
+      "source": "content/table-menu/source-images/drinks/lychee-flavour.jpg",
+      "position": "center"
+    },
+    {
+      "imageId": "peach-flavour",
+      "source": "content/table-menu/source-images/drinks/peach-flavour.jpg",
+      "position": "center"
+    },
+    {
+      "imageId": "passion-fruit-flavour",
+      "source": "content/table-menu/source-images/drinks/passion-fruit-flavour.jpg",
+      "position": "center"
+    },
+    {
+      "imageId": "green-apple-flavour",
+      "source": "content/table-menu/source-images/drinks/green-apple-flavour.jpg",
+      "position": "center"
+    },
+    {
+      "imageId": "strawberry-flavour",
+      "source": "content/table-menu/source-images/drinks/strawberry-flavour.jpg",
+      "position": "center"
+    },
+    {
+      "imageId": "milk-tea",
+      "source": "content/table-menu/source-images/drinks/milk-tea-template.jpeg",
+      "position": "center"
+    },
+    {
+      "imageId": "brown-rice-milk-tea",
+      "source": "content/table-menu/source-images/drinks/brown-rice-milk-tea.jpg",
+      "position": "center"
+    },
+    {
+      "imageId": "green-milk-tea",
+      "source": "content/table-menu/source-images/drinks/green-milk-tea.jpg",
+      "position": "center"
+    },
+    {
+      "imageId": "oolong-milk-tea",
+      "source": "content/table-menu/source-images/drinks/oolong-milk-tea.jpg",
+      "position": "center"
+    },
+    {
+      "imageId": "earl-grey-milk-tea",
+      "source": "content/table-menu/source-images/drinks/earl-grey-milk-tea.jpg",
+      "position": "center"
+    },
+    {
+      "imageId": "thai-milk-tea",
+      "source": "content/table-menu/source-images/drinks/thai-milk-tea.jpg",
+      "position": "center"
+    },
+    {
+      "imageId": "taro-milk-tea",
+      "source": "content/table-menu/source-images/drinks/taro-milk-tea.jpg",
+      "position": "center"
+    },
+    {
+      "imageId": "melon-milk-tea",
+      "source": "content/table-menu/source-images/drinks/melon-milk-tea.jpg",
+      "position": "center"
+    },
+    {
+      "imageId": "matcha-milk-tea",
+      "source": "content/table-menu/source-images/drinks/matcha-milk-tea.jpg",
+      "position": "center"
+    },
+    {
+      "imageId": "coconut-milk-tea",
+      "source": "content/table-menu/source-images/drinks/coconut-milk-tea.jpg",
+      "position": "center"
+    },
+    {
+      "imageId": "strawberry-milk-tea",
+      "source": "content/table-menu/source-images/drinks/strawberry-milk-tea.jpg",
+      "position": "center"
+    },
+    {
+      "imageId": "black-sugar-milk-tea",
+      "source": "content/table-menu/source-images/drinks/black-sugar-milk-tea.jpg",
+      "position": "center"
+    },
+    {
+      "imageId": "wintermelon-milk-tea",
+      "source": "content/table-menu/source-images/drinks/wintermelon-milk-tea.jpg",
+      "position": "center"
+    },
+    {
+      "imageId": "sea-salt-cream-black-tea",
+      "source": "content/table-menu/source-images/drinks/sea-salt-cream-template.jpeg",
+      "position": "center"
+    },
+    {
+      "imageId": "sea-salt-cream-green-tea",
+      "source": "content/table-menu/source-images/drinks/sea-salt-cream-template.jpeg",
+      "position": "center"
+    },
+    {
+      "imageId": "sea-salt-cream-oolong-tea",
+      "source": "content/table-menu/source-images/drinks/sea-salt-cream-template.jpeg",
+      "position": "center"
+    },
+    {
+      "imageId": "sea-salt-cream-earl-grey-tea",
+      "source": "content/table-menu/source-images/drinks/sea-salt-cream-template.jpeg",
+      "position": "center"
+    },
+    {
+      "imageId": "sea-salt-cream-matcha",
+      "source": "content/table-menu/source-images/drinks/sea-salt-cream-template.jpeg",
+      "position": "center"
+    },
+    {
+      "imageId": "sea-salt-cream-wintermelon-tea",
+      "source": "content/table-menu/source-images/drinks/sea-salt-cream-template.jpeg",
+      "position": "center"
+    },
+    {
+      "imageId": "sea-salt-cream-rice-green-tea",
+      "source": "content/table-menu/source-images/drinks/sea-salt-cream-template.jpeg",
+      "position": "center"
+    },
+    {
+      "imageId": "kumquat-lemon-tea",
+      "source": "content/table-menu/source-images/drinks/kumquat-lemon-tea.jpg",
+      "position": "center"
+    },
+    {
+      "imageId": "wintermelon-tea",
+      "source": "content/table-menu/source-images/drinks/wintermelon-tea.jpg",
+      "position": "center"
+    },
+    {
+      "imageId": "boom-boom-fruit-tea",
+      "source": "content/table-menu/source-images/drinks/boom-boom-fruit-tea.jpg",
+      "position": "center"
+    },
+    {
+      "imageId": "yogurt-drink-lemon",
+      "source": "content/table-menu/source-images/drinks/yogurt-drink-lemon.png",
+      "position": "center"
+    },
+    {
+      "imageId": "yogurt-drink-mango",
+      "source": "content/table-menu/source-images/drinks/yogurt-drink-mango.png",
+      "position": "center"
+    },
+    {
+      "imageId": "yogurt-drink-peach",
+      "source": "content/table-menu/source-images/drinks/yogurt-drink-peach.png",
+      "position": "center"
+    },
+    {
+      "imageId": "yogurt-drink-passion-fruit",
+      "source": "content/table-menu/source-images/drinks/yogurt-drink-passion-fruit.png",
+      "position": "center"
+    },
+    {
+      "imageId": "yogurt-drink-kiwi",
+      "source": "content/table-menu/source-images/drinks/yogurt-drink-kiwi.png",
+      "position": "center"
+    },
+    {
+      "imageId": "yogurt-drink-green-apple",
+      "source": "content/table-menu/source-images/drinks/yogurt-drink-green-apple.png",
+      "position": "center"
+    },
+    {
+      "imageId": "yogurt-drink-strawberry",
+      "source": "content/table-menu/source-images/drinks/yogurt-drink-strawberry.png",
+      "position": "center"
+    },
+    {
+      "imageId": "yogurt-drink-lychee",
+      "source": "content/table-menu/source-images/drinks/yogurt-drink-lychee.png",
+      "position": "center"
+    },
+    {
+      "imageId": "smoothie-taro",
+      "source": "content/table-menu/source-images/drinks/smoothie-taro.png",
+      "position": "center"
+    },
+    {
+      "imageId": "smoothie-strawberry",
+      "source": "content/table-menu/source-images/drinks/smoothie-strawberry.png",
+      "position": "center"
+    },
+    {
+      "imageId": "smoothie-melon",
+      "source": "content/table-menu/source-images/drinks/smoothie-melon.png",
+      "position": "center"
+    },
+    {
+      "imageId": "smoothie-mango",
+      "source": "content/table-menu/source-images/drinks/smoothie-mango.png",
+      "position": "center"
+    },
+    {
+      "imageId": "smoothie-passion-fruit",
+      "source": "content/table-menu/source-images/drinks/smoothie-passion-fruit.png",
+      "position": "center"
+    },
+    {
+      "imageId": "smoothie-lychee",
+      "source": "content/table-menu/source-images/drinks/smoothie-lychee.png",
+      "position": "center"
+    },
+    {
+      "imageId": "specialty-soda-lemon-yogurt",
+      "source": "content/table-menu/source-images/drinks/yogurt-drink-lemon.png",
+      "position": "center"
+    },
+    {
+      "imageId": "specialty-soda-peach-yogurt",
+      "source": "content/table-menu/source-images/drinks/yogurt-drink-peach.png",
+      "position": "center"
+    },
+    {
+      "imageId": "specialty-soda-strawberry-yogurt",
+      "source": "content/table-menu/source-images/drinks/yogurt-drink-strawberry.png",
+      "position": "center"
+    },
+    {
+      "imageId": "specialty-soda-passion-fruit-yogurt",
+      "source": "content/table-menu/source-images/drinks/yogurt-drink-passion-fruit.png",
+      "position": "center"
+    },
+    {
+      "imageId": "specialty-soda-lychee-yogurt",
+      "source": "content/table-menu/source-images/drinks/yogurt-drink-lychee.png",
+      "position": "center"
+    },
+    {
+      "imageId": "specialty-soda-yogurt",
+      "source": "content/table-menu/source-images/generic/drink-lineup.webp",
+      "position": "center"
+    },
+    {
+      "imageId": "ginger-ale",
+      "source": "content/table-menu/source-images/drinks/ginger-ale.png",
+      "position": "center"
+    },
+    {
+      "imageId": "iced-tea",
+      "source": "content/table-menu/source-images/drinks/iced-tea.png",
+      "position": "center"
+    },
+    {
+      "imageId": "coke",
+      "source": "content/table-menu/source-images/drinks/coke.png",
+      "position": "center"
+    },
+    {
+      "imageId": "diet-coke",
+      "source": "content/table-menu/source-images/drinks/diet-coke.png",
+      "position": "center"
+    },
+    {
+      "imageId": "root-beer",
+      "source": "content/table-menu/source-images/drinks/root-beer.png",
+      "position": "center"
+    },
+    {
+      "imageId": "soft-tapioca-pearls",
+      "source": "content/table-menu/source-images/generic/drink-lineup.webp",
+      "position": "center"
+    },
+    {
+      "imageId": "jelly-lychee",
+      "source": "content/table-menu/source-images/generic/drink-lineup.webp",
+      "position": "center"
+    },
+    {
+      "imageId": "jelly-mango",
+      "source": "content/table-menu/source-images/generic/drink-lineup.webp",
+      "position": "center"
+    },
+    {
+      "imageId": "jelly-strawberry",
+      "source": "content/table-menu/source-images/generic/drink-lineup.webp",
+      "position": "center"
+    },
+    {
+      "imageId": "jelly-coffee",
+      "source": "content/table-menu/source-images/generic/drink-lineup.webp",
+      "position": "center"
+    },
+    {
+      "imageId": "popping-pearls-lychee",
+      "source": "content/table-menu/source-images/generic/drink-lineup.webp",
+      "position": "center"
+    },
+    {
+      "imageId": "popping-pearls-mango",
+      "source": "content/table-menu/source-images/generic/drink-lineup.webp",
+      "position": "center"
+    },
+    {
+      "imageId": "beer-dine-in-id-rule",
+      "source": "content/table-menu/source-images/generic/beer-special.png",
+      "position": "center"
+    },
+    {
+      "imageId": "veggies-set",
+      "source": "content/table-menu/source-images/generic/build-your-own-hotpot.jpeg",
+      "position": "center"
+    },
+    {
+      "imageId": "shrimp-4pc",
+      "source": "content/table-menu/source-images/generic/build-your-own-hotpot.jpeg",
+      "position": "center"
+    },
+    {
+      "imageId": "tofu",
+      "source": "content/table-menu/source-images/generic/build-your-own-hotpot.jpeg",
+      "position": "center"
+    },
+    {
+      "imageId": "beef-ball",
+      "source": "content/table-menu/source-images/generic/build-your-own-hotpot.jpeg",
+      "position": "center"
+    }
+  ]
+}

@@ -4,7 +4,7 @@ import { readFile, readdir } from "node:fs/promises";
 import path from "node:path";
 
 const root = process.cwd();
-const activeRoots = ["app", "public", "scripts", "marketing/scripts"];
+const activeRoots = ["app", "content", "public", "scripts", "marketing/scripts"];
 const textExtensions = new Set([".html", ".js", ".json", ".mjs", ".ts", ".tsx", ".txt", ".xml"]);
 const excludedFiles = new Set([
   "marketing/reports/google-ads-goals-tracking-latest.json",

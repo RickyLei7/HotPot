@@ -1,0 +1,3502 @@
+{
+  "version": "2026-09-01",
+  "currency": "CAD",
+  "defaultLanguage": "en",
+  "languages": [
+    "en",
+    "zh"
+  ],
+  "notices": {
+    "order": {
+      "en": "View-only menu — please order with your server.",
+      "zh": "此菜單僅供瀏覽，請向服務員點單。"
+    },
+    "images": {
+      "en": "Images are for reference only. Actual presentation may vary.",
+      "zh": "圖片僅供參考，實際出品可能略有不同。"
+    }
+  },
+  "featuredOrder": [
+    "ayce-individual",
+    "ayce-for-two",
+    "personal-hot-pot",
+    "solo-couple-combo",
+    "beer-special"
+  ],
+  "categories": [
+    {
+      "id": "featured",
+      "name": {
+        "en": "Featured",
+        "zh": "精選推薦"
+      }
+    },
+    {
+      "id": "personal-hot-pot",
+      "name": {
+        "en": "Personal Hot Pot",
+        "zh": "個人火鍋"
+      }
+    },
+    {
+      "id": "ayce",
+      "name": {
+        "en": "All You Can Eat",
+        "zh": "火鍋自助"
+      }
+    },
+    {
+      "id": "combos",
+      "name": {
+        "en": "Combos",
+        "zh": "套餐"
+      }
+    },
+    {
+      "id": "appetizers",
+      "name": {
+        "en": "Appetizers",
+        "zh": "小吃"
+      }
+    },
+    {
+      "id": "rice-noodles",
+      "name": {
+        "en": "Rice & Noodles",
+        "zh": "飯面類"
+      }
+    },
+    {
+      "id": "drinks",
+      "name": {
+        "en": "Drinks",
+        "zh": "飲品"
+      }
+    },
+    {
+      "id": "beer",
+      "name": {
+        "en": "Beer",
+        "zh": "啤酒"
+      }
+    },
+    {
+      "id": "add-ons",
+      "name": {
+        "en": "Add-Ons",
+        "zh": "加點"
+      }
+    }
+  ],
+  "items": [
+    {
+      "id": "ayce-individual",
+      "categoryId": "featured",
+      "name": {
+        "en": "All You Can Eat Hot Pot",
+        "zh": "火鍋自助任吃"
+      },
+      "description": {
+        "en": "Soup base included. Please order meat via your server.",
+        "zh": "包含鍋底，肉類請服務員下單。"
+      },
+      "price": "28.99",
+      "serving": {
+        "en": "Per person",
+        "zh": "每位"
+      },
+      "imageId": "ayce-individual",
+      "tags": [
+        "featured",
+        "ayce"
+      ],
+      "available": true
+    },
+    {
+      "id": "ayce-for-two",
+      "categoryId": "featured",
+      "name": {
+        "en": "AYCE for Two",
+        "zh": "雙人火鍋自助"
+      },
+      "description": {
+        "en": "2 AYCE and any 2 drinks.",
+        "zh": "2 份火鍋自助，加任意 2 杯飲品。"
+      },
+      "price": "66.99",
+      "serving": {
+        "en": "2 people",
+        "zh": "2 人份"
+      },
+      "imageId": "ayce-for-two",
+      "tags": [
+        "featured",
+        "ayce",
+        "bundle"
+      ],
+      "available": true,
+      "variants": [
+        {
+          "id": "ayce-for-two-plus",
+          "name": {
+            "en": "AYCE for Two Plus",
+            "zh": "雙人升級自助"
+          },
+          "description": {
+            "en": "2 AYCE, any 2 drinks, and snack upgrade for both.",
+            "zh": "2 份火鍋自助、任意 2 杯飲品，加兩人小吃升級任吃 19 款小吃。"
+          },
+          "price": "76.99",
+          "serving": {
+            "en": "2 people",
+            "zh": "2 人份"
+          },
+          "imageId": "ayce-for-two-plus",
+          "available": true
+        }
+      ]
+    },
+    {
+      "id": "personal-hot-pot",
+      "categoryId": "featured",
+      "name": {
+        "en": "Start with Your Hot Pot",
+        "zh": "個人火鍋套餐"
+      },
+      "description": {
+        "en": "Includes 1 soup base, 1 veggie set, 1 meat, and 1 rice or noodle side.",
+        "zh": "包含 1 湯鍋底、1 大份蔬菜盤、1 份肉類和 1 份飯或面。"
+      },
+      "price": "19.99",
+      "serving": {
+        "en": "1 set",
+        "zh": "1 套"
+      },
+      "imageId": "personal-hot-pot",
+      "tags": [
+        "featured",
+        "set"
+      ],
+      "available": true
+    },
+    {
+      "id": "solo-couple-combo",
+      "categoryId": "featured",
+      "name": {
+        "en": "Hot Pot Combos",
+        "zh": "火鍋套餐"
+      },
+      "description": {
+        "en": "Choose between solo and couple combos.",
+        "zh": "可選單人或雙人火鍋套餐。"
+      },
+      "serving": {
+        "en": "2 offers",
+        "zh": "2 款套餐"
+      },
+      "priceRequired": false,
+      "imageId": "solo-couple-combo",
+      "tags": [
+        "featured",
+        "combo"
+      ],
+      "available": true,
+      "variants": [
+        {
+          "id": "solo-hot-pot-combo",
+          "categoryId": "combos",
+          "name": {
+            "en": "Solo Hot Pot Combo",
+            "zh": "單人火鍋套餐"
+          },
+          "description": {
+            "en": "1 personal hot pot and 1 drink. Choose any drink from our drink menu.",
+            "zh": "1 份個人火鍋和 1 杯飲品，可任選飲品菜單內任一飲品。"
+          },
+          "price": "24.99",
+          "serving": {
+            "en": "1 person",
+            "zh": "1 人份"
+          },
+          "imageId": "solo-hot-pot-combo",
+          "available": true
+        },
+        {
+          "id": "couple-hot-pot-combo",
+          "categoryId": "combos",
+          "name": {
+            "en": "Couple Hot Pot Combo",
+            "zh": "雙人火鍋套餐"
+          },
+          "description": {
+            "en": "2 personal hot pots, 2 drinks, and 1 appetizer. Perfect for sharing.",
+            "zh": "2 份個人火鍋、2 杯飲品和 1 份小吃，適合兩人分享。"
+          },
+          "price": "58.99",
+          "serving": {
+            "en": "2 people",
+            "zh": "2 人份"
+          },
+          "imageId": "couple-hot-pot-combo",
+          "available": true
+        }
+      ]
+    },
+    {
+      "id": "beer-special",
+      "categoryId": "featured",
+      "name": {
+        "en": "Cold Beer Special",
+        "zh": "冰爽啤酒特價"
+      },
+      "description": {
+        "en": "Perfect with hot pot.",
+        "zh": "清爽啤酒，適合搭配火鍋。"
+      },
+      "serving": {
+        "en": "2 beers",
+        "zh": "2 款啤酒"
+      },
+      "priceRequired": false,
+      "imageId": "beer-special",
+      "tags": [
+        "featured",
+        "beer"
+      ],
+      "available": true,
+      "variants": [
+        {
+          "id": "kokanee",
+          "categoryId": "beer",
+          "name": {
+            "en": "Kokanee",
+            "zh": "Kokanee 啤酒"
+          },
+          "description": {
+            "en": "355 ml | 5.0% ABV",
+            "zh": "355 毫升｜酒精濃度 5.0%"
+          },
+          "price": "6.95",
+          "serving": {
+            "en": "355 ml",
+            "zh": "355 毫升"
+          },
+          "imageId": "kokanee",
+          "available": true
+        },
+        {
+          "id": "corona-extra",
+          "categoryId": "beer",
+          "name": {
+            "en": "Corona Extra",
+            "zh": "Corona Extra 啤酒"
+          },
+          "description": {
+            "en": "330 ml | 4.6% ABV",
+            "zh": "330 毫升｜酒精濃度 4.6%"
+          },
+          "price": "7.95",
+          "serving": {
+            "en": "330 ml",
+            "zh": "330 毫升"
+          },
+          "imageId": "corona-extra",
+          "available": true
+        }
+      ]
+    },
+    {
+      "id": "personal-hot-pot-includes",
+      "categoryId": "personal-hot-pot",
+      "name": {
+        "en": "Personal Hot Pot Includes",
+        "zh": "個人火鍋套餐內容"
+      },
+      "description": {
+        "en": "1 soup base, 1 veggie set, 1 meat, and 1 rice or noodle side.",
+        "zh": "1 湯鍋底、1 大份蔬菜盤、1 份肉類和 1 份飯或面。"
+      },
+      "serving": {
+        "en": "Included",
+        "zh": "已包含"
+      },
+      "priceRequired": false,
+      "imageId": "personal-hot-pot-includes",
+      "tags": [
+        "rule"
+      ],
+      "available": true
+    },
+    {
+      "id": "split-pot-upgrade",
+      "categoryId": "personal-hot-pot",
+      "name": {
+        "en": "Upgrade to a Split Pot",
+        "zh": "升級鴛鴦鍋"
+      },
+      "description": {
+        "en": "Choose any two soup bases.",
+        "zh": "可任選兩款湯底。"
+      },
+      "price": "2.00",
+      "serving": {
+        "en": "Per pot",
+        "zh": "每鍋"
+      },
+      "imageId": "split-pot-upgrade",
+      "tags": [
+        "upgrade"
+      ],
+      "available": true
+    },
+    {
+      "id": "chicken-spicy-pot",
+      "categoryId": "personal-hot-pot",
+      "name": {
+        "en": "Chicken & Spicy Pot",
+        "zh": "招牌麻辣鴛鴦雞鍋"
+      },
+      "description": {
+        "en": "Spice level: Mild / Medium / Hot.",
+        "zh": "辣度自選：小／中／大。"
+      },
+      "serving": {
+        "en": "1 soup base",
+        "zh": "1 款湯底"
+      },
+      "priceRequired": false,
+      "imageId": "chicken-spicy-pot",
+      "tags": [
+        "popular",
+        "spicy",
+        "soup"
+      ],
+      "available": true
+    },
+    {
+      "id": "spicy-soup",
+      "categoryId": "personal-hot-pot",
+      "name": {
+        "en": "Spicy",
+        "zh": "經典麻辣鍋"
+      },
+      "description": {
+        "en": "Spice level: Mild / Medium / Strong.",
+        "zh": "辣度自選：小／中／大。"
+      },
+      "serving": {
+        "en": "1 soup base",
+        "zh": "1 款湯底"
+      },
+      "priceRequired": false,
+      "imageId": "spicy-soup",
+      "tags": [
+        "spicy",
+        "soup"
+      ],
+      "available": true
+    },
+    {
+      "id": "sukiyaki",
+      "categoryId": "personal-hot-pot",
+      "name": {
+        "en": "Sukiyaki",
+        "zh": "日式壽喜燒"
+      },
+      "description": {
+        "en": "",
+        "zh": ""
+      },
+      "serving": {
+        "en": "1 soup base",
+        "zh": "1 款湯底"
+      },
+      "priceRequired": false,
+      "imageId": "sukiyaki",
+      "tags": [
+        "soup"
+      ],
+      "available": true
+    },
+    {
+      "id": "tom-yum-kung",
+      "categoryId": "personal-hot-pot",
+      "name": {
+        "en": "Tom Yum Kung",
+        "zh": "泰式酸辣冬陰功"
+      },
+      "description": {
+        "en": "",
+        "zh": ""
+      },
+      "serving": {
+        "en": "1 soup base",
+        "zh": "1 款湯底"
+      },
+      "priceRequired": false,
+      "imageId": "tom-yum-kung",
+      "tags": [
+        "popular",
+        "spicy",
+        "vegetarian",
+        "soup"
+      ],
+      "available": true
+    },
+    {
+      "id": "chinese-herbs",
+      "categoryId": "personal-hot-pot",
+      "name": {
+        "en": "Chinese Herbs",
+        "zh": "御膳養生藥膳鍋"
+      },
+      "description": {
+        "en": "Goji berries, red dates, and herbs.",
+        "zh": "枸杞、紅棗、藥材。"
+      },
+      "serving": {
+        "en": "1 soup base",
+        "zh": "1 款湯底"
+      },
+      "priceRequired": false,
+      "imageId": "chinese-herbs",
+      "tags": [
+        "vegetarian",
+        "soup"
+      ],
+      "available": true
+    },
+    {
+      "id": "chicken-soup",
+      "categoryId": "personal-hot-pot",
+      "name": {
+        "en": "Chicken Soup",
+        "zh": "匠心雞湯清香鍋"
+      },
+      "description": {
+        "en": "",
+        "zh": ""
+      },
+      "serving": {
+        "en": "1 soup base",
+        "zh": "1 款湯底"
+      },
+      "priceRequired": false,
+      "imageId": "chicken-soup",
+      "tags": [
+        "soup"
+      ],
+      "available": true
+    },
+    {
+      "id": "pork-soup",
+      "categoryId": "personal-hot-pot",
+      "name": {
+        "en": "Pork Soup",
+        "zh": "美味豬骨鍋"
+      },
+      "description": {
+        "en": "",
+        "zh": ""
+      },
+      "serving": {
+        "en": "1 soup base",
+        "zh": "1 款湯底"
+      },
+      "priceRequired": false,
+      "imageId": "pork-soup",
+      "tags": [
+        "soup"
+      ],
+      "available": true
+    },
+    {
+      "id": "sesame-oil",
+      "categoryId": "personal-hot-pot",
+      "name": {
+        "en": "Sesame Oil",
+        "zh": "古法麻油雞鍋"
+      },
+      "description": {
+        "en": "",
+        "zh": ""
+      },
+      "serving": {
+        "en": "1 soup base",
+        "zh": "1 款湯底"
+      },
+      "priceRequired": false,
+      "imageId": "sesame-oil",
+      "tags": [
+        "soup"
+      ],
+      "available": true
+    },
+    {
+      "id": "pickled-cabbage",
+      "categoryId": "personal-hot-pot",
+      "name": {
+        "en": "Pickled Cabbage",
+        "zh": "正宗東北酸白菜鍋"
+      },
+      "description": {
+        "en": "",
+        "zh": ""
+      },
+      "serving": {
+        "en": "1 soup base",
+        "zh": "1 款湯底"
+      },
+      "priceRequired": false,
+      "imageId": "pickled-cabbage",
+      "tags": [
+        "vegetarian",
+        "soup"
+      ],
+      "available": true
+    },
+    {
+      "id": "curry",
+      "categoryId": "personal-hot-pot",
+      "name": {
+        "en": "Curry",
+        "zh": "風味咖喱鍋"
+      },
+      "description": {
+        "en": "",
+        "zh": ""
+      },
+      "serving": {
+        "en": "1 soup base",
+        "zh": "1 款湯底"
+      },
+      "priceRequired": false,
+      "imageId": "curry",
+      "tags": [
+        "spicy",
+        "soup"
+      ],
+      "available": true
+    },
+    {
+      "id": "satay",
+      "categoryId": "personal-hot-pot",
+      "name": {
+        "en": "Satay",
+        "zh": "經典沙茶鍋"
+      },
+      "description": {
+        "en": "",
+        "zh": ""
+      },
+      "serving": {
+        "en": "1 soup base",
+        "zh": "1 款湯底"
+      },
+      "priceRequired": false,
+      "imageId": "satay",
+      "tags": [
+        "spicy",
+        "soup"
+      ],
+      "available": true
+    },
+    {
+      "id": "kimchi",
+      "categoryId": "personal-hot-pot",
+      "name": {
+        "en": "Kimchi",
+        "zh": "韓式泡菜鍋"
+      },
+      "description": {
+        "en": "",
+        "zh": ""
+      },
+      "serving": {
+        "en": "1 soup base",
+        "zh": "1 款湯底"
+      },
+      "priceRequired": false,
+      "imageId": "kimchi",
+      "tags": [
+        "soup"
+      ],
+      "available": true
+    },
+    {
+      "id": "milk-soup",
+      "categoryId": "personal-hot-pot",
+      "name": {
+        "en": "Milk",
+        "zh": "香濃牛奶鍋"
+      },
+      "description": {
+        "en": "",
+        "zh": ""
+      },
+      "serving": {
+        "en": "1 soup base",
+        "zh": "1 款湯底"
+      },
+      "priceRequired": false,
+      "imageId": "milk-soup",
+      "tags": [
+        "vegetarian",
+        "soup"
+      ],
+      "available": true
+    },
+    {
+      "id": "tomato-soup",
+      "categoryId": "personal-hot-pot",
+      "name": {
+        "en": "Tomato",
+        "zh": "鮮香番茄鍋"
+      },
+      "description": {
+        "en": "",
+        "zh": ""
+      },
+      "serving": {
+        "en": "1 soup base",
+        "zh": "1 款湯底"
+      },
+      "priceRequired": false,
+      "imageId": "tomato-soup",
+      "tags": [
+        "spicy",
+        "vegetarian",
+        "soup"
+      ],
+      "available": true
+    },
+    {
+      "id": "miso",
+      "categoryId": "personal-hot-pot",
+      "name": {
+        "en": "Miso",
+        "zh": "日式味增鍋"
+      },
+      "description": {
+        "en": "",
+        "zh": ""
+      },
+      "serving": {
+        "en": "1 soup base",
+        "zh": "1 款湯底"
+      },
+      "priceRequired": false,
+      "imageId": "miso",
+      "tags": [
+        "vegetarian",
+        "soup"
+      ],
+      "available": true
+    },
+    {
+      "id": "aaa-beef",
+      "categoryId": "personal-hot-pot",
+      "name": {
+        "en": "AAA Beef",
+        "zh": "AAA 頂級牛肉"
+      },
+      "description": {
+        "en": "Each serving 100 g.",
+        "zh": "每份約 100g。"
+      },
+      "serving": {
+        "en": "100 g",
+        "zh": "約 100g"
+      },
+      "priceRequired": false,
+      "imageId": "aaa-beef",
+      "tags": [
+        "meat"
+      ],
+      "available": true
+    },
+    {
+      "id": "lamb",
+      "categoryId": "personal-hot-pot",
+      "name": {
+        "en": "Lamb",
+        "zh": "羊肉"
+      },
+      "description": {
+        "en": "Each serving 100 g.",
+        "zh": "每份約 100g。"
+      },
+      "serving": {
+        "en": "100 g",
+        "zh": "約 100g"
+      },
+      "priceRequired": false,
+      "imageId": "lamb",
+      "tags": [
+        "meat"
+      ],
+      "available": true
+    },
+    {
+      "id": "pork",
+      "categoryId": "personal-hot-pot",
+      "name": {
+        "en": "Pork",
+        "zh": "豬肉"
+      },
+      "description": {
+        "en": "Each serving 100 g.",
+        "zh": "每份約 100g。"
+      },
+      "serving": {
+        "en": "100 g",
+        "zh": "約 100g"
+      },
+      "priceRequired": false,
+      "imageId": "pork",
+      "tags": [
+        "meat"
+      ],
+      "available": true
+    },
+    {
+      "id": "chicken",
+      "categoryId": "personal-hot-pot",
+      "name": {
+        "en": "Chicken",
+        "zh": "雞肉"
+      },
+      "description": {
+        "en": "Each serving 100 g.",
+        "zh": "每份約 100g。"
+      },
+      "serving": {
+        "en": "100 g",
+        "zh": "約 100g"
+      },
+      "priceRequired": false,
+      "imageId": "chicken",
+      "tags": [
+        "meat"
+      ],
+      "available": true
+    },
+    {
+      "id": "rice-side",
+      "categoryId": "personal-hot-pot",
+      "name": {
+        "en": "Rice",
+        "zh": "白飯"
+      },
+      "description": {
+        "en": "",
+        "zh": ""
+      },
+      "serving": {
+        "en": "1 side",
+        "zh": "1 份主食"
+      },
+      "priceRequired": false,
+      "imageId": "rice-side",
+      "tags": [
+        "side"
+      ],
+      "available": true
+    },
+    {
+      "id": "instant-noodles",
+      "categoryId": "personal-hot-pot",
+      "name": {
+        "en": "Instant Noodles",
+        "zh": "泡面"
+      },
+      "description": {
+        "en": "",
+        "zh": ""
+      },
+      "serving": {
+        "en": "1 side",
+        "zh": "1 份主食"
+      },
+      "priceRequired": false,
+      "imageId": "instant-noodles",
+      "tags": [
+        "side"
+      ],
+      "available": true
+    },
+    {
+      "id": "glass-noodles",
+      "categoryId": "personal-hot-pot",
+      "name": {
+        "en": "Glass Noodles (Vermicelli)",
+        "zh": "冬粉"
+      },
+      "description": {
+        "en": "",
+        "zh": ""
+      },
+      "serving": {
+        "en": "1 side",
+        "zh": "1 份主食"
+      },
+      "priceRequired": false,
+      "imageId": "glass-noodles",
+      "tags": [
+        "side"
+      ],
+      "available": true
+    },
+    {
+      "id": "ramen",
+      "categoryId": "personal-hot-pot",
+      "name": {
+        "en": "Ramen",
+        "zh": "拉面"
+      },
+      "description": {
+        "en": "",
+        "zh": ""
+      },
+      "serving": {
+        "en": "1 side",
+        "zh": "1 份主食"
+      },
+      "priceRequired": false,
+      "imageId": "ramen",
+      "tags": [
+        "side"
+      ],
+      "available": true
+    },
+    {
+      "id": "udon",
+      "categoryId": "personal-hot-pot",
+      "name": {
+        "en": "Udon",
+        "zh": "烏冬"
+      },
+      "description": {
+        "en": "",
+        "zh": ""
+      },
+      "serving": {
+        "en": "1 side",
+        "zh": "1 份主食"
+      },
+      "priceRequired": false,
+      "imageId": "udon",
+      "tags": [
+        "side"
+      ],
+      "available": true
+    },
+    {
+      "id": "braised-pork-rice-side",
+      "categoryId": "personal-hot-pot",
+      "name": {
+        "en": "Braised Pork Rice",
+        "zh": "滷肉飯"
+      },
+      "description": {
+        "en": "Side upgrade.",
+        "zh": "主食升級。"
+      },
+      "price": "1.00",
+      "serving": {
+        "en": "1 side",
+        "zh": "1 份主食"
+      },
+      "imageId": "braised-pork-rice-side",
+      "tags": [
+        "side",
+        "upgrade"
+      ],
+      "available": true
+    },
+    {
+      "id": "extra-meat",
+      "categoryId": "personal-hot-pot",
+      "name": {
+        "en": "Extra Meat",
+        "zh": "加選肉類"
+      },
+      "description": {
+        "en": "One extra meat.",
+        "zh": "加選一份肉類。"
+      },
+      "price": "3.69",
+      "serving": {
+        "en": "Per order",
+        "zh": "每份"
+      },
+      "imageId": "extra-meat",
+      "tags": [
+        "upgrade"
+      ],
+      "available": true
+    },
+    {
+      "id": "extra-side",
+      "categoryId": "personal-hot-pot",
+      "name": {
+        "en": "Add Another Side",
+        "zh": "加選主食"
+      },
+      "description": {
+        "en": "Add another rice or noodle side.",
+        "zh": "加選一份主食。"
+      },
+      "price": "2.00",
+      "serving": {
+        "en": "Per order",
+        "zh": "每份"
+      },
+      "imageId": "extra-side",
+      "tags": [
+        "upgrade"
+      ],
+      "available": true
+    },
+    {
+      "id": "ayce-snack-upgrade",
+      "categoryId": "ayce",
+      "name": {
+        "en": "All-You-Can-Eat Appetizer Upgrade",
+        "zh": "小吃任點升級"
+      },
+      "description": {
+        "en": "19 appetizers. Everyone at the same table must upgrade.",
+        "zh": "19 款小吃任點，同一桌的每位客人都需要升級。"
+      },
+      "price": "5.99",
+      "serving": {
+        "en": "Per person",
+        "zh": "每位"
+      },
+      "imageId": "ayce-snack-upgrade",
+      "tags": [
+        "upgrade",
+        "ayce"
+      ],
+      "available": true
+    },
+    {
+      "id": "ayce-same-table-upgrade-rule",
+      "categoryId": "ayce",
+      "name": {
+        "en": "Same Table Upgrade Rule",
+        "zh": "同桌升級規則"
+      },
+      "description": {
+        "en": "Everyone at the same table must upgrade.",
+        "zh": "同一桌的每位客人都需要升級。"
+      },
+      "serving": {
+        "en": "Rule",
+        "zh": "規則"
+      },
+      "priceRequired": false,
+      "imageId": "ayce-same-table-upgrade-rule",
+      "tags": [
+        "rule"
+      ],
+      "available": true
+    },
+    {
+      "id": "ayce-child-100-140",
+      "categoryId": "ayce",
+      "name": {
+        "en": "Kids Pricing by Height 100-140 cm",
+        "zh": "兒童身高收費 100-140 公分"
+      },
+      "description": {
+        "en": "Kids pricing by height.",
+        "zh": "兒童身高收費。"
+      },
+      "price": "12.99",
+      "serving": {
+        "en": "100-140 cm",
+        "zh": "100-140 公分"
+      },
+      "imageId": "ayce-child-100-140",
+      "tags": [
+        "rule",
+        "kids"
+      ],
+      "available": true
+    },
+    {
+      "id": "ayce-child-under-100",
+      "categoryId": "ayce",
+      "name": {
+        "en": "Kids Pricing by Height Under 100 cm",
+        "zh": "兒童身高收費 100 公分以下"
+      },
+      "description": {
+        "en": "Kids pricing by height.",
+        "zh": "兒童身高收費。"
+      },
+      "price": "0.00",
+      "serving": {
+        "en": "Under 100 cm",
+        "zh": "100 公分以下"
+      },
+      "imageId": "ayce-child-under-100",
+      "tags": [
+        "rule",
+        "kids"
+      ],
+      "available": true
+    },
+    {
+      "id": "ayce-child-over-140",
+      "categoryId": "ayce",
+      "name": {
+        "en": "Kids Pricing by Height Over 140 cm",
+        "zh": "兒童身高收費 140 公分以上"
+      },
+      "description": {
+        "en": "Adult price.",
+        "zh": "成人價格。"
+      },
+      "serving": {
+        "en": "Over 140 cm",
+        "zh": "140 公分以上"
+      },
+      "priceRequired": false,
+      "imageId": "ayce-child-over-140",
+      "tags": [
+        "rule",
+        "kids"
+      ],
+      "available": true
+    },
+    {
+      "id": "ayce-time-limit",
+      "categoryId": "ayce",
+      "name": {
+        "en": "Time Limit",
+        "zh": "限時"
+      },
+      "description": {
+        "en": "1.5 hours.",
+        "zh": "1.5 小時。"
+      },
+      "serving": {
+        "en": "1.5 hours",
+        "zh": "1.5 小時"
+      },
+      "priceRequired": false,
+      "imageId": "ayce-time-limit",
+      "tags": [
+        "rule"
+      ],
+      "available": true
+    },
+    {
+      "id": "ayce-order-responsibly",
+      "categoryId": "ayce",
+      "name": {
+        "en": "Please Order Responsibly",
+        "zh": "請珍惜食物"
+      },
+      "description": {
+        "en": "Please order responsibly. Avoid food waste.",
+        "zh": "珍惜食物，避免浪費。"
+      },
+      "serving": {
+        "en": "Rule",
+        "zh": "規則"
+      },
+      "priceRequired": false,
+      "imageId": "ayce-order-responsibly",
+      "tags": [
+        "rule"
+      ],
+      "available": true
+    },
+    {
+      "id": "ayce-excess-leftovers",
+      "categoryId": "ayce",
+      "name": {
+        "en": "Excess Leftovers Charge",
+        "zh": "剩食收費"
+      },
+      "description": {
+        "en": "Excess leftovers: $5 per 100 g.",
+        "zh": "過量剩食每 100g 收取 $5。"
+      },
+      "price": "5.00",
+      "serving": {
+        "en": "Per 100 g",
+        "zh": "每 100g"
+      },
+      "imageId": "ayce-excess-leftovers",
+      "tags": [
+        "rule"
+      ],
+      "available": true
+    },
+    {
+      "id": "ayce-beer-upgrade",
+      "categoryId": "ayce",
+      "name": {
+        "en": "Upgrade Included Drinks to Beer",
+        "zh": "套餐飲品升級為啤酒"
+      },
+      "description": {
+        "en": "Upgrade included drinks to beer.",
+        "zh": "將套餐飲品升級為啤酒。"
+      },
+      "price": "1.00",
+      "serving": {
+        "en": "Each",
+        "zh": "每杯"
+      },
+      "imageId": "ayce-beer-upgrade",
+      "tags": [
+        "upgrade"
+      ],
+      "available": true
+    },
+    {
+      "id": "combo-drink-choice-rule",
+      "categoryId": "combos",
+      "name": {
+        "en": "Choose Any Drink from Our Drink Menu",
+        "zh": "任選飲品菜單內任一飲品"
+      },
+      "description": {
+        "en": "Applies to combo drinks.",
+        "zh": "適用于套餐飲品。"
+      },
+      "serving": {
+        "en": "Rule",
+        "zh": "規則"
+      },
+      "priceRequired": false,
+      "imageId": "combo-drink-choice-rule",
+      "tags": [
+        "rule"
+      ],
+      "available": true
+    },
+    {
+      "id": "combo-appetizer-options-vary",
+      "categoryId": "combos",
+      "name": {
+        "en": "Appetizer Options May Vary",
+        "zh": "小吃選項依店內供應為準"
+      },
+      "description": {
+        "en": "",
+        "zh": ""
+      },
+      "serving": {
+        "en": "Rule",
+        "zh": "規則"
+      },
+      "priceRequired": false,
+      "imageId": "combo-appetizer-options-vary",
+      "tags": [
+        "rule"
+      ],
+      "available": true
+    },
+    {
+      "id": "combo-split-pot-upgrade",
+      "categoryId": "combos",
+      "name": {
+        "en": "Split Pot Upgrade",
+        "zh": "升級鴛鴦鍋"
+      },
+      "description": {
+        "en": "",
+        "zh": ""
+      },
+      "price": "2.00",
+      "serving": {
+        "en": "Per pot",
+        "zh": "每鍋"
+      },
+      "imageId": "combo-split-pot-upgrade",
+      "tags": [
+        "upgrade"
+      ],
+      "available": true
+    },
+    {
+      "id": "combo-prices-before-tax",
+      "categoryId": "combos",
+      "name": {
+        "en": "Prices Before Tax",
+        "zh": "價格未含税"
+      },
+      "description": {
+        "en": "",
+        "zh": ""
+      },
+      "serving": {
+        "en": "Rule",
+        "zh": "規則"
+      },
+      "priceRequired": false,
+      "imageId": "combo-prices-before-tax",
+      "tags": [
+        "rule"
+      ],
+      "available": true
+    },
+    {
+      "id": "signature-taiwanese-fried-chicken",
+      "categoryId": "appetizers",
+      "name": {
+        "en": "Signature Taiwanese Fried Chicken",
+        "zh": "招牌台式鹽酥雞"
+      },
+      "description": {
+        "en": "",
+        "zh": ""
+      },
+      "price": "9.89",
+      "serving": {
+        "en": "1 order",
+        "zh": "1 份"
+      },
+      "imageId": "signature-taiwanese-fried-chicken",
+      "tags": [
+        "signature",
+        "snack"
+      ],
+      "available": true
+    },
+    {
+      "id": "takoyaki",
+      "categoryId": "appetizers",
+      "name": {
+        "en": "Takoyaki",
+        "zh": "章魚小丸子"
+      },
+      "description": {
+        "en": "",
+        "zh": ""
+      },
+      "price": "8.89",
+      "serving": {
+        "en": "6 pcs",
+        "zh": "6 個"
+      },
+      "imageId": "takoyaki",
+      "tags": [
+        "snack"
+      ],
+      "available": true
+    },
+    {
+      "id": "crispy-chicken-cutlet",
+      "categoryId": "appetizers",
+      "name": {
+        "en": "Crispy Chicken Cutlet",
+        "zh": "香酥雞排"
+      },
+      "description": {
+        "en": "",
+        "zh": ""
+      },
+      "price": "9.89",
+      "serving": {
+        "en": "1 order",
+        "zh": "1 份"
+      },
+      "imageId": "crispy-chicken-cutlet",
+      "tags": [
+        "snack"
+      ],
+      "available": true
+    },
+    {
+      "id": "golden-fried-buns",
+      "categoryId": "appetizers",
+      "name": {
+        "en": "Golden Fried Buns",
+        "zh": "黃金炸饅头"
+      },
+      "description": {
+        "en": "",
+        "zh": ""
+      },
+      "price": "6.89",
+      "serving": {
+        "en": "1 order",
+        "zh": "1 份"
+      },
+      "imageId": "golden-fried-buns",
+      "tags": [
+        "snack"
+      ],
+      "available": true
+    },
+    {
+      "id": "crispy-squid-legs",
+      "categoryId": "appetizers",
+      "name": {
+        "en": "Crispy Squid Legs",
+        "zh": "酥炸魷魚須"
+      },
+      "description": {
+        "en": "",
+        "zh": ""
+      },
+      "price": "9.89",
+      "serving": {
+        "en": "1 order",
+        "zh": "1 份"
+      },
+      "imageId": "crispy-squid-legs",
+      "tags": [
+        "snack"
+      ],
+      "available": true
+    },
+    {
+      "id": "deep-fried-king-mushroom",
+      "categoryId": "appetizers",
+      "name": {
+        "en": "Deep Fried King Mushroom",
+        "zh": "酥炸杏鮑菇"
+      },
+      "description": {
+        "en": "",
+        "zh": ""
+      },
+      "price": "7.89",
+      "serving": {
+        "en": "1 order",
+        "zh": "1 份"
+      },
+      "imageId": "deep-fried-king-mushroom",
+      "tags": [
+        "snack"
+      ],
+      "available": true
+    },
+    {
+      "id": "crispy-wontons",
+      "categoryId": "appetizers",
+      "name": {
+        "en": "Crispy Wontons",
+        "zh": "炸雲吞"
+      },
+      "description": {
+        "en": "",
+        "zh": ""
+      },
+      "price": "8.89",
+      "serving": {
+        "en": "8 pcs",
+        "zh": "8 個"
+      },
+      "imageId": "crispy-wontons",
+      "tags": [
+        "snack"
+      ],
+      "available": true
+    },
+    {
+      "id": "deep-fried-dumplings",
+      "categoryId": "appetizers",
+      "name": {
+        "en": "Deep Fried Dumplings",
+        "zh": "炸餃子"
+      },
+      "description": {
+        "en": "",
+        "zh": ""
+      },
+      "price": "8.89",
+      "serving": {
+        "en": "8 pcs",
+        "zh": "8 個"
+      },
+      "imageId": "deep-fried-dumplings",
+      "tags": [
+        "snack"
+      ],
+      "available": true
+    },
+    {
+      "id": "chicken-spring-rolls",
+      "categoryId": "appetizers",
+      "name": {
+        "en": "Chicken Spring Rolls",
+        "zh": "雞肉春卷"
+      },
+      "description": {
+        "en": "",
+        "zh": ""
+      },
+      "price": "8.89",
+      "serving": {
+        "en": "6 pcs",
+        "zh": "6 個"
+      },
+      "imageId": "chicken-spring-rolls",
+      "tags": [
+        "snack"
+      ],
+      "available": true
+    },
+    {
+      "id": "veggie-spring-rolls",
+      "categoryId": "appetizers",
+      "name": {
+        "en": "Veggie Spring Rolls",
+        "zh": "素春卷"
+      },
+      "description": {
+        "en": "",
+        "zh": ""
+      },
+      "price": "8.89",
+      "serving": {
+        "en": "5 pcs",
+        "zh": "5 個"
+      },
+      "imageId": "veggie-spring-rolls",
+      "tags": [
+        "snack"
+      ],
+      "available": true
+    },
+    {
+      "id": "popcorn-chicken",
+      "categoryId": "appetizers",
+      "name": {
+        "en": "Popcorn Chicken",
+        "zh": "炸雞米花"
+      },
+      "description": {
+        "en": "",
+        "zh": ""
+      },
+      "price": "6.89",
+      "serving": {
+        "en": "1 order",
+        "zh": "1 份"
+      },
+      "imageId": "popcorn-chicken",
+      "tags": [
+        "snack"
+      ],
+      "available": true
+    },
+    {
+      "id": "fish-balls",
+      "categoryId": "appetizers",
+      "name": {
+        "en": "Fish Balls",
+        "zh": "炸魚蛋"
+      },
+      "description": {
+        "en": "",
+        "zh": ""
+      },
+      "price": "6.89",
+      "serving": {
+        "en": "6 pcs",
+        "zh": "6 個"
+      },
+      "imageId": "fish-balls",
+      "tags": [
+        "snack"
+      ],
+      "available": true
+    },
+    {
+      "id": "chinese-donut",
+      "categoryId": "appetizers",
+      "name": {
+        "en": "Chinese Donut",
+        "zh": "炸油條"
+      },
+      "description": {
+        "en": "",
+        "zh": ""
+      },
+      "price": "6.49",
+      "serving": {
+        "en": "1 order",
+        "zh": "1 份"
+      },
+      "imageId": "chinese-donut",
+      "tags": [
+        "snack"
+      ],
+      "available": true
+    },
+    {
+      "id": "french-fries",
+      "categoryId": "appetizers",
+      "name": {
+        "en": "French Fries",
+        "zh": "薯條"
+      },
+      "description": {
+        "en": "",
+        "zh": ""
+      },
+      "price": "6.49",
+      "serving": {
+        "en": "1 order",
+        "zh": "1 份"
+      },
+      "imageId": "french-fries",
+      "tags": [
+        "snack"
+      ],
+      "available": true
+    },
+    {
+      "id": "sweet-potato-fries",
+      "categoryId": "appetizers",
+      "name": {
+        "en": "Sweet Potato Fries",
+        "zh": "炸紅薯條"
+      },
+      "description": {
+        "en": "",
+        "zh": ""
+      },
+      "price": "6.49",
+      "serving": {
+        "en": "1 order",
+        "zh": "1 份"
+      },
+      "imageId": "sweet-potato-fries",
+      "tags": [
+        "snack"
+      ],
+      "available": true
+    },
+    {
+      "id": "golden-onion-rings",
+      "categoryId": "appetizers",
+      "name": {
+        "en": "Golden Onion Rings",
+        "zh": "炸洋葱圈"
+      },
+      "description": {
+        "en": "",
+        "zh": ""
+      },
+      "price": "6.49",
+      "serving": {
+        "en": "1 order",
+        "zh": "1 份"
+      },
+      "imageId": "golden-onion-rings",
+      "tags": [
+        "snack"
+      ],
+      "available": true
+    },
+    {
+      "id": "korean-fish-cake",
+      "categoryId": "appetizers",
+      "name": {
+        "en": "Korean Fish Cake",
+        "zh": "炸魚板"
+      },
+      "description": {
+        "en": "",
+        "zh": ""
+      },
+      "price": "6.49",
+      "serving": {
+        "en": "1 order",
+        "zh": "1 份"
+      },
+      "imageId": "korean-fish-cake",
+      "tags": [
+        "snack"
+      ],
+      "available": true
+    },
+    {
+      "id": "luncheon-meat-spam",
+      "categoryId": "appetizers",
+      "name": {
+        "en": "Luncheon Meat (Spam)",
+        "zh": "午餐肉"
+      },
+      "description": {
+        "en": "",
+        "zh": ""
+      },
+      "price": "6.49",
+      "serving": {
+        "en": "1 order",
+        "zh": "1 份"
+      },
+      "imageId": "luncheon-meat-spam",
+      "tags": [
+        "snack"
+      ],
+      "available": true
+    },
+    {
+      "id": "edamame",
+      "categoryId": "appetizers",
+      "name": {
+        "en": "Edamame",
+        "zh": "毛豆"
+      },
+      "description": {
+        "en": "",
+        "zh": ""
+      },
+      "price": "6.49",
+      "serving": {
+        "en": "1 order",
+        "zh": "1 份"
+      },
+      "imageId": "edamame",
+      "tags": [
+        "snack"
+      ],
+      "available": true
+    },
+    {
+      "id": "signature-taiwanese-beef-noodle-soup",
+      "categoryId": "rice-noodles",
+      "name": {
+        "en": "Signature Taiwanese Beef Noodle Soup",
+        "zh": "招牌台式紅燒牛肉面"
+      },
+      "description": {
+        "en": "Tender beef, noodles, flavorful Taiwanese broth.",
+        "zh": "嫩牛肉、面條、濃鬱紅燒湯底。"
+      },
+      "price": "16.99",
+      "serving": {
+        "en": "1 bowl",
+        "zh": "1 碗"
+      },
+      "imageId": "signature-taiwanese-beef-noodle-soup",
+      "tags": [
+        "signature"
+      ],
+      "available": true
+    },
+    {
+      "id": "braised-pork-rice",
+      "categoryId": "rice-noodles",
+      "name": {
+        "en": "Braised Pork Rice",
+        "zh": "台式滷肉飯"
+      },
+      "description": {
+        "en": "Braised pork over steamed rice.",
+        "zh": "香濃滷肉配白飯。"
+      },
+      "price": "12.99",
+      "serving": {
+        "en": "1 bowl",
+        "zh": "1 碗"
+      },
+      "imageId": "braised-pork-rice",
+      "tags": [
+        "rice"
+      ],
+      "available": true
+    },
+    {
+      "id": "taiwanese-fried-chicken-or-cutlet-rice-noodle",
+      "categoryId": "rice-noodles",
+      "name": {
+        "en": "Taiwanese Fried Chicken Or Cutlet Rice / Noodle",
+        "zh": "台式鹽酥雞或雞排飯／面"
+      },
+      "description": {
+        "en": "Crispy Taiwanese fried chicken with rice or noodles.",
+        "zh": "酥脆鹽酥雞配飯或面。"
+      },
+      "price": "14.99",
+      "serving": {
+        "en": "1 bowl",
+        "zh": "1 碗"
+      },
+      "imageId": "taiwanese-fried-chicken-or-cutlet-rice-noodle",
+      "tags": [
+        "rice",
+        "noodles"
+      ],
+      "available": true
+    },
+    {
+      "id": "wonton-soup-rice-noodle",
+      "categoryId": "rice-noodles",
+      "name": {
+        "en": "Wonton Soup with Rice / Noodle",
+        "zh": "雲吞湯飯／面"
+      },
+      "description": {
+        "en": "Wontons in warm broth served with rice or noodles.",
+        "zh": "雲吞湯配飯或面。"
+      },
+      "price": "14.99",
+      "serving": {
+        "en": "1 bowl",
+        "zh": "1 碗"
+      },
+      "imageId": "wonton-soup-rice-noodle",
+      "tags": [
+        "rice",
+        "noodles"
+      ],
+      "available": true
+    },
+    {
+      "id": "unagi-rice-bowl",
+      "categoryId": "rice-noodles",
+      "name": {
+        "en": "Unagi Rice Bowl",
+        "zh": "日式蒲燒鰻魚飯"
+      },
+      "description": {
+        "en": "Grilled unagi with steamed rice.",
+        "zh": "蒲燒鰻魚配白飯。"
+      },
+      "price": "18.99",
+      "serving": {
+        "en": "1 bowl",
+        "zh": "1 碗"
+      },
+      "imageId": "unagi-rice-bowl",
+      "tags": [
+        "rice"
+      ],
+      "available": true
+    },
+    {
+      "id": "beef-brisket-rice",
+      "categoryId": "rice-noodles",
+      "name": {
+        "en": "Beef Brisket Rice",
+        "zh": "紅燒牛腩飯"
+      },
+      "description": {
+        "en": "Tender beef brisket over rice.",
+        "zh": "紅燒牛腩配白飯。"
+      },
+      "price": "16.99",
+      "serving": {
+        "en": "1 bowl",
+        "zh": "1 碗"
+      },
+      "imageId": "beef-brisket-rice",
+      "tags": [
+        "rice"
+      ],
+      "available": true
+    },
+    {
+      "id": "sukiyaki-beef-rice",
+      "categoryId": "rice-noodles",
+      "name": {
+        "en": "Sukiyaki Beef Rice",
+        "zh": "日式壽喜燒牛肉飯"
+      },
+      "description": {
+        "en": "Sliced beef cooked in sweet sauce over rice.",
+        "zh": "壽喜燒牛肉配白飯。"
+      },
+      "price": "16.99",
+      "serving": {
+        "en": "1 bowl",
+        "zh": "1 碗"
+      },
+      "imageId": "sukiyaki-beef-rice",
+      "tags": [
+        "rice"
+      ],
+      "available": true
+    },
+    {
+      "id": "drink-discount-rule",
+      "categoryId": "drinks",
+      "name": {
+        "en": "10% Off Drinks",
+        "zh": "飲品 9 折"
+      },
+      "description": {
+        "en": "Within any hot pot or signature meal.",
+        "zh": "任點任何火鍋或招牌餐飲享 9 折。"
+      },
+      "serving": {
+        "en": "Rule",
+        "zh": "規則"
+      },
+      "priceRequired": false,
+      "imageId": "drink-discount-rule",
+      "tags": [
+        "rule"
+      ],
+      "available": true
+    },
+    {
+      "id": "sweetness-levels",
+      "categoryId": "drinks",
+      "name": {
+        "en": "Sweetness",
+        "zh": "甜度"
+      },
+      "description": {
+        "en": "0% / 50% / 100%",
+        "zh": "0%／50%／100%"
+      },
+      "serving": {
+        "en": "0% / 50% / 100%",
+        "zh": "0%／50%／100%"
+      },
+      "priceRequired": false,
+      "imageId": "sweetness-levels",
+      "tags": [
+        "rule"
+      ],
+      "available": true
+    },
+    {
+      "id": "ice-levels",
+      "categoryId": "drinks",
+      "name": {
+        "en": "Ice Level",
+        "zh": "冰量"
+      },
+      "description": {
+        "en": "No Ice / Less Ice / Regular Ice.",
+        "zh": "去冰／少冰／正常冰。"
+      },
+      "serving": {
+        "en": "No ice / Less ice / Regular ice",
+        "zh": "去冰／少冰／正常冰"
+      },
+      "priceRequired": false,
+      "imageId": "ice-levels",
+      "tags": [
+        "rule"
+      ],
+      "available": true
+    },
+    {
+      "id": "tea-milk-tea-hot-rule",
+      "categoryId": "drinks",
+      "name": {
+        "en": "Tea & Milk Tea Available Hot",
+        "zh": "茶飲及奶茶可做熱飲"
+      },
+      "description": {
+        "en": "",
+        "zh": ""
+      },
+      "serving": {
+        "en": "Rule",
+        "zh": "規則"
+      },
+      "priceRequired": false,
+      "imageId": "tea-milk-tea-hot-rule",
+      "tags": [
+        "rule"
+      ],
+      "available": true
+    },
+    {
+      "id": "classic-teas",
+      "categoryId": "drinks",
+      "name": {
+        "en": "Classic Teas",
+        "zh": "經典茶飲"
+      },
+      "description": {
+        "en": "",
+        "zh": ""
+      },
+      "price": "4.95",
+      "serving": {
+        "en": "1 drink",
+        "zh": "1 杯"
+      },
+      "imageId": "classic-teas",
+      "tags": [
+        "tea"
+      ],
+      "available": true,
+      "variants": [
+        {
+          "id": "black-tea",
+          "name": {
+            "en": "Black Tea",
+            "zh": "紅茶"
+          },
+          "description": {
+            "en": "",
+            "zh": ""
+          },
+          "serving": {
+            "en": "1 drink",
+            "zh": "1 杯"
+          },
+          "imageId": "black-tea",
+          "available": true
+        },
+        {
+          "id": "green-tea",
+          "name": {
+            "en": "Green Tea",
+            "zh": "綠茶"
+          },
+          "description": {
+            "en": "",
+            "zh": ""
+          },
+          "serving": {
+            "en": "1 drink",
+            "zh": "1 杯"
+          },
+          "imageId": "green-tea",
+          "available": true
+        },
+        {
+          "id": "oolong-tea",
+          "name": {
+            "en": "Oolong Tea",
+            "zh": "烏龍茶"
+          },
+          "description": {
+            "en": "",
+            "zh": ""
+          },
+          "serving": {
+            "en": "1 drink",
+            "zh": "1 杯"
+          },
+          "imageId": "oolong-tea",
+          "available": true
+        },
+        {
+          "id": "rice-green-tea",
+          "name": {
+            "en": "Rice Green Tea",
+            "zh": "玄米綠茶"
+          },
+          "description": {
+            "en": "",
+            "zh": ""
+          },
+          "serving": {
+            "en": "1 drink",
+            "zh": "1 杯"
+          },
+          "imageId": "rice-green-tea",
+          "available": true
+        },
+        {
+          "id": "earl-grey-tea",
+          "name": {
+            "en": "Earl Grey",
+            "zh": "伯爵茶"
+          },
+          "description": {
+            "en": "",
+            "zh": ""
+          },
+          "serving": {
+            "en": "1 drink",
+            "zh": "1 杯"
+          },
+          "imageId": "earl-grey-tea",
+          "available": true
+        },
+        {
+          "id": "japanese-brown-rice-green-tea-pot",
+          "name": {
+            "en": "Japanese Brown Rice Green Tea (Pot)",
+            "zh": "日式玄米綠茶（壺）"
+          },
+          "description": {
+            "en": "",
+            "zh": ""
+          },
+          "price": "4.00",
+          "serving": {
+            "en": "1 pot",
+            "zh": "1 壺"
+          },
+          "imageId": "japanese-brown-rice-green-tea-pot",
+          "available": true
+        }
+      ]
+    },
+    {
+      "id": "flavoured-black-green-tea",
+      "categoryId": "drinks",
+      "name": {
+        "en": "Flavoured Black / Green Tea",
+        "zh": "調味紅茶／綠茶"
+      },
+      "description": {
+        "en": "Choose your base: Black Tea or Green Tea.",
+        "zh": "選擇基底：紅茶或綠茶。"
+      },
+      "price": "5.95",
+      "serving": {
+        "en": "1 drink",
+        "zh": "1 杯"
+      },
+      "imageId": "flavoured-black-green-tea",
+      "tags": [
+        "tea"
+      ],
+      "available": true,
+      "variants": [
+        {
+          "id": "flavoured-tea-black-tea-base",
+          "name": {
+            "en": "Black Tea Base",
+            "zh": "紅茶基底"
+          },
+          "description": {
+            "en": "",
+            "zh": ""
+          },
+          "serving": {
+            "en": "Tea base",
+            "zh": "茶底"
+          },
+          "imageId": "flavoured-tea-black-tea-base",
+          "available": true
+        },
+        {
+          "id": "flavoured-tea-green-tea-base",
+          "name": {
+            "en": "Green Tea Base",
+            "zh": "綠茶基底"
+          },
+          "description": {
+            "en": "",
+            "zh": ""
+          },
+          "serving": {
+            "en": "Tea base",
+            "zh": "茶底"
+          },
+          "imageId": "flavoured-tea-green-tea-base",
+          "available": true
+        },
+        {
+          "id": "honey-flavour",
+          "name": {
+            "en": "Honey",
+            "zh": "蜂蜜"
+          },
+          "description": {
+            "en": "",
+            "zh": ""
+          },
+          "serving": {
+            "en": "Flavour",
+            "zh": "口味"
+          },
+          "imageId": "honey-flavour",
+          "available": true
+        },
+        {
+          "id": "lemon-flavour",
+          "name": {
+            "en": "Lemon",
+            "zh": "檸檬"
+          },
+          "description": {
+            "en": "",
+            "zh": ""
+          },
+          "serving": {
+            "en": "Flavour",
+            "zh": "口味"
+          },
+          "imageId": "lemon-flavour",
+          "available": true
+        },
+        {
+          "id": "mango-flavour",
+          "name": {
+            "en": "Mango",
+            "zh": "芒果"
+          },
+          "description": {
+            "en": "",
+            "zh": ""
+          },
+          "serving": {
+            "en": "Flavour",
+            "zh": "口味"
+          },
+          "imageId": "mango-flavour",
+          "available": true
+        },
+        {
+          "id": "lychee-flavour",
+          "name": {
+            "en": "Lychee",
+            "zh": "荔枝"
+          },
+          "description": {
+            "en": "",
+            "zh": ""
+          },
+          "serving": {
+            "en": "Flavour",
+            "zh": "口味"
+          },
+          "imageId": "lychee-flavour",
+          "available": true
+        },
+        {
+          "id": "peach-flavour",
+          "name": {
+            "en": "Peach",
+            "zh": "水蜜桃"
+          },
+          "description": {
+            "en": "",
+            "zh": ""
+          },
+          "serving": {
+            "en": "Flavour",
+            "zh": "口味"
+          },
+          "imageId": "peach-flavour",
+          "available": true
+        },
+        {
+          "id": "passion-fruit-flavour",
+          "name": {
+            "en": "Passion Fruit",
+            "zh": "百香果"
+          },
+          "description": {
+            "en": "",
+            "zh": ""
+          },
+          "serving": {
+            "en": "Flavour",
+            "zh": "口味"
+          },
+          "imageId": "passion-fruit-flavour",
+          "available": true
+        },
+        {
+          "id": "green-apple-flavour",
+          "name": {
+            "en": "Green Apple",
+            "zh": "青苹果"
+          },
+          "description": {
+            "en": "",
+            "zh": ""
+          },
+          "serving": {
+            "en": "Flavour",
+            "zh": "口味"
+          },
+          "imageId": "green-apple-flavour",
+          "available": true
+        },
+        {
+          "id": "strawberry-flavour",
+          "name": {
+            "en": "Strawberry",
+            "zh": "草莓"
+          },
+          "description": {
+            "en": "",
+            "zh": ""
+          },
+          "serving": {
+            "en": "Flavour",
+            "zh": "口味"
+          },
+          "imageId": "strawberry-flavour",
+          "available": true
+        }
+      ]
+    },
+    {
+      "id": "milk-teas",
+      "categoryId": "drinks",
+      "name": {
+        "en": "Milk Teas",
+        "zh": "奶茶系列"
+      },
+      "description": {
+        "en": "",
+        "zh": ""
+      },
+      "price": "5.95",
+      "serving": {
+        "en": "1 drink",
+        "zh": "1 杯"
+      },
+      "imageId": "milk-teas",
+      "tags": [
+        "milk-tea"
+      ],
+      "available": true,
+      "variants": [
+        {
+          "id": "milk-tea",
+          "name": {
+            "en": "Milk Tea",
+            "zh": "奶茶"
+          },
+          "description": {
+            "en": "",
+            "zh": ""
+          },
+          "serving": {
+            "en": "1 drink",
+            "zh": "1 杯"
+          },
+          "imageId": "milk-tea",
+          "available": true
+        },
+        {
+          "id": "brown-rice-milk-tea",
+          "name": {
+            "en": "Brown Rice Milk Tea",
+            "zh": "玄米奶茶"
+          },
+          "description": {
+            "en": "",
+            "zh": ""
+          },
+          "serving": {
+            "en": "1 drink",
+            "zh": "1 杯"
+          },
+          "imageId": "brown-rice-milk-tea",
+          "available": true
+        },
+        {
+          "id": "green-milk-tea",
+          "name": {
+            "en": "Green Milk Tea",
+            "zh": "綠奶茶"
+          },
+          "description": {
+            "en": "",
+            "zh": ""
+          },
+          "serving": {
+            "en": "1 drink",
+            "zh": "1 杯"
+          },
+          "imageId": "green-milk-tea",
+          "available": true
+        },
+        {
+          "id": "oolong-milk-tea",
+          "name": {
+            "en": "Oolong Milk Tea",
+            "zh": "烏龍奶茶"
+          },
+          "description": {
+            "en": "",
+            "zh": ""
+          },
+          "serving": {
+            "en": "1 drink",
+            "zh": "1 杯"
+          },
+          "imageId": "oolong-milk-tea",
+          "available": true
+        },
+        {
+          "id": "earl-grey-milk-tea",
+          "name": {
+            "en": "Earl Grey Milk Tea",
+            "zh": "伯爵奶茶"
+          },
+          "description": {
+            "en": "",
+            "zh": ""
+          },
+          "serving": {
+            "en": "1 drink",
+            "zh": "1 杯"
+          },
+          "imageId": "earl-grey-milk-tea",
+          "available": true
+        },
+        {
+          "id": "thai-milk-tea",
+          "name": {
+            "en": "Thai Milk Tea",
+            "zh": "泰式奶茶"
+          },
+          "description": {
+            "en": "",
+            "zh": ""
+          },
+          "serving": {
+            "en": "1 drink",
+            "zh": "1 杯"
+          },
+          "imageId": "thai-milk-tea",
+          "available": true
+        },
+        {
+          "id": "taro-milk-tea",
+          "name": {
+            "en": "Taro Milk Tea",
+            "zh": "芋香奶茶"
+          },
+          "description": {
+            "en": "",
+            "zh": ""
+          },
+          "serving": {
+            "en": "1 drink",
+            "zh": "1 杯"
+          },
+          "imageId": "taro-milk-tea",
+          "available": true
+        },
+        {
+          "id": "melon-milk-tea",
+          "name": {
+            "en": "Melon Milk Tea",
+            "zh": "哈密瓜奶茶"
+          },
+          "description": {
+            "en": "",
+            "zh": ""
+          },
+          "serving": {
+            "en": "1 drink",
+            "zh": "1 杯"
+          },
+          "imageId": "melon-milk-tea",
+          "available": true
+        },
+        {
+          "id": "matcha-milk-tea",
+          "name": {
+            "en": "Matcha Milk Tea",
+            "zh": "抹茶奶茶"
+          },
+          "description": {
+            "en": "",
+            "zh": ""
+          },
+          "serving": {
+            "en": "1 drink",
+            "zh": "1 杯"
+          },
+          "imageId": "matcha-milk-tea",
+          "available": true
+        },
+        {
+          "id": "coconut-milk-tea",
+          "name": {
+            "en": "Coconut Milk Tea",
+            "zh": "椰香奶茶"
+          },
+          "description": {
+            "en": "",
+            "zh": ""
+          },
+          "serving": {
+            "en": "1 drink",
+            "zh": "1 杯"
+          },
+          "imageId": "coconut-milk-tea",
+          "available": true
+        },
+        {
+          "id": "strawberry-milk-tea",
+          "name": {
+            "en": "Strawberry Milk Tea",
+            "zh": "草莓奶茶"
+          },
+          "description": {
+            "en": "",
+            "zh": ""
+          },
+          "serving": {
+            "en": "1 drink",
+            "zh": "1 杯"
+          },
+          "imageId": "strawberry-milk-tea",
+          "available": true
+        },
+        {
+          "id": "black-sugar-milk-tea",
+          "name": {
+            "en": "Black Sugar Milk Tea",
+            "zh": "黑糖奶茶"
+          },
+          "description": {
+            "en": "",
+            "zh": ""
+          },
+          "serving": {
+            "en": "1 drink",
+            "zh": "1 杯"
+          },
+          "imageId": "black-sugar-milk-tea",
+          "available": true
+        },
+        {
+          "id": "wintermelon-milk-tea",
+          "name": {
+            "en": "Wintermelon Milk Tea",
+            "zh": "冬瓜奶茶"
+          },
+          "description": {
+            "en": "",
+            "zh": ""
+          },
+          "serving": {
+            "en": "1 drink",
+            "zh": "1 杯"
+          },
+          "imageId": "wintermelon-milk-tea",
+          "available": true
+        }
+      ]
+    },
+    {
+      "id": "sea-salt-cream",
+      "categoryId": "drinks",
+      "name": {
+        "en": "Sea Salt Cream",
+        "zh": "海鹽奶蓋系列"
+      },
+      "description": {
+        "en": "Choose your tea base: Black Tea / Green Tea / Oolong Tea / Earl Grey Tea / Matcha / Wintermelon Tea / Rice Green Tea.",
+        "zh": "可選茶底：紅茶／綠茶／烏龍茶／伯爵茶／抹茶／冬瓜茶／玄米綠茶。"
+      },
+      "price": "6.95",
+      "serving": {
+        "en": "1 drink",
+        "zh": "1 杯"
+      },
+      "imageId": "sea-salt-cream",
+      "tags": [
+        "milk-tea"
+      ],
+      "available": true,
+      "variants": [
+        {
+          "id": "sea-salt-cream-black-tea",
+          "name": {
+            "en": "Black Tea",
+            "zh": "紅茶"
+          },
+          "description": {
+            "en": "",
+            "zh": ""
+          },
+          "serving": {
+            "en": "Tea base",
+            "zh": "茶底"
+          },
+          "imageId": "sea-salt-cream-black-tea",
+          "available": true
+        },
+        {
+          "id": "sea-salt-cream-green-tea",
+          "name": {
+            "en": "Green Tea",
+            "zh": "綠茶"
+          },
+          "description": {
+            "en": "",
+            "zh": ""
+          },
+          "serving": {
+            "en": "Tea base",
+            "zh": "茶底"
+          },
+          "imageId": "sea-salt-cream-green-tea",
+          "available": true
+        },
+        {
+          "id": "sea-salt-cream-oolong-tea",
+          "name": {
+            "en": "Oolong Tea",
+            "zh": "烏龍茶"
+          },
+          "description": {
+            "en": "",
+            "zh": ""
+          },
+          "serving": {
+            "en": "Tea base",
+            "zh": "茶底"
+          },
+          "imageId": "sea-salt-cream-oolong-tea",
+          "available": true
+        },
+        {
+          "id": "sea-salt-cream-earl-grey-tea",
+          "name": {
+            "en": "Earl Grey Tea",
+            "zh": "伯爵茶"
+          },
+          "description": {
+            "en": "",
+            "zh": ""
+          },
+          "serving": {
+            "en": "Tea base",
+            "zh": "茶底"
+          },
+          "imageId": "sea-salt-cream-earl-grey-tea",
+          "available": true
+        },
+        {
+          "id": "sea-salt-cream-matcha",
+          "name": {
+            "en": "Matcha",
+            "zh": "抹茶"
+          },
+          "description": {
+            "en": "",
+            "zh": ""
+          },
+          "serving": {
+            "en": "Tea base",
+            "zh": "茶底"
+          },
+          "imageId": "sea-salt-cream-matcha",
+          "available": true
+        },
+        {
+          "id": "sea-salt-cream-wintermelon-tea",
+          "name": {
+            "en": "Wintermelon Tea",
+            "zh": "冬瓜茶"
+          },
+          "description": {
+            "en": "",
+            "zh": ""
+          },
+          "serving": {
+            "en": "Tea base",
+            "zh": "茶底"
+          },
+          "imageId": "sea-salt-cream-wintermelon-tea",
+          "available": true
+        },
+        {
+          "id": "sea-salt-cream-rice-green-tea",
+          "name": {
+            "en": "Rice Green Tea",
+            "zh": "玄米綠茶"
+          },
+          "description": {
+            "en": "",
+            "zh": ""
+          },
+          "serving": {
+            "en": "Tea base",
+            "zh": "茶底"
+          },
+          "imageId": "sea-salt-cream-rice-green-tea",
+          "available": true
+        }
+      ]
+    },
+    {
+      "id": "specialty-teas",
+      "categoryId": "drinks",
+      "name": {
+        "en": "Specialty Teas",
+        "zh": "特調茶飲"
+      },
+      "description": {
+        "en": "",
+        "zh": ""
+      },
+      "price": "5.95",
+      "serving": {
+        "en": "1 drink",
+        "zh": "1 杯"
+      },
+      "imageId": "specialty-teas",
+      "tags": [
+        "tea"
+      ],
+      "available": true,
+      "variants": [
+        {
+          "id": "kumquat-lemon-tea",
+          "name": {
+            "en": "Kumquat Lemon Tea",
+            "zh": "金桔檸檬茶"
+          },
+          "description": {
+            "en": "",
+            "zh": ""
+          },
+          "serving": {
+            "en": "1 drink",
+            "zh": "1 杯"
+          },
+          "imageId": "kumquat-lemon-tea",
+          "available": true
+        },
+        {
+          "id": "wintermelon-tea",
+          "name": {
+            "en": "Wintermelon Tea",
+            "zh": "冬瓜茶"
+          },
+          "description": {
+            "en": "",
+            "zh": ""
+          },
+          "serving": {
+            "en": "1 drink",
+            "zh": "1 杯"
+          },
+          "imageId": "wintermelon-tea",
+          "available": true
+        },
+        {
+          "id": "boom-boom-fruit-tea",
+          "name": {
+            "en": "Boom Boom Fruit Tea",
+            "zh": "波霸水果茶"
+          },
+          "description": {
+            "en": "",
+            "zh": ""
+          },
+          "serving": {
+            "en": "1 drink",
+            "zh": "1 杯"
+          },
+          "imageId": "boom-boom-fruit-tea",
+          "available": true
+        }
+      ]
+    },
+    {
+      "id": "yogurt-drinks",
+      "categoryId": "drinks",
+      "name": {
+        "en": "Yogurt Drinks",
+        "zh": "優酪飲品"
+      },
+      "description": {
+        "en": "",
+        "zh": ""
+      },
+      "price": "5.95",
+      "serving": {
+        "en": "1 drink",
+        "zh": "1 杯"
+      },
+      "imageId": "yogurt-drinks",
+      "tags": [
+        "drink"
+      ],
+      "available": true,
+      "variants": [
+        {
+          "id": "yogurt-drink-lemon",
+          "name": {
+            "en": "Lemon",
+            "zh": "檸檬"
+          },
+          "description": {
+            "en": "",
+            "zh": ""
+          },
+          "serving": {
+            "en": "Flavour",
+            "zh": "口味"
+          },
+          "imageId": "yogurt-drink-lemon",
+          "available": true
+        },
+        {
+          "id": "yogurt-drink-mango",
+          "name": {
+            "en": "Mango",
+            "zh": "芒果"
+          },
+          "description": {
+            "en": "",
+            "zh": ""
+          },
+          "serving": {
+            "en": "Flavour",
+            "zh": "口味"
+          },
+          "imageId": "yogurt-drink-mango",
+          "available": true
+        },
+        {
+          "id": "yogurt-drink-peach",
+          "name": {
+            "en": "Peach",
+            "zh": "水蜜桃"
+          },
+          "description": {
+            "en": "",
+            "zh": ""
+          },
+          "serving": {
+            "en": "Flavour",
+            "zh": "口味"
+          },
+          "imageId": "yogurt-drink-peach",
+          "available": true
+        },
+        {
+          "id": "yogurt-drink-passion-fruit",
+          "name": {
+            "en": "Passion Fruit",
+            "zh": "百香果"
+          },
+          "description": {
+            "en": "",
+            "zh": ""
+          },
+          "serving": {
+            "en": "Flavour",
+            "zh": "口味"
+          },
+          "imageId": "yogurt-drink-passion-fruit",
+          "available": true
+        },
+        {
+          "id": "yogurt-drink-kiwi",
+          "name": {
+            "en": "Kiwi",
+            "zh": "奇异果"
+          },
+          "description": {
+            "en": "",
+            "zh": ""
+          },
+          "serving": {
+            "en": "Flavour",
+            "zh": "口味"
+          },
+          "imageId": "yogurt-drink-kiwi",
+          "available": true
+        },
+        {
+          "id": "yogurt-drink-green-apple",
+          "name": {
+            "en": "Green Apple",
+            "zh": "青苹果"
+          },
+          "description": {
+            "en": "",
+            "zh": ""
+          },
+          "serving": {
+            "en": "Flavour",
+            "zh": "口味"
+          },
+          "imageId": "yogurt-drink-green-apple",
+          "available": true
+        },
+        {
+          "id": "yogurt-drink-strawberry",
+          "name": {
+            "en": "Strawberry",
+            "zh": "草莓"
+          },
+          "description": {
+            "en": "",
+            "zh": ""
+          },
+          "serving": {
+            "en": "Flavour",
+            "zh": "口味"
+          },
+          "imageId": "yogurt-drink-strawberry",
+          "available": true
+        },
+        {
+          "id": "yogurt-drink-lychee",
+          "name": {
+            "en": "Lychee",
+            "zh": "荔枝"
+          },
+          "description": {
+            "en": "",
+            "zh": ""
+          },
+          "serving": {
+            "en": "Flavour",
+            "zh": "口味"
+          },
+          "imageId": "yogurt-drink-lychee",
+          "available": true
+        }
+      ]
+    },
+    {
+      "id": "smoothies",
+      "categoryId": "drinks",
+      "name": {
+        "en": "Smoothies",
+        "zh": "冰沙系列"
+      },
+      "description": {
+        "en": "",
+        "zh": ""
+      },
+      "price": "7.95",
+      "serving": {
+        "en": "1 drink",
+        "zh": "1 杯"
+      },
+      "imageId": "smoothies",
+      "tags": [
+        "drink"
+      ],
+      "available": true,
+      "variants": [
+        {
+          "id": "smoothie-taro",
+          "name": {
+            "en": "Taro",
+            "zh": "芋香"
+          },
+          "description": {
+            "en": "",
+            "zh": ""
+          },
+          "serving": {
+            "en": "Flavour",
+            "zh": "口味"
+          },
+          "imageId": "smoothie-taro",
+          "available": true
+        },
+        {
+          "id": "smoothie-strawberry",
+          "name": {
+            "en": "Strawberry",
+            "zh": "草莓"
+          },
+          "description": {
+            "en": "",
+            "zh": ""
+          },
+          "serving": {
+            "en": "Flavour",
+            "zh": "口味"
+          },
+          "imageId": "smoothie-strawberry",
+          "available": true
+        },
+        {
+          "id": "smoothie-melon",
+          "name": {
+            "en": "Melon",
+            "zh": "哈密瓜"
+          },
+          "description": {
+            "en": "",
+            "zh": ""
+          },
+          "serving": {
+            "en": "Flavour",
+            "zh": "口味"
+          },
+          "imageId": "smoothie-melon",
+          "available": true
+        },
+        {
+          "id": "smoothie-mango",
+          "name": {
+            "en": "Mango",
+            "zh": "芒果"
+          },
+          "description": {
+            "en": "",
+            "zh": ""
+          },
+          "serving": {
+            "en": "Flavour",
+            "zh": "口味"
+          },
+          "imageId": "smoothie-mango",
+          "available": true
+        },
+        {
+          "id": "smoothie-passion-fruit",
+          "name": {
+            "en": "Passion Fruit",
+            "zh": "百香果"
+          },
+          "description": {
+            "en": "",
+            "zh": ""
+          },
+          "serving": {
+            "en": "Flavour",
+            "zh": "口味"
+          },
+          "imageId": "smoothie-passion-fruit",
+          "available": true
+        },
+        {
+          "id": "smoothie-lychee",
+          "name": {
+            "en": "Lychee",
+            "zh": "荔枝"
+          },
+          "description": {
+            "en": "",
+            "zh": ""
+          },
+          "serving": {
+            "en": "Flavour",
+            "zh": "口味"
+          },
+          "imageId": "smoothie-lychee",
+          "available": true
+        }
+      ]
+    },
+    {
+      "id": "specialty-sodas",
+      "categoryId": "drinks",
+      "name": {
+        "en": "Specialty Sodas",
+        "zh": "特調氣泡飲"
+      },
+      "description": {
+        "en": "",
+        "zh": ""
+      },
+      "price": "6.95",
+      "serving": {
+        "en": "1 drink",
+        "zh": "1 杯"
+      },
+      "imageId": "specialty-sodas",
+      "tags": [
+        "drink"
+      ],
+      "available": true,
+      "variants": [
+        {
+          "id": "specialty-soda-lemon-yogurt",
+          "name": {
+            "en": "Lemon Yogurt",
+            "zh": "檸檬優格"
+          },
+          "description": {
+            "en": "",
+            "zh": ""
+          },
+          "serving": {
+            "en": "Flavour",
+            "zh": "口味"
+          },
+          "imageId": "specialty-soda-lemon-yogurt",
+          "available": true
+        },
+        {
+          "id": "specialty-soda-peach-yogurt",
+          "name": {
+            "en": "Peach Yogurt",
+            "zh": "水蜜桃優格"
+          },
+          "description": {
+            "en": "",
+            "zh": ""
+          },
+          "serving": {
+            "en": "Flavour",
+            "zh": "口味"
+          },
+          "imageId": "specialty-soda-peach-yogurt",
+          "available": true
+        },
+        {
+          "id": "specialty-soda-strawberry-yogurt",
+          "name": {
+            "en": "Strawberry Yogurt",
+            "zh": "草莓優格"
+          },
+          "description": {
+            "en": "",
+            "zh": ""
+          },
+          "serving": {
+            "en": "Flavour",
+            "zh": "口味"
+          },
+          "imageId": "specialty-soda-strawberry-yogurt",
+          "available": true
+        },
+        {
+          "id": "specialty-soda-passion-fruit-yogurt",
+          "name": {
+            "en": "Passion Fruit Yogurt",
+            "zh": "百香果優格"
+          },
+          "description": {
+            "en": "",
+            "zh": ""
+          },
+          "serving": {
+            "en": "Flavour",
+            "zh": "口味"
+          },
+          "imageId": "specialty-soda-passion-fruit-yogurt",
+          "available": true
+        },
+        {
+          "id": "specialty-soda-lychee-yogurt",
+          "name": {
+            "en": "Lychee Yogurt",
+            "zh": "荔枝優格"
+          },
+          "description": {
+            "en": "",
+            "zh": ""
+          },
+          "serving": {
+            "en": "Flavour",
+            "zh": "口味"
+          },
+          "imageId": "specialty-soda-lychee-yogurt",
+          "available": true
+        },
+        {
+          "id": "specialty-soda-yogurt",
+          "name": {
+            "en": "Yogurt",
+            "zh": "原味優格"
+          },
+          "description": {
+            "en": "",
+            "zh": ""
+          },
+          "serving": {
+            "en": "Flavour",
+            "zh": "口味"
+          },
+          "imageId": "specialty-soda-yogurt",
+          "available": true
+        }
+      ]
+    },
+    {
+      "id": "soft-drinks",
+      "categoryId": "drinks",
+      "name": {
+        "en": "Soft Drinks",
+        "zh": "汽水"
+      },
+      "description": {
+        "en": "",
+        "zh": ""
+      },
+      "price": "2.00",
+      "serving": {
+        "en": "1 drink",
+        "zh": "1 杯"
+      },
+      "imageId": "soft-drinks",
+      "tags": [
+        "drink"
+      ],
+      "available": true,
+      "variants": [
+        {
+          "id": "ginger-ale",
+          "name": {
+            "en": "Ginger Ale",
+            "zh": "姜汁汽水"
+          },
+          "description": {
+            "en": "",
+            "zh": ""
+          },
+          "serving": {
+            "en": "1 can",
+            "zh": "1 罐"
+          },
+          "imageId": "ginger-ale",
+          "available": true
+        },
+        {
+          "id": "iced-tea",
+          "name": {
+            "en": "Iced Tea",
+            "zh": "冰紅茶"
+          },
+          "description": {
+            "en": "",
+            "zh": ""
+          },
+          "serving": {
+            "en": "1 can",
+            "zh": "1 罐"
+          },
+          "imageId": "iced-tea",
+          "available": true
+        },
+        {
+          "id": "coke",
+          "name": {
+            "en": "Coke",
+            "zh": "可樂"
+          },
+          "description": {
+            "en": "",
+            "zh": ""
+          },
+          "serving": {
+            "en": "1 can",
+            "zh": "1 罐"
+          },
+          "imageId": "coke",
+          "available": true
+        },
+        {
+          "id": "diet-coke",
+          "name": {
+            "en": "Diet Coke",
+            "zh": "健怡可樂"
+          },
+          "description": {
+            "en": "",
+            "zh": ""
+          },
+          "serving": {
+            "en": "1 can",
+            "zh": "1 罐"
+          },
+          "imageId": "diet-coke",
+          "available": true
+        },
+        {
+          "id": "root-beer",
+          "name": {
+            "en": "Root Beer",
+            "zh": "沙士"
+          },
+          "description": {
+            "en": "",
+            "zh": ""
+          },
+          "serving": {
+            "en": "1 can",
+            "zh": "1 罐"
+          },
+          "imageId": "root-beer",
+          "available": true
+        }
+      ]
+    },
+    {
+      "id": "soft-tapioca-pearls",
+      "categoryId": "drinks",
+      "name": {
+        "en": "Soft Tapioca Pearls",
+        "zh": "珍珠"
+      },
+      "description": {
+        "en": "",
+        "zh": ""
+      },
+      "price": "0.75",
+      "serving": {
+        "en": "Topping",
+        "zh": "加料"
+      },
+      "imageId": "soft-tapioca-pearls",
+      "tags": [
+        "topping"
+      ],
+      "available": true
+    },
+    {
+      "id": "jelly",
+      "categoryId": "drinks",
+      "name": {
+        "en": "Jelly",
+        "zh": "椰果"
+      },
+      "description": {
+        "en": "",
+        "zh": ""
+      },
+      "price": "0.75",
+      "serving": {
+        "en": "Topping",
+        "zh": "加料"
+      },
+      "imageId": "jelly",
+      "tags": [
+        "topping"
+      ],
+      "available": true,
+      "variants": [
+        {
+          "id": "jelly-lychee",
+          "name": {
+            "en": "Lychee",
+            "zh": "荔枝"
+          },
+          "description": {
+            "en": "",
+            "zh": ""
+          },
+          "serving": {
+            "en": "Jelly flavour",
+            "zh": "椰果口味"
+          },
+          "imageId": "jelly-lychee",
+          "available": true
+        },
+        {
+          "id": "jelly-mango",
+          "name": {
+            "en": "Mango",
+            "zh": "芒果"
+          },
+          "description": {
+            "en": "",
+            "zh": ""
+          },
+          "serving": {
+            "en": "Jelly flavour",
+            "zh": "椰果口味"
+          },
+          "imageId": "jelly-mango",
+          "available": true
+        },
+        {
+          "id": "jelly-strawberry",
+          "name": {
+            "en": "Strawberry",
+            "zh": "草莓"
+          },
+          "description": {
+            "en": "",
+            "zh": ""
+          },
+          "serving": {
+            "en": "Jelly flavour",
+            "zh": "椰果口味"
+          },
+          "imageId": "jelly-strawberry",
+          "available": true
+        },
+        {
+          "id": "jelly-coffee",
+          "name": {
+            "en": "Coffee",
+            "zh": "咖啡"
+          },
+          "description": {
+            "en": "",
+            "zh": ""
+          },
+          "serving": {
+            "en": "Jelly flavour",
+            "zh": "椰果口味"
+          },
+          "imageId": "jelly-coffee",
+          "available": true
+        }
+      ]
+    },
+    {
+      "id": "popping-pearls",
+      "categoryId": "drinks",
+      "name": {
+        "en": "Popping Pearls",
+        "zh": "爆爆珠"
+      },
+      "description": {
+        "en": "",
+        "zh": ""
+      },
+      "price": "0.75",
+      "serving": {
+        "en": "Topping",
+        "zh": "加料"
+      },
+      "imageId": "popping-pearls",
+      "tags": [
+        "topping"
+      ],
+      "available": true,
+      "variants": [
+        {
+          "id": "popping-pearls-lychee",
+          "name": {
+            "en": "Lychee",
+            "zh": "荔枝"
+          },
+          "description": {
+            "en": "",
+            "zh": ""
+          },
+          "serving": {
+            "en": "Popping pearls flavour",
+            "zh": "爆爆珠口味"
+          },
+          "imageId": "popping-pearls-lychee",
+          "available": true
+        },
+        {
+          "id": "popping-pearls-mango",
+          "name": {
+            "en": "Mango",
+            "zh": "芒果"
+          },
+          "description": {
+            "en": "",
+            "zh": ""
+          },
+          "serving": {
+            "en": "Popping pearls flavour",
+            "zh": "爆爆珠口味"
+          },
+          "imageId": "popping-pearls-mango",
+          "available": true
+        }
+      ]
+    },
+    {
+      "id": "beer-dine-in-id-rule",
+      "categoryId": "beer",
+      "name": {
+        "en": "Dine-In Only, Must Be 18+ with Valid ID",
+        "zh": "僅限堂食，須年滿 18 歲並出示有效證件"
+      },
+      "description": {
+        "en": "",
+        "zh": ""
+      },
+      "serving": {
+        "en": "Rule",
+        "zh": "規則"
+      },
+      "priceRequired": false,
+      "imageId": "beer-dine-in-id-rule",
+      "tags": [
+        "rule"
+      ],
+      "available": true
+    },
+    {
+      "id": "veggies-set",
+      "categoryId": "add-ons",
+      "name": {
+        "en": "Veggies Set",
+        "zh": "蔬菜盤"
+      },
+      "description": {
+        "en": "",
+        "zh": ""
+      },
+      "price": "9.00",
+      "serving": {
+        "en": "1 set",
+        "zh": "1 份"
+      },
+      "imageId": "veggies-set",
+      "tags": [
+        "add-on"
+      ],
+      "available": true
+    },
+    {
+      "id": "shrimp-4pc",
+      "categoryId": "add-ons",
+      "name": {
+        "en": "Shrimp",
+        "zh": "蝦"
+      },
+      "description": {
+        "en": "",
+        "zh": ""
+      },
+      "price": "6.00",
+      "serving": {
+        "en": "4 pcs",
+        "zh": "4 隻"
+      },
+      "imageId": "shrimp-4pc",
+      "tags": [
+        "add-on"
+      ],
+      "available": true
+    },
+    {
+      "id": "tofu",
+      "categoryId": "add-ons",
+      "name": {
+        "en": "Tofu",
+        "zh": "豆腐"
+      },
+      "description": {
+        "en": "",
+        "zh": ""
+      },
+      "price": "3.00",
+      "serving": {
+        "en": "1 add-on",
+        "zh": "1 份"
+      },
+      "imageId": "tofu",
+      "tags": [
+        "add-on"
+      ],
+      "available": true
+    },
+    {
+      "id": "beef-ball",
+      "categoryId": "add-ons",
+      "name": {
+        "en": "Beef Ball",
+        "zh": "牛丸"
+      },
+      "description": {
+        "en": "",
+        "zh": ""
+      },
+      "price": "3.00",
+      "serving": {
+        "en": "1 add-on",
+        "zh": "1 份"
+      },
+      "imageId": "beef-ball",
+      "tags": [
+        "add-on"
+      ],
+      "available": true
+    }
+  ]
+}

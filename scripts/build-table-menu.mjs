@@ -30,7 +30,7 @@ export async function buildTableMenu({ rootDir = root, destination = outputPath 
   <script src="/table-menu/table-menu.js" defer></script>
   <script type="application/ld+json">${jsonLd}</script>
 </head>
-<body>
+<body class="table-menu-body">
 ${markup}
 </body>
 </html>

@@ -29,6 +29,7 @@ export default function TableMenuPage() {
   return (
     <>
       <link rel="stylesheet" href="/table-menu/table-menu.css" />
+      <style>{`body:has(.table-menu) > .reserve-sticky { display: none; }`}</style>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd }} />
       <script defer src="/table-menu/table-menu.js" />
       <div dangerouslySetInnerHTML={{ __html: markup }} />

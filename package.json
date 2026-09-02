@@ -22,6 +22,7 @@
     "check:lighthouse": "lhci autorun --config=lighthouserc.cjs",
     "check:site": "npm run check:attribution && npm run check:social-attribution && npm run check:bilingual && npm run check:price && npm run check:publishing-price && npm run check:html && npm run check:table-menu && npm run check:visual && npm run check:lighthouse",
     "check:visual": "node scripts/visual-check.mjs",
+    "generate:table-menu-qr": "node marketing/scripts/generate-table-menu-qr-card.mjs",
     "indexnow:submit": "node scripts/submit-indexnow.mjs",
     "ig:verify": "node scripts/instagram-publisher.mjs verify",
     "ads:connect": "node scripts/connect-google-ads.mjs",
@@ -33,7 +34,7 @@
     "ads:optimize": "node scripts/google-ads-optimize.mjs",
     "lint": "eslint . --ignore-pattern dist --ignore-pattern .next --ignore-pattern _restored_hotpot_records",
     "db:generate": "drizzle-kit generate",
-    "qr:table-menu": "node scripts/generate-table-menu-qr.mjs marketing/qr-cards"
+    "qr:table-menu": "node marketing/scripts/generate-table-menu-qr-card.mjs marketing/qr-cards"
   },
   "dependencies": {
     "drizzle-orm": "0.45.2",

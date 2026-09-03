@@ -26,4 +26,10 @@ Before batch printing:
 - `marketing/qr-cards/table-menu-qr-card-4x6.png` — 1200 × 1800 raster at 300 DPI metadata
 - `marketing/qr-cards/table-menu-qr-card-4x6.pdf` — 4 × 6 inch print PDF
 
-Production deployment evidence, device names, and the physical proof result should be recorded here after release.
+## Release evidence
+
+- Deployed from `main` in GitHub Actions run [33739821382](https://github.com/RickyLei7/HotPot/actions/runs/33739821382).
+- Production verified at 2026-09-03 03:39 MDT: the QR destination, menu page, CSS, JavaScript, analytics script, and a representative menu image returned HTTP 200.
+- Automated mobile verification passed in Chromium at 390 × 844 and 430 × 932: English default, Traditional Chinese switching, Chinese search, approved featured order, image loading, zero page overflow, and no order-submission controls.
+- The committed PNG decoded to the complete UTM destination above.
+- Physical 4 × 6 inch proof scans on iPhone and Android remain pending before batch printing.

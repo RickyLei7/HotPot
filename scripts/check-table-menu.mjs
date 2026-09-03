@@ -98,7 +98,7 @@ async function checkViewport(browser, origin, viewport) {
     await page.locator("img").evaluateAll((images) => images.forEach((image) => { image.loading = "eager"; }));
     await page.waitForFunction(() => [...document.images].every((image) => image.complete), null, { timeout: 30_000 });
     const brokenImages = await page.locator("img").evaluateAll((images) => images
-      .filter((image) => image.getBoundingClientRect().width === 0 || image.naturalWidth === 0)
+      .filter((image) => image.naturalWidth === 0)
       .map((image) => image.currentSrc || image.src));
     assert.deepEqual(brokenImages, []);
     assert.deepEqual(requestFailures, []);

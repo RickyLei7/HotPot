@@ -128,7 +128,7 @@
         "en": "2 people",
         "zh": "2 人份"
       },
-      "imageId": "ayce-for-two",
+      "imageId": "ayce-for-two-plus",
       "tags": [
         "featured",
         "ayce",
@@ -195,7 +195,7 @@
         "zh": "2 款套餐"
       },
       "priceRequired": false,
-      "imageId": "solo-couple-combo",
+      "imageId": "couple-hot-pot-combo",
       "tags": [
         "featured",
         "combo"
@@ -258,7 +258,7 @@
         "zh": "2 款啤酒"
       },
       "priceRequired": false,
-      "imageId": "beer-special",
+      "imageId": "kokanee",
       "tags": [
         "featured",
         "beer"

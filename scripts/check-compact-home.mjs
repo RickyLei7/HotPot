@@ -11,6 +11,8 @@ for (const route of ['', 'zh-hant/']) {
     assert.ok(html.includes(`href="#${id}"`) && html.includes(`id="${id}"`));
   }
 }
+const zhHome = await readFile('public/zh-hant/index.html', 'utf8');
+assert.match(zhHome, /<span class="heading-unit">火鍋自助<\/span>/);
 const data = JSON.parse(await readFile('app/zh-hant/page-data.json', 'utf8')).menu;
 const menu = await readFile('public/zh-hant/menu/index.html', 'utf8');
 const graph = JSON.parse(menu.match(/<script type="application\/ld\+json">(.*?)<\/script>/s)[1])['@graph'];

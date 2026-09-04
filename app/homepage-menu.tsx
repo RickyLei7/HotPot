@@ -40,7 +40,7 @@ export function HomepageMenu({ language }: { language: HomepageLanguage }) {
       <section id="ayce" className="homepage-ayce">
         <div className="homepage-ayce-copy">
           <p className="eyebrow">{content.ayce.eyebrow}</p>
-          <h1>{content.ayce.title}</h1><p className="offer-tax">{isZh ? "每位另加稅 鍋底已包含" : "Per person + tax · Soup base included"}</p>
+          <h1>{isZh ? <><span className="heading-unit">$28.99</span>{" "}<span className="heading-unit">火鍋自助</span></> : content.ayce.title}</h1><p className="offer-tax">{isZh ? "每位另加稅 鍋底已包含" : "Per person + tax · Soup base included"}</p>
           <p className="homepage-lead">{content.ayce.lead}</p>
 
           <div className="hero-actions">

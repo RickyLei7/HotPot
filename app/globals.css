@@ -3003,3 +3003,5 @@ a.beef-noodle-feature-media {
   .light-meal-card h3 { min-height: 0; }
   .light-meal-card p { margin: 5px 0 0; }
 }
+
+.homepage-ayce h1 .heading-unit { display: inline-block; white-space: nowrap; }

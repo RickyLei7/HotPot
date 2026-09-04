@@ -4,7 +4,7 @@ import rawPages from "./page-data.json";
 
 type Action = { label: string; href: string; style: string };
 type Card = { title: string; text: string; href?: string; actionLabel?: string };
-type Section = { eyebrow: string; title: string; paragraphs: string[]; cards?: Card[]; actions?: Action[] };
+type Section = { eyebrow: string; title: string; paragraphs: string[]; cards?: Card[]; actions?: Action[]; items?: [string, string][]; itemLabel?: string };
 type Faq = { question: string; answer: string };
 type FeatureStory = { eyebrow: string; title: string; image: string; imageAlt: string; paragraphs: string[] };
 export type ZhPageData = {
@@ -62,6 +62,19 @@ function schemaFor(data: ZhPageData) {
     about: { "@id": "https://centrestjhotpot.ca/#restaurant" },
   };
   if (data.schemaType === "FAQPage") pageEntity.mainEntity = faqMainEntity;
+
+  if (data.path === "/zh-hant/menu/") {
+    pageEntity.hasPart = {
+      "@type": "Menu", name: "鼎鑽火鍋菜單", inLanguage: "zh-Hant-CA",
+      hasMenuSection: data.sections.filter(section => section.items?.length).map(section => ({
+        "@type": "MenuSection", name: section.title,
+        hasMenuItem: section.items!.map(([name, price]) => ({
+          "@type": "MenuItem", name,
+          offers: { "@type": "Offer", price: price.replace(/[+$]/g, ""), priceCurrency: "CAD" },
+        })),
+      })),
+    };
+  }
 
   const graph: Record<string, unknown>[] = [
     {
@@ -126,6 +139,7 @@ export function ZhPage({ data }: { data: ZhPageData }) {
       {data.sections.map((section, index) => <section className={`content-section localized-section${index % 2 ? " is-dark" : ""}`} key={section.title}>
         <div className="section-heading compact"><p className="eyebrow">{section.eyebrow}</p><h2>{section.title}</h2></div>
         <div className="localized-copy">{section.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}</div>
+        {section.items?.length ? <details className="localized-menu-list" open><summary>{section.itemLabel || "品項與價格"}</summary><div className="price-list">{section.items.map(([name, price]) => <div key={name}><span>{name}</span><strong>{price}</strong></div>)}</div></details> : null}
         {section.actions?.length ? <div className="menu-download-actions localized-section-actions">{section.actions.map((action) => <a className={action.style} href={action.href} key={action.label} target="_blank" rel="noreferrer">{action.label}</a>)}</div> : null}
         {section.cards?.length ? <div className="recommendation-grid localized-card-grid">{section.cards.map((card) => <article key={card.title}><h3>{card.title}</h3><p>{card.text}</p>{card.href && card.actionLabel ? <a className="card-action" href={card.href} target="_blank" rel="noreferrer">{card.actionLabel}</a> : null}</article>)}</div> : null}
       </section>)}

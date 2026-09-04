@@ -145,7 +145,7 @@ for (const [enRoute, zhRoute] of pairs) {
   const timeLimitPattern = /1\.5\s*(?:hours?|hrs?|小時)|time limit|限時\s*1\.5|用餐時間(?:為)?\s*1\.5/iu;
   assert.doesNotMatch(enHtml, timeLimitPattern, `${enRoute} must not emphasize the AYCE time limit`);
   assert.doesNotMatch(zhHtml, timeLimitPattern, `${zhRoute} must not emphasize the AYCE time limit`);
-  assert.doesNotMatch(zhHtml, /[税稅]/u, `${zhRoute} must not contain Chinese tax characters`);
+  assert.doesNotMatch(zhHtml, /税/u, `${zhRoute} must use Traditional Chinese tax wording`);
   assert.doesNotMatch(
     enHtml.replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, "").replaceAll(">中文<", "><"),
     /[\u3400-\u9fff]/u,

@@ -743,7 +743,6 @@ body.poster-open { overflow: hidden; }
   .poster-frame { max-height: 94vh; max-width: 96vw; }
 }
 
-
 /* Menu-led bilingual homepage */
 .homepage-ayce,
 .ayce-snack-feature,
@@ -1369,4 +1368,31 @@ a.beef-noodle-feature-media {
   .homepage-visit {
     padding-bottom: 98px;
   }
+}
+
+/* Compact homepage details retain all content without scripting. */
+.homepage-ayce-copy > .offer-tax { color: #f9ce4b; font-size: 1rem; font-weight: 700; margin: 12px 0; }
+.hero-visit { margin-top: 18px; font-size: 0.9rem; line-height: 1.6; }
+.hero-visit a { color: #f9ce4b; text-underline-offset: 4px; }
+.hero-visit p { margin: 4px 0 0; }
+.home-details { margin-top: 16px; border-top: 1px solid currentColor; }
+.home-details summary { cursor: pointer; padding: 14px 0; font-size: 1rem; font-weight: 700; }
+.home-details summary:focus-visible { outline: 2px solid #f9ce4b; outline-offset: 4px; }
+.home-details[open] { padding-bottom: 12px; }
+.localized-menu-list { margin-top: 18px; }
+.localized-menu-list summary { cursor: pointer; min-height: 44px; padding: 10px 0; font-weight: 700; }
+.localized-menu-list .price-list { margin-top: 8px; }
+@media (max-width: 760px) {
+  .homepage-ayce h1 { font-size: 2.75rem; line-height: 1.1; }
+  .homepage-ayce-copy > .homepage-lead { font-size: 1.08rem; line-height: 1.55; }
+  .personal-value h2, .beef-noodle-feature h2, .light-meals-section h2, .drink-feature h2 { font-size: 1.875rem; line-height: 1.2; }
+  .homepage-ayce .hero-actions { gap: 10px; margin-top: 18px; }
+  .hero-visit { font-size: 0.85rem; margin-top: 12px; }
+  .home-details .inclusion-grid { margin-top: 0; }
+  .snack-card.is-featured { grid-column: auto; }
+  .snack-card img, .snack-card.is-featured img { height: 110px; }
+  .snack-card h3 { min-height: 0; }
+  .light-meal-card > div { padding: 10px; }
+  .light-meal-card h3 { min-height: 0; }
+  .light-meal-card p { margin: 5px 0 0; }
 }

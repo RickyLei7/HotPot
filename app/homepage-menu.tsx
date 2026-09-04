@@ -40,13 +40,14 @@ export function HomepageMenu({ language }: { language: HomepageLanguage }) {
       <section id="ayce" className="homepage-ayce">
         <div className="homepage-ayce-copy">
           <p className="eyebrow">{content.ayce.eyebrow}</p>
-          <h1>{content.ayce.title}</h1>
+          <h1>{content.ayce.title}</h1><p className="offer-tax">{isZh ? "每位另加稅 鍋底已包含" : "Per person + tax · Soup base included"}</p>
           <p className="homepage-lead">{content.ayce.lead}</p>
-          <p>{content.ayce.detail}</p>
+
           <div className="hero-actions">
             <a className="primary-action" href="tel:+14034553188">{content.ayce.reserve}</a>
             <Link className="secondary-action" href={aycePath}>{content.ayce.menu}</Link>
           </div>
+          <div className="hero-visit"><a href={directionsUrl} target="_blank" rel="noreferrer">2213 Centre St N #2243 · {isZh ? "導航" : "Directions"}</a><p>{isZh ? "週一至週五 17:00–22:30 · 週六及週日 12:00–22:30" : "Mon–Fri 5–10:30 PM · Sat–Sun noon–10:30 PM"}</p></div>
         </div>
         <a className="homepage-ayce-media poster-thumbnail" href="#homepage-ayce-image" aria-label={isZh ? "15 款湯底 查看完整圖片 火鍋自助" : "15 soup bases View full image AYCE hot pot"}>
           <picture>
@@ -86,11 +87,12 @@ export function HomepageMenu({ language }: { language: HomepageLanguage }) {
           <p className="eyebrow">{content.personal.eyebrow}</p>
           <h2>{content.personal.title}</h2>
           <p className="homepage-lead">{content.personal.lead}</p>
+          <details className="home-details"><summary>{isZh ? "套餐內容與升級選擇" : "Combos and upgrades"}</summary>
           <div className="inclusion-grid">
             {content.personal.inclusions.map((item, index) => <article key={item}><span>{index + 1}</span><p>{item}</p></article>)}
           </div>
           <p className="split-pot-note">{content.personal.splitPot}</p>
-          <small>{content.personal.comboNote}</small>
+          <small>{content.personal.comboNote}</small></details>
           <div className="hero-actions"><Link className="primary-action" href={menuPath}>{content.personal.menu}</Link></div>
         </div>
         <a className="soup-preview-strip poster-thumbnail" href="#personal-menu-image" aria-label={isZh ? "查看完整菜單 個人火鍋" : "View full menu Personal hot pot"}>
@@ -146,9 +148,9 @@ export function HomepageMenu({ language }: { language: HomepageLanguage }) {
           <h2>{content.drinks.title}</h2>
           <p>{content.drinks.lead}</p>
           <strong className="drink-discount">{content.drinks.discount}</strong>
-          <div className="drink-category-grid">
+          <details className="home-details"><summary>{isZh ? "飲品種類與價格" : "Drink selection and prices"}</summary><div className="drink-category-grid">
             {content.drinks.categories.map((drink) => <p key={drink.name}><span>{drink.name}</span><strong>{drink.price}</strong></p>)}
-          </div>
+          </div></details>
         </div>
         <img src="/assets/milk-tea-photo-640.webp" srcSet="/assets/milk-tea-photo-320.webp 320w, /assets/milk-tea-photo-640.webp 640w, /assets/milk-tea-photo.webp 900w" sizes="(max-width: 760px) 74vw, 380px" alt={content.drinks.alt} width="900" height="1200" loading="lazy" decoding="async" />
       </section>

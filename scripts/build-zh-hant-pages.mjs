@@ -38,6 +38,19 @@ function jsonLd(data) {
   }
   if (data.schemaType === "FAQPage") pageEntity.mainEntity = faqMainEntity;
 
+  if (data.path === "/zh-hant/menu/") {
+    pageEntity.hasPart = {
+      "@type": "Menu", name: "鼎鑽火鍋菜單", inLanguage: "zh-Hant-CA",
+      hasMenuSection: data.sections.filter(section => section.items?.length).map(section => ({
+        "@type": "MenuSection", name: section.title,
+        hasMenuItem: section.items.map(([name, price]) => ({
+          "@type": "MenuItem", name,
+          offers: { "@type": "Offer", price: price.replace(/[+$]/g, ""), priceCurrency: "CAD" },
+        })),
+      })),
+    };
+  }
+
   const graph = [
     {
       "@type": "WebSite",
@@ -188,7 +201,7 @@ function renderHomePage(data) {
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="preload" as="image" href="/assets/ayce-menu-2026-08-25-fast-480.webp" imagesrcset="/assets/ayce-menu-2026-08-25-fast-360.webp 360w, /assets/ayce-menu-2026-08-25-fast-480.webp 480w" imagesizes="calc(100vw - 32px)" media="(max-width: 760px)" />
     <link rel="preload" as="image" href="/assets/ayce-menu-2026-08-25-fast-720.webp" imagesrcset="/assets/ayce-menu-2026-08-25-fast-720.webp 720w, /assets/ayce-menu-2026-08-24-599.webp 1200w" imagesizes="42vw" media="(min-width: 761px)" />
-    <link rel="stylesheet" href="/site.css?v=20260829-conversion" />
+    <link rel="stylesheet" href="/site.css?v=20260904-compact" />
     <script defer src="/language-routes.js?v=20260813-bilingual"></script>
     <script defer src="/site-events.js?v=20260829-conversion"></script>
     <script type="application/ld+json">${jsonLd(data)}</script>
@@ -196,15 +209,15 @@ function renderHomePage(data) {
   <body>
     ${renderNav(data)}
     <main>
-      <section id="ayce" class="homepage-ayce"><div class="homepage-ayce-copy"><p class="eyebrow">卡加利火鍋自助</p><h1>$28.99 火鍋自助</h1><p class="homepage-lead">15 款湯底自由選擇，AAA 牛肉、羊肉、豬肉或雞肉由服務員協助新鮮下單。</p><p>鍋底已包含在價格內，適合家庭聚餐、朋友相聚與多人用餐。</p><div class="hero-actions"><a class="primary-action" href="tel:+14034553188">致電預訂火鍋自助</a><a class="secondary-action" href="/zh-hant/ayce-hot-pot-calgary/">查看火鍋自助詳情</a></div></div><a class="homepage-ayce-media poster-thumbnail" href="#homepage-ayce-image" aria-label="查看完整火鍋自助圖片"><picture><source media="(max-width: 760px)" srcset="/assets/ayce-menu-2026-08-25-fast-360.webp 360w, /assets/ayce-menu-2026-08-25-fast-480.webp 480w" sizes="calc(100vw - 32px)" /><img src="/assets/ayce-menu-2026-08-25-fast-720.webp" srcset="/assets/ayce-menu-2026-08-25-fast-720.webp 720w, /assets/ayce-menu-2026-08-24-599.webp 1200w" sizes="42vw" alt="鼎鑽火鍋火鍋自助" width="1200" height="1553" fetchpriority="high" decoding="async" /></picture><span>15 款湯底</span><strong class="poster-open-label">查看完整圖片</strong></a></section>
+      <section id="ayce" class="homepage-ayce"><div class="homepage-ayce-copy"><p class="eyebrow">卡加利火鍋自助</p><h1>$28.99 火鍋自助</h1><p class="offer-tax">每位另加稅 鍋底已包含</p><p class="homepage-lead">15 款湯底自由選擇，AAA 牛肉、羊肉、豬肉或雞肉由服務員協助新鮮下單。</p><div class="hero-actions"><a class="primary-action" href="tel:+14034553188">致電預訂火鍋自助</a><a class="secondary-action" href="/zh-hant/ayce-hot-pot-calgary/">查看火鍋自助詳情</a></div><div class="hero-visit"><a href="https://www.google.com/maps/dir/?api=1&amp;destination=2213+Centre+St+N+%232243%2C+Calgary%2C+AB+T2E+2T4" target="_blank" rel="noreferrer">2213 Centre St N #2243 · 導航</a><p>週一至週五 17:00–22:30 · 週六及週日 12:00–22:30</p></div></div><a class="homepage-ayce-media poster-thumbnail" href="#homepage-ayce-image" aria-label="查看完整火鍋自助圖片"><picture><source media="(max-width: 760px)" srcset="/assets/ayce-menu-2026-08-25-fast-360.webp 360w, /assets/ayce-menu-2026-08-25-fast-480.webp 480w" sizes="calc(100vw - 32px)" /><img src="/assets/ayce-menu-2026-08-25-fast-720.webp" srcset="/assets/ayce-menu-2026-08-25-fast-720.webp 720w, /assets/ayce-menu-2026-08-24-599.webp 1200w" sizes="42vw" alt="鼎鑽火鍋火鍋自助" width="1200" height="1553" fetchpriority="high" decoding="async" /></picture><span>15 款湯底</span><strong class="poster-open-label">查看完整圖片</strong></a></section>
       <section class="poster-modal" id="homepage-ayce-image" role="dialog" aria-modal="true" aria-labelledby="homepage-ayce-image-title" data-close-target="ayce"><a class="modal-backdrop" href="#ayce" aria-label="關閉完整火鍋自助圖片"></a><div class="poster-frame"><span class="modal-label" id="homepage-ayce-image-title">火鍋自助完整圖片</span><a class="modal-close" href="#ayce">關閉</a><img src="/assets/ayce-menu-2026-08-25-fast-360.webp" data-full-src="/assets/ayce-menu-2026-08-24-599.webp" alt="鼎鑽火鍋火鍋自助完整圖片" width="1200" height="1553" loading="lazy" decoding="async" /></div></section>
       <section class="ayce-snack-feature" aria-labelledby="snack-title"><div class="section-heading compact"><p class="eyebrow">火鍋自助加點選擇</p><h2 id="snack-title">+$5.99 升級 19 款小吃任點</h2><p>先吃招牌台式鹽酥雞，再選章魚小丸子、香酥雞排、黃金炸饅頭、酥炸魷魚鬚等小吃。</p></div><div class="snack-showcase">${snackCards.map(([name, src, srcset, featured]) => `<article class="snack-card${featured ? " is-featured" : ""}"><img src="${src}"${srcset ? ` srcset="${srcset}"` : ""} sizes="${featured ? "(max-width: 760px) 88vw, 420px" : "(max-width: 760px) 44vw, 220px"}" alt="${name}" width="320" height="220" loading="lazy" decoding="async" /><h3>${name}</h3></article>`).join("")}</div><p class="snack-rule"><strong>小吃任點升級每位 +$5.99，同桌客人必須一起升級。</strong> 沒有升級小吃任點也可以按菜單單點各款小吃。</p><a class="text-action" href="/zh-hant/menu/">查看完整菜單</a></section>
-      <section id="personal-hot-pot" class="personal-value"><div class="personal-value-copy"><p class="eyebrow">完整一餐超值選擇</p><h2>$19.99 個人火鍋</h2><p class="homepage-lead">$19.99 包含 15 款湯底任選一款、一份大份菜盤、一份肉和一份主食。</p><div class="inclusion-grid"><article><span>1</span><p>15 款湯底任選一款</p></article><article><span>2</span><p>一份大份菜盤</p></article><article><span>3</span><p>一份肉可選 AAA 牛肉 羊肉 豬肉或雞肉</p></article><article><span>4</span><p>一份主食可選白飯或麵</p></article></div><p class="split-pot-note">想同時吃兩款湯底，可加 $2 升級鴛鴦鍋。</p><small>另有 $24.99 單人套餐配一杯飲料，以及 $58.99 雙人套餐配兩杯飲料和一份小吃。</small><div class="hero-actions"><a class="primary-action" href="/zh-hant/menu/">查看個人火鍋菜單</a></div></div><a class="soup-preview-strip poster-thumbnail" href="#personal-menu-image" aria-label="查看完整個人火鍋菜單"><img src="/assets/personal-hot-pot-menu-full-720.webp" srcset="/assets/personal-hot-pot-menu-full-480.webp 480w, /assets/personal-hot-pot-menu-full-720.webp 720w, /assets/personal-hot-pot-menu-full.webp 1400w" sizes="(max-width: 760px) calc(100vw - 32px), 42vw" alt="鼎鑽火鍋完整個人火鍋菜單與 15 款湯底" width="1400" height="2096" loading="lazy" decoding="async" /><strong class="poster-open-label">查看完整菜單</strong></a></section>
+      <section id="personal-hot-pot" class="personal-value"><div class="personal-value-copy"><p class="eyebrow">完整一餐超值選擇</p><h2>$19.99 個人火鍋</h2><p class="homepage-lead">$19.99 包含 15 款湯底任選一款、一份大份菜盤、一份肉和一份主食。</p><details class="home-details"><summary>套餐內容與升級選擇</summary><div class="inclusion-grid"><article><span>1</span><p>15 款湯底任選一款</p></article><article><span>2</span><p>一份大份菜盤</p></article><article><span>3</span><p>一份肉可選 AAA 牛肉 羊肉 豬肉或雞肉</p></article><article><span>4</span><p>一份主食可選白飯或麵</p></article></div><p class="split-pot-note">想同時吃兩款湯底，可加 $2 升級鴛鴦鍋。</p><small>另有 $24.99 單人套餐配一杯飲料，以及 $58.99 雙人套餐配兩杯飲料和一份小吃。</small></details><div class="hero-actions"><a class="primary-action" href="/zh-hant/menu/">查看個人火鍋菜單</a></div></div><a class="soup-preview-strip poster-thumbnail" href="#personal-menu-image" aria-label="查看完整個人火鍋菜單"><img src="/assets/personal-hot-pot-menu-full-720.webp" srcset="/assets/personal-hot-pot-menu-full-480.webp 480w, /assets/personal-hot-pot-menu-full-720.webp 720w, /assets/personal-hot-pot-menu-full.webp 1400w" sizes="(max-width: 760px) calc(100vw - 32px), 42vw" alt="鼎鑽火鍋完整個人火鍋菜單與 15 款湯底" width="1400" height="2096" loading="lazy" decoding="async" /><strong class="poster-open-label">查看完整菜單</strong></a></section>
       <section class="poster-modal" id="personal-menu-image" role="dialog" aria-modal="true" aria-labelledby="personal-menu-image-title" data-close-target="personal-hot-pot"><a class="modal-backdrop" href="#personal-hot-pot" aria-label="關閉個人火鍋菜單"></a><div class="poster-frame"><span class="modal-label" id="personal-menu-image-title">完整個人火鍋菜單</span><a class="modal-close" href="#personal-hot-pot">關閉</a><img src="/assets/personal-hot-pot-menu-full-480.webp" data-full-src="/assets/personal-hot-pot-menu-full.webp" alt="鼎鑽火鍋完整個人火鍋菜單與 15 款湯底" width="1400" height="2096" loading="lazy" decoding="async" /></div></section>
       <section id="beef-noodle" class="beef-noodle-feature"><a class="beef-noodle-feature-media poster-thumbnail" href="#beef-noodle-story-image" aria-label="查看完整牛肉麵故事圖片"><img src="${story.image}" srcset="/assets/taiwanese-beef-noodle-story-360.webp 360w, /assets/taiwanese-beef-noodle-story-480.webp 480w, /assets/taiwanese-beef-noodle-story-720.webp 720w" sizes="(max-width: 760px) 88vw, 520px" alt="${escapeHtml(story.imageAlt)}" width="1122" height="1402" loading="lazy" decoding="async" /><strong class="poster-open-label">查看完整圖片</strong></a><div class="beef-noodle-feature-copy"><p class="eyebrow">讓人想起家的經典味道</p><h2>招牌台式紅燒牛肉麵</h2><strong class="menu-price">$16.99</strong><h3>${escapeHtml(story.title)}</h3>${story.paragraphs.map((paragraph) => `<p>${escapeHtml(paragraph.replaceAll("「", "").replaceAll("」", ""))}</p>`).join("")}</div></section>
       <section class="poster-modal" id="beef-noodle-story-image" role="dialog" aria-modal="true" aria-labelledby="beef-noodle-story-image-title" data-close-target="beef-noodle"><a class="modal-backdrop" href="#beef-noodle" aria-label="關閉牛肉麵故事圖片"></a><div class="poster-frame"><span class="modal-label" id="beef-noodle-story-image-title">台灣傳統牛肉麵</span><a class="modal-close" href="#beef-noodle">關閉</a><img src="/assets/taiwanese-beef-noodle-story-360.webp" data-full-src="/assets/taiwanese-beef-noodle-story.webp" alt="${escapeHtml(story.imageAlt)}" width="1122" height="1402" loading="lazy" decoding="async" /></div></section>
       <section id="light-meals" class="light-meals-section"><div class="section-heading compact"><p class="eyebrow">不只火鍋</p><h2>台式招牌飯麵</h2><p>想吃得快速簡單，也有暖胃又有飽足感的台式飯麵選擇。</p></div><div class="light-meal-grid">${homeMeals.map(([slug, name, price, description]) => `<article class="light-meal-card"><img src="/assets/light-meals/${slug}-1024.webp" srcset="/assets/light-meals/${slug}-480.webp 480w, /assets/light-meals/${slug}-1024.webp 1024w" sizes="(max-width: 560px) 46vw, (max-width: 1100px) 45vw, 30vw" alt="鼎鑽火鍋${name}" width="1024" height="704" loading="lazy" decoding="async" /><div><h3>${name}</h3><strong>${price}</strong><p>${description}</p></div></article>`).join("")}</div><a class="primary-action" href="/zh-hant/menu/">查看完整菜單</a></section>
-      <section id="drinks" class="drink-feature"><div class="drink-feature-copy"><p class="eyebrow">茶飲 奶茶與特色飲品</p><h2>每桌都能找到喜歡的飲料</h2><p>甜度和冰量都可以選擇，茶飲與奶茶也可以做熱飲。</p><strong class="drink-discount">任點火鍋或招牌餐點 飲料可享九折優惠</strong><div class="drink-category-grid">${homeDrinks.map(([name, price]) => `<p><span>${name}</span><strong>${price}</strong></p>`).join("")}</div></div><img src="/assets/milk-tea-photo-640.webp" srcset="/assets/milk-tea-photo-320.webp 320w, /assets/milk-tea-photo-640.webp 640w, /assets/milk-tea-photo.webp 900w" sizes="(max-width: 760px) 74vw, 380px" alt="鼎鑽火鍋奶茶與特色飲品" width="900" height="1200" loading="lazy" decoding="async" /></section>
+      <section id="drinks" class="drink-feature"><div class="drink-feature-copy"><p class="eyebrow">茶飲 奶茶與特色飲品</p><h2>每桌都能找到喜歡的飲料</h2><p>甜度和冰量都可以選擇，茶飲與奶茶也可以做熱飲。</p><strong class="drink-discount">任點火鍋或招牌餐點 飲料可享九折優惠</strong><details class="home-details"><summary>飲品種類與價格</summary><div class="drink-category-grid">${homeDrinks.map(([name, price]) => `<p><span>${name}</span><strong>${price}</strong></p>`).join("")}</div></details></div><img src="/assets/milk-tea-photo-640.webp" srcset="/assets/milk-tea-photo-320.webp 320w, /assets/milk-tea-photo-640.webp 640w, /assets/milk-tea-photo.webp 900w" sizes="(max-width: 760px) 74vw, 380px" alt="鼎鑽火鍋奶茶與特色飲品" width="900" height="1200" loading="lazy" decoding="async" /></section>
       <section id="visit" class="homepage-visit"><div class="section-heading compact"><p class="eyebrow">到店用餐</p><h2>位於卡加利 Centre Street</h2></div><div class="visit-grid"><article><h3>營業時間</h3><p>週一至週五 5:00 PM-10:30 PM</p><p>週六及週日 12:00 PM-10:30 PM</p><a href="/zh-hant/restaurant-info/">查看完整餐廳資料</a></article><article><h3>預訂座位</h3><p>訂位、團體聚餐或想確認今天座位，歡迎直接致電。</p><a href="tel:+14034553188">致電 (403) 455-3188</a></article><article><h3>Google 地圖導航</h3><p>2213 Centre St N #2243, Calgary, AB T2E 2T4</p><a href="https://www.google.com/maps/dir/?api=1&amp;destination=2213+Centre+St+N+%232243%2C+Calgary%2C+AB+T2E+2T4" target="_blank" rel="noreferrer">Google 地圖導航</a></article><article><h3>讓更多卡加利客人找到我們</h3><p>用餐後歡迎在 Google 分享你的體驗。</p><a href="https://www.google.com/maps/place/Centre+Street+Japanese+Hotpot/@51.072234,-114.0656247,17z" target="_blank" rel="noreferrer">前往 Google 留下評論</a></article></div><div class="social-follow"><div><p class="eyebrow">追蹤我們</p><h3>看看新菜品 店內消息與日常分享</h3></div>${renderSocialLinks()}</div></section>
     </main>
     <a class="reserve-sticky" href="tel:+14034553188">致電訂位 · (403) 455-3188</a>
@@ -217,6 +230,7 @@ function renderPage(data) {
   const sections = data.sections.map((section, index) => `<section class="content-section localized-section${index % 2 ? " is-dark" : ""}">
       <div class="section-heading compact"><p class="eyebrow">${escapeHtml(section.eyebrow)}</p><h2>${escapeHtml(section.title)}</h2></div>
       <div class="localized-copy">${section.paragraphs.map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join("")}</div>
+      ${section.items?.length ? `<details class="localized-menu-list" open><summary>${escapeHtml(section.itemLabel || "品項與價格")}</summary><div class="price-list">${section.items.map(([name, price]) => `<div><span>${escapeHtml(name)}</span><strong>${escapeHtml(price)}</strong></div>`).join("")}</div></details>` : ""}
       ${section.actions?.length ? `<div class="menu-download-actions localized-section-actions">${renderActions(section.actions)}</div>\n      ` : ""}${section.cards?.length ? `<div class="recommendation-grid localized-card-grid">${section.cards.map((card) => `<article><h3>${escapeHtml(card.title)}</h3><p>${escapeHtml(card.text)}</p>${card.href && card.actionLabel ? `<a class="card-action" href="${escapeHtml(card.href)}" target="_blank" rel="noreferrer">${escapeHtml(card.actionLabel)}</a>` : ""}</article>`).join("")}</div>` : ""}
     </section>`).join("\n");
   const faqSection = data.faqs.length ? `<section class="content-section localized-faq" id="faq"><div class="section-heading compact"><p class="eyebrow">常見問題</p><h2>快速找到用餐前需要的答案</h2></div><div class="faq-list">${data.faqs.map((faq) => `<article><h2>${escapeHtml(faq.question)}</h2><p>${escapeHtml(faq.answer)}</p></article>`).join("")}</div></section>` : "";
@@ -251,7 +265,7 @@ function renderPage(data) {
     <link rel="icon" href="/favicon.ico" sizes="any" />
     <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-    <link rel="stylesheet" href="/site.css?v=20260829-conversion" />
+    <link rel="stylesheet" href="/site.css?v=20260904-compact" />
     <script defer src="/language-routes.js?v=20260813-bilingual"></script>
     <script defer src="/site-events.js?v=20260829-conversion"></script>
     <script type="application/ld+json">${jsonLd(data)}</script>
@@ -260,7 +274,7 @@ function renderPage(data) {
     ${renderNav(data)}
     <main id="top">
       <section class="localized-hero">
-        <div class="localized-hero-copy"><p class="eyebrow">${escapeHtml(data.eyebrow)}</p><h1>${escapeHtml(data.h1)}</h1><p class="hero-text">${escapeHtml(data.lead)}</p><div class="hero-actions">${renderActions(data.actions)}</div></div>
+        <div class="localized-hero-copy"><p class="eyebrow">${escapeHtml(data.eyebrow)}</p><h1>${escapeHtml(data.h1)}</h1><p class="hero-text">${escapeHtml(data.lead)}</p>${data.path === "/zh-hant/menu/" ? '<aside class="table-menu-notice" data-table-menu-notice aria-label="店內點單說明"><strong>菜單僅供查看</strong><span>請向服務員點單。View Menu Only — Please order with your server.</span></aside>' : ""}<div class="hero-actions">${renderActions(data.actions)}</div></div>
         ${heroMedia}
       </section>
       ${posterModal}
@@ -275,11 +289,14 @@ function renderPage(data) {
 `;
 }
 
+const requestedPages = process.argv.slice(2);
+for (const key of requestedPages) if (!pages[key]) throw new Error("Unknown page: " + key);
 for (const [key, data] of Object.entries(pages)) {
+  if (requestedPages.length && !requestedPages.includes(key)) continue;
   const directory = path.join(root, "public", data.path.slice(1));
   await mkdir(directory, { recursive: true });
   const html = (key === "home" ? renderHomePage(data) : renderPage(data)).replace(/[ \t]+$/gm, "");
   await writeFile(path.join(directory, "index.html"), html);
 }
 
-console.log(`Built ${Object.keys(pages).length} Traditional Chinese pages.`);
+console.log(`Built ${requestedPages.length || Object.keys(pages).length} Traditional Chinese pages.`);

@@ -32,6 +32,7 @@ const restaurantInfoSchema = {
     "@type": "Restaurant",
     "@id": "https://centrestjhotpot.ca/#restaurant",
     name: "Centre Street Japanese HotPot",
+    legalName: "1843905 ALBERTA LTD",
     alternateName: ["Centre Street Japanese Hotpot", "鼎鑽火鍋"],
     description:
       "Taiwanese and Japanese-style hot pot restaurant in Calgary serving individual hot pot, signature soup bases, premium meats, seafood, vegetables, Taiwanese snacks, rice and noodle bowls, and milk tea.",
@@ -92,6 +93,7 @@ const restaurantInfoSchema = {
 
 const facts = [
   ["Name", "Centre Street Japanese HotPot."],
+  ["Legal Business", "Centre Street Japanese HotPot is operated by 1843905 ALBERTA LTD."],
   [
     "Restaurant Type",
     "Taiwanese and Japanese-style hot pot restaurant in Calgary serving individual hot pot, soup bases, meats, seafood, vegetables, Taiwanese snacks, rice and noodle bowls, and milk tea.",

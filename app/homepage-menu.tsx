@@ -157,6 +157,7 @@ export function HomepageMenu({ language }: { language: HomepageLanguage }) {
 
       <section id="visit" className="homepage-visit">
         <div className="section-heading compact"><p className="eyebrow">{content.visit.eyebrow}</p><h2>{content.visit.title}</h2></div>
+        <p>{isZh ? "Centre Street Japanese HotPot／鼎鑽火鍋由 1843905 ALBERTA LTD 經營。" : "Centre Street Japanese HotPot is operated by 1843905 ALBERTA LTD."}</p>
         <div className="visit-grid">
           <article><h3>{content.visit.hoursTitle}</h3>{content.visit.hours.map((hours) => <p key={hours}>{hours}</p>)}<Link href={restaurantInfoPath}>{content.visit.details}</Link></article>
           <article><h3>{content.visit.contactTitle}</h3><p>{content.visit.contactCopy}</p><a href="tel:+14034553188">{content.visit.reserve}</a></article>

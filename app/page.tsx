@@ -29,6 +29,7 @@ const restaurantJsonLd = {
       "@type": "Restaurant",
       "@id": "https://centrestjhotpot.ca/#restaurant",
       name: "Centre Street Japanese HotPot",
+      legalName: "1843905 ALBERTA LTD",
       alternateName: ["Centre Street Japanese Hotpot", "鼎鑽火鍋"],
       description: "Calgary restaurant serving $28.99 AYCE hot pot, $19.99 personal hot pot, Taiwanese beef noodle soup, rice and noodle meals, snacks, and milk tea.",
       url: "https://centrestjhotpot.ca/",

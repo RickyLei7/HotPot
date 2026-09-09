@@ -35,7 +35,7 @@ const restaurantJsonLd = {
       url: "https://centrestjhotpot.ca/",
       logo: "https://centrestjhotpot.ca/assets/brand-logo-wide.webp",
       telephone: "+1-403-455-3188",
-      email: "CentreStJHotpot@gmail.com",
+      email: "info@centrestjhotpot.ca",
       image: [
         "https://centrestjhotpot.ca/assets/dish-spicy.webp",
         "https://centrestjhotpot.ca/assets/soup-lineup.webp",

@@ -79,7 +79,7 @@ export default function PrivacyPolicyPage() {
             <h3>Contact us</h3>
             <p>
               Questions about this policy can be sent to
-              {" "}<a href="mailto:CentreStJHotpot@gmail.com">CentreStJHotpot@gmail.com</a> or by mail
+              {" "}<a href="mailto:info@centrestjhotpot.ca">info@centrestjhotpot.ca</a> or by mail
               to 2213 Centre St N #2243, Calgary, AB T2E 2T4, Canada.
             </p>
           </article>

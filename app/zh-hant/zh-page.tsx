@@ -101,7 +101,7 @@ function schemaFor(data: ZhPageData) {
       ],
       inLanguage: ["en-CA", "zh-Hant-CA"],
       telephone: "+1-403-455-3188",
-      email: "CentreStJHotpot@gmail.com",
+      email: "info@centrestjhotpot.ca",
       servesCuisine: ["台式火鍋", "日式風格火鍋", "一人一鍋", "台式小吃", "奶茶"],
       priceRange: "$$",
       areaServed: { "@type": "City", name: "Calgary" },

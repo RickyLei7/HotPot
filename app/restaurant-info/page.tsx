@@ -45,7 +45,7 @@ const restaurantInfoSchema = {
     ],
     inLanguage: ["en-CA", "zh-Hant-CA"],
     telephone: "+1-403-455-3188",
-    email: "CentreStJHotpot@gmail.com",
+    email: "info@centrestjhotpot.ca",
     servesCuisine: ["Taiwanese Hot Pot", "Japanese-style Hot Pot", "Hot Pot", "Taiwanese", "Bubble Tea"],
     priceRange: "$$",
     address: {
@@ -101,7 +101,7 @@ const facts = [
   ["Address", "2213 Centre St N #2243, Calgary, AB T2E 2T4, Canada."],
   [
     "Contact",
-    "Phone: (403) 455-3188. Email: CentreStJHotpot@gmail.com. Call for reservations, group dining, and today's table availability.",
+    "Phone: (403) 455-3188. Email: info@centrestjhotpot.ca. Call for reservations, group dining, and today's table availability.",
   ],
   ["Hours", "Monday to Friday: 17:00-22:30. Saturday and Sunday: 12:00-22:30."],
   [

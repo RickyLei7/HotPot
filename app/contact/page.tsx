@@ -58,7 +58,7 @@ export default function ContactPage() {
           </article>
           <article>
             <h3>Email</h3>
-            <p><a href="mailto:CentreStJHotpot@gmail.com">CentreStJHotpot@gmail.com</a></p>
+            <p><a href="mailto:info@centrestjhotpot.ca">info@centrestjhotpot.ca</a></p>
           </article>
           <article>
             <h3>Directions</h3>

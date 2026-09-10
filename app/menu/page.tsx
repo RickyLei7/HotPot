@@ -3,9 +3,9 @@ import Link from "next/link";
 import { SiteNav } from "../site-nav";
 
 export const metadata: Metadata = {
-  title: "Calgary Hot Pot Menu | AYCE $28.99 & 15 Soup Bases",
+  title: "Centre Street Japanese HotPot Menu & Prices | Calgary",
   description:
-    "See our Calgary hot pot menu: $28.99 AYCE, 15 soup bases, personal hot pot, Taiwanese snacks, rice and noodles, milk tea and current prices.",
+    "View Centre Street Japanese HotPot menu and prices: $28.99 AYCE, $19.99 personal hot pot, 15 soup bases and +$5.99 AYCE snacks. Prices before tax.",
   alternates: {
     canonical: "/menu",
     languages: {
@@ -15,9 +15,9 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "Calgary Hot Pot Menu | AYCE $28.99 & 15 Soup Bases",
+    title: "Centre Street Japanese HotPot Menu & Prices | Calgary",
     description:
-      "See $28.99 AYCE, 15 soup bases, personal hot pot, Taiwanese snacks, rice and noodles, milk tea and current prices.",
+      "View Centre Street Japanese HotPot menu and prices: $28.99 AYCE, $19.99 personal hot pot, 15 soup bases and +$5.99 AYCE snacks. Prices before tax.",
     url: "https://centrestjhotpot.ca/menu/",
     images: ["/assets/dish-sukiyaki.webp"],
   },

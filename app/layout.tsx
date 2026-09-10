@@ -15,9 +15,9 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://centrestjhotpot.ca"),
-  title: "$28.99 AYCE Hot Pot Calgary | Centre Street HotPot",
+  title: "Centre Street Japanese HotPot Calgary | $28.99 AYCE",
   description:
-    "$28.99 AYCE hot pot in Calgary with 15 soup bases, AAA beef, lamb, pork and chicken. Visit us on Centre Street N or call (403) 455-3188.",
+    "Visit Centre Street Japanese HotPot in Calgary: $28.99 AYCE + tax, soup base included, or $19.99 personal hot pot. View the menu and call (403) 455-3188.",
   robots: {
     index: true,
     follow: true,
@@ -38,9 +38,9 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "$28.99 AYCE Hot Pot Calgary | Centre Street HotPot",
+    title: "Centre Street Japanese HotPot Calgary | $28.99 AYCE",
     description:
-      "$28.99 AYCE hot pot in Calgary with 15 soup bases, AAA beef, lamb, pork and chicken. Call to reserve.",
+      "Calgary hot pot with 15 soup bases: $28.99 AYCE + tax or $19.99 personal hot pot. View the menu and call to reserve.",
     url: "https://centrestjhotpot.ca/",
     siteName: "Centre Street Japanese HotPot",
     images: ["/assets/dish-spicy.webp"],

@@ -58,12 +58,24 @@ export async function checkLoginAllowed(db, key, nowMs = Date.now()) {
 }
 
 export async function recordLoginFailure(db, key, nowMs = Date.now()) {
-  const row = await db.prepare("SELECT failures, window_started_at FROM login_attempts WHERE client_key = ?").bind(key).first();
-  const inWindow = row && nowMs - row.window_started_at < WINDOW_MS;
-  const failures = inWindow ? row.failures + 1 : 1;
-  const started = inWindow ? row.window_started_at : nowMs;
-  const lockedUntil = failures >= MAX_FAILURES ? nowMs + WINDOW_MS : null;
-  await db.prepare("INSERT INTO login_attempts (client_key, failures, window_started_at, locked_until) VALUES (?, ?, ?, ?) ON CONFLICT(client_key) DO UPDATE SET failures=excluded.failures, window_started_at=excluded.window_started_at, locked_until=excluded.locked_until").bind(key, failures, started, lockedUntil).run();
+  await db.prepare(`
+    INSERT INTO login_attempts (client_key, failures, window_started_at, locked_until)
+    VALUES (?, 1, ?, NULL)
+    ON CONFLICT(client_key) DO UPDATE SET
+      failures = CASE
+        WHEN excluded.window_started_at - login_attempts.window_started_at < ? THEN login_attempts.failures + 1
+        ELSE 1
+      END,
+      window_started_at = CASE
+        WHEN excluded.window_started_at - login_attempts.window_started_at < ? THEN login_attempts.window_started_at
+        ELSE excluded.window_started_at
+      END,
+      locked_until = CASE
+        WHEN excluded.window_started_at - login_attempts.window_started_at < ? AND login_attempts.failures + 1 >= ?
+          THEN excluded.window_started_at + ?
+        ELSE NULL
+      END
+  `).bind(key, nowMs, WINDOW_MS, WINDOW_MS, WINDOW_MS, MAX_FAILURES, WINDOW_MS).run();
 }
 
 export async function clearLoginFailures(db, key) {

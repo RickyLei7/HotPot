@@ -1,7 +1,7 @@
 # Website Reservation Modal Design
 
 **Date:** 2026-09-14  
-**Status:** Approved in chat; awaiting written-spec review  
+**Status:** Approved
 **Owner:** Centre Street Japanese HotPot / 鼎鑽火鍋
 
 ## 1. Objective
@@ -235,8 +235,8 @@ For each size, verify opening from the top navigation, native select behavior, k
 1. Deploy the reservation service's embedded route first.
 2. Verify its framing policy allows only the production website.
 3. Deploy the website dialog and updated reservation links.
-4. Run one production test booking using designated test data and remove only that test record afterward.
-5. Confirm the booking appears in the staff system and the expected email state is recorded.
+4. Run a non-mutating production smoke test through date, party-size, and time selection without submitting a reservation.
+5. Create a production test booking only when the owner explicitly requests it. Cancel that exact booking through its private management link; never use a broad clear operation for test cleanup.
 
 No database migration is required. If the website deployment must be rolled back, the Reserve anchor returns to the still-working direct booking page. Existing and newly created reservation data remain in the reservation service throughout.
 

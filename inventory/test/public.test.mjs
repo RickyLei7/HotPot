@@ -1,6 +1,7 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
+import { orderRecordedMessage } from "../public/order-copy.mjs";
 
 const [html, js, css] = await Promise.all([
   readFile(new URL("../public/index.html", import.meta.url), "utf8"),
@@ -17,6 +18,11 @@ test("order undo is established before the item-list refetch", () => {
   const createOrder = js.slice(js.indexOf("async function createOrder"), js.indexOf("function renderCard"));
   assert.ok(createOrder.indexOf("showUndo(") < createOrder.indexOf("await refreshItems()"));
   assert.match(createOrder, /catch \(refreshError\)/);
+});
+
+test("order confirmation distinguishes backdated orders from today's order", () => {
+  assert.equal(orderRecordedMessage("Tofu", "2026-08-01", "2026-09-13"), "已记录「Tofu」2026-08-01 叫货");
+  assert.equal(orderRecordedMessage("Tofu", "2026-09-13", "2026-09-13"), "已记录「Tofu」今天叫货");
 });
 
 test("history rendering rejects stale requests and invalidates on close", () => {

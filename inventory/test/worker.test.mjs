@@ -35,7 +35,7 @@ class FakeD1 {
 
 function env(overrides = {}) {
   return {
-    INVENTORY_PIN: "1234",
+    INVENTORY_PIN: "2468",
     SESSION_SECRET: SECRET,
     DB: overrides.DB,
     ASSETS: { fetch: async () => new Response("asset") },
@@ -217,7 +217,7 @@ test("exports RFC 4180 CSV with a UTF-8 BOM", async () => {
 
 test("login hides missing configuration and rejects malformed PINs", async () => {
   const missing = await worker.fetch(new Request("https://inventory.example/api/login", {
-    method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ pin: "1234" }),
+    method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ pin: "2468" }),
   }), env({ SESSION_SECRET: "" }));
   assert.equal(missing.status, 500);
   assert.equal((await missing.json()).code, "CONFIGURATION_ERROR");
@@ -231,7 +231,7 @@ test("login hides missing configuration and rejects malformed PINs", async () =>
 test("login enforces lockout and sets a session after success", async () => {
   const lockedDb = new FakeD1([{ method: "first", sql: /SELECT locked_until/, result: { locked_until: Date.now() + 60_000 } }]);
   const locked = await worker.fetch(new Request("https://inventory.example/api/login", {
-    method: "POST", headers: { "content-type": "application/json", "CF-Connecting-IP": "192.0.2.1" }, body: JSON.stringify({ pin: "1234" }),
+    method: "POST", headers: { "content-type": "application/json", "CF-Connecting-IP": "192.0.2.1" }, body: JSON.stringify({ pin: "2468" }),
   }), env({ DB: lockedDb }));
   assert.equal(locked.status, 429);
 
@@ -240,7 +240,7 @@ test("login enforces lockout and sets a session after success", async () => {
     { method: "run", sql: /DELETE FROM login_attempts/, result: { meta: { changes: 0 } } },
   ]);
   const success = await worker.fetch(new Request("https://inventory.example/api/login", {
-    method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ pin: "1234" }),
+    method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ pin: "2468" }),
   }), env({ DB: successDb }));
   assert.equal(success.status, 200);
   assert.match(success.headers.get("set-cookie"), /^inventory_session=.+; Path=\//);
@@ -274,7 +274,7 @@ test("login returns a JSON failure when D1 is unavailable", async () => {
   const response = await worker.fetch(new Request("https://inventory.example/api/login", {
     method: "POST",
     headers: { "content-type": "application/json" },
-    body: JSON.stringify({ pin: "1234" }),
+    body: JSON.stringify({ pin: "2468" }),
   }), env({ DB }));
 
   assert.equal(response.status, 500);

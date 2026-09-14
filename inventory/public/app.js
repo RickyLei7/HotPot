@@ -1,3 +1,5 @@
+import { orderRecordedMessage } from "./order-copy.mjs";
+
 const state = { items: [], filter: "active", lastCreatedOrder: null };
 
 const loginView = document.querySelector("#login-view");
@@ -104,9 +106,9 @@ async function withDisabled(control, work) {
   try { return await work(); } finally { control.disabled = false; }
 }
 
-function showUndo(itemId, orderId, itemName) {
+function showUndo(itemId, orderId, message) {
   if (state.lastCreatedOrder?.timer) clearTimeout(state.lastCreatedOrder.timer);
-  document.querySelector("#undo-message").textContent = `已记录「${itemName}」今天叫货`;
+  document.querySelector("#undo-message").textContent = message;
   undoBar.hidden = false;
   const timer = setTimeout(() => {
     undoBar.hidden = true;
@@ -121,8 +123,9 @@ async function createOrder(item, date, control) {
       const result = await api(`/api/items/${item.id}/orders`, {
         method: "POST", body: JSON.stringify({ date }),
       });
-      showUndo(item.id, result.id, item.name);
-      announce(`已记录 ${item.name} 的叫货日期`);
+      const message = orderRecordedMessage(item.name, date, localDate());
+      showUndo(item.id, result.id, message);
+      announce(message);
       try {
         await refreshItems();
       } catch (refreshError) {

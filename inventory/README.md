@@ -16,11 +16,11 @@ Create and migrate the local-only D1 database:
 npx --yes wrangler@4.131.1 d1 migrations apply centre-street-order-tracker --local --config inventory/wrangler.jsonc
 ```
 
-Create `inventory/.dev.vars` without checking secrets into Git. Replace `1234` when using the tool beyond disposable verification:
+First verify that `inventory/.dev.vars` is ignored, then create it exclusively. The prompt does not echo the PIN, the session secret is generated without being printed, and the command fails rather than overwriting an existing file:
 
 ```bash
-INVENTORY_PIN=1234 node -e 'const { randomBytes } = require("node:crypto"); const { writeFileSync } = require("node:fs"); writeFileSync("inventory/.dev.vars", `INVENTORY_PIN=${process.env.INVENTORY_PIN}\nSESSION_SECRET=${randomBytes(32).toString("hex")}\n`, { mode: 0o600 })'
-git check-ignore inventory/.dev.vars
+git check-ignore -q inventory/.dev.vars &&
+/bin/zsh -c 'read -s "INVENTORY_PIN?Enter a new four-digit PIN: "; printf "\n"; INVENTORY_PIN="$INVENTORY_PIN" node -e '\''const { randomBytes } = require("node:crypto"); const { writeFileSync } = require("node:fs"); const pin = process.env.INVENTORY_PIN; if (!/^\d{4}$/.test(pin)) throw new Error("PIN must contain exactly four digits"); writeFileSync("inventory/.dev.vars", `INVENTORY_PIN=${pin}\nSESSION_SECRET=${randomBytes(32).toString("hex")}\n`, { mode: 0o600, flag: "wx" })'\'''
 ```
 
 Start the local Worker:

@@ -32,7 +32,7 @@ button, .toolbar a {
   cursor: pointer;
 }
 
-button:hover { background: var(--red-dark); }
+button:hover { background: var(--red-dark); color: white; }
 button:disabled { cursor: not-allowed; opacity: .55; }
 
 :focus-visible {
@@ -88,6 +88,10 @@ textarea { resize: vertical; }
 .filters button, .secondary, .link-button, .toolbar a, .card-actions button, .suggestion button {
   background: transparent;
   color: var(--red);
+}
+.filters button:hover, .secondary:hover, .link-button:hover, .toolbar a:hover, .card-actions button:hover, .suggestion button:hover {
+  background: var(--red-dark);
+  color: white;
 }
 .filters button[aria-pressed="true"] { background: var(--ink); border-color: var(--ink); color: white; }
 .toolbar a { display: inline-flex; align-items: center; text-decoration: none; }
@@ -196,6 +200,7 @@ dialog::backdrop { background: rgb(30 23 20 / 58%); }
   background: var(--ink);
   color: white;
   box-shadow: 0 8px 24px rgb(0 0 0 / 22%);
+  pointer-events: none;
   text-align: center;
   font-weight: 700;
 }

@@ -9,10 +9,21 @@ const historyDialog = document.querySelector("#history-dialog");
 const historyList = document.querySelector("#history-list");
 const statusRegion = document.querySelector("#status");
 const undoBar = document.querySelector("#undo-bar");
+let statusTimer;
+let announcementId = 0;
+let historyRequestId = 0;
 
 function announce(message) {
+  const id = ++announcementId;
+  clearTimeout(statusTimer);
   statusRegion.textContent = "";
-  requestAnimationFrame(() => { statusRegion.textContent = message; });
+  requestAnimationFrame(() => {
+    if (id !== announcementId) return;
+    statusRegion.textContent = message;
+    statusTimer = setTimeout(() => {
+      if (id === announcementId) statusRegion.textContent = "";
+    }, 4_000);
+  });
 }
 
 export async function api(path, options = {}) {
@@ -110,9 +121,13 @@ async function createOrder(item, date, control) {
       const result = await api(`/api/items/${item.id}/orders`, {
         method: "POST", body: JSON.stringify({ date }),
       });
-      await refreshItems();
       showUndo(item.id, result.id, item.name);
       announce(`已记录 ${item.name} 的叫货日期`);
+      try {
+        await refreshItems();
+      } catch (refreshError) {
+        announce(`叫货已记录，但清单刷新失败：${refreshError.message}`);
+      }
       return true;
     } catch (error) {
       announce(error.status === 409 ? "这个日期已经有叫货记录" : `记录失败：${error.message}`);
@@ -220,17 +235,20 @@ export function openItemEditor(item) {
   document.querySelector("#manual-interval").value = item?.manualIntervalDays ?? "";
   document.querySelector("#item-notes").value = item?.notes ?? "";
   document.querySelector("#item-active").checked = item?.active ?? true;
+  document.querySelector("#active-row").hidden = !item;
   itemDialog.showModal();
   document.querySelector("#item-name").focus();
 }
 
 export async function showHistory(itemId) {
+  const requestId = ++historyRequestId;
   const item = state.items.find((entry) => entry.id === itemId);
   document.querySelector("#history-title").textContent = `${item?.name ?? "货品"} · 历史`;
   historyList.replaceChildren(element("p", "", "正在读取…"));
   if (!historyDialog.open) historyDialog.showModal();
   try {
     const orders = await api(`/api/items/${itemId}/orders`);
+    if (requestId !== historyRequestId) return;
     historyList.replaceChildren();
     if (!orders.length) {
       historyList.append(element("p", "empty-state", "还没有叫货记录。"));
@@ -277,6 +295,7 @@ export async function showHistory(itemId) {
       historyList.append(row);
     }
   } catch (error) {
+    if (requestId !== historyRequestId) return;
     historyList.replaceChildren(element("p", "empty-state", `读取失败：${error.message}`));
   }
 }
@@ -339,6 +358,8 @@ document.querySelectorAll("[data-filter]").forEach((control) => control.addEvent
 document.querySelectorAll("[data-close]").forEach((control) => control.addEventListener("click", () => {
   document.querySelector(`#${control.dataset.close}`).close();
 }));
+
+historyDialog.addEventListener("close", () => { historyRequestId += 1; });
 
 document.querySelector("#undo-order").addEventListener("click", async (event) => {
   const order = state.lastCreatedOrder;

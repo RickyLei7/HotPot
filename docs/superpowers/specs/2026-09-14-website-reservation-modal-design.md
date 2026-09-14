@@ -22,6 +22,7 @@ The existing reservation service at `reservation.centrestjhotpot.ca` remains the
 - Copy is warm and natural, not written like a system notice.
 - Existing capacity, manual-review, one-hour advance, party-size, email, 10-minute hold, security, and idempotency rules remain authoritative.
 - The direct `/book` page remains available as a no-JavaScript and loading-failure fallback.
+- Existing `Call to Reserve` and telephone reservation links remain available. Online booking is an additional option, not a replacement for telephone booking.
 - This change does not alter the staff reservation interface, database schema, existing bookings, or stored customer data.
 
 ## 3. Approaches Considered
@@ -242,6 +243,7 @@ No database migration is required. If the website deployment must be rolled back
 ## 13. Acceptance Criteria
 
 - A guest can open Reserve, choose date, time, and 1–6 guests, enter contact details, and submit without leaving the visible website.
+- Existing telephone reservation actions still call `(403) 455-3188` and remain usable independently of the online form.
 - The address bar remains on `centrestjhotpot.ca` while the dialog is open.
 - The ordinary successful path has no `Find a time` screen or other intermediate page.
 - The form is readable and stable on iPhone and iPad mini with the on-screen keyboard open.

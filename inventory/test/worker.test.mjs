@@ -1,8 +1,10 @@
 import test from "node:test";
 import assert from "node:assert/strict";
+import { readFileSync } from "node:fs";
+import { DatabaseSync } from "node:sqlite";
 import worker from "../src/worker.mjs";
 import { createSession } from "../src/auth.mjs";
-import { createItem, deleteOrder, listItems, listOrders, recordOrder, updateItem } from "../src/db.mjs";
+import { correctOrderDate, createItem, deleteOrder, listItems, listOrders, recordOrder, updateItem } from "../src/db.mjs";
 
 const SECRET = "a sufficiently long test secret";
 
@@ -61,6 +63,29 @@ function loginRequest(pin, ip = "192.0.2.1") {
     headers: { "content-type": "application/json", "CF-Connecting-IP": ip },
     body: JSON.stringify({ pin }),
   });
+}
+
+function sqliteD1(t) {
+  const sqlite = new DatabaseSync(":memory:");
+  sqlite.exec(readFileSync(new URL("../migrations/0001_initial.sql", import.meta.url), "utf8"));
+  t.after(() => sqlite.close());
+  return {
+    sqlite,
+    db: {
+      prepare(sql) {
+        const statement = sqlite.prepare(sql);
+        return {
+          bind(...values) {
+            return {
+              first: () => statement.get(...values) ?? null,
+              all: () => ({ results: statement.all(...values) }),
+              run: () => statement.run(...values),
+            };
+          },
+        };
+      },
+    },
+  };
 }
 
 test("rejects protected API calls without a session", async () => {
@@ -177,6 +202,41 @@ test("returns the new order ID after recording a valid order", async () => {
   const response = await worker.fetch(await jsonRequest("/api/items/3/orders", "POST", { date: "2026-09-12" }), env({ DB }));
   assert.equal(response.status, 201);
   assert.deepEqual(await response.json(), { data: { id: 42 } });
+});
+
+test("authenticated date correction is atomic across success, conflict, and missing events", async (t) => {
+  const { sqlite, db } = sqliteD1(t);
+  sqlite.exec("INSERT INTO items (id, name) VALUES (1, 'Tofu'); INSERT INTO order_events (id, item_id, order_date) VALUES (10, 1, '2026-09-10'), (11, 1, '2026-09-11')");
+
+  const success = await worker.fetch(await jsonRequest("/api/items/1/orders/10", "PATCH", { date: "2026-09-09" }), env({ DB: db }));
+  assert.equal(success.status, 200);
+  assert.deepEqual(await success.json(), { data: { id: 10 } });
+
+  const duplicate = await worker.fetch(await jsonRequest("/api/items/1/orders/10", "PATCH", { date: "2026-09-11" }), env({ DB: db }));
+  assert.equal(duplicate.status, 409);
+  assert.equal((await duplicate.json()).code, "DUPLICATE");
+  assert.equal(sqlite.prepare("SELECT order_date FROM order_events WHERE id = 10").get().order_date, "2026-09-09");
+
+  const missing = await worker.fetch(await jsonRequest("/api/items/1/orders/404", "PATCH", { date: "2026-09-08" }), env({ DB: db }));
+  assert.equal(missing.status, 404);
+  assert.equal((await missing.json()).code, "NOT_FOUND");
+  assert.equal(sqlite.prepare("SELECT order_date FROM order_events WHERE id = 10").get().order_date, "2026-09-09");
+});
+
+test("date correction validates before writing and preserves the original", async (t) => {
+  const { sqlite, db } = sqliteD1(t);
+  sqlite.exec("INSERT INTO items (id, name) VALUES (1, 'Tofu'); INSERT INTO order_events (id, item_id, order_date) VALUES (10, 1, '2026-09-10')");
+
+  const response = await worker.fetch(await jsonRequest("/api/items/1/orders/10", "PATCH", { date: "2999-01-01" }), env({ DB: db }));
+  assert.equal(response.status, 400);
+  assert.equal((await response.json()).code, "INVALID_INPUT");
+  assert.equal(sqlite.prepare("SELECT order_date FROM order_events WHERE id = 10").get().order_date, "2026-09-10");
+});
+
+test("repository correction uses one scoped UPDATE statement", async () => {
+  const db = new FakeD1([{ method: "first", sql: /^UPDATE order_events SET order_date/, result: { id: 7 } }]);
+  assert.equal(await correctOrderDate(db, 2, 7, "2026-09-08"), 7);
+  assert.deepEqual(db.calls[0].values, ["2026-09-08", 7, 2]);
 });
 
 test("updates items and reports an unknown item", async () => {

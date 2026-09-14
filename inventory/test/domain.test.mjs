@@ -13,8 +13,11 @@ test("daysBetween handles month and year boundaries in UTC", () => {
 });
 
 test("learnedInterval uses the median of the five newest gaps", () => {
-  const dates = ["2026-08-01", "2026-08-04", "2026-08-08", "2026-08-12", "2026-08-19", "2026-08-23"];
-  assert.equal(learnedInterval(dates), 4);
+  const dates = ["2026-01-01", "2026-04-11", "2026-04-14", "2026-04-18", "2026-04-23", "2026-04-30", "2026-05-08"];
+  const allGaps = dates.slice(1).map((date, index) => daysBetween(dates[index], date)).sort((a, b) => a - b);
+  const unrestrictedMedian = Math.round((allGaps[2] + allGaps[3]) / 2);
+  assert.equal(unrestrictedMedian, 6);
+  assert.equal(learnedInterval(dates), 5);
 });
 
 test("learnedInterval stays null before three records", () => {

@@ -12,7 +12,7 @@ import {
   verifySession,
 } from "./auth.mjs";
 import { parseISODate } from "./domain.mjs";
-import { createItem, deleteOrder, listItems, listOrders, recordOrder, updateItem } from "./db.mjs";
+import { correctOrderDate, createItem, deleteOrder, listItems, listOrders, recordOrder, updateItem } from "./db.mjs";
 
 const JSON_HEADERS = { "content-type": "application/json; charset=utf-8" };
 
@@ -170,6 +170,13 @@ async function protectedRoute(request, env, url) {
   }
 
   match = pathname.match(/^\/api\/items\/(\d+)\/orders\/(\d+)$/);
+  if (match && method === "PATCH") {
+    const itemId = positiveId(match[1]);
+    const orderId = positiveId(match[2]);
+    const input = await requestJson(request);
+    const id = await correctOrderDate(env.DB, itemId, orderId, validateOrderDate(input.date));
+    return success({ id });
+  }
   if (match && method === "DELETE") {
     const itemId = positiveId(match[1]);
     const orderId = positiveId(match[2]);
@@ -190,7 +197,7 @@ async function protectedRoute(request, env, url) {
   return failure("API route not found", "NOT_FOUND", 404, true);
 }
 
-export default {
+const worker = {
   async fetch(request, env) {
     const url = new URL(request.url);
     if (!url.pathname.startsWith("/api/")) return env.ASSETS.fetch(request);
@@ -213,3 +220,5 @@ export default {
     }
   },
 };
+
+export default worker;

@@ -1,7 +1,7 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
-import { orderRecordedMessage } from "../public/order-copy.mjs";
+import { loginFailureMessage, orderRecordedMessage } from "../public/order-copy.mjs";
 
 const [html, js, css] = await Promise.all([
   readFile(new URL("../public/index.html", import.meta.url), "utf8"),
@@ -29,6 +29,26 @@ test("history rendering rejects stale requests and invalidates on close", () => 
   assert.match(js, /const requestId = \+\+historyRequestId/);
   assert.match(js, /if \(requestId !== historyRequestId\) return/);
   assert.match(js, /historyDialog\.addEventListener\("close", \(\) => \{ historyRequestId \+= 1; \}\)/);
+});
+
+test("date correction uses only the atomic PATCH endpoint", () => {
+  const correction = js.slice(js.indexOf("form.addEventListener(\"submit\""), js.indexOf("row.append(form)"));
+  assert.match(correction, /orders\/\$\{order\.id\}`[^}]+method: "PATCH"/s);
+  assert.doesNotMatch(correction, /method: "DELETE"|method: "POST"/);
+});
+
+test("login feedback distinguishes credentials, lockout, and availability failures", () => {
+  assert.equal(loginFailureMessage({ status: 401 }), "密码不正确");
+  assert.equal(loginFailureMessage({ status: 429 }), "尝试次数过多，请稍后再试");
+  assert.equal(loginFailureMessage({ status: 500 }), "暂时无法登录，请稍后重试");
+  assert.equal(loginFailureMessage({}), "暂时无法登录，请稍后重试");
+});
+
+test("item list renders four accessible status groups in due-date order", () => {
+  const rendering = js.slice(js.indexOf("export function renderItems"), js.indexOf("export function openItemEditor"));
+  assert.match(rendering, /"已到期"[\s\S]+"近期检查"[\s\S]+"稍后检查"[\s\S]+"学习中"/);
+  assert.match(rendering, /section\.setAttribute\("aria-labelledby", heading\.id\)/);
+  assert.match(rendering, /groupItems\.map\(renderCard\)/);
 });
 
 test("secondary hover controls use contrasting text", () => {

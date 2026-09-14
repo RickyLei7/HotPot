@@ -75,6 +75,7 @@ test("signed sessions verify, expire, and reject tampering", async () => {
   const token = await createSession("a sufficiently long test secret", now);
   assert.equal(await verifySession(token, "a sufficiently long test secret", now + 1000), true);
   assert.equal(await verifySession(`${token}x`, "a sufficiently long test secret", now + 1000), false);
+  assert.equal(await verifySession(`${token}.extra`, "a sufficiently long test secret", now + 1000), false);
   assert.equal(await verifySession(token, "a sufficiently long test secret", now + 8 * 86_400_000), false);
 });
 

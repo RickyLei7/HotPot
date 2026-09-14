@@ -72,6 +72,19 @@ export async function deleteOrder(db, itemId, orderId) {
   if (!result.meta?.changes) throw applicationError("Order not found", "NOT_FOUND");
 }
 
+export async function correctOrderDate(db, itemId, orderId, date) {
+  try {
+    const row = await db.prepare("UPDATE order_events SET order_date = ? WHERE id = ? AND item_id = ? RETURNING id")
+      .bind(date, orderId, itemId)
+      .first();
+    if (!row) throw applicationError("Order not found", "NOT_FOUND");
+    return row.id;
+  } catch (error) {
+    if (isUniqueConstraint(error)) throw applicationError("An order is already recorded for that date", "DUPLICATE");
+    throw error;
+  }
+}
+
 export function listOrders(db, itemId) {
   return all(db, "SELECT id, order_date FROM order_events WHERE item_id = ? ORDER BY order_date DESC, id DESC", itemId);
 }

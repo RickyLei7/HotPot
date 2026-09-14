@@ -27,7 +27,9 @@ export async function createSession(secret, nowMs = Date.now()) {
 
 export async function verifySession(token, secret, nowMs = Date.now()) {
   try {
-    const [payload, signature] = token.split(".");
+    const segments = token.split(".");
+    if (segments.length !== 2) return false;
+    const [payload, signature] = segments;
     if (!payload || !signature || !safeEqualText(signature, bytesToBase64url(await hmac(secret, payload)))) return false;
     const decoded = JSON.parse(new TextDecoder().decode(Uint8Array.from(atob(payload.replaceAll("-", "+").replaceAll("_", "/")), (char) => char.charCodeAt(0))));
     return Number.isFinite(decoded.exp) && decoded.exp > nowMs;

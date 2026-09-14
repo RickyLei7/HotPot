@@ -97,7 +97,9 @@ textarea { resize: vertical; }
 .toolbar a { display: inline-flex; align-items: center; text-decoration: none; }
 .link-button { border-color: transparent; }
 
-#item-list { display: grid; gap: 1rem; }
+#item-list, .item-group { display: grid; gap: 1rem; }
+.item-group + .item-group { margin-top: .5rem; }
+.group-heading { margin: .35rem 0 -.35rem; color: var(--muted); font-size: 1rem; }
 
 .item-card {
   border: 1px solid var(--line);

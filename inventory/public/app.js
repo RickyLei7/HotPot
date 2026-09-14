@@ -1,4 +1,4 @@
-import { orderRecordedMessage } from "./order-copy.mjs";
+import { loginFailureMessage, orderRecordedMessage } from "./order-copy.mjs";
 
 const state = { items: [], filter: "active", lastCreatedOrder: null };
 
@@ -144,7 +144,7 @@ function renderCard(item) {
   card.dataset.status = item.status;
 
   const heading = element("div", "card-heading");
-  heading.append(element("h2", "item-name", item.name));
+  heading.append(element("h3", "item-name", item.name));
   if (!item.active) heading.append(element("span", "archive-label", "已归档"));
   card.append(heading);
 
@@ -228,7 +228,22 @@ export function renderItems(items) {
     itemList.append(element("p", "empty-state", state.filter === "active" ? "还没有使用中的货品。添加第一项吧。" : "这里还没有货品。"));
     return;
   }
-  itemList.append(...visible.map(renderCard));
+  const groups = [
+    { key: "overdue", title: "已到期", includes: (item) => item.status === "overdue" },
+    { key: "soon", title: "近期检查", includes: (item) => item.status === "today" || item.status === "soon" },
+    { key: "later", title: "稍后检查", includes: (item) => item.status === "later" },
+    { key: "learning", title: "学习中", includes: (item) => item.status === "learning" },
+  ];
+  for (const group of groups) {
+    const groupItems = visible.filter(group.includes);
+    if (!groupItems.length) continue;
+    const section = element("section", "item-group");
+    const heading = element("h2", "group-heading", group.title);
+    heading.id = `group-${group.key}`;
+    section.setAttribute("aria-labelledby", heading.id);
+    section.append(heading, ...groupItems.map(renderCard));
+    itemList.append(section);
+  }
 }
 
 export function openItemEditor(item) {
@@ -273,21 +288,12 @@ export async function showHistory(itemId) {
       form.addEventListener("submit", async (event) => {
         event.preventDefault();
         if (input.value === order.order_date) return announce("日期没有改变");
-        if (!confirm(`确定把 ${order.order_date} 更正为 ${input.value}？原记录会先删除。`)) return;
+        if (!confirm(`确定把 ${order.order_date} 更正为 ${input.value}？`)) return;
         await withDisabled(save, async () => {
           try {
-            await api(`/api/items/${itemId}/orders/${order.id}`, { method: "DELETE" });
-            try {
-              await api(`/api/items/${itemId}/orders`, { method: "POST", body: JSON.stringify({ date: input.value }) });
-            } catch (insertError) {
-              try {
-                await api(`/api/items/${itemId}/orders`, { method: "POST", body: JSON.stringify({ date: order.order_date }) });
-                announce(`更正失败，已恢复原日期：${insertError.message}`);
-              } catch (restoreError) {
-                announce(`更正失败，原日期也未能恢复：${restoreError.message}`);
-              }
-              return;
-            }
+            await api(`/api/items/${itemId}/orders/${order.id}`, {
+              method: "PATCH", body: JSON.stringify({ date: input.value }),
+            });
             await refreshItems();
             await showHistory(itemId);
             announce("叫货日期已更正");
@@ -314,7 +320,7 @@ document.querySelector("#login-form").addEventListener("submit", async (event) =
       await refreshItems();
       announce("登录成功");
     } catch (error) {
-      announce(error.status === 429 ? "尝试次数过多，请稍后再试" : "密码不正确");
+      announce(loginFailureMessage(error));
       document.querySelector("#pin").select();
     }
   });

@@ -194,21 +194,22 @@ export default {
   async fetch(request, env) {
     const url = new URL(request.url);
     if (!url.pathname.startsWith("/api/")) return env.ASSETS.fetch(request);
-    if (url.pathname === "/api/login" && request.method === "POST") return login(request, env);
-    if (url.pathname === "/api/logout" && request.method === "POST") {
-      return success({ authenticated: false }, 200, { "set-cookie": expiredSessionCookie() }, false);
-    }
-    if (!isProtectedPath(url.pathname)) return failure("API route not found", "NOT_FOUND", 404);
-    if (!env.SESSION_SECRET) return failure("Server configuration is incomplete", "CONFIGURATION_ERROR", 500, true);
-    if (!(await isAuthenticated(request, env))) return failure("Authentication required", "UNAUTHORIZED", 401, true);
 
     try {
+      if (url.pathname === "/api/login" && request.method === "POST") return await login(request, env);
+      if (url.pathname === "/api/logout" && request.method === "POST") {
+        return success({ authenticated: false }, 200, { "set-cookie": expiredSessionCookie() }, false);
+      }
+      if (!isProtectedPath(url.pathname)) return failure("API route not found", "NOT_FOUND", 404);
+      if (!env.SESSION_SECRET) return failure("Server configuration is incomplete", "CONFIGURATION_ERROR", 500, true);
+      if (!(await isAuthenticated(request, env))) return failure("Authentication required", "UNAUTHORIZED", 401, true);
       return await protectedRoute(request, env, url);
     } catch (error) {
-      if (error?.code === "INVALID_INPUT") return failure(error.message, error.code, 400, true);
-      if (error?.code === "DUPLICATE") return failure(error.message, error.code, 409, true);
-      if (error?.code === "NOT_FOUND") return failure(error.message, error.code, 404, true);
-      return failure("Internal server error", "INTERNAL_ERROR", 500, true);
+      const protectedResponse = isProtectedPath(url.pathname);
+      if (error?.code === "INVALID_INPUT") return failure(error.message, error.code, 400, protectedResponse);
+      if (error?.code === "DUPLICATE") return failure(error.message, error.code, 409, protectedResponse);
+      if (error?.code === "NOT_FOUND") return failure(error.message, error.code, 404, protectedResponse);
+      return failure("Internal server error", "INTERNAL_ERROR", 500, protectedResponse);
     }
   },
 };

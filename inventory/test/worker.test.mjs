@@ -227,6 +227,20 @@ test("login enforces lockout and sets a session after success", async () => {
   assert.match(success.headers.get("set-cookie"), /^inventory_session=.+; Path=\//);
 });
 
+test("login returns a JSON failure when D1 is unavailable", async () => {
+  const DB = new FakeD1([
+    { method: "first", sql: /SELECT locked_until/, error: new Error("D1 unavailable") },
+  ]);
+  const response = await worker.fetch(new Request("https://inventory.example/api/login", {
+    method: "POST",
+    headers: { "content-type": "application/json" },
+    body: JSON.stringify({ pin: "1234" }),
+  }), env({ DB }));
+
+  assert.equal(response.status, 500);
+  assert.deepEqual(await response.json(), { error: "Internal server error", code: "INTERNAL_ERROR" });
+});
+
 test("logout expires the session and unknown API routes return JSON 404", async () => {
   const logout = await worker.fetch(new Request("https://inventory.example/api/logout", { method: "POST" }), env({ DB: {} }));
   assert.equal(logout.status, 200);

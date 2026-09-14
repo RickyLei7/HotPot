@@ -271,13 +271,13 @@ import { isFourDigitPin, safeEqualText, createSession, verifySession, readCookie
 test("accepts exactly four ASCII digits", () => {
   assert.equal(isFourDigitPin("0123"), true);
   assert.equal(isFourDigitPin("123"), false);
-  assert.equal(isFourDigitPin("12345"), false);
+  assert.equal(isFourDigitPin("24680"), false);
   assert.equal(isFourDigitPin("12a4"), false);
 });
 
 test("constant-time text comparison reports equality", () => {
-  assert.equal(safeEqualText("1234", "1234"), true);
-  assert.equal(safeEqualText("1234", "9999"), false);
+  assert.equal(safeEqualText("2468", "2468"), true);
+  assert.equal(safeEqualText("2468", "9999"), false);
 });
 
 test("signed sessions verify, expire, and reject tampering", async () => {
@@ -422,7 +422,7 @@ import worker from "../src/worker.mjs";
 
 function env(overrides = {}) {
   return {
-    INVENTORY_PIN: "1234",
+    INVENTORY_PIN: "2468",
     SESSION_SECRET: "a sufficiently long test secret",
     DB: overrides.DB,
     ASSETS: { fetch: async () => new Response("asset") },

@@ -1,0 +1,19 @@
+{
+  "$schema": "../node_modules/wrangler/config-schema.json",
+  "name": "centre-street-order-tracker",
+  "main": "src/worker.mjs",
+  "compatibility_date": "2026-09-13",
+  "assets": {
+    "directory": "public",
+    "binding": "ASSETS",
+    "run_worker_first": ["/api/*"]
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "centre-street-order-tracker",
+      "database_id": "local-order-tracker",
+      "migrations_dir": "migrations"
+    }
+  ]
+}

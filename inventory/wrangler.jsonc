@@ -12,7 +12,7 @@
     {
       "binding": "DB",
       "database_name": "centre-street-order-tracker",
-      "database_id": "local-order-tracker",
+      "database_id": "49e3a65e-30b2-4d27-a320-eaafa8e2d0eb",
       "migrations_dir": "migrations"
     }
   ]

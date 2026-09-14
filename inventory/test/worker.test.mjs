@@ -55,6 +55,14 @@ async function jsonRequest(path, method, body) {
   });
 }
 
+function loginRequest(pin, ip = "192.0.2.1") {
+  return new Request("https://inventory.example/api/login", {
+    method: "POST",
+    headers: { "content-type": "application/json", "CF-Connecting-IP": ip },
+    body: JSON.stringify({ pin }),
+  });
+}
+
 test("rejects protected API calls without a session", async () => {
   const response = await worker.fetch(new Request("https://inventory.example/api/items"), env({ DB: {} }));
   assert.equal(response.status, 401);
@@ -139,13 +147,17 @@ test("creates a validated item and returns its id", async () => {
   assert.deepEqual(DB.calls[0].values, ["Chili oil", 14, "case"]);
 });
 
-test("rejects malformed item input without querying", async () => {
+test("rejects empty names and intervals outside 1 through 365 without querying", async () => {
   const DB = { prepare() { throw new Error("must not query invalid input"); } };
-  const response = await worker.fetch(await jsonRequest("/api/items", "POST", {
-    name: " ", manualIntervalDays: 0, notes: "", active: true,
-  }), env({ DB }));
-  assert.equal(response.status, 400);
-  assert.equal((await response.json()).code, "INVALID_INPUT");
+  for (const body of [
+    { name: " ", manualIntervalDays: 1, notes: "", active: true },
+    { name: "Rice", manualIntervalDays: 0, notes: "", active: true },
+    { name: "Rice", manualIntervalDays: 366, notes: "", active: true },
+  ]) {
+    const response = await worker.fetch(await jsonRequest("/api/items", "POST", body), env({ DB }));
+    assert.equal(response.status, 400);
+    assert.equal((await response.json()).code, "INVALID_INPUT");
+  }
 });
 
 test("maps duplicate item and order writes to conflict", async () => {
@@ -158,6 +170,13 @@ test("maps duplicate item and order writes to conflict", async () => {
     assert.equal(response.status, 409);
     assert.equal((await response.json()).code, "DUPLICATE");
   }
+});
+
+test("returns the new order ID after recording a valid order", async () => {
+  const DB = new FakeD1([{ method: "first", sql: /INSERT INTO order_events/, result: { id: 42 } }]);
+  const response = await worker.fetch(await jsonRequest("/api/items/3/orders", "POST", { date: "2026-09-12" }), env({ DB }));
+  assert.equal(response.status, 201);
+  assert.deepEqual(await response.json(), { data: { id: 42 } });
 });
 
 test("updates items and reports an unknown item", async () => {
@@ -225,6 +244,27 @@ test("login enforces lockout and sets a session after success", async () => {
   }), env({ DB: successDb }));
   assert.equal(success.status, 200);
   assert.match(success.headers.get("set-cookie"), /^inventory_session=.+; Path=\//);
+});
+
+test("a sixth failed login within fifteen minutes returns 429", async () => {
+  const steps = [];
+  for (let attempt = 0; attempt < 5; attempt += 1) {
+    steps.push(
+      { method: "first", sql: /SELECT locked_until/, result: null },
+      { method: "run", sql: /INSERT INTO login_attempts/, result: { meta: { changes: 1 } } },
+    );
+  }
+  steps.push({ method: "first", sql: /SELECT locked_until/, result: { locked_until: Number.MAX_SAFE_INTEGER } });
+  const DB = new FakeD1(steps);
+
+  for (let attempt = 1; attempt <= 5; attempt += 1) {
+    const response = await worker.fetch(loginRequest("9999"), env({ DB }));
+    assert.equal(response.status, 401);
+    assert.equal((await response.json()).code, "UNAUTHORIZED");
+  }
+  const locked = await worker.fetch(loginRequest("9999"), env({ DB }));
+  assert.equal(locked.status, 429);
+  assert.equal((await locked.json()).code, "LOCKED");
 });
 
 test("login returns a JSON failure when D1 is unavailable", async () => {

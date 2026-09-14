@@ -302,11 +302,12 @@ export async function showHistory(itemId) {
 
 document.querySelector("#login-form").addEventListener("submit", async (event) => {
   event.preventDefault();
-  const submit = event.currentTarget.querySelector("button[type=submit]");
+  const form = event.currentTarget;
+  const submit = form.querySelector("button[type=submit]");
   await withDisabled(submit, async () => {
     try {
       await api("/api/login", { method: "POST", body: JSON.stringify({ pin: document.querySelector("#pin").value }) });
-      event.currentTarget.reset();
+      form.reset();
       await refreshItems();
       announce("登录成功");
     } catch (error) {

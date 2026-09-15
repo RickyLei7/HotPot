@@ -90,13 +90,7 @@ export function openReservationModal({trigger,language='en'}={}){
     status.textContent=zh?'正在準備訂位表格…':'Getting your booking form ready…';
     frame=document.createElement('iframe');
     frame.title=zh?'網上訂位表格':'Online reservation form';
-    // Private booking-management links leave the embedded form only after an
-    // explicit customer click. Popups need this narrow allowance; top-level
-    // navigation remains blocked because no navigation permission is granted.
-    // A private guest link may open only as a new, detached tab.  The iframe
-    // never receives top-navigation permission, so it cannot replace the
-    // restaurant website.
-    frame.setAttribute('sandbox','allow-forms allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox');
+    frame.setAttribute('sandbox','allow-forms allow-scripts allow-same-origin');
     frame.referrerPolicy='no-referrer';frame.src=EMBED_URL;
     frame.style.visibility='hidden';frame.inert=true;content.prepend(frame);
     frame.addEventListener('error',()=>{

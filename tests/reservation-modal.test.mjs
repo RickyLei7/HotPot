@@ -74,7 +74,8 @@ test('modal constrains iframe and lifecycle messages',async()=>{
   const modal=await read('../public/reservation-modal.js');
   assert.match(modal,/BOOKING_ORIGIN='https:\/\/reservation\.centrestjhotpot\.ca'/);
   assert.match(modal,/EMBED_URL=`\$\{BOOKING_ORIGIN\}\/embed\/book`/);
-  assert.match(modal,/allow-forms allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox/);
+  assert.match(modal,/setAttribute\('sandbox','allow-forms allow-scripts allow-same-origin'\)/);
+  assert.doesNotMatch(modal,/allow-popups/);
   assert.doesNotMatch(modal,/sandbox',\s*'[^']*allow-top-navigation/);
   assert.match(modal,/event\.origin!==BOOKING_ORIGIN/);
   assert.match(modal,/event\.source!==frame\.contentWindow/);

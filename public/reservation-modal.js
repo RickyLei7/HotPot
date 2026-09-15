@@ -5,13 +5,14 @@ let activeDialog=null;
 
 export function trustedBookingMessage(event,frame){
   const data=event.data;
-  if(event.origin!==BOOKING_ORIGIN||event.source!==frame.contentWindow||!data||data.source!=='hotpot-booking')return false;
-  const fields={
+  if(event.origin!==BOOKING_ORIGIN||event.source!==frame.contentWindow||!data||data.source!=='hotpot-booking'||typeof data.type!=='string')return false;
+  const fieldsByType={
     'booking:ready':['source','type'],
     'booking:dirty':['source','type','dirty'],
     'booking:completed':['source','type','status'],
     'booking:request-close':['source','type']
-  }[data.type];
+  };
+  const fields=Object.prototype.hasOwnProperty.call(fieldsByType,data.type)?fieldsByType[data.type]:null;
   return Boolean(fields&&Object.keys(data).length===fields.length&&Object.keys(data).every(key=>fields.includes(key))
     &&(data.type!=='booking:dirty'||typeof data.dirty==='boolean')
     &&(data.type!=='booking:completed'||['confirmed','pending'].includes(data.status)));

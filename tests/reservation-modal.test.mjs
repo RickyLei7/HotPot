@@ -25,10 +25,10 @@ async function reservationClickPrevented(link){
   return event.defaultPrevented;
 }
 
-function bookingLink({direct=false}={}){
+function bookingLink({direct=false,navCall=false}={}){
   return {
-    href:'https://reservation.centrestjhotpot.ca/book',target:'',textContent:'Open booking page',className:'',
-    classList:{contains(){return false;}},closest(selector){return selector==='a'?this:null;},
+    href:navCall?'tel:+14034553188':'https://reservation.centrestjhotpot.ca/book',target:'',textContent:'Open booking page',className:'',
+    classList:{contains(name){return navCall&&name==='nav-call';}},closest(selector){return selector==='a'?this:null;},
     getAttribute(name){return name==='href'?this.href:null;},
     hasAttribute(name){return name==='data-reservation-direct'?direct:false;},
   };
@@ -50,13 +50,24 @@ test('reservation launcher stays accessible and modal assets stay lazy',async()=
   assert.match(nav,/aria-haspopup="dialog"/);
   assert.match(nav,/data-reservation-launcher/);
   assert.match(events,/event\.preventDefault\(\)/);
-  assert.match(events,/window\.location\.assign\(link\.href\)/);
+  assert.match(events,/window\.location\.assign\(bookingUrl\)/);
   assert.match(events,/setAttribute\("aria-haspopup", "dialog"\)/);
   assert.doesNotMatch(events,/reservationLoader|reservationStyles/);
 });
 
 test('direct booking fallback is never intercepted by the dialog controller',async()=>{
   assert.equal(await reservationClickPrevented(bookingLink({direct:true})),false);
+  const separatePage=bookingLink();
+  separatePage.target='_blank';
+  assert.equal(await reservationClickPrevented(separatePage),false);
+});
+
+test('static Reserve launcher opens the dialog while phone CTAs keep lead tracking',async()=>{
+  const events=await read('../public/site-events.js');
+  assert.equal(await reservationClickPrevented(bookingLink({navCall:true})),true);
+  assert.match(events,/link\.classList && link\.classList\.contains\("nav-call"\)/);
+  assert.match(events,/sendEvent\("generate_lead", link, \{ method: "phone", lead_type: "phone", cta_intent: intent \}\)/);
+  assert.match(events,/window\.location\.assign\(bookingUrl\)/);
 });
 
 test('modal constrains iframe and lifecycle messages',async()=>{
@@ -90,6 +101,19 @@ test('trusted message check requires exact origin source marker and payload',asy
   assert.equal(trustedBookingMessage({...valid,source:{}},frame),false);
   assert.equal(trustedBookingMessage({...valid,data:{...valid.data,source:'other'}},frame),false);
   assert.equal(trustedBookingMessage({...valid,data:{...valid.data,privateUrl:'/b/#secret'}},frame),false);
+  for(const type of [null,7,{},[],{toString:null},'constructor','__proto__','unknown']){
+    assert.equal(trustedBookingMessage({...valid,data:{...valid.data,type}},frame),false);
+  }
+  for(const [data,accepted] of [
+    [{source:'hotpot-booking',type:'booking:dirty',dirty:true},true],
+    [{source:'hotpot-booking',type:'booking:dirty',dirty:false},true],
+    [{source:'hotpot-booking',type:'booking:dirty',dirty:'true'},false],
+    [{source:'hotpot-booking',type:'booking:dirty'},false],
+    [{source:'hotpot-booking',type:'booking:completed',status:'confirmed'},true],
+    [{source:'hotpot-booking',type:'booking:completed',status:'pending'},true],
+    [{source:'hotpot-booking',type:'booking:completed',status:'cancelled'},false],
+    [{source:'hotpot-booking',type:'booking:request-close'},true],
+  ])assert.equal(trustedBookingMessage({...valid,data},frame),accepted);
 });
 
 test('modal protects dismissal and restores page state',async()=>{

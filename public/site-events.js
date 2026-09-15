@@ -471,8 +471,10 @@
   setupPosterModals();
 
   var reservationModalPromise;
+  var bookingUrl = "https://reservation.centrestjhotpot.ca/book";
   function isBookingLink(link) {
     if (link.hasAttribute("data-reservation-direct")) return false;
+    if (link.classList && link.classList.contains("nav-call")) return true;
     try {
       var url = new URL(link.href, window.location.href);
       return url.origin === "https://reservation.centrestjhotpot.ca" && url.pathname === "/book";
@@ -484,7 +486,11 @@
     if (!reservationModalPromise) reservationModalPromise = import("/reservation-modal.js?v=20260914");
     reservationModalPromise
       .then(function (module) { module.openReservationModal({ trigger: link, language: pageLanguage() }); })
-      .catch(function () { reservationModalPromise = null; window.location.assign(link.href); });
+      .catch(function () {
+        reservationModalPromise = null;
+        if (link.href === bookingUrl) window.location.assign(link.href);
+        else window.location.assign(bookingUrl);
+      });
   }
   document.querySelectorAll("a[href]").forEach(function (link) {
     if (isBookingLink(link)) {
@@ -517,7 +523,10 @@
       return;
     }
 
-    if (href.indexOf("tel:") === 0) {
+    if (isBookingLink(link)) {
+      sendEvent("online_booking_click", link, { method: "website", cta_intent: "reservation" });
+      openReservationDialog(event, link);
+    } else if (href.indexOf("tel:") === 0) {
       loadGoogleTag();
       var intent = /reserve|reservation|book|订位|預訂|預約|预约/.test(text) ? "reservation" : "phone";
       sendEvent("phone_click", link, { method: "phone", cta_intent: intent });
@@ -525,9 +534,6 @@
       sendAdsCallConversion(event, link);
     } else if (href.indexOf("mailto:") === 0) {
       sendEvent("email_click", link, { method: "email" });
-    } else if (isBookingLink(link)) {
-      sendEvent("online_booking_click", link, { method: "website", cta_intent: "reservation" });
-      openReservationDialog(event, link);
     } else if (isMenuPdf(href)) {
       sendEvent(link.hasAttribute("download") ? "menu_download" : "menu_pdf_open", link, { document_type: "menu" });
     } else if (href.indexOf("google.com/maps") !== -1 && /review|評論|评论/.test(text)) {

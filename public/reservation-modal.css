@@ -1,0 +1,12 @@
+.reservation-dialog-root { inset: 0; overflow: clip; position: fixed; z-index: 1000; }
+.reservation-dialog-backdrop { background: rgba(12, 8, 7, .78); inset: 0; position: absolute; }
+.reservation-dialog { background: #fff; border: 1px solid rgba(246, 201, 76, .58); border-radius: 20px; box-shadow: 0 24px 90px rgba(0, 0, 0, .48); box-sizing: border-box; height: min(90dvh, 900px); margin: 5dvh auto 0; overflow: hidden; position: relative; width: min(640px, calc(100vw - 32px)); }
+.reservation-dialog h2 { color: #1f1611; font-size: 1rem; margin: 0; padding: 14px 58px 10px 16px; }
+.reservation-dialog iframe { border: 0; display: block; height: calc(100% - 44px); width: 100%; }
+.reservation-dialog-close { align-items: center; background: #1f1611; border: 0; border-radius: 50%; color: #fff8ea; cursor: pointer; display: flex; font-size: 1.5rem; height: 44px; justify-content: center; position: absolute; right: 10px; top: 8px; width: 44px; z-index: 2; }
+.reservation-dialog-loading, .reservation-dialog-problem, .reservation-dialog-discard { background: #fff; color: #1f1611; inset: 44px 0 0; margin: 0; padding: 24px; position: absolute; z-index: 1; }
+.reservation-dialog-problem { display: grid; gap: 12px; place-content: center; text-align: center; }
+.reservation-dialog-problem[hidden], .reservation-dialog-discard[hidden] { display: none; }
+.reservation-dialog-problem button, .reservation-dialog-problem a, .reservation-dialog-discard button { min-height: 44px; }
+.reservation-dialog-discard { background: rgba(255, 255, 255, .97); display: grid; gap: 12px; place-content: center; text-align: center; }
+@media (max-width: 600px) { .reservation-dialog { border: 0; border-radius: 0; height: 100dvh; margin: 0; padding-top: env(safe-area-inset-top); width: 100vw; } .reservation-dialog iframe { height: calc(100% - 44px - env(safe-area-inset-top)); } }

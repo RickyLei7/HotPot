@@ -43,7 +43,7 @@ export function SiteNav({ currentPath = "/", language = "en" }: SiteNavProps) {
         <Link className={`language-option${!isZhHant ? " is-active" : ""}`} aria-current={!isZhHant ? "page" : undefined} href={pair.en}>EN</Link>
         <Link className={`language-option${isZhHant ? " is-active" : ""}`} aria-current={isZhHant ? "page" : undefined} href={pair.zhHant}>中文</Link>
       </div>
-      <a className="nav-call" href="tel:+14034553188">
+      <a className="nav-call" href="https://reservation.centrestjhotpot.ca/book" data-track-label="online_booking" aria-haspopup="dialog" data-reservation-launcher>
         {labels.reserve}
       </a>
     </nav>

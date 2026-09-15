@@ -344,6 +344,17 @@
     }
   }
 
+  var reservationModalPromise;
+  function openReservationDialog(event, link) {
+    event.preventDefault();
+    if (!reservationModalPromise) reservationModalPromise = import("/reservation-modal.js?v=20260914");
+    reservationModalPromise.then(function (module) {
+      module.openReservationModal({ trigger: link, language: pageLanguage() });
+    }).catch(function () {
+      window.location.assign(link.href);
+    });
+  }
+
   function sendAdsCallConversion(event, link) {
     var navigated = false;
     var followLink = function () {
@@ -507,6 +518,12 @@
     var text = getText(link).toLowerCase();
     var platform = socialPlatform(href);
     var offer = offerType(link);
+
+    if (link.hasAttribute("data-reservation-launcher")) {
+      sendEvent("online_booking_click", link, { method: "online" });
+      if (event.button === 0 && !event.metaKey && !event.ctrlKey && !event.shiftKey && !event.altKey) openReservationDialog(event, link);
+      return;
+    }
 
     if (link.classList && link.classList.contains("language-option")) {
       sendEvent("language_switch", link, {

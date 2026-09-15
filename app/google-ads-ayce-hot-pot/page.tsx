@@ -110,7 +110,7 @@ export default function GoogleAdsAyceHotPotPage() {
           <Link href="/ayce-hot-pot-calgary">AYCE Details</Link>
           <Link href="/contact">Contact</Link>
         </div>
-        <a className="nav-call" href="tel:+14034553188">
+        <a className="nav-call" href="https://reservation.centrestjhotpot.ca/book" data-track-label="online_booking" aria-haspopup="dialog" data-reservation-launcher>
           Reserve
         </a>
       </nav>

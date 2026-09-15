@@ -380,29 +380,11 @@
     var sticky = document.querySelector(".reserve-sticky");
     if (!sticky) return;
 
-    if (!document.querySelector(".sticky-directions")) {
-      sticky.classList.add("reserve-sticky-call");
-      var directions = document.createElement("a");
-      directions.className = "reserve-sticky sticky-directions";
-      directions.href = "https://www.google.com/maps/dir/?api=1&destination=Centre+Street+Japanese+HotPot%2C+2213+Centre+St+N%2C+Calgary%2C+AB";
-      directions.target = "_blank";
-      directions.rel = "noreferrer";
-      directions.textContent = /^zh/i.test(document.documentElement.lang) ? "導航" : "Directions";
-      sticky.insertAdjacentElement("afterend", directions);
-    }
-
-    var stickyButtons = document.querySelectorAll(".reserve-sticky");
-    var setVisible = function (visible) {
-      stickyButtons.forEach(function (button) {
-        button.classList.toggle("is-visible", visible);
-      });
-    };
-
     var heroRegion = document.querySelector(".hero, .page-hero, .ads-hero, .homepage-ayce, .localized-hero");
     if (!heroRegion || !("IntersectionObserver" in window)) {
       var updateFromScroll = function () {
         var revealAt = Math.min(360, window.innerHeight * 0.45);
-        setVisible(window.scrollY > revealAt);
+        sticky.classList.toggle("is-visible", window.scrollY > revealAt);
       };
       window.addEventListener("scroll", updateFromScroll, { passive: true });
       updateFromScroll();
@@ -410,7 +392,7 @@
     }
 
     var observer = new IntersectionObserver(function (entries) {
-      setVisible(!entries[0].isIntersecting);
+      sticky.classList.toggle("is-visible", !entries[0].isIntersecting);
     }, { threshold: 0.05 });
     observer.observe(heroRegion);
   }
@@ -461,11 +443,6 @@
       var modal = activeModal();
       document.body.classList.toggle("poster-open", Boolean(modal));
       if (modal) {
-        var fullImage = modal.querySelector("img[data-full-src]");
-        if (fullImage) {
-          fullImage.src = fullImage.getAttribute("data-full-src");
-          fullImage.removeAttribute("data-full-src");
-        }
         var close = modal.querySelector(".modal-close");
         if (close) close.focus({ preventScroll: true });
       } else if (lastTrigger) {
@@ -544,6 +521,7 @@
       loadGoogleTag();
       var intent = /reserve|reservation|book|订位|預訂|預約|预约/.test(text) ? "reservation" : "phone";
       sendEvent("phone_click", link, { method: "phone", cta_intent: intent });
+      sendEvent("generate_lead", link, { method: "phone", lead_type: "phone", cta_intent: intent });
       sendAdsCallConversion(event, link);
     } else if (href.indexOf("mailto:") === 0) {
       sendEvent("email_click", link, { method: "email" });

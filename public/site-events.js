@@ -380,11 +380,29 @@
     var sticky = document.querySelector(".reserve-sticky");
     if (!sticky) return;
 
+    if (!document.querySelector(".sticky-directions")) {
+      sticky.classList.add("reserve-sticky-call");
+      var directions = document.createElement("a");
+      directions.className = "reserve-sticky sticky-directions";
+      directions.href = "https://www.google.com/maps/dir/?api=1&destination=Centre+Street+Japanese+HotPot%2C+2213+Centre+St+N%2C+Calgary%2C+AB";
+      directions.target = "_blank";
+      directions.rel = "noreferrer";
+      directions.textContent = /^zh/i.test(document.documentElement.lang) ? "導航" : "Directions";
+      sticky.insertAdjacentElement("afterend", directions);
+    }
+
+    var stickyButtons = document.querySelectorAll(".reserve-sticky");
+    var setVisible = function (visible) {
+      stickyButtons.forEach(function (button) {
+        button.classList.toggle("is-visible", visible);
+      });
+    };
+
     var heroRegion = document.querySelector(".hero, .page-hero, .ads-hero, .homepage-ayce, .localized-hero");
     if (!heroRegion || !("IntersectionObserver" in window)) {
       var updateFromScroll = function () {
         var revealAt = Math.min(360, window.innerHeight * 0.45);
-        sticky.classList.toggle("is-visible", window.scrollY > revealAt);
+        setVisible(window.scrollY > revealAt);
       };
       window.addEventListener("scroll", updateFromScroll, { passive: true });
       updateFromScroll();
@@ -392,7 +410,7 @@
     }
 
     var observer = new IntersectionObserver(function (entries) {
-      sticky.classList.toggle("is-visible", !entries[0].isIntersecting);
+      setVisible(!entries[0].isIntersecting);
     }, { threshold: 0.05 });
     observer.observe(heroRegion);
   }
@@ -443,6 +461,11 @@
       var modal = activeModal();
       document.body.classList.toggle("poster-open", Boolean(modal));
       if (modal) {
+        var fullImage = modal.querySelector("img[data-full-src]");
+        if (fullImage) {
+          fullImage.src = fullImage.getAttribute("data-full-src");
+          fullImage.removeAttribute("data-full-src");
+        }
         var close = modal.querySelector(".modal-close");
         if (close) close.focus({ preventScroll: true });
       } else if (lastTrigger) {
@@ -469,6 +492,29 @@
   setupStickyReserve();
   setupOfferViews();
   setupPosterModals();
+
+  var reservationModalPromise;
+  function isBookingLink(link) {
+    if (link.hasAttribute("data-reservation-direct")) return false;
+    try {
+      var url = new URL(link.href, window.location.href);
+      return url.origin === "https://reservation.centrestjhotpot.ca" && url.pathname === "/book";
+    } catch { return false; }
+  }
+  function openReservationDialog(event, link) {
+    if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || link.hasAttribute("download") || link.target === "_blank") return;
+    event.preventDefault();
+    if (!reservationModalPromise) reservationModalPromise = import("/reservation-modal.js?v=20260914");
+    reservationModalPromise
+      .then(function (module) { module.openReservationModal({ trigger: link, language: pageLanguage() }); })
+      .catch(function () { reservationModalPromise = null; window.location.assign(link.href); });
+  }
+  document.querySelectorAll("a[href]").forEach(function (link) {
+    if (isBookingLink(link)) {
+      link.setAttribute("aria-haspopup", "dialog");
+      link.setAttribute("data-reservation-launcher", "");
+    }
+  });
 
   document.addEventListener("click", function (event) {
     var openMore = document.querySelector(".nav-more[open]");
@@ -498,10 +544,12 @@
       loadGoogleTag();
       var intent = /reserve|reservation|book|订位|預訂|預約|预约/.test(text) ? "reservation" : "phone";
       sendEvent("phone_click", link, { method: "phone", cta_intent: intent });
-      sendEvent("generate_lead", link, { method: "phone", lead_type: "phone", cta_intent: intent });
       sendAdsCallConversion(event, link);
     } else if (href.indexOf("mailto:") === 0) {
       sendEvent("email_click", link, { method: "email" });
+    } else if (isBookingLink(link)) {
+      sendEvent("online_booking_click", link, { method: "website", cta_intent: "reservation" });
+      openReservationDialog(event, link);
     } else if (isMenuPdf(href)) {
       sendEvent(link.hasAttribute("download") ? "menu_download" : "menu_pdf_open", link, { document_type: "menu" });
     } else if (href.indexOf("google.com/maps") !== -1 && /review|評論|评论/.test(text)) {

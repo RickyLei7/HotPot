@@ -1,9 +1,0 @@
-{
-  "name": "Centre Street 叫货清单",
-  "short_name": "叫货清单",
-  "start_url": "/",
-  "display": "standalone",
-  "background_color": "#f6f3ee",
-  "theme_color": "#7a241c",
-  "lang": "zh-CN"
-}

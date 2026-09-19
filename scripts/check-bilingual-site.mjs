@@ -171,7 +171,7 @@ const chineseMenu = await readFile(fileForRoute("/zh-hant/menu/"), "utf8");
 for (const menuHref of [
   "/menu/hotpot-menu.jpg",
   "/menu/drink-menu.jpg",
-  "/menu/centre-street-japanese-hotpot-menu.pdf",
+  "/menu/centre-street-japanese-hotpot-menu-2026-09.pdf",
 ]) {
   assert.ok(chineseMenu.includes(`href="${menuHref}"`), `Chinese menu is missing visible menu link: ${menuHref}`);
 }

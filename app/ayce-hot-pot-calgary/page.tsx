@@ -162,8 +162,8 @@ export default function AyceHotPotCalgaryPage() {
             with an optional 19-item all-you-can-eat appetizer upgrade.
           </p>
           <div className="hero-actions">
-            <a className="primary-action" href="tel:+14034553188">
-              Call (403) 455-3188 to Reserve
+            <a className="primary-action" href="https://reservation.centrestjhotpot.ca/book" data-track-label="online_booking" aria-haspopup="dialog" data-reservation-launcher>
+              Book Online
             </a>
             <a className="secondary-action" href={directionsUrl} target="_blank" rel="noreferrer">
               Get Directions
@@ -219,7 +219,7 @@ export default function AyceHotPotCalgaryPage() {
           <span>Mon-Fri 5-10:30 PM · Sat-Sun 12-10:30 PM</span>
         </div>
         <div className="ayce-reserve-actions">
-          <a className="primary-action" href="tel:+14034553188">Call to Reserve</a>
+          <a className="primary-action" href="https://reservation.centrestjhotpot.ca/book" data-track-label="online_booking" aria-haspopup="dialog" data-reservation-launcher>Book Online</a>
           <a className="secondary-action dark" href={directionsUrl} target="_blank" rel="noreferrer">Directions</a>
         </div>
       </section>

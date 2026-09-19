@@ -10,8 +10,8 @@ export function SiteNav({ currentPath = "/", language = "en" }: SiteNavProps) {
   const pair = languagePair(currentPath);
   const isZhHant = language === "zh-Hant";
   const labels = isZhHant
-    ? { home: "首頁", ayce: "火鍋自助", menu: "菜單", more: "更多", about: "關於我們", faq: "常見問題", contact: "聯絡與地址", visit: "到店資訊", reserve: "訂位" }
-    : { home: "Home", ayce: "AYCE", menu: "Menu", more: "More", about: "About", faq: "FAQ", contact: "Contact", visit: "Visit", reserve: "Reserve" };
+    ? { home: "首頁", ayce: "火鍋自助", menu: "菜單", more: "更多", about: "關於我們", faq: "常見問題", contact: "聯絡與地址", visit: "到店資訊", reserve: "網上訂位", phone: "致電 (403) 455-3188" }
+    : { home: "Home", ayce: "AYCE", menu: "Menu", more: "More", about: "About", faq: "FAQ", contact: "Contact", visit: "Visit", reserve: "Book Online", phone: "Call (403) 455-3188" };
 
   return (
     <nav className="site-nav" aria-label={isZhHant ? "主要導覽" : "Main navigation"}>
@@ -36,6 +36,7 @@ export function SiteNav({ currentPath = "/", language = "en" }: SiteNavProps) {
             <Link href={localizedPath("/faq/", language)}>{labels.faq}</Link>
             <Link href={localizedPath("/contact/", language)}>{labels.contact}</Link>
             <Link href={`${localizedPath("/", language)}#visit`}>{labels.visit}</Link>
+            <a href="tel:+14034553188">{labels.phone}</a>
           </div>
         </details>
       </div>

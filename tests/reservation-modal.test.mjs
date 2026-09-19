@@ -83,7 +83,8 @@ test("online booking opens a safe same-page dialog while phone and direct-link f
       assert.equal(bounds.x > 0, true);
     }
     assert.equal(await page.locator("[data-reservation-dialog] iframe").getAttribute("src"), `${bookingOrigin}/embed/book`);
-    assert.equal(await page.locator("[data-reservation-dialog] iframe").getAttribute("sandbox"), "allow-forms allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox");
+    assert.equal(await page.locator("[data-reservation-dialog] iframe").getAttribute("sandbox"), "allow-forms allow-scripts allow-same-origin");
+    assert.equal(await page.locator("[data-reservation-problem] a").getAttribute("data-reservation-direct"), "");
     assert.equal(await page.evaluate(() => document.body.style.position), "fixed");
 
     await page.locator("[data-reservation-dialog-backdrop]").dispatchEvent("click");
@@ -119,6 +120,8 @@ test("online booking opens a safe same-page dialog while phone and direct-link f
     }));
     await page.frameLocator("[data-reservation-dialog] iframe").locator("#done").click();
     assert.deepEqual(await completion, { status: "confirmed" });
+    assert.equal(await page.evaluate(() => window.dataLayer.some((entry) => entry?.[1] === "online_booking_completed")), true);
+    assert.equal(await page.evaluate(() => JSON.stringify(window.dataLayer).includes("email")), false);
     await page.frameLocator("[data-reservation-dialog] iframe").locator("#request-close").click();
     await page.waitForTimeout(50);
     assert.equal(await dialog.isVisible(), false);

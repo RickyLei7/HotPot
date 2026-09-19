@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://centrestjhotpot.ca"),
   title: "Centre Street Japanese HotPot Calgary | $28.99 AYCE",
   description:
-    "Visit Centre Street Japanese HotPot in Calgary: $28.99 AYCE + tax, soup base included, or $19.99 personal hot pot. View the menu and call (403) 455-3188.",
+    "Visit Centre Street Japanese HotPot in Calgary: $28.99 AYCE + tax, soup base included, or $19.99 personal hot pot. View the menu and book online.",
   robots: {
     index: true,
     follow: true,
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Centre Street Japanese HotPot Calgary | $28.99 AYCE",
     description:
-      "Calgary hot pot with 15 soup bases: $28.99 AYCE + tax or $19.99 personal hot pot. View the menu and call to reserve.",
+      "Calgary hot pot with 15 soup bases: $28.99 AYCE + tax or $19.99 personal hot pot. View the menu and book online.",
     url: "https://centrestjhotpot.ca/",
     siteName: "Centre Street Japanese HotPot",
     images: ["/assets/dish-spicy.webp"],
@@ -50,7 +50,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Centre Street Japanese HotPot | AYCE Hot Pot Calgary",
     description:
-      "$28.99 AYCE hot pot in Calgary with 15 soup bases. Call (403) 455-3188 to reserve.",
+      "$28.99 AYCE hot pot in Calgary with 15 soup bases. Book a table online.",
     images: ["/assets/dish-spicy.webp"],
   },
   icons: {
@@ -74,11 +74,10 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <Script src="/language-routes.js?v=20260813-bilingual" strategy="afterInteractive" />
-        <Script src="/meta-events-1108307461722381.js" strategy="afterInteractive" />
-        <Script src="/site-events.js?v=20260914-reservation-modal" strategy="afterInteractive" />
+        <Script src="/site-events.js?v=20260919-booking-conversion" strategy="afterInteractive" />
         {children}
-        <a className="reserve-sticky" href="tel:+14034553188">
-          Call to Reserve · (403) 455-3188
+        <a className="reserve-sticky" href="https://reservation.centrestjhotpot.ca/book" data-track-label="online_booking" aria-haspopup="dialog" data-reservation-launcher>
+          Book Online
         </a>
       </body>
     </html>

@@ -1,14 +1,14 @@
 const BOOKING_ORIGIN = "https://reservation.centrestjhotpot.ca";
 const BOOKING_URL = `${BOOKING_ORIGIN}/book`;
 const EMBED_URL = `${BOOKING_ORIGIN}/embed/book`;
-const SANDBOX = "allow-forms allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox";
+const SANDBOX = "allow-forms allow-scripts allow-same-origin";
 let modal;
 
 function loadStyles() {
   if (document.querySelector("link[data-reservation-modal-styles]")) return;
   const link = document.createElement("link");
   link.rel = "stylesheet";
-  link.href = "/reservation-modal.css?v=20260914";
+  link.href = "/reservation-modal.css?v=20260919";
   link.dataset.reservationModalStyles = "";
   document.head.append(link);
 }
@@ -83,7 +83,7 @@ export function openReservationModal({ trigger, language = "en" }) {
       <div class="reservation-dialog-problem" data-reservation-problem="" hidden>
         <p>Booking is taking longer than expected.</p>
         <button type="button" data-reservation-retry="">Try again</button>
-        <a href="${BOOKING_URL}">Open booking page</a>
+        <a href="${BOOKING_URL}" data-reservation-direct>Open booking page</a>
       </div>
       <iframe title="${language === "zh-Hant" ? "網上訂位" : "Online booking"}" sandbox="${SANDBOX}"></iframe>
       <div class="reservation-dialog-discard" data-reservation-discard="" hidden>

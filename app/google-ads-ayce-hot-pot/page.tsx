@@ -124,8 +124,8 @@ export default function GoogleAdsAyceHotPotPage() {
             with soup base included, 15 soup bases, server-ordered meats, and an optional 19-item AYCE appetizer upgrade.
           </p>
           <div className="ads-hero-actions">
-            <a className="primary-action" href="tel:+14034553188">
-              Call (403) 455-3188 to Reserve
+            <a className="primary-action" href="https://reservation.centrestjhotpot.ca/book" data-track-label="online_booking" aria-haspopup="dialog" data-reservation-launcher>
+              Book Online
             </a>
             <a className="secondary-action" href={mapsUrl} target="_blank" rel="noreferrer">
               Get Directions
@@ -187,7 +187,7 @@ export default function GoogleAdsAyceHotPotPage() {
             <h2>Call before coming with a group</h2>
             <p>For weekend tables, larger groups, or today&apos;s availability, calling is the fastest way to confirm a table.</p>
             <div className="ads-hero-actions">
-              <a className="primary-action" href="tel:+14034553188">Call to Reserve</a>
+              <a className="primary-action" href="https://reservation.centrestjhotpot.ca/book" data-track-label="online_booking" aria-haspopup="dialog" data-reservation-launcher>Book Online</a>
               <Link className="secondary-action" href="/ayce-hot-pot-calgary">
                 Full AYCE Details
               </Link>

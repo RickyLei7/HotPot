@@ -94,8 +94,8 @@ export default function CalgaryTaiwaneseHotPotPage() {
             AYCE hot pot, Taiwanese snacks, rice and noodle bowls, and milk tea in Calgary.
           </p>
           <div className="hero-actions">
-            <a className="primary-action" href="tel:+14034553188">
-              Call (403) 455-3188 to Reserve
+            <a className="primary-action" href="https://reservation.centrestjhotpot.ca/book" data-track-label="online_booking" aria-haspopup="dialog" data-reservation-launcher>
+              Book Online
             </a>
             <Link className="secondary-action" href="/menu">
               View Menu

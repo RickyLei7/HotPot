@@ -2,7 +2,7 @@ import { writeFile } from "node:fs/promises";
 import path from "node:path";
 
 const baseUrl = "https://centrestjhotpot.ca";
-const lastmod = "2026-08-14";
+const lastmod = "2026-09-19";
 const pairs = [
   ["/", "/zh-hant/", "weekly", "1.0"],
   ["/about/", "/zh-hant/about/", "monthly", "0.8"],
@@ -32,6 +32,11 @@ const entries = pairs.flatMap(([englishPath, traditionalChinesePath, changefreq,
   entry(englishPath, englishPath, traditionalChinesePath, changefreq, priority),
   entry(traditionalChinesePath, englishPath, traditionalChinesePath, changefreq, priority),
 ]);
+
+entries.push(
+  `  <url>\n    <loc>${baseUrl}/privacy-policy/</loc>\n    <lastmod>${lastmod}</lastmod>\n    <changefreq>yearly</changefreq>\n    <priority>0.3</priority>\n  </url>`,
+  `  <url>\n    <loc>${baseUrl}/table-menu/</loc>\n    <lastmod>${lastmod}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.9</priority>\n  </url>`,
+);
 
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"

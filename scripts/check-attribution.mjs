@@ -65,6 +65,8 @@ for (const requiredText of [
   "campaign_landing",
   "google_ads_landing",
   "phone_click",
+  "online_booking_click",
+  "online_booking_completed",
   "offer_view",
   "offer_interest_click",
   "page_type",

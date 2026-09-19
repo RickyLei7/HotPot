@@ -184,9 +184,17 @@
     document.head.appendChild(script);
   }
 
-  function loadMetaPixel() {
+  function configureMetaPixel() {
     if (window.__hotpotMetaPixelConfigured) return;
     window.__hotpotMetaPixelConfigured = true;
+
+    window.fbq("init", metaPixelId);
+    window.fbq("track", "PageView");
+  }
+
+  function loadMetaPixel() {
+    if (window.__hotpotMetaPixelLoading) return;
+    window.__hotpotMetaPixelLoading = true;
 
     if (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1") {
       return;
@@ -196,14 +204,15 @@
     script.async = true;
     script.src = "https://connect.facebook.net/en_US/fbevents.js";
     document.head.appendChild(script);
-
-    window.fbq("init", metaPixelId);
-    window.fbq("track", "PageView");
   }
 
-  function scheduleGoogleTag() {
-    var loadFromIntent = function () {
+  function scheduleMarketingTags() {
+    var loadTags = function () {
       loadGoogleTag();
+      loadMetaPixel();
+    };
+    var loadFromIntent = function () {
+      loadTags();
       window.removeEventListener("pointerdown", loadFromIntent);
       window.removeEventListener("keydown", loadFromIntent);
       window.removeEventListener("scroll", loadFromIntent);
@@ -214,11 +223,10 @@
     window.addEventListener("scroll", loadFromIntent, { passive: true, once: true });
 
     var loadWhenPageSettles = function () {
-      if ("requestIdleCallback" in window) {
-        window.requestIdleCallback(loadGoogleTag, { timeout: 3500 });
-      } else {
-        window.setTimeout(loadGoogleTag, 2500);
-      }
+      window.setTimeout(function () {
+        if ("requestIdleCallback" in window) window.requestIdleCallback(loadTags, { timeout: 1500 });
+        else loadTags();
+      }, 2500);
     };
 
     if (document.readyState === "complete") {
@@ -237,8 +245,8 @@
     window.__hotpotGaConfigured = true;
   }
   window.__hotpotAnalyticsReady = true;
-  loadMetaPixel();
-  scheduleGoogleTag();
+  configureMetaPixel();
+  scheduleMarketingTags();
 
   if (hasCampaignData(directAttribution) && !window.__hotpotCampaignLandingSent) {
     window.gtag("event", "campaign_landing", Object.assign(baseParams(), {
@@ -345,15 +353,47 @@
   }
 
   var reservationModalPromise;
+  var lastBookingLink = null;
+  var bookingUrl = "https://reservation.centrestjhotpot.ca/book";
+
+  function isBookingLink(link) {
+    if (!link || link.hasAttribute("data-reservation-direct")) return false;
+    try {
+      var url = new URL(link.href, window.location.href);
+      return url.origin === "https://reservation.centrestjhotpot.ca" && url.pathname.replace(/\/$/, "") === "/book";
+    } catch (_error) {
+      return false;
+    }
+  }
+
   function openReservationDialog(event, link) {
     event.preventDefault();
-    if (!reservationModalPromise) reservationModalPromise = import("/reservation-modal.js?v=20260914");
+    lastBookingLink = link;
+    if (!reservationModalPromise) reservationModalPromise = import("/reservation-modal.js?v=20260919");
     reservationModalPromise.then(function (module) {
       module.openReservationModal({ trigger: link, language: pageLanguage() });
     }).catch(function () {
-      window.location.assign(link.href);
+      window.location.assign(bookingUrl);
     });
   }
+
+  document.querySelectorAll("a[href]").forEach(function (link) {
+    if (!isBookingLink(link)) return;
+    link.setAttribute("data-track-label", "online_booking");
+    link.setAttribute("aria-haspopup", "dialog");
+    link.setAttribute("data-reservation-launcher", "");
+  });
+
+  window.addEventListener("hotpot:booking-completed", function (event) {
+    var status = event.detail && event.detail.status === "confirmed" ? "confirmed" : "pending";
+    var link = lastBookingLink || document.querySelector("a[data-reservation-launcher]");
+    if (!link) return;
+    sendEvent("online_booking_completed", link, {
+      method: "website",
+      cta_intent: "reservation",
+      booking_status: status,
+    });
+  });
 
   function sendAdsCallConversion(event, link) {
     var navigated = false;
@@ -519,8 +559,8 @@
     var platform = socialPlatform(href);
     var offer = offerType(link);
 
-    if (link.hasAttribute("data-reservation-launcher")) {
-      sendEvent("online_booking_click", link, { method: "online" });
+    if (isBookingLink(link)) {
+      sendEvent("online_booking_click", link, { method: "website", cta_intent: "reservation" });
       if (event.button === 0 && !event.metaKey && !event.ctrlKey && !event.shiftKey && !event.altKey) openReservationDialog(event, link);
       return;
     }

@@ -11,7 +11,7 @@
     "image": "/assets/ayce-menu-2026-08-25-fast-480.webp",
     "imageAlt": "鼎鑽火鍋 $28.99 火鍋自助菜單",
     "actions": [
-      { "label": "致電 (403) 455-3188 訂位", "href": "tel:+14034553188", "style": "primary-action" },
+      { "label": "網上訂位", "href": "https://reservation.centrestjhotpot.ca/book", "style": "primary-action" },
       { "label": "查看火鍋自助", "href": "/zh-hant/ayce-hot-pot-calgary/", "style": "secondary-action" },
       { "label": "查看完整菜單", "href": "/zh-hant/menu/", "style": "secondary-action" }
     ],
@@ -71,7 +71,7 @@
     "imageAlt": "鼎鑽火鍋多款特色湯底與火鍋食材",
     "actions": [
       { "label": "查看菜單", "href": "/zh-hant/menu/", "style": "primary-action" },
-      { "label": "致電訂位", "href": "tel:+14034553188", "style": "secondary-action" }
+      { "label": "網上訂位", "href": "https://reservation.centrestjhotpot.ca/book", "style": "secondary-action" }
     ],
     "facts": [
       { "value": "台式", "label": "熟悉溫暖的風味" },
@@ -110,11 +110,7 @@
     "image": "/assets/dish-sukiyaki.webp",
     "imageAlt": "鼎鑽火鍋日式壽喜鍋與新鮮火鍋食材",
     "actions": [
-      {
-        "label": "致電訂位",
-        "href": "tel:+14034553188",
-        "style": "primary-action"
-      },
+      { "label": "網上訂位", "href": "https://reservation.centrestjhotpot.ca/book", "style": "primary-action" },
       {
         "label": "開啟完整菜單 PDF",
         "href": "/menu/centre-street-japanese-hotpot-menu-2026-09.pdf",
@@ -391,11 +387,11 @@
     "description": "鼎鑽火鍋常見問題：是否接受訂位、$28.99 火鍋自助規則、15 款湯底、海鮮與小吃、兒童價格、團體用餐、地址及營業時間。",
     "eyebrow": "常見問題",
     "h1": "到鼎鑽火鍋用餐前先看這裡",
-    "lead": "以下整理訂位、火鍋自助、一人一鍋、菜單、地址與營業時間。若要確認今天座位或最新供應，直接致電最準確。",
+    "lead": "以下整理訂位、火鍋自助、一人一鍋、菜單、地址與營業時間。可以先網上訂位；若要確認今天座位或最新供應，也可直接致電。",
     "image": "/assets/dish-spicy.webp",
     "imageAlt": "鼎鑽火鍋麻辣鍋與火鍋配料",
     "actions": [
-      { "label": "致電詢問與訂位", "href": "tel:+14034553188", "style": "primary-action" },
+      { "label": "網上訂位", "href": "https://reservation.centrestjhotpot.ca/book", "style": "primary-action" },
       { "label": "查看菜單", "href": "/zh-hant/menu/", "style": "secondary-action" }
     ],
     "facts": [
@@ -406,7 +402,7 @@
     ],
     "sections": [],
     "faqs": [
-      { "question": "鼎鑽火鍋接受訂位嗎？", "answer": "接受。請致電 (403) 455-3188 預訂；週末、多人聚餐或想確認當天座位時，建議提前來電。" },
+      { "question": "鼎鑽火鍋接受訂位嗎？", "answer": "接受。可以使用網站網上訂位；週末、多人聚餐或想確認當天座位時，也可致電 (403) 455-3188。" },
       { "question": "火鍋自助多少錢？", "answer": "火鍋自助為 $28.99，包含鍋底，肉品由服務員協助下單。" },
       { "question": "小吃任點如何計費？", "answer": "19 款小吃任點升級為 +$5.99／人，同一桌所有客人都必須一起升級。" },
       { "question": "兒童火鍋自助如何收費？", "answer": "身高 100cm 以下免費；100-140cm 為 $12.99；超過 140cm 按成人價收費。" },
@@ -424,12 +420,12 @@
     "title": "鼎鑽火鍋地址與訂位｜卡加利 Centre Street",
     "description": "鼎鑽火鍋位於 2213 Centre St N #2243, Calgary。查看電話、Google 地圖、營業時間、火鍋自助資訊與團體訂位方式。",
     "eyebrow": "聯絡與地址",
-    "h1": "致電訂位或直接導航到鼎鑽火鍋",
-    "lead": "想確認今天座位、週末聚餐或團體用餐，請致電 (403) 455-3188。我們位於卡加利 Centre Street，設有火鍋自助與一人一鍋。",
+    "h1": "網上訂位或直接導航到鼎鑽火鍋",
+    "lead": "想確認今天座位、週末聚餐或團體用餐，可以先網上訂位，也可致電 (403) 455-3188。我們位於卡加利 Centre Street，設有火鍋自助與一人一鍋。",
     "image": "/assets/hero-beef-noodle.webp",
     "imageAlt": "鼎鑽火鍋台灣傳統牛肉麵與餐點",
     "actions": [
-      { "label": "致電 (403) 455-3188", "href": "tel:+14034553188", "style": "primary-action" },
+      { "label": "網上訂位", "href": "https://reservation.centrestjhotpot.ca/book", "style": "primary-action" },
       { "label": "Google 地圖導航", "href": "https://www.google.com/maps/dir/?api=1&destination=2213+Centre+St+N+%232243%2C+Calgary%2C+AB+T2E+2T4", "style": "secondary-action" },
       { "label": "查看菜單", "href": "/zh-hant/menu/", "style": "secondary-action" }
     ],
@@ -452,7 +448,7 @@
       }
     ],
     "faqs": [
-      { "question": "可以當天打電話訂位嗎？", "answer": "可以。請致電 (403) 455-3188 詢問當天座位；實際安排以店內回覆為準。" },
+      { "question": "可以當天打電話訂位嗎？", "answer": "可以先使用網站網上訂位，也可致電 (403) 455-3188 詢問當天座位；實際安排以店內回覆為準。" },
       { "question": "鼎鑽火鍋離 Centre Street 近嗎？", "answer": "店鋪就在 2213 Centre St N #2243，位於卡加利 Centre Street。" }
     ]
   },
@@ -468,7 +464,7 @@
     "image": "/assets/brand-logo-wide.webp",
     "imageAlt": "Centre Street Japanese HotPot 鼎鑽火鍋標誌",
     "actions": [
-      { "label": "致電訂位", "href": "tel:+14034553188", "style": "primary-action" },
+      { "label": "網上訂位", "href": "https://reservation.centrestjhotpot.ca/book", "style": "primary-action" },
       { "label": "查看菜單", "href": "/zh-hant/menu/", "style": "secondary-action" },
       { "label": "地圖導航", "href": "https://www.google.com/maps/dir/?api=1&destination=2213+Centre+St+N+%232243%2C+Calgary%2C+AB+T2E+2T4", "style": "secondary-action" }
     ],
@@ -497,7 +493,7 @@
     ],
     "faqs": [
       { "question": "鼎鑽火鍋的英文店名是什麼？", "answer": "英文店名是 Centre Street Japanese HotPot，中文店名是鼎鑽火鍋。" },
-      { "question": "如何確認最新座位與供應？", "answer": "請致電 (403) 455-3188；當天座位與個別品項供應以店內回覆為準。" }
+      { "question": "如何確認最新座位與供應？", "answer": "可以先使用網站網上訂位；如要確認當天座位或個別品項供應，也可致電 (403) 455-3188。" }
     ]
   },
   "hotPotGuide": {
@@ -514,7 +510,7 @@
     "actions": [
       { "label": "查看繁中菜單", "href": "/zh-hant/menu/", "style": "primary-action" },
       { "label": "查看火鍋自助", "href": "/zh-hant/ayce-hot-pot-calgary/", "style": "secondary-action" },
-      { "label": "致電訂位", "href": "tel:+14034553188", "style": "secondary-action" }
+      { "label": "網上訂位", "href": "https://reservation.centrestjhotpot.ca/book", "style": "secondary-action" }
     ],
     "facts": [
       { "value": "一人一鍋", "label": "每人選自己的湯底" },
@@ -557,7 +553,7 @@
     "imageAlt": "卡加利鼎鑽火鍋台式麻辣個人鍋",
     "actions": [
       { "label": "查看繁中菜單", "href": "/zh-hant/menu/", "style": "primary-action" },
-      { "label": "致電訂位", "href": "tel:+14034553188", "style": "secondary-action" }
+      { "label": "網上訂位", "href": "https://reservation.centrestjhotpot.ca/book", "style": "secondary-action" }
     ],
     "facts": [
       { "value": "台式", "label": "湯底、小吃與熟悉風味" },
@@ -600,7 +596,7 @@
     "imageAlt": "第一次吃火鍋可選擇日式壽喜鍋與個人火鍋食材",
     "actions": [
       { "label": "查看繁中菜單", "href": "/zh-hant/menu/", "style": "primary-action" },
-      { "label": "致電訂位", "href": "tel:+14034553188", "style": "secondary-action" }
+      { "label": "網上訂位", "href": "https://reservation.centrestjhotpot.ca/book", "style": "secondary-action" }
     ],
     "facts": [
       { "value": "第 1 步", "label": "選湯底與辣度" },
@@ -645,7 +641,7 @@
     "imageActionLabel": "點擊查看完整火鍋自助菜單",
     "imageAlt": "鼎鑽火鍋卡加利 $28.99 火鍋自助完整菜單",
     "actions": [
-      { "label": "致電 (403) 455-3188 訂位", "href": "tel:+14034553188", "style": "primary-action" },
+      { "label": "網上訂位", "href": "https://reservation.centrestjhotpot.ca/book", "style": "primary-action" },
       { "label": "Google 地圖導航", "href": "https://www.google.com/maps/dir/?api=1&destination=2213+Centre+St+N+%232243%2C+Calgary%2C+AB+T2E+2T4", "style": "secondary-action" },
       { "label": "查看繁中菜單", "href": "/zh-hant/menu/", "style": "secondary-action" }
     ],

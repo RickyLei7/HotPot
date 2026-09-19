@@ -32,7 +32,6 @@ const restaurantInfoSchema = {
     "@type": "Restaurant",
     "@id": "https://centrestjhotpot.ca/#restaurant",
     name: "Centre Street Japanese HotPot",
-    legalName: "1843905 ALBERTA LTD",
     alternateName: ["Centre Street Japanese Hotpot", "鼎鑽火鍋"],
     description:
       "Taiwanese and Japanese-style hot pot restaurant in Calgary serving individual hot pot, signature soup bases, premium meats, seafood, vegetables, Taiwanese snacks, rice and noodle bowls, and milk tea.",
@@ -93,7 +92,6 @@ const restaurantInfoSchema = {
 
 const facts = [
   ["Name", "Centre Street Japanese HotPot."],
-  ["Legal Business", "Centre Street Japanese HotPot is operated by 1843905 ALBERTA LTD."],
   [
     "Restaurant Type",
     "Taiwanese and Japanese-style hot pot restaurant in Calgary serving individual hot pot, soup bases, meats, seafood, vegetables, Taiwanese snacks, rice and noodle bowls, and milk tea.",
@@ -101,7 +99,7 @@ const facts = [
   ["Address", "2213 Centre St N #2243, Calgary, AB T2E 2T4, Canada."],
   [
     "Contact",
-    "Phone: (403) 455-3188. Email: info@centrestjhotpot.ca. Call for reservations, group dining, and today's table availability.",
+    "Book online for reservations. Phone: (403) 455-3188. Email: info@centrestjhotpot.ca. Call for group dining and today's table availability.",
   ],
   ["Hours", "Monday to Friday: 17:00-22:30. Saturday and Sunday: 12:00-22:30."],
   [

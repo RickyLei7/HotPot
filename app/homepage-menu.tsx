@@ -44,7 +44,7 @@ export function HomepageMenu({ language }: { language: HomepageLanguage }) {
           <p className="homepage-lead">{content.ayce.lead}</p>
 
           <div className="hero-actions">
-            <a className="primary-action" href="tel:+14034553188">{content.ayce.reserve}</a>
+            <a className="primary-action" href="https://reservation.centrestjhotpot.ca/book" data-track-label="online_booking" aria-haspopup="dialog" data-reservation-launcher>{content.ayce.reserve}</a>
             <Link className="secondary-action" href={aycePath}>{content.ayce.menu}</Link>
           </div>
           <div className="hero-visit"><a href={directionsUrl} target="_blank" rel="noreferrer">2213 Centre St N #2243 · {isZh ? "導航" : "Directions"}</a><p>{isZh ? "週一至週五 17:00–22:30 · 週六及週日 12:00–22:30" : "Mon–Fri 5–10:30 PM · Sat–Sun noon–10:30 PM"}</p></div>
@@ -159,7 +159,7 @@ export function HomepageMenu({ language }: { language: HomepageLanguage }) {
         <div className="section-heading compact"><p className="eyebrow">{content.visit.eyebrow}</p><h2>{content.visit.title}</h2></div>
         <div className="visit-grid">
           <article><h3>{content.visit.hoursTitle}</h3>{content.visit.hours.map((hours) => <p key={hours}>{hours}</p>)}<Link href={restaurantInfoPath}>{content.visit.details}</Link></article>
-          <article><h3>{content.visit.contactTitle}</h3><p>{content.visit.contactCopy}</p><a href="tel:+14034553188">{content.visit.reserve}</a></article>
+          <article><h3>{content.visit.contactTitle}</h3><p>{content.visit.contactCopy}</p><a href="https://reservation.centrestjhotpot.ca/book" data-track-label="online_booking" aria-haspopup="dialog" data-reservation-launcher>{content.visit.reserve}</a><p><a href="tel:+14034553188">{language === "zh-Hant" ? "致電 (403) 455-3188" : "Call (403) 455-3188"}</a></p></article>
           <article><h3>{content.visit.directions}</h3><p>2213 Centre St N #2243, Calgary, AB T2E 2T4</p><a href={directionsUrl} target="_blank" rel="noreferrer">{content.visit.directions}</a></article>
           <article><h3>{content.visit.reviewTitle}</h3><p>{content.visit.reviewCopy}</p><a href={googleReviewUrl} target="_blank" rel="noreferrer">{content.visit.review}</a></article>
         </div>

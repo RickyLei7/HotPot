@@ -5,7 +5,7 @@ import { SiteNav } from "../site-nav";
 export const metadata: Metadata = {
   title: "Contact Centre Street Japanese HotPot | Calgary Location",
   description:
-    "Reserve a table at Centre Street Japanese HotPot in Calgary. Find our phone, Centre Street address, opening hours and Google Maps directions.",
+    "Book a table online at Centre Street Japanese HotPot in Calgary. Find our phone, Centre Street address, opening hours and Google Maps directions.",
   alternates: {
     canonical: "/contact",
     languages: {
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Contact Centre Street Japanese HotPot | Calgary Location",
     description:
-      "Call Centre Street Japanese HotPot in Calgary for reservations, group dining, today's availability, address, hours, and Google Maps directions.",
+      "Book online or call Centre Street Japanese HotPot in Calgary for reservations, group dining, today's availability, address, hours, and directions.",
     url: "https://centrestjhotpot.ca/contact/",
     images: ["/assets/hero-beef-noodle.webp"],
   },
@@ -33,7 +33,7 @@ export default function ContactPage() {
           <p className="eyebrow">Contact & Location</p>
           <h1>Visit Centre Street Japanese HotPot in Calgary</h1>
           <p className="hero-text">
-            Call us to reserve a table, ask about group dining, or check today&apos;s availability
+            Book online to reserve a table, or call us about group dining and today&apos;s availability
             before visiting for Taiwanese and Japanese-style hot pot, Taiwanese snacks, and milk tea.
           </p>
         </div>
@@ -43,7 +43,6 @@ export default function ContactPage() {
         <div className="section-heading compact">
           <p className="eyebrow">Visit us</p>
           <h2>2213 Centre St N #2243, Calgary, AB T2E 2T4</h2>
-          <p>Centre Street Japanese HotPot is operated by 1843905 ALBERTA LTD.</p>
         </div>
         <div className="visit-grid">
           <article>
@@ -53,8 +52,8 @@ export default function ContactPage() {
           </article>
           <article>
             <h3>Reservations</h3>
-            <p><a href="tel:+14034553188">Call to reserve: (403) 455-3188</a></p>
-            <p>Ask about group dining and today&apos;s availability.</p>
+            <p><a href="https://reservation.centrestjhotpot.ca/book" data-track-label="online_booking" aria-haspopup="dialog" data-reservation-launcher>Book a table online</a></p>
+            <p>Prefer to call? <a href="tel:+14034553188">(403) 455-3188</a></p>
           </article>
           <article>
             <h3>Email</h3>

@@ -53,7 +53,7 @@ const schema = {
         "A practical guide to individual hot pot, first-time ordering, AYCE hot pot, soup bases, reservations, and location details at Centre Street Japanese HotPot in Calgary.",
       url: "https://centrestjhotpot.ca/first-time-hot-pot-calgary/",
       datePublished: "2026-08-08",
-      dateModified: "2026-08-29",
+      dateModified: "2026-09-19",
       author: { "@id": "https://centrestjhotpot.ca/#restaurant" },
       about: [
         "first time hot pot Calgary",
@@ -87,7 +87,7 @@ export default function FirstTimeHotPotCalgaryPage() {
           <p className="eyebrow">First-time hot pot Calgary</p>
           <h1>New to Hot Pot A Simple Calgary Ordering Guide</h1>
           <p className="hero-text">Individual hot pot is simple: choose your soup base, pick your meal, and make it your own with meats, vegetables, rice or noodles, snacks, and drinks.</p>
-          <div className="hero-actions"><a className="primary-action" href="tel:+14034553188">Call (403) 455-3188 to Reserve</a><Link className="secondary-action" href="/menu">View Menu</Link></div>
+          <div className="hero-actions"><a className="primary-action" href="https://reservation.centrestjhotpot.ca/book" data-track-label="online_booking" aria-haspopup="dialog" data-reservation-launcher>Book Online</a><Link className="secondary-action" href="/menu">View Menu</Link></div>
         </div>
       </section>
 

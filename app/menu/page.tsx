@@ -196,7 +196,7 @@ export default function MenuPage() {
             <span>Please order with your server.</span>
           </aside>
           <div className="hero-actions">
-            <a className="primary-action" href="tel:+14034553188">Call to Reserve</a>
+            <a className="primary-action" href="https://reservation.centrestjhotpot.ca/book" data-track-label="online_booking" aria-haspopup="dialog" data-reservation-launcher>Book Online</a>
             <a
               className="secondary-action"
               href="https://www.google.com/maps/dir/?api=1&destination=2213+Centre+St+N+%232243%2C+Calgary%2C+AB+T2E+2T4"

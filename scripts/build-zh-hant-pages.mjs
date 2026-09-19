@@ -32,7 +32,7 @@ function jsonLd(data) {
   if (data.schemaType === "Article") {
     pageEntity.headline = data.h1;
     pageEntity.datePublished = "2026-08-13";
-    pageEntity.dateModified = "2026-08-14";
+    pageEntity.dateModified = "2026-09-19";
     pageEntity.author = { "@id": `${origin}/#restaurant` };
     pageEntity.publisher = { "@id": `${origin}/#restaurant` };
   }
@@ -135,16 +135,18 @@ function renderNav(data) {
   ];
   return `<nav class="site-nav" aria-label="主要導覽">
       <a class="brand-mark" href="/zh-hant/" aria-label="鼎鑽火鍋首頁"><img src="/assets/brand-logo-wide-300.webp" srcset="/assets/brand-logo-wide-300.webp 300w, /assets/brand-logo-wide-480.webp 480w, /assets/brand-logo-wide.webp 600w" sizes="(max-width: 760px) 34vw, 260px" alt="Centre Street Japanese HotPot 鼎鑽火鍋" width="600" height="184" /></a>
-      <div class="nav-links">${links.map(([label, href]) => `<a href="${href}">${label}</a>`).join("")}<details class="nav-more"><summary>更多</summary><div class="nav-more-links"><a href="/zh-hant/about/">關於我們</a><a href="/zh-hant/faq/">常見問題</a><a href="/zh-hant/contact/">聯絡與地址</a><a href="/zh-hant/#visit">到店資訊</a></div></details></div>
+      <div class="nav-links">${links.map(([label, href]) => `<a href="${href}">${label}</a>`).join("")}<details class="nav-more"><summary>更多</summary><div class="nav-more-links"><a href="/zh-hant/about/">關於我們</a><a href="/zh-hant/faq/">常見問題</a><a href="/zh-hant/contact/">聯絡與地址</a><a href="/zh-hant/#visit">到店資訊</a><a href="tel:+14034553188">致電 (403) 455-3188</a></div></details></div>
       <div class="language-switch" aria-label="切換網站語言"><a class="language-option" hreflang="en-CA" lang="en-CA" href="${data.englishPath}">EN</a><a class="language-option is-active" aria-current="page" hreflang="zh-Hant-CA" lang="zh-Hant" href="${data.path}">中文</a></div>
-      <a class="nav-call" href="tel:+14034553188">訂位</a>
+      <a class="nav-call" href="https://reservation.centrestjhotpot.ca/book" data-track-label="online_booking" aria-haspopup="dialog" data-reservation-launcher>網上訂位</a>
     </nav>`;
 }
 
 function renderActions(actions) {
   return actions.map((action) => {
-    const external = action.href.startsWith("http") ? ' target="_blank" rel="noreferrer"' : "";
-    return `<a class="${action.style}" href="${escapeHtml(action.href)}"${external}>${escapeHtml(action.label)}</a>`;
+    const isBooking = action.href === "https://reservation.centrestjhotpot.ca/book";
+    const external = action.href.startsWith("http") && !isBooking ? ' target="_blank" rel="noreferrer"' : "";
+    const booking = isBooking ? ' data-track-label="online_booking" aria-haspopup="dialog" data-reservation-launcher' : "";
+    return `<a class="${action.style}" href="${escapeHtml(action.href)}"${external}${booking}>${escapeHtml(action.label)}</a>`;
   }).join("");
 }
 
@@ -203,13 +205,13 @@ function renderHomePage(data) {
     <link rel="preload" as="image" href="/assets/ayce-menu-2026-08-25-fast-720.webp" imagesrcset="/assets/ayce-menu-2026-08-25-fast-720.webp 720w, /assets/ayce-menu-2026-08-24-599.webp 1200w" imagesizes="42vw" media="(min-width: 761px)" />
     <link rel="stylesheet" href="/site.css?v=20260904-compact" />
     <script defer src="/language-routes.js?v=20260813-bilingual"></script>
-    <script defer src="/site-events.js?v=20260829-conversion"></script>
+    <script defer src="/site-events.js?v=20260919-booking-conversion"></script>
     <script type="application/ld+json">${jsonLd(data)}</script>
   </head>
   <body>
     ${renderNav(data)}
     <main>
-      <section id="ayce" class="homepage-ayce"><div class="homepage-ayce-copy"><p class="eyebrow">卡加利火鍋自助</p><h1><span class="heading-unit">$28.99</span> <span class="heading-unit">火鍋自助</span></h1><p class="offer-tax">每位另加稅 鍋底已包含</p><p class="homepage-lead">15 款湯底自由選擇，AAA 牛肉、羊肉、豬肉或雞肉由服務員協助新鮮下單。</p><div class="hero-actions"><a class="primary-action" href="tel:+14034553188">致電預訂火鍋自助</a><a class="secondary-action" href="/zh-hant/ayce-hot-pot-calgary/">查看火鍋自助詳情</a></div><div class="hero-visit"><a href="https://www.google.com/maps/dir/?api=1&amp;destination=2213+Centre+St+N+%232243%2C+Calgary%2C+AB+T2E+2T4" target="_blank" rel="noreferrer">2213 Centre St N #2243 · 導航</a><p>週一至週五 17:00–22:30 · 週六及週日 12:00–22:30</p></div></div><a class="homepage-ayce-media poster-thumbnail" href="#homepage-ayce-image" aria-label="查看完整火鍋自助圖片"><picture><source media="(max-width: 760px)" srcset="/assets/ayce-menu-2026-08-25-fast-360.webp 360w, /assets/ayce-menu-2026-08-25-fast-480.webp 480w" sizes="calc(100vw - 32px)" /><img src="/assets/ayce-menu-2026-08-25-fast-720.webp" srcset="/assets/ayce-menu-2026-08-25-fast-720.webp 720w, /assets/ayce-menu-2026-08-24-599.webp 1200w" sizes="42vw" alt="鼎鑽火鍋火鍋自助" width="1200" height="1553" fetchpriority="high" decoding="async" /></picture><span>15 款湯底</span><strong class="poster-open-label">查看完整圖片</strong></a></section>
+      <section id="ayce" class="homepage-ayce"><div class="homepage-ayce-copy"><p class="eyebrow">卡加利火鍋自助</p><h1><span class="heading-unit">$28.99</span> <span class="heading-unit">火鍋自助</span></h1><p class="offer-tax">每位另加稅 鍋底已包含</p><p class="homepage-lead">15 款湯底自由選擇，AAA 牛肉、羊肉、豬肉或雞肉由服務員協助新鮮下單。</p><div class="hero-actions"><a class="primary-action" href="https://reservation.centrestjhotpot.ca/book">網上預訂火鍋自助</a><a class="secondary-action" href="/zh-hant/ayce-hot-pot-calgary/">查看火鍋自助詳情</a></div><div class="hero-visit"><a href="https://www.google.com/maps/dir/?api=1&amp;destination=2213+Centre+St+N+%232243%2C+Calgary%2C+AB+T2E+2T4" target="_blank" rel="noreferrer">2213 Centre St N #2243 · 導航</a><p>週一至週五 17:00–22:30 · 週六及週日 12:00–22:30</p></div></div><a class="homepage-ayce-media poster-thumbnail" href="#homepage-ayce-image" aria-label="查看完整火鍋自助圖片"><picture><source media="(max-width: 760px)" srcset="/assets/ayce-menu-2026-08-25-fast-360.webp 360w, /assets/ayce-menu-2026-08-25-fast-480.webp 480w" sizes="calc(100vw - 32px)" /><img src="/assets/ayce-menu-2026-08-25-fast-720.webp" srcset="/assets/ayce-menu-2026-08-25-fast-720.webp 720w, /assets/ayce-menu-2026-08-24-599.webp 1200w" sizes="42vw" alt="鼎鑽火鍋火鍋自助" width="1200" height="1553" fetchpriority="high" decoding="async" /></picture><span>15 款湯底</span><strong class="poster-open-label">查看完整圖片</strong></a></section>
       <section class="poster-modal" id="homepage-ayce-image" role="dialog" aria-modal="true" aria-labelledby="homepage-ayce-image-title" data-close-target="ayce"><a class="modal-backdrop" href="#ayce" aria-label="關閉完整火鍋自助圖片"></a><div class="poster-frame"><span class="modal-label" id="homepage-ayce-image-title">火鍋自助完整圖片</span><a class="modal-close" href="#ayce">關閉</a><img src="/assets/ayce-menu-2026-08-25-fast-360.webp" data-full-src="/assets/ayce-menu-2026-08-24-599.webp" alt="鼎鑽火鍋火鍋自助完整圖片" width="1200" height="1553" loading="lazy" decoding="async" /></div></section>
       <section class="ayce-snack-feature" aria-labelledby="snack-title"><div class="section-heading compact"><p class="eyebrow">火鍋自助加點選擇</p><h2 id="snack-title">+$5.99 升級 19 款小吃任點</h2><p>先吃招牌台式鹽酥雞，再選章魚小丸子、香酥雞排、黃金炸饅頭、酥炸魷魚鬚等小吃。</p></div><div class="snack-showcase">${snackCards.map(([name, src, srcset, featured]) => `<article class="snack-card${featured ? " is-featured" : ""}"><img src="${src}"${srcset ? ` srcset="${srcset}"` : ""} sizes="${featured ? "(max-width: 760px) 88vw, 420px" : "(max-width: 760px) 44vw, 220px"}" alt="${name}" width="320" height="220" loading="lazy" decoding="async" /><h3>${name}</h3></article>`).join("")}</div><p class="snack-rule"><strong>小吃任點升級每位 +$5.99，同桌客人必須一起升級。</strong> 沒有升級小吃任點也可以按菜單單點各款小吃。</p><a class="text-action" href="/zh-hant/menu/">查看完整菜單</a></section>
       <section id="personal-hot-pot" class="personal-value"><div class="personal-value-copy"><p class="eyebrow">完整一餐超值選擇</p><h2>$19.99 個人火鍋</h2><p class="homepage-lead">$19.99 包含 15 款湯底任選一款、一份大份菜盤、一份肉和一份主食。</p><details class="home-details"><summary>套餐內容與升級選擇</summary><div class="inclusion-grid"><article><span>1</span><p>15 款湯底任選一款</p></article><article><span>2</span><p>一份大份菜盤</p></article><article><span>3</span><p>一份肉可選 AAA 牛肉 羊肉 豬肉或雞肉</p></article><article><span>4</span><p>一份主食可選白飯或麵</p></article></div><p class="split-pot-note">想同時吃兩款湯底，可加 $2 升級鴛鴦鍋。</p><small>另有 $24.99 單人套餐配一杯飲料，以及 $58.99 雙人套餐配兩杯飲料和一份小吃。</small></details><div class="hero-actions"><a class="primary-action" href="/zh-hant/menu/">查看個人火鍋菜單</a></div></div><a class="soup-preview-strip poster-thumbnail" href="#personal-menu-image" aria-label="查看完整個人火鍋菜單"><img src="/assets/personal-hot-pot-menu-full-720.webp" srcset="/assets/personal-hot-pot-menu-full-480.webp 480w, /assets/personal-hot-pot-menu-full-720.webp 720w, /assets/personal-hot-pot-menu-full.webp 1400w" sizes="(max-width: 760px) calc(100vw - 32px), 42vw" alt="鼎鑽火鍋完整個人火鍋菜單與 15 款湯底" width="1400" height="2096" loading="lazy" decoding="async" /><strong class="poster-open-label">查看完整菜單</strong></a></section>
@@ -218,9 +220,9 @@ function renderHomePage(data) {
       <section class="poster-modal" id="beef-noodle-story-image" role="dialog" aria-modal="true" aria-labelledby="beef-noodle-story-image-title" data-close-target="beef-noodle"><a class="modal-backdrop" href="#beef-noodle" aria-label="關閉牛肉麵故事圖片"></a><div class="poster-frame"><span class="modal-label" id="beef-noodle-story-image-title">台灣傳統牛肉麵</span><a class="modal-close" href="#beef-noodle">關閉</a><img src="/assets/taiwanese-beef-noodle-story-360.webp" data-full-src="/assets/taiwanese-beef-noodle-story.webp" alt="${escapeHtml(story.imageAlt)}" width="1122" height="1402" loading="lazy" decoding="async" /></div></section>
       <section id="light-meals" class="light-meals-section"><div class="section-heading compact"><p class="eyebrow">不只火鍋</p><h2>台式招牌飯麵</h2><p>想吃得快速簡單，也有暖胃又有飽足感的台式飯麵選擇。</p></div><div class="light-meal-grid">${homeMeals.map(([slug, name, price, description]) => `<article class="light-meal-card"><img src="/assets/light-meals/${slug}-1024.webp" srcset="/assets/light-meals/${slug}-480.webp 480w, /assets/light-meals/${slug}-1024.webp 1024w" sizes="(max-width: 560px) 46vw, (max-width: 1100px) 45vw, 30vw" alt="鼎鑽火鍋${name}" width="1024" height="704" loading="lazy" decoding="async" /><div><h3>${name}</h3><strong>${price}</strong><p>${description}</p></div></article>`).join("")}</div><a class="primary-action" href="/zh-hant/menu/">查看完整菜單</a></section>
       <section id="drinks" class="drink-feature"><div class="drink-feature-copy"><p class="eyebrow">茶飲 奶茶與特色飲品</p><h2>每桌都能找到喜歡的飲料</h2><p>甜度和冰量都可以選擇，茶飲與奶茶也可以做熱飲。</p><strong class="drink-discount">任點火鍋或招牌餐點 飲料可享九折優惠</strong><details class="home-details"><summary>飲品種類與價格</summary><div class="drink-category-grid">${homeDrinks.map(([name, price]) => `<p><span>${name}</span><strong>${price}</strong></p>`).join("")}</div></details></div><img src="/assets/milk-tea-photo-640.webp" srcset="/assets/milk-tea-photo-320.webp 320w, /assets/milk-tea-photo-640.webp 640w, /assets/milk-tea-photo.webp 900w" sizes="(max-width: 760px) 74vw, 380px" alt="鼎鑽火鍋奶茶與特色飲品" width="900" height="1200" loading="lazy" decoding="async" /></section>
-      <section id="visit" class="homepage-visit"><div class="section-heading compact"><p class="eyebrow">到店用餐</p><h2>位於卡加利 Centre Street</h2></div><div class="visit-grid"><article><h3>營業時間</h3><p>週一至週五 5:00 PM-10:30 PM</p><p>週六及週日 12:00 PM-10:30 PM</p><a href="/zh-hant/restaurant-info/">查看完整餐廳資料</a></article><article><h3>預訂座位</h3><p>訂位、團體聚餐或想確認今天座位，歡迎直接致電。</p><a href="tel:+14034553188">致電 (403) 455-3188</a></article><article><h3>Google 地圖導航</h3><p>2213 Centre St N #2243, Calgary, AB T2E 2T4</p><a href="https://www.google.com/maps/dir/?api=1&amp;destination=2213+Centre+St+N+%232243%2C+Calgary%2C+AB+T2E+2T4" target="_blank" rel="noreferrer">Google 地圖導航</a></article><article><h3>讓更多卡加利客人找到我們</h3><p>用餐後歡迎在 Google 分享你的體驗。</p><a href="https://www.google.com/maps/place/Centre+Street+Japanese+Hotpot/@51.072234,-114.0656247,17z" target="_blank" rel="noreferrer">前往 Google 留下評論</a></article></div><div class="social-follow"><div><p class="eyebrow">追蹤我們</p><h3>看看新菜品 店內消息與日常分享</h3></div>${renderSocialLinks()}</div></section>
+      <section id="visit" class="homepage-visit"><div class="section-heading compact"><p class="eyebrow">到店用餐</p><h2>位於卡加利 Centre Street</h2></div><div class="visit-grid"><article><h3>營業時間</h3><p>週一至週五 5:00 PM-10:30 PM</p><p>週六及週日 12:00 PM-10:30 PM</p><a href="/zh-hant/restaurant-info/">查看完整餐廳資料</a></article><article><h3>預訂座位</h3><p>訂位、團體聚餐或想確認今天座位，可以網上預訂，也可致電 (403) 455-3188。</p><a href="https://reservation.centrestjhotpot.ca/book" data-track-label="online_booking" aria-haspopup="dialog" data-reservation-launcher>網上訂位</a><p><a href="tel:+14034553188">(403) 455-3188</a></p></article><article><h3>Google 地圖導航</h3><p>2213 Centre St N #2243, Calgary, AB T2E 2T4</p><a href="https://www.google.com/maps/dir/?api=1&amp;destination=2213+Centre+St+N+%232243%2C+Calgary%2C+AB+T2E+2T4" target="_blank" rel="noreferrer">Google 地圖導航</a></article><article><h3>讓更多卡加利客人找到我們</h3><p>用餐後歡迎在 Google 分享你的體驗。</p><a href="https://www.google.com/maps/place/Centre+Street+Japanese+Hotpot/@51.072234,-114.0656247,17z" target="_blank" rel="noreferrer">前往 Google 留下評論</a></article></div><div class="social-follow"><div><p class="eyebrow">追蹤我們</p><h3>看看新菜品 店內消息與日常分享</h3></div>${renderSocialLinks()}</div></section>
     </main>
-    <a class="reserve-sticky" href="tel:+14034553188">致電訂位 · (403) 455-3188</a>
+    <a class="reserve-sticky" href="https://reservation.centrestjhotpot.ca/book" data-track-label="online_booking" aria-haspopup="dialog" data-reservation-launcher>網上訂位</a>
   </body>
 </html>
 `;
@@ -267,7 +269,7 @@ function renderPage(data) {
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="stylesheet" href="/site.css?v=20260904-compact" />
     <script defer src="/language-routes.js?v=20260813-bilingual"></script>
-    <script defer src="/site-events.js?v=20260829-conversion"></script>
+    <script defer src="/site-events.js?v=20260919-booking-conversion"></script>
     <script type="application/ld+json">${jsonLd(data)}</script>
   </head>
   <body>
@@ -281,9 +283,9 @@ function renderPage(data) {
       <section class="quick-info" aria-label="餐廳重點">${data.facts.map((fact) => `<div><span>${escapeHtml(fact.value)}</span>${escapeHtml(fact.label)}</div>`).join("")}</section>
       ${sections}${featureStory ? `\n      ${featureStory}` : ""}
       ${faqSection}
-      <section class="localized-visit" id="visit"><div><p class="eyebrow">到店用餐</p><h2>2213 Centre St N #2243, Calgary</h2><p>週一至週五 17:00-22:30｜週六、週日 12:00-22:30</p></div><div class="hero-actions"><a class="primary-action" href="tel:+14034553188">致電 (403) 455-3188 訂位</a><a class="secondary-action" href="https://www.google.com/maps/dir/?api=1&amp;destination=2213+Centre+St+N+%232243%2C+Calgary%2C+AB+T2E+2T4" target="_blank" rel="noreferrer">Google 地圖導航</a></div></section>
+      <section class="localized-visit" id="visit"><div><p class="eyebrow">到店用餐</p><h2>2213 Centre St N #2243, Calgary</h2><p>週一至週五 17:00-22:30｜週六、週日 12:00-22:30</p></div><div class="hero-actions"><a class="primary-action" href="https://reservation.centrestjhotpot.ca/book">網上訂位</a><a class="secondary-action" href="https://www.google.com/maps/dir/?api=1&amp;destination=2213+Centre+St+N+%232243%2C+Calgary%2C+AB+T2E+2T4" target="_blank" rel="noreferrer">Google 地圖導航</a></div></section>
     </main>
-    <a class="reserve-sticky" href="tel:+14034553188">致電訂位 · (403) 455-3188</a>
+    <a class="reserve-sticky" href="https://reservation.centrestjhotpot.ca/book" data-track-label="online_booking" aria-haspopup="dialog" data-reservation-launcher>網上訂位</a>
   </body>
 </html>
 `;

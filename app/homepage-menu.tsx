@@ -10,7 +10,6 @@ export function HomepageMenu({ language }: { language: HomepageLanguage }) {
   const isZh = language === "zh-Hant";
   const content = homepageContent[isZh ? "zhHant" : "en"];
   const menuPath = isZh ? "/zh-hant/menu/" : "/menu/";
-  const aycePath = isZh ? "/zh-hant/ayce-hot-pot-calgary/" : "/ayce-hot-pot-calgary/";
   const restaurantInfoPath = isZh ? "/zh-hant/restaurant-info/" : "/restaurant-info/";
   const localGuideLinks = isZh
     ? [
@@ -43,9 +42,9 @@ export function HomepageMenu({ language }: { language: HomepageLanguage }) {
           <h1>{isZh ? <><span className="heading-unit">$28.99</span>{" "}<span className="heading-unit">火鍋自助</span></> : content.ayce.title}</h1><p className="offer-tax">{isZh ? "每位另加稅 鍋底已包含" : "Per person + tax · Soup base included"}</p>
           <p className="homepage-lead">{content.ayce.lead}</p>
 
-          <div className="hero-actions">
+          <div className="hero-actions booking-actions">
             <a className="primary-action" href="https://reservation.centrestjhotpot.ca/book" data-track-label="online_booking" aria-haspopup="dialog" data-reservation-launcher>{content.ayce.reserve}</a>
-            <Link className="secondary-action" href={aycePath}>{content.ayce.menu}</Link>
+            <a className="secondary-action" href="tel:+14034553188">{content.ayce.menu}</a>
           </div>
           <div className="hero-visit"><a href={directionsUrl} target="_blank" rel="noreferrer">2213 Centre St N #2243 · {isZh ? "導航" : "Directions"}</a><p>{isZh ? "週一至週五 17:00–22:30 · 週六及週日 12:00–22:30" : "Mon–Fri 5–10:30 PM · Sat–Sun noon–10:30 PM"}</p></div>
         </div>

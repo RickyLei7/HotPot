@@ -303,6 +303,18 @@ h3 {
   margin-top: 30px;
 }
 
+.hero-actions.booking-actions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  max-width: 540px;
+}
+
+.booking-actions .primary-action,
+.booking-actions .secondary-action {
+  text-align: center;
+  width: 100%;
+}
+
 .hero-availability {
   color: rgba(255, 246, 223, 0.82);
   font-size: 0.94rem;
@@ -2192,6 +2204,18 @@ body.poster-open { overflow: hidden; }
 
   .hero-actions {
     display: grid;
+  }
+
+  .hero-actions.booking-actions {
+    gap: 8px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .booking-actions .primary-action,
+  .booking-actions .secondary-action {
+    font-size: 0.82rem;
+    padding-inline: 8px;
+    white-space: nowrap;
   }
 
   .primary-action,

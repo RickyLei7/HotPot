@@ -428,21 +428,8 @@
   }
 
   function setupStickyReserve() {
-    var sticky = document.querySelector(".reserve-sticky");
-    if (!sticky) return;
-
-    if (!document.querySelector(".sticky-directions")) {
-      sticky.classList.add("reserve-sticky-call");
-      var directions = document.createElement("a");
-      directions.className = "reserve-sticky sticky-directions";
-      directions.href = "https://www.google.com/maps/dir/?api=1&destination=Centre+Street+Japanese+HotPot%2C+2213+Centre+St+N%2C+Calgary%2C+AB";
-      directions.target = "_blank";
-      directions.rel = "noreferrer";
-      directions.textContent = /^zh/i.test(document.documentElement.lang) ? "導航" : "Directions";
-      sticky.insertAdjacentElement("afterend", directions);
-    }
-
     var stickyButtons = document.querySelectorAll(".reserve-sticky");
+    if (!stickyButtons.length) return;
     var setVisible = function (visible) {
       stickyButtons.forEach(function (button) {
         button.classList.toggle("is-visible", visible);

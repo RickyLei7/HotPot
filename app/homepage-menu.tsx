@@ -45,6 +45,7 @@ export function HomepageMenu({ language }: { language: HomepageLanguage }) {
 
           <div className="hero-actions">
             <a className="primary-action" href="https://reservation.centrestjhotpot.ca/book" data-track-label="online_booking" aria-haspopup="dialog" data-reservation-launcher>{content.ayce.reserve}</a>
+            <a className="secondary-action" href="tel:+14034553188">{isZh ? "致電 (403) 455-3188" : "Call (403) 455-3188"}</a>
             <Link className="secondary-action" href={aycePath}>{content.ayce.menu}</Link>
           </div>
           <div className="hero-visit"><a href={directionsUrl} target="_blank" rel="noreferrer">2213 Centre St N #2243 · {isZh ? "導航" : "Directions"}</a><p>{isZh ? "週一至週五 17:00–22:30 · 週六及週日 12:00–22:30" : "Mon–Fri 5–10:30 PM · Sat–Sun noon–10:30 PM"}</p></div>

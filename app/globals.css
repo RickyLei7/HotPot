@@ -147,6 +147,12 @@ section {
   font-weight: 700;
 }
 
+.nav-actions {
+  align-items: center;
+  display: flex;
+  gap: 8px;
+}
+
 .language-switch {
   align-items: center;
   border: 1px solid rgba(246, 201, 76, 0.34);
@@ -219,6 +225,12 @@ section {
 .primary-action {
   background: var(--gold);
   color: var(--ink);
+}
+
+.nav-call.nav-phone {
+  background: transparent;
+  border: 1px solid rgba(246, 201, 76, 0.72);
+  color: var(--cream);
 }
 
 .secondary-action {
@@ -1776,14 +1788,17 @@ body.poster-open { overflow: hidden; }
     max-width: 52vw;
   }
 
-  .nav-call {
+  .nav-actions {
     font-size: 0.95rem;
     font-weight: 900;
     grid-column: 3;
     grid-row: 1;
     justify-self: end;
+  }
+
+  .nav-call {
     min-height: 44px;
-    min-width: 100px;
+    min-width: 72px;
     padding-inline: 16px;
   }
 
@@ -1923,9 +1938,18 @@ body.poster-open { overflow: hidden; }
     padding-inline: 7px;
   }
 
+  .nav-actions {
+    gap: 5px;
+  }
+
   .nav-call {
-    min-width: 88px;
-    padding-inline: 12px;
+    font-size: 0.8rem;
+    min-width: 0;
+    padding-inline: 9px;
+  }
+
+  .nav-phone {
+    min-width: 50px;
   }
 
   .localized-hero { gap: 26px; min-height: auto; padding-bottom: 34px; padding-top: 34px; }
@@ -2229,15 +2253,15 @@ body.poster-open { overflow: hidden; }
     transform: translateY(0);
   }
 
-  .reserve-sticky.reserve-sticky-call {
-    right: calc(38% + 6px);
+  .reserve-sticky.reserve-sticky-book {
+    right: calc(42% + 6px);
   }
 
-  .reserve-sticky.sticky-directions {
+  .reserve-sticky.reserve-sticky-phone {
     background: #24110f;
     border: 1px solid rgba(246, 201, 76, 0.72);
     color: var(--cream);
-    left: calc(62% + 6px);
+    left: calc(58% + 6px);
   }
 
   body {

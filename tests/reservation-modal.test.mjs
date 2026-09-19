@@ -61,6 +61,9 @@ test("online booking opens a safe same-page dialog while phone and direct-link f
   try {
     await page.goto(`${origin}/`, { waitUntil: "networkidle" });
     assert.equal(await page.locator("a[href='tel:+14034553188']").count() > 0, true);
+    assert.equal(await page.locator(".nav-actions .nav-phone[href='tel:+14034553188']").isVisible(), true, "the header keeps a visible call button beside online booking");
+    assert.equal(await page.locator(".reserve-sticky-book").count(), 1, "the mobile booking action is present");
+    assert.equal(await page.locator(".reserve-sticky-phone[href='tel:+14034553188']").count(), 1, "the mobile call action is present");
 
     const launcher = page.locator("a[data-reservation-launcher]").first();
     assert.equal(await launcher.count(), 1, "the online booking link is present");
@@ -84,7 +87,8 @@ test("online booking opens a safe same-page dialog while phone and direct-link f
     }
     assert.equal(await page.locator("[data-reservation-dialog] iframe").getAttribute("src"), `${bookingOrigin}/embed/book`);
     assert.equal(await page.locator("[data-reservation-dialog] iframe").getAttribute("sandbox"), "allow-forms allow-scripts allow-same-origin");
-    assert.equal(await page.locator("[data-reservation-problem] a").getAttribute("data-reservation-direct"), "");
+    assert.equal(await page.locator("[data-reservation-problem] a[data-reservation-direct]").getAttribute("data-reservation-direct"), "");
+    assert.equal(await page.locator("[data-reservation-problem] a[href='tel:+14034553188']").count(), 1, "the loading fallback keeps phone booking available");
     assert.equal(await page.evaluate(() => document.body.style.position), "fixed");
 
     await page.locator("[data-reservation-dialog-backdrop]").dispatchEvent("click");

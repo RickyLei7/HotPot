@@ -76,8 +76,11 @@ export default function RootLayout({
         <Script src="/language-routes.js?v=20260813-bilingual" strategy="afterInteractive" />
         <Script src="/site-events.js?v=20260919-booking-conversion" strategy="afterInteractive" />
         {children}
-        <a className="reserve-sticky" href="https://reservation.centrestjhotpot.ca/book" data-track-label="online_booking" aria-haspopup="dialog" data-reservation-launcher>
+        <a className="reserve-sticky reserve-sticky-book" href="https://reservation.centrestjhotpot.ca/book" data-track-label="online_booking" aria-haspopup="dialog" data-reservation-launcher>
           Book Online
+        </a>
+        <a className="reserve-sticky reserve-sticky-phone" href="tel:+14034553188" aria-label="Call (403) 455-3188">
+          Call
         </a>
       </body>
     </html>

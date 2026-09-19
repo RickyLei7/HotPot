@@ -44,9 +44,14 @@ export function SiteNav({ currentPath = "/", language = "en" }: SiteNavProps) {
         <Link className={`language-option${!isZhHant ? " is-active" : ""}`} aria-current={!isZhHant ? "page" : undefined} href={pair.en}>EN</Link>
         <Link className={`language-option${isZhHant ? " is-active" : ""}`} aria-current={isZhHant ? "page" : undefined} href={pair.zhHant}>中文</Link>
       </div>
-      <a className="nav-call" href="https://reservation.centrestjhotpot.ca/book" data-track-label="online_booking" aria-haspopup="dialog" data-reservation-launcher>
-        {labels.reserve}
-      </a>
+      <div className="nav-actions">
+        <a className="nav-call nav-book" href="https://reservation.centrestjhotpot.ca/book" data-track-label="online_booking" aria-haspopup="dialog" data-reservation-launcher>
+          {labels.reserve}
+        </a>
+        <a className="nav-call nav-phone" href="tel:+14034553188" aria-label={labels.phone}>
+          {isZhHant ? "致電" : "Call"}
+        </a>
+      </div>
     </nav>
   );
 }

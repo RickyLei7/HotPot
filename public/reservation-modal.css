@@ -7,6 +7,6 @@
 .reservation-dialog-loading, .reservation-dialog-problem, .reservation-dialog-discard { background: #fff; color: #1f1611; inset: 44px 0 0; margin: 0; padding: 24px; position: absolute; z-index: 1; }
 .reservation-dialog-problem { display: grid; gap: 12px; place-content: center; text-align: center; }
 .reservation-dialog-problem[hidden], .reservation-dialog-discard[hidden] { display: none; }
-.reservation-dialog-problem button, .reservation-dialog-problem a, .reservation-dialog-discard button { min-height: 44px; }
+.reservation-dialog-problem button, .reservation-dialog-problem a, .reservation-dialog-discard button { align-items: center; display: flex; justify-content: center; min-height: 44px; }
 .reservation-dialog-discard { background: rgba(255, 255, 255, .97); display: grid; gap: 12px; place-content: center; text-align: center; }
 @media (max-width: 600px) { .reservation-dialog { border: 0; border-radius: 0; height: 100dvh; margin: 0; padding-top: env(safe-area-inset-top); width: 100vw; } .reservation-dialog iframe { height: calc(100% - 44px - env(safe-area-inset-top)); } }

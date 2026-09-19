@@ -70,6 +70,7 @@ function loadFrame(current) {
 export function openReservationModal({ trigger, language = "en" }) {
   if (modal) return modal.root;
   loadStyles();
+  const isZhHant = language === "zh-Hant";
   const scrollY = window.scrollY;
   const root = document.createElement("div");
   root.className = "reservation-dialog-root";
@@ -77,19 +78,20 @@ export function openReservationModal({ trigger, language = "en" }) {
   root.innerHTML = `
     <div class="reservation-dialog-backdrop" data-reservation-dialog-backdrop=""></div>
     <section class="reservation-dialog" role="dialog" aria-modal="true" aria-labelledby="reservation-dialog-title" tabindex="-1">
-      <h2 id="reservation-dialog-title">${language === "zh-Hant" ? "網上訂位" : "Reserve a table"}</h2>
-      <button class="reservation-dialog-close" type="button" data-reservation-close="" aria-label="Close booking dialog">×</button>
-      <p class="reservation-dialog-loading" data-reservation-loading="">Loading booking…</p>
+      <h2 id="reservation-dialog-title">${isZhHant ? "網上訂位" : "Reserve a table"}</h2>
+      <button class="reservation-dialog-close" type="button" data-reservation-close="" aria-label="${isZhHant ? "關閉訂位視窗" : "Close booking dialog"}">×</button>
+      <p class="reservation-dialog-loading" data-reservation-loading="">${isZhHant ? "正在載入訂位系統…" : "Loading booking…"}</p>
       <div class="reservation-dialog-problem" data-reservation-problem="" hidden>
-        <p>Booking is taking longer than expected.</p>
-        <button type="button" data-reservation-retry="">Try again</button>
-        <a href="${BOOKING_URL}" data-reservation-direct>Open booking page</a>
+        <p>${isZhHant ? "訂位系統載入時間較長。" : "Booking is taking longer than expected."}</p>
+        <button type="button" data-reservation-retry="">${isZhHant ? "再試一次" : "Try again"}</button>
+        <a href="${BOOKING_URL}" data-reservation-direct>${isZhHant ? "直接開啟訂位頁" : "Open booking page"}</a>
+        <a href="tel:+14034553188">${isZhHant ? "致電 (403) 455-3188" : "Call (403) 455-3188"}</a>
       </div>
-      <iframe title="${language === "zh-Hant" ? "網上訂位" : "Online booking"}" sandbox="${SANDBOX}"></iframe>
+      <iframe title="${isZhHant ? "網上訂位" : "Online booking"}" sandbox="${SANDBOX}"></iframe>
       <div class="reservation-dialog-discard" data-reservation-discard="" hidden>
-        <p>Discard your unfinished booking?</p>
-        <button type="button">Keep booking</button>
-        <button type="button">Discard</button>
+        <p>${isZhHant ? "要放棄尚未完成的訂位嗎？" : "Discard your unfinished booking?"}</p>
+        <button type="button">${isZhHant ? "繼續訂位" : "Keep booking"}</button>
+        <button type="button">${isZhHant ? "放棄" : "Discard"}</button>
       </div>
     </section>`;
   document.body.append(root);

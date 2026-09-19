@@ -57,7 +57,30 @@ for (const [englishRoute, zhHantRoute] of routePairs) {
     html = html.replace(/(<a class="nav-call")/, `${switcher}$1`);
   }
 
-  const englishOnlyHtml = html.replaceAll(">中文<", "><");
+  if (!html.includes('class="nav-actions"')) {
+    html = html.replace(
+      /<a class="nav-call"([^>]*)>Book Online<\/a>/,
+      '<div class="nav-actions"><a class="nav-call nav-book"$1>Book Online</a><a class="nav-call nav-phone" href="tel:+14034553188" aria-label="Call (403) 455-3188">Call</a></div>',
+    );
+  }
+
+  if (!html.includes('class="reserve-sticky reserve-sticky-phone"')) {
+    html = html.replace(
+      /<a class="reserve-sticky"([^>]*)>Book Online<\/a>/,
+      '<a class="reserve-sticky reserve-sticky-book"$1>Book Online</a><a class="reserve-sticky reserve-sticky-phone" href="tel:+14034553188" aria-label="Call (403) 455-3188">Call</a>',
+    );
+  }
+
+  if (englishRoute === "/" && !html.includes('class="secondary-action" href="tel:+14034553188"')) {
+    html = html.replace(
+      /(<a class="primary-action" href="https:\/\/reservation\.centrestjhotpot\.ca\/book"[^>]*>Book Online<\/a>)/,
+      '$1<a class="secondary-action" href="tel:+14034553188">Call (403) 455-3188</a>',
+    );
+  }
+
+  const englishOnlyHtml = html
+    .replaceAll(">中文<", "><")
+    .replace(/<script type="application\/ld\+json">[\s\S]*?<\/script>/g, "");
   if (/[\u3400-\u9fff]/u.test(englishOnlyHtml)) {
     throw new Error(`${englishRoute} contains Chinese text outside the language switch`);
   }

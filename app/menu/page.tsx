@@ -352,8 +352,8 @@ export default function MenuPage() {
           <p className="eyebrow">Full menu images</p>
           <h2>Browse the full in-store menu</h2>
           <div className="menu-download-actions">
-            <a className="primary-action" href="/menu/centre-street-japanese-hotpot-menu.pdf" download>Download PDF</a>
-            <a className="secondary-action dark" href="/menu/centre-street-japanese-hotpot-menu.pdf" target="_blank" rel="noreferrer">Open PDF</a>
+            <a className="primary-action" href="/menu/centre-street-japanese-hotpot-menu-2026-09.pdf" download>Download PDF</a>
+            <a className="secondary-action dark" href="/menu/centre-street-japanese-hotpot-menu-2026-09.pdf" target="_blank" rel="noreferrer">Open PDF</a>
           </div>
         </div>
         <div className="menu-images">

@@ -77,9 +77,10 @@ test("online booking opens a safe same-page dialog while phone and direct-link f
     assert.ok(bounds);
     if (viewportWidth <= 600) {
       assert.equal(Math.round(bounds.width), viewportWidth);
-      assert.equal(Math.round(bounds.height), viewportHeight);
+      assert.equal(Math.round(bounds.height), Math.min(640, viewportHeight - 8));
     } else {
       assert.ok(bounds.width <= 640, `desktop dialog width was ${bounds.width}px`);
+      assert.ok(bounds.height <= 760, `desktop dialog height was ${bounds.height}px`);
       assert.equal(bounds.x > 0, true);
     }
     assert.equal(await page.locator("[data-reservation-dialog] iframe").getAttribute("src"), `${bookingOrigin}/embed/book`);

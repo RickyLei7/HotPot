@@ -60,9 +60,10 @@ for (const [englishRoute, zhHantRoute] of routePairs) {
   if (!html.includes('class="nav-actions"')) {
     html = html.replace(
       /<a class="nav-call"([^>]*)>Book Online<\/a>/,
-      '<div class="nav-actions"><a class="nav-call nav-book"$1>Book Online</a><a class="nav-call nav-phone" href="tel:+14034553188" aria-label="Call (403) 455-3188">Call</a></div>',
+      '<div class="nav-actions"><a class="nav-call nav-book"$1>Book Online</a></div>',
     );
   }
+  html = html.replace(/<a class="nav-call nav-phone"[^>]*>Call<\/a>/, "");
 
   if (!html.includes('class="reserve-sticky reserve-sticky-phone"')) {
     html = html.replace(

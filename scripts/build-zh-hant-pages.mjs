@@ -137,7 +137,7 @@ function renderNav(data) {
       <a class="brand-mark" href="/zh-hant/" aria-label="鼎鑽火鍋首頁"><img src="/assets/brand-logo-wide-300.webp" srcset="/assets/brand-logo-wide-300.webp 300w, /assets/brand-logo-wide-480.webp 480w, /assets/brand-logo-wide.webp 600w" sizes="(max-width: 760px) 34vw, 260px" alt="Centre Street Japanese HotPot 鼎鑽火鍋" width="600" height="184" /></a>
       <div class="nav-links">${links.map(([label, href]) => `<a href="${href}">${label}</a>`).join("")}<details class="nav-more"><summary>更多</summary><div class="nav-more-links"><a href="/zh-hant/about/">關於我們</a><a href="/zh-hant/faq/">常見問題</a><a href="/zh-hant/contact/">聯絡與地址</a><a href="/zh-hant/#visit">到店資訊</a><a href="tel:+14034553188">致電 (403) 455-3188</a></div></details></div>
       <div class="language-switch" aria-label="切換網站語言"><a class="language-option" hreflang="en-CA" lang="en-CA" href="${data.englishPath}">EN</a><a class="language-option is-active" aria-current="page" hreflang="zh-Hant-CA" lang="zh-Hant" href="${data.path}">中文</a></div>
-      <div class="nav-actions"><a class="nav-call nav-book" href="https://reservation.centrestjhotpot.ca/book" data-track-label="online_booking" aria-haspopup="dialog" data-reservation-launcher>網上訂位</a><a class="nav-call nav-phone" href="tel:+14034553188" aria-label="致電 (403) 455-3188">致電</a></div>
+      <div class="nav-actions"><a class="nav-call nav-book" href="https://reservation.centrestjhotpot.ca/book" data-track-label="online_booking" aria-haspopup="dialog" data-reservation-launcher>網上訂位</a></div>
     </nav>`;
 }
 

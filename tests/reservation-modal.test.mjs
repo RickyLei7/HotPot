@@ -61,7 +61,8 @@ test("online booking opens a safe same-page dialog while phone and direct-link f
   try {
     await page.goto(`${origin}/`, { waitUntil: "networkidle" });
     assert.equal(await page.locator("a[href='tel:+14034553188']").count() > 0, true);
-    assert.equal(await page.locator(".nav-actions .nav-phone[href='tel:+14034553188']").isVisible(), true, "the header keeps a visible call button beside online booking");
+    assert.equal(await page.locator(".nav-actions .nav-book[data-reservation-launcher]").isVisible(), true, "the header keeps online booking as its primary action");
+    assert.equal(await page.locator(".nav-actions .nav-phone").count(), 0, "the header does not duplicate the phone action beside online booking");
     assert.equal(await page.locator(".reserve-sticky-book").count(), 1, "the mobile booking action is present");
     assert.equal(await page.locator(".reserve-sticky-phone[href='tel:+14034553188']").count(), 1, "the mobile call action is present");
 

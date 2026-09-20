@@ -91,8 +91,8 @@ export default function CalgaryHotPotGuidePage() {
           <p className="eyebrow">Calgary hot pot guide</p>
           <h1>Taiwanese & Japanese Hot Pot in Calgary</h1>
           <p className="hero-text">
-            A practical guide for guests looking for Taiwanese and Japanese-style individual hot pot,
-            soup base variety, Taiwanese snacks, milk tea, and a table they can reserve.
+            Compare personal hot pot and AYCE, choose from 15 soup bases,
+            and plan your visit on Centre Street.
           </p>
           <div className="hero-actions">
             <a className="primary-action" href="https://reservation.centrestjhotpot.ca/book" data-track-label="online_booking" aria-haspopup="dialog" data-reservation-launcher>
@@ -109,16 +109,13 @@ export default function CalgaryHotPotGuidePage() {
         <div className="guide-layout">
           <article className="guide-copy">
             <p className="eyebrow">Why this style</p>
-            <h2>Taiwanese and Japanese-style hot pot both work well as individual hot pot</h2>
+            <h2>Everyone Can Choose Their Own Pot</h2>
             <p>
-              Taiwanese hot pot and Japanese-style hot pot both work well for personal hot pot dining:
-              each guest can choose a soup base, meat, vegetables, rice or noodles, and add snacks or drinks.
-              At Centre Street Japanese HotPot, the menu combines this individual hot pot format with
-              Taiwanese snacks, rice and noodle bowls, and milk tea.
+              Each guest chooses a soup base, meat, vegetables, and rice or noodles.
+              Add Taiwanese snacks or milk tea if you want something to share.
             </p>
             <p>
-              This makes the restaurant a practical choice for solo meals, casual dinners,
-              family dining, friends gatherings, and group dining in Calgary.
+              Personal pots make different spice levels and flavours easy at one table.
             </p>
           </article>
           <aside className="guide-card">
@@ -134,7 +131,7 @@ export default function CalgaryHotPotGuidePage() {
       <section className="weekly-picks">
         <div>
           <p className="eyebrow">What to order</p>
-          <h2>A simple first visit order</h2>
+          <h2>A Simple First Order</h2>
         </div>
         <div className="weekly-picks-grid">
           <article>

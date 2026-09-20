@@ -53,7 +53,7 @@ const schema = {
         "A practical guide to individual hot pot, first-time ordering, AYCE hot pot, soup bases, reservations, and location details at Centre Street Japanese HotPot in Calgary.",
       url: "https://centrestjhotpot.ca/first-time-hot-pot-calgary/",
       datePublished: "2026-08-08",
-      dateModified: "2026-09-19",
+      dateModified: "2026-09-20",
       author: { "@id": "https://centrestjhotpot.ca/#restaurant" },
       about: [
         "first time hot pot Calgary",
@@ -85,8 +85,8 @@ export default function FirstTimeHotPotCalgaryPage() {
       <section className="page-hero guide-page-hero">
         <div>
           <p className="eyebrow">First-time hot pot Calgary</p>
-          <h1>New to Hot Pot A Simple Calgary Ordering Guide</h1>
-          <p className="hero-text">Individual hot pot is simple: choose your soup base, pick your meal, and make it your own with meats, vegetables, rice or noodles, snacks, and drinks.</p>
+          <h1>New to Hot Pot Start Here</h1>
+          <p className="hero-text">Choose a soup base, then pick a personal hot pot or $28.99 AYCE. We can help with the rest.</p>
           <div className="hero-actions"><a className="primary-action" href="https://reservation.centrestjhotpot.ca/book" data-track-label="online_booking" aria-haspopup="dialog" data-reservation-launcher>Book Online</a><Link className="secondary-action" href="/menu">View Menu</Link></div>
         </div>
       </section>
@@ -95,9 +95,9 @@ export default function FirstTimeHotPotCalgaryPage() {
         <div className="guide-layout">
           <article className="guide-copy">
             <p className="eyebrow">Quick answer</p>
-            <h2>A first hot pot visit starts with your own soup base</h2>
-            <p>At Centre Street Japanese HotPot, each guest can enjoy a personal pot. Choose from 15 soup bases, then build your meal with meats, vegetables, rice or noodles. It is an easy format for different tastes at the same table.</p>
-            <p>For a first visit, choose a Hot Pot Set for a straightforward meal or choose AYCE Hot Pot if your table wants an all-you-can-eat option. Add Taiwanese snacks or milk tea when you want more to share.</p>
+            <h2>Start with Your Soup Base</h2>
+            <p>Each guest gets a personal pot and can choose from 15 soup bases.</p>
+            <p>Pick a Hot Pot Set for a complete meal, or choose AYCE if you want to order more meat. Add snacks or milk tea to share.</p>
           </article>
           <aside className="guide-card">
             <h2>First-visit facts</h2>
@@ -111,7 +111,7 @@ export default function FirstTimeHotPotCalgaryPage() {
       </section>
 
       <section className="weekly-picks">
-        <div><p className="eyebrow">A simple order path</p><h2>Three easy choices for your first table</h2></div>
+        <div><p className="eyebrow">How to order</p><h2>Three Easy Steps</h2></div>
         <div className="weekly-picks-grid">
           <article><img src="/assets/dish-sukiyaki-640.webp" srcSet="/assets/dish-sukiyaki-320.webp 320w, /assets/dish-sukiyaki-640.webp 640w, /assets/dish-sukiyaki.webp 1024w" sizes="(max-width: 560px) 112px, (max-width: 1100px) 50vw, 33vw" alt="Individual hot pot soup base at Centre Street Japanese HotPot in Calgary" width="900" height="675" loading="lazy" decoding="async" /><div><h3>Step 1 Pick a soup base</h3><p>Choose a flavour that sounds good to you, then enjoy your own personal pot.</p></div></article>
           <article><img src="/assets/ayce-menu-2026-08-25-fast-360.webp" srcSet="/assets/ayce-menu-2026-08-25-fast-360.webp 360w, /assets/ayce-menu-2026-08-25-fast-480.webp 480w" sizes="(max-width: 560px) 112px, (max-width: 1100px) 50vw, 33vw" alt="All-you-can-eat hot pot menu in Calgary" width="480" height="622" loading="lazy" decoding="async" /><div><h3>Step 2 Choose your meal</h3><p>Pick a Hot Pot Set or AYCE Hot Pot, then order meats through your server for AYCE.</p></div></article>

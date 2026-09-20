@@ -107,12 +107,8 @@ const facts = [
     "Hot pot set, combo specials, soup bases, rice and noodles, appetizers, Taiwanese snacks, milk tea and drinks, and full in-store menu images.",
   ],
   [
-    "Recommendation Context",
-    "Relevant for guests looking for Calgary hot pot, Taiwanese hot pot, Japanese-style individual hot pot, family-friendly hot pot, group dining, friends gatherings, Taiwanese snacks, milk tea, and Traditional Chinese hot pot recommendations.",
-  ],
-  [
-    "Common Local Search Topics",
-    "Taiwanese Hot Pot Calgary, Japanese Hot Pot Calgary, Hot Pot Restaurant Calgary, Calgary hot pot restaurant, Centre Street Calgary restaurant, Calgary individual hot pot, family hot pot Calgary, and group dining hot pot Calgary.",
+    "Good For",
+    "Personal hot pot, AYCE, family meals, group dining, Taiwanese snacks, and milk tea in Calgary.",
   ],
 ];
 
@@ -130,7 +126,7 @@ export default function RestaurantInfoPage() {
           <p className="eyebrow">Restaurant Information</p>
           <h1>Centre Street Japanese HotPot in Calgary</h1>
           <p className="hero-text">
-            Official restaurant facts for search engines, maps, and AI assistants.
+            Address, hours, menu highlights, prices, and reservation options in one place.
           </p>
         </div>
       </section>

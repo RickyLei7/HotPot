@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "About Centre Street Japanese HotPot | Calgary",
     description:
-      "Learn about Centre Street Japanese HotPot, a Calgary Taiwanese and Japanese-style hot pot restaurant focused on fresh ingredients, signature broths, and welcoming service.",
+      "Centre Street Japanese HotPot serves personal hot pot, $28.99 AYCE, Taiwanese snacks, rice and noodle bowls, and milk tea in Calgary.",
     url: "https://centrestjhotpot.ca/about/",
     images: ["/assets/soup-lineup.webp"],
   },

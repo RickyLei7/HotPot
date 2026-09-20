@@ -2,7 +2,7 @@ import { writeFile } from "node:fs/promises";
 import path from "node:path";
 
 const baseUrl = "https://centrestjhotpot.ca";
-const lastmod = "2026-09-19";
+const lastmod = "2026-09-20";
 const pairs = [
   ["/", "/zh-hant/", "weekly", "1.0"],
   ["/about/", "/zh-hant/about/", "monthly", "0.8"],

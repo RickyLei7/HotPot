@@ -157,9 +157,8 @@ export default function AyceHotPotCalgaryPage() {
           <p className="eyebrow">AYCE hot pot Calgary</p>
           <h1>All-You-Can-Eat Hot Pot Calgary · $28.99</h1>
           <p className="hero-text">
-            Choose from 15 soup bases, all included in the $28.99 + tax AYCE price.
-            AAA beef, lamb, pork, and chicken are ordered fresh through your server,
-            with an optional 19-item all-you-can-eat appetizer upgrade.
+            Soup base included. Choose from 15 broths and order AAA beef, lamb,
+            pork, or chicken through your server.
           </p>
           <div className="hero-actions">
             <a className="primary-action" href="https://reservation.centrestjhotpot.ca/book" data-track-label="online_booking" aria-haspopup="dialog" data-reservation-launcher>
@@ -169,7 +168,7 @@ export default function AyceHotPotCalgaryPage() {
               Get Directions
             </a>
             <Link className="secondary-action" href="/menu#ayce-hotpot">
-              View Menu Details
+              View AYCE Menu
             </Link>
           </div>
           <p className="hero-availability">Today&apos;s table availability: call ahead · 2213 Centre St N #2243</p>
@@ -179,10 +178,9 @@ export default function AyceHotPotCalgaryPage() {
       <section className="ayce-promo" id="ayce-details">
         <div className="ayce-copy">
           <p className="eyebrow">All-you-can-eat hot pot</p>
-          <h2>AYCE Hot Pot with soup base included</h2>
+          <h2>What the $28.99 AYCE Includes</h2>
           <p>
-            The AYCE Hot Pot price is $28.99 + tax. Choose your soup base, then order meat
-            through your server. Meat options include AAA beef, lamb, pork, and chicken.
+            Choose a soup base, then order AAA beef, lamb, pork, or chicken through your server.
           </p>
           <div className="combo-price-grid">
             <article>
@@ -227,8 +225,8 @@ export default function AyceHotPotCalgaryPage() {
       <section className="menu-section" id="ayce-snacks">
         <div className="section-heading">
           <p className="eyebrow">All-you-can-eat snack upgrade</p>
-          <h2>Add all 19 snack choices for +$5.99 per person</h2>
-          <p>One upgrade includes every snack below. Everyone at the same table must choose the upgrade.</p>
+          <h2>Add 19 AYCE Snacks for +$5.99</h2>
+          <p>The upgrade is per person, and everyone at the table must join.</p>
         </div>
         <div className="ayce-snack-directory" aria-label="19 all-you-can-eat snack choices by category">
           {ayceSnackGroups.map((group) => (

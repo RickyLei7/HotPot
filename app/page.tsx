@@ -23,7 +23,7 @@ const restaurantJsonLd = {
       about: { "@id": "https://centrestjhotpot.ca/#restaurant" },
       mainEntity: { "@id": "https://centrestjhotpot.ca/#restaurant" },
       primaryImageOfPage: { "@type": "ImageObject", url: "https://centrestjhotpot.ca/assets/ayce-menu-2026-08-24-599.webp" },
-      dateModified: "2026-09-19",
+      dateModified: "2026-09-20",
     },
     {
       "@type": "Restaurant",

@@ -33,8 +33,7 @@ export default function ContactPage() {
           <p className="eyebrow">Contact & Location</p>
           <h1>Visit Centre Street Japanese HotPot in Calgary</h1>
           <p className="hero-text">
-            Book online to reserve a table, or call us about group dining and today&apos;s availability
-            before visiting for Taiwanese and Japanese-style hot pot, Taiwanese snacks, and milk tea.
+            Book online, or call us about groups and today&apos;s table availability.
           </p>
         </div>
       </section>
@@ -70,7 +69,7 @@ export default function ContactPage() {
           </article>
           <article>
             <h3>Social</h3>
-            <p>Follow us for updates, photos, offers, and reviews.</p>
+            <p>Follow us for new dishes, offers, and restaurant updates.</p>
           </article>
         </div>
         <SocialLinks />

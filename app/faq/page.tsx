@@ -110,10 +110,9 @@ export default function FaqPage() {
       <section className="page-hero faq-page-hero">
         <div>
           <p className="eyebrow">FAQ</p>
-          <h1>Frequently Asked Questions</h1>
+          <h1>Hot Pot Reservations & Visit FAQs</h1>
           <p className="hero-text">
-            Answers about reservations, Japanese hot pot, seafood options, group dining,
-            and visiting Centre Street Japanese HotPot in Calgary.
+            Quick answers about the menu, reservations, groups, hours, and location.
           </p>
         </div>
       </section>

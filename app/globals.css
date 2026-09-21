@@ -35,7 +35,7 @@ body {
   margin: 0;
   background:
     linear-gradient(180deg, rgba(18, 13, 11, 0.92), rgba(18, 13, 11, 0.72)),
-    url("/assets/dish-spicy.webp") center top / 1400px auto fixed;
+    url("/assets/dish-spicy-640-perf.webp") center top / 1400px auto fixed;
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
   overflow-x: clip;
@@ -1491,7 +1491,7 @@ body.poster-open { overflow: hidden; }
   align-items: center;
   background:
     linear-gradient(90deg, rgba(18, 13, 11, 0.96), rgba(74, 16, 13, 0.9)),
-    url("/assets/dish-spicy.webp") center / cover;
+    url("/assets/dish-spicy-640-perf.webp") center / cover;
   display: grid;
   gap: clamp(24px, 5vw, 68px);
   grid-template-columns: minmax(0, 1.05fr) minmax(280px, 0.95fr);
@@ -1570,7 +1570,7 @@ body.poster-open { overflow: hidden; }
 .ads-photo-band {
   background:
     linear-gradient(90deg, rgba(31, 22, 17, 0.96), rgba(127, 23, 22, 0.88)),
-    url("assets/dish-spicy.webp") center / cover;
+    url("/assets/dish-spicy-640-perf.webp") center / cover;
 }
 .ads-photo-band article {
   align-items: center;
@@ -1888,13 +1888,13 @@ body.poster-open { overflow: hidden; }
   .ads-hero {
     background-image:
       linear-gradient(90deg, rgba(18, 13, 11, 0.96), rgba(74, 16, 13, 0.92)),
-      url("/assets/dish-spicy-640.webp");
+      url("/assets/dish-spicy-640-perf.webp");
   }
 
   .ads-photo-band {
     background-image:
       linear-gradient(90deg, rgba(31, 22, 17, 0.96), rgba(127, 23, 22, 0.9)),
-      url("/assets/dish-spicy-640.webp");
+      url("/assets/dish-spicy-640-perf.webp");
   }
 }
 
@@ -2267,7 +2267,7 @@ body.poster-open { overflow: hidden; }
   body {
     background:
       linear-gradient(180deg, rgba(18, 13, 11, 0.92), rgba(18, 13, 11, 0.72)),
-      url("/assets/dish-spicy-640.webp") center top / 900px auto scroll;
+      url("/assets/dish-spicy-640-perf.webp") center top / 900px auto scroll;
     padding-bottom: 84px;
   }
 

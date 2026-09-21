@@ -26,11 +26,11 @@ export function HomepageMenu({ language }: { language: HomepageLanguage }) {
         { href: "/ayce-hot-pot-calgary/", label: "AYCE Hot Pot Calgary" },
       ];
   const snackImages = [
-    { src: "/assets/ayce-signature-fried-chicken-2026-08-18-320.webp", srcSet: "/assets/ayce-signature-fried-chicken-2026-08-18-224.webp 224w, /assets/ayce-signature-fried-chicken-2026-08-18-320.webp 320w, /assets/ayce-signature-fried-chicken-2026-08-18-640.webp 640w" },
-    { src: "/assets/ayce-takoyaki-320.webp", srcSet: "/assets/ayce-takoyaki-224.webp 224w, /assets/ayce-takoyaki-320.webp 320w, /assets/ayce-takoyaki-640.webp 640w" },
-    { src: "/assets/ayce-snacks/crispy-chicken-cutlet-320.webp" },
-    { src: "/assets/ayce-snacks/golden-fried-buns-320.webp" },
-    { src: "/assets/ayce-snacks/crispy-squid-legs-320.webp" },
+    { src: "/assets/ayce-signature-fried-chicken-2026-09-21-320.webp", srcSet: "/assets/ayce-signature-fried-chicken-2026-09-21-224.webp 224w, /assets/ayce-signature-fried-chicken-2026-09-21-320.webp 320w, /assets/ayce-signature-fried-chicken-2026-09-21-480.webp 480w" },
+    { src: "/assets/ayce-takoyaki-2026-09-21-320.webp", srcSet: "/assets/ayce-takoyaki-2026-09-21-224.webp 224w, /assets/ayce-takoyaki-2026-09-21-320.webp 320w" },
+    { src: "/assets/ayce-snacks/crispy-chicken-cutlet-320.webp", srcSet: "/assets/ayce-snacks/crispy-chicken-cutlet-200.webp 200w, /assets/ayce-snacks/crispy-chicken-cutlet-320.webp 320w" },
+    { src: "/assets/ayce-snacks/golden-fried-buns-320.webp", srcSet: "/assets/ayce-snacks/golden-fried-buns-200.webp 200w, /assets/ayce-snacks/golden-fried-buns-320.webp 320w" },
+    { src: "/assets/ayce-snacks/crispy-squid-legs-320.webp", srcSet: "/assets/ayce-snacks/crispy-squid-legs-200.webp 200w, /assets/ayce-snacks/crispy-squid-legs-320.webp 320w" },
   ];
 
   return (
@@ -52,8 +52,8 @@ export function HomepageMenu({ language }: { language: HomepageLanguage }) {
         </div>
         <a className="homepage-ayce-media poster-thumbnail" href="#homepage-ayce-image">
           <picture>
-            <source media="(max-width: 760px)" srcSet="/assets/ayce-menu-2026-08-25-fast-360.webp 360w, /assets/ayce-menu-2026-08-25-fast-480.webp 480w" sizes="calc(100vw - 32px)" />
-            <img src="/assets/ayce-menu-2026-08-25-fast-720.webp" srcSet="/assets/ayce-menu-2026-08-25-fast-720.webp 720w, /assets/ayce-menu-2026-08-24-599.webp 1200w" sizes="42vw" alt={isZh ? "鼎鑽火鍋火鍋自助" : "AYCE hot pot at Centre Street Japanese HotPot"} width="1200" height="1553" fetchPriority="high" loading="eager" decoding="async" />
+            <source media="(max-width: 760px)" srcSet="/assets/ayce-menu-2026-09-21-360.webp 360w, /assets/ayce-menu-2026-09-21-480.webp 480w" sizes="(max-width: 560px) 300px, calc(100vw - 32px)" />
+            <img src="/assets/ayce-menu-2026-09-21-720.webp" srcSet="/assets/ayce-menu-2026-09-21-720.webp 720w, /assets/ayce-menu-2026-08-24-599.webp 1200w" sizes="42vw" alt={isZh ? "鼎鑽火鍋火鍋自助" : "AYCE hot pot at Centre Street Japanese HotPot"} width="1200" height="1553" fetchPriority="high" loading="eager" decoding="async" />
           </picture>
           <span>15 {isZh ? "款湯底" : "soup bases"}</span>
           <strong className="poster-open-label">{isZh ? "查看完整圖片" : "View full image"}</strong>
@@ -62,7 +62,7 @@ export function HomepageMenu({ language }: { language: HomepageLanguage }) {
 
       <section className="poster-modal" id="homepage-ayce-image" role="dialog" aria-modal="true" aria-labelledby="homepage-ayce-image-title" data-close-target="ayce">
         <a className="modal-backdrop" href="#ayce" aria-label={isZh ? "關閉完整火鍋自助圖片" : "Close complete AYCE image"} />
-        <div className="poster-frame"><span className="modal-label" id="homepage-ayce-image-title">{isZh ? "火鍋自助完整圖片" : "Complete AYCE image"}</span><a className="modal-close" href="#ayce">{isZh ? "關閉" : "Close"}</a><img src="/assets/ayce-menu-2026-08-25-fast-360.webp" data-full-src="/assets/ayce-menu-2026-08-24-599.webp" alt={isZh ? "鼎鑽火鍋火鍋自助完整圖片" : "Complete AYCE hot pot image at Centre Street Japanese HotPot"} width="1200" height="1553" loading="lazy" decoding="async" /></div>
+        <div className="poster-frame"><span className="modal-label" id="homepage-ayce-image-title">{isZh ? "火鍋自助完整圖片" : "Complete AYCE image"}</span><a className="modal-close" href="#ayce">{isZh ? "關閉" : "Close"}</a><img src="/assets/ayce-menu-2026-09-21-360.webp" data-full-src="/assets/ayce-menu-2026-08-24-599.webp" alt={isZh ? "鼎鑽火鍋火鍋自助完整圖片" : "Complete AYCE hot pot image at Centre Street Japanese HotPot"} width="1200" height="1553" loading="lazy" decoding="async" /></div>
       </section>
 
       <section className="ayce-snack-feature" aria-labelledby="snack-title">
@@ -74,7 +74,7 @@ export function HomepageMenu({ language }: { language: HomepageLanguage }) {
         <div className="snack-showcase">
           {content.ayce.snackNames.map((name, index) => (
             <article className={index === 0 ? "snack-card is-featured" : "snack-card"} key={name}>
-              <img src={snackImages[index].src} srcSet={snackImages[index].srcSet} sizes={index === 0 ? "(max-width: 760px) 88vw, 420px" : "(max-width: 760px) 44vw, 220px"} alt={name} width="320" height="220" loading="lazy" decoding="async" />
+              <img src={snackImages[index].src} srcSet={snackImages[index].srcSet} sizes="(max-width: 760px) calc((100vw - 42px) / 2), (max-width: 1100px) calc((100vw - 74px) / 4), 220px" alt={name} width="320" height="220" loading="lazy" decoding="async" />
               <h3>{name}</h3>
             </article>
           ))}
@@ -97,7 +97,7 @@ export function HomepageMenu({ language }: { language: HomepageLanguage }) {
           <div className="hero-actions"><Link className="primary-action" href={menuPath}>{content.personal.menu}</Link></div>
         </div>
         <a className="soup-preview-strip poster-thumbnail" href="#personal-menu-image">
-          <img src="/assets/personal-hot-pot-menu-full-720.webp" srcSet="/assets/personal-hot-pot-menu-full-480.webp 480w, /assets/personal-hot-pot-menu-full-720.webp 720w, /assets/personal-hot-pot-menu-full.webp 1400w" sizes="(max-width: 760px) 260px, 42vw" alt={isZh ? "鼎鑽火鍋完整個人火鍋菜單與 15 款湯底" : "Full personal hot pot menu with fifteen soup base choices at Centre Street Japanese HotPot"} width="1400" height="2096" loading="lazy" decoding="async" />
+          <img src="/assets/personal-hot-pot-menu-full-480-perf.webp" srcSet="/assets/personal-hot-pot-menu-full-280.webp 280w, /assets/personal-hot-pot-menu-full-480-perf.webp 480w, /assets/personal-hot-pot-menu-full-720.webp 720w, /assets/personal-hot-pot-menu-full.webp 1400w" sizes="(max-width: 760px) 260px, 42vw" alt={isZh ? "鼎鑽火鍋完整個人火鍋菜單與 15 款湯底" : "Full personal hot pot menu with fifteen soup base choices at Centre Street Japanese HotPot"} width="1400" height="2096" loading="lazy" decoding="async" />
           <strong className="poster-open-label">{isZh ? "查看完整菜單" : "View full menu"}</strong>
         </a>
       </section>
@@ -109,7 +109,7 @@ export function HomepageMenu({ language }: { language: HomepageLanguage }) {
 
       <section id="beef-noodle" className="beef-noodle-feature">
         <a className="beef-noodle-feature-media poster-thumbnail" href="#beef-noodle-story-image">
-          <img src="/assets/taiwanese-beef-noodle-story-720.webp" srcSet="/assets/taiwanese-beef-noodle-story-360.webp 360w, /assets/taiwanese-beef-noodle-story-480.webp 480w, /assets/taiwanese-beef-noodle-story-720.webp 720w" sizes="(max-width: 760px) 250px, 520px" alt={content.beefNoodle.alt} width="1122" height="1402" loading="lazy" decoding="async" />
+          <img src="/assets/taiwanese-beef-noodle-story-480-perf.webp" srcSet="/assets/taiwanese-beef-noodle-story-280.webp 280w, /assets/taiwanese-beef-noodle-story-480-perf.webp 480w, /assets/taiwanese-beef-noodle-story-720.webp 720w" sizes="(max-width: 760px) 250px, 520px" alt={content.beefNoodle.alt} width="1122" height="1402" loading="lazy" decoding="async" />
           <strong className="poster-open-label">{isZh ? "查看完整圖片" : "View full image"}</strong>
         </a>
         <div className="beef-noodle-feature-copy">
@@ -135,7 +135,7 @@ export function HomepageMenu({ language }: { language: HomepageLanguage }) {
         <div className="light-meal-grid">
           {content.lightMeals.items.map((meal) => (
             <article className="light-meal-card" key={meal.slug}>
-              <img src={`/assets/light-meals/${meal.slug}-640.webp`} srcSet={`/assets/light-meals/${meal.slug}-320.webp 320w, /assets/light-meals/${meal.slug}-480.webp 480w, /assets/light-meals/${meal.slug}-640.webp 640w, /assets/light-meals/${meal.slug}-1024.webp 1024w`} sizes="(max-width: 560px) 44vw, (max-width: 1100px) 45vw, 30vw" alt={meal.alt} width="1024" height="704" loading="lazy" decoding="async" />
+              <img src={`/assets/light-meals/${meal.slug}-320.webp`} srcSet={`/assets/light-meals/${meal.slug}-224.webp 224w, /assets/light-meals/${meal.slug}-320.webp 320w, /assets/light-meals/${meal.slug}-480.webp 480w, /assets/light-meals/${meal.slug}-640.webp 640w, /assets/light-meals/${meal.slug}-1024.webp 1024w`} sizes="(max-width: 560px) 44vw, (max-width: 1100px) 45vw, 30vw" alt={meal.alt} width="1024" height="704" loading="lazy" decoding="async" />
               <div><h3>{meal.name}</h3><strong>{meal.price}</strong><p>{meal.description}</p></div>
             </article>
           ))}
@@ -153,7 +153,7 @@ export function HomepageMenu({ language }: { language: HomepageLanguage }) {
             {content.drinks.categories.map((drink) => <p key={drink.name}><span>{drink.name}</span><strong>{drink.price}</strong></p>)}
           </div></details>
         </div>
-        <img src="/assets/milk-tea-photo-640.webp" srcSet="/assets/milk-tea-photo-320.webp 320w, /assets/milk-tea-photo-640.webp 640w, /assets/milk-tea-photo.webp 900w" sizes="(max-width: 760px) 74vw, 380px" alt={content.drinks.alt} width="900" height="1200" loading="lazy" decoding="async" />
+        <img src="/assets/milk-tea-photo-480-perf.webp" srcSet="/assets/milk-tea-photo-320.webp 320w, /assets/milk-tea-photo-480-perf.webp 480w, /assets/milk-tea-photo-640.webp 640w, /assets/milk-tea-photo.webp 900w" sizes="(max-width: 760px) min(74vw, 250px), 380px" alt={content.drinks.alt} width="900" height="1200" loading="lazy" decoding="async" />
       </section>
 
       <section id="visit" className="homepage-visit">

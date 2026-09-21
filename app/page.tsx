@@ -23,7 +23,7 @@ const restaurantJsonLd = {
       about: { "@id": "https://centrestjhotpot.ca/#restaurant" },
       mainEntity: { "@id": "https://centrestjhotpot.ca/#restaurant" },
       primaryImageOfPage: { "@type": "ImageObject", url: "https://centrestjhotpot.ca/assets/ayce-menu-2026-08-24-599.webp" },
-      dateModified: "2026-09-20",
+      dateModified: "2026-09-21",
     },
     {
       "@type": "Restaurant",
@@ -80,8 +80,8 @@ const restaurantJsonLd = {
 export default function Home() {
   return (
     <>
-      <link rel="preload" as="image" href="/assets/ayce-menu-2026-08-25-fast-480.webp" imageSrcSet="/assets/ayce-menu-2026-08-25-fast-360.webp 360w, /assets/ayce-menu-2026-08-25-fast-480.webp 480w" imageSizes="calc(100vw - 32px)" media="(max-width: 760px)" />
-      <link rel="preload" as="image" href="/assets/ayce-menu-2026-08-25-fast-720.webp" imageSrcSet="/assets/ayce-menu-2026-08-25-fast-720.webp 720w, /assets/ayce-menu-2026-08-24-599.webp 1200w" imageSizes="42vw" media="(min-width: 761px)" />
+      <link rel="preload" as="image" href="/assets/ayce-menu-2026-09-21-480.webp" imageSrcSet="/assets/ayce-menu-2026-09-21-360.webp 360w, /assets/ayce-menu-2026-09-21-480.webp 480w" imageSizes="(max-width: 560px) 300px, calc(100vw - 32px)" media="(max-width: 760px)" />
+      <link rel="preload" as="image" href="/assets/ayce-menu-2026-09-21-720.webp" imageSrcSet="/assets/ayce-menu-2026-09-21-720.webp 720w, /assets/ayce-menu-2026-08-24-599.webp 1200w" imageSizes="42vw" media="(min-width: 761px)" />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(restaurantJsonLd) }} />
       <HomepageMenu language="en" />
     </>

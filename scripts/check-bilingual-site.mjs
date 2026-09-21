@@ -246,11 +246,11 @@ await readFile(path.join(publicDir, "menu", "centre-street-ayce-menu-2026-08.pdf
 
 for (const route of ["/", "/ayce-hot-pot-calgary/", "/zh-hant/"]) {
   const html = await readFile(fileForRoute(route), "utf8");
-  assert.ok(html.includes("ayce-signature-fried-chicken-2026-08-18"), `${route} must use the current signature fried chicken image`);
+  assert.ok(html.includes("ayce-signature-fried-chicken-2026-09-21"), `${route} must use the current signature fried chicken image`);
   assert.doesNotMatch(html, /ayce-fried-chicken(?:-\d+)?\.webp/u, `${route} still references the old signature fried chicken image`);
 }
-for (const width of [160, 224, 320, 640]) {
-  await readFile(path.join(publicDir, "assets", `ayce-signature-fried-chicken-2026-08-18-${width}.webp`));
+for (const width of [224, 320, 480]) {
+  await readFile(path.join(publicDir, "assets", `ayce-signature-fried-chicken-2026-09-21-${width}.webp`));
 }
 
 const sitemap = await readFile(path.join(publicDir, "sitemap.xml"), "utf8");

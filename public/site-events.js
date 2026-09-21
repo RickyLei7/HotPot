@@ -226,7 +226,7 @@
       window.setTimeout(function () {
         if ("requestIdleCallback" in window) window.requestIdleCallback(loadTags, { timeout: 1500 });
         else loadTags();
-      }, 2500);
+      }, 5000);
     };
 
     if (document.readyState === "complete") {

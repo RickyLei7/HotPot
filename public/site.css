@@ -1185,8 +1185,12 @@ a.beef-noodle-feature-media {
 .homepage-visit .visit-grid p { color: #efe2cb; }
 
 .homepage-visit .visit-grid a {
+  align-items: center;
   color: var(--gold);
+  display: inline-flex;
   font-weight: 850;
+  min-height: 44px;
+  padding: 8px 0;
   text-decoration: underline;
   text-underline-offset: 3px;
 }

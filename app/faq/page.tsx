@@ -25,7 +25,7 @@ export const metadata: Metadata = {
 const faqs = [
   [
     "Do you accept reservations?",
-    "Please call us at (403) 455-3188 for reservation questions and group dining availability.",
+    "Yes. Book online anytime, or call (403) 455-3188 for group dining and today's availability.",
   ],
   [
     "Do you offer Japanese hot pot?",
@@ -119,10 +119,11 @@ export default function FaqPage() {
 
       <section className="content-section">
         <div className="faq-list">
-          {faqs.map(([question, answer]) => (
+          {faqs.map(([question, answer], index) => (
             <article key={question}>
               <h2>{question}</h2>
               <p>{answer}</p>
+              {index === 0 ? <a className="card-action" href="https://reservation.centrestjhotpot.ca/book" data-track-label="online_booking" aria-haspopup="dialog" data-reservation-launcher>Book Online</a> : null}
             </article>
           ))}
         </div>

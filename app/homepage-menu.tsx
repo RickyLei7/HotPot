@@ -50,10 +50,10 @@ export function HomepageMenu({ language }: { language: HomepageLanguage }) {
           </div>
           <div className="hero-visit"><a href={directionsUrl} target="_blank" rel="noreferrer">2213 Centre St N #2243 · {isZh ? "導航" : "Directions"}</a><p>{isZh ? "週一至週五 17:00–22:30 · 週六及週日 12:00–22:30" : "Mon–Fri 5–10:30 PM · Sat–Sun noon–10:30 PM"}</p></div>
         </div>
-        <a className="homepage-ayce-media poster-thumbnail" href="#homepage-ayce-image" aria-label={isZh ? "15 款湯底 查看完整圖片 火鍋自助" : "15 soup bases View full image AYCE hot pot"}>
+        <a className="homepage-ayce-media poster-thumbnail" href="#homepage-ayce-image">
           <picture>
             <source media="(max-width: 760px)" srcSet="/assets/ayce-menu-2026-08-25-fast-360.webp 360w, /assets/ayce-menu-2026-08-25-fast-480.webp 480w" sizes="calc(100vw - 32px)" />
-            <img src="/assets/ayce-menu-2026-08-25-fast-720.webp" srcSet="/assets/ayce-menu-2026-08-25-fast-720.webp 720w, /assets/ayce-menu-2026-08-24-599.webp 1200w" sizes="42vw" alt={isZh ? "鼎鑽火鍋火鍋自助" : "AYCE hot pot at Centre Street Japanese HotPot"} width="1200" height="1553" fetchPriority="high" decoding="async" />
+            <img src="/assets/ayce-menu-2026-08-25-fast-720.webp" srcSet="/assets/ayce-menu-2026-08-25-fast-720.webp 720w, /assets/ayce-menu-2026-08-24-599.webp 1200w" sizes="42vw" alt={isZh ? "鼎鑽火鍋火鍋自助" : "AYCE hot pot at Centre Street Japanese HotPot"} width="1200" height="1553" fetchPriority="high" loading="eager" decoding="async" />
           </picture>
           <span>15 {isZh ? "款湯底" : "soup bases"}</span>
           <strong className="poster-open-label">{isZh ? "查看完整圖片" : "View full image"}</strong>
@@ -96,8 +96,8 @@ export function HomepageMenu({ language }: { language: HomepageLanguage }) {
           <small>{content.personal.comboNote}</small></details>
           <div className="hero-actions"><Link className="primary-action" href={menuPath}>{content.personal.menu}</Link></div>
         </div>
-        <a className="soup-preview-strip poster-thumbnail" href="#personal-menu-image" aria-label={isZh ? "查看完整菜單 個人火鍋" : "View full menu Personal hot pot"}>
-          <img src="/assets/personal-hot-pot-menu-full-720.webp" srcSet="/assets/personal-hot-pot-menu-full-480.webp 480w, /assets/personal-hot-pot-menu-full-720.webp 720w, /assets/personal-hot-pot-menu-full.webp 1400w" sizes="(max-width: 760px) calc(100vw - 32px), 42vw" alt={isZh ? "鼎鑽火鍋完整個人火鍋菜單與 15 款湯底" : "Full personal hot pot menu with fifteen soup base choices at Centre Street Japanese HotPot"} width="1400" height="2096" loading="lazy" decoding="async" />
+        <a className="soup-preview-strip poster-thumbnail" href="#personal-menu-image">
+          <img src="/assets/personal-hot-pot-menu-full-720.webp" srcSet="/assets/personal-hot-pot-menu-full-480.webp 480w, /assets/personal-hot-pot-menu-full-720.webp 720w, /assets/personal-hot-pot-menu-full.webp 1400w" sizes="(max-width: 760px) 260px, 42vw" alt={isZh ? "鼎鑽火鍋完整個人火鍋菜單與 15 款湯底" : "Full personal hot pot menu with fifteen soup base choices at Centre Street Japanese HotPot"} width="1400" height="2096" loading="lazy" decoding="async" />
           <strong className="poster-open-label">{isZh ? "查看完整菜單" : "View full menu"}</strong>
         </a>
       </section>
@@ -108,8 +108,8 @@ export function HomepageMenu({ language }: { language: HomepageLanguage }) {
       </section>
 
       <section id="beef-noodle" className="beef-noodle-feature">
-        <a className="beef-noodle-feature-media poster-thumbnail" href="#beef-noodle-story-image" aria-label={isZh ? "查看完整圖片 牛肉麵故事" : "View full image Beef noodle story"}>
-          <img src="/assets/taiwanese-beef-noodle-story-720.webp" srcSet="/assets/taiwanese-beef-noodle-story-360.webp 360w, /assets/taiwanese-beef-noodle-story-480.webp 480w, /assets/taiwanese-beef-noodle-story-720.webp 720w" sizes="(max-width: 760px) 88vw, 520px" alt={content.beefNoodle.alt} width="1122" height="1402" loading="lazy" decoding="async" />
+        <a className="beef-noodle-feature-media poster-thumbnail" href="#beef-noodle-story-image">
+          <img src="/assets/taiwanese-beef-noodle-story-720.webp" srcSet="/assets/taiwanese-beef-noodle-story-360.webp 360w, /assets/taiwanese-beef-noodle-story-480.webp 480w, /assets/taiwanese-beef-noodle-story-720.webp 720w" sizes="(max-width: 760px) 250px, 520px" alt={content.beefNoodle.alt} width="1122" height="1402" loading="lazy" decoding="async" />
           <strong className="poster-open-label">{isZh ? "查看完整圖片" : "View full image"}</strong>
         </a>
         <div className="beef-noodle-feature-copy">
@@ -135,7 +135,7 @@ export function HomepageMenu({ language }: { language: HomepageLanguage }) {
         <div className="light-meal-grid">
           {content.lightMeals.items.map((meal) => (
             <article className="light-meal-card" key={meal.slug}>
-              <img src={`/assets/light-meals/${meal.slug}-1024.webp`} srcSet={`/assets/light-meals/${meal.slug}-480.webp 480w, /assets/light-meals/${meal.slug}-1024.webp 1024w`} sizes="(max-width: 560px) 46vw, (max-width: 1100px) 45vw, 30vw" alt={meal.alt} width="1024" height="704" loading="lazy" decoding="async" />
+              <img src={`/assets/light-meals/${meal.slug}-640.webp`} srcSet={`/assets/light-meals/${meal.slug}-320.webp 320w, /assets/light-meals/${meal.slug}-480.webp 480w, /assets/light-meals/${meal.slug}-640.webp 640w, /assets/light-meals/${meal.slug}-1024.webp 1024w`} sizes="(max-width: 560px) 44vw, (max-width: 1100px) 45vw, 30vw" alt={meal.alt} width="1024" height="704" loading="lazy" decoding="async" />
               <div><h3>{meal.name}</h3><strong>{meal.price}</strong><p>{meal.description}</p></div>
             </article>
           ))}

@@ -47,24 +47,30 @@ test("online booking opens a safe same-page dialog while phone and direct-link f
   const pageErrors = [];
   page.on("pageerror", (error) => pageErrors.push(error.message));
 
-  await page.route(`${bookingOrigin}/embed/book`, (route) => route.fulfill({
+  await page.route(`${bookingOrigin}/embed/book*`, (route) => route.fulfill({
     contentType: "text/html",
     body: `<!doctype html><button id="dirty">dirty</button><button id="done">done</button><button id="bad-done">bad done</button><button id="request-close">close</button><script>
       parent.postMessage({source:'hotpot-booking',type:'booking:ready'}, '*');
       dirty.onclick=()=>parent.postMessage({source:'hotpot-booking',type:'booking:dirty',dirty:true}, '*');
-      done.onclick=()=>parent.postMessage({source:'hotpot-booking',type:'booking:completed',status:'confirmed'}, '*');
-      document.querySelector('#bad-done').onclick=()=>parent.postMessage({source:'hotpot-booking',type:'booking:completed',status:'confirmed',extra:'not-allowed'}, '*');
+      done.onclick=()=>parent.postMessage({source:'hotpot-booking',type:'booking:completed',status:'confirmed',partySize:4}, '*');
+      document.querySelector('#bad-done').onclick=()=>parent.postMessage({source:'hotpot-booking',type:'booking:completed',status:'confirmed',partySize:4,extra:'not-allowed'}, '*');
       document.querySelector('#request-close').onclick=()=>parent.postMessage({source:'hotpot-booking',type:'booking:request-close'}, '*');
     <\/script>`,
   }));
 
   try {
-    await page.goto(`${origin}/`, { waitUntil: "networkidle" });
+    await page.goto(`${origin}/?utm_source=google&utm_medium=cpc&utm_campaign=test&utm_content=ad-one&utm_id=123&creative=456&gclid=test_click`, { waitUntil: "networkidle" });
     assert.equal(await page.locator("a[href='tel:+14034553188']").count() > 0, true);
 
     const launcher = page.locator("a[data-reservation-launcher]").first();
     assert.equal(await launcher.count(), 1, "the online booking link is present");
-    assert.equal(await launcher.getAttribute("href"), `${bookingOrigin}/book`);
+    const launcherUrl = new URL(await launcher.getAttribute("href"));
+    assert.equal(launcherUrl.origin + launcherUrl.pathname, `${bookingOrigin}/book`);
+    assert.equal(launcherUrl.searchParams.get("source"), "google");
+    assert.equal(launcherUrl.searchParams.get("campaignName"), "test");
+    assert.equal(launcherUrl.searchParams.get("content"), "ad-one");
+    assert.equal(launcherUrl.searchParams.get("creativeId"), "456");
+    assert.equal(launcherUrl.searchParams.get("clickId"), "test_click");
     await launcher.click();
     await page.waitForTimeout(100);
     assert.deepEqual(pageErrors, []);
@@ -72,7 +78,7 @@ test("online booking opens a safe same-page dialog while phone and direct-link f
     const dialog = page.locator("[data-reservation-dialog] .reservation-dialog");
     assert.equal(await dialog.isVisible(), true);
     await page.waitForFunction(() => document.querySelector("link[data-reservation-modal-styles]")?.sheet?.cssRules.length);
-    assert.equal(page.url(), `${origin}/`);
+    assert.equal(page.url(), `${origin}/?utm_source=google&utm_medium=cpc&utm_campaign=test&utm_content=ad-one&utm_id=123&creative=456&gclid=test_click`);
     const bounds = await dialog.boundingBox();
     assert.ok(bounds);
     if (viewportWidth <= 600) {
@@ -83,7 +89,9 @@ test("online booking opens a safe same-page dialog while phone and direct-link f
       assert.ok(bounds.height <= 760, `desktop dialog height was ${bounds.height}px`);
       assert.equal(bounds.x > 0, true);
     }
-    assert.equal(await page.locator("[data-reservation-dialog] iframe").getAttribute("src"), `${bookingOrigin}/embed/book`);
+    const embeddedUrl = new URL(await page.locator("[data-reservation-dialog] iframe").getAttribute("src"));
+    assert.equal(embeddedUrl.origin + embeddedUrl.pathname, `${bookingOrigin}/embed/book`);
+    assert.equal(embeddedUrl.searchParams.get("content"), "ad-one");
     assert.equal(await page.locator("[data-reservation-dialog] iframe").getAttribute("sandbox"), "allow-forms allow-scripts allow-same-origin");
     assert.equal(await page.locator("[data-reservation-problem] a").getAttribute("data-reservation-direct"), "");
     assert.equal(await page.evaluate(() => document.body.style.position), "fixed");
@@ -120,8 +128,9 @@ test("online booking opens a safe same-page dialog while phone and direct-link f
       addEventListener("hotpot:booking-completed", (event) => resolve(event.detail), { once: true });
     }));
     await page.frameLocator("[data-reservation-dialog] iframe").locator("#done").click();
-    assert.deepEqual(await completion, { status: "confirmed" });
+    assert.deepEqual(await completion, { status: "confirmed", partySize: 4 });
     assert.equal(await page.evaluate(() => window.dataLayer.some((entry) => entry?.[1] === "online_booking_completed")), true);
+    assert.equal(await page.evaluate(() => window.dataLayer.some((entry) => entry?.[1] === "reservation_completed" && entry?.[2]?.party_size === 4)), true);
     assert.equal(await page.evaluate(() => JSON.stringify(window.dataLayer).includes("email")), false);
     await page.frameLocator("[data-reservation-dialog] iframe").locator("#request-close").click();
     await page.waitForTimeout(50);

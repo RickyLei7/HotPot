@@ -9,6 +9,8 @@ Status: Updated 2026-07-27. GA4 and Google Ads events are implemented in `public
 | `campaign_landing` | Page opens with a valid `utm_source` | Attributes website visits to a platform and campaign |
 | `google_ads_landing` | Page opens with Google Ads auto-tagging ID (`gclid`, `gbraid`, or `wbraid`) | Confirms Google Ads visitors reached the site |
 | `reservation_click` | Any phone reservation CTA | Main reservation intent |
+| `online_booking_click` | Guest opens the online booking form | Online reservation intent |
+| `online_booking_completed` | Online reservation submits successfully | One completed reservation; includes `party_size` and `booking_status` |
 | `phone_click` | Any phone link | High-intent call |
 | `generate_lead` | Phone link or Google Maps directions link | GA4 recommended lead event; use for reporting |
 | `email_click` | Email link | Contact intent |
@@ -31,6 +33,7 @@ Status: Updated 2026-07-27. GA4 and Google Ads events are implemented in `public
 In GA4 Admin -> Data display -> Events, mark these as key events once they appear:
 
 - `reservation_click`
+- `online_booking_completed`
 - `phone_click`
 - `generate_lead`
 - `directions_click`
@@ -40,6 +43,14 @@ In GA4 Admin -> Data display -> Events, mark these as key events once they appea
 Observation only:
 
 - `google_ads_landing`
+
+## Online Booking Guest Cost
+
+GA4 registers `party_size` as the event-scoped custom metric **Booked guests** and `booking_status` as a custom dimension. Always filter to `eventName = online_booking_completed` before summing `party_size`, because the same reservation data is also sent with supporting lead events.
+
+- Ad cost per reservation = ad spend / completed online reservations.
+- Ad cost per booked guest = ad spend / sum of `party_size`.
+- Booked guests are reservation covers, not confirmed arrivals. Compare them with seated guests before treating the result as final customer acquisition cost.
 
 ## Google Ads Conversion Import Rule
 

@@ -32,7 +32,7 @@ async function request(url, options = {}) {
   return body;
 }
 
-const desired = [
+const desiredDimensions = [
   ["page_type", "Page type"],
   ["site_language", "Site language"],
   ["session_landing_page", "Session landing page"],
@@ -59,18 +59,32 @@ const desired = [
   ["section_id", "Viewed section"],
   ["referrer_host", "Referrer host"],
   ["method", "Contact method"],
+  ["booking_status", "Online booking status"],
+];
+
+const desiredMetrics = [
+  ["party_size", "Booked guests", "Number of guests included in a completed online reservation"],
 ];
 
 const listUrl = `https://analyticsadmin.googleapis.com/v1beta/${property}/customDimensions?pageSize=200`;
 const before = await request(listUrl);
 const active = (before.customDimensions ?? []).filter((dimension) => !dimension.disallowAdsPersonalization);
 const existingNames = new Set((before.customDimensions ?? []).map((dimension) => dimension.parameterName));
-const missing = desired.filter(([parameterName]) => !existingNames.has(parameterName));
+const missing = desiredDimensions.filter(([parameterName]) => !existingNames.has(parameterName));
 if ((before.customDimensions?.length ?? 0) + missing.length > 50) {
   throw new Error(`Adding ${missing.length} dimensions would exceed the GA4 standard property limit of 50.`);
 }
 
+const metricsUrl = `https://analyticsadmin.googleapis.com/v1beta/${property}/customMetrics?pageSize=200`;
+const metricsBefore = await request(metricsUrl);
+const existingMetricNames = new Set((metricsBefore.customMetrics ?? []).map((metric) => metric.parameterName));
+const missingMetrics = desiredMetrics.filter(([parameterName]) => !existingMetricNames.has(parameterName));
+if ((metricsBefore.customMetrics?.length ?? 0) + missingMetrics.length > 50) {
+  throw new Error(`Adding ${missingMetrics.length} metrics would exceed the GA4 standard property limit of 50.`);
+}
+
 const created = [];
+const createdMetrics = [];
 if (apply) {
   for (const [parameterName, displayName] of missing) {
     created.push(await request(`https://analyticsadmin.googleapis.com/v1beta/${property}/customDimensions`, {
@@ -83,18 +97,38 @@ if (apply) {
       }),
     }));
   }
+  for (const [parameterName, displayName, description] of missingMetrics) {
+    createdMetrics.push(await request(`https://analyticsadmin.googleapis.com/v1beta/${property}/customMetrics`, {
+      method: "POST",
+      body: JSON.stringify({
+        parameterName,
+        displayName,
+        description,
+        measurementUnit: "STANDARD",
+        scope: "EVENT",
+      }),
+    }));
+  }
 }
 
 const after = apply ? await request(listUrl) : before;
+const metricsAfter = apply ? await request(metricsUrl) : metricsBefore;
 const result = {
   mode: apply ? "apply" : "validate",
   property,
   existingCount: before.customDimensions?.length ?? 0,
   activeCount: active.length,
-  desiredCount: desired.length,
+  desiredCount: desiredDimensions.length,
   missingBefore: missing.map(([parameterName]) => parameterName),
   created: created.map(({ name, parameterName }) => ({ name, parameterName })),
   verifiedParameters: (after.customDimensions ?? []).map((dimension) => dimension.parameterName).sort(),
+  customMetrics: {
+    existingCount: metricsBefore.customMetrics?.length ?? 0,
+    desiredCount: desiredMetrics.length,
+    missingBefore: missingMetrics.map(([parameterName]) => parameterName),
+    created: createdMetrics.map(({ name, parameterName }) => ({ name, parameterName })),
+    verifiedParameters: (metricsAfter.customMetrics ?? []).map((metric) => metric.parameterName).sort(),
+  },
 };
 
 const output = path.join(root, "marketing", "reports", "ga4-tracking-dimensions-latest.json");

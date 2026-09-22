@@ -61,9 +61,18 @@ test("online booking opens a safe same-page dialog while phone and direct-link f
   try {
     await page.goto(`${origin}/`, { waitUntil: "networkidle" });
     assert.equal(await page.locator("a[href='tel:+14034553188']").count() > 0, true);
-    assert.equal(await page.locator(".nav-actions .nav-phone[href='tel:+14034553188']").isVisible(), true, "the header keeps a visible call button beside online booking");
+    assert.equal(await page.locator(".nav-actions .nav-book[data-reservation-launcher]").isVisible(), true, "the header keeps online booking as its primary action");
+    assert.equal(await page.locator(".nav-actions .nav-phone").count(), 0, "the header does not duplicate the phone action beside online booking");
     assert.equal(await page.locator(".reserve-sticky-book").count(), 1, "the mobile booking action is present");
     assert.equal(await page.locator(".reserve-sticky-phone[href='tel:+14034553188']").count(), 1, "the mobile call action is present");
+
+    const snackHeading = page.locator("#snack-title");
+    assert.equal(await snackHeading.textContent(), "19 AYCE Snacks · +$5.99");
+    const snackHeadingMetrics = await snackHeading.evaluate((element) => {
+      const style = getComputedStyle(element);
+      return { height: element.getBoundingClientRect().height, lineHeight: Number.parseFloat(style.lineHeight) };
+    });
+    assert.ok(snackHeadingMetrics.height <= snackHeadingMetrics.lineHeight * 2.1, "the snack upgrade heading fits within two mobile lines");
 
     const launcher = page.locator("a[data-reservation-launcher]").first();
     assert.equal(await launcher.count(), 1, "the online booking link is present");

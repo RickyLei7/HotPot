@@ -2903,6 +2903,11 @@ a.beef-noodle-feature-media {
     font-size: clamp(2.8rem, 14.2vw, 4.4rem);
   }
 
+  .ayce-snack-feature h2 {
+    font-size: clamp(2rem, 9vw, 2.45rem);
+    line-height: 1.05;
+  }
+
   .snack-showcase {
     gap: 10px;
     grid-template-columns: repeat(2, minmax(0, 1fr));

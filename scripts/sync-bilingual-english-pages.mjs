@@ -51,6 +51,7 @@ for (const [englishRoute, zhHantRoute] of routePairs) {
   }
   html = html.replaceAll(">繁中<", ">中文<");
   html = html.replaceAll('aria-hidden="true">小</span>小紅書', 'aria-hidden="true">XHS</span>Xiaohongshu');
+  html = html.replace(/\/site\.css\?v=[^" ]+/, "/site.css?v=20260922-mobile-fix");
 
   if (!html.includes('class="language-switch"')) {
     const switcher = `<div class="language-switch" aria-label="Switch website language"><a class="language-option is-active" aria-current="page" hreflang="en-CA" lang="en-CA" href="${englishRoute}">EN</a><a class="language-option" hreflang="zh-Hant-CA" lang="zh-Hant" href="${zhHantRoute}">中文</a></div>`;
@@ -60,9 +61,10 @@ for (const [englishRoute, zhHantRoute] of routePairs) {
   if (!html.includes('class="nav-actions"')) {
     html = html.replace(
       /<a class="nav-call"([^>]*)>Book Online<\/a>/,
-      '<div class="nav-actions"><a class="nav-call nav-book"$1>Book Online</a><a class="nav-call nav-phone" href="tel:+14034553188" aria-label="Call (403) 455-3188">Call</a></div>',
+      '<div class="nav-actions"><a class="nav-call nav-book"$1>Book Online</a></div>',
     );
   }
+  html = html.replace(/<a class="nav-call nav-phone"[^>]*>Call<\/a>/, "");
 
   if (!html.includes('class="reserve-sticky reserve-sticky-phone"')) {
     html = html.replace(

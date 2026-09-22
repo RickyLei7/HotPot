@@ -3,9 +3,9 @@ import Link from "next/link";
 import { SiteNav } from "../site-nav";
 
 export const metadata: Metadata = {
-  title: "Taiwanese Hot Pot Calgary | Centre Street",
+  title: "Taiwanese Food & Hot Pot Calgary | $28.99 AYCE",
   description:
-    "Find Taiwanese-style hot pot in Calgary with $28.99 AYCE, personal hot pot, 15 soup bases, Taiwanese snacks, milk tea and phone reservations.",
+    "Taiwanese food in Calgary: $19.99 personal hot pot, $28.99 AYCE, beef noodle soup, rice bowls, snacks and milk tea. View the menu and book online.",
   alternates: {
     canonical: "/calgary-taiwanese-hot-pot",
     languages: {
@@ -15,9 +15,9 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "Taiwanese Hot Pot Calgary | Centre Street",
+    title: "Taiwanese Food & Hot Pot Calgary | $28.99 AYCE",
     description:
-      "Centre Street Japanese HotPot offers Taiwanese-style individual hot pot, AYCE hot pot, Taiwanese snacks, milk tea, and reservations on Centre Street in Calgary.",
+      "Choose personal hot pot or $28.99 AYCE, plus Taiwanese beef noodle soup, rice bowls, fried snacks and milk tea on Centre Street in Calgary.",
     url: "https://centrestjhotpot.ca/calgary-taiwanese-hot-pot/",
     images: ["/assets/dish-sukiyaki.webp"],
   },
@@ -29,8 +29,12 @@ const taiwaneseHotPotFaqs = [
     "Centre Street Japanese HotPot serves Taiwanese-style and Japanese-style individual hot pot at 2213 Centre St N #2243 in Calgary.",
   ],
   [
-    "What makes Taiwanese hot pot different?",
-    "Taiwanese hot pot is flexible and shareable: guests choose soup bases, meats, vegetables, rice or noodles, sauces, snacks, and drinks. It is well suited for personal hot pot and group dining.",
+    "What Taiwanese food can I order besides hot pot?",
+    "The menu includes Taiwanese beef noodle soup, braised pork rice, fried chicken with rice or noodles, wonton soup, fried snacks, milk tea, and other drinks.",
+  ],
+  [
+    "How does personal hot pot work?",
+    "The $19.99 personal hot pot includes one of 15 soup bases, a large vegetable set, one meat, and rice or noodles. Each guest can choose a different soup and spice level.",
   ],
   [
     "Does Centre Street Japanese HotPot offer all-you-can-eat hot pot?",
@@ -38,7 +42,7 @@ const taiwaneseHotPotFaqs = [
   ],
   [
     "How do I reserve a table?",
-    "Call (403) 455-3188 for reservations, larger groups, and today's table availability.",
+    "Book online through the restaurant website. For larger groups or today's table availability, call (403) 455-3188.",
   ],
 ];
 
@@ -48,13 +52,20 @@ const pageSchema = {
     {
       "@type": "Article",
       "@id": "https://centrestjhotpot.ca/calgary-taiwanese-hot-pot/#article",
-      headline: "Taiwanese Hot Pot in Calgary",
+      headline: "Taiwanese Food & Hot Pot in Calgary",
       description:
-        "A focused guide for Taiwanese-style individual hot pot, AYCE hot pot, Taiwanese snacks, milk tea, and reservations at Centre Street Japanese HotPot in Calgary.",
+        "Taiwanese food and hot pot in Calgary, including personal hot pot, AYCE, beef noodle soup, rice bowls, fried snacks, milk tea, and reservations.",
       url: "https://centrestjhotpot.ca/calgary-taiwanese-hot-pot/",
+      datePublished: "2026-08-08",
+      dateModified: "2026-09-22",
+      author: { "@id": "https://centrestjhotpot.ca/#restaurant" },
+      image: "https://centrestjhotpot.ca/assets/dish-sukiyaki.webp",
+      inLanguage: "en-CA",
       about: [
         "Taiwanese hot pot Calgary",
         "Taiwanese individual hot pot Calgary",
+        "Taiwanese food Calgary",
+        "Taiwanese restaurant Calgary",
       ],
       mainEntityOfPage: "https://centrestjhotpot.ca/calgary-taiwanese-hot-pot/",
       publisher: {
@@ -87,10 +98,10 @@ export default function CalgaryTaiwaneseHotPotPage() {
 
       <section className="page-hero guide-page-hero">
         <div>
-          <p className="eyebrow">Taiwanese hot pot Calgary</p>
-          <h1>Taiwanese Hot Pot on Centre Street in Calgary</h1>
+          <p className="eyebrow">Taiwanese food and hot pot in Calgary</p>
+          <h1>Taiwanese Food & Hot Pot in Calgary</h1>
           <p className="hero-text">
-            Choose a personal pot or $28.99 AYCE, then add Taiwanese snacks or milk tea.
+            Choose $19.99 personal hot pot or $28.99 AYCE, or stop in for beef noodle soup, rice bowls, fried snacks, and milk tea.
           </p>
           <div className="hero-actions">
             <a className="primary-action" href="https://reservation.centrestjhotpot.ca/book" data-track-label="online_booking" aria-haspopup="dialog" data-reservation-launcher>
@@ -106,23 +117,25 @@ export default function CalgaryTaiwaneseHotPotPage() {
       <section className="content-section">
         <div className="guide-layout">
           <article className="guide-copy">
-            <p className="eyebrow">Why guests choose it</p>
-            <h2>Personal Pots for Different Tastes</h2>
+            <p className="eyebrow">More than one way to eat</p>
+            <h2>Hot Pot and Taiwanese Comfort Food</h2>
             <p>
-              Choose your soup base, meat, vegetables, and rice or noodles.
-              Personal pots let everyone at the table choose a different flavour and spice level.
+              The $19.99 personal hot pot includes one of 15 soup bases, a large vegetable set,
+              one meat, and rice or noodles. Personal pots let everyone choose a different flavour and spice level.
             </p>
             <p>
-              The menu also includes Taiwanese snacks, rice and noodle bowls, and milk tea.
+              If you do not want hot pot, choose Taiwanese beef noodle soup, braised pork rice,
+              fried chicken with rice or noodles, wonton soup, fried snacks, or milk tea.
             </p>
           </article>
           <aside className="guide-card">
             <h2>Restaurant facts</h2>
             <p><strong>Name:</strong> Centre Street Japanese HotPot</p>
             <p><strong>Focus:</strong> Taiwanese-style and Japanese-style individual hot pot</p>
+            <p><strong>Personal hot pot:</strong> $19.99</p>
             <p><strong>AYCE:</strong> $28.99 + tax, soup base included</p>
             <p><strong>Address:</strong> 2213 Centre St N #2243, Calgary, AB T2E 2T4</p>
-            <p><strong>Reserve:</strong> <a href="tel:+14034553188">(403) 455-3188</a></p>
+            <p><strong>Reserve:</strong> <a href="https://reservation.centrestjhotpot.ca/book" data-track-label="online_booking" aria-haspopup="dialog" data-reservation-launcher>Book online</a> or <a href="tel:+14034553188">call (403) 455-3188</a></p>
           </aside>
         </div>
       </section>

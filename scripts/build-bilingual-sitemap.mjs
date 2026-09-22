@@ -2,7 +2,12 @@ import { writeFile } from "node:fs/promises";
 import path from "node:path";
 
 const baseUrl = "https://centrestjhotpot.ca";
-const lastmod = "2026-09-20";
+const defaultLastmod = "2026-09-21";
+const lastmodByPath = new Map([
+  ["/", "2026-09-22"],
+  ["/calgary-hot-pot-guide/", "2026-09-22"],
+  ["/calgary-taiwanese-hot-pot/", "2026-09-22"],
+]);
 const pairs = [
   ["/", "/zh-hant/", "weekly", "1.0"],
   ["/about/", "/zh-hant/about/", "monthly", "0.8"],
@@ -17,6 +22,7 @@ const pairs = [
 ];
 
 function entry(pathname, englishPath, traditionalChinesePath, changefreq, priority) {
+  const lastmod = lastmodByPath.get(pathname) ?? defaultLastmod;
   return `  <url>
     <loc>${baseUrl}${pathname}</loc>
     <xhtml:link rel="alternate" hreflang="en-CA" href="${baseUrl}${englishPath}" />
@@ -34,8 +40,8 @@ const entries = pairs.flatMap(([englishPath, traditionalChinesePath, changefreq,
 ]);
 
 entries.push(
-  `  <url>\n    <loc>${baseUrl}/privacy-policy/</loc>\n    <lastmod>${lastmod}</lastmod>\n    <changefreq>yearly</changefreq>\n    <priority>0.3</priority>\n  </url>`,
-  `  <url>\n    <loc>${baseUrl}/table-menu/</loc>\n    <lastmod>${lastmod}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.9</priority>\n  </url>`,
+  `  <url>\n    <loc>${baseUrl}/privacy-policy/</loc>\n    <lastmod>${defaultLastmod}</lastmod>\n    <changefreq>yearly</changefreq>\n    <priority>0.3</priority>\n  </url>`,
+  `  <url>\n    <loc>${baseUrl}/table-menu/</loc>\n    <lastmod>${defaultLastmod}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.9</priority>\n  </url>`,
 );
 
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>

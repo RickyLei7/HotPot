@@ -3,9 +3,9 @@ import Link from "next/link";
 import { SiteNav } from "../site-nav";
 
 export const metadata: Metadata = {
-  title: "Taiwanese & Japanese Hot Pot in Calgary | Centre St HotPot",
+  title: "Calgary Hot Pot Guide | AYCE vs Personal Hot Pot",
   description:
-    "Explore Taiwanese and Japanese-style hot pot in Calgary, including AYCE, personal hot pot, 15 soup bases, snacks, reservations and location details.",
+    "Compare $28.99 AYCE and $19.99 personal hot pot in Calgary. See what each includes, choose from 15 soup bases, view the menu and book online.",
   alternates: {
     canonical: "/calgary-hot-pot-guide",
     languages: {
@@ -15,9 +15,9 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "Taiwanese & Japanese Hot Pot in Calgary | Centre St HotPot",
+    title: "Calgary Hot Pot Guide | AYCE vs Personal Hot Pot",
     description:
-      "Find Taiwanese and Japanese-style individual hot pot in Calgary with soup bases, meats, seafood, Taiwanese snacks, milk tea, and table reservations.",
+      "Compare $28.99 AYCE and $19.99 personal hot pot, see what is included, and plan a Calgary hot pot visit on Centre Street.",
     url: "https://centrestjhotpot.ca/calgary-hot-pot-guide/",
     images: ["/assets/dish-sukiyaki.webp"],
   },
@@ -25,12 +25,12 @@ export const metadata: Metadata = {
 
 const guideFaqs = [
   [
-    "Where can I find Taiwanese hot pot in Calgary?",
-    "Centre Street Japanese HotPot serves Taiwanese and Japanese-style individual hot pot at 2213 Centre St N #2243 in Calgary.",
+    "What is the difference between AYCE and personal hot pot?",
+    "AYCE is $28.99 + tax with soup base included and server-ordered meats. The $19.99 personal hot pot includes one soup base, a large vegetable set, one meat, and rice or noodles.",
   ],
   [
-    "Is Taiwanese hot pot similar to Japanese hot pot?",
-    "Yes. Taiwanese hot pot and Japanese-style hot pot often share a personal hot pot dining format with soup bases, meats, vegetables, rice or noodles, snacks, and drinks.",
+    "Which Calgary hot pot option should I choose?",
+    "Choose personal hot pot for a complete set with your own soup and portions. Choose AYCE when you want to order more meat during the meal.",
   ],
   [
     "Is Centre Street Japanese HotPot good for group dining?",
@@ -38,7 +38,7 @@ const guideFaqs = [
   ],
   [
     "How do I reserve a table?",
-    "Call (403) 455-3188 for reservations, group dining, and today's table availability.",
+    "Book online through the restaurant website. For group dining or today's table availability, call (403) 455-3188.",
   ],
 ];
 
@@ -48,13 +48,18 @@ const guideSchema = {
     {
       "@type": "Article",
       "@id": "https://centrestjhotpot.ca/calgary-hot-pot-guide/#article",
-      headline: "Taiwanese & Japanese Hot Pot in Calgary",
+      headline: "Calgary Hot Pot Guide: AYCE vs Personal Hot Pot",
       description:
-        "A local guide to Taiwanese and Japanese-style individual hot pot in Calgary, including soup bases, combo specials, Taiwanese snacks, milk tea, reservations, and FAQ.",
+        "A practical Calgary guide comparing $28.99 AYCE and $19.99 personal hot pot, including what each option includes, soup bases, snacks, reservations, and location.",
       url: "https://centrestjhotpot.ca/calgary-hot-pot-guide/",
+      datePublished: "2026-08-08",
+      dateModified: "2026-09-22",
+      author: { "@id": "https://centrestjhotpot.ca/#restaurant" },
+      image: "https://centrestjhotpot.ca/assets/dish-sukiyaki.webp",
+      inLanguage: "en-CA",
       about: [
-        "Taiwanese hot pot Calgary",
-        "Japanese hot pot Calgary",
+        "Calgary hot pot guide",
+        "AYCE vs personal hot pot Calgary",
         "Calgary individual hot pot",
       ],
       mainEntityOfPage: "https://centrestjhotpot.ca/calgary-hot-pot-guide/",
@@ -89,7 +94,7 @@ export default function CalgaryHotPotGuidePage() {
       <section className="page-hero guide-page-hero">
         <div>
           <p className="eyebrow">Calgary hot pot guide</p>
-          <h1>Taiwanese & Japanese Hot Pot in Calgary</h1>
+          <h1>Calgary Hot Pot Guide: AYCE vs Personal Hot Pot</h1>
           <p className="hero-text">
             Compare personal hot pot and AYCE, choose from 15 soup bases,
             and plan your visit on Centre Street.
@@ -108,22 +113,23 @@ export default function CalgaryHotPotGuidePage() {
       <section className="content-section">
         <div className="guide-layout">
           <article className="guide-copy">
-            <p className="eyebrow">Why this style</p>
-            <h2>Everyone Can Choose Their Own Pot</h2>
+            <p className="eyebrow">Compare the two options</p>
+            <h2>Compare $28.99 AYCE and $19.99 Personal Hot Pot</h2>
             <p>
-              Each guest chooses a soup base, meat, vegetables, and rice or noodles.
-              Add Taiwanese snacks or milk tea if you want something to share.
+              AYCE includes the soup base and lets you order AAA beef, lamb, pork, or chicken through your server during the meal.
             </p>
             <p>
-              Personal pots make different spice levels and flavours easy at one table.
+              Personal hot pot is a complete set with one of 15 soup bases, a large vegetable set, one meat, and rice or noodles.
             </p>
           </article>
           <aside className="guide-card">
             <h2>Quick facts</h2>
             <p><strong>Restaurant:</strong> Centre Street Japanese HotPot</p>
             <p><strong>Style:</strong> Taiwanese and Japanese-style individual hot pot</p>
+            <p><strong>Personal hot pot:</strong> $19.99</p>
+            <p><strong>AYCE:</strong> $28.99 + tax, soup base included</p>
             <p><strong>Address:</strong> 2213 Centre St N #2243, Calgary, AB T2E 2T4</p>
-            <p><strong>Reserve:</strong> <a href="tel:+14034553188">(403) 455-3188</a></p>
+            <p><strong>Reserve:</strong> <a href="https://reservation.centrestjhotpot.ca/book" data-track-label="online_booking" aria-haspopup="dialog" data-reservation-launcher>Book online</a> or <a href="tel:+14034553188">call (403) 455-3188</a></p>
           </aside>
         </div>
       </section>

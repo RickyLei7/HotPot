@@ -21,7 +21,7 @@ export function HomepageMenu({ language }: { language: HomepageLanguage }) {
       ]
     : [
         { href: "/calgary-hot-pot-guide/", label: "Calgary Hot Pot Guide" },
-        { href: "/calgary-taiwanese-hot-pot/", label: "Taiwanese Hot Pot Calgary" },
+        { href: "/calgary-taiwanese-hot-pot/", label: "Taiwanese Food & Hot Pot Calgary" },
         { href: "/first-time-hot-pot-calgary/", label: "First-Time Hot Pot Guide" },
         { href: "/ayce-hot-pot-calgary/", label: "AYCE Hot Pot Calgary" },
       ];

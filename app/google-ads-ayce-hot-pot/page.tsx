@@ -125,7 +125,7 @@ export default function GoogleAdsAyceHotPotPage() {
           </p>
           <div className="ads-hero-actions">
             <a className="primary-action" href="https://reservation.centrestjhotpot.ca/book" data-track-label="online_booking" aria-haspopup="dialog" data-reservation-launcher>
-              Book Online
+              Check Times &amp; Book
             </a>
             <a className="secondary-action" href={mapsUrl} target="_blank" rel="noreferrer">
               Get Directions
@@ -134,7 +134,7 @@ export default function GoogleAdsAyceHotPotPage() {
               View Menu
             </Link>
           </div>
-          <p className="ads-microcopy">2213 Centre St N #2243 · Mon-Fri 5 PM-10:30 PM · Sat-Sun 12 PM-10:30 PM</p>
+          <p className="ads-microcopy"><strong>No account needed · Choose your party size and available time online.</strong><br />2213 Centre St N #2243 · Mon-Fri 5 PM-10:30 PM · Sat-Sun 12 PM-10:30 PM</p>
         </div>
         <div className="ads-offer-card" aria-label="AYCE hot pot offer summary">
           <span className="ads-price">$28.99</span>
@@ -184,10 +184,10 @@ export default function GoogleAdsAyceHotPotPage() {
           <a className="ads-menu-poster poster-thumbnail" href="#ads-ayce-menu-poster" aria-label="View the complete AYCE menu"><img src="/assets/ayce-menu-2026-08-25-fast-360.webp" srcSet="/assets/ayce-menu-2026-08-25-fast-360.webp 360w, /assets/ayce-menu-2026-08-25-fast-480.webp 480w" sizes="(max-width: 560px) calc(100vw - 32px), 360px" alt="AYCE hot pot menu showing $28.99 price, soup base included, and 19 appetizer choices" width="480" height="622" loading="lazy" decoding="async" /><strong className="poster-open-label">View full menu</strong></a>
           <div>
             <p className="eyebrow">AYCE details</p>
-            <h2>Call before coming with a group</h2>
-            <p>For weekend tables, larger groups, or today&apos;s availability, calling is the fastest way to confirm a table.</p>
+            <h2>Book your table before you come</h2>
+            <p>Choose your party size and an available time online. Larger groups may need restaurant confirmation.</p>
             <div className="ads-hero-actions">
-              <a className="primary-action" href="https://reservation.centrestjhotpot.ca/book" data-track-label="online_booking" aria-haspopup="dialog" data-reservation-launcher>Book Online</a>
+              <a className="primary-action" href="https://reservation.centrestjhotpot.ca/book" data-track-label="online_booking" aria-haspopup="dialog" data-reservation-launcher>Check Times &amp; Book</a>
               <Link className="secondary-action" href="/ayce-hot-pot-calgary">
                 Full AYCE Details
               </Link>

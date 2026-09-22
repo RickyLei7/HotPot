@@ -115,6 +115,8 @@ h3 { font-size: 1.08rem; margin-bottom: 10px; }
   max-width: 650px;
 }
 .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 30px; }
+.hero-actions.booking-actions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: 540px; }
+.booking-actions .primary-action, .booking-actions .secondary-action { text-align: center; width: 100%; }
 .hero-availability { color: rgba(255, 246, 223, 0.82); font-size: 0.94rem; font-weight: 700; line-height: 1.45; margin: 16px 0 0; }
 .table-menu-notice { background: rgba(255, 248, 234, 0.96); border: 2px solid var(--gold); border-left: 8px solid var(--gold); border-radius: 10px; color: var(--ink); display: grid; gap: 5px; margin-top: 22px; max-width: 650px; padding: 15px 18px; }
 .table-menu-notice strong { color: var(--red); font-size: 1.05rem; font-weight: 900; }
@@ -712,6 +714,8 @@ body.poster-open { overflow: hidden; }
   .drink-panel img { height: 150px; max-height: none; }
   .quick-info div { min-height: 92px; }
   .hero-actions { display: grid; }
+  .hero-actions.booking-actions { gap: 8px; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .booking-actions .primary-action, .booking-actions .secondary-action { font-size: 0.82rem; padding-inline: 8px; white-space: nowrap; }
   .primary-action, .secondary-action, .social-links a { width: 100%; }
   .reserve-sticky { align-items: center; background: var(--gold); bottom: max(8px, env(safe-area-inset-bottom)); border-radius: 999px; box-shadow: 0 14px 36px rgba(0, 0, 0, 0.34); color: var(--ink); display: flex; font-size: 0.92rem; font-weight: 950; justify-content: center; left: 14px; min-height: 46px; opacity: 0; padding: 0 18px; pointer-events: none; position: fixed; right: 14px; transform: translateY(calc(100% + 18px)); transition: opacity 180ms ease, transform 180ms ease; z-index: 30; }
   .reserve-sticky.is-visible { opacity: 1; pointer-events: auto; transform: translateY(0); }

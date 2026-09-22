@@ -67,12 +67,17 @@ for (const requiredText of [
   "phone_click",
   "online_booking_click",
   "online_booking_completed",
+  "party_size",
+  "booking_status",
   "offer_view",
   "offer_interest_click",
   "page_type",
   "session_landing_page",
   "ads_asset_group_id",
   "attribution_version",
+  "hotpot_campaign_attribution_v3",
+  "attributionLifetimeMs",
+  "trafficSourceAttribution",
   "menu_click",
   'script.src = "/t662/"',
   "requestIdleCallback",
@@ -108,6 +113,8 @@ assert.equal(
   "phone_click must be the only GA4 event reported for a phone CTA",
 );
 assert.equal(siteEvents.includes("link_url:"), false, "Raw link URLs must not be sent to Analytics");
-assert.equal(siteEvents.includes('params.get("gclid") ||'), false, "Raw Google click IDs must not be stored in event parameters");
+const attributionParamsBody = siteEvents.match(/function attributionParams\(\) \{([\s\S]*?)\n  \}/)?.[1] || "";
+assert.equal(/"ads_click_id",/.test(attributionParamsBody), false, "Raw Google click IDs must not be sent to Analytics");
+assert.equal(/"meta_click_id",/.test(attributionParamsBody), false, "Raw Meta click IDs must not be sent to Analytics");
 
 console.log(`Attribution checks passed for ${htmlFiles.length} HTML files.`);

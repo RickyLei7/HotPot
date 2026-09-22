@@ -103,6 +103,14 @@ try {
     "Phone CTA must trigger Google tag loading for the Ads conversion",
   );
 
+  const returningPage = await context.newPage();
+  await returningPage.goto(`${baseUrl}/contact/`, { waitUntil: "networkidle" });
+  const returningBookingUrl = new URL(await returningPage.locator("a[data-reservation-launcher]").first().getAttribute("href"));
+  assert.equal(returningBookingUrl.searchParams.get("source"), "google", "Paid attribution must survive a new browser tab");
+  assert.equal(returningBookingUrl.searchParams.get("medium"), "cpc");
+  assert.equal(returningBookingUrl.searchParams.get("landingPage"), "/", "The original paid landing page must survive with attribution");
+  await returningPage.close();
+
   const directionsPage = await context.newPage();
   await directionsPage.goto(`${baseUrl}/contact/`, { waitUntil: "networkidle" });
   await directionsPage.evaluate(() => {
@@ -114,7 +122,32 @@ try {
   assert.equal(Boolean(eventFromLayer(directionsLayer, "generate_lead")), false, "Directions must not be duplicated as generate_lead");
 
   await context.close();
-  console.log("Runtime tracking checks passed: paid landing, session attribution, phone lead, privacy, and directions separation.");
+
+  const expiredContext = await browser.newContext();
+  await expiredContext.addInitScript(() => {
+    localStorage.setItem("hotpot_campaign_attribution_v3", JSON.stringify({
+      capturedAt: Date.now() - 31 * 24 * 60 * 60 * 1000,
+      landingPage: "/old-ad/",
+      referrerHost: "",
+      data: { campaign_source: "google", campaign_medium: "cpc" },
+    }));
+  });
+  const expiredPage = await expiredContext.newPage();
+  await expiredPage.goto(`${baseUrl}/`, { waitUntil: "networkidle" });
+  const expiredBookingUrl = new URL(await expiredPage.locator("a[data-reservation-launcher]").first().getAttribute("href"));
+  assert.equal(expiredBookingUrl.searchParams.get("source"), "direct", "Expired paid attribution must not receive booking credit");
+  assert.equal(expiredBookingUrl.searchParams.get("medium"), "none");
+  await expiredContext.close();
+
+  const organicContext = await browser.newContext();
+  const organicPage = await organicContext.newPage();
+  await organicPage.goto(`${baseUrl}/`, { referer: "https://www.google.com/", waitUntil: "networkidle" });
+  const organicBookingUrl = new URL(await organicPage.locator("a[data-reservation-launcher]").first().getAttribute("href"));
+  assert.equal(organicBookingUrl.searchParams.get("source"), "google");
+  assert.equal(organicBookingUrl.searchParams.get("medium"), "organic");
+  await organicContext.close();
+
+  console.log("Runtime tracking checks passed: paid 30-day attribution, direct and organic sources, phone lead, privacy, and directions separation.");
 } finally {
   await browser.close();
   server.close();

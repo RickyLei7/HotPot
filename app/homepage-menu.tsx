@@ -10,7 +10,6 @@ export function HomepageMenu({ language }: { language: HomepageLanguage }) {
   const isZh = language === "zh-Hant";
   const content = homepageContent[isZh ? "zhHant" : "en"];
   const menuPath = isZh ? "/zh-hant/menu/" : "/menu/";
-  const aycePath = isZh ? "/zh-hant/ayce-hot-pot-calgary/" : "/ayce-hot-pot-calgary/";
   const restaurantInfoPath = isZh ? "/zh-hant/restaurant-info/" : "/restaurant-info/";
   const localGuideLinks = isZh
     ? [
@@ -43,7 +42,7 @@ export function HomepageMenu({ language }: { language: HomepageLanguage }) {
           <h1>{isZh ? <><span className="heading-unit">$28.99</span>{" "}<span className="heading-unit">火鍋自助</span></> : content.ayce.title}</h1><p className="offer-tax">{isZh ? "每位另加稅 鍋底已包含" : "Per person + tax · Soup base included"}</p>
           <p className="homepage-lead">{content.ayce.lead}</p>
 
-          <div className="hero-actions">
+          <div className="hero-actions booking-actions">
             <a className="primary-action" href="https://reservation.centrestjhotpot.ca/book" data-track-label="online_booking" aria-haspopup="dialog" data-reservation-launcher>{content.ayce.reserve}</a>
             <a className="secondary-action" href="tel:+14034553188">{isZh ? "致電 (403) 455-3188" : "Call (403) 455-3188"}</a>
             <Link className="secondary-action" href={aycePath}>{content.ayce.menu}</Link>

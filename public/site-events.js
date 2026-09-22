@@ -2,8 +2,10 @@
   var measurementId = "G-JN2E0S7E36";
   var googleAdsId = "AW-18149812430";
   var metaPixelId = "1108307461722381";
-  var attributionStorageKey = "hotpot_campaign_attribution_v2";
+  var attributionStorageKey = "hotpot_campaign_attribution_v3";
+  var legacyAttributionStorageKey = "hotpot_campaign_attribution_v2";
   var landingStorageKey = "hotpot_session_landing_v1";
+  var attributionLifetimeMs = 30 * 24 * 60 * 60 * 1000;
 
   window.dataLayer = window.dataLayer || [];
   window.gtag = window.gtag || function () {
@@ -49,6 +51,30 @@
     }
   }
 
+  function readLocal(key) {
+    try {
+      return window.localStorage.getItem(key) || "";
+    } catch (_error) {
+      return "";
+    }
+  }
+
+  function writeLocal(key, value) {
+    try {
+      window.localStorage.setItem(key, value);
+    } catch (_error) {
+      // Tracking must never block the page when storage is unavailable.
+    }
+  }
+
+  function removeLocal(key) {
+    try {
+      window.localStorage.removeItem(key);
+    } catch (_error) {
+      // Tracking must never block the page when storage is unavailable.
+    }
+  }
+
   function pageLanguage() {
     return document.documentElement.lang === "zh-Hant" ? "zh-Hant" : "en";
   }
@@ -88,9 +114,16 @@
   function campaignFromUrl(params) {
     var source = cleanValue(params.get("utm_source"), 50).toLowerCase();
     if (source === "google_ads") source = "google";
+    var googleClickType = clickIdType(params);
+    var metaClickId = cleanValue(params.get("fbclid"), 200);
+    if (!source && googleClickType) source = "google";
+    if (!source && metaClickId) source = "facebook";
+    var medium = cleanValue(params.get("utm_medium"), 50).toLowerCase();
+    if (!medium && googleClickType) medium = "cpc";
+    if (!medium && metaClickId) medium = "paid_social";
     var result = {
       campaign_source: source,
-      campaign_medium: cleanValue(params.get("utm_medium"), 50).toLowerCase(),
+      campaign_medium: medium,
       campaign_name: cleanValue(params.get("utm_campaign"), 100),
       campaign_id: cleanValue(params.get("utm_id"), 100),
       campaign_content: cleanValue(params.get("utm_content"), 100),
@@ -102,13 +135,15 @@
       ads_network: cleanValue(params.get("network"), 20).toLowerCase(),
       ads_device: cleanValue(params.get("device"), 20).toLowerCase(),
       ads_match_type: cleanValue(params.get("matchtype"), 20).toLowerCase(),
-      ads_click_id_type: clickIdType(params),
+      ads_click_id_type: googleClickType,
+      ads_click_id: cleanValue(params.get("gclid") || params.get("gbraid") || params.get("wbraid"), 200),
+      meta_click_id: metaClickId,
     };
     return result;
   }
 
   function hasCampaignData(data) {
-    return Boolean(data.campaign_source || data.campaign_medium || data.campaign_name || data.campaign_id || data.ads_click_id_type);
+    return Boolean(data.campaign_source || data.campaign_medium || data.campaign_name || data.campaign_id || data.ads_click_id_type || data.meta_click_id);
   }
 
   function isGooglePaid(data) {
@@ -116,21 +151,62 @@
     return Boolean(data.ads_click_id_type || (data.campaign_source === "google" && paidMedium));
   }
 
-  function storedAttribution() {
-    var raw = readSession(attributionStorageKey);
-    if (!raw) return {};
+  function trafficSourceAttribution() {
+    var host = referrerHost();
+    if (!host || host === window.location.hostname.replace(/^www\./, "")) {
+      return { campaign_source: "direct", campaign_medium: "none" };
+    }
+    if (/(^|\.)google\./.test(host)) return { campaign_source: "google", campaign_medium: "organic" };
+    if (/(^|\.)bing\.com$/.test(host)) return { campaign_source: "bing", campaign_medium: "organic" };
+    if (/(^|\.)(facebook|instagram)\.com$/.test(host)) {
+      return { campaign_source: host.indexOf("instagram") !== -1 ? "instagram" : "facebook", campaign_medium: "social" };
+    }
+    return { campaign_source: host, campaign_medium: "referral" };
+  }
+
+  function attributionRecord(data, landingPage, referringHost) {
+    return {
+      capturedAt: Date.now(),
+      landingPage: landingPage || window.location.pathname,
+      referrerHost: referringHost || "",
+      data: data,
+    };
+  }
+
+  function storedAttributionRecord() {
+    var raw = readLocal(attributionStorageKey);
     try {
-      return JSON.parse(raw);
+      var record = raw ? JSON.parse(raw) : null;
+      if (record && Number.isFinite(record.capturedAt) && Date.now() - record.capturedAt <= attributionLifetimeMs && hasCampaignData(record.data || {})) {
+        return record;
+      }
     } catch (_error) {
-      return {};
+      // Invalid or obsolete records are discarded below.
+    }
+    removeLocal(attributionStorageKey);
+    var legacyRaw = readSession(legacyAttributionStorageKey);
+    if (!legacyRaw) return null;
+    try {
+      var legacyData = JSON.parse(legacyRaw);
+      if (!hasCampaignData(legacyData)) return null;
+      var migrated = attributionRecord(legacyData, readSession(landingStorageKey), referrerHost());
+      writeLocal(attributionStorageKey, JSON.stringify(migrated));
+      return migrated;
+    } catch (_error) {
+      return null;
     }
   }
 
   var campaignParams = new URLSearchParams(window.location.search);
   var directAttribution = campaignFromUrl(campaignParams);
-  var attribution = hasCampaignData(directAttribution) ? directAttribution : storedAttribution();
+  var storedRecord = storedAttributionRecord();
+  var directRecord = hasCampaignData(directAttribution)
+    ? attributionRecord(directAttribution, window.location.pathname, referrerHost())
+    : null;
+  var activeRecord = directRecord || storedRecord;
+  var attribution = activeRecord ? activeRecord.data : trafficSourceAttribution();
   if (hasCampaignData(directAttribution)) {
-    writeSession(attributionStorageKey, JSON.stringify(directAttribution));
+    writeLocal(attributionStorageKey, JSON.stringify(directRecord));
   }
 
   var sessionLandingPage = readSession(landingStorageKey);
@@ -158,6 +234,27 @@
       if (attribution[key] !== "") params[key] = attribution[key];
     });
     return params;
+  }
+
+  function bookingAttribution() {
+    return {
+      source: attribution.campaign_source || (attribution.meta_click_id ? "facebook" : ""),
+      medium: attribution.campaign_medium || (attribution.meta_click_id ? "paid_social" : ""),
+      campaignName: attribution.campaign_name || "",
+      campaignId: attribution.campaign_id || attribution.ads_campaign_id || "",
+      content: attribution.campaign_content || "",
+      term: attribution.campaign_term || "",
+      adGroupId: attribution.ads_ad_group_id || "",
+      assetGroupId: attribution.ads_asset_group_id || "",
+      creativeId: attribution.ads_creative_id || "",
+      network: attribution.ads_network || "",
+      device: attribution.ads_device || "",
+      matchType: attribution.ads_match_type || "",
+      clickIdType: attribution.ads_click_id_type || (attribution.meta_click_id ? "fbclid" : ""),
+      clickId: attribution.ads_click_id || attribution.meta_click_id || "",
+      landingPage: activeRecord ? activeRecord.landingPage : sessionLandingPage || "",
+      referrerHost: activeRecord ? activeRecord.referrerHost : referrerHost(),
+    };
   }
 
   function baseParams() {
@@ -254,7 +351,7 @@
       referrer_host: referrerHost(),
       campaign_term: directAttribution.campaign_term,
       ads_creative_id: directAttribution.ads_creative_id,
-      attribution_version: "v2",
+      attribution_version: "v3",
     }));
     window.__hotpotCampaignLandingSent = true;
   }
@@ -265,7 +362,7 @@
       campaign_term: directAttribution.campaign_term,
       ads_creative_id: directAttribution.ads_creative_id,
       ads_click_id_present: Boolean(directAttribution.ads_click_id_type),
-      attribution_version: "v2",
+      attribution_version: "v3",
     }));
     window.__hotpotGoogleAdsLandingSent = true;
   }
@@ -356,6 +453,15 @@
   var lastBookingLink = null;
   var bookingUrl = "https://reservation.centrestjhotpot.ca/book";
 
+  function attributedBookingUrl() {
+    var url = new URL(bookingUrl);
+    var details = bookingAttribution();
+    Object.keys(details).forEach(function (key) {
+      if (details[key]) url.searchParams.set(key, details[key]);
+    });
+    return url.href;
+  }
+
   function isBookingLink(link) {
     if (!link || link.hasAttribute("data-reservation-direct")) return false;
     try {
@@ -369,16 +475,17 @@
   function openReservationDialog(event, link) {
     event.preventDefault();
     lastBookingLink = link;
-    if (!reservationModalPromise) reservationModalPromise = import("/reservation-modal.js?v=20260919");
+    if (!reservationModalPromise) reservationModalPromise = import("/reservation-modal.js?v=20260922-booking-attribution-v3");
     reservationModalPromise.then(function (module) {
-      module.openReservationModal({ trigger: link, language: pageLanguage() });
+      module.openReservationModal({ trigger: link, language: pageLanguage(), attribution: bookingAttribution() });
     }).catch(function () {
-      window.location.assign(bookingUrl);
+      window.location.assign(attributedBookingUrl());
     });
   }
 
   document.querySelectorAll("a[href]").forEach(function (link) {
     if (!isBookingLink(link)) return;
+    link.href = attributedBookingUrl();
     link.setAttribute("data-track-label", "online_booking");
     link.setAttribute("aria-haspopup", "dialog");
     link.setAttribute("data-reservation-launcher", "");
@@ -386,13 +493,20 @@
 
   window.addEventListener("hotpot:booking-completed", function (event) {
     var status = event.detail && event.detail.status === "confirmed" ? "confirmed" : "pending";
+    var partySize = Number(event.detail && event.detail.partySize);
+    var validPartySize = Number.isInteger(partySize) && partySize >= 1 && partySize <= 40 ? partySize : 0;
     var link = lastBookingLink || document.querySelector("a[data-reservation-launcher]");
     if (!link) return;
     sendEvent("online_booking_completed", link, {
       method: "website",
       cta_intent: "reservation",
       booking_status: status,
+      booking_count: 1,
+      party_size: validPartySize,
     });
+    sendEvent("reservation_completed", link, { booking_status: status, booking_count: 1, party_size: validPartySize });
+    sendEvent("generate_lead", link, { method: "website", lead_type: "online_booking", booking_status: status, party_size: validPartySize });
+    window.fbq("track", "Schedule", { content_name: "Online reservation", status: status, party_size: validPartySize });
   });
 
   function sendAdsCallConversion(event, link) {

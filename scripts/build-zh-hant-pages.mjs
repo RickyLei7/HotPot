@@ -205,7 +205,7 @@ function renderHomePage(data) {
     <link rel="preload" as="image" href="/assets/ayce-menu-2026-09-21-720.webp" imagesrcset="/assets/ayce-menu-2026-09-21-720.webp 720w, /assets/ayce-menu-2026-08-24-599.webp 1200w" imagesizes="42vw" media="(min-width: 761px)" />
     <link rel="stylesheet" href="/site.css?v=20260922-mobile-fix" />
     <script defer src="/language-routes.js?v=20260813-bilingual"></script>
-    <script defer src="/site-events.js?v=20260922-booking-attribution-v3"></script>
+    <script defer src="/site-events.js?v=20260923-booking-source-v4"></script>
     <script type="application/ld+json">${jsonLd(data)}</script>
   </head>
   <body>
@@ -269,7 +269,7 @@ function renderPage(data) {
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="stylesheet" href="/site.css?v=20260922-mobile-fix" />
     <script defer src="/language-routes.js?v=20260813-bilingual"></script>
-    <script defer src="/site-events.js?v=20260922-booking-attribution-v3"></script>
+    <script defer src="/site-events.js?v=20260923-booking-source-v4"></script>
     <script type="application/ld+json">${jsonLd(data)}</script>
   </head>
   <body>

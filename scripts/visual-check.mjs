@@ -143,7 +143,7 @@ async function inspectPage(page) {
       jsonLdCount: [...document.querySelectorAll('script[type="application/ld+json"]')].length,
       analyticsReady: window.__hotpotAnalyticsReady === true,
       gtagReady: typeof window.gtag === "function",
-      campaignLandingSource: campaignLanding?.[2]?.campaign_source || "",
+      campaignLandingSource: campaignLanding?.[2]?.booking_source || "",
       documentLanguage: document.documentElement.lang,
       activeLanguage: activeLanguage?.textContent?.trim() || "",
       languageSwitchVisible: languageOptions.length === 2

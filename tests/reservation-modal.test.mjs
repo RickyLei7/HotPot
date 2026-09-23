@@ -59,7 +59,7 @@ test("online booking opens a safe same-page dialog while phone and direct-link f
   }));
 
   try {
-    await page.goto(`${origin}/?utm_source=google&utm_medium=cpc&utm_campaign=test&utm_content=ad-one&utm_id=123&creative=456&gclid=test_click`, { waitUntil: "networkidle" });
+    await page.goto(`${origin}/?utm_source=google&utm_medium=cpc&utm_campaign=test&utm_content=ad-one&utm_id=123&creative=456&network=x&device=m&matchtype=e&gclid=test_click`, { waitUntil: "networkidle" });
     assert.equal(await page.locator("a[href='tel:+14034553188']").count() > 0, true);
     assert.equal(await page.locator(".nav-actions .nav-book[data-reservation-launcher]").isVisible(), true, "the header keeps online booking as its primary action");
     assert.equal(await page.locator(".nav-actions .nav-phone").count(), 0, "the header does not duplicate the phone action beside online booking");
@@ -90,7 +90,7 @@ test("online booking opens a safe same-page dialog while phone and direct-link f
     const dialog = page.locator("[data-reservation-dialog] .reservation-dialog");
     assert.equal(await dialog.isVisible(), true);
     await page.waitForFunction(() => document.querySelector("link[data-reservation-modal-styles]")?.sheet?.cssRules.length);
-    assert.equal(page.url(), `${origin}/?utm_source=google&utm_medium=cpc&utm_campaign=test&utm_content=ad-one&utm_id=123&creative=456&gclid=test_click`);
+    assert.equal(page.url(), `${origin}/?utm_source=google&utm_medium=cpc&utm_campaign=test&utm_content=ad-one&utm_id=123&creative=456&network=x&device=m&matchtype=e&gclid=test_click`);
     const bounds = await dialog.boundingBox();
     assert.ok(bounds);
     if (viewportWidth <= 600) {
@@ -142,7 +142,8 @@ test("online booking opens a safe same-page dialog while phone and direct-link f
     }));
     await page.frameLocator("[data-reservation-dialog] iframe").locator("#done").click();
     assert.deepEqual(await completion, { status: "confirmed", partySize: 4 });
-    assert.equal(await page.evaluate(() => window.dataLayer.some((entry) => entry?.[1] === "online_booking_completed")), true);
+    assert.equal(await page.evaluate(() => window.dataLayer.some((entry) => entry?.[1] === "online_booking_completed" && entry?.[2]?.booking_source === "google" && entry?.[2]?.booking_medium === "cpc" && entry?.[2]?.party_size === 4)), true);
+    assert.equal(await page.evaluate(() => Object.keys(Array.from(window.dataLayer).find((entry) => entry?.[1] === "online_booking_completed")?.[2] || {}).length <= 25), true, "booking events must fit GA4's 25-parameter limit");
     assert.equal(await page.evaluate(() => window.dataLayer.some((entry) => entry?.[1] === "reservation_completed" && entry?.[2]?.party_size === 4)), true);
     assert.equal(await page.evaluate(() => JSON.stringify(window.dataLayer).includes("email")), false);
     await page.frameLocator("[data-reservation-dialog] iframe").locator("#request-close").click();

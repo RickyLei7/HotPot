@@ -71,7 +71,9 @@ try {
   const adsLanding = eventFromLayer(landingLayer, "google_ads_landing");
   assert.ok(campaignLanding, "campaign_landing was not sent");
   assert.ok(adsLanding, "google_ads_landing was not sent");
-  assert.equal(campaignLanding[2].campaign_source, "google", "google_ads must be normalized to google");
+  assert.equal(campaignLanding[2].booking_source, "google", "google_ads must be normalized to google");
+  assert.equal(campaignLanding[2].booking_medium, "cpc");
+  assert.equal(campaignLanding[2].campaign_source, undefined, "GA4 campaign configuration fields must not be used as custom parameters");
   assert.equal(campaignLanding[2].ads_campaign_id, "24055900999");
   assert.equal(campaignLanding[2].ads_asset_group_id, "6732359062");
   assert.equal(campaignLanding[2].page_type, "home");
@@ -92,7 +94,7 @@ try {
   const lead = eventFromLayer(phoneLayer, "generate_lead");
   assert.ok(phoneClick, "phone_click was not sent");
   assert.equal(Boolean(lead), false, "Phone CTA must not be duplicated as generate_lead");
-  assert.equal(phoneClick[2].campaign_source, "google", "Attribution did not persist across pages");
+  assert.equal(phoneClick[2].booking_source, "google", "Attribution did not persist across pages");
   assert.equal(phoneClick[2].session_landing_page, "/", "Original landing page did not persist");
   assert.equal(phoneClick[2].link_destination, "phone", "Phone number must not be sent as a URL");
   assert.equal(phoneClick[2].lead_type, undefined, "phone_click must remain a dedicated event definition");

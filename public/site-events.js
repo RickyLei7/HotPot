@@ -218,11 +218,11 @@
   function attributionParams() {
     var params = {};
     [
-      "campaign_source",
-      "campaign_medium",
-      "campaign_name",
-      "campaign_id",
-      "campaign_content",
+      ["campaign_source", "booking_source"],
+      ["campaign_medium", "booking_medium"],
+      ["campaign_name", "booking_campaign_name"],
+      ["campaign_id", "booking_campaign_id"],
+      ["campaign_content", "booking_campaign_content"],
       "ads_campaign_id",
       "ads_ad_group_id",
       "ads_asset_group_id",
@@ -230,8 +230,10 @@
       "ads_device",
       "ads_match_type",
       "ads_click_id_type",
-    ].forEach(function (key) {
-      if (attribution[key] !== "") params[key] = attribution[key];
+    ].forEach(function (field) {
+      var key = Array.isArray(field) ? field[0] : field;
+      var name = Array.isArray(field) ? field[1] : field;
+      if (attribution[key]) params[name] = attribution[key];
     });
     return params;
   }
@@ -349,7 +351,7 @@
     window.gtag("event", "campaign_landing", Object.assign(baseParams(), {
       landing_page: window.location.pathname,
       referrer_host: referrerHost(),
-      campaign_term: directAttribution.campaign_term,
+      booking_campaign_term: directAttribution.campaign_term,
       ads_creative_id: directAttribution.ads_creative_id,
       attribution_version: "v3",
     }));
@@ -416,11 +418,17 @@
   }
 
   function sendEvent(name, link, params) {
-    window.gtag("event", name, Object.assign(baseParams(), {
+    var eventParams = Object.assign(baseParams(), {
       cta_name: ctaName(link),
       link_destination: safeDestination(link),
       cta_location: getLocation(link),
-    }, params || {}));
+    }, params || {});
+    if (name === "online_booking_completed" || name === "reservation_completed" || name === "generate_lead") {
+      delete eventParams.ads_network;
+      delete eventParams.ads_device;
+      delete eventParams.ads_match_type;
+    }
+    window.gtag("event", name, eventParams);
 
     if (window.__hotpotMetaStandaloneEvents) return;
 
@@ -475,7 +483,7 @@
   function openReservationDialog(event, link) {
     event.preventDefault();
     lastBookingLink = link;
-    if (!reservationModalPromise) reservationModalPromise = import("/reservation-modal.js?v=20260922-booking-attribution-v3");
+    if (!reservationModalPromise) reservationModalPromise = import("/reservation-modal.js?v=20260923-booking-source-v4");
     reservationModalPromise.then(function (module) {
       module.openReservationModal({ trigger: link, language: pageLanguage(), attribution: bookingAttribution() });
     }).catch(function () {

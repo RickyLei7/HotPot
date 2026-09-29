@@ -17,7 +17,7 @@ const data = JSON.parse(await readFile('app/zh-hant/page-data.json', 'utf8')).me
 const menu = await readFile('public/zh-hant/menu/index.html', 'utf8');
 const graph = JSON.parse(menu.match(/<script type="application\/ld\+json">(.*?)<\/script>/s)[1])['@graph'];
 const sections = graph.find(item => item.hasPart)?.hasPart.hasMenuSection;
-assert.deepEqual(sections.map(section => section.hasMenuItem.length), [7, 19, 10]);
+assert.deepEqual(sections.map(section => section.hasMenuItem.length), [2, 3, 7, 19, 10]);
 for (const section of data.sections.filter(section => section.items)) {
   for (const [name, price] of section.items) {
     assert.ok(menu.includes(`<span>${name}</span><strong>${price}</strong>`));
@@ -26,4 +26,5 @@ for (const section of data.sections.filter(section => section.items)) {
 assert.match(menu, /同桌客人必須一起升級/);
 assert.match(menu, /data-table-menu-notice/);
 assert.doesNotMatch(menu, /\$3\.99/);
-console.log('Compact home, poster links and 36 Chinese menu entries/schema passed.');
+assert.deepEqual(sections.slice(0, 2).flatMap(section => section.hasMenuItem.map(item => item.offers.price)), ['28.99', '5.99', '19.99', '24.99', '58.99']);
+console.log('Compact home, poster links and 41 Chinese menu entries/schema passed.');

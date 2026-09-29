@@ -4,13 +4,14 @@ import rawPages from "./page-data.json";
 
 type Action = { label: string; href: string; style: string };
 type Card = { title: string; text: string; href?: string; actionLabel?: string };
-type Section = { eyebrow: string; title: string; paragraphs: string[]; cards?: Card[]; actions?: Action[]; items?: [string, string][]; itemLabel?: string };
+type Section = { id?: string; navLabel?: string; eyebrow: string; title: string; paragraphs: string[]; cards?: Card[]; actions?: Action[]; items?: [string, string][]; itemLabel?: string; menuItems?: { name: string; price: string; description: string }[] };
 type Faq = { question: string; answer: string };
 type FeatureStory = { eyebrow: string; title: string; image: string; imageAlt: string; paragraphs: string[] };
 export type ZhPageData = {
   path: string;
   englishPath: string;
   schemaType: string;
+  dateModified?: string;
   title: string;
   description: string;
   eyebrow: string;
@@ -57,6 +58,7 @@ function schemaFor(data: ZhPageData) {
     url: `https://centrestjhotpot.ca${data.path}`,
     name: data.title,
     description: data.description,
+    dateModified: data.dateModified || "2026-09-21",
     inLanguage: "zh-Hant-CA",
     isPartOf: { "@id": "https://centrestjhotpot.ca/#website" },
     about: { "@id": "https://centrestjhotpot.ca/#restaurant" },
@@ -66,9 +68,12 @@ function schemaFor(data: ZhPageData) {
   if (data.path === "/zh-hant/menu/") {
     pageEntity.hasPart = {
       "@type": "Menu", name: "鼎鑽火鍋菜單", inLanguage: "zh-Hant-CA",
-      hasMenuSection: data.sections.filter(section => section.items?.length).map(section => ({
+      hasMenuSection: data.sections.filter(section => section.items?.length || section.menuItems?.length).map(section => ({
         "@type": "MenuSection", name: section.title,
-        hasMenuItem: section.items!.map(([name, price]) => ({
+        hasMenuItem: section.menuItems ? section.menuItems.map(item => ({
+          "@type": "MenuItem", name: item.name, description: item.description,
+          offers: { "@type": "Offer", price: item.price, priceCurrency: "CAD" },
+        })) : section.items!.map(([name, price]) => ({
           "@type": "MenuItem", name,
           offers: { "@type": "Offer", price: price.replace(/[+$]/g, ""), priceCurrency: "CAD" },
         })),
@@ -126,17 +131,18 @@ export function ZhPage({ data }: { data: ZhPageData }) {
     <main id="top">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaFor(data)) }} />
       <SiteNav currentPath={data.path} language="zh-Hant" />
-      <section className="localized-hero">
+      <section className={`localized-hero${data.path === "/zh-hant/menu/" ? " menu-page-hero" : ""}`}>
         <div className="localized-hero-copy">
           <p className="eyebrow">{data.eyebrow}</p><h1>{data.h1}</h1><p className="hero-text">{data.lead}</p>
-          {data.path === "/zh-hant/menu/" ? <aside className="table-menu-notice" data-table-menu-notice aria-label="店內點單說明"><strong>菜單僅供查看</strong><span>請向服務員點單。View Menu Only — Please order with your server.</span></aside> : null}
+          {data.path === "/zh-hant/menu/" ? <nav className="menu-quick-links" aria-label="菜單分類">{data.sections.map(section => <a href={`#${section.id}`} key={section.id}>{section.navLabel}</a>)}</nav> : null}
+          {data.path === "/zh-hant/menu/" ? <aside className="table-menu-notice" data-table-menu-notice aria-label="店內點單說明"><strong>菜單僅供查看</strong><span>請向服務員點單。</span></aside> : null}
           <div className="hero-actions">{data.actions.map((action) => <a className={action.style} href={action.href} key={action.label}>{action.label}</a>)}</div>
         </div>
-        {data.imageFull && data.imageActionLabel ? <a className="localized-hero-media poster-thumbnail" href="#localized-menu-poster" aria-label={data.imageActionLabel}><img src={data.image} alt={data.imageAlt} width="480" height="622" fetchPriority="high" decoding="async" /><strong className="poster-open-label">{data.imageActionLabel}</strong></a> : <div className="localized-hero-media"><img src={data.image} alt={data.imageAlt} width="900" height="675" fetchPriority="high" decoding="async" /></div>}
+        {data.path === "/zh-hant/menu/" ? null : data.imageFull && data.imageActionLabel ? <a className="localized-hero-media poster-thumbnail" href="#localized-menu-poster" aria-label={data.imageActionLabel}><img src={data.image} alt={data.imageAlt} width="480" height="622" fetchPriority="high" decoding="async" /><strong className="poster-open-label">{data.imageActionLabel}</strong></a> : <div className="localized-hero-media"><img src={data.image} alt={data.imageAlt} width="900" height="675" fetchPriority="high" decoding="async" /></div>}
       </section>
       {data.imageFull && data.imageActionLabel ? <section className="poster-modal" id="localized-menu-poster" role="dialog" aria-modal="true" aria-labelledby="localized-menu-poster-title" data-close-target="top"><a className="modal-backdrop" href="#top" aria-label="關閉完整菜單" /><div className="poster-frame"><span className="modal-label" id="localized-menu-poster-title">完整火鍋自助菜單</span><a className="modal-close" href="#top" aria-label="關閉完整菜單">關閉</a><img src={data.imageFull} alt={data.imageAlt} width="1200" height="1553" loading="lazy" decoding="async" /></div></section> : null}
       <section className="quick-info" aria-label="餐廳重點">{data.facts.map((fact) => <div key={fact.label}><span>{fact.value}</span>{fact.label}</div>)}</section>
-      {data.sections.map((section, index) => <section className={`content-section localized-section${index % 2 ? " is-dark" : ""}`} key={section.title}>
+      {data.sections.map((section, index) => <section className={`content-section localized-section${index % 2 ? " is-dark" : ""}`} id={section.id} key={section.title}>
         <div className="section-heading compact"><p className="eyebrow">{section.eyebrow}</p><h2>{section.title}</h2></div>
         <div className="localized-copy">{section.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}</div>
         {section.items?.length ? <details className="localized-menu-list" open><summary>{section.itemLabel || "品項與價格"}</summary><div className="price-list">{section.items.map(([name, price]) => <div key={name}><span>{name}</span><strong>{price}</strong></div>)}</div></details> : null}

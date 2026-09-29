@@ -121,7 +121,7 @@ const menuJsonLd = {
       hasMenuItem: [
         {
           "@type": "MenuItem",
-          name: "Start with Your Hot Pot",
+          name: "Personal Hot Pot",
           description: "Includes 1 soup base, large veggies set, 1 meat, and 1 rice or noodle side.",
           offers: { "@type": "Offer", price: "19.99", priceCurrency: "CAD" },
         },
@@ -186,11 +186,9 @@ export default function MenuPage() {
       <section className="page-hero menu-page-hero">
         <div>
           <p className="eyebrow">Menu</p>
-          <h1>Hot Pot Menu in Calgary with AYCE Hot Pot</h1>
-          <p className="hero-text">
-            Choose from Taiwanese and Japanese-style hot pot soup bases, all-you-can-eat hot pot,
-            premium meats, fresh seafood, vegetables, rice and noodle bowls, Taiwanese snacks, and milk tea.
-          </p>
+          <h1>Menu &amp; Prices</h1>
+          <p className="hero-text">$28.99 all-you-can-eat or $19.99 personal hot pot in Calgary. Prices in CAD before tax.</p>
+          <nav className="menu-quick-links" aria-label="Browse menu categories"><a href="#ayce-hotpot">AYCE</a><a href="#hotpot-set">Personal Hot Pot</a><a href="#combo-specials">Combos</a><a href="#soup-bases">Soup Bases</a><a href="#rice-noodles">Rice &amp; Noodles</a><a href="#appetizers">Snacks</a><a href="#drinks">Drinks</a><a href="#full-menu">Full Menu</a></nav>
           <aside className="table-menu-notice" data-table-menu-notice aria-label="Dine-in ordering instructions">
             <strong>View Menu Only</strong>
             <span>Please order with your server.</span>
@@ -207,40 +205,23 @@ export default function MenuPage() {
         </div>
       </section>
 
-      <section className="category-section" aria-label="Browse menu categories">
-        <div className="section-heading compact">
-          <p className="eyebrow">Browse by category</p>
-          <h2>Menu sections at a glance</h2>
-        </div>
-        <div className="category-strip">
-          <a href="#ayce-hotpot"><span className="category-icon">AYCE</span><strong>AYCE Hot Pot</strong></a>
-          <a href="#hotpot-set"><span className="category-icon">SET</span><strong>Hot Pot Set</strong></a>
-          <a href="#combo-specials"><span className="category-icon">CMB</span><strong>Combos</strong></a>
-          <a href="#soup-bases"><span className="category-icon">SOUP</span><strong>Soup Bases</strong></a>
-          <a href="#rice-noodles"><span className="category-icon">RICE</span><strong>Rice & Noodles</strong></a>
-          <a href="#drinks"><span className="category-icon">TEA</span><strong>Drinks</strong></a>
-          <a href="#appetizers"><span className="category-icon">SNK</span><strong>Appetizers</strong></a>
-          <a href="#full-menu"><span className="category-icon">IMG</span><strong>Full Menu</strong></a>
-        </div>
-      </section>
-
       <section className="menu-section" id="ayce-hotpot">
         <div className="section-heading">
           <p className="eyebrow">All-you-can-eat hot pot</p>
-          <h2>AYCE Hot Pot Calgary: soup base included</h2>
+          <h2>AYCE Hot Pot <span className="heading-price">$28.99 + tax</span></h2>
         </div>
         <div className="set-grid">
-          <article><h3>$28.99 + tax</h3><p>All-You-Can-Eat Hot Pot in Calgary with soup base included. Meat is ordered through your server.</p></article>
+          <article><h3>$28.99 + tax</h3><p>Soup base included. Order meat through your server.</p></article>
           <article><h3>Meat selection</h3><p>AAA beef, lamb, pork, and chicken. Each serving is 100g.</p></article>
           <article><h3>19 snacks · +$5.99</h3><p>Add 19 all-you-can-eat appetizers per person. Everyone at the same table must upgrade.</p></article>
           <article><h3>Kids pricing by height</h3><p>Under 100 cm free. 100-140 cm $12.99. Over 140 cm adult price.</p></article>
         </div>
         <div className="combo-actions">
-          <Link className="primary-action" href="/ayce-hot-pot-calgary">
-            View AYCE Hot Pot Calgary Details
+          <Link className="secondary-action dark" href="/ayce-hot-pot-calgary">
+            AYCE Details
           </Link>
-          <a className="secondary-action dark" href="tel:+14034553188">
-            Call (403) 455-3188
+          <a className="primary-action" href="https://reservation.centrestjhotpot.ca/book" data-track-label="online_booking" aria-haspopup="dialog" data-reservation-launcher>
+            Book Online
           </a>
           <a className="secondary-action dark" href="/menu/centre-street-ayce-menu-2026-08.pdf?v=20260824-599" target="_blank" rel="noreferrer">
             Open AYCE Menu
@@ -273,7 +254,7 @@ export default function MenuPage() {
       <section className="menu-section" id="hotpot-set">
         <div className="section-heading">
           <p className="eyebrow">Hot pot set</p>
-          <h2>Choose a soup plus meat and rice or noodles</h2>
+          <h2>Personal Hot Pot <span className="heading-price">$19.99 + tax</span></h2>
         </div>
         <div className="set-grid">
           <article><h3>Included</h3><p>1 soup base, large veggie set, 1 meat, and 1 rice or noodle side.</p></article>
@@ -286,7 +267,7 @@ export default function MenuPage() {
       <section className="menu-section" id="soup-bases">
         <div className="section-heading">
           <p className="eyebrow">Soup bases</p>
-          <h2>Signature broths for Japanese hot pot in Calgary</h2>
+          <h2>Choose from 15 soup bases</h2>
         </div>
         <div className="dish-showcase">
           <article className="featured-dish">
@@ -311,7 +292,7 @@ export default function MenuPage() {
         <div id="rice-noodles">
           <div className="section-heading compact">
             <p className="eyebrow">Rice & noodles</p>
-            <h2>Comfort bowls for dinner weekend lunch or takeout</h2>
+            <h2>Taiwanese Rice &amp; Noodle Bowls</h2>
           </div>
           <div className="price-list">
             {riceNoodles.map(([item, price]) => (
@@ -335,7 +316,7 @@ export default function MenuPage() {
       <section className="menu-section" id="drinks">
         <div className="section-heading compact">
           <p className="eyebrow">Milk tea & drinks</p>
-          <h2>Milk tea specialty drinks smoothies and more</h2>
+          <h2>Milk Tea &amp; Drinks</h2>
         </div>
         <div className="drink-panel">
           <img src="/assets/milk-tea-photo-640.webp" srcSet="/assets/milk-tea-photo-320.webp 320w, /assets/milk-tea-photo-640.webp 640w, /assets/milk-tea-photo.webp 900w" sizes="(max-width: 560px) calc(100vw - 32px), (max-width: 1100px) 100vw, 42vw" alt="Milk tea drinks at Centre Street Japanese HotPot Calgary" width="900" height="1200" loading="lazy" decoding="async" />

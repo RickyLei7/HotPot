@@ -1418,3 +1418,36 @@ a.beef-noodle-feature-media {
 }
 
 .homepage-ayce h1 .heading-unit { display: inline-block; white-space: nowrap; }
+
+/* Keep menu prices and category links together above the fold. */
+.menu-page-hero { min-height: auto; padding: 36px clamp(16px, 5vw, 76px); grid-template-columns: 1fr; }
+.menu-page-hero h1 { font-size: clamp(2rem, 4vw, 3.25rem); line-height: 1.1; margin: 0 0 12px; }
+.menu-page-hero .hero-text { font-size: 1.05rem; line-height: 1.5; max-width: 650px; margin: 0; }
+.menu-page-hero .hero-actions { margin-top: 16px; }
+.menu-page-hero .table-menu-notice { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 10px; margin-top: 16px; padding: 8px 12px; border-width: 1px 1px 1px 4px; }
+.menu-page-hero .table-menu-notice strong, .menu-page-hero .table-menu-notice span { font-size: .875rem; line-height: 1.4; }
+.menu-quick-links { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; max-width: 720px; }
+.menu-quick-links a { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 8px 13px; border: 1px solid rgba(246, 201, 76, .65); border-radius: 999px; color: var(--cream); font-weight: 700; font-size: .9rem; }
+.menu-quick-links a:hover { background: var(--gold); color: var(--ink); }
+.menu-quick-links a:focus-visible, .hero-phone:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+.hero-phone { display: inline-flex; align-items: center; min-height: 44px; color: var(--cream); font-size: .9rem; text-decoration: underline; text-underline-offset: 3px; }
+.homepage-food-preview { aspect-ratio: 1024 / 910; border-radius: 18px; max-width: 560px; }
+.homepage-food-preview img { object-fit: contain; }
+.homepage-food-preview .poster-open-label { top: 14px; right: 14px; }
+@media (max-width: 760px) {
+  .menu-page-hero { padding: 24px 16px; }
+  .menu-page-hero h1 { font-size: 2rem; }
+  .menu-page-hero .hero-text { font-size: 1rem; }
+  .menu-page-hero .hero-actions { display: flex; gap: 10px; }
+  .menu-page-hero .hero-actions a { min-height: 44px; padding: 10px 18px; width: auto; }
+  .homepage-ayce .booking-actions { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .homepage-ayce .booking-actions a { padding: 12px 10px; min-height: 48px; font-size: 1rem; }
+  .homepage-ayce h1 { margin-bottom: 16px; }
+  .homepage-food-preview { max-width: 560px; }
+  .homepage-ayce { gap: 18px; }
+  .hero-visit { margin-top: 0; }
+}
+
+.heading-price { display: block; white-space: nowrap; }
+
+.hero-visit a { display: inline-flex; min-height: 28px; align-items: center; }

@@ -483,7 +483,7 @@
   function openReservationDialog(event, link) {
     event.preventDefault();
     lastBookingLink = link;
-    if (!reservationModalPromise) reservationModalPromise = import("/reservation-modal.js?v=20260923-booking-source-v4");
+    if (!reservationModalPromise) reservationModalPromise = import("/reservation-modal.js?v=20260929-menu-ux-v5");
     reservationModalPromise.then(function (module) {
       module.openReservationModal({ trigger: link, language: pageLanguage(), attribution: bookingAttribution() });
     }).catch(function () {

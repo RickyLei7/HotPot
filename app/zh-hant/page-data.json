@@ -104,7 +104,8 @@
         "question": "需要預訂座位嗎？",
         "answer": "可以直接到店；週末或團體聚餐建議先網上訂位，也可致電 (403) 455-3188 查詢。"
       }
-    ]
+    ],
+    "dateModified": "2026-09-29"
   },
   "about": {
     "path": "/zh-hant/about/",
@@ -184,10 +185,10 @@
     "englishPath": "/menu/",
     "schemaType": "WebPage",
     "title": "鼎鑽火鍋菜單｜卡加利火鍋自助、套餐與小吃",
-    "description": "查看鼎鑽火鍋中文菜單：$28.99 火鍋自助、+$5.99 升級 19 款小吃、15 款湯底、個人火鍋、飯麵與飲品價格。",
+    "description": "查看鼎鑽火鍋中文菜單：$28.99 火鍋自助、$19.99 個人火鍋、15 款湯底與每位 +$5.99 升級 19 款小吃。價格另加稅。",
     "eyebrow": "鼎鑽火鍋菜單",
-    "h1": "火鍋自助 套餐 小吃與奶茶",
-    "lead": "火鍋自助 $28.99，鍋底已包含；每位加 $5.99 可升級 19 款小吃任點。也有 $19.99 個人火鍋、飯麵與奶茶。以下價格均為加幣，另加稅。",
+    "h1": "菜單與價格",
+    "lead": "火鍋自助 $28.99，個人火鍋 $19.99。以下為加幣價格，另加稅。",
     "image": "/assets/dish-sukiyaki.webp",
     "imageAlt": "鼎鑽火鍋日式壽喜鍋與新鮮火鍋食材",
     "actions": [
@@ -195,16 +196,6 @@
         "label": "網上訂位",
         "href": "https://reservation.centrestjhotpot.ca/book",
         "style": "primary-action"
-      },
-      {
-        "label": "開啟完整菜單 PDF",
-        "href": "/menu/centre-street-japanese-hotpot-menu-2026-09.pdf",
-        "style": "secondary-action"
-      },
-      {
-        "label": "查看火鍋自助",
-        "href": "/zh-hant/ayce-hot-pot-calgary/",
-        "style": "secondary-action"
       }
     ],
     "facts": [
@@ -213,8 +204,8 @@
         "label": "火鍋自助"
       },
       {
-        "value": "$24.99",
-        "label": "個人火鍋套餐"
+        "value": "$19.99",
+        "label": "個人火鍋"
       },
       {
         "value": "15",
@@ -245,15 +236,48 @@
             "title": "點餐提醒",
             "text": "請按需要點餐，避免浪費。"
           }
+        ],
+        "id": "ayce-hotpot",
+        "navLabel": "火鍋自助",
+        "menuItems": [
+          {
+            "name": "火鍋自助",
+            "price": "28.99",
+            "description": "鍋底包含，肉品由服務員協助下單，另加稅。"
+          },
+          {
+            "name": "19 款小吃任點升級",
+            "price": "5.99",
+            "description": "每位加價，同桌客人必須一起升級。"
+          }
         ]
       },
       {
         "eyebrow": "一人一鍋與套餐",
-        "title": "個人與雙人套餐選擇",
+        "title": "個人火鍋 $19.99 另加稅",
         "paragraphs": [
           "個人火鍋 $19.99，包含一款湯底、一份大份菜盤、一份肉與一份飯或麵。單人套餐 $24.99 加一杯飲品；雙人套餐 $58.99 包含兩份個人火鍋、兩杯飲品與一份小吃。鴛鴦鍋升級 +$2。"
         ],
-        "cards": []
+        "cards": [],
+        "id": "hotpot-set",
+        "navLabel": "個人火鍋與套餐",
+        "menuItems": [
+          {
+            "name": "個人火鍋",
+            "price": "19.99",
+            "description": "包含一款湯底、大份菜盤、一份肉與一份飯或麵，另加稅。"
+          },
+          {
+            "name": "單人套餐",
+            "price": "24.99",
+            "description": "一份個人火鍋與一杯飲品，另加稅。"
+          },
+          {
+            "name": "雙人套餐",
+            "price": "58.99",
+            "description": "兩份個人火鍋、兩杯飲品與一份小吃，另加稅。"
+          }
+        ]
       },
       {
         "eyebrow": "15 款湯底",
@@ -261,7 +285,9 @@
         "paragraphs": [
           "雞肉麻辣鍋、麻辣鍋、日式壽喜鍋、冬蔭功、藥膳鍋、雞湯鍋、豬骨鍋、麻油鍋、酸菜鍋、咖哩鍋、沙茶鍋、泡菜鍋、牛奶鍋、番茄鍋與味噌鍋。"
         ],
-        "cards": []
+        "cards": [],
+        "id": "soup-bases",
+        "navLabel": "湯底"
       },
       {
         "eyebrow": "飯麵主食",
@@ -296,7 +322,9 @@
             "壽喜燒牛肉飯",
             "$16.99"
           ]
-        ]
+        ],
+        "id": "rice-noodles",
+        "navLabel": "飯麵"
       },
       {
         "eyebrow": "台式小吃",
@@ -382,7 +410,9 @@
             "毛豆",
             "$6.49"
           ]
-        ]
+        ],
+        "id": "appetizers",
+        "navLabel": "小吃"
       },
       {
         "eyebrow": "茶飲與奶茶",
@@ -431,7 +461,9 @@
             "加配料",
             "+$0.75"
           ]
-        ]
+        ],
+        "id": "drinks",
+        "navLabel": "飲品"
       },
       {
         "eyebrow": "完整菜單",
@@ -459,10 +491,13 @@
             "href": "/menu/drink-menu.jpg",
             "actionLabel": "查看飯麵與飲品菜單"
           }
-        ]
+        ],
+        "id": "full-menu",
+        "navLabel": "完整菜單"
       }
     ],
-    "faqs": []
+    "faqs": [],
+    "dateModified": "2026-09-29"
   },
   "faq": {
     "path": "/zh-hant/faq/",

@@ -66,6 +66,9 @@ test("online booking opens a safe same-page dialog while phone and direct-link f
     assert.equal(await page.locator(".reserve-sticky-book").count(), 1, "the mobile booking action is present");
     assert.equal(await page.locator(".reserve-sticky-phone[href='tel:+14034553188']").count(), 1, "the mobile call action is present");
 
+    assert.equal(await page.locator(".booking-actions > a").count(), 2, "home keeps booking and menu as its two main actions");
+    assert.equal(await page.locator(".hero-phone[href='tel:+14034553188']").count(), 1, "phone remains available as a compact fallback");
+
     const snackHeading = page.locator("#snack-title");
     assert.equal(await snackHeading.textContent(), "19 AYCE Snacks · +$5.99");
     const snackHeadingMetrics = await snackHeading.evaluate((element) => {
@@ -95,10 +98,10 @@ test("online booking opens a safe same-page dialog while phone and direct-link f
     assert.ok(bounds);
     if (viewportWidth <= 600) {
       assert.equal(Math.round(bounds.width), viewportWidth);
-      assert.equal(Math.round(bounds.height), Math.min(640, viewportHeight - 8));
+      assert.equal(Math.round(bounds.height), Math.min(560, viewportHeight - 8));
     } else {
       assert.ok(bounds.width <= 640, `desktop dialog width was ${bounds.width}px`);
-      assert.ok(bounds.height <= 760, `desktop dialog height was ${bounds.height}px`);
+      assert.ok(bounds.height <= 680, `desktop dialog height was ${bounds.height}px`);
       assert.equal(bounds.x > 0, true);
     }
     const embeddedUrl = new URL(await page.locator("[data-reservation-dialog] iframe").getAttribute("src"));
@@ -108,6 +111,7 @@ test("online booking opens a safe same-page dialog while phone and direct-link f
     assert.equal(await page.locator("[data-reservation-problem] a[data-reservation-direct]").getAttribute("data-reservation-direct"), "");
     assert.equal(await page.locator("[data-reservation-problem] a[href='tel:+14034553188']").count(), 1, "the loading fallback keeps phone booking available");
     assert.equal(await page.evaluate(() => document.body.style.position), "fixed");
+    assert.equal(await page.locator("main").evaluate(element => element.inert), true, "background content cannot receive focus while booking");
 
     await page.locator("[data-reservation-dialog-backdrop]").dispatchEvent("click");
     assert.equal(await dialog.isVisible(), true);
@@ -119,6 +123,7 @@ test("online booking opens a safe same-page dialog while phone and direct-link f
     assert.equal(await page.locator("[data-reservation-discard]").isVisible(), true);
     await page.locator("[data-reservation-discard] button").last().click();
     assert.equal(await dialog.isVisible(), false);
+    assert.equal(await page.locator("main").evaluate(element => element.inert), false, "closing booking restores background interaction");
     assert.equal(await page.evaluate(() => document.activeElement?.matches("a[data-reservation-launcher]")), true);
 
     await launcher.click();
@@ -149,6 +154,7 @@ test("online booking opens a safe same-page dialog while phone and direct-link f
     await page.frameLocator("[data-reservation-dialog] iframe").locator("#request-close").click();
     await page.waitForTimeout(50);
     assert.equal(await dialog.isVisible(), false);
+    assert.equal(await page.locator("main").evaluate(element => element.inert), false, "closing booking restores background interaction");
   } finally {
     await page.close();
     await browser.close();

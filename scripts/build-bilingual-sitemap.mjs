@@ -4,7 +4,10 @@ import path from "node:path";
 const baseUrl = "https://centrestjhotpot.ca";
 const defaultLastmod = "2026-09-21";
 const lastmodByPath = new Map([
-  ["/", "2026-09-22"],
+  ["/", "2026-09-29"],
+  ["/zh-hant/", "2026-09-29"],
+  ["/menu/", "2026-09-29"],
+  ["/zh-hant/menu/", "2026-09-29"],
   ["/calgary-hot-pot-guide/", "2026-09-22"],
   ["/calgary-taiwanese-hot-pot/", "2026-09-22"],
 ]);

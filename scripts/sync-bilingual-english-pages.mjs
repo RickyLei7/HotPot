@@ -51,7 +51,7 @@ for (const [englishRoute, zhHantRoute] of routePairs) {
   }
   html = html.replaceAll(">繁中<", ">中文<");
   html = html.replaceAll('aria-hidden="true">小</span>小紅書', 'aria-hidden="true">XHS</span>Xiaohongshu');
-  html = html.replace(/\/site\.css\?v=[^" ]+/, "/site.css?v=20260922-mobile-fix");
+  html = html.replace(/\/site\.css\?v=[^" ]+/, "/site.css?v=20260929-menu-ux");
 
   if (!html.includes('class="language-switch"')) {
     const switcher = `<div class="language-switch" aria-label="Switch website language"><a class="language-option is-active" aria-current="page" hreflang="en-CA" lang="en-CA" href="${englishRoute}">EN</a><a class="language-option" hreflang="zh-Hant-CA" lang="zh-Hant" href="${zhHantRoute}">中文</a></div>`;
@@ -70,13 +70,6 @@ for (const [englishRoute, zhHantRoute] of routePairs) {
     html = html.replace(
       /<a class="reserve-sticky"([^>]*)>Book Online<\/a>/,
       '<a class="reserve-sticky reserve-sticky-book"$1>Book Online</a><a class="reserve-sticky reserve-sticky-phone" href="tel:+14034553188" aria-label="Call (403) 455-3188">Call</a>',
-    );
-  }
-
-  if (englishRoute === "/" && !html.includes('class="secondary-action" href="tel:+14034553188"')) {
-    html = html.replace(
-      /(<a class="primary-action" href="https:\/\/reservation\.centrestjhotpot\.ca\/book"[^>]*>Book Online<\/a>)/,
-      '$1<a class="secondary-action" href="tel:+14034553188">Call (403) 455-3188</a>',
     );
   }
 

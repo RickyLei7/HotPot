@@ -18,7 +18,7 @@ function loadStyles() {
   if (document.querySelector("link[data-reservation-modal-styles]")) return;
   const link = document.createElement("link");
   link.rel = "stylesheet";
-  link.href = "/reservation-modal.css?v=20260919-compact";
+  link.href = "/reservation-modal.css?v=20260929-compact";
   link.dataset.reservationModalStyles = "";
   document.head.append(link);
 }
@@ -53,6 +53,7 @@ function closeModal() {
   window.clearTimeout(current.timeout);
   window.removeEventListener("message", current.onMessage);
   window.removeEventListener("keydown", current.onKeydown);
+  for (const [element, inert] of current.background) element.inert = inert;
   document.body.style.cssText = current.bodyStyle;
   current.root.remove();
   window.scrollTo(0, current.scrollY);
@@ -112,6 +113,7 @@ export function openReservationModal({ trigger, language = "en", attribution = {
 
   const frame = root.querySelector("iframe");
   const current = {
+    background: [...document.body.children].filter(element => element !== root).map(element => [element, element.inert]),
     root,
     frame,
     trigger,
@@ -126,6 +128,7 @@ export function openReservationModal({ trigger, language = "en", attribution = {
     embedUrl,
   };
   modal = current;
+  for (const [element] of current.background) element.inert = true;
   document.body.style.position = "fixed";
   document.body.style.top = `-${scrollY}px`;
   document.body.style.width = "100%";
@@ -154,7 +157,7 @@ export function openReservationModal({ trigger, language = "en", attribution = {
   window.addEventListener("keydown", current.onKeydown);
   root.querySelector("[data-reservation-close]").addEventListener("click", requestClose);
   root.querySelector("[data-reservation-retry]").addEventListener("click", () => loadFrame(current));
-  current.discard.querySelector("button").addEventListener("click", () => { current.discard.hidden = true; });
+  current.discard.querySelector("button").addEventListener("click", () => { current.discard.hidden = true; current.frame.focus(); });
   current.discard.querySelectorAll("button")[1].addEventListener("click", closeModal);
   root.querySelector(".reservation-dialog").focus({ preventScroll: true });
   loadFrame(current);

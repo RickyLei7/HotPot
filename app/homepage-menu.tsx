@@ -44,18 +44,15 @@ export function HomepageMenu({ language }: { language: HomepageLanguage }) {
 
           <div className="hero-actions booking-actions">
             <a className="primary-action" href="https://reservation.centrestjhotpot.ca/book" data-track-label="online_booking" aria-haspopup="dialog" data-reservation-launcher>{content.ayce.reserve}</a>
-            <a className="secondary-action" href="tel:+14034553188">{isZh ? "致電 (403) 455-3188" : "Call (403) 455-3188"}</a>
-            <Link className="secondary-action" href={aycePath}>{content.ayce.menu}</Link>
+            <Link className="secondary-action" href={menuPath}>{content.ayce.menu}</Link>
           </div>
+          <a className="hero-phone" href="tel:+14034553188">{isZh ? "致電 (403) 455-3188" : "Call (403) 455-3188"}</a>
           <div className="hero-visit"><a href={directionsUrl} target="_blank" rel="noreferrer">2213 Centre St N #2243 · {isZh ? "導航" : "Directions"}</a><p>{isZh ? "週一至週五 17:00–22:30 · 週六及週日 12:00–22:30" : "Mon–Fri 5–10:30 PM · Sat–Sun noon–10:30 PM"}</p></div>
         </div>
-        <a className="homepage-ayce-media poster-thumbnail" href="#homepage-ayce-image">
-          <picture>
-            <source media="(max-width: 760px)" srcSet="/assets/ayce-menu-2026-09-21-360.webp 360w, /assets/ayce-menu-2026-09-21-480.webp 480w" sizes="(max-width: 560px) 300px, calc(100vw - 32px)" />
-            <img src="/assets/ayce-menu-2026-09-21-720.webp" srcSet="/assets/ayce-menu-2026-09-21-720.webp 720w, /assets/ayce-menu-2026-08-24-599.webp 1200w" sizes="42vw" alt={isZh ? "鼎鑽火鍋火鍋自助" : "AYCE hot pot at Centre Street Japanese HotPot"} width="1200" height="1553" fetchPriority="high" loading="eager" decoding="async" />
-          </picture>
+        <a className="homepage-ayce-media poster-thumbnail homepage-food-preview" href="#homepage-ayce-image">
+          <img src="/assets/dish-sukiyaki-640.webp" srcSet="/assets/dish-sukiyaki-320.webp 320w, /assets/dish-sukiyaki-640.webp 640w, /assets/dish-sukiyaki.webp 1024w" sizes="(max-width: 760px) calc(100vw - 32px), 42vw" alt={isZh ? "鼎鑽火鍋日式壽喜鍋" : "Sukiyaki hot pot at Centre Street Japanese HotPot"} width="1024" height="910" fetchPriority="high" loading="eager" decoding="async" />
           <span>15 {isZh ? "款湯底" : "soup bases"}</span>
-          <strong className="poster-open-label">{isZh ? "查看完整圖片" : "View full image"}</strong>
+          <strong className="poster-open-label">{isZh ? "查看自助菜單" : "View AYCE Menu"}</strong>
         </a>
       </section>
 

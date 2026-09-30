@@ -121,7 +121,7 @@
     if (!source && metaClickId) source = "facebook";
     var medium = cleanValue(params.get("utm_medium"), 50).toLowerCase();
     if (!medium && googleClickType) medium = "cpc";
-    if (!medium && metaClickId) medium = "paid_social";
+    if (!medium && metaClickId) medium = "social";
     var result = {
       campaign_source: source,
       campaign_medium: medium,
@@ -257,7 +257,7 @@
   function bookingAttribution() {
     return {
       source: attribution.campaign_source || (attribution.meta_click_id ? "facebook" : ""),
-      medium: attribution.campaign_medium || (attribution.meta_click_id ? "paid_social" : ""),
+      medium: attribution.campaign_medium || (attribution.meta_click_id ? "social" : ""),
       campaignName: attribution.campaign_name || "",
       campaignId: attribution.campaign_id || attribution.ads_campaign_id || "",
       content: attribution.campaign_content || "",

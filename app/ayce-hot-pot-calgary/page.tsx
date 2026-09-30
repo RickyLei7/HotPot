@@ -5,7 +5,7 @@ import { SiteNav } from "../site-nav";
 export const metadata: Metadata = {
   title: "$28.99 All You Can Eat Hot Pot Calgary | 15 Soup Bases",
   description:
-    "Calgary all-you-can-eat hot pot for $28.99 + tax with 15 soup bases, AAA beef, lamb, pork and chicken. Soup base included. Call (403) 455-3188.",
+    "Calgary AYCE hot pot: $28.99 + tax, soup base included, 15 broths and server-ordered meats. Add 19 snacks for +$5.99 per person. View the menu and book online.",
   alternates: {
     canonical: "/ayce-hot-pot-calgary",
     languages: {
@@ -26,24 +26,36 @@ export const metadata: Metadata = {
 const ayceFaqs = [
   [
     "Where can I find AYCE hot pot in Calgary?",
-    "Centre Street Japanese HotPot offers AYCE Hot Pot in Calgary at 2213 Centre St N #2243. Call (403) 455-3188 for current table availability.",
+    "Centre Street Japanese HotPot serves AYCE hot pot at 2213 Centre St N #2243, Calgary, AB T2E 2T4. Book online or call (403) 455-3188 for larger groups."
   ],
   [
     "How much is all-you-can-eat hot pot?",
-    "All-You-Can-Eat Hot Pot is $28.99 + tax. Soup base is included, and meat is ordered through your server.",
+    "All-You-Can-Eat Hot Pot is $28.99 + tax. Soup base is included, and meat is ordered through your server."
   ],
   [
     "What meats are included with AYCE hot pot?",
-    "The AYCE meat selection includes AAA beef, lamb, pork, and chicken. Each serving is 100g and is ordered through your server.",
+    "The AYCE meat selection includes AAA beef, lamb, pork, and chicken. Each serving is 100g and is ordered through your server."
   ],
   [
     "Can I add all-you-can-eat snacks?",
-    "Yes. Add 19 all-you-can-eat appetizers for +$5.99 per person. Everyone at the same table must upgrade. Options include Taiwanese fried chicken, takoyaki, crispy chicken cutlet, golden fried buns, crispy squid legs, spring rolls, fries, and more.",
+    "Yes. Add 19 all-you-can-eat appetizers for +$5.99 per person. Everyone at the same table must upgrade. Options include Taiwanese fried chicken, takoyaki, crispy chicken cutlet, golden fried buns, crispy squid legs, spring rolls, fries, and more."
   ],
   [
     "How should guests order?",
-    "AYCE Hot Pot is dine-in only. Please order responsibly and avoid food waste.",
+    "AYCE Hot Pot is dine-in only. Please order responsibly and avoid food waste."
   ],
+  [
+    "How do I reserve an AYCE table?",
+    "Book online through our website. For larger groups or questions about today’s availability, call (403) 455-3188."
+  ],
+  [
+    "How much is AYCE for children?",
+    "Under 100 cm: free. From 100–140 cm: $12.99 plus tax. Over 140 cm: adult price."
+  ],
+  [
+    "When is the restaurant open?",
+    "Monday–Friday: 5:00–10:30 PM. Saturday–Sunday: noon–10:30 PM."
+  ]
 ];
 
 const ayceSnackGroups = [
@@ -94,6 +106,7 @@ const ayceSchema = {
     {
       "@type": "WebPage",
       "@id": "https://centrestjhotpot.ca/ayce-hot-pot-calgary/#webpage",
+      dateModified: "2026-09-29",
       name: "All You Can Eat Hot Pot Calgary | AYCE $28.99",
       description:
         "Calgary all-you-can-eat hot pot for $28.99 + tax with 15 soup bases, AAA beef, lamb, pork and chicken, an optional 19-snack upgrade, kids pricing, and reservation details.",
@@ -171,7 +184,7 @@ export default function AyceHotPotCalgaryPage() {
               View AYCE Menu
             </Link>
           </div>
-          <p className="hero-availability">Today&apos;s table availability: call ahead · 2213 Centre St N #2243</p>
+          <p className="hero-availability">Book online for your preferred date · 2213 Centre St N #2243</p>
         </div>
       </section>
 

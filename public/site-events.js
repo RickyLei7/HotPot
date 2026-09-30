@@ -222,7 +222,7 @@
     writeLocal(attributionStorageKey, JSON.stringify(directRecord));
     writeSession(attributionStorageKey, JSON.stringify(directRecord));
   }
-  var trafficRecord = activeRecord || attributionRecord(traffic, window.location.pathname, referrerHost());
+  var trafficRecord = incomingRecord || sessionRecord || attributionRecord(traffic, window.location.pathname, referrerHost());
   writeSession(trafficStorageKey, JSON.stringify(Object.assign({}, trafficRecord, { capturedAt: Date.now() })));
 
   var sessionLandingPage = readSession(landingStorageKey);

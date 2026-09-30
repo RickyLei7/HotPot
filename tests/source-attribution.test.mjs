@@ -82,3 +82,14 @@ test('existing paid attribution still survives a new tab and a new tagged campai
   assert.equal(next.url.searchParams.get('source'), 'google');
   assert.equal(next.url.searchParams.get('campaignName'), 'second');
 });
+
+test('the natural-source session cache does not extend the paid attribution window', () => {
+  const local = storage(), session = storage();
+  visit('/?gclid=old_click', '', local, session);
+  for (const store of [local, session]) {
+    const record = JSON.parse(store.getItem('hotpot_campaign_attribution_v3'));
+    record.capturedAt = Date.now() - 31 * 24 * 60 * 60 * 1000;
+    store.setItem('hotpot_campaign_attribution_v3', JSON.stringify(record));
+  }
+  assert.equal(visit('/menu/', 'https://centrestjhotpot.ca/', local, session).url.searchParams.get('source'), 'direct');
+});

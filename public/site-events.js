@@ -5,6 +5,7 @@
   var attributionStorageKey = "hotpot_campaign_attribution_v3";
   var legacyAttributionStorageKey = "hotpot_campaign_attribution_v2";
   var landingStorageKey = "hotpot_session_landing_v1";
+  var trafficStorageKey = "hotpot_session_source_v1";
   var attributionLifetimeMs = 30 * 24 * 60 * 60 * 1000;
 
   window.dataLayer = window.dataLayer || [];
@@ -174,7 +175,7 @@
   }
 
   function storedAttributionRecord() {
-    var raw = readLocal(attributionStorageKey);
+    var raw = readLocal(attributionStorageKey) || readSession(attributionStorageKey);
     try {
       var record = raw ? JSON.parse(raw) : null;
       if (record && Number.isFinite(record.capturedAt) && Date.now() - record.capturedAt <= attributionLifetimeMs && hasCampaignData(record.data || {})) {
@@ -203,11 +204,26 @@
   var directRecord = hasCampaignData(directAttribution)
     ? attributionRecord(directAttribution, window.location.pathname, referrerHost())
     : null;
-  var activeRecord = directRecord || storedRecord;
-  var attribution = activeRecord ? activeRecord.data : trafficSourceAttribution();
+  var traffic = trafficSourceAttribution();
+  var sessionRecord = null;
+  try {
+    var cachedTraffic = JSON.parse(readSession(trafficStorageKey) || "null");
+    if (cachedTraffic && Number.isFinite(cachedTraffic.capturedAt)
+      && Date.now() - cachedTraffic.capturedAt <= 30 * 60 * 1000
+      && hasCampaignData(cachedTraffic.data || {})) sessionRecord = cachedTraffic;
+  } catch (_error) {
+    // A malformed cache must not prevent booking.
+  }
+  var incomingRecord = traffic.campaign_source !== "direct"
+    ? attributionRecord(traffic, window.location.pathname, referrerHost()) : null;
+  var activeRecord = directRecord || storedRecord || incomingRecord || sessionRecord;
+  var attribution = activeRecord ? activeRecord.data : traffic;
   if (hasCampaignData(directAttribution)) {
     writeLocal(attributionStorageKey, JSON.stringify(directRecord));
+    writeSession(attributionStorageKey, JSON.stringify(directRecord));
   }
+  var trafficRecord = activeRecord || attributionRecord(traffic, window.location.pathname, referrerHost());
+  writeSession(trafficStorageKey, JSON.stringify(Object.assign({}, trafficRecord, { capturedAt: Date.now() })));
 
   var sessionLandingPage = readSession(landingStorageKey);
   if (!sessionLandingPage) {

@@ -93,3 +93,11 @@ test('the natural-source session cache does not extend the paid attribution wind
   }
   assert.equal(visit('/menu/', 'https://centrestjhotpot.ca/', local, session).url.searchParams.get('source'), 'direct');
 });
+
+test('Facebook click IDs alone remain social, while explicitly marked ads keep paid credit', () => {
+  const social=visit('/?fbclid=social_click', '', storage(), storage());
+  assert.equal(social.url.searchParams.get('medium'),'social');
+  const paid=visit('/?fbclid=paid_click&utm_source=instagram&utm_medium=paid_social&utm_campaign=pinned', '', storage(), storage());
+  assert.equal(paid.url.searchParams.get('source'),'instagram');
+  assert.equal(paid.url.searchParams.get('medium'),'paid_social');
+});

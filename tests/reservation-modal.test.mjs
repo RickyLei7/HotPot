@@ -80,6 +80,12 @@ test("online booking opens a safe same-page dialog while phone and direct-link f
     const posterTrigger = page.locator(".homepage-food-preview");
     await posterTrigger.click();
     await page.waitForFunction(() => document.body.classList.contains("poster-open"));
+    await page.locator(".poster-modal:target img").evaluate(image => image.decode());
+    const posterBounds = await page.locator(".poster-modal:target").evaluate(modal => ({
+      imageTop: modal.querySelector("img").getBoundingClientRect().top,
+      controlBottom: Math.max(...[...modal.querySelectorAll(".modal-label, .modal-close")].map(element => element.getBoundingClientRect().bottom)),
+    }));
+    assert.ok(posterBounds.imageTop > posterBounds.controlBottom, "menu image controls do not cover the artwork");
     for (const key of ["Tab", "Shift+Tab"]) {
       await page.keyboard.press(key);
       assert.equal(await page.evaluate(() => Boolean(document.activeElement.closest(".poster-modal"))), true, "menu image keyboard focus stays inside the open dialog");

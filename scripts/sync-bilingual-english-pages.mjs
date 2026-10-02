@@ -51,7 +51,7 @@ for (const [englishRoute, zhHantRoute] of routePairs) {
   }
   html = html.replaceAll(">繁中<", ">中文<");
   html = html.replaceAll('aria-hidden="true">小</span>小紅書', 'aria-hidden="true">XHS</span>Xiaohongshu');
-  html = html.replace(/\/site\.css\?v=[^" ]+/, "/site.css?v=20260929-menu-ux");
+  html = html.replace(/\/site\.css\?v=[^" ]+/, "/site.css?v=20261001-menu-dialog");
 
   if (!html.includes('class="language-switch"')) {
     const switcher = `<div class="language-switch" aria-label="Switch website language"><a class="language-option is-active" aria-current="page" hreflang="en-CA" lang="en-CA" href="${englishRoute}">EN</a><a class="language-option" hreflang="zh-Hant-CA" lang="zh-Hant" href="${zhHantRoute}">中文</a></div>`;

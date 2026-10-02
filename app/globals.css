@@ -3095,3 +3095,9 @@ a.beef-noodle-feature-media {
 .heading-price { display: block; white-space: nowrap; }
 
 .hero-visit a { display: inline-flex; min-height: 28px; align-items: center; }
+
+/* Keep image dialog controls above the menu artwork. */
+.poster-frame { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 12px; padding: 12px; align-items: start; }
+.poster-frame .modal-label { position: static; align-self: center; }
+.poster-frame .modal-close { position: sticky; top: 0; right: auto; }
+.poster-frame img { grid-column: 1 / -1; display: block; }

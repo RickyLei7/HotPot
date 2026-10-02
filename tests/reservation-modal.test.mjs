@@ -77,6 +77,17 @@ test("online booking opens a safe same-page dialog while phone and direct-link f
     });
     assert.ok(snackHeadingMetrics.height <= snackHeadingMetrics.lineHeight * 2.1, "the snack upgrade heading fits within two mobile lines");
 
+    const posterTrigger = page.locator(".homepage-food-preview");
+    await posterTrigger.click();
+    await page.waitForFunction(() => document.body.classList.contains("poster-open"));
+    for (const key of ["Tab", "Shift+Tab"]) {
+      await page.keyboard.press(key);
+      assert.equal(await page.evaluate(() => Boolean(document.activeElement.closest(".poster-modal"))), true, "menu image keyboard focus stays inside the open dialog");
+    }
+    await page.keyboard.press("Escape");
+    await page.waitForFunction(() => !document.body.classList.contains("poster-open"));
+    assert.equal(await posterTrigger.evaluate(element => element === document.activeElement), true, "closing the menu image restores its trigger focus");
+
     const launcher = page.locator("a[data-reservation-launcher]").first();
     assert.equal(await launcher.count(), 1, "the online booking link is present");
     const launcherUrl = new URL(await launcher.getAttribute("href"));
@@ -86,6 +97,7 @@ test("online booking opens a safe same-page dialog while phone and direct-link f
     assert.equal(launcherUrl.searchParams.get("content"), "ad-one");
     assert.equal(launcherUrl.searchParams.get("creativeId"), "456");
     assert.equal(launcherUrl.searchParams.get("clickId"), "test_click");
+    const bookingPageUrl = page.url();
     await launcher.click();
     await page.waitForTimeout(100);
     assert.deepEqual(pageErrors, []);
@@ -93,7 +105,7 @@ test("online booking opens a safe same-page dialog while phone and direct-link f
     const dialog = page.locator("[data-reservation-dialog] .reservation-dialog");
     assert.equal(await dialog.isVisible(), true);
     await page.waitForFunction(() => document.querySelector("link[data-reservation-modal-styles]")?.sheet?.cssRules.length);
-    assert.equal(page.url(), `${origin}/?utm_source=google&utm_medium=cpc&utm_campaign=test&utm_content=ad-one&utm_id=123&creative=456&network=x&device=m&matchtype=e&gclid=test_click`);
+    assert.equal(page.url(), bookingPageUrl, "booking preserves the current page and menu anchor");
     const bounds = await dialog.boundingBox();
     assert.ok(bounds);
     if (viewportWidth <= 600) {

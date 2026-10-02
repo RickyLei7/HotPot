@@ -655,11 +655,29 @@
       if (trigger) lastTrigger = trigger;
     });
     document.addEventListener("keydown", function (event) {
-      if (event.key !== "Escape") return;
       var modal = activeModal();
       if (!modal) return;
+      if (event.key === "Tab") {
+        var controls = modal.querySelectorAll(".poster-frame a[href], .poster-frame button:not([disabled])");
+        if (!controls.length) return;
+        var first = controls[0];
+        var last = controls[controls.length - 1];
+        var outside = !modal.contains(document.activeElement);
+        if (event.shiftKey && (document.activeElement === first || outside)) {
+          event.preventDefault();
+          last.focus();
+        } else if (!event.shiftKey && (document.activeElement === last || outside)) {
+          event.preventDefault();
+          first.focus();
+        }
+        return;
+      }
+      if (event.key !== "Escape") return;
       var close = modal.querySelector(".modal-close");
-      if (close) close.click();
+      if (close) {
+        event.preventDefault();
+        close.click();
+      }
     });
     window.addEventListener("hashchange", syncModalState);
     syncModalState();

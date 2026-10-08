@@ -145,6 +145,9 @@ export function openReservationModal({ trigger, language = "en", attribution = {
       current.dirty = data.dirty;
     } else if (data.type === "booking:completed" && (data.status === "confirmed" || data.status === "pending")) {
       current.dirty = false;
+      // One result per opened form, even if the iframe repeats its success message.
+      if (current.completed) return;
+      current.completed = true;
       window.dispatchEvent(new CustomEvent("hotpot:booking-completed", { detail: { status: data.status, partySize: data.partySize } }));
     } else if (data.type === "booking:request-close") {
       requestClose();

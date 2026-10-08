@@ -42,7 +42,7 @@ async function startServer() {
 
 test("online booking opens a safe same-page dialog while phone and direct-link fallbacks remain available", async () => {
   const { server, origin } = await startServer();
-  const browser = await chromium.launch({ headless: true });
+  const browser = await chromium.launch({ headless: true, ...(process.env.PLAYWRIGHT_EXECUTABLE_PATH ? { executablePath: process.env.PLAYWRIGHT_EXECUTABLE_PATH } : {}) });
   const page = await browser.newPage({ viewport: { width: viewportWidth, height: viewportHeight } });
   const pageErrors = [];
   page.on("pageerror", (error) => pageErrors.push(error.message));
@@ -166,6 +166,9 @@ test("online booking opens a safe same-page dialog while phone and direct-link f
     await page.frameLocator("[data-reservation-dialog] iframe").locator("#done").click();
     assert.deepEqual(await completion, { status: "confirmed", partySize: 4 });
     assert.equal(await page.evaluate(() => window.dataLayer.some((entry) => entry?.[1] === "online_booking_completed" && entry?.[2]?.booking_source === "google" && entry?.[2]?.booking_medium === "cpc" && entry?.[2]?.party_size === 4)), true);
+    await page.frameLocator("[data-reservation-dialog] iframe").locator("#done").click();
+    await page.waitForTimeout(50);
+    assert.equal(await page.evaluate(() => window.dataLayer.filter(entry => entry?.[1] === "online_booking_completed").length), 1, "repeated iframe success must not duplicate conversions");
     assert.equal(await page.evaluate(() => Object.keys(Array.from(window.dataLayer).find((entry) => entry?.[1] === "online_booking_completed")?.[2] || {}).length <= 25), true, "booking events must fit GA4's 25-parameter limit");
     assert.equal(await page.evaluate(() => window.dataLayer.some((entry) => entry?.[1] === "reservation_completed" && entry?.[2]?.party_size === 4)), true);
     assert.equal(await page.evaluate(() => JSON.stringify(window.dataLayer).includes("email")), false);

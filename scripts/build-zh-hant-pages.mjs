@@ -207,7 +207,7 @@ function renderHomePage(data) {
     <link rel="preload" as="image" href="/assets/dish-sukiyaki-640.webp" imagesrcset="/assets/dish-sukiyaki-320.webp 320w, /assets/dish-sukiyaki-640.webp 640w, /assets/dish-sukiyaki.webp 1024w" imagesizes="(max-width: 760px) calc(100vw - 32px), 42vw" />
     <link rel="stylesheet" href="/site.css?v=20261001-menu-dialog" />
     <script defer src="/language-routes.js?v=20260813-bilingual"></script>
-    <script defer src="/site-events.js?v=20261001-dialog-focus-v6"></script>
+    <script defer src="/site-events.js?v=20261008-booking-stages-v7"></script>
     <script type="application/ld+json">${jsonLd(data)}</script>
   </head>
   <body>
@@ -271,7 +271,7 @@ function renderPage(data) {
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="stylesheet" href="/site.css?v=20261001-menu-dialog" />
     <script defer src="/language-routes.js?v=20260813-bilingual"></script>
-    <script defer src="/site-events.js?v=20261001-dialog-focus-v6"></script>
+    <script defer src="/site-events.js?v=20261008-booking-stages-v7"></script>
     <script type="application/ld+json">${jsonLd(data)}</script>
   </head>
   <body>

@@ -8,7 +8,7 @@ const storage = () => {
   const values = new Map();
   return { getItem: key => values.get(key) || null, setItem: (key, value) => values.set(key, value), removeItem: key => values.delete(key) };
 };
-function visit(path, referrer, localStorage, sessionStorage) {
+function visit(path, referrer, localStorage, sessionStorage, status = 'confirmed') {
   const listeners = new Map();
   const link = {
     href: 'https://reservation.centrestjhotpot.ca/book', textContent: 'Reserve',
@@ -30,9 +30,9 @@ function visit(path, referrer, localStorage, sessionStorage) {
     addEventListener() {}, body: { classList: { toggle() {} } },
   };
   vm.runInNewContext(code, { window, document, URL, URLSearchParams, Date });
-  listeners.get('hotpot:booking-completed')({ detail: { status: 'confirmed', partySize: 4 } });
+  listeners.get('hotpot:booking-completed')({ detail: { status, partySize: 4 } });
   const event = window.dataLayer.find(entry => entry[0] === 'event' && entry[1] === 'online_booking_completed');
-  return { url: new URL(link.href), event: event[2] };
+  return { url: new URL(link.href), event: event?.[2], events: window.dataLayer, meta: window.fbq.queue };
 }
 
 test('source and original landing survive internal navigation and reach booking and completion', () => {
@@ -100,4 +100,25 @@ test('Facebook click IDs alone remain social, while explicitly marked ads keep p
   const paid=visit('/?fbclid=paid_click&utm_source=instagram&utm_medium=paid_social&utm_campaign=pinned', '', storage(), storage());
   assert.equal(paid.url.searchParams.get('source'),'instagram');
   assert.equal(paid.url.searchParams.get('medium'),'paid_social');
+});
+
+
+test('pending applications keep attribution and people without completed-booking conversions', () => {
+  const result=visit('/?utm_source=instagram&utm_medium=paid_social&utm_campaign=test', '', storage(), storage(), 'pending');
+  const submitted=result.events.find(entry=>entry[0]==='event'&&entry[1]==='online_booking_submitted');
+  assert.equal(submitted[2].party_size,4);
+  assert.equal(submitted[2].booking_source,'instagram');
+  assert.equal(submitted[2].booking_status,'pending');
+  assert.equal(result.event,undefined);
+  assert.equal(result.events.some(entry=>entry[1]==='reservation_completed'),false);
+  assert.equal(result.meta.some(entry=>entry[1]==='Schedule'),false);
+  assert.equal(result.meta.some(entry=>entry[1]==='ReservationRequest'),true);
+});
+
+test('immediately confirmed bookings emit a single Schedule with booked party size', () => {
+  const result=visit('/?gclid=test_click', '', storage(), storage());
+  assert.equal(result.event.booking_status,'confirmed');
+  const schedules=result.meta.filter(entry=>entry[1]==='Schedule');
+  assert.equal(schedules.length,1);
+  assert.equal(schedules[0][2].party_size,4);
 });

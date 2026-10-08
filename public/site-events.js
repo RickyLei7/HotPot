@@ -439,7 +439,7 @@
       link_destination: safeDestination(link),
       cta_location: getLocation(link),
     }, params || {});
-    if (name === "online_booking_completed" || name === "reservation_completed" || name === "generate_lead") {
+    if (name === "online_booking_submitted" || name === "online_booking_completed" || name === "reservation_completed" || name === "generate_lead") {
       delete eventParams.ads_network;
       delete eventParams.ads_device;
       delete eventParams.ads_match_type;
@@ -499,7 +499,7 @@
   function openReservationDialog(event, link) {
     event.preventDefault();
     lastBookingLink = link;
-    if (!reservationModalPromise) reservationModalPromise = import("/reservation-modal.js?v=20260929-menu-ux-v5");
+    if (!reservationModalPromise) reservationModalPromise = import("/reservation-modal.js?v=20261008-booking-stages-v6");
     reservationModalPromise.then(function (module) {
       module.openReservationModal({ trigger: link, language: pageLanguage(), attribution: bookingAttribution() });
     }).catch(function () {
@@ -521,16 +521,21 @@
     var validPartySize = Number.isInteger(partySize) && partySize >= 1 && partySize <= 40 ? partySize : 0;
     var link = lastBookingLink || document.querySelector("a[data-reservation-launcher]");
     if (!link) return;
-    sendEvent("online_booking_completed", link, {
+    sendEvent("online_booking_submitted", link, {
       method: "website",
       cta_intent: "reservation",
       booking_status: status,
       booking_count: 1,
       party_size: validPartySize,
     });
-    sendEvent("reservation_completed", link, { booking_status: status, booking_count: 1, party_size: validPartySize });
     sendEvent("generate_lead", link, { method: "website", lead_type: "online_booking", booking_status: status, party_size: validPartySize });
-    window.fbq("track", "Schedule", { content_name: "Online reservation", status: status, party_size: validPartySize });
+    if (status === "confirmed") {
+      sendEvent("online_booking_completed", link, { method: "website", cta_intent: "reservation", booking_status: status, booking_count: 1, party_size: validPartySize });
+      sendEvent("reservation_completed", link, { booking_status: status, booking_count: 1, party_size: validPartySize });
+      window.fbq("track", "Schedule", { content_name: "Online reservation", status: status, party_size: validPartySize });
+    } else {
+      window.fbq("trackCustom", "ReservationRequest", { status: status, party_size: validPartySize });
+    }
   });
 
   function sendAdsCallConversion(event, link) {

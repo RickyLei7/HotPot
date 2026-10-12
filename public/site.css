@@ -46,9 +46,13 @@ section { scroll-margin-top: 92px; }
 }
 .brand-mark img { height: 54px; mix-blend-mode: screen; max-width: min(58vw, 260px); width: auto; }
 .nav-links { display: flex; gap: clamp(12px, 2.6vw, 30px); justify-content: center; }
-.nav-more, .nav-more-links { display: contents; }
-.nav-more summary { display: none; }
-.nav-links a, .nav-call { color: var(--cream); font-size: 0.94rem; font-weight: 700; }
+.nav-more { display: block; min-width: 0; position: relative; }
+.nav-more summary { cursor: pointer; list-style: none; }
+.nav-more summary::-webkit-details-marker { display: none; }
+.nav-links a, .nav-more summary, .nav-call { color: var(--cream); font-size: 0.94rem; font-weight: 700; }
+.nav-more-links { background: rgba(18, 13, 11, 0.98); border: 1px solid rgba(246, 201, 76, 0.32); border-radius: 8px; box-shadow: 0 16px 34px rgba(0, 0, 0, 0.34); display: grid; gap: 4px; min-width: 168px; padding: 7px; position: absolute; right: 0; top: calc(100% + 7px); z-index: 24; }
+.nav-more:not([open]) .nav-more-links { display: none; }
+.nav-more-links a { border-radius: 5px; color: var(--cream); font-size: 0.86rem; min-height: 38px; padding: 9px 12px; }
 .nav-actions { align-items: center; display: flex; gap: 8px; }
 .language-switch { align-items: center; border: 1px solid rgba(246, 201, 76, 0.34); border-radius: 999px; display: flex; min-height: 44px; padding: 3px; white-space: nowrap; }
 .language-option { align-items: center; border-radius: 999px; color: rgba(255, 248, 234, 0.78); display: inline-flex; font-size: 0.78rem; font-weight: 850; justify-content: center; min-height: 36px; min-width: 42px; padding: 0 9px; }
@@ -593,8 +597,10 @@ body.poster-open { overflow: hidden; }
   .ayce-snack-group:nth-child(odd) { border-left: 0; }
   .ayce-snack-group:nth-child(n + 3) { border-top: 1px solid rgba(127, 23, 22, 0.16); }
   .site-nav { grid-template-columns: 1fr auto auto; }
-  .nav-links { display: flex; flex-wrap: wrap; gap: 8px; grid-column: 1 / -1; justify-content: flex-start; padding: 2px 0 4px; }
-  .nav-links a { background: rgba(255, 248, 234, 0.1); border: 1px solid rgba(246, 201, 76, 0.24); border-radius: 999px; flex: 0 0 auto; padding: 9px 14px; }
+  .language-switch { grid-column: 2; grid-row: 1; }
+  .nav-actions { grid-column: 3; grid-row: 1; justify-self: end; }
+  .nav-links { display: flex; flex-wrap: wrap; gap: 8px; grid-column: 1 / -1; grid-row: 2; justify-content: flex-start; padding: 2px 0 4px; }
+  .nav-links > a, .nav-more summary { background: rgba(255, 248, 234, 0.1); border: 1px solid rgba(246, 201, 76, 0.24); border-radius: 999px; flex: 0 0 auto; padding: 9px 14px; }
   .hero, .localized-hero, .ayce-promo, .beef-noodle-story, .about-section, .social-follow, .two-column, .drink-panel, .guide-layout, .menu-images { grid-template-columns: 1fr; }
   .localized-hero-media { justify-self: start; max-width: 520px; }
   .beef-noodle-story-media { justify-self: center; max-width: 440px; }
@@ -622,12 +628,7 @@ body.poster-open { overflow: hidden; }
   .nav-call { min-height: 44px; min-width: 72px; padding-inline: 16px; }
   .nav-links { display: grid; gap: 7px; grid-column: 1 / -1; grid-row: 2; grid-template-columns: repeat(4, minmax(0, 1fr)); padding: 0; width: 100%; }
   .nav-links > a, .nav-more summary { align-items: center; background: rgba(255, 248, 234, 0.075); border-color: rgba(246, 201, 76, 0.2); display: flex; font-size: 0.82rem; justify-content: center; min-height: 34px; min-width: 0; padding: 7px 8px; text-align: center; }
-  .nav-more { display: block; min-width: 0; position: relative; }
-  .nav-more summary { border: 1px solid rgba(246, 201, 76, 0.2); border-radius: 999px; color: var(--cream); cursor: pointer; font-weight: 700; list-style: none; }
-  .nav-more summary::-webkit-details-marker { display: none; }
-  .nav-more-links { background: rgba(18, 13, 11, 0.98); border: 1px solid rgba(246, 201, 76, 0.32); border-radius: 8px; box-shadow: 0 16px 34px rgba(0, 0, 0, 0.34); display: grid; gap: 4px; min-width: 168px; padding: 7px; position: absolute; right: 0; top: calc(100% + 7px); z-index: 24; }
-  .nav-more:not([open]) .nav-more-links { display: none; }
-  .nav-more-links a { border-radius: 5px; color: var(--cream); font-size: 0.86rem; min-height: 38px; padding: 9px 12px; }
+  .nav-more summary { border: 1px solid rgba(246, 201, 76, 0.2); border-radius: 999px; }
   .ayce-hero, .menu-page-hero, .ayce-promo { background-image: linear-gradient(90deg, rgba(18, 13, 11, 0.96), rgba(90, 19, 15, 0.9)), url("assets/dish-sukiyaki-640.webp"); }
   .ads-hero { background-image: linear-gradient(90deg, rgba(18, 13, 11, 0.96), rgba(74, 16, 13, 0.92)), url("assets/dish-spicy-640-perf.webp"); }
   .ads-photo-band { background-image: linear-gradient(90deg, rgba(31, 22, 17, 0.96), rgba(127, 23, 22, 0.9)), url("assets/dish-spicy-640-perf.webp"); }

@@ -40,6 +40,43 @@ async function startServer() {
   return { server, origin: `http://127.0.0.1:${address.port}` };
 }
 
+test("More navigation remains reachable on mobile, tablet, and desktop", async () => {
+  const { server, origin } = await startServer();
+  const browser = await chromium.launch({ headless: true });
+  const page = await browser.newPage();
+  try {
+    for (const width of [320, 390, 430, 768, 1024, 1440]) {
+      await page.setViewportSize({ width, height: 900 });
+      for (const route of ["/", "/zh-hant/"]) {
+        await page.goto(`${origin}${route}`, { waitUntil: "networkidle" });
+        const headerRows = await page.locator(".site-nav").evaluate(nav => {
+          const centers = [".brand-mark", ".language-switch", ".nav-actions"].map(selector => {
+            const box = nav.querySelector(selector).getBoundingClientRect();
+            return box.top + box.height / 2;
+          });
+          return Math.max(...centers) - Math.min(...centers);
+        });
+        assert.ok(headerRows <= 2, "logo, language switch, and booking action stay on one row");
+        const more = page.locator(".nav-more");
+        const summary = more.locator("summary");
+        assert.equal(await summary.isVisible(), true, `${route}: More is reachable at ${width}px`);
+        await summary.focus();
+        await page.keyboard.press("Enter");
+        assert.equal(await more.getAttribute("open"), "");
+        for (const destination of ["about/", "faq/", "contact/"]) {
+          assert.equal(await more.locator(`a[href="${route}${destination}"]`).isVisible(), true, "More exposes the restaurant information links");
+        }
+        await summary.click();
+        assert.equal(await more.getAttribute("open"), null);
+      }
+    }
+  } finally {
+    await page.close();
+    await browser.close();
+    await new Promise((resolve) => server.close(resolve));
+  }
+});
+
 test("online booking opens a safe same-page dialog while phone and direct-link fallbacks remain available", async () => {
   const { server, origin } = await startServer();
   const browser = await chromium.launch({ headless: true, ...(process.env.PLAYWRIGHT_EXECUTABLE_PATH ? { executablePath: process.env.PLAYWRIGHT_EXECUTABLE_PATH } : {}) });
@@ -114,12 +151,14 @@ test("online booking opens a safe same-page dialog while phone and direct-link f
     assert.equal(page.url(), bookingPageUrl, "booking preserves the current page and menu anchor");
     const bounds = await dialog.boundingBox();
     assert.ok(bounds);
+    assert.ok(bounds.x >= 0 && bounds.y >= 0, "booking stays inside the viewport");
+    assert.ok(bounds.x + bounds.width <= viewportWidth + 1, "booking does not overflow horizontally");
+    assert.ok(bounds.y + bounds.height <= viewportHeight + 1, "booking does not extend below the screen");
     if (viewportWidth <= 600) {
       assert.equal(Math.round(bounds.width), viewportWidth);
-      assert.equal(Math.round(bounds.height), Math.min(560, viewportHeight - 8));
+      assert.equal(Math.round(bounds.height), viewportHeight, "mobile booking uses the available screen height");
     } else {
       assert.ok(bounds.width <= 640, `desktop dialog width was ${bounds.width}px`);
-      assert.ok(bounds.height <= 680, `desktop dialog height was ${bounds.height}px`);
       assert.equal(bounds.x > 0, true);
     }
     const embeddedUrl = new URL(await page.locator("[data-reservation-dialog] iframe").getAttribute("src"));

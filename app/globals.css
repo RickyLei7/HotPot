@@ -131,20 +131,54 @@ section {
   justify-content: center;
 }
 
-.nav-more,
-.nav-more-links {
-  display: contents;
+.nav-more {
+  display: block;
+  min-width: 0;
+  position: relative;
 }
 
 .nav-more summary {
+  cursor: pointer;
+  list-style: none;
+}
+
+.nav-more summary::-webkit-details-marker {
   display: none;
 }
 
 .nav-links a,
+.nav-more summary,
 .nav-call {
   color: var(--cream);
   font-size: 0.94rem;
   font-weight: 700;
+}
+
+.nav-more-links {
+  background: rgba(18, 13, 11, 0.98);
+  border: 1px solid rgba(246, 201, 76, 0.32);
+  border-radius: 8px;
+  box-shadow: 0 16px 34px rgba(0, 0, 0, 0.34);
+  display: grid;
+  gap: 4px;
+  min-width: 168px;
+  padding: 7px;
+  position: absolute;
+  right: 0;
+  top: calc(100% + 7px);
+  z-index: 24;
+}
+
+.nav-more:not([open]) .nav-more-links {
+  display: none;
+}
+
+.nav-more-links a {
+  border-radius: 5px;
+  color: var(--cream);
+  font-size: 0.86rem;
+  min-height: 38px;
+  padding: 9px 12px;
 }
 
 .nav-actions {
@@ -1704,16 +1738,29 @@ body.poster-open { overflow: hidden; }
     grid-template-columns: 1fr auto auto;
   }
 
+  .language-switch {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .nav-actions {
+    grid-column: 3;
+    grid-row: 1;
+    justify-self: end;
+  }
+
   .nav-links {
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
     grid-column: 1 / -1;
+    grid-row: 2;
     justify-content: flex-start;
     padding: 2px 0 4px;
   }
 
-  .nav-links a {
+  .nav-links > a,
+  .nav-more summary {
     background: rgba(255, 248, 234, 0.1);
     border: 1px solid rgba(246, 201, 76, 0.24);
     border-radius: 999px;
@@ -1843,50 +1890,9 @@ body.poster-open { overflow: hidden; }
     text-align: center;
   }
 
-  .nav-more {
-    display: block;
-    min-width: 0;
-    position: relative;
-  }
-
   .nav-more summary {
     border: 1px solid rgba(246, 201, 76, 0.2);
     border-radius: 999px;
-    color: var(--cream);
-    cursor: pointer;
-    font-weight: 700;
-    list-style: none;
-  }
-
-  .nav-more summary::-webkit-details-marker {
-    display: none;
-  }
-
-  .nav-more-links {
-    background: rgba(18, 13, 11, 0.98);
-    border: 1px solid rgba(246, 201, 76, 0.32);
-    border-radius: 8px;
-    box-shadow: 0 16px 34px rgba(0, 0, 0, 0.34);
-    display: grid;
-    gap: 4px;
-    min-width: 168px;
-    padding: 7px;
-    position: absolute;
-    right: 0;
-    top: calc(100% + 7px);
-    z-index: 24;
-  }
-
-  .nav-more:not([open]) .nav-more-links {
-    display: none;
-  }
-
-  .nav-more-links a {
-    border-radius: 5px;
-    color: var(--cream);
-    font-size: 0.86rem;
-    min-height: 38px;
-    padding: 9px 12px;
   }
 
   .ayce-hero,

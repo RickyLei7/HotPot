@@ -1,7 +1,8 @@
 const BOOKING_ORIGIN = "https://reservation.centrestjhotpot.ca";
 const BOOKING_URL = `${BOOKING_ORIGIN}/book`;
 const EMBED_URL = `${BOOKING_ORIGIN}/embed/book`;
-const SANDBOX = "allow-forms allow-scripts allow-same-origin";
+// The booking privacy link opens a new tab; keep navigation and sandbox escape restricted.
+const SANDBOX = "allow-forms allow-scripts allow-same-origin allow-popups";
 let modal;
 const ATTRIBUTION_KEYS = ["source", "medium", "campaignName", "campaignId", "content", "term", "adGroupId", "assetGroupId", "creativeId", "network", "device", "matchType", "clickIdType", "clickId", "landingPage", "referrerHost"];
 

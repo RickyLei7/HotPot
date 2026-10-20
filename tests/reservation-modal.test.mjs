@@ -86,13 +86,17 @@ test("online booking opens a safe same-page dialog while phone and direct-link f
 
   await page.route(`${bookingOrigin}/embed/book*`, (route) => route.fulfill({
     contentType: "text/html",
-    body: `<!doctype html><button id="dirty">dirty</button><button id="done">done</button><button id="bad-done">bad done</button><button id="request-close">close</button><script>
+    body: `<!doctype html><a href="/booking-privacy.html" target="_blank" rel="noopener noreferrer">Booking privacy</a><button id="dirty">dirty</button><button id="done">done</button><button id="bad-done">bad done</button><button id="request-close">close</button><script>
       parent.postMessage({source:'hotpot-booking',type:'booking:ready'}, '*');
       dirty.onclick=()=>parent.postMessage({source:'hotpot-booking',type:'booking:dirty',dirty:true}, '*');
       done.onclick=()=>parent.postMessage({source:'hotpot-booking',type:'booking:completed',status:'confirmed',partySize:4}, '*');
       document.querySelector('#bad-done').onclick=()=>parent.postMessage({source:'hotpot-booking',type:'booking:completed',status:'confirmed',partySize:4,extra:'not-allowed'}, '*');
       document.querySelector('#request-close').onclick=()=>parent.postMessage({source:'hotpot-booking',type:'booking:request-close'}, '*');
     <\/script>`,
+  }));
+  await page.context().route(`${bookingOrigin}/booking-privacy.html`, route => route.fulfill({
+    contentType: "text/html",
+    body: "<!doctype html><title>Booking privacy</title><h1>Booking privacy</h1>",
   }));
 
   try {
@@ -164,11 +168,21 @@ test("online booking opens a safe same-page dialog while phone and direct-link f
     const embeddedUrl = new URL(await page.locator("[data-reservation-dialog] iframe").getAttribute("src"));
     assert.equal(embeddedUrl.origin + embeddedUrl.pathname, `${bookingOrigin}/embed/book`);
     assert.equal(embeddedUrl.searchParams.get("content"), "ad-one");
-    assert.equal(await page.locator("[data-reservation-dialog] iframe").getAttribute("sandbox"), "allow-forms allow-scripts allow-same-origin");
+    assert.equal(await page.locator("[data-reservation-dialog] iframe").getAttribute("sandbox"), "allow-forms allow-scripts allow-same-origin allow-popups");
     assert.equal(await page.locator("[data-reservation-problem] a[data-reservation-direct]").getAttribute("data-reservation-direct"), "");
     assert.equal(await page.locator("[data-reservation-problem] a[href='tel:+14034553188']").count(), 1, "the loading fallback keeps phone booking available");
     assert.equal(await page.evaluate(() => document.body.style.position), "fixed");
     assert.equal(await page.locator("main").evaluate(element => element.inert), true, "background content cannot receive focus while booking");
+
+    const privacyOpened = page.context().waitForEvent("page", { timeout: 4000 });
+    await page.frameLocator("[data-reservation-dialog] iframe").getByRole("link", { name: "Booking privacy" }).click();
+    const privacyPage = await privacyOpened;
+    await privacyPage.waitForLoadState("load");
+    assert.equal(privacyPage.url(), `${bookingOrigin}/booking-privacy.html`);
+    assert.equal(await privacyPage.getByRole("heading", { name: "Booking privacy" }).isVisible(), true);
+    assert.equal(await privacyPage.evaluate(() => window.opener === null), true, "privacy cannot control the booking window");
+    await privacyPage.close();
+    assert.equal(await dialog.isVisible(), true, "reading privacy keeps the booking dialog open");
 
     await page.locator("[data-reservation-dialog-backdrop]").dispatchEvent("click");
     assert.equal(await dialog.isVisible(), true);

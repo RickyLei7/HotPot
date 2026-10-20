@@ -106,8 +106,8 @@ export function openReservationModal({ trigger, language = "en", attribution = {
       <iframe title="${isZhHant ? "網上訂位" : "Online booking"}" sandbox="${SANDBOX}"></iframe>
       <div class="reservation-dialog-discard" data-reservation-discard="" hidden>
         <p>${isZhHant ? "要放棄尚未完成的訂位嗎？" : "Discard your unfinished booking?"}</p>
-        <button type="button">${isZhHant ? "繼續訂位" : "Keep booking"}</button>
-        <button type="button">${isZhHant ? "放棄" : "Discard"}</button>
+        <button type="button">${isZhHant ? "繼續訂位" : "Continue booking"}</button>
+        <button type="button">${isZhHant ? "放棄填寫" : "Discard form"}</button>
       </div>
     </section>`;
   document.body.append(root);

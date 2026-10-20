@@ -24,3 +24,18 @@ Set `BOOKING_QA_REAL_TEST_KEY=1` to load the real Cloudflare widget using its
 official always-pass **test** key in those isolated pages. The production key
 is never replaced. Confirmation here is simulated; real Safari verification
 must be checked separately.
+
+## Booking copy — 2026-10-20
+
+`booking-copy.mjs` applies reviewed text replacements to the current booking
+client and HTML. Review-required slots say `Request a table / 提交訂位` and
+explicitly await restaurant confirmation. Immediate bookings keep `Book now`.
+The changes clarify result, link, edit/cancel, retry and form hints without
+changing consent, security, payloads or reservation state transitions.
+
+The persistent daily builder applies the client copy after `bookingSecurity`
+and applies the HTML copy to `/book.html`. Its existing preservation test
+asserts both exact transformations. The recovered source has the same copy
+changes while retaining its separate, previously pending paused-booking UI.
+Release evidence and isolated flow checks are retained in
+`Documents/HotPot/tmp/reservation-booking-copy-20261020-release/`.

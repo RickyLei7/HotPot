@@ -4,16 +4,18 @@ import path from "node:path";
 const baseUrl = "https://centrestjhotpot.ca";
 const defaultLastmod = "2026-09-21";
 const lastmodByPath = new Map([
+  ["/zh-hant/calgary-taiwanese-hot-pot/", "2026-10-20"],
+  ["/zh-hant/calgary-hot-pot-guide/", "2026-10-20"],
   ["/faq/", "2026-09-29"],
   ["/zh-hant/faq/", "2026-09-29"],
-  ["/ayce-hot-pot-calgary/", "2026-09-29"],
-  ["/zh-hant/ayce-hot-pot-calgary/", "2026-09-29"],
-  ["/", "2026-09-29"],
-  ["/zh-hant/", "2026-09-29"],
+  ["/ayce-hot-pot-calgary/", "2026-10-20"],
+  ["/zh-hant/ayce-hot-pot-calgary/", "2026-10-20"],
+  ["/", "2026-10-20"],
+  ["/zh-hant/", "2026-10-20"],
   ["/menu/", "2026-09-29"],
   ["/zh-hant/menu/", "2026-09-29"],
-  ["/calgary-hot-pot-guide/", "2026-09-22"],
-  ["/calgary-taiwanese-hot-pot/", "2026-09-22"],
+  ["/calgary-hot-pot-guide/", "2026-10-20"],
+  ["/calgary-taiwanese-hot-pot/", "2026-10-20"],
 ]);
 const pairs = [
   ["/", "/zh-hant/", "weekly", "1.0"],

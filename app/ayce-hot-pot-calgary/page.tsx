@@ -24,6 +24,7 @@ export const metadata: Metadata = {
 };
 
 const ayceFaqs = [
+  ["What does AYCE mean?", "AYCE means all you can eat. At Centre Street Japanese HotPot, it is $28.99 per person plus tax, with one of 15 soup bases included and meats ordered through your server."],
   [
     "Where can I find AYCE hot pot in Calgary?",
     "Centre Street Japanese HotPot serves AYCE hot pot at 2213 Centre St N #2243, Calgary, AB T2E 2T4. Book online or call (403) 455-3188 for larger groups."
@@ -106,7 +107,7 @@ const ayceSchema = {
     {
       "@type": "WebPage",
       "@id": "https://centrestjhotpot.ca/ayce-hot-pot-calgary/#webpage",
-      dateModified: "2026-09-29",
+      dateModified: "2026-10-20",
       name: "All You Can Eat Hot Pot Calgary | AYCE $28.99",
       description:
         "Calgary all-you-can-eat hot pot for $28.99 + tax with 15 soup bases, AAA beef, lamb, pork and chicken, an optional 19-snack upgrade, kids pricing, and reservation details.",
@@ -167,7 +168,7 @@ export default function AyceHotPotCalgaryPage() {
 
       <section className="page-hero guide-page-hero">
         <div>
-          <p className="eyebrow">AYCE hot pot Calgary</p>
+          <p className="eyebrow">All-you-can-eat hot pot in Calgary</p>
           <h1>All-You-Can-Eat Hot Pot Calgary · $28.99</h1>
           <p className="hero-text">
             Soup base included. Choose from 15 broths and order AAA beef, lamb,

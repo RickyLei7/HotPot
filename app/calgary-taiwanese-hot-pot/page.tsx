@@ -3,9 +3,9 @@ import Link from "next/link";
 import { SiteNav } from "../site-nav";
 
 export const metadata: Metadata = {
-  title: "Taiwanese Food & Hot Pot Calgary | $28.99 AYCE",
+  title: "Taiwanese Food Calgary | Beef Noodles, Rice Bowls & Hot Pot",
   description:
-    "Taiwanese food in Calgary: $19.99 personal hot pot, $28.99 AYCE, beef noodle soup, rice bowls, snacks and milk tea. View the menu and book online.",
+    "Taiwanese food in Calgary: $16.99 beef noodle soup, $12.99 braised pork rice, personal hot pot and AYCE. See prices, the full menu and book online.",
   alternates: {
     canonical: "/calgary-taiwanese-hot-pot",
     languages: {
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "Taiwanese Food & Hot Pot Calgary | $28.99 AYCE",
+    title: "Taiwanese Food Calgary | Beef Noodles, Rice Bowls & Hot Pot",
     description:
       "Choose personal hot pot or $28.99 AYCE, plus Taiwanese beef noodle soup, rice bowls, fried snacks and milk tea on Centre Street in Calgary.",
     url: "https://centrestjhotpot.ca/calgary-taiwanese-hot-pot/",
@@ -42,7 +42,7 @@ const taiwaneseHotPotFaqs = [
   ],
   [
     "How do I reserve a table?",
-    "Book online through the restaurant website. For larger groups or today's table availability, call (403) 455-3188.",
+    "Book online. For larger groups or today's table availability, call (403) 455-3188.",
   ],
 ];
 
@@ -57,7 +57,7 @@ const pageSchema = {
         "Taiwanese food and hot pot in Calgary, including personal hot pot, AYCE, beef noodle soup, rice bowls, fried snacks, milk tea, and reservations.",
       url: "https://centrestjhotpot.ca/calgary-taiwanese-hot-pot/",
       datePublished: "2026-08-08",
-      dateModified: "2026-09-22",
+      dateModified: "2026-10-20",
       author: { "@id": "https://centrestjhotpot.ca/#restaurant" },
       image: "https://centrestjhotpot.ca/assets/dish-sukiyaki.webp",
       inLanguage: "en-CA",
@@ -142,32 +142,25 @@ export default function CalgaryTaiwaneseHotPotPage() {
 
       <section className="weekly-picks">
         <div>
-          <p className="eyebrow">Build your meal</p>
-          <h2>Choose a Pot Then Add a Side or Drink</h2>
+          <p className="eyebrow">Taiwanese favourites</p>
+          <h2>Beef Noodles and Rice Bowls</h2>
+          <p>Order these dishes on their own. Prices are before tax.</p>
         </div>
         <div className="weekly-picks-grid">
           <article>
-            <img src="/assets/dish-sukiyaki-640.webp" srcSet="/assets/dish-sukiyaki-320.webp 320w, /assets/dish-sukiyaki-640.webp 640w, /assets/dish-sukiyaki.webp 1024w" sizes="(max-width: 560px) 112px, (max-width: 1100px) 50vw, 33vw" alt="Taiwanese-style individual hot pot in Calgary" width="900" height="675" loading="lazy" decoding="async" />
-            <div>
-              <h3>Choose a soup base</h3>
-              <p>Pick from 15 soup bases, including spicy, sukiyaki, tomato, miso, and more.</p>
-            </div>
+            <img src="/assets/taiwanese-beef-noodle-story-480.webp" srcSet="/assets/taiwanese-beef-noodle-story-360.webp 360w, /assets/taiwanese-beef-noodle-story-480.webp 480w, /assets/taiwanese-beef-noodle-story-720.webp 720w" sizes="(max-width: 560px) 112px, (max-width: 1100px) 50vw, 33vw" alt="Taiwanese braised beef noodle soup at Centre Street Japanese HotPot" width="480" height="600" loading="lazy" decoding="async" />
+            <div><h3>Taiwanese Beef Noodle Soup · $16.99</h3><p>Braised beef, noodles and a slow-simmered broth.</p></div>
           </article>
           <article>
-            <img src="/assets/dish-popcorn-chicken-640.webp" srcSet="/assets/dish-popcorn-chicken-320.webp 320w, /assets/dish-popcorn-chicken-640.webp 640w, /assets/dish-popcorn-chicken.webp 1024w" sizes="(max-width: 560px) 112px, (max-width: 1100px) 50vw, 33vw" alt="Taiwanese fried chicken snack in Calgary" width="900" height="675" loading="lazy" decoding="async" />
-            <div>
-              <h3>Add Taiwanese snacks</h3>
-              <p>Order fried chicken, takoyaki, crispy chicken cutlet, golden fried buns, and other sides.</p>
-            </div>
+            <img src="/assets/light-meals/braised-pork-rice-640.webp" srcSet="/assets/light-meals/braised-pork-rice-320.webp 320w, /assets/light-meals/braised-pork-rice-640.webp 640w, /assets/light-meals/braised-pork-rice-1024.webp 1024w" sizes="(max-width: 560px) 112px, (max-width: 1100px) 50vw, 33vw" alt="Taiwanese braised pork rice bowl in Calgary" width="640" height="440" loading="lazy" decoding="async" />
+            <div><h3>Braised Pork Rice · $12.99</h3><p>Braised pork over steamed rice.</p></div>
           </article>
           <article>
-            <img src="/assets/milk-tea-photo-640.webp" srcSet="/assets/milk-tea-photo-320.webp 320w, /assets/milk-tea-photo-640.webp 640w, /assets/milk-tea-photo.webp 900w" sizes="(max-width: 560px) 112px, (max-width: 1100px) 50vw, 33vw" alt="Milk tea with Taiwanese hot pot in Calgary" width="900" height="1200" loading="lazy" decoding="async" />
-            <div>
-              <h3>Order milk tea</h3>
-              <p>Milk tea and drinks make the visit work for hot pot, snacks, and casual group dining.</p>
-            </div>
+            <img src="/assets/light-meals/fried-chicken-rice-noodle-640.webp" srcSet="/assets/light-meals/fried-chicken-rice-noodle-320.webp 320w, /assets/light-meals/fried-chicken-rice-noodle-640.webp 640w, /assets/light-meals/fried-chicken-rice-noodle-1024.webp 1024w" sizes="(max-width: 560px) 112px, (max-width: 1100px) 50vw, 33vw" alt="Taiwanese fried chicken with rice or noodles in Calgary" width="640" height="440" loading="lazy" decoding="async" />
+            <div><h3>Taiwanese Fried Chicken Rice or Noodle · $14.99</h3><p>Crispy fried chicken with your choice of rice or noodles.</p></div>
           </article>
         </div>
+        <div className="menu-download-actions"><Link className="text-action" href="/menu/#rice-noodles">See all rice and noodle dishes</Link></div>
       </section>
 
       <section className="content-section">

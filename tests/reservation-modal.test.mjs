@@ -42,7 +42,7 @@ async function startServer() {
 
 test("More navigation remains reachable on mobile, tablet, and desktop", async () => {
   const { server, origin } = await startServer();
-  const browser = await chromium.launch({ headless: true });
+  const browser = await chromium.launch({ headless: true, ...(process.env.PLAYWRIGHT_EXECUTABLE_PATH ? { executablePath: process.env.PLAYWRIGHT_EXECUTABLE_PATH } : {}) });
   const page = await browser.newPage();
   try {
     for (const width of [320, 390, 430, 768, 1024, 1440]) {

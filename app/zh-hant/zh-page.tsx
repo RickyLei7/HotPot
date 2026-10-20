@@ -146,7 +146,7 @@ export function ZhPage({ data }: { data: ZhPageData }) {
         <div className="section-heading compact"><p className="eyebrow">{section.eyebrow}</p><h2>{section.title}</h2></div>
         <div className="localized-copy">{section.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}</div>
         {section.items?.length ? <details className="localized-menu-list" open><summary>{section.itemLabel || "品項與價格"}</summary><div className="price-list">{section.items.map(([name, price]) => <div key={name}><span>{name}</span><strong>{price}</strong></div>)}</div></details> : null}
-        {section.actions?.length ? <div className="menu-download-actions localized-section-actions">{section.actions.map((action) => <a className={action.style} href={action.href} key={action.label} target="_blank" rel="noreferrer">{action.label}</a>)}</div> : null}
+        {section.actions?.length ? <div className="menu-download-actions localized-section-actions">{section.actions.map((action) => <a className={action.style} href={action.href} key={action.label} {...(action.href.startsWith("http") && !action.href.startsWith("https://reservation.centrestjhotpot.ca/") ? { target: "_blank", rel: "noreferrer" } : {})}>{action.label}</a>)}</div> : null}
         {section.cards?.length ? <div className="recommendation-grid localized-card-grid">{section.cards.map((card) => <article key={card.title}><h3>{card.title}</h3><p>{card.text}</p>{card.href && card.actionLabel ? <a className="card-action" href={card.href} target="_blank" rel="noreferrer">{card.actionLabel}</a> : null}</article>)}</div> : null}
       </section>)}
       {data.featureStory ? <section className="beef-noodle-story" aria-label="台灣傳統牛肉麵故事">

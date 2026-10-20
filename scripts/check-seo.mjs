@@ -38,17 +38,15 @@ for (const url of urls) {
     }
     links++;
   }
-  if (['/faq/', '/zh-hant/faq/', '/ayce-hot-pot-calgary/', '/zh-hant/ayce-hot-pot-calgary/'].includes(new URL(url).pathname)) {
-    for (const [, json] of html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)) {
-      const schema = JSON.parse(json);
-      for (const node of schema['@graph'] ?? [schema]) {
-        if (node['@type'] !== 'FAQPage') continue;
-        for (const question of node.mainEntity) {
-          const visible = [...body.matchAll(/<article\b[^>]*>([\s\S]*?)<\/article>/g)].find(([, source]) => clean(source.match(/<h2[^>]*>(.*?)<\/h2>/s)?.[1] ?? '') === question.name);
-          assert.ok(visible, `${url}: FAQ question is not visible: ${question.name}`);
-          assert.equal(clean(visible[1].match(/<p[^>]*>(.*?)<\/p>/s)?.[1] ?? ''), clean(question.acceptedAnswer.text), `${url}: FAQ answer differs from schema`);
-          answers++;
-        }
+  for (const [, json] of html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)) {
+    const schema = JSON.parse(json);
+    for (const node of schema['@graph'] ?? [schema]) {
+      if (node['@type'] !== 'FAQPage') continue;
+      for (const question of node.mainEntity) {
+        const visible = [...body.matchAll(/<article\b[^>]*>([\s\S]*?)<\/article>/g)].find(([, source]) => clean(source.match(/<h2[^>]*>(.*?)<\/h2>/s)?.[1] ?? '') === question.name);
+        assert.ok(visible, `${url}: FAQ question is not visible: ${question.name}`);
+        assert.equal(clean(visible[1].match(/<p[^>]*>(.*?)<\/p>/s)?.[1] ?? ''), clean(question.acceptedAnswer.text), `${url}: FAQ answer differs from schema`);
+        answers++;
       }
     }
   }

@@ -115,7 +115,7 @@ async function checkViewport(browser, origin, viewport) {
 export async function checkTableMenu() {
   await mkdir(reportDir, { recursive: true });
   const { server, origin } = await startServer();
-  const browser = await chromium.launch({ headless: true });
+  const browser = await chromium.launch({ headless: true, ...(process.env.PLAYWRIGHT_EXECUTABLE_PATH ? { executablePath: process.env.PLAYWRIGHT_EXECUTABLE_PATH } : {}) });
 
   try {
     for (const viewport of [{ width: 390, height: 844 }, { width: 430, height: 932 }]) {

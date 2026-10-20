@@ -91,6 +91,7 @@ export function HomepageMenu({ language }: { language: HomepageLanguage }) {
           <p className="split-pot-note">{content.personal.splitPot}</p>
           <small>{content.personal.comboNote}</small></details>
           <div className="hero-actions"><Link className="primary-action" href={menuPath}>{content.personal.menu}</Link></div>
+          <Link className="text-action" href={isZh ? "/zh-hant/calgary-hot-pot-guide/" : "/calgary-hot-pot-guide/"}>{isZh ? "比較個人鍋與火鍋自助" : "Compare personal hot pot and AYCE"}</Link>
         </div>
         <a className="soup-preview-strip poster-thumbnail" href="#personal-menu-image">
           <img src="/assets/personal-hot-pot-menu-full-480-perf.webp" srcSet="/assets/personal-hot-pot-menu-full-280.webp 280w, /assets/personal-hot-pot-menu-full-480-perf.webp 480w, /assets/personal-hot-pot-menu-full-720.webp 720w, /assets/personal-hot-pot-menu-full.webp 1400w" sizes="(max-width: 760px) 260px, 42vw" alt={isZh ? "鼎鑽火鍋完整個人火鍋菜單與 15 款湯底" : "Full personal hot pot menu with fifteen soup base choices at Centre Street Japanese HotPot"} width="1400" height="2096" loading="lazy" decoding="async" />

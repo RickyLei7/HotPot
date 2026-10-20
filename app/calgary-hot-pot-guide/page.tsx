@@ -3,7 +3,7 @@ import Link from "next/link";
 import { SiteNav } from "../site-nav";
 
 export const metadata: Metadata = {
-  title: "Calgary Hot Pot Guide | AYCE vs Personal Hot Pot",
+  title: "Calgary Hot Pot Prices | AYCE vs Personal Hot Pot",
   description:
     "Compare $28.99 AYCE and $19.99 personal hot pot in Calgary. See what each includes, choose from 15 soup bases, view the menu and book online.",
   alternates: {
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "Calgary Hot Pot Guide | AYCE vs Personal Hot Pot",
+    title: "Calgary Hot Pot Prices | AYCE vs Personal Hot Pot",
     description:
       "Compare $28.99 AYCE and $19.99 personal hot pot, see what is included, and plan a Calgary hot pot visit on Centre Street.",
     url: "https://centrestjhotpot.ca/calgary-hot-pot-guide/",
@@ -38,7 +38,7 @@ const guideFaqs = [
   ],
   [
     "How do I reserve a table?",
-    "Book online through the restaurant website. For group dining or today's table availability, call (403) 455-3188.",
+    "Book online. For group dining or today's table availability, call (403) 455-3188.",
   ],
 ];
 
@@ -53,7 +53,7 @@ const guideSchema = {
         "A practical Calgary guide comparing $28.99 AYCE and $19.99 personal hot pot, including what each option includes, soup bases, snacks, reservations, and location.",
       url: "https://centrestjhotpot.ca/calgary-hot-pot-guide/",
       datePublished: "2026-08-08",
-      dateModified: "2026-09-22",
+      dateModified: "2026-10-20",
       author: { "@id": "https://centrestjhotpot.ca/#restaurant" },
       image: "https://centrestjhotpot.ca/assets/dish-sukiyaki.webp",
       inLanguage: "en-CA",
@@ -114,13 +114,15 @@ export default function CalgaryHotPotGuidePage() {
         <div className="guide-layout">
           <article className="guide-copy">
             <p className="eyebrow">Compare the two options</p>
-            <h2>Compare $28.99 AYCE and $19.99 Personal Hot Pot</h2>
-            <p>
-              AYCE includes the soup base and lets you order AAA beef, lamb, pork, or chicken through your server during the meal.
-            </p>
-            <p>
-              Personal hot pot is a complete set with one of 15 soup bases, a large vegetable set, one meat, and rice or noodles.
-            </p>
+            <h2>Choose Your Hot Pot</h2>
+            <h3>$28.99 AYCE · per person + tax</h3>
+            <p>Choose one of 15 soup bases, included in the price. Order AAA beef, lamb, pork or chicken through your server during the meal.</p>
+            <p>Add 19 all-you-can-eat snacks for +$5.99 per person when everyone at the table upgrades.</p>
+            <p><Link className="text-action" href="/ayce-hot-pot-calgary/">See AYCE details and children's prices</Link></p>
+            <h3>$19.99 Personal Hot Pot · + tax</h3>
+            <p>A complete set: one of 15 soup bases, a large vegetable set, one meat, and rice or noodles.</p>
+            <p>The $24.99 Solo Combo adds one drink. The $58.99 Couple Combo includes two personal hot pots, two drinks and one appetizer.</p>
+            <p><Link className="text-action" href="/menu/#hotpot-set">See personal hot pot and combos</Link></p>
           </article>
           <aside className="guide-card">
             <h2>Quick facts</h2>

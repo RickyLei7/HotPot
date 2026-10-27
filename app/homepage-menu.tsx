@@ -50,7 +50,7 @@ export function HomepageMenu({ language }: { language: HomepageLanguage }) {
           <div className="hero-visit"><a href={directionsUrl} target="_blank" rel="noreferrer">2213 Centre St N #2243 · {isZh ? "導航" : "Directions"}</a><p>{isZh ? "週一至週五 17:00–22:30 · 週六及週日 12:00–22:30" : "Mon–Fri 5–10:30 PM · Sat–Sun noon–10:30 PM"}</p></div>
         </div>
         <a className="homepage-ayce-media poster-thumbnail homepage-food-preview" href="#homepage-ayce-image">
-          <img src="/assets/dish-sukiyaki-640.webp" srcSet="/assets/dish-sukiyaki-320.webp 320w, /assets/dish-sukiyaki-640.webp 640w, /assets/dish-sukiyaki.webp 1024w" sizes="(max-width: 760px) calc(100vw - 32px), 42vw" alt={isZh ? "鼎鑽火鍋日式壽喜鍋" : "Sukiyaki hot pot at Centre Street Japanese HotPot"} width="1024" height="910" fetchPriority="high" loading="eager" decoding="async" />
+          <img src="/assets/dish-sukiyaki-640.webp" srcSet="/assets/dish-sukiyaki-320.webp 320w, /assets/dish-sukiyaki-640.webp 640w, /assets/dish-sukiyaki-768.webp 768w, /assets/dish-sukiyaki-1024-perf.webp 1024w" sizes="(max-width: 760px) calc(100vw - 32px), 42vw" alt={isZh ? "鼎鑽火鍋日式壽喜鍋" : "Sukiyaki hot pot at Centre Street Japanese HotPot"} width="1024" height="910" fetchPriority="high" loading="eager" decoding="async" />
           <span>15 {isZh ? "款湯底" : "soup bases"}</span>
           <strong className="poster-open-label">{isZh ? "查看自助菜單" : "View AYCE Menu"}</strong>
         </a>

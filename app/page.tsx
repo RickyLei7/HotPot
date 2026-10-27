@@ -23,7 +23,7 @@ const restaurantJsonLd = {
       about: { "@id": "https://centrestjhotpot.ca/#restaurant" },
       mainEntity: { "@id": "https://centrestjhotpot.ca/#restaurant" },
       primaryImageOfPage: { "@type": "ImageObject", url: "https://centrestjhotpot.ca/assets/dish-sukiyaki.webp" },
-      dateModified: "2026-10-20",
+      dateModified: "2026-10-26",
     },
     {
       "@type": "Restaurant",
@@ -80,7 +80,7 @@ const restaurantJsonLd = {
 export default function Home() {
   return (
     <>
-      <link rel="preload" as="image" href="/assets/dish-sukiyaki-640.webp" imageSrcSet="/assets/dish-sukiyaki-320.webp 320w, /assets/dish-sukiyaki-640.webp 640w, /assets/dish-sukiyaki.webp 1024w" imageSizes="(max-width: 760px) calc(100vw - 32px), 42vw" />
+      <link rel="preload" as="image" fetchPriority="high" href="/assets/dish-sukiyaki-640.webp" imageSrcSet="/assets/dish-sukiyaki-320.webp 320w, /assets/dish-sukiyaki-640.webp 640w, /assets/dish-sukiyaki-768.webp 768w, /assets/dish-sukiyaki-1024-perf.webp 1024w" imageSizes="(max-width: 760px) calc(100vw - 32px), 42vw" />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(restaurantJsonLd) }} />
       <HomepageMenu language="en" />
     </>

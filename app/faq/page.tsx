@@ -49,7 +49,7 @@ const faqs = [
   ],
   [
     "How do I book a table?",
-    "Book online through our website. For larger groups or questions about today’s availability, call (403) 455-3188.",
+    "Book online and check the result page. Your table is booked when it says “Confirmed”. If confirmation is pending, wait for our confirmation or call (403) 455-3188 before visiting.",
     "https://reservation.centrestjhotpot.ca/book",
     "Book Online"
   ],
@@ -89,7 +89,7 @@ export default function FaqPage() {
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    dateModified: "2026-09-29",
+    dateModified: "2026-10-26",
     mainEntity: faqs.map(([question, answer]) => ({
       "@type": "Question",
       name: question,

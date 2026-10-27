@@ -96,7 +96,7 @@
       ]
     },
     "faqs": [],
-    "dateModified": "2026-10-20"
+    "dateModified": "2026-10-26"
   },
   "about": {
     "path": "/zh-hant/about/",
@@ -559,7 +559,7 @@
       },
       {
         "question": "如何訂位？",
-        "answer": "可使用網站網上訂位。多人聚餐或想確認當天座位，請致電 (403) 455-3188。",
+        "answer": "可網上訂位，並查看結果頁；顯示「已確認」才代表訂位成功。若仍待確認，請等候餐廳確認，或在到店前致電 (403) 455-3188。",
         "href": "https://reservation.centrestjhotpot.ca/book",
         "label": "網上訂位"
       },
@@ -594,7 +594,7 @@
         "label": "查看第一次用餐指南"
       }
     ],
-    "dateModified": "2026-09-29"
+    "dateModified": "2026-10-26"
   },
   "contact": {
     "path": "/zh-hant/contact/",
@@ -1176,7 +1176,7 @@
       },
       {
         "question": "如何預訂火鍋自助？",
-        "answer": "可透過網站網上訂位。多人聚餐或想確認當天座位，請致電 (403) 455-3188。",
+        "answer": "可網上訂位，並查看結果頁；顯示「已確認」才代表訂位成功。若仍待確認，請等候餐廳確認，或在到店前致電 (403) 455-3188。",
         "href": "https://reservation.centrestjhotpot.ca/book",
         "label": "網上訂位"
       },
@@ -1193,6 +1193,6 @@
         "label": "查看地址與營業時間"
       }
     ],
-    "dateModified": "2026-10-20"
+    "dateModified": "2026-10-26"
   }
 }

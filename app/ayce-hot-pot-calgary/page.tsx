@@ -47,7 +47,7 @@ const ayceFaqs = [
   ],
   [
     "How do I reserve an AYCE table?",
-    "Book online through our website. For larger groups or questions about today’s availability, call (403) 455-3188."
+    "Book online and check the result page. Your table is booked when it says “Confirmed”. If confirmation is pending, wait for our confirmation or call (403) 455-3188 before visiting."
   ],
   [
     "How much is AYCE for children?",
@@ -107,7 +107,7 @@ const ayceSchema = {
     {
       "@type": "WebPage",
       "@id": "https://centrestjhotpot.ca/ayce-hot-pot-calgary/#webpage",
-      dateModified: "2026-10-20",
+      dateModified: "2026-10-26",
       name: "All You Can Eat Hot Pot Calgary | AYCE $28.99",
       description:
         "Calgary all-you-can-eat hot pot for $28.99 + tax with 15 soup bases, AAA beef, lamb, pork and chicken, an optional 19-snack upgrade, kids pricing, and reservation details.",

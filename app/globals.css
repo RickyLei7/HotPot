@@ -2599,6 +2599,9 @@ a.beef-noodle-feature-media {
 }
 
 .text-action {
+  min-height: 44px;
+  padding-block: 12px;
+  box-sizing: border-box;
   color: var(--red);
   display: block;
   font-weight: 900;

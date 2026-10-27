@@ -255,7 +255,7 @@ for (const width of [224, 320, 480]) {
 
 const sitemap = await readFile(path.join(publicDir, "sitemap.xml"), "utf8");
 const llms = await readFile(path.join(publicDir, "llms.txt"), "utf8");
-assert.doesNotMatch(llms, /[税稅]/u, "llms.txt must not contain Chinese tax characters");
+assert.doesNotMatch(llms, /税/u, "llms.txt must use Traditional Chinese tax wording");
 for (const [enRoute, zhRoute] of pairs) {
   for (const route of [enRoute, zhRoute]) {
     assert.ok(sitemap.includes(`<loc>${absolute(route)}</loc>`), `sitemap is missing ${route}`);

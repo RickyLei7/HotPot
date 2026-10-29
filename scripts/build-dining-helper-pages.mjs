@@ -8,7 +8,7 @@ for (const route of ['menu', 'contact', 'zh-hant/menu', 'zh-hant/contact']) {
   let updated = original.replace(/      <!-- dining-helper:start -->[\s\S]*?<!-- dining-helper:end -->\n/g, '');
   updated = updated.replace(/\s*<link rel="stylesheet" href="\/dining-helper\.css[^\"]*"\s*\/>/g, '');
   updated = updated.replace(/\s*<script defer src="\/dining-helper\.js[^\"]*"><\/script>/g, '');
-  updated = updated.replace('  </head>', '    <link rel="stylesheet" href="/dining-helper.css?v=20261029" />\n    <script defer src="/dining-helper.js?v=20261029"></script>\n  </head>');
+  updated = updated.replace('  </head>', '    <link rel="stylesheet" href="/dining-helper.css?v=20261029-duo" />\n    <script defer src="/dining-helper.js?v=20261029-duo"></script>\n  </head>');
   const anchor = route === 'menu' ? '      <section class="menu-section" id="ayce-hotpot">' : route === 'zh-hant/menu' ? '    <section class="content-section localized-section"' : '    </main>';
   if (!updated.includes(anchor)) throw new Error(`Assistant insertion point missing in ${route}.`);
   updated = updated.replace(anchor, `      <!-- dining-helper:start -->\n      ${widget(language)}\n      <!-- dining-helper:end -->\n${anchor}`);

@@ -10,6 +10,6 @@ export function DiningAssistant({ language = 'en' }: { language?: 'en' | 'zh-Han
   useEffect(() => { initialize(); }, [language]);
   return <>
     <div dangerouslySetInnerHTML={{ __html: widget(language) }} />
-    <Script src="/dining-helper.js?v=20261029" strategy="afterInteractive" onReady={initialize} />
+    <Script src="/dining-helper.js?v=20261029-duo" strategy="afterInteractive" onReady={initialize} />
   </>;
 }

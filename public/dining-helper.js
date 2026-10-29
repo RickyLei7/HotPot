@@ -111,6 +111,7 @@
         answer.hidden = false;
         status.textContent = zh ? '回覆已準備好。' : 'Your answer is ready.';
         answer.focus({ preventScroll: true });
+        answer.scrollIntoView({ block: 'start' });
         track('answer', language, data.topic);
       } catch {
         status.textContent = zh ? '助手暫時未能回覆。請直接查看菜單、網上訂位或致電餐廳。' : 'The helper is temporarily unavailable. Please use the menu, Book Online or call the restaurant.';

@@ -25,3 +25,5 @@
   .dining-helper-submit { width: 100%; }
   .dining-helper-actions a { flex: 1 1 auto; justify-content: center; }
 }
+
+.dining-helper-answer { scroll-margin-top: var(--site-nav-offset, 92px); scroll-margin-bottom: 84px; }

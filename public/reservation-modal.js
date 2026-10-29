@@ -19,7 +19,7 @@ function loadStyles() {
   if (document.querySelector("link[data-reservation-modal-styles]")) return;
   const link = document.createElement("link");
   link.rel = "stylesheet";
-  link.href = "/reservation-modal.css?v=20261009-one-screen";
+  link.href = "/reservation-modal.css?v=20261029-duo";
   link.dataset.reservationModalStyles = "";
   document.head.append(link);
 }

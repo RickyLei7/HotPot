@@ -61,7 +61,7 @@ const snacks = [
   ["Crispy Wontons (8pcs)", "$8.89"],
   ["Deep Fried Dumplings (8pcs)", "$8.89"],
   ["Chicken Spring Rolls (6pc)", "$8.89"],
-  ["Veggie Spring Rolls (6pc)", "$8.89"],
+  ["Veggie Spring Rolls (5pc)", "$8.89"],
   ["Popcorn Chicken", "$6.89"],
   ["French Fries", "$6.49"],
   ["Sweet Potato Fries", "$6.49"],

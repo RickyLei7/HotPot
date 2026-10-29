@@ -34,3 +34,12 @@ Use OpenAI only to match questions to approved facts and identify explicit adult
 ## Success measurement
 
 Record opt-in opens, question topics, successful answers, fallback rates and clicks to Book Online without sending raw questions to analytics. Existing trusted booking lifecycle events remain the source for pending versus confirmed results. Do not label a chat answer or booking-link click as a completed reservation. Compare confirmed booking rates with a control when traffic allows.
+
+
+## Approved floating chat update — 2026-10-29
+
+The customer-facing entry is now “Chat with us” / “餐廳小幫手”, with an automated-reply disclosure inside the panel. This replaces the first-release inline-only placement above. Home, menu, contact and AYCE pages in both languages share one generated widget. Home includes an in-content entry; the persistent mobile bar keeps Book Online primary and replaces its secondary Call button with chat after successful enhancement. Phone fallback remains in the hero, other restaurant details and permanently inside chat.
+
+Chat opens only on request. Opening and quick prompts never call the API. Minimizing preserves up to ten turns in page memory, without local/session storage; navigation starts a new conversation. Only up to three approved fact IDs are sent as follow-up context. All existing backend privacy, grounding and rate limits remain unchanged. API failures, unsupported answers and dietary questions offer a call link.
+
+Desktop chat is non-modal. Mobile chat uses an accessible modal sheet with inert background, keyboard focus management, safe-area padding and VisualViewport sizing. Booking closes chat synchronously before the original reservation module opens, and focus returns to the chat launcher on closing booking. The reservation form, CAPTCHA, sandbox, unsaved-form guard and confirmation tracking are unchanged. No live reservation is submitted during QA.

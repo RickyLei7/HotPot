@@ -16,7 +16,7 @@ const request = (body = input(), headers = {}, path = '/ask', method = 'POST') =
 });
 const provider = (route = selection()) => async () => Response.json({ status: 'completed', output: [{ type: 'message', content: [{ type: 'output_text', text: JSON.stringify(route) }] }] });
 
-test('generated knowledge and all four shared widget pages match their sources', () => {
+test('generated knowledge and all eight shared chat pages match their sources', () => {
   execFileSync(process.execPath, ['scripts/build-dining-assistant.mjs', '--check']);
   execFileSync(process.execPath, ['scripts/build-dining-helper-pages.mjs', '--check']);
   assert.equal(knowledge.prices.ayce, 2899);
@@ -181,8 +181,10 @@ test('six-per-minute client cap, daily client cap, expiry and daily reset', asyn
 test('widget is opt-in with persistent booking fallback, privacy and accessible labels', async () => {
   for (const lang of ['en', 'zh-Hant']) {
     const html = widget(lang);
-    assert.match(html, /<details>/);
-    assert(!html.includes('<details open'));
+    assert.match(html, /data-chat-panel[^>]*role="dialog"[^>]*hidden/);
+    assert.match(html, /data-chat-open hidden/);
+    assert.match(html, /tel:\+14034553188/);
+    assert(!html.includes('Ask AI'));
     assert.match(html, /aria-describedby="dining-helper-privacy dining-helper-limits"/);
     assert.match(html, /data-reservation-launcher/);
     assert.match(html, /privacy-policy\/#ai-helper/);

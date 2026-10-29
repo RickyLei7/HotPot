@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
+import { DiningAssistant } from "./dining-assistant";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -74,8 +75,9 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <Script src="/language-routes.js?v=20260813-bilingual" strategy="afterInteractive" />
-        <Script src="/site-events.js?v=20261029-duo" strategy="afterInteractive" />
+        <Script src="/site-events.js?v=20261029-chat" strategy="afterInteractive" />
         {children}
+        <DiningAssistant />
         <a className="reserve-sticky reserve-sticky-book" href="https://reservation.centrestjhotpot.ca/book" data-track-label="online_booking" aria-haspopup="dialog" data-reservation-launcher>
           Book Online
         </a>

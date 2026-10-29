@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { SocialLinks } from "../social-links";
 import { SiteNav } from "../site-nav";
-import { DiningAssistant } from '../dining-assistant';
 
 export const metadata: Metadata = {
   title: "Contact Centre Street Japanese HotPot | Calgary Location",
@@ -75,7 +74,6 @@ export default function ContactPage() {
         </div>
         <SocialLinks />
       </section>
-      <DiningAssistant />
     </main>
   );
 }

@@ -39,7 +39,7 @@ Check `/health` for the expected knowledge version and configuration state, then
 
 ## Browser acceptance
 
-Check English and Chinese menu/contact pages at 320, 390, 768 and 1440 px, keyboard use, the optional collapsed panel, textarea sizing, response links and loading/error states. No model request may occur on page load, opening the panel, or clicking a quick question. Ask is the explicit send action.
+Check English and Chinese home/menu/contact/AYCE pages at 320, 382, 594, 669, 951 and 1440 px. Test the floating launcher, mobile bottom booking/chat bar, internal scrolling, reduced keyboard space, minimize/reopen history, phone fallback, and chat-to-booking handoff with focus restoration. Desktop chat remains non-modal; mobile chat manages focus and inert background. No model request may occur on page load, opening the panel, or clicking a quick question. Send is the explicit action. Test actual production booking embedding separately: localhost is intentionally excluded by the booking service frame-ancestors policy.
 
 Verify Book Online opens the existing reservation flow, including from a newly rendered answer. Confirm in real iPhone Safari that the existing security verification still allows proceeding. Stop before submitting an actual reservation. Check anonymous events without sending question text or inventing completed-booking events.
 

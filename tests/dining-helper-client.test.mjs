@@ -13,7 +13,9 @@ class Element {
   async fire(name) { for (const callback of this.listeners.get(name) || []) await callback({ preventDefault() {} }); }
   setAttribute(key, value) { this.attributes[key] = value; }
   removeAttribute(key) { delete this.attributes[key]; }
-  append(...children) { this.children.push(...children); }
+  append(...children) { children.forEach(child => { child.parent = this; }); this.children.push(...children); }
+  get firstElementChild() { return this.children[0]; }
+  remove() { this.parent.children.splice(this.parent.children.indexOf(this), 1); }
   replaceChildren() { this.children = []; }
   focus() { this.focused = true; }
   scrollIntoView() {}
@@ -21,11 +23,11 @@ class Element {
 
 function client(fetchImpl, language = 'en', analytics) {
   const root = new Element(), form = new Element(), textarea = new Element(), submit = new Element();
-  const status = new Element(), answer = new Element(), details = new Element(), book = new Element(), quick = new Element();
+  const status = new Element(), answer = new Element(), messages = new Element(), book = new Element(), quick = new Element();
   root.dataset.language = language;
   textarea.value = '';
   quick.dataset.helperQuestion = 'How do I book online?';
-  const selectors = { '[data-helper-form]':form, '[data-helper-status]':status, '[data-helper-answer]':answer, details, '.dining-helper-book':book };
+  const selectors = { '[data-helper-form]':form, '[data-helper-status]':status, '[data-helper-answer]':answer, '[data-chat-messages]':messages, '.dining-helper-book':book };
   root.querySelector = selector => selectors[selector];
   root.querySelectorAll = () => [quick];
   form.querySelector = selector => selector === 'textarea' ? textarea : submit;
@@ -36,10 +38,10 @@ function client(fetchImpl, language = 'en', analytics) {
   };
   const window = { setTimeout, clearTimeout, gtag:analytics || ((...args) => events.push(args)) };
   vm.runInNewContext(code, { window, document, AbortController, fetch:async (...args) => { requests.push(args); return fetchImpl(...args); } });
-  return { root, form, textarea, submit, status, answer, details, book, quick, events, requests, listeners };
+  return { root, form, textarea, submit, status, answer, messages, book, quick, events, requests, listeners };
 }
 
-test('no request before deliberate Ask; quick prompts only fill the input; initialization is idempotent', async () => {
+test('no request before deliberate Send; quick prompts only fill the input; initialization is idempotent', async () => {
   const c = client(async () => Response.json(reply()));
   assert.equal(c.requests.length, 0);
   assert.equal(c.form.hidden, false);
@@ -61,17 +63,21 @@ test('successful response safely renders text and hands off to original booking 
   assert.equal(options.referrerPolicy, 'no-referrer');
   assert.equal(JSON.parse(options.body).question, 'How do I book?');
   assert.equal(c.answer.hidden, false);
-  assert.equal(c.answer.children[0].textContent, 'Please use Book Online.');
-  const link = c.answer.children[1];
+  const turn = c.answer.children[0];
+  assert.equal(turn.children[0].textContent, 'How do I book?');
+  assert.equal(turn.children[1].textContent, 'Please use Book Online.');
+  const link = turn.children[2];
   assert.equal(link.href, booking);
   assert.equal(link.attributes['aria-haspopup'], 'dialog');
   assert.equal(link.dataset.reservationLauncher, '');
-  assert.equal(c.answer.focused, true);
+  assert.equal(c.answer.focused, undefined, 'async replies do not steal focus or jump the page');
   await link.fire('click');
   assert(c.events.some(e => e[1] === 'dining_helper_booking_click'));
   assert(!JSON.stringify(c.events).includes('How do I book?'));
   assert(!c.events.some(e => /completed|conversion/.test(e[1])));
+  c.textarea.value = 'Can I book for four?';
   await c.form.fire('submit');
+  assert.equal(c.answer.children.length, 2, 'previous turn remains available');
   assert.deepEqual(JSON.parse(c.requests[1][1].body).context, ['booking']);
 });
 
@@ -94,8 +100,9 @@ test('unsafe links and malformed output fall back without rendering untrusted co
     const c = client(async () => Response.json({ ...reply(), parts: [{ id:'booking', text:'Injected', href }] }));
     c.textarea.value = 'Book online';
     await c.form.fire('submit');
-    assert.equal(c.answer.hidden, true);
-    assert.equal(c.answer.children.length, 0);
+    assert.equal(c.answer.children[0].children.length, 3);
+    assert.equal(c.answer.children[0].children[2].href, 'tel:+14034553188');
+    assert(!c.answer.children[0].children.some(element => element.textContent.includes('Injected')));
     assert.match(c.status.textContent, /temporarily unavailable/);
     assert.equal(c.submit.disabled, false);
   }
@@ -108,7 +115,7 @@ test('privacy, quota, network and timeout failures have readable bilingual recov
       c.textarea.value = 'My question';
       await c.form.fire('submit');
       assert(c.status.textContent.length > 20);
-      assert.equal(c.answer.hidden, true);
+      assert.equal(c.answer.children[0].children[2].href, 'tel:+14034553188');
       assert.equal(c.submit.disabled, false);
       assert(c.events.some(e => e[1] === 'dining_helper_fallback'));
     }
@@ -127,4 +134,14 @@ test('analytics failure cannot break a valid answer or a booking link', async ()
   assert.equal(c.answer.hidden, false);
   assert.equal(c.status.textContent, 'Your answer is ready.');
   await c.book.fire('click');
+});
+
+
+test('conversation stays bounded in page memory and staff replies include a phone action', async () => {
+  const c = client(async () => Response.json({language:'en',topic:'other',parts:[{id:'staff',text:'Please call our team.',href:'/contact/'}]}));
+  for (let i=0; i<12; i++) { c.textarea.value = `Question ${i}`; await c.form.fire('submit'); }
+  assert.equal(c.answer.children.length, 10);
+  assert.equal(c.answer.children[0].children[0].textContent, 'Question 2');
+  assert.equal(c.answer.children[9].children[3].href, 'tel:+14034553188');
+  assert.deepEqual(JSON.parse(c.requests[11][1].body).context, ['staff']);
 });

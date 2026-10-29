@@ -1,29 +1,56 @@
-.dining-helper { max-width: 1100px; margin: 2rem auto; padding: 0 1.25rem; color: #fff6e5; }
-.dining-helper details { border: 1px solid #77643e; border-radius: 16px; background: #211b17; }
-.dining-helper summary { padding: 1.25rem; cursor: pointer; font-size: 1.2rem; font-weight: 700; color: #f7ce4c; }
-.dining-helper-body { padding: 0 1.25rem 1.25rem; max-width: 760px; }
-.dining-helper p { margin: 0 0 1rem; line-height: 1.6; overflow-wrap: anywhere; }
-.dining-helper a { color: #f7ce4c; text-decoration: underline; text-underline-offset: 3px; }
-.dining-helper .dining-helper-notice { font-size: .95rem; color: #e0d5c0; }
-.dining-helper label { display: block; font-weight: 700; margin-bottom: .5rem; }
-.dining-helper textarea { display: block; box-sizing: border-box; width: 100%; max-width: 100%; min-height: 100px; resize: vertical; padding: .75rem; border: 1px solid #c0ae89; border-radius: 8px; background: #fff8e8; color: #211b17; font: inherit; font-size: 16px; }
-.dining-helper-quick, .dining-helper-actions { display: flex; gap: .65rem; flex-wrap: wrap; margin: 1rem 0; }
-.dining-helper button, .dining-helper-actions a { min-height: 44px; box-sizing: border-box; padding: .65rem 1rem; border: 1px solid #c0ae89; border-radius: 10px; font: inherit; line-height: 1.4; }
-.dining-helper button { cursor: pointer; background: #2d251f; color: #fff6e5; }
-.dining-helper .dining-helper-submit, .dining-helper .dining-helper-book { background: #f7ce4c; color: #211b17; font-weight: 700; }
-.dining-helper-actions a { display: inline-flex; align-items: center; text-decoration: none; }
+.dining-helper { color: #fff6e5; font-family: Arial, Helvetica, sans-serif; font-size: 16px; line-height: 1.4; }
+.dining-helper *, .home-chat-entry { box-sizing: border-box; }
+.dining-helper [hidden], .home-chat-entry[hidden] { display: none !important; }
+.dining-helper button, .home-chat-entry { font: inherit; cursor: pointer; }
+.dining-helper a { color: #f7ce4c; text-underline-offset: 3px; }
+.dining-helper button, .dining-helper-actions a, .dining-chat-turn a { min-height: 44px; }
+.dining-helper :focus-visible, .home-chat-entry:focus-visible { outline: 3px solid #f7ce4c; outline-offset: 3px; }
+.home-chat-entry { display: block; min-height: 44px; margin: 10px 0 0; padding: 6px 0; border: 0; color: #f7ce4c; background: transparent; font-weight: 700; text-decoration: underline; text-underline-offset: 4px; }
+.dining-chat-launcher { position: fixed; right: max(22px, env(safe-area-inset-right)); bottom: max(22px, env(safe-area-inset-bottom)); z-index: 35; padding: 12px 20px; border: 1px solid #f7ce4c; border-radius: 999px; background: #2d251f; color: #fff6e5; box-shadow: 0 4px 20px #0006; font-weight: 700 !important; }
+.dining-chat-panel { position: fixed; z-index: 40; bottom: 84px; right: max(22px, env(safe-area-inset-right)); display: flex; flex-direction: column; width: 410px; max-width: calc(100vw - 32px); height: min(660px, calc(100dvh - 108px)); border: 1px solid #77643e; border-radius: 18px; background: #211b17; box-shadow: 0 12px 48px #0009; overflow: hidden; }
+.dining-chat-header { display: flex; align-items: center; justify-content: space-between; flex-shrink: 0; padding: 8px 12px 0 16px; gap: 12px; }
+.dining-chat-header h2 { color: #fff6e5; font-size: 20px; line-height: 1.3; margin: 0; letter-spacing: normal; }
+.dining-helper .dining-chat-close { color: #fff6e5; background: transparent; border: 0; border-radius: 8px; min-width: 44px; font-size: 28px; padding: 0; }
+.dining-helper .dining-chat-notice { font-size: 13px; color: #e0d5c0; margin: 0; padding: 0 16px 8px; flex-shrink: 0; }
+.dining-helper-actions { display: flex; flex-shrink: 0; gap: 6px; padding: 0 12px 10px; border-bottom: 1px solid #665840; }
+.dining-helper-actions a { display: inline-flex; align-items: center; justify-content: center; padding: 8px; border: 1px solid #b09b75; border-radius: 10px; text-decoration: none; font-size: 13px; font-weight: 700; flex: 1; text-align: center; }
+.dining-helper .dining-helper-book, .dining-helper-submit { color: #211b17; background: #f7ce4c; border-color: #f7ce4c; font-weight: 700; }
+.dining-chat-messages { min-height: 0; flex: 1; overflow-y: auto; overscroll-behavior: contain; padding: 16px; overflow-wrap: anywhere; }
+.dining-chat-messages p { line-height: 1.5; margin: 0 0 10px; }
+.dining-helper-quick { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
+.dining-helper-quick button { border: 1px solid #b09b75; border-radius: 12px; color: #fff6e5; background: #2d251f; padding: 8px 12px; text-align: left; font-size: 14px; }
+.dining-chat-turn { border-top: 1px solid #665840; padding: 14px 0 4px; }
+.dining-chat-question { color: #211b17; background: #f7ce4c; padding: 10px 12px; border-radius: 12px 12px 2px 12px; margin-left: 24px !important; }
+.dining-chat-turn a { display: inline-flex; align-items: center; padding: 8px 0; margin: 0 12px 8px 0; font-weight: 700; }
+.dining-helper .dining-helper-status { flex-shrink: 0; font-size: 13px; line-height: 1.4; padding: 4px 0; margin: 0; }
+.dining-helper-status:empty { display: none; }
+.dining-chat-composer { flex-shrink: 0; border-top: 1px solid #665840; padding: 10px 12px 12px; }
+.dining-chat-composer label { display: block; font-size: 14px; font-weight: 700; margin-bottom: 4px; }
+.dining-chat-input { display: flex; gap: 8px; align-items: stretch; }
+.dining-chat-input textarea { display: block; width: 100%; min-width: 0; min-height: 48px; max-height: 88px; resize: none; padding: 8px; border: 1px solid #c0ae89; border-radius: 8px; background: #fff8e8; color: #211b17; font: inherit; font-size: 16px; }
+.dining-helper-submit { padding: 8px 12px; border: 1px solid #f7ce4c; border-radius: 8px; }
 .dining-helper button:disabled { opacity: .65; cursor: wait; }
-.dining-helper .dining-helper-status { margin: 1rem 0; }
-.dining-helper .dining-helper-answer { border-left: 3px solid #f7ce4c; padding: .75rem 1rem; margin-bottom: 1rem; }
-.dining-helper-answer a { display: inline-block; padding: .5rem 0; min-height: 44px; box-sizing: border-box; margin-bottom: .5rem; }
-.dining-helper :focus-visible { outline: 3px solid #f7ce4c; outline-offset: 4px; }
-.dining-helper [hidden] { display: none !important; }
-@media (max-width: 480px) {
-  .dining-helper { padding: 0 1rem; }
-  .dining-helper-body { padding: 0 1rem 1rem; }
-  .dining-helper-quick button { width: 100%; text-align: left; }
-  .dining-helper-submit { width: 100%; }
-  .dining-helper-actions a { flex: 1 1 auto; justify-content: center; }
+.dining-helper .dining-helper-notice { margin: 6px 0 0; font-size: 12px; line-height: 1.35; color: #e0d5c0; }
+.dining-chat-backdrop { display: none; }
+body.poster-open .dining-helper, body:has([data-reservation-dialog]) .dining-helper { visibility: hidden; pointer-events: none; }
+@media (max-width: 760px), (max-height: 500px) {
+  .dining-chat-panel { top: calc(var(--chat-viewport-top, 0px) + env(safe-area-inset-top) + 8px); bottom: auto; right: max(8px, env(safe-area-inset-right)); left: max(8px, env(safe-area-inset-left)); width: auto; max-width: none; height: calc(var(--chat-viewport-height, 100dvh) - env(safe-area-inset-top) - env(safe-area-inset-bottom) - 16px); border-radius: 16px; }
+  .dining-chat-backdrop { display: block; position: fixed; inset: 0; background: #0009; border: 0; z-index: 39; width: 100%; height: 100%; }
+  .dining-chat-modal .reserve-sticky, .dining-chat-modal .dining-chat-launcher { visibility: hidden; pointer-events: none; }
 }
-
-.dining-helper-answer { scroll-margin-top: var(--site-nav-offset, 92px); scroll-margin-bottom: 84px; }
+@media (max-width: 560px) {
+  .dining-chat-ready .reserve-sticky-phone { display: none; }
+  .dining-chat-ready .reserve-sticky-book { opacity: 1; pointer-events: auto; transform: none; }
+  .dining-chat-launcher { bottom: max(8px, env(safe-area-inset-bottom)); left: calc(58% + 6px); right: 14px; min-height: 46px; padding: 8px 10px; font-size: 15px !important; text-align: center; }
+  .dining-chat-ready { padding-bottom: calc(70px + env(safe-area-inset-bottom)); }
+}
+@media (max-height: 500px) {
+  .dining-chat-header { padding-top: 0; }
+  .dining-chat-notice { padding-bottom: 3px !important; }
+  .dining-helper-actions { padding-bottom: 5px; }
+  .dining-chat-composer { padding-top: 5px; padding-bottom: 5px; }
+  .dining-chat-messages { padding: 8px 12px; }
+  .dining-chat-composer label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+  .dining-helper #dining-helper-limits { display: none; }
+}
+@media (prefers-reduced-motion: reduce) { .dining-helper *, .dining-chat-ready .reserve-sticky { scroll-behavior: auto; transition: none; } }

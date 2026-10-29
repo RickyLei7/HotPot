@@ -26,7 +26,7 @@ export async function buildTableMenu({ rootDir = root, destination = outputPath 
   <meta property="og:url" content="${canonicalUrl}">
   <meta property="og:image" content="https://centrestjhotpot.ca/assets/table-menu/ayce-individual-640.webp">
   <link rel="stylesheet" href="/table-menu/table-menu.css?v=20261029-layout">
-  <script src="/site-events.js?v=20261029-local-search" defer></script>
+  <script src="/site-events.js?v=20261029-iphone" defer></script>
   <script src="/table-menu/table-menu.js" defer></script>
   <script type="application/ld+json">${jsonLd}</script>
 </head>

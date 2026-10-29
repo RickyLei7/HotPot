@@ -19,7 +19,7 @@ function loadStyles() {
   if (document.querySelector("link[data-reservation-modal-styles]")) return;
   const link = document.createElement("link");
   link.rel = "stylesheet";
-  link.href = "/reservation-modal.css?v=20261029-duo";
+  link.href = "/reservation-modal.css?v=20261029-iphone";
   link.dataset.reservationModalStyles = "";
   document.head.append(link);
 }
@@ -64,6 +64,8 @@ function closeModal() {
 function requestClose() {
   if (!modal) return;
   if (!modal.dirty) return closeModal();
+  modal.frame.inert = true;
+  modal.root.querySelector("[data-reservation-close]").inert = true;
   modal.discard.hidden = false;
   modal.discard.querySelector("button").focus();
 }
@@ -104,8 +106,8 @@ export function openReservationModal({ trigger, language = "en", attribution = {
         <a href="tel:+14034553188">${isZhHant ? "致電 (403) 455-3188" : "Call (403) 455-3188"}</a>
       </div>
       <iframe title="${isZhHant ? "網上訂位" : "Online booking"}" sandbox="${SANDBOX}"></iframe>
-      <div class="reservation-dialog-discard" data-reservation-discard="" hidden>
-        <p>${isZhHant ? "要放棄尚未完成的訂位嗎？" : "Discard your unfinished booking?"}</p>
+      <div class="reservation-dialog-discard" data-reservation-discard="" role="alertdialog" aria-modal="true" aria-labelledby="reservation-discard-title" hidden>
+        <p id="reservation-discard-title">${isZhHant ? "要放棄尚未完成的訂位嗎？" : "Discard your unfinished booking?"}</p>
         <button type="button">${isZhHant ? "繼續訂位" : "Continue booking"}</button>
         <button type="button">${isZhHant ? "放棄填寫" : "Discard form"}</button>
       </div>
@@ -156,12 +158,20 @@ export function openReservationModal({ trigger, language = "en", attribution = {
   };
   current.onKeydown = (event) => {
     if (event.key === "Escape") requestClose();
+    if (event.key === "Tab" && !current.discard.hidden) {
+      const buttons = current.discard.querySelectorAll("button");
+      const target = event.shiftKey ? buttons[0] : buttons[1];
+      if (document.activeElement === target) {
+        event.preventDefault();
+        buttons[event.shiftKey ? 1 : 0].focus();
+      }
+    }
   };
   window.addEventListener("message", current.onMessage);
   window.addEventListener("keydown", current.onKeydown);
   root.querySelector("[data-reservation-close]").addEventListener("click", requestClose);
   root.querySelector("[data-reservation-retry]").addEventListener("click", () => loadFrame(current));
-  current.discard.querySelector("button").addEventListener("click", () => { current.discard.hidden = true; current.frame.focus(); });
+  current.discard.querySelector("button").addEventListener("click", () => { current.discard.hidden = true; current.frame.inert = false; current.root.querySelector("[data-reservation-close]").inert = false; current.frame.focus(); });
   current.discard.querySelectorAll("button")[1].addEventListener("click", closeModal);
   root.querySelector(".reservation-dialog").focus({ preventScroll: true });
   loadFrame(current);

@@ -22,7 +22,9 @@
     }
     function resize() {
       var viewport = window.visualViewport;
-      root.style.setProperty('--chat-viewport-height', (viewport ? viewport.height : window.innerHeight) + 'px');
+      var visibleHeight = viewport ? viewport.height : window.innerHeight;
+      root.style.setProperty('--chat-viewport-height', visibleHeight + 'px');
+      root.classList.toggle('is-chat-compact', visibleHeight <= 500);
       root.style.setProperty('--chat-viewport-top', (viewport ? viewport.offsetTop : 0) + 'px');
       if (!open) return;
       release();

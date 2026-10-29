@@ -6,6 +6,8 @@
     "node": ">=22.13.0"
   },
   "scripts": {
+    "build:assistant": "node scripts/build-dining-assistant.mjs && node scripts/build-dining-helper-pages.mjs",
+    "check:assistant": "node scripts/build-dining-assistant.mjs --check && node scripts/build-dining-helper-pages.mjs --check",
     "test": "node --test tests/*.test.mjs",
     "dev": "vinext dev",
     "build": "vinext build && rm -rf dist/_appgen_meta && mkdir -p dist/_appgen_meta && if [ -f .openai/hosting.json ]; then cp .openai/hosting.json dist/_appgen_meta/appgarden.json; fi && if [ -d drizzle ]; then cp -R drizzle dist/_appgen_meta/drizzle; fi",

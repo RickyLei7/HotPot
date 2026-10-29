@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { SiteNav } from "../site-nav";
+import { DiningAssistant } from '../dining-assistant';
 
 export const metadata: Metadata = {
   title: "Calgary Hot Pot Menu & Prices | Centre Street Japanese HotPot",
@@ -205,6 +206,7 @@ export default function MenuPage() {
         </div>
       </section>
 
+      <DiningAssistant />
       <section className="menu-section" id="ayce-hotpot">
         <div className="section-heading">
           <p className="eyebrow">All-you-can-eat hot pot</p>

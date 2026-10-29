@@ -1,0 +1,32 @@
+name: Check dining assistant
+on:
+  pull_request:
+    paths:
+      - 'assistant/**'
+      - 'public/**'
+      - 'app/**'
+      - 'scripts/*assistant*'
+      - 'scripts/build-dining-helper-pages.mjs'
+      - 'tests/dining-assistant.test.mjs'
+      - 'tests/dining-helper-client.test.mjs'
+      - 'package*.json'
+      - '.github/workflows/dining-assistant.yml'
+  push:
+    branches: [main, codex/hotpot-dining-assistant]
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - run: npm run check:assistant
+      - run: node --test tests/dining-assistant.test.mjs tests/dining-helper-client.test.mjs tests/source-attribution.test.mjs
+      - run: npm run check:html && npm run check:seo && npm run check:bilingual && npm run check:price
+      - run: npx wrangler deploy --dry-run --config assistant/wrangler.jsonc --outdir /tmp/hotpot-assistant-bundle-20261029
+      - run: node scripts/check-assistant-runtime.mjs

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { SiteNav } from "../site-nav";
 import rawPages from "./page-data.json";
+import { DiningAssistant } from '../dining-assistant';
 
 type Action = { label: string; href: string; style: string };
 type Card = { title: string; text: string; href?: string; actionLabel?: string };
@@ -142,6 +143,7 @@ export function ZhPage({ data }: { data: ZhPageData }) {
       </section>
       {data.imageFull && data.imageActionLabel ? <section className="poster-modal" id="localized-menu-poster" role="dialog" aria-modal="true" aria-labelledby="localized-menu-poster-title" data-close-target="top"><a className="modal-backdrop" href="#top" aria-label="關閉完整菜單" /><div className="poster-frame"><span className="modal-label" id="localized-menu-poster-title">完整火鍋自助菜單</span><a className="modal-close" href="#top" aria-label="關閉完整菜單">關閉</a><img src={data.imageFull} alt={data.imageAlt} width="1200" height="1553" loading="lazy" decoding="async" /></div></section> : null}
       <section className="quick-info" aria-label="餐廳重點">{data.facts.map((fact) => <div key={fact.label}><span>{fact.value}</span>{fact.label}</div>)}</section>
+      {data.path === '/zh-hant/menu/' ? <DiningAssistant language="zh-Hant" /> : null}
       {data.sections.map((section, index) => <section className={`content-section localized-section${index % 2 ? " is-dark" : ""}`} id={section.id} key={section.title}>
         <div className="section-heading compact"><p className="eyebrow">{section.eyebrow}</p><h2>{section.title}</h2></div>
         <div className="localized-copy">{section.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}</div>
@@ -155,6 +157,7 @@ export function ZhPage({ data }: { data: ZhPageData }) {
       </section> : null}
       {data.faqs.length ? <section className="content-section localized-faq" id="faq"><div className="section-heading compact"><p className="eyebrow">常見問題</p><h2>快速找到用餐前需要的答案</h2></div><div className="faq-list">{data.faqs.map((faq) => <article key={faq.question}><h2>{faq.question}</h2><p>{faq.answer}</p>{faq.href ? <a className="card-action" href={faq.href} {...(faq.href.startsWith("https://reservation.") ? { "data-track-label": "online_booking", "aria-haspopup": "dialog" as const, "data-reservation-launcher": true } : {})}>{faq.label}</a> : null}</article>)}</div></section> : null}
       <section className="localized-visit" id="visit"><div><p className="eyebrow">到店用餐</p><h2>2213 Centre St N #2243, Calgary</h2><p>週一至週五 17:00-22:30｜週六、週日 12:00-22:30</p></div><div className="hero-actions"><a className="primary-action" href="https://reservation.centrestjhotpot.ca/book" data-track-label="online_booking" aria-haspopup="dialog" data-reservation-launcher>網上訂位</a><a className="secondary-action" href="https://www.google.com/maps/dir/?api=1&destination=2213+Centre+St+N+%232243%2C+Calgary%2C+AB+T2E+2T4" target="_blank" rel="noreferrer">Google 地圖導航</a></div></section>
+      {data.path === '/zh-hant/contact/' ? <DiningAssistant language="zh-Hant" /> : null}
     </main>
   );
 }

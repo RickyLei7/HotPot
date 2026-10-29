@@ -27,7 +27,7 @@
 .dining-chat-composer { flex-shrink: 0; border-top: 1px solid #665840; padding: 10px 12px 12px; }
 .dining-chat-composer label { display: block; font-size: 14px; font-weight: 700; margin-bottom: 4px; }
 .dining-chat-input { display: flex; gap: 8px; align-items: stretch; }
-.dining-chat-input textarea { display: block; width: 100%; min-width: 0; min-height: 48px; max-height: 88px; resize: none; padding: 8px; border: 1px solid #c0ae89; border-radius: 8px; background: #fff8e8; color: #211b17; font: inherit; font-size: 16px; }
+.dining-chat-input textarea { display: block; width: 100%; min-width: 0; min-height: 64px; max-height: 88px; resize: none; padding: 8px; border: 1px solid #c0ae89; border-radius: 8px; background: #fff8e8; color: #211b17; font: inherit; font-size: 16px; line-height: 1.4; }
 .dining-helper-submit { flex: 0 0 auto; white-space: nowrap; min-width: 64px; padding: 8px 12px; border: 1px solid #f7ce4c; border-radius: 8px; }
 .dining-helper button:disabled { opacity: .65; cursor: wait; }
 .dining-helper .dining-helper-notice { margin: 6px 0 0; font-size: 12px; line-height: 1.35; color: #e0d5c0; }

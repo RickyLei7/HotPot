@@ -1,0 +1,27 @@
+.dining-helper { max-width: 1100px; margin: 2rem auto; padding: 0 1.25rem; color: #fff6e5; }
+.dining-helper details { border: 1px solid #77643e; border-radius: 16px; background: #211b17; }
+.dining-helper summary { padding: 1.25rem; cursor: pointer; font-size: 1.2rem; font-weight: 700; color: #f7ce4c; }
+.dining-helper-body { padding: 0 1.25rem 1.25rem; max-width: 760px; }
+.dining-helper p { margin: 0 0 1rem; line-height: 1.6; overflow-wrap: anywhere; }
+.dining-helper a { color: #f7ce4c; text-decoration: underline; text-underline-offset: 3px; }
+.dining-helper .dining-helper-notice { font-size: .95rem; color: #e0d5c0; }
+.dining-helper label { display: block; font-weight: 700; margin-bottom: .5rem; }
+.dining-helper textarea { display: block; box-sizing: border-box; width: 100%; max-width: 100%; min-height: 100px; resize: vertical; padding: .75rem; border: 1px solid #c0ae89; border-radius: 8px; background: #fff8e8; color: #211b17; font: inherit; font-size: 16px; }
+.dining-helper-quick, .dining-helper-actions { display: flex; gap: .65rem; flex-wrap: wrap; margin: 1rem 0; }
+.dining-helper button, .dining-helper-actions a { min-height: 44px; box-sizing: border-box; padding: .65rem 1rem; border: 1px solid #c0ae89; border-radius: 10px; font: inherit; line-height: 1.4; }
+.dining-helper button { cursor: pointer; background: #2d251f; color: #fff6e5; }
+.dining-helper .dining-helper-submit, .dining-helper .dining-helper-book { background: #f7ce4c; color: #211b17; font-weight: 700; }
+.dining-helper-actions a { display: inline-flex; align-items: center; text-decoration: none; }
+.dining-helper button:disabled { opacity: .65; cursor: wait; }
+.dining-helper .dining-helper-status { margin: 1rem 0; }
+.dining-helper .dining-helper-answer { border-left: 3px solid #f7ce4c; padding: .75rem 1rem; margin-bottom: 1rem; }
+.dining-helper-answer a { display: inline-block; padding: .5rem 0; min-height: 44px; box-sizing: border-box; margin-bottom: .5rem; }
+.dining-helper :focus-visible { outline: 3px solid #f7ce4c; outline-offset: 4px; }
+.dining-helper [hidden] { display: none !important; }
+@media (max-width: 480px) {
+  .dining-helper { padding: 0 1rem; }
+  .dining-helper-body { padding: 0 1rem 1rem; }
+  .dining-helper-quick button { width: 100%; text-align: left; }
+  .dining-helper-submit { width: 100%; }
+  .dining-helper-actions a { flex: 1 1 auto; justify-content: center; }
+}

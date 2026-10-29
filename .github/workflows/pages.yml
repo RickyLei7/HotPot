@@ -29,6 +29,8 @@ jobs:
           node scripts/check-seo.mjs
           node scripts/check-bilingual-site.mjs
           node scripts/check-attribution.mjs
+          node scripts/build-dining-assistant.mjs --check
+          node scripts/build-dining-helper-pages.mjs --check
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload static files

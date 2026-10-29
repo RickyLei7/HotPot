@@ -1,0 +1,13 @@
+{
+  "$schema": "../node_modules/wrangler/config-schema.json",
+  "name": "hotpot-dining-assistant",
+  "main": "worker.mjs",
+  "compatibility_date": "2026-05-22",
+  "workers_dev": false,
+  "preview_urls": false,
+  "vars": {"OPENAI_MODEL": "gpt-5.4-mini", "DAILY_REQUEST_LIMIT": "200"},
+  "durable_objects": {"bindings": [{"name": "ASSISTANT_BUDGET", "class_name": "AssistantBudget"}]},
+  "migrations": [{"tag": "v1", "new_sqlite_classes": ["AssistantBudget"]}],
+  "routes": [{"pattern": "assistant.centrestjhotpot.ca", "custom_domain": true}],
+  "observability": {"enabled": false}
+}

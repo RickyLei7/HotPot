@@ -126,6 +126,8 @@
         ]
       }
     </script>
+    <link rel="stylesheet" href="/dining-helper.css?v=20261029" />
+    <script defer src="/dining-helper.js?v=20261029"></script>
   </head>
   <body>
     <nav class="site-nav" aria-label="Main navigation">
@@ -167,6 +169,32 @@
         </div>
       </section>
 
+      <!-- dining-helper:start -->
+      <section class="dining-helper" data-dining-helper data-language="en" aria-labelledby="dining-helper-title">
+  <details>
+    <summary id="dining-helper-title">Menu & booking questions</summary>
+    <div class="dining-helper-body">
+      <p>Questions about prices, soups or booking? Try our AI menu helper.</p>
+      <p class="dining-helper-notice" id="dining-helper-privacy">When you select Ask, your question is sent to OpenAI. Please leave out names, phone numbers, emails and reservation details. <a href="/privacy-policy/#ai-helper">Privacy details</a></p>
+      <form data-helper-form hidden>
+        <label for="dining-helper-question">Your question</label>
+        <textarea id="dining-helper-question" name="question" rows="3" maxlength="500" required placeholder="For example: How much is AYCE with snacks for 2 adults?" aria-describedby="dining-helper-privacy dining-helper-limits"></textarea>
+        <div class="dining-helper-quick"><button type="button" data-helper-question="How much is AYCE?">How much is AYCE?</button><button type="button" data-helper-question="What soup bases are there?">What soup bases are there?</button><button type="button" data-helper-question="How do I book online?">How do I book online?</button></div>
+        <button class="dining-helper-submit" type="submit">Ask</button>
+      </form>
+      <noscript><p>Enable JavaScript to use the helper, or use the menu and Book Online links below.</p></noscript>
+      <p class="dining-helper-status" data-helper-status role="status" aria-live="polite"></p>
+      <div class="dining-helper-answer" data-helper-answer tabindex="-1" aria-label="Helper response" hidden></div>
+      <p class="dining-helper-notice" id="dining-helper-limits">Uses published restaurant information. Cannot check live tables, make reservations or verify allergen safety.</p>
+      <div class="dining-helper-actions">
+        <a class="dining-helper-book" href="https://reservation.centrestjhotpot.ca/book" data-track-label="online_booking" aria-haspopup="dialog" data-reservation-launcher>Book Online</a>
+        <a href="/menu/">View menu</a>
+        <a href="tel:+14034553188">Call restaurant</a>
+      </div>
+    </div>
+  </details>
+</section>
+      <!-- dining-helper:end -->
       <section class="menu-section" id="ayce-hotpot">
         <div class="section-heading">
           <p class="eyebrow">All-you-can-eat hot pot</p>

@@ -423,9 +423,10 @@ html[lang="zh-Hant"] .tm-card--featured::after {
 }
 
 .tm-dialog__close {
-  position: absolute;
+  position: sticky;
+  display: block;
   top: 10px;
-  right: 10px;
+  margin: 10px 10px -56px auto;
   z-index: 2;
   width: 46px;
   height: 46px;

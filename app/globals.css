@@ -2552,7 +2552,7 @@ a.beef-noodle-feature-media {
 }
 
 .snack-showcase {
-  align-items: start;
+  align-items: stretch;
   display: grid;
   gap: 14px;
   grid-template-columns: repeat(6, minmax(0, 1fr));
@@ -2573,14 +2573,12 @@ a.beef-noodle-feature-media {
 }
 
 .snack-card img {
-  aspect-ratio: 16 / 11;
-  height: auto;
+  height: clamp(110px, 10vw, 160px);
   object-fit: cover;
   width: 100%;
 }
 
 .snack-card.is-featured img {
-  aspect-ratio: 3 / 1;
   object-position: center 42%;
 }
 
@@ -2618,6 +2616,8 @@ a.beef-noodle-feature-media {
     var(--paper-soft);
   color: var(--ink);
 }
+
+.personal-value h2 { color: var(--red); font-size: clamp(2rem, 4vw, 4rem); letter-spacing: -0.035em; line-height: 1.08; }
 
 .personal-value .eyebrow {
   color: var(--red);
@@ -2678,7 +2678,7 @@ a.beef-noodle-feature-media {
   border-radius: 18px;
   box-shadow: 0 28px 64px rgba(59, 20, 13, 0.18);
   justify-self: center;
-  max-width: 620px;
+  max-width: 480px;
   overflow: hidden;
   width: 100%;
 }
@@ -2695,8 +2695,10 @@ a.beef-noodle-feature-media {
 }
 
 .beef-noodle-feature-media {
+  aspect-ratio: 4 / 5;
   justify-self: center;
   max-width: 520px;
+  width: 100%;
 }
 
 .beef-noodle-feature-media img {
@@ -2760,6 +2762,7 @@ a.beef-noodle-feature-media {
 }
 
 .light-meal-card h3 {
+  min-height: 2.4em;
   font-size: clamp(1.05rem, 1.65vw, 1.35rem);
   line-height: 1.2;
   margin-bottom: 8px;
@@ -3066,7 +3069,7 @@ a.beef-noodle-feature-media {
   .snack-card img, .snack-card.is-featured img { height: 110px; }
   .snack-card h3 { min-height: 0; }
   .light-meal-card > div { padding: 10px; }
-  .light-meal-card h3 { min-height: 0; }
+  .light-meal-card h3 { min-height: 3.6em; }
   .light-meal-card p { margin: 5px 0 0; }
 }
 
@@ -3108,7 +3111,7 @@ a.beef-noodle-feature-media {
 /* Keep image dialog controls above the menu artwork. */
 .poster-frame { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 12px; padding: 12px; align-items: start; }
 .poster-frame .modal-label { position: static; align-self: center; }
-.poster-frame .modal-close { position: sticky; top: 0; right: auto; }
+.poster-frame .modal-close { position: sticky; top: 0; right: auto; display: inline-flex; align-items: center; justify-content: center; min-height: 44px; }
 .poster-frame img { grid-column: 1 / -1; display: block; }
 
 /* Fluid layouts for narrow windows, folding displays and touch navigation. */
@@ -3117,6 +3120,7 @@ section, #combo-specials, #hotpot-set, #soup-bases, #rice-noodles, #drinks, #app
 @media (max-width: 1100px) {
   .nav-links > a, .nav-more summary, .nav-more-links a, .language-option { min-height: 44px; }
   .language-option { min-width: 44px; }
+  .nav-call { min-height: 52px; }
 }
 @media (min-width: 900px) and (max-width: 1100px) {
   .site-nav { grid-template-columns: auto 1fr auto auto; }

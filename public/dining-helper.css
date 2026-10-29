@@ -44,13 +44,13 @@ body.poster-open .dining-helper, body:has([data-reservation-dialog]) .dining-hel
   .dining-chat-launcher { bottom: max(8px, env(safe-area-inset-bottom)); left: calc(58% + 6px); right: 14px; min-height: 46px; padding: 8px 10px; font-size: 15px !important; text-align: center; }
   .dining-chat-ready { padding-bottom: calc(70px + env(safe-area-inset-bottom)); }
 }
-@media (max-height: 500px) {
-  .dining-chat-header { padding-top: 0; }
-  .dining-chat-notice { padding-bottom: 3px !important; }
-  .dining-helper-actions { padding-bottom: 5px; }
-  .dining-chat-composer { padding-top: 5px; padding-bottom: 5px; }
-  .dining-chat-messages { padding: 8px 12px; }
-  .dining-chat-composer label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
-  .dining-helper #dining-helper-limits { display: none; }
-}
+/* Keyboard height changes visualViewport without changing CSS media-query height on iOS. */
+.is-chat-compact .dining-chat-panel { overflow-y: auto; overscroll-behavior: contain; }
+.is-chat-compact .dining-chat-header { padding-top: 0; position: sticky; top: 0; z-index: 1; background: #211b17; }
+.is-chat-compact .dining-chat-notice { padding-bottom: 3px !important; }
+.is-chat-compact .dining-helper-actions { padding-bottom: 5px; }
+.is-chat-compact .dining-chat-composer { padding-top: 5px; padding-bottom: 5px; }
+.is-chat-compact .dining-chat-messages { flex: 1 0 48px; padding: 8px 12px; }
+.is-chat-compact .dining-chat-composer label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+.is-chat-compact #dining-helper-limits, .is-chat-compact .dining-helper-booking-hint { display: none; }
 @media (prefers-reduced-motion: reduce) { .dining-helper *, .dining-chat-ready .reserve-sticky { scroll-behavior: auto; transition: none; } }

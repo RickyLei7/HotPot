@@ -1,6 +1,6 @@
 // One shared chat UI for static pages and React routes. Opening never sends a request.
 export const chatRoutes = ['', 'menu', 'contact', 'ayce-hot-pot-calgary', 'zh-hant', 'zh-hant/menu', 'zh-hant/contact', 'zh-hant/ayce-hot-pot-calgary'];
-export const chatVersion = '20261029-layout';
+export const chatVersion = '20261029-iphone';
 export function homeChatEntry(language = 'en') {
   return `<button class="home-chat-entry" type="button" data-chat-open hidden aria-controls="dining-chat-panel" aria-expanded="false">${language === 'zh-Hant' ? '有問題？餐廳小幫手' : 'Questions? Chat with us'}</button>`;
 }
@@ -44,7 +44,7 @@ export function widget(language = 'en') {
     <form class="dining-chat-composer" data-helper-form hidden>
       <label for="dining-helper-question">${c.label}</label>
       <div class="dining-chat-input"><textarea id="dining-helper-question" name="question" rows="1" maxlength="500" required placeholder="${c.placeholder}" aria-describedby="dining-helper-privacy dining-helper-limits"></textarea><button class="dining-helper-submit" type="submit">${c.send}</button></div>
-      <p class="dining-helper-notice" id="dining-helper-privacy">${c.privacy} <a href="/privacy-policy/#ai-helper">${c.policy}</a></p>
+      <p class="dining-helper-notice" id="dining-helper-privacy"><span class="dining-helper-booking-hint">${c.privacy}</span> <a href="/privacy-policy/#ai-helper">${c.policy}</a></p>
     </form>
   </div>
   <noscript><p>${c.disabled} <a href="${menu}">${c.menu}</a></p></noscript>

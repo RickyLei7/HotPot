@@ -18,6 +18,8 @@ export type ZhPageData = {
   h1: string;
   lead: string;
   image: string;
+  imageSrcSet?: string;
+  imageSizes?: string;
   imageFull?: string;
   imageActionLabel?: string;
   imageAlt: string;
@@ -138,7 +140,7 @@ export function ZhPage({ data }: { data: ZhPageData }) {
           {data.path === "/zh-hant/menu/" ? <aside className="table-menu-notice" data-table-menu-notice aria-label="店內點單說明"><strong>菜單僅供查看</strong><span>請向服務員點單。</span></aside> : null}
           <div className="hero-actions">{data.actions.map((action) => <a className={action.style} href={action.href} key={action.label}>{action.label}</a>)}</div>
         </div>
-        {data.path === "/zh-hant/menu/" ? null : data.imageFull && data.imageActionLabel ? <a className="localized-hero-media poster-thumbnail" href="#localized-menu-poster" aria-label={data.imageActionLabel}><img src={data.image} alt={data.imageAlt} width="480" height="622" fetchPriority="high" decoding="async" /><strong className="poster-open-label">{data.imageActionLabel}</strong></a> : <div className="localized-hero-media"><img src={data.image} alt={data.imageAlt} width="900" height="675" fetchPriority="high" decoding="async" /></div>}
+        {data.path === "/zh-hant/menu/" ? null : data.imageFull && data.imageActionLabel ? <a className="localized-hero-media poster-thumbnail" href="#localized-menu-poster" aria-label={data.imageActionLabel}><img src={data.image} alt={data.imageAlt} width="480" height="622" fetchPriority="high" decoding="async" /><strong className="poster-open-label">{data.imageActionLabel}</strong></a> : <div className="localized-hero-media"><img src={data.image} srcSet={data.imageSrcSet} sizes={data.imageSizes} alt={data.imageAlt} width="900" height="675" fetchPriority="high" decoding="async" /></div>}
       </section>
       {data.imageFull && data.imageActionLabel ? <section className="poster-modal" id="localized-menu-poster" role="dialog" aria-modal="true" aria-labelledby="localized-menu-poster-title" data-close-target="top"><a className="modal-backdrop" href="#top" aria-label="關閉完整菜單" /><div className="poster-frame"><span className="modal-label" id="localized-menu-poster-title">完整火鍋自助菜單</span><a className="modal-close" href="#top" aria-label="關閉完整菜單">關閉</a><img src={data.imageFull} alt={data.imageAlt} width="1200" height="1553" loading="lazy" decoding="async" /></div></section> : null}
       <section className="quick-info" aria-label="餐廳重點">{data.facts.map((fact) => <div key={fact.label}><span>{fact.value}</span>{fact.label}</div>)}</section>

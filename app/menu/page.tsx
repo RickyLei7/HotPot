@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description:
     "View Centre Street Japanese HotPot menu and prices: $28.99 AYCE, $19.99 personal hot pot, 15 soup bases and +$5.99 AYCE snacks. Prices before tax.",
   alternates: {
-    canonical: "/menu",
+    canonical: "/menu/",
     languages: {
       "en-CA": "/menu/",
       "zh-Hant-CA": "/zh-hant/menu/",
@@ -89,6 +89,7 @@ const drinks = [
 const menuJsonLd = {
   "@context": "https://schema.org",
   "@type": "Menu",
+  dateModified: "2026-10-29",
   name: "Centre Street Japanese HotPot Menu",
   url: "https://centrestjhotpot.ca/menu/",
   hasMenuSection: [
@@ -333,16 +334,17 @@ export default function MenuPage() {
           <p className="eyebrow">Full menu images</p>
           <h2>Browse the full in-store menu</h2>
           <div className="menu-download-actions">
+            <a className="secondary-action dark" href="/table-menu/">Browse Photo Menu</a>
             <a className="primary-action" href="/menu/centre-street-japanese-hotpot-menu-2026-09.pdf" download>Download PDF</a>
             <a className="secondary-action dark" href="/menu/centre-street-japanese-hotpot-menu-2026-09.pdf" target="_blank" rel="noreferrer">Open PDF</a>
           </div>
         </div>
         <div className="menu-images">
-          <a className="poster-thumbnail" href="#hotpot-menu-poster" aria-label="View the complete hot pot and appetizer menu page">
+          <a className="poster-thumbnail" href="#hotpot-menu-poster" aria-label="View full page: hot pot and appetizer menu">
             <img src="/menu/hotpot-menu-preview.webp" alt="Full hot pot set and appetizer menu page" width="601" height="900" loading="lazy" decoding="async" />
             <strong className="poster-open-label">View full page</strong>
           </a>
-          <a className="poster-thumbnail" href="#drink-menu-poster" aria-label="View the complete rice noodle and drink menu page">
+          <a className="poster-thumbnail" href="#drink-menu-poster" aria-label="View full page: rice noodle and drink menu">
             <img src="/menu/drink-menu-preview.webp" alt="Full rice noodle and drink menu page" width="601" height="900" loading="lazy" decoding="async" />
             <strong className="poster-open-label">View full page</strong>
           </a>

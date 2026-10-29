@@ -98,6 +98,7 @@ export function renderTableMenuMarkup(menu) {
     </section>
 
     <footer class="tm-footer">
+      <p><a href="/menu/" lang="en-CA">Menu overview (EN)</a> · <a href="/zh-hant/menu/" lang="zh-Hant">菜單總覽（繁中）</a></p>
       <p ${bilingualAttributes(menu.notices.order)}>${escapeHtml(menu.notices.order.en)}</p>
       <p ${bilingualAttributes(menu.notices.images)}>${escapeHtml(menu.notices.images.en)}</p>
     </footer>

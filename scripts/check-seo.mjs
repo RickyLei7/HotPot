@@ -1,6 +1,9 @@
 import assert from 'node:assert/strict';
 import { readFile, stat } from 'node:fs/promises';
 import path from 'node:path';
+import { execFileSync } from 'node:child_process';
+
+execFileSync(process.execPath, ['scripts/build-bilingual-sitemap.mjs', '--check'], { stdio: 'inherit' });
 
 const origin = 'https://centrestjhotpot.ca';
 const root = path.resolve('public');
@@ -15,6 +18,7 @@ async function documentFor(url) {
   return files.get(filename);
 }
 const titles = new Set();
+const inbound = new Set();
 let links = 0, answers = 0;
 for (const url of urls) {
   const html = await documentFor(url);
@@ -29,6 +33,7 @@ for (const url of urls) {
   for (const [, href] of body.matchAll(/href="([^"]+)"/g)) {
     const target = new URL(href.replace(/&amp;/g, '&'), url);
     if (target.origin !== origin) continue;
+    if (target.pathname !== new URL(url).pathname) inbound.add(target.origin + target.pathname);
     const filename = path.join(root, decodeURIComponent(target.pathname));
     const info = await stat(filename).catch(() => null);
     assert.ok(info, `${url}: missing internal link ${href}`);
@@ -51,4 +56,5 @@ for (const url of urls) {
     }
   }
 }
+for (const url of urls) assert.ok(inbound.has(url), `${url}: indexed page has no incoming link from another sitemap page`);
 console.log(`SEO checks passed: ${urls.length} sitemap pages, ${links} internal links, ${answers} visible FAQ answers match structured data.`);

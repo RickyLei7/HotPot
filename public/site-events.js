@@ -413,12 +413,23 @@
     }
   }
 
+  function isGoogleReviewLink(link) {
+    try {
+      var url = new URL(link.getAttribute("href") || "", window.location.href);
+      if (url.hostname === "g.page" && /\/review\/?$/.test(url.pathname)) return true;
+      return (url.hostname === "google.com" || url.hostname === "www.google.com") &&
+        url.pathname.indexOf("/maps") === 0 && /review|評論|评论/.test(getText(link).toLowerCase());
+    } catch (_error) {
+      return false;
+    }
+  }
+
   function ctaName(link) {
     var href = link.getAttribute("href") || "";
     var text = getText(link).toLowerCase();
     if (href.indexOf("tel:") === 0) return /reserve|reservation|book|订位|預訂|預約|预约/.test(text) ? "reserve_by_phone" : "call_restaurant";
     if (href.indexOf("mailto:") === 0) return "email_restaurant";
-    if (href.indexOf("google.com/maps") !== -1 && /review|評論|评论/.test(text)) return "google_review";
+    if (isGoogleReviewLink(link)) return "google_review";
     if (href.indexOf("google.com/maps") !== -1) return "google_maps_directions";
     return cleanValue(link.getAttribute("data-track-label") || getText(link), 80).toLowerCase();
   }
@@ -750,7 +761,7 @@
       sendEvent("email_click", link, { method: "email" });
     } else if (isMenuPdf(href)) {
       sendEvent(link.hasAttribute("download") ? "menu_download" : "menu_pdf_open", link, { document_type: "menu" });
-    } else if (href.indexOf("google.com/maps") !== -1 && /review|評論|评论/.test(text)) {
+    } else if (isGoogleReviewLink(link)) {
       sendEvent("google_review_click", link);
     } else if (href.indexOf("google.com/maps") !== -1) {
       sendEvent("directions_click", link, { method: "directions" });

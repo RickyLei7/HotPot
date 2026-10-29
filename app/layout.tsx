@@ -75,7 +75,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <Script src="/language-routes.js?v=20260813-bilingual" strategy="afterInteractive" />
-        <Script src="/site-events.js?v=20261029-chat" strategy="afterInteractive" />
+        <Script src="/site-events.js?v=20261029-local-search" strategy="afterInteractive" />
         {children}
         <DiningAssistant />
         <a className="reserve-sticky reserve-sticky-book" href="https://reservation.centrestjhotpot.ca/book" data-track-label="online_booking" aria-haspopup="dialog" data-reservation-launcher>

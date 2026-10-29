@@ -10,11 +10,11 @@ const canonicalUrl = "https://centrestjhotpot.ca/table-menu/";
 const tableMenu = menu as TableMenu;
 
 export const metadata: Metadata = {
-  title: "Table Menu | Centre Street Japanese HotPot",
+  title: "Dine-In Photo Menu | Centre Street Japanese HotPot Calgary",
   description: "View-only bilingual dine-in menu for Centre Street Japanese HotPot. Please order with your server.",
   alternates: { canonical: "/table-menu/" },
   openGraph: {
-    title: "Table Menu | Centre Street Japanese HotPot",
+    title: "Dine-In Photo Menu | Centre Street Japanese HotPot Calgary",
     description: "Browse our dine-in menu in English or Traditional Chinese.",
     url: canonicalUrl,
     images: ["/assets/table-menu/ayce-individual-640.webp"],

@@ -14,7 +14,7 @@ export function HomepageMenu({ language }: { language: HomepageLanguage }) {
   const localGuideLinks = isZh
     ? [
         { href: "/zh-hant/calgary-hot-pot-guide/", label: "卡加利火鍋指南" },
-        { href: "/zh-hant/calgary-taiwanese-hot-pot/", label: "卡加利台式火鍋" },
+        { href: "/zh-hant/calgary-taiwanese-hot-pot/", label: "卡加利台灣美食與火鍋" },
         { href: "/zh-hant/first-time-hot-pot-calgary/", label: "第一次吃火鍋指南" },
         { href: "/zh-hant/ayce-hot-pot-calgary/", label: "卡加利火鍋自助" },
       ]

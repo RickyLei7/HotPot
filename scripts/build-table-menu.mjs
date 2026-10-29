@@ -18,15 +18,15 @@ export async function buildTableMenu({ rootDir = root, destination = outputPath 
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Table Menu | Centre Street Japanese HotPot</title>
+  <title>Dine-In Photo Menu | Centre Street Japanese HotPot Calgary</title>
   <meta name="description" content="View the bilingual dine-in menu for Centre Street Japanese HotPot. This menu is for browsing; please order with your server.">
   <link rel="canonical" href="${canonicalUrl}">
-  <meta property="og:title" content="Table Menu | Centre Street Japanese HotPot">
+  <meta property="og:title" content="Dine-In Photo Menu | Centre Street Japanese HotPot Calgary">
   <meta property="og:description" content="View-only dine-in menu with photos in English and Traditional Chinese.">
   <meta property="og:url" content="${canonicalUrl}">
   <meta property="og:image" content="https://centrestjhotpot.ca/assets/table-menu/ayce-individual-640.webp">
   <link rel="stylesheet" href="/table-menu/table-menu.css">
-  <script src="/site-events.js?v=20260923-booking-source-v4" defer></script>
+  <script src="/site-events.js?v=20261029-chat" defer></script>
   <script src="/table-menu/table-menu.js" defer></script>
   <script type="application/ld+json">${jsonLd}</script>
 </head>

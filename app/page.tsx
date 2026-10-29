@@ -23,7 +23,7 @@ const restaurantJsonLd = {
       about: { "@id": "https://centrestjhotpot.ca/#restaurant" },
       mainEntity: { "@id": "https://centrestjhotpot.ca/#restaurant" },
       primaryImageOfPage: { "@type": "ImageObject", url: "https://centrestjhotpot.ca/assets/dish-sukiyaki.webp" },
-      dateModified: "2026-10-26",
+      dateModified: "2026-10-29",
     },
     {
       "@type": "Restaurant",
@@ -65,7 +65,7 @@ const restaurantJsonLd = {
           { "@type": "Offer", name: "Couple Hot Pot Combo", price: "58.99", priceCurrency: "CAD", description: "Two personal hot pots, two drinks, and one appetizer." },
         ],
       },
-      potentialAction: { "@type": "ReserveAction", target: { "@type": "EntryPoint", urlTemplate: "https://reservation.centrestjhotpot.ca/book", actionPlatform: "https://schema.org/DesktopWebPlatform" }, result: { "@type": "Reservation", name: "Table reservation" } },
+      potentialAction: { "@type": "ReserveAction", target: { "@type": "EntryPoint", urlTemplate: "https://reservation.centrestjhotpot.ca/book", actionPlatform: ["https://schema.org/DesktopWebPlatform", "https://schema.org/MobileWebPlatform"] }, result: { "@type": "Reservation", name: "Table reservation" } },
       sameAs: [
         "https://www.instagram.com/centrestreetjapanesehotpot/",
         "https://www.facebook.com/CentreStreetJapaneseHotPot",

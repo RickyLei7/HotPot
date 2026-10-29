@@ -1,22 +1,15 @@
-import { writeFile } from "node:fs/promises";
+import { readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 
 const baseUrl = "https://centrestjhotpot.ca";
 const defaultLastmod = "2026-09-21";
-const lastmodByPath = new Map([
-  ["/zh-hant/calgary-taiwanese-hot-pot/", "2026-10-20"],
-  ["/zh-hant/calgary-hot-pot-guide/", "2026-10-20"],
-  ["/faq/", "2026-10-26"],
-  ["/zh-hant/faq/", "2026-10-26"],
-  ["/ayce-hot-pot-calgary/", "2026-10-26"],
-  ["/zh-hant/ayce-hot-pot-calgary/", "2026-10-26"],
-  ["/", "2026-10-26"],
-  ["/zh-hant/", "2026-10-26"],
-  ["/menu/", "2026-10-26"],
-  ["/zh-hant/menu/", "2026-09-29"],
-  ["/calgary-hot-pot-guide/", "2026-10-20"],
-  ["/calgary-taiwanese-hot-pot/", "2026-10-20"],
+// These pages have no page-level dateModified. Update only after significant content changes.
+const undatedLastmod = new Map([
+  ["/privacy-policy/", "2026-10-29"],
+  ["/table-menu/", "2026-10-29"],
+  ["/contact/", "2026-10-29"],
 ]);
+const lastmodByPath = new Map(undatedLastmod);
 const pairs = [
   ["/", "/zh-hant/", "weekly", "1.0"],
   ["/about/", "/zh-hant/about/", "monthly", "0.8"],
@@ -29,6 +22,12 @@ const pairs = [
   ["/first-time-hot-pot-calgary/", "/zh-hant/first-time-hot-pot-calgary/", "monthly", "0.8"],
   ["/ayce-hot-pot-calgary/", "/zh-hant/ayce-hot-pot-calgary/", "weekly", "0.9"],
 ];
+
+for (const pathname of pairs.flatMap(([en, zh]) => [en, zh])) {
+  const html = await readFile(path.join(process.cwd(), "public", pathname, "index.html"), "utf8");
+  const dates = [...html.matchAll(/"dateModified"\s*:\s*"(\d{4}-\d{2}-\d{2})"/g)].map(match => match[1]);
+  if (dates.length) lastmodByPath.set(pathname, dates.sort().at(-1));
+}
 
 function entry(pathname, englishPath, traditionalChinesePath, changefreq, priority) {
   const lastmod = lastmodByPath.get(pathname) ?? defaultLastmod;
@@ -49,8 +48,8 @@ const entries = pairs.flatMap(([englishPath, traditionalChinesePath, changefreq,
 ]);
 
 entries.push(
-  `  <url>\n    <loc>${baseUrl}/privacy-policy/</loc>\n    <lastmod>${defaultLastmod}</lastmod>\n    <changefreq>yearly</changefreq>\n    <priority>0.3</priority>\n  </url>`,
-  `  <url>\n    <loc>${baseUrl}/table-menu/</loc>\n    <lastmod>${defaultLastmod}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.9</priority>\n  </url>`,
+  `  <url>\n    <loc>${baseUrl}/privacy-policy/</loc>\n    <lastmod>${lastmodByPath.get("/privacy-policy/")}</lastmod>\n    <changefreq>yearly</changefreq>\n    <priority>0.3</priority>\n  </url>`,
+  `  <url>\n    <loc>${baseUrl}/table-menu/</loc>\n    <lastmod>${lastmodByPath.get("/table-menu/")}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.9</priority>\n  </url>`,
 );
 
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
@@ -60,5 +59,8 @@ ${entries.join("\n")}
 </urlset>
 `;
 
-await writeFile(path.join(process.cwd(), "public", "sitemap.xml"), sitemap);
+const sitemapPath = path.join(process.cwd(), "public", "sitemap.xml");
+if (process.argv.includes("--check")) {
+  if (await readFile(sitemapPath, "utf8") !== sitemap) throw new Error("Sitemap dates or language links drifted. Run node scripts/build-bilingual-sitemap.mjs.");
+} else await writeFile(sitemapPath, sitemap);
 console.log(`Built bilingual sitemap with ${entries.length} URLs.`);

@@ -13,7 +13,7 @@ Use OpenAI only to match questions to approved facts and identify explicit adult
 - Strict request/body/history validation, exact CORS origins, server-held API key, provider timeout, no retry loops, output schema and validation.
 - A separate SQLite Durable Object enforces an atomic shared daily request cap and rolling per-client limits before each model call. Store daily counters and salted daily client identifiers with request timestamps, not question or reservation text. Fail closed when safeguards are unavailable.
 - Responses API with store:false and a small model. Ask only for fact ids, topic, language and optional explicit adult/plan selections. No tools with reservation/customer access.
-- Visible AI/privacy notice before sending; reject obvious phone numbers and email addresses and direct customers to the booking form. An outage must leave menu, contact and booking links usable.
+- Visible automated-reply notice and privacy-policy link before sending. Keep provider details in the privacy policy; the composer explains that names and phone numbers belong in Book Online. General booking questions, party sizes and dates are allowed. Reject obvious phone numbers and email addresses and direct customers to the booking form. An outage must leave menu, contact and booking links usable.
 
 ## Work and release gates
 

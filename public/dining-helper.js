@@ -42,14 +42,11 @@
     var submit = form.querySelector('[type="submit"]');
     var status = root.querySelector('[data-helper-status]');
     var answer = root.querySelector('[data-helper-answer]');
-    var details = root.querySelector('details');
+    var messages = root.querySelector('[data-chat-messages]');
     var context = [];
     var pending = false;
     form.hidden = false;
 
-    details.addEventListener('toggle', function () {
-      if (details.open) track('open', language);
-    });
     root.querySelectorAll('[data-helper-question]').forEach(function (button) {
       button.addEventListener('click', function () {
         if (pending) return;
@@ -67,8 +64,28 @@
       pending = true;
       submit.disabled = true;
       root.setAttribute('aria-busy', 'true');
-      answer.hidden = true;
-      answer.replaceChildren();
+      // Keep only the most recent ten turns in memory on this page. Never persist customer text.
+      while (answer.children.length >= 10) answer.firstElementChild.remove();
+      var turn = document.createElement('article');
+      turn.className = 'dining-chat-turn';
+      var user = document.createElement('p');
+      user.className = 'dining-chat-question';
+      user.textContent = question;
+      turn.append(user);
+      answer.append(turn);
+      answer.hidden = false;
+      textarea.value = '';
+      messages.scrollTop = messages.scrollHeight;
+      function fallback(text) {
+        status.textContent = text;
+        var p = document.createElement('p');
+        p.textContent = text;
+        var call = document.createElement('a');
+        call.href = 'tel:+14034553188';
+        call.textContent = zh ? '致電餐廳 (403) 455-3188' : 'Call restaurant (403) 455-3188';
+        turn.append(p, call);
+        track('fallback', language);
+      }
       status.textContent = zh ? '正在查閱菜單…' : 'Checking the menu…';
       var controller = new AbortController();
       var timer = window.setTimeout(function () { controller.abort(); }, 18000);
@@ -81,18 +98,17 @@
         if (!response.ok) {
           var failure = await response.json().catch(function () { return {}; });
           if (failure.error === 'personal_details') {
-            status.textContent = zh ? '請先刪除電話或電郵，再重新提問。訂位資料請填在網上訂位表格。' : 'Please remove phone numbers or email addresses and ask again. Enter reservation details in Book Online.';
+            fallback(zh ? '請刪除電話或電郵後再提問。訂位資料請填在網上訂位表格。' : 'Please remove phone numbers or emails and ask again. Enter reservation details in Book Online.');
           } else if (response.status === 429) {
-            status.textContent = zh ? '助手暫時達到使用上限。請直接查看菜單、網上訂位或致電餐廳。' : 'The helper has reached its usage limit. Please use the menu, Book Online or call the restaurant.';
+            fallback(zh ? '暫時未能回覆。請致電餐廳，或使用網上訂位。' : 'Chat is busy right now. Please call the restaurant or use Book Online.');
           } else {
             throw new Error('unavailable');
           }
-          track('fallback', language);
           return;
         }
         var data = await response.json();
         if (!validAnswer(data)) throw new Error('invalid_response');
-        answer.lang = data.language === 'en' ? 'en-CA' : 'zh-Hant';
+        turn.lang = data.language === 'en' ? 'en-CA' : 'zh-Hant';
         data.parts.forEach(function (part) {
           var p = document.createElement('p');
           p.textContent = part.text;
@@ -105,22 +121,26 @@
             a.setAttribute('aria-haspopup', 'dialog');
             a.addEventListener('click', function () { track('booking_click', language, 'booking'); });
           }
-          answer.append(p, a);
+          turn.append(p, a);
         });
         context = data.parts.map(function (p) { return p.id; }).filter(function (id) { return ids.includes(id); }).slice(0, 3);
         answer.hidden = false;
         status.textContent = zh ? '回覆已準備好。' : 'Your answer is ready.';
-        answer.focus({ preventScroll: true });
-        answer.scrollIntoView({ block: 'start' });
+        if (data.parts.some(function (p) { return p.id === 'staff' || p.id === 'dietary'; })) {
+          var call = document.createElement('a');
+          call.href = 'tel:+14034553188';
+          call.textContent = zh ? '致電餐廳 (403) 455-3188' : 'Call restaurant (403) 455-3188';
+          turn.append(call);
+        }
         track('answer', language, data.topic);
       } catch {
-        status.textContent = zh ? '助手暫時未能回覆。請直接查看菜單、網上訂位或致電餐廳。' : 'The helper is temporarily unavailable. Please use the menu, Book Online or call the restaurant.';
-        track('fallback', language);
+        fallback(zh ? '暫時未能回覆。請致電餐廳，或使用網上訂位。' : 'Chat is temporarily unavailable. Please call the restaurant or use Book Online.');
       } finally {
         window.clearTimeout(timer);
         pending = false;
         submit.disabled = false;
         root.removeAttribute('aria-busy');
+        messages.scrollTop = messages.scrollHeight;
       }
     });
   }

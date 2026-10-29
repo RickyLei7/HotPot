@@ -23,7 +23,7 @@
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="stylesheet" href="/site.css?v=20261029-duo" />
     <script defer src="/language-routes.js?v=20260813-bilingual"></script>
-    <script defer src="/site-events.js?v=20261029-duo"></script>
+    <script defer src="/site-events.js?v=20261029-chat"></script>
     <script type="application/ld+json">{
   "@context": "https://schema.org",
   "@graph": [
@@ -141,6 +141,9 @@
     }
   ]
 }</script>
+    <link rel="stylesheet" href="/dining-helper.css?v=20261029-chat" />
+    <script defer src="/dining-helper.js?v=20261029-chat"></script>
+    <script defer src="/dining-chat.js?v=20261029-chat"></script>
   </head>
   <body>
     <nav class="site-nav" aria-label="Main navigation">
@@ -297,5 +300,32 @@
       </section>
     </main>
     <a class="reserve-sticky reserve-sticky-book" href="https://reservation.centrestjhotpot.ca/book" data-track-label="online_booking" aria-haspopup="dialog" data-reservation-launcher>Book Online</a><a class="reserve-sticky reserve-sticky-phone" href="tel:+14034553188" aria-label="Call (403) 455-3188">Call</a>
+      <!-- dining-helper:start -->
+      <section class="dining-helper" data-dining-helper data-language="en" aria-label="Chat with us">
+  <button class="dining-chat-launcher" type="button" data-chat-launcher data-chat-open hidden aria-controls="dining-chat-panel" aria-expanded="false">Chat with us</button>
+  <button class="dining-chat-backdrop" type="button" data-chat-close hidden tabindex="-1" aria-label="Minimize chat"></button>
+  <div class="dining-chat-panel" id="dining-chat-panel" data-chat-panel role="dialog" aria-labelledby="dining-helper-title" aria-describedby="dining-chat-notice" tabindex="-1" hidden>
+    <header class="dining-chat-header"><h2 id="dining-helper-title">Chat with us</h2><button class="dining-chat-close" type="button" data-chat-close aria-label="Minimize chat">×</button></header>
+    <p class="dining-chat-notice" id="dining-chat-notice">Automated replies. Call us for staff help.</p>
+    <div class="dining-helper-actions">
+      <a class="dining-helper-book" href="https://reservation.centrestjhotpot.ca/book" data-track-label="online_booking" aria-haspopup="dialog" data-reservation-launcher>Book Online</a>
+      <a href="tel:+14034553188">Call restaurant</a><a href="/menu/">View menu</a>
+    </div>
+    <div class="dining-chat-messages" data-chat-messages tabindex="0" aria-label="Chat messages">
+      <p>Hi! Questions about the menu, prices or how to book?</p>
+      <div class="dining-helper-quick"><button type="button" data-helper-question="How much is AYCE?">How much is AYCE?</button><button type="button" data-helper-question="What soup bases are there?">What soup bases are there?</button><button type="button" data-helper-question="How do I book online?">How do I book online?</button></div>
+      <p class="dining-helper-notice" id="dining-helper-limits">Check available tables in Book Online. Call us about allergies or special requests.</p>
+      <div class="dining-helper-answer" data-helper-answer hidden></div>
+      <p class="dining-helper-status" data-helper-status role="status" aria-live="polite" aria-atomic="true"></p>
+    </div>
+    <form class="dining-chat-composer" data-helper-form hidden>
+      <label for="dining-helper-question">Your question</label>
+      <div class="dining-chat-input"><textarea id="dining-helper-question" name="question" rows="1" maxlength="500" required placeholder="For example: AYCE with snacks for 2 adults?" aria-describedby="dining-helper-privacy dining-helper-limits"></textarea><button class="dining-helper-submit" type="submit">Send</button></div>
+      <p class="dining-helper-notice" id="dining-helper-privacy">Sent to OpenAI when you select Send. No personal details, please. <a href="/privacy-policy/#ai-helper">Privacy details</a></p>
+    </form>
+  </div>
+  <noscript><p>Chat needs JavaScript. You can still view the menu, book online or call (403) 455-3188. <a href="/menu/">View menu</a></p></noscript>
+</section>
+      <!-- dining-helper:end -->
   </body>
 </html>

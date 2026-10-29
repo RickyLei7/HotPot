@@ -499,9 +499,11 @@
   function openReservationDialog(event, link) {
     event.preventDefault();
     lastBookingLink = link;
+    var returnTrigger = link.closest("[data-dining-helper]") ? document.querySelector("[data-chat-launcher]") || link : link;
+    document.dispatchEvent(new Event("hotpot:booking-opening"));
     if (!reservationModalPromise) reservationModalPromise = import("/reservation-modal.js?v=20261029-duo");
     reservationModalPromise.then(function (module) {
-      module.openReservationModal({ trigger: link, language: pageLanguage(), attribution: bookingAttribution() });
+      module.openReservationModal({ trigger: returnTrigger, language: pageLanguage(), attribution: bookingAttribution() });
     }).catch(function () {
       window.location.assign(attributedBookingUrl());
     });

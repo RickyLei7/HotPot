@@ -27,7 +27,7 @@
     <link rel="preload" as="image" href="/assets/dish-sukiyaki-640.webp" media="(max-width: 760px)" />
     <link rel="stylesheet" href="/site.css?v=20261029-duo" />
     <script defer src="/language-routes.js?v=20260813-bilingual"></script>
-    <script defer src="/site-events.js?v=20261029-duo"></script>
+    <script defer src="/site-events.js?v=20261029-chat"></script>
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -126,8 +126,9 @@
         ]
       }
     </script>
-    <link rel="stylesheet" href="/dining-helper.css?v=20261029-duo" />
-    <script defer src="/dining-helper.js?v=20261029-duo"></script>
+    <link rel="stylesheet" href="/dining-helper.css?v=20261029-chat" />
+    <script defer src="/dining-helper.js?v=20261029-chat"></script>
+    <script defer src="/dining-chat.js?v=20261029-chat"></script>
   </head>
   <body>
     <nav class="site-nav" aria-label="Main navigation">
@@ -169,32 +170,6 @@
         </div>
       </section>
 
-      <!-- dining-helper:start -->
-      <section class="dining-helper" data-dining-helper data-language="en" aria-labelledby="dining-helper-title">
-  <details>
-    <summary id="dining-helper-title">Menu & booking questions</summary>
-    <div class="dining-helper-body">
-      <p>Questions about prices, soups or booking? Try our AI menu helper.</p>
-      <p class="dining-helper-notice" id="dining-helper-privacy">When you select Ask, your question is sent to OpenAI. Please leave out names, phone numbers, emails and reservation details. <a href="/privacy-policy/#ai-helper">Privacy details</a></p>
-      <form data-helper-form hidden>
-        <label for="dining-helper-question">Your question</label>
-        <textarea id="dining-helper-question" name="question" rows="3" maxlength="500" required placeholder="For example: How much is AYCE with snacks for 2 adults?" aria-describedby="dining-helper-privacy dining-helper-limits"></textarea>
-        <div class="dining-helper-quick"><button type="button" data-helper-question="How much is AYCE?">How much is AYCE?</button><button type="button" data-helper-question="What soup bases are there?">What soup bases are there?</button><button type="button" data-helper-question="How do I book online?">How do I book online?</button></div>
-        <button class="dining-helper-submit" type="submit">Ask</button>
-      </form>
-      <noscript><p>Enable JavaScript to use the helper, or use the menu and Book Online links below.</p></noscript>
-      <p class="dining-helper-status" data-helper-status role="status" aria-live="polite"></p>
-      <div class="dining-helper-answer" data-helper-answer tabindex="-1" aria-label="Helper response" hidden></div>
-      <p class="dining-helper-notice" id="dining-helper-limits">Uses published restaurant information. Cannot check live tables, make reservations or verify allergen safety.</p>
-      <div class="dining-helper-actions">
-        <a class="dining-helper-book" href="https://reservation.centrestjhotpot.ca/book" data-track-label="online_booking" aria-haspopup="dialog" data-reservation-launcher>Book Online</a>
-        <a href="/menu/">View menu</a>
-        <a href="tel:+14034553188">Call restaurant</a>
-      </div>
-    </div>
-  </details>
-</section>
-      <!-- dining-helper:end -->
       <section class="menu-section" id="ayce-hotpot">
         <div class="section-heading">
           <p class="eyebrow">All-you-can-eat hot pot</p>
@@ -353,5 +328,32 @@
       <section class="poster-modal" id="drink-menu-poster" role="dialog" aria-modal="true" aria-labelledby="drink-menu-poster-title" data-close-target="full-menu"><a class="modal-backdrop" href="#full-menu" aria-label="Close rice noodle and drink menu page"></a><div class="poster-frame"><span class="modal-label" id="drink-menu-poster-title">Rice noodles and drinks</span><a class="modal-close" href="#full-menu" aria-label="Close rice noodle and drink menu page">Close</a><img src="/menu/drink-menu-preview.webp" data-full-src="/menu/drink-menu.jpg" alt="Complete rice noodle and drink menu page" width="1202" height="1800" loading="lazy" decoding="async" /></div></section>
     </main>
     <a class="reserve-sticky reserve-sticky-book" href="https://reservation.centrestjhotpot.ca/book" data-track-label="online_booking" aria-haspopup="dialog" data-reservation-launcher>Book Online</a><a class="reserve-sticky reserve-sticky-phone" href="tel:+14034553188" aria-label="Call (403) 455-3188">Call</a>
+      <!-- dining-helper:start -->
+      <section class="dining-helper" data-dining-helper data-language="en" aria-label="Chat with us">
+  <button class="dining-chat-launcher" type="button" data-chat-launcher data-chat-open hidden aria-controls="dining-chat-panel" aria-expanded="false">Chat with us</button>
+  <button class="dining-chat-backdrop" type="button" data-chat-close hidden tabindex="-1" aria-label="Minimize chat"></button>
+  <div class="dining-chat-panel" id="dining-chat-panel" data-chat-panel role="dialog" aria-labelledby="dining-helper-title" aria-describedby="dining-chat-notice" tabindex="-1" hidden>
+    <header class="dining-chat-header"><h2 id="dining-helper-title">Chat with us</h2><button class="dining-chat-close" type="button" data-chat-close aria-label="Minimize chat">×</button></header>
+    <p class="dining-chat-notice" id="dining-chat-notice">Automated replies. Call us for staff help.</p>
+    <div class="dining-helper-actions">
+      <a class="dining-helper-book" href="https://reservation.centrestjhotpot.ca/book" data-track-label="online_booking" aria-haspopup="dialog" data-reservation-launcher>Book Online</a>
+      <a href="tel:+14034553188">Call restaurant</a><a href="/menu/">View menu</a>
+    </div>
+    <div class="dining-chat-messages" data-chat-messages tabindex="0" aria-label="Chat messages">
+      <p>Hi! Questions about the menu, prices or how to book?</p>
+      <div class="dining-helper-quick"><button type="button" data-helper-question="How much is AYCE?">How much is AYCE?</button><button type="button" data-helper-question="What soup bases are there?">What soup bases are there?</button><button type="button" data-helper-question="How do I book online?">How do I book online?</button></div>
+      <p class="dining-helper-notice" id="dining-helper-limits">Check available tables in Book Online. Call us about allergies or special requests.</p>
+      <div class="dining-helper-answer" data-helper-answer hidden></div>
+      <p class="dining-helper-status" data-helper-status role="status" aria-live="polite" aria-atomic="true"></p>
+    </div>
+    <form class="dining-chat-composer" data-helper-form hidden>
+      <label for="dining-helper-question">Your question</label>
+      <div class="dining-chat-input"><textarea id="dining-helper-question" name="question" rows="1" maxlength="500" required placeholder="For example: AYCE with snacks for 2 adults?" aria-describedby="dining-helper-privacy dining-helper-limits"></textarea><button class="dining-helper-submit" type="submit">Send</button></div>
+      <p class="dining-helper-notice" id="dining-helper-privacy">Sent to OpenAI when you select Send. No personal details, please. <a href="/privacy-policy/#ai-helper">Privacy details</a></p>
+    </form>
+  </div>
+  <noscript><p>Chat needs JavaScript. You can still view the menu, book online or call (403) 455-3188. <a href="/menu/">View menu</a></p></noscript>
+</section>
+      <!-- dining-helper:end -->
   </body>
 </html>

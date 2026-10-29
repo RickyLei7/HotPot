@@ -244,7 +244,7 @@ export default function MenuPage() {
             <article><span>$58.99</span><h3>Couple Hot Pot Combo</h3><p>2 personal hot pots, 2 drinks, and 1 appetizer.</p></article>
           </div>
         </div>
-        <a className="combo-poster-link poster-thumbnail" href="#combo-poster" aria-label="View the complete Solo and Couple Hot Pot Combo poster"><img className="combo-poster" src="/assets/combo-hot-pot-special.webp" alt="Solo and Couple Hot Pot Combo specials" width="820" height="1230" loading="lazy" decoding="async" /><strong className="poster-open-label">View full image</strong></a>
+        <a className="combo-poster-link poster-thumbnail" href="#combo-poster"><img className="combo-poster" src="/assets/combo-hot-pot-special.webp" alt="Solo and Couple Hot Pot Combo specials" width="820" height="1230" loading="lazy" decoding="async" /><strong className="poster-open-label">View full image</strong></a>
       </section>
 
       <section className="poster-modal" id="combo-poster" role="dialog" aria-modal="true" aria-labelledby="combo-poster-title" data-close-target="combo-specials">
@@ -340,11 +340,11 @@ export default function MenuPage() {
           </div>
         </div>
         <div className="menu-images">
-          <a className="poster-thumbnail" href="#hotpot-menu-poster" aria-label="View full page: hot pot and appetizer menu">
+          <a className="poster-thumbnail" href="#hotpot-menu-poster">
             <img src="/menu/hotpot-menu-preview.webp" alt="Full hot pot set and appetizer menu page" width="601" height="900" loading="lazy" decoding="async" />
             <strong className="poster-open-label">View full page</strong>
           </a>
-          <a className="poster-thumbnail" href="#drink-menu-poster" aria-label="View full page: rice noodle and drink menu">
+          <a className="poster-thumbnail" href="#drink-menu-poster">
             <img src="/menu/drink-menu-preview.webp" alt="Full rice noodle and drink menu page" width="601" height="900" loading="lazy" decoding="async" />
             <strong className="poster-open-label">View full page</strong>
           </a>

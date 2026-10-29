@@ -499,7 +499,7 @@
   function openReservationDialog(event, link) {
     event.preventDefault();
     lastBookingLink = link;
-    if (!reservationModalPromise) reservationModalPromise = import("/reservation-modal.js?v=20261020-booking-privacy");
+    if (!reservationModalPromise) reservationModalPromise = import("/reservation-modal.js?v=20261029-duo");
     reservationModalPromise.then(function (module) {
       module.openReservationModal({ trigger: link, language: pageLanguage(), attribution: bookingAttribution() });
     }).catch(function () {
@@ -568,6 +568,22 @@
     if (href.indexOf("tiktok.com") !== -1) return "tiktok";
     if (href.indexOf("xiaohongshu.com") !== -1) return "xiaohongshu";
     return "";
+  }
+
+  function setupNavigationOffset() {
+    var navigation = document.querySelector(".site-nav");
+    if (!navigation) return;
+    var update = function () {
+      var current = document.querySelector(".site-nav");
+      if (!current) return;
+      var sticky = window.getComputedStyle(current).position === "sticky";
+      var offset = sticky ? Math.ceil(current.getBoundingClientRect().height) + 12 : 12;
+      document.documentElement.style.setProperty("--site-nav-offset", offset + "px");
+    };
+    update();
+    if ("ResizeObserver" in window) new window.ResizeObserver(update).observe(navigation);
+    window.addEventListener("resize", update, { passive: true });
+    document.addEventListener("hotpot:page-ready", update);
   }
 
   function setupStickyReserve() {
@@ -688,6 +704,7 @@
     syncModalState();
   }
 
+  setupNavigationOffset();
   setupStickyReserve();
   setupOfferViews();
   setupPosterModals();

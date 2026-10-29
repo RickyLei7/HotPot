@@ -1461,3 +1461,28 @@ a.beef-noodle-feature-media {
 .poster-frame .modal-label { position: static; align-self: center; }
 .poster-frame .modal-close { position: sticky; top: 0; right: auto; }
 .poster-frame img { grid-column: 1 / -1; display: block; }
+
+/* Fluid layouts for narrow windows, folding displays and touch navigation. */
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+section, #combo-specials, #hotpot-set, #soup-bases, #rice-noodles, #drinks, #appetizers, #full-menu { scroll-margin-top: var(--site-nav-offset, 92px); }
+@media (max-width: 1100px) {
+  .nav-links > a, .nav-more summary, .nav-more-links a, .language-option { min-height: 44px; }
+  .language-option { min-width: 44px; }
+}
+@media (min-width: 900px) and (max-width: 1100px) {
+  .site-nav { grid-template-columns: auto 1fr auto auto; }
+  .nav-links { grid-column: 2; grid-row: 1; justify-content: center; padding: 0; }
+  .language-switch { grid-column: 3; grid-row: 1; }
+  .nav-actions { grid-column: 4; grid-row: 1; }
+}
+@media (max-width: 560px) {
+  .brand-mark img { height: auto; max-height: 40px; max-width: min(34vw, 100%); }
+  body { padding-bottom: max(84px, calc(64px + env(safe-area-inset-bottom))); }
+  body:has(.dining-helper textarea:focus) .reserve-sticky { visibility: hidden; pointer-events: none; }
+}
+@media (max-width: 560px) and (max-height: 650px) {
+  .site-nav { gap: 6px 8px; padding-block: 8px; }
+}
+@media (max-width: 1100px) and (max-height: 450px) {
+  .site-nav { position: relative; }
+}

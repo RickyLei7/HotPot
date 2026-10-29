@@ -16,6 +16,7 @@ class Element {
   append(...children) { this.children.push(...children); }
   replaceChildren() { this.children = []; }
   focus() { this.focused = true; }
+  scrollIntoView() {}
 }
 
 function client(fetchImpl, language = 'en', analytics) {

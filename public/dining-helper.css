@@ -41,7 +41,7 @@ body.poster-open .dining-helper, body:has([data-reservation-dialog]) .dining-hel
 @media (max-width: 560px) {
   .dining-chat-ready .reserve-sticky-phone { display: none; }
   .dining-chat-ready .reserve-sticky-book { opacity: 1; pointer-events: auto; transform: none; }
-  .dining-chat-launcher { bottom: max(8px, env(safe-area-inset-bottom)); left: calc(58% + 6px); right: 14px; min-height: 46px; padding: 8px 10px; font-size: 15px !important; text-align: center; }
+  .dining-helper .dining-chat-launcher { bottom: max(8px, env(safe-area-inset-bottom)); left: calc(58% + 6px); right: 14px; min-height: 46px; padding: 8px 10px; font-size: 15px !important; text-align: center; }
   .dining-chat-ready { padding-bottom: calc(70px + env(safe-area-inset-bottom)); }
 }
 /* Keyboard height changes visualViewport without changing CSS media-query height on iOS. */

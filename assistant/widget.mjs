@@ -1,6 +1,6 @@
 // One shared chat UI for static pages and React routes. Opening never sends a request.
 export const chatRoutes = ['', 'menu', 'contact', 'ayce-hot-pot-calgary', 'zh-hant', 'zh-hant/menu', 'zh-hant/contact', 'zh-hant/ayce-hot-pot-calgary'];
-export const chatVersion = '20261029-chat2';
+export const chatVersion = '20261029-chat3';
 export function homeChatEntry(language = 'en') {
   return `<button class="home-chat-entry" type="button" data-chat-open hidden aria-controls="dining-chat-panel" aria-expanded="false">${language === 'zh-Hant' ? '有問題？餐廳小幫手' : 'Questions? Chat with us'}</button>`;
 }
@@ -9,7 +9,7 @@ export function widget(language = 'en') {
   const c = zh ? {
     title:'餐廳小幫手', intro:'你好！想了解菜單、價格或如何訂位？',
     notice:'自動回覆，需要店員協助可致電。',
-    privacy:'按「傳送」後由 OpenAI 處理，請勿輸入個人或訂位資料。',
+    privacy:'訂位請按「網上訂位」，並在表格填寫姓名及電話。',
     policy:'私隱說明', label:'你的問題', placeholder:'例如：兩位成人加小吃要多少錢？', send:'傳送', close:'收起聊天',
     quick:['自助火鍋多少錢？','有甚麼湯底？','如何網上訂位？'],
     limits:'空位請在訂位表格查看；過敏原及特別安排請致電確認。',
@@ -17,7 +17,7 @@ export function widget(language = 'en') {
   } : {
     title:'Chat with us', intro:'Hi! Questions about the menu, prices or how to book?',
     notice:'Automated replies. Call us for staff help.',
-    privacy:'Sent to OpenAI when you select Send. No personal details, please.',
+    privacy:'To book, select Book Online and enter your name and phone number in the form.',
     policy:'Privacy details', label:'Your question', placeholder:'For example: AYCE with snacks for 2 adults?', send:'Send', close:'Minimize chat',
     quick:['How much is AYCE?','What soup bases are there?','How do I book online?'],
     limits:'Check available tables in Book Online. Call us about allergies or special requests.',

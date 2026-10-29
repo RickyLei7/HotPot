@@ -2,6 +2,20 @@
 
 这套程序供餐厅员工在 iPad、Android 平板和电脑上共用。服务器保存唯一的正式状态；各设备登录后会实时收到更新。公开餐厅网站与本系统分开部署。
 
+## 公开订位客户端维护（2026-10-29）
+
+正式订位 Worker 后续已有独立模块补丁。下面的 9 月版本记录与初始部署命令是历史记录；本仓库原始构建及旧的 daily-trial 构建都不能直接覆盖当前正式版本。先导出并核对当前 Worker 的全部模块、绑定和资源，再对相应文本模块做最小修改，防止丢失统计、验证码恢复或其他更新。
+
+本次 Safari 键盘修复只修改 `server/booking-measurement-booking.txt`。`patches/booking-keyboard.mjs` 导出的 `bookingKeyboard(source)` 会拒绝不匹配的源代码；它在中文输入组合期间保留候选字确认，普通 Enter 仍可从姓名切换到电话。发布依据及验证范围见 [本次检查记录](../docs/safari-booking-qa-2026-10-29.md)。
+
+从当前公开 `/client/booking-client.js` 或核对过的导出文件取得客户端脚本后，运行：
+
+```bash
+BOOKING_CLIENT=/absolute/path/to/booking-client.js node --test e2e/booking-keyboard.mjs e2e/booking-security-callbacks.mjs
+```
+
+这 16 项检查直接执行客户端的键盘处理和验证码回调。验证码提供商、DOM 和网络在隔离环境中模拟，检查不会创建订位或发送短信；它们不能替代真机 Safari 的验证码通关与完整订位验收。
+
 ## 本地开发与测试
 
 要求 Node.js 22.13 或更新版本。第一次使用先运行 `npm install`。

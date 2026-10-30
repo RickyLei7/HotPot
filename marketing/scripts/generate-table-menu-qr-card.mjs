@@ -8,7 +8,7 @@ import sharp from "sharp";
 
 const CARD_WIDTH = 1200;
 const CARD_HEIGHT = 1800;
-export const TABLE_MENU_URL = "https://centrestjhotpot.ca/table-menu/?utm_source=table_qr&utm_medium=offline&utm_campaign=dine_in_menu";
+export const TABLE_MENU_URL = "https://centrestjhotpot.ca/menu/?utm_source=table_qr&utm_medium=offline&utm_campaign=dine_in_menu";
 
 function escapeHtml(value) {
   return value.replaceAll("&", "&amp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll('"', "&quot;");
@@ -16,7 +16,7 @@ function escapeHtml(value) {
 
 function validateUrl() {
   const url = new URL(TABLE_MENU_URL);
-  assert.equal(url.pathname, "/table-menu/");
+  assert.equal(url.pathname, "/menu/");
   assert.equal(url.searchParams.get("utm_source"), "table_qr");
   assert.equal(url.searchParams.get("utm_medium"), "offline");
   assert.equal(url.searchParams.get("utm_campaign"), "dine_in_menu");
@@ -34,7 +34,7 @@ function cardBackgroundSvg() {
     <text x="600" y="1390" text-anchor="middle" font-family="Arial, sans-serif" font-size="41" font-weight="900" fill="#edcf95">VIEW ONLY — ORDER WITH YOUR SERVER</text>
     <text x="600" y="1462" text-anchor="middle" font-family="PingFang TC, Hiragino Sans CNS, Arial, sans-serif" font-size="39" font-weight="800" fill="#fff8ed">僅供瀏覽，請向服務員點單</text>
     <line x1="158" y1="1550" x2="1042" y2="1550" stroke="#d2a252" stroke-width="3" opacity=".72"/>
-    <text x="600" y="1622" text-anchor="middle" font-family="Arial, sans-serif" font-size="29" font-weight="700" fill="#fff1d6">centrestjhotpot.ca/table-menu</text>
+    <text x="600" y="1622" text-anchor="middle" font-family="Arial, sans-serif" font-size="29" font-weight="700" fill="#fff1d6">centrestjhotpot.ca/menu</text>
     <text x="600" y="1674" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" fill="#c9bcae">The same menu is used at every table</text>
   </svg>`;
 }
@@ -66,7 +66,7 @@ function printHtml(qrDataUrl) {
   <a href="${safeUrl}"><img class="qr" src="${qrDataUrl}" alt="QR code for the view-only dine-in menu"></a>
   <p class="view-only">View only — order with your server</p>
   <p class="instruction">僅供瀏覽，請向服務員點單</p>
-  <p class="url">centrestjhotpot.ca/table-menu</p>
+  <p class="url">centrestjhotpot.ca/menu</p>
 </section></main></body></html>`;
 }
 

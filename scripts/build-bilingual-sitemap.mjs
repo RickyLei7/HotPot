@@ -6,7 +6,6 @@ const defaultLastmod = "2026-09-21";
 // These pages have no page-level dateModified. Update only after significant content changes.
 const undatedLastmod = new Map([
   ["/privacy-policy/", "2026-10-29"],
-  ["/table-menu/", "2026-10-29"],
   ["/contact/", "2026-10-29"],
 ]);
 const lastmodByPath = new Map(undatedLastmod);
@@ -49,7 +48,6 @@ const entries = pairs.flatMap(([englishPath, traditionalChinesePath, changefreq,
 
 entries.push(
   `  <url>\n    <loc>${baseUrl}/privacy-policy/</loc>\n    <lastmod>${lastmodByPath.get("/privacy-policy/")}</lastmod>\n    <changefreq>yearly</changefreq>\n    <priority>0.3</priority>\n  </url>`,
-  `  <url>\n    <loc>${baseUrl}/table-menu/</loc>\n    <lastmod>${lastmodByPath.get("/table-menu/")}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.9</priority>\n  </url>`,
 );
 
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>

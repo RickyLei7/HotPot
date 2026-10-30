@@ -469,11 +469,6 @@
             "label": "開啟完整菜單 PDF",
             "href": "/menu/centre-street-japanese-hotpot-menu-2026-09.pdf",
             "style": "primary-action"
-          },
-          {
-            "label": "瀏覽圖文菜單",
-            "href": "/table-menu/",
-            "style": "secondary-action dark"
           }
         ],
         "cards": [

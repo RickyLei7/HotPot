@@ -18,9 +18,10 @@ async function collectHtmlFiles(directory) {
 const htmlFiles = await collectHtmlFiles(publicDir);
 assert.ok(htmlFiles.length > 0, "No deployable HTML files found in public/");
 
-// OAuth return pages only confirm an external account connection. They are not
-// guest-facing site pages and intentionally do not load analytics or ad tags.
-const authCallbackPages = new Set([
+// OAuth callbacks and legacy redirects intentionally do not load analytics.
+// The redirect destination records the visit, avoiding a duplicate page view.
+const nonContentPages = new Set([
+  "public/table-menu/index.html",
   "public/facebook-auth/index.html",
   "public/google-business-auth/index.html",
   "public/instagram-auth/index.html",
@@ -30,7 +31,7 @@ const authCallbackPages = new Set([
 for (const file of htmlFiles) {
   const html = await readFile(file, "utf8");
   const relativePath = path.relative(root, file);
-  if (authCallbackPages.has(relativePath)) continue;
+  if (nonContentPages.has(relativePath)) continue;
   assert.equal(
     (html.match(/src="\/site-events\.js(?:\?[^"\s]+)?"/g) || []).length,
     1,

@@ -86,10 +86,12 @@ export function flattenMenuItems(menu) {
     : [item]);
 }
 
+const IMAGE_REVISION = "20261030-posters";
+
 export function imagePathsFor(item) {
   return {
-    small: `/assets/table-menu/${item.imageId}-320.webp`,
-    large: `/assets/table-menu/${item.imageId}-640.webp`,
+    small: `/assets/table-menu/${item.imageId}-320.webp?v=${IMAGE_REVISION}`,
+    large: `/assets/table-menu/${item.imageId}-640.webp?v=${IMAGE_REVISION}`,
   };
 }
 

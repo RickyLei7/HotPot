@@ -9,10 +9,11 @@ const testOutputDir = path.join(root, "tests/.tmp-table-menu-qr");
 
 after(() => rmSync(testOutputDir, { force: true, recursive: true }));
 
-test("the deployed menu tells dine-in guests to order with their server", () => {
-  const menu = readFileSync(path.join(root, "public/table-menu/index.html"), "utf8");
-  assert.match(menu, /View-only menu — please order with your server\./i);
-  assert.match(menu, /此菜單僅供瀏覽，請向服務員點單。/);
+test("the original menu tells dine-in guests to order with their server", () => {
+  const menu = readFileSync(path.join(root, "public/menu/index.html"), "utf8");
+  assert.match(menu, /Please order with your server\./i);
+  const chineseMenu = readFileSync(path.join(root, "public/zh-hant/menu/index.html"), "utf8");
+  assert.match(chineseMenu, /請向服務員點單。/);
   assert.doesNotMatch(menu, /data-order-submit|data-cart|data-checkout/);
 });
 
@@ -24,7 +25,7 @@ test("the print generator creates scannable table-menu artifacts", async () => {
 
   assert.equal(
     result.url,
-    "https://centrestjhotpot.ca/table-menu/?utm_source=table_qr&utm_medium=offline&utm_campaign=dine_in_menu",
+    "https://centrestjhotpot.ca/menu/?utm_source=table_qr&utm_medium=offline&utm_campaign=dine_in_menu",
   );
   assert.equal(result.width, 1200);
   assert.equal(result.height, 1800);

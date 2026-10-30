@@ -44,8 +44,8 @@ test("every active item has bilingual copy and image derivatives", () => {
     assert.ok(item.name.zh.trim(), `${item.id} missing Chinese name`);
     assert.match(item.imageId, /^[a-z0-9]+(?:-[a-z0-9]+)*$/u);
     assert.deepEqual(imagePathsFor(item), {
-      small: `/assets/table-menu/${item.imageId}-320.webp`,
-      large: `/assets/table-menu/${item.imageId}-640.webp`,
+      small: `/assets/table-menu/${item.imageId}-320.webp?v=20261030-posters`,
+      large: `/assets/table-menu/${item.imageId}-640.webp?v=20261030-posters`,
     });
   }
 });

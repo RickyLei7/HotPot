@@ -5,6 +5,7 @@
 - Correct the photo-menu card and preview image height: explicit HTML height attributes previously held mobile images at 480 px; CSS now scales height with width.
 - Preserve complete price-bearing posters with opt-in contained thumbnails. Regular food photographs keep their existing crop.
 - Refresh the photo-menu stylesheet version so existing visitors receive the layout fix.
+- Version card, preview and structured-data image URLs: live browser verification showed an old cropped thumbnail surviving in cache after its public file had been updated. The release revision forces a fresh request for the complete poster.
 
 ## Verification
 

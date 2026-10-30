@@ -6,6 +6,8 @@ on:
       - 'public/**'
       - 'app/**'
       - 'scripts/*assistant*'
+      - 'scripts/check-table-menu.mjs'
+      - 'scripts/build-table-menu.mjs'
       - 'scripts/build-dining-helper-pages.mjs'
       - 'tests/dining-assistant.test.mjs'
       - 'tests/dining-helper-client.test.mjs'
@@ -29,6 +31,7 @@ jobs:
       - run: npm ci
       - run: npm run check:assistant
       - run: node --test tests/dining-assistant.test.mjs tests/dining-helper-client.test.mjs tests/dining-chat.test.mjs tests/source-attribution.test.mjs tests/review-tracking.test.mjs
+      - run: npm run check:table-menu
       - run: npm run check:html && npm run check:seo && npm run check:bilingual && npm run check:price
       - run: npx wrangler deploy --dry-run --config assistant/wrangler.jsonc --outdir /tmp/hotpot-assistant-bundle-20261029
       - run: node scripts/check-assistant-runtime.mjs

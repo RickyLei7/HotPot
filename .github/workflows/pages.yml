@@ -26,6 +26,7 @@ jobs:
         uses: actions/checkout@v4
       - name: Validate static SEO, bilingual content and tracking
         run: |
+          node scripts/check-table-menu.mjs
           node scripts/check-seo.mjs
           node scripts/check-bilingual-site.mjs
           node scripts/check-attribution.mjs

@@ -13,37 +13,44 @@
     {
       "imageId": "personal-hot-pot",
       "source": "content/table-menu/source-images/generic/personal-hot-pot-menu-full.webp",
-      "position": "center"
+      "position": "center",
+      "fit": "contain"
     },
     {
       "imageId": "solo-hot-pot-combo",
       "source": "content/table-menu/source-images/generic/combo-hot-pot-special.webp",
-      "position": "center"
+      "position": "center",
+      "fit": "contain"
     },
     {
       "imageId": "couple-hot-pot-combo",
       "source": "content/table-menu/source-images/generic/combo-hot-pot-special.webp",
-      "position": "center"
+      "position": "center",
+      "fit": "contain"
     },
     {
       "imageId": "kokanee",
       "source": "content/table-menu/source-images/generic/beer-special.png",
-      "position": "center"
+      "position": "center",
+      "fit": "contain"
     },
     {
       "imageId": "corona-extra",
       "source": "content/table-menu/source-images/generic/beer-special.png",
-      "position": "center"
+      "position": "center",
+      "fit": "contain"
     },
     {
       "imageId": "personal-hot-pot-includes",
       "source": "content/table-menu/source-images/generic/personal-hot-pot-menu-full.webp",
-      "position": "center"
+      "position": "center",
+      "fit": "contain"
     },
     {
       "imageId": "split-pot-upgrade",
       "source": "content/table-menu/source-images/generic/personal-hot-pot-menu-full.webp",
-      "position": "center"
+      "position": "center",
+      "fit": "contain"
     },
     {
       "imageId": "chicken-spicy-pot",
@@ -188,42 +195,50 @@
     {
       "imageId": "ayce-same-table-upgrade-rule",
       "source": "content/table-menu/source-images/generic/ayce-menu.webp",
-      "position": "center"
+      "position": "center",
+      "fit": "contain"
     },
     {
       "imageId": "ayce-child-100-140",
       "source": "content/table-menu/source-images/generic/ayce-menu.webp",
-      "position": "center"
+      "position": "center",
+      "fit": "contain"
     },
     {
       "imageId": "ayce-child-under-100",
       "source": "content/table-menu/source-images/generic/ayce-menu.webp",
-      "position": "center"
+      "position": "center",
+      "fit": "contain"
     },
     {
       "imageId": "ayce-child-over-140",
       "source": "content/table-menu/source-images/generic/ayce-menu.webp",
-      "position": "center"
+      "position": "center",
+      "fit": "contain"
     },
     {
       "imageId": "ayce-time-limit",
       "source": "content/table-menu/source-images/generic/ayce-menu.webp",
-      "position": "center"
+      "position": "center",
+      "fit": "contain"
     },
     {
       "imageId": "ayce-order-responsibly",
       "source": "content/table-menu/source-images/generic/ayce-menu.webp",
-      "position": "center"
+      "position": "center",
+      "fit": "contain"
     },
     {
       "imageId": "ayce-excess-leftovers",
       "source": "content/table-menu/source-images/generic/ayce-menu.webp",
-      "position": "center"
+      "position": "center",
+      "fit": "contain"
     },
     {
       "imageId": "ayce-beer-upgrade",
       "source": "content/table-menu/source-images/generic/beer-special.png",
-      "position": "center"
+      "position": "center",
+      "fit": "contain"
     },
     {
       "imageId": "combo-drink-choice-rule",
@@ -238,7 +253,8 @@
     {
       "imageId": "combo-split-pot-upgrade",
       "source": "content/table-menu/source-images/generic/combo-hot-pot-special.webp",
-      "position": "center"
+      "position": "center",
+      "fit": "contain"
     },
     {
       "imageId": "signature-taiwanese-fried-chicken",
@@ -748,7 +764,8 @@
     {
       "imageId": "beer-dine-in-id-rule",
       "source": "content/table-menu/source-images/generic/beer-special.png",
-      "position": "center"
+      "position": "center",
+      "fit": "contain"
     },
     {
       "imageId": "veggies-set",

@@ -15,6 +15,7 @@ const VALID_POSITIONS = new Set([
 ]);
 
 const OUTPUT_WIDTHS = [320, 640];
+const VALID_FITS = new Set(["cover", "contain"]);
 
 function fail(message) {
   throw new Error(message);
@@ -71,16 +72,20 @@ function validateEntry(entry, seenIds) {
     fail(`Missing source image for ${imageId}: ${source}`);
   }
 
+  if (entry.fit !== undefined && !VALID_FITS.has(entry.fit)) {
+    fail(`Invalid image fit for ${imageId}: ${entry.fit}`);
+  }
+
   if (typeof position !== "string" || !VALID_POSITIONS.has(position)) {
     fail(`Invalid focal position for ${imageId}: ${position}`);
   }
 }
 
-async function buildDerivative(sourcePath, outputPath, width, position, imageId, source) {
+async function buildDerivative(sourcePath, outputPath, width, position, imageId, source, fit) {
   try {
     await sharp(sourcePath)
       .rotate()
-      .resize({ width, height: Math.round(width * 0.75), fit: "cover", position })
+      .resize({ width, height: Math.round(width * 0.75), fit, position, background: "#fff8ed" })
       .webp({ quality: 78, effort: 5 })
       .toFile(outputPath);
   } catch (error) {
@@ -110,7 +115,7 @@ export async function buildImages({
 
     for (const width of OUTPUT_WIDTHS) {
       const outputPath = path.join(outputDirectory, `${entry.imageId}-${width}.webp`);
-      await buildDerivative(sourcePath, outputPath, width, entry.position, entry.imageId, entry.source);
+      await buildDerivative(sourcePath, outputPath, width, entry.position, entry.imageId, entry.source, entry.fit ?? "cover");
     }
   }
 }

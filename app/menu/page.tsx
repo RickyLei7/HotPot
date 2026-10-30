@@ -5,7 +5,7 @@ import { SiteNav } from "../site-nav";
 export const metadata: Metadata = {
   title: "Calgary Hot Pot Menu & Prices | Centre Street Japanese HotPot",
   description:
-    "View Centre Street Japanese HotPot menu and prices: $28.99 AYCE, $19.99 personal hot pot, 15 soup bases and +$5.99 AYCE snacks. Prices before tax.",
+    "View Centre Street Japanese HotPot menu and prices: $28.99 AYCE, $19.99 personal hot pot, 15 soup bases and +$5.99 AYCE snacks.",
   alternates: {
     canonical: "/menu/",
     languages: {
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Calgary Hot Pot Menu & Prices | Centre Street Japanese HotPot",
     description:
-      "View Centre Street Japanese HotPot menu and prices: $28.99 AYCE, $19.99 personal hot pot, 15 soup bases and +$5.99 AYCE snacks. Prices before tax.",
+      "View Centre Street Japanese HotPot menu and prices: $28.99 AYCE, $19.99 personal hot pot, 15 soup bases and +$5.99 AYCE snacks.",
     url: "https://centrestjhotpot.ca/menu/",
     images: ["/assets/dish-sukiyaki.webp"],
   },
@@ -100,7 +100,7 @@ const menuJsonLd = {
         {
           "@type": "MenuItem",
           name: "All-You-Can-Eat Hot Pot",
-          description: "Soup base included. Meat is ordered through the server. Price before tax.",
+          description: "Soup base included. Meat is ordered through the server.",
           offers: { "@type": "Offer", price: "28.99", priceCurrency: "CAD" },
         },
         {
@@ -188,7 +188,7 @@ export default function MenuPage() {
         <div>
           <p className="eyebrow">Menu</p>
           <h1>Menu &amp; Prices</h1>
-          <p className="hero-text">$28.99 all-you-can-eat or $19.99 personal hot pot in Calgary. Prices in CAD before tax.</p>
+          <p className="hero-text">$28.99 all-you-can-eat or $19.99 personal hot pot in Calgary. Prices in CAD.</p>
           <nav className="menu-quick-links" aria-label="Browse menu categories"><a href="#ayce-hotpot">AYCE</a><a href="#hotpot-set">Personal Hot Pot</a><a href="#combo-specials">Combos</a><a href="#soup-bases">Soup Bases</a><a href="#rice-noodles">Rice &amp; Noodles</a><a href="#appetizers">Snacks</a><a href="#drinks">Drinks</a><a href="#full-menu">Full Menu</a></nav>
           <aside className="table-menu-notice" data-table-menu-notice aria-label="Dine-in ordering instructions">
             <strong>View Menu Only</strong>
@@ -209,10 +209,10 @@ export default function MenuPage() {
       <section className="menu-section" id="ayce-hotpot">
         <div className="section-heading">
           <p className="eyebrow">All-you-can-eat hot pot</p>
-          <h2>AYCE Hot Pot <span className="heading-price">$28.99 + tax</span></h2>
+          <h2>AYCE Hot Pot <span className="heading-price">$28.99</span></h2>
         </div>
         <div className="set-grid">
-          <article><h3>$28.99 + tax</h3><p>Soup base included. Order meat through your server.</p></article>
+          <article><h3>$28.99</h3><p>Soup base included. Order meat through your server.</p></article>
           <article><h3>Meat selection</h3><p>AAA beef, lamb, pork, and chicken. Each serving is 100g.</p></article>
           <article><h3>19 snacks · +$5.99</h3><p>Add 19 all-you-can-eat appetizers per person. Everyone at the same table must upgrade.</p></article>
           <article><h3>Kids pricing by height</h3><p>Under 100 cm free. 100-140 cm $12.99. Over 140 cm adult price.</p></article>
@@ -237,7 +237,7 @@ export default function MenuPage() {
           <p>
             Solo Combo includes 1 personal hot pot and 1 drink for $24.99.
             Couple Combo includes 2 personal hot pots, 2 drinks, and 1 appetizer for $58.99.
-            Split pot upgrade +$2. Prices are before tax.
+            Split pot upgrade +$2.
           </p>
           <div className="combo-price-grid">
             <article><span>$24.99</span><h3>Solo Hot Pot Combo</h3><p>1 personal hot pot and 1 drink.</p></article>
@@ -255,7 +255,7 @@ export default function MenuPage() {
       <section className="menu-section" id="hotpot-set">
         <div className="section-heading">
           <p className="eyebrow">Hot pot set</p>
-          <h2>Personal Hot Pot <span className="heading-price">$19.99 + tax</span></h2>
+          <h2>Personal Hot Pot <span className="heading-price">$19.99</span></h2>
         </div>
         <div className="set-grid">
           <article><h3>Included</h3><p>1 soup base, large veggie set, 1 meat, and 1 rice or noodle side.</p></article>

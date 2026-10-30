@@ -38,7 +38,7 @@ const taiwaneseHotPotFaqs = [
   ],
   [
     "Does Centre Street Japanese HotPot offer all-you-can-eat hot pot?",
-    "Yes. All-You-Can-Eat Hot Pot is available for $28.99 + tax, with soup base included, server-ordered meats, and an optional +$5.99 snack upgrade for the whole table.",
+    "Yes. All-You-Can-Eat Hot Pot is available for $28.99, with soup base included, server-ordered meats, and an optional +$5.99 snack upgrade for the whole table.",
   ],
   [
     "How do I reserve a table?",
@@ -133,7 +133,7 @@ export default function CalgaryTaiwaneseHotPotPage() {
             <p><strong>Name:</strong> Centre Street Japanese HotPot</p>
             <p><strong>Focus:</strong> Taiwanese-style and Japanese-style individual hot pot</p>
             <p><strong>Personal hot pot:</strong> $19.99</p>
-            <p><strong>AYCE:</strong> $28.99 + tax, soup base included</p>
+            <p><strong>AYCE:</strong> $28.99, soup base included</p>
             <p><strong>Address:</strong> 2213 Centre St N #2243, Calgary, AB T2E 2T4</p>
             <p><strong>Reserve:</strong> <a href="https://reservation.centrestjhotpot.ca/book" data-track-label="online_booking" aria-haspopup="dialog" data-reservation-launcher>Book online</a> or <a href="tel:+14034553188">call (403) 455-3188</a></p>
           </aside>
@@ -144,7 +144,7 @@ export default function CalgaryTaiwaneseHotPotPage() {
         <div>
           <p className="eyebrow">Taiwanese favourites</p>
           <h2>Beef Noodles and Rice Bowls</h2>
-          <p>Order these dishes on their own. Prices are before tax.</p>
+          <p>Order these dishes on their own.</p>
         </div>
         <div className="weekly-picks-grid">
           <article>

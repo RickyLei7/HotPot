@@ -21,12 +21,12 @@ export function buildFacts(prices, soups, hours, address) {
   const [a, s, p, solo, couple] = ['ayce', 'snacks', 'personal', 'solo', 'couple'].map(id => money(prices[id]));
   const fact = (en, zh, path) => ({ en, zh, path });
   return {
-    ayce: fact(`AYCE hot pot is ${a} per adult before tax, with a soup base included. Choose AAA beef, lamb, pork or chicken; order meat through your server. Each guest has an individual pot.`, `火鍋自助每位成人 ${a}，另加稅，已含湯底。一人一鍋，牛、羊、豬及雞肉可向店員加點。`, '/ayce-hot-pot-calgary/'),
-    snacks: fact(`Add 19 all-you-can-eat snacks to AYCE for ${s} per person before tax. Everyone at the same table must take the snack upgrade.`, `火鍋自助每位加 ${s}，另加稅，可享19款小吃任食；同桌須一起升級。`, '/menu/'),
-    personal: fact(`The ${p} personal hot pot includes 1 soup base, a large vegetable set, 1 meat and 1 rice or noodle side. Price is before tax.`, `個人火鍋 ${p}，另加稅，包含1份湯底、大份蔬菜盤、1份肉類及1份飯或麵。`, '/menu/'),
-    combos: fact(`Solo Combo: 1 personal hot pot and 1 drink for ${solo}. Couple Combo: 2 personal hot pots, 2 drinks and 1 appetizer for ${couple}. Prices are before tax.`, `單人套餐 ${solo}，包含1份個人火鍋及1杯飲品。雙人套餐 ${couple}，包含2份個人火鍋、2杯飲品及1份小吃。價格另加稅。`, '/menu/'),
+    ayce: fact(`AYCE hot pot is ${a} per adult, with a soup base included. Choose AAA beef, lamb, pork or chicken; order meat through your server. Each guest has an individual pot.`, `火鍋自助每位成人 ${a}，已含湯底。一人一鍋，牛、羊、豬及雞肉可向店員加點。`, '/ayce-hot-pot-calgary/'),
+    snacks: fact(`Add 19 all-you-can-eat snacks to AYCE for ${s} per person. Everyone at the same table must take the snack upgrade.`, `火鍋自助每位加 ${s}，可享19款小吃任食；同桌須一起升級。`, '/menu/'),
+    personal: fact(`The ${p} personal hot pot includes 1 soup base, a large vegetable set, 1 meat and 1 rice or noodle side.`, `個人火鍋 ${p}，包含1份湯底、大份蔬菜盤、1份肉類及1份飯或麵。`, '/menu/'),
+    combos: fact(`Solo Combo: 1 personal hot pot and 1 drink for ${solo}. Couple Combo: 2 personal hot pots, 2 drinks and 1 appetizer for ${couple}.`, `單人套餐 ${solo}，包含1份個人火鍋及1杯飲品。雙人套餐 ${couple}，包含2份個人火鍋、2杯飲品及1份小吃。`, '/menu/'),
     soups: fact(`Choose from ${soups.length} soup bases: ${soups.join(', ')}. For ingredient or dietary questions, please check with staff.`, `共有${soups.length}款湯底可選，包括壽喜燒、冬陰功、麻辣、番茄及味噌。完整選項請看菜單；食材或飲食限制請先向店員確認。`, '/menu/#soup-bases'),
-    kids: fact(`AYCE children’s prices are based on height: under 100 cm free; 100–140 cm ${money(prices.kids)}; over 140 cm adult price. Prices are before tax.`, `火鍋自助兒童收費按身高：100厘米以下免費；100至140厘米 ${money(prices.kids)}；超過140厘米按成人收費。價格另加稅。`, '/ayce-hot-pot-calgary/'),
+    kids: fact(`AYCE children’s prices are based on height: under 100 cm free; 100–140 cm ${money(prices.kids)}; over 140 cm adult price.`, `火鍋自助兒童收費按身高：100厘米以下免費；100至140厘米 ${money(prices.kids)}；超過140厘米按成人收費。`, '/ayce-hot-pot-calgary/'),
     hours: fact(hours.en, hours.zh, '/contact/'),
     location: fact(`${address}. Call (403) 455-3188 for restaurant questions.`, `${address}。餐廳查詢請致電 (403) 455-3188。`, '/contact/'),
     booking: fact('Use Book Online to choose your date, party size and available time. This assistant cannot check live tables or make a reservation. A pending request still needs restaurant approval; only the booking system can show a confirmed reservation. For large groups or urgent changes, call (403) 455-3188.', '請按「網上訂位」選擇日期、人數及可用時段。本助手不能查詢即時空位或代為訂位。待確認申請仍需餐廳批准；請以訂位系統的確認結果為準。大型聚餐或緊急更改請致電 (403) 455-3188。', BOOKING_URL),
@@ -64,7 +64,7 @@ export function renderAnswer(selection, knowledge, question) {
   if (adults && adults === selection.adultCount && planNamed && ['ayce', 'ayce_snacks', 'personal'].includes(plan) && !/child|kid|baby|toddler|小孩|兒童|儿童|孩子|小朋友|小童|嬰兒|婴儿|幼兒|幼儿/i.test(question)) {
     const total = `$${(adults * price / 100).toFixed(2)}`;
     const label = lang === 'en' ? {ayce:'AYCE',ayce_snacks:'AYCE with snacks',personal:'personal hot pot'}[plan] : {ayce:'火鍋自助',ayce_snacks:'火鍋自助加小吃',personal:'個人火鍋'}[plan];
-    parts.push({ id: 'estimate', text: lang === 'en' ? `For ${adults} adults, ${label} totals ${total} CAD before tax and tip, excluding drinks and other add-ons.` : `${adults}位成人${label}合計 ${total} 加元，未計稅、小費、飲品及其他加點。`, href: localize('/menu/', language) });
+    parts.push({ id: 'estimate', text: lang === 'en' ? `For ${adults} adults, ${label} totals ${total} CAD; drinks and other add-ons are extra.` : `${adults}位成人${label}合計 ${total} 加元；飲品與其他加點另計。`, href: localize('/menu/', language) });
   }
   return { language, topic: selection.topic, parts };
 }

@@ -1,5 +1,5 @@
 {
-  "version": "02c5e4253bde472e",
+  "version": "9a536b48951c697d",
   "prices": {
     "ayce": 2899,
     "snacks": 599,
@@ -10,23 +10,23 @@
   },
   "facts": {
     "ayce": {
-      "en": "AYCE hot pot is $28.99 per adult before tax, with a soup base included. Choose AAA beef, lamb, pork or chicken; order meat through your server. Each guest has an individual pot.",
-      "zh": "火鍋自助每位成人 $28.99，另加稅，已含湯底。一人一鍋，牛、羊、豬及雞肉可向店員加點。",
+      "en": "AYCE hot pot is $28.99 per adult, with a soup base included. Choose AAA beef, lamb, pork or chicken; order meat through your server. Each guest has an individual pot.",
+      "zh": "火鍋自助每位成人 $28.99，已含湯底。一人一鍋，牛、羊、豬及雞肉可向店員加點。",
       "path": "/ayce-hot-pot-calgary/"
     },
     "snacks": {
-      "en": "Add 19 all-you-can-eat snacks to AYCE for $5.99 per person before tax. Everyone at the same table must take the snack upgrade.",
-      "zh": "火鍋自助每位加 $5.99，另加稅，可享19款小吃任食；同桌須一起升級。",
+      "en": "Add 19 all-you-can-eat snacks to AYCE for $5.99 per person. Everyone at the same table must take the snack upgrade.",
+      "zh": "火鍋自助每位加 $5.99，可享19款小吃任食；同桌須一起升級。",
       "path": "/menu/"
     },
     "personal": {
-      "en": "The $19.99 personal hot pot includes 1 soup base, a large vegetable set, 1 meat and 1 rice or noodle side. Price is before tax.",
-      "zh": "個人火鍋 $19.99，另加稅，包含1份湯底、大份蔬菜盤、1份肉類及1份飯或麵。",
+      "en": "The $19.99 personal hot pot includes 1 soup base, a large vegetable set, 1 meat and 1 rice or noodle side.",
+      "zh": "個人火鍋 $19.99，包含1份湯底、大份蔬菜盤、1份肉類及1份飯或麵。",
       "path": "/menu/"
     },
     "combos": {
-      "en": "Solo Combo: 1 personal hot pot and 1 drink for $24.99. Couple Combo: 2 personal hot pots, 2 drinks and 1 appetizer for $58.99. Prices are before tax.",
-      "zh": "單人套餐 $24.99，包含1份個人火鍋及1杯飲品。雙人套餐 $58.99，包含2份個人火鍋、2杯飲品及1份小吃。價格另加稅。",
+      "en": "Solo Combo: 1 personal hot pot and 1 drink for $24.99. Couple Combo: 2 personal hot pots, 2 drinks and 1 appetizer for $58.99.",
+      "zh": "單人套餐 $24.99，包含1份個人火鍋及1杯飲品。雙人套餐 $58.99，包含2份個人火鍋、2杯飲品及1份小吃。",
       "path": "/menu/"
     },
     "soups": {
@@ -35,8 +35,8 @@
       "path": "/menu/#soup-bases"
     },
     "kids": {
-      "en": "AYCE children’s prices are based on height: under 100 cm free; 100–140 cm $12.99; over 140 cm adult price. Prices are before tax.",
-      "zh": "火鍋自助兒童收費按身高：100厘米以下免費；100至140厘米 $12.99；超過140厘米按成人收費。價格另加稅。",
+      "en": "AYCE children’s prices are based on height: under 100 cm free; 100–140 cm $12.99; over 140 cm adult price.",
+      "zh": "火鍋自助兒童收費按身高：100厘米以下免費；100至140厘米 $12.99；超過140厘米按成人收費。",
       "path": "/ayce-hot-pot-calgary/"
     },
     "hours": {
@@ -65,23 +65,23 @@
       "path": "/contact/"
     },
     "rice_noodles": {
-      "en": "Rice and noodles: Signature Taiwanese Beef Noodle Soup $16.99; Braised Pork Rice $12.99; Taiwanese Fried Chicken Or Cutlet Rice / Noodle $14.99; Wonton Soup with Rice / Noodle $14.99; Unagi Rice Bowl $18.99; Beef Brisket Rice $16.99; Sukiyaki Beef Rice $16.99. Prices in CAD before tax. See the menu for all options; order through your server.",
-      "zh": "飯麵類：招牌台灣牛肉麵 $16.99; 滷肉飯 $12.99; 台式炸雞或雞排飯／麵 $14.99; 雲吞湯配飯／麵 $14.99; 鰻魚飯 $18.99; 牛腩飯 $16.99; 壽喜燒牛肉飯 $16.99。價格為加元，另加稅。完整選項請看菜單；點餐請向店員提出。",
+      "en": "Rice and noodles: Signature Taiwanese Beef Noodle Soup $16.99; Braised Pork Rice $12.99; Taiwanese Fried Chicken Or Cutlet Rice / Noodle $14.99; Wonton Soup with Rice / Noodle $14.99; Unagi Rice Bowl $18.99; Beef Brisket Rice $16.99; Sukiyaki Beef Rice $16.99. Prices in CAD. See the menu for all options; order through your server.",
+      "zh": "飯麵類：招牌台灣牛肉麵 $16.99; 滷肉飯 $12.99; 台式炸雞或雞排飯／麵 $14.99; 雲吞湯配飯／麵 $14.99; 鰻魚飯 $18.99; 牛腩飯 $16.99; 壽喜燒牛肉飯 $16.99。價格為加元。完整選項請看菜單；點餐請向店員提出。",
       "path": "/menu/#rice-noodles"
     },
     "appetizers": {
-      "en": "Selected à la carte snacks: Signature Taiwanese Fried Chicken $9.89; Takoyaki (6pcs) $8.89; Crispy Chicken Cutlet $9.89; Golden Fried Buns $6.89; Crispy Squid Legs $9.89; Popcorn Chicken $6.89; Golden Onion Rings $6.49; Edamame $6.49. Prices in CAD before tax. See the menu for all options; order through your server.",
-      "zh": "部分單點小吃：招牌台式炸雞 $9.89; 章魚燒 $8.89; 香脆雞排 $9.89; 黃金炸饅頭 $6.89; 酥炸魷魚鬚 $9.89; 鹽酥雞 $6.89; 黃金洋蔥圈 $6.49; 毛豆 $6.49。價格為加元，另加稅。完整選項請看菜單；點餐請向店員提出。",
+      "en": "Selected à la carte snacks: Signature Taiwanese Fried Chicken $9.89; Takoyaki (6pcs) $8.89; Crispy Chicken Cutlet $9.89; Golden Fried Buns $6.89; Crispy Squid Legs $9.89; Popcorn Chicken $6.89; Golden Onion Rings $6.49; Edamame $6.49. Prices in CAD. See the menu for all options; order through your server.",
+      "zh": "部分單點小吃：招牌台式炸雞 $9.89; 章魚燒 $8.89; 香脆雞排 $9.89; 黃金炸饅頭 $6.89; 酥炸魷魚鬚 $9.89; 鹽酥雞 $6.89; 黃金洋蔥圈 $6.49; 毛豆 $6.49。價格為加元。完整選項請看菜單；點餐請向店員提出。",
       "path": "/menu/#appetizers"
     },
     "drinks": {
-      "en": "Drink categories: Classic Teas $4.95; Milk Teas $5.95; Sea Salt Cream $6.95; Smoothies $7.95; Specialty Sodas $6.95; Soft Drinks $2.00. Prices in CAD before tax. See the menu for all options; order through your server.",
-      "zh": "飲品類別：經典茶飲 $4.95; 奶茶 $5.95; 海鹽奶蓋 $6.95; 冰沙 $7.95; 特調汽水 $6.95; 汽水 $2.00。價格為加元，另加稅。完整選項請看菜單；點餐請向店員提出。",
+      "en": "Drink categories: Classic Teas $4.95; Milk Teas $5.95; Sea Salt Cream $6.95; Smoothies $7.95; Specialty Sodas $6.95; Soft Drinks $2.00. Prices in CAD. See the menu for all options; order through your server.",
+      "zh": "飲品類別：經典茶飲 $4.95; 奶茶 $5.95; 海鹽奶蓋 $6.95; 冰沙 $7.95; 特調汽水 $6.95; 汽水 $2.00。價格為加元。完整選項請看菜單；點餐請向店員提出。",
       "path": "/menu/#drinks"
     },
     "addons": {
-      "en": "Personal hot pot add-ons: Split Pot Upgrade $2.00; Extra Meat $3.69; Extra Rice or Noodle Side $2.00. Prices in CAD before tax. See the menu for all options; order through your server.",
-      "zh": "個人火鍋加點：鴛鴦鍋升級 $2.00; 加肉 $3.69; 加飯或麵 $2.00。價格為加元，另加稅。完整選項請看菜單；點餐請向店員提出。",
+      "en": "Personal hot pot add-ons: Split Pot Upgrade $2.00; Extra Meat $3.69; Extra Rice or Noodle Side $2.00. Prices in CAD. See the menu for all options; order through your server.",
+      "zh": "個人火鍋加點：鴛鴦鍋升級 $2.00; 加肉 $3.69; 加飯或麵 $2.00。價格為加元。完整選項請看菜單；點餐請向店員提出。",
       "path": "/menu/#hotpot-set"
     }
   }

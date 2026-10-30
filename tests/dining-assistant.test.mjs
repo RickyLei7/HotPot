@@ -29,7 +29,7 @@ test('generated knowledge and all eight shared chat pages match their sources', 
 
 test('integer-cent estimates cover English and Chinese and name the option', () => {
   const answer = renderAnswer(selection({ adultCount: 2, pricePlan: 'ayce_snacks' }), knowledge, 'AYCE with snacks for 2 adults');
-  assert.match(answer.parts.at(-1).text, /AYCE with snacks totals \$69.96 CAD before tax/);
+  assert.match(answer.parts.at(-1).text, /AYCE with snacks totals \$69.96 CAD/);
   const zh = renderAnswer(selection({ language: 'zh-Hant', adultCount: 2, pricePlan: 'ayce' }), knowledge, '兩位成人火鍋自助多少錢？');
   assert.match(zh.parts.at(-1).text, /\$57.98/);
   assert.equal(zh.parts[0].href, '/zh-hant/ayce-hot-pot-calgary/');

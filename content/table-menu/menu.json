@@ -1227,28 +1227,6 @@
       "available": true
     },
     {
-      "id": "combo-prices-before-tax",
-      "categoryId": "combos",
-      "name": {
-        "en": "Prices Before Tax",
-        "zh": "價格未含税"
-      },
-      "description": {
-        "en": "",
-        "zh": ""
-      },
-      "serving": {
-        "en": "Rule",
-        "zh": "規則"
-      },
-      "priceRequired": false,
-      "imageId": "combo-prices-before-tax",
-      "tags": [
-        "rule"
-      ],
-      "available": true
-    },
-    {
       "id": "signature-taiwanese-fried-chicken",
       "categoryId": "appetizers",
       "name": {

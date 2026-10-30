@@ -7,7 +7,7 @@ const mapsUrl =
 export const metadata: Metadata = {
   title: "$28.99 AYCE Hot Pot Calgary | Centre Street Japanese HotPot",
   description:
-    "AYCE hot pot in Calgary for $28.99 + tax. Soup base included, 15 soup bases, and an optional 19-item AYCE appetizer upgrade for +$5.99 per person.",
+    "AYCE hot pot in Calgary for $28.99. Soup base included, 15 soup bases, and an optional 19-item AYCE appetizer upgrade for +$5.99 per person.",
   robots: {
     index: false,
     follow: true,
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "$28.99 AYCE Hot Pot Calgary | Centre Street Japanese HotPot",
     description:
-      "AYCE Hot Pot in Calgary for $28.99 + tax. Soup base included, 15 soup bases, snack upgrade, and phone reservations.",
+      "AYCE Hot Pot in Calgary for $28.99. Soup base included, 15 soup bases, snack upgrade, and phone reservations.",
     url: "https://centrestjhotpot.ca/google-ads-ayce-hot-pot/",
     images: ["/assets/ayce-menu-2026-08-25-fast-720.webp"],
   },
@@ -33,7 +33,7 @@ const adsSchema = {
       url: "https://centrestjhotpot.ca/google-ads-ayce-hot-pot/",
       name: "$28.99 AYCE Hot Pot Calgary",
       description:
-        "AYCE hot pot in Calgary for $28.99 + tax with soup base included, 15 soup bases, snack upgrade, phone reservations, and directions.",
+        "AYCE hot pot in Calgary for $28.99 with soup base included, 15 soup bases, snack upgrade, phone reservations, and directions.",
       about: [
         "AYCE hot pot Calgary",
         "all you can eat hot pot Calgary",
@@ -56,7 +56,7 @@ const adsSchema = {
       availability: "https://schema.org/InStock",
       url: "https://centrestjhotpot.ca/google-ads-ayce-hot-pot/",
       description:
-        "Soup base included. Meat ordered through the server. Price before tax.",
+        "Soup base included. Meat ordered through the server.",
       seller: {
         "@id": "https://centrestjhotpot.ca/#restaurant",
       },
@@ -162,7 +162,7 @@ export default function GoogleAdsAyceHotPotPage() {
         <div className="ads-grid">
           <article>
             <h3>AYCE Hot Pot</h3>
-            <p>$28.99 + tax. Soup base included. Meat is ordered through your server.</p>
+            <p>$28.99. Soup base included. Meat is ordered through your server.</p>
           </article>
           <article>
             <h3>Meat Selection</h3>

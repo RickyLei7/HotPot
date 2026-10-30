@@ -5,7 +5,7 @@ import { SiteNav } from "../site-nav";
 export const metadata: Metadata = {
   title: "$28.99 All You Can Eat Hot Pot Calgary | 15 Soup Bases",
   description:
-    "Calgary AYCE hot pot: $28.99 + tax, soup base included, 15 broths and server-ordered meats. Add 19 snacks for +$5.99 per person. View the menu and book online.",
+    "Calgary AYCE hot pot: $28.99, soup base included, 15 broths and server-ordered meats. Add 19 snacks for +$5.99 per person. View the menu and book online.",
   alternates: {
     canonical: "/ayce-hot-pot-calgary",
     languages: {
@@ -17,21 +17,21 @@ export const metadata: Metadata = {
   openGraph: {
     title: "$28.99 All You Can Eat Hot Pot Calgary | 15 Soup Bases",
     description:
-      "Calgary all-you-can-eat hot pot for $28.99 + tax with 15 soup bases, AAA beef, lamb, pork and chicken. Soup base included.",
+      "Calgary all-you-can-eat hot pot for $28.99 with 15 soup bases, AAA beef, lamb, pork and chicken. Soup base included.",
     url: "https://centrestjhotpot.ca/ayce-hot-pot-calgary/",
     images: ["/assets/ayce-menu-2026-08-25-fast-480.webp"],
   },
 };
 
 const ayceFaqs = [
-  ["What does AYCE mean?", "AYCE means all you can eat. At Centre Street Japanese HotPot, it is $28.99 per person plus tax, with one of 15 soup bases included and meats ordered through your server."],
+  ["What does AYCE mean?", "AYCE means all you can eat. At Centre Street Japanese HotPot, it is $28.99 per person, with one of 15 soup bases included and meats ordered through your server."],
   [
     "Where can I find AYCE hot pot in Calgary?",
     "Centre Street Japanese HotPot serves AYCE hot pot at 2213 Centre St N #2243, Calgary, AB T2E 2T4. Book online or call (403) 455-3188 for larger groups."
   ],
   [
     "How much is all-you-can-eat hot pot?",
-    "All-You-Can-Eat Hot Pot is $28.99 + tax. Soup base is included, and meat is ordered through your server."
+    "All-You-Can-Eat Hot Pot is $28.99. Soup base is included, and meat is ordered through your server."
   ],
   [
     "What meats are included with AYCE hot pot?",
@@ -51,7 +51,7 @@ const ayceFaqs = [
   ],
   [
     "How much is AYCE for children?",
-    "Under 100 cm: free. From 100–140 cm: $12.99 plus tax. Over 140 cm: adult price."
+    "Under 100 cm: free. From 100–140 cm: $12.99. Over 140 cm: adult price."
   ],
   [
     "When is the restaurant open?",
@@ -110,7 +110,7 @@ const ayceSchema = {
       dateModified: "2026-10-26",
       name: "All You Can Eat Hot Pot Calgary | AYCE $28.99",
       description:
-        "Calgary all-you-can-eat hot pot for $28.99 + tax with 15 soup bases, AAA beef, lamb, pork and chicken, an optional 19-snack upgrade, kids pricing, and reservation details.",
+        "Calgary all-you-can-eat hot pot for $28.99 with 15 soup bases, AAA beef, lamb, pork and chicken, an optional 19-snack upgrade, kids pricing, and reservation details.",
       url: "https://centrestjhotpot.ca/ayce-hot-pot-calgary/",
       about: [
         "AYCE hot pot Calgary",
@@ -210,7 +210,7 @@ export default function AyceHotPotCalgaryPage() {
           </div>
         </div>
         <a className="ayce-card poster-thumbnail" href="#ayce-poster" aria-label="View the complete AYCE menu poster">
-          <span className="price-badge">$28.99 + tax</span>
+          <span className="price-badge">$28.99</span>
           <img src="/assets/ayce-menu-2026-08-25-fast-360.webp" srcSet="/assets/ayce-menu-2026-08-25-fast-360.webp 360w, /assets/ayce-menu-2026-08-25-fast-480.webp 480w" sizes="(max-width: 760px) calc(100vw - 32px), 420px" alt="AYCE Hot Pot poster with $28.99 pricing and all 19 appetizer upgrade items" width="480" height="622" loading="lazy" decoding="async" />
           <strong className="poster-open-label">View full menu</strong>
         </a>

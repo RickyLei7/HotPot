@@ -15,7 +15,7 @@ const excludedFiles = new Set([
   "scripts/google-ads-update-snack-price-5-99.mjs",
 ]);
 const stalePricePattern = /(?:\+\s*)?\$?3[.,]99/giu;
-const expectedPdfSha256 = "cdf203cfa2e41a91564afd1b99853e19fb74bfb85a05c3c05a05412ed3d8197c";
+const expectedPdfSha256 = "21792cd8d0879021810ac88e7e2e8b975e6ff0757b9e5b9b80340fdda531a68a";
 
 async function collectFiles(relativePath) {
   const absolutePath = path.join(root, relativePath);

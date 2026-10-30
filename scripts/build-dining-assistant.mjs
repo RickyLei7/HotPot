@@ -40,8 +40,8 @@ export async function generateKnowledge() {
     }
     const list = lang => items.map(item => `${lang === 'en' ? item.name : translations[item.name]} $${Number(item.offers.price).toFixed(2)}`).join('; ');
     facts[id] = {
-      en:`${title}: ${list('en')}. Prices in CAD before tax. See the menu for all options; order through your server.`,
-      zh:`${zhTitle}：${list('zh')}。價格為加元，另加稅。完整選項請看菜單；點餐請向店員提出。`, path
+      en:`${title}: ${list('en')}. Prices in CAD. See the menu for all options; order through your server.`,
+      zh:`${zhTitle}：${list('zh')}。價格為加元。完整選項請看菜單；點餐請向店員提出。`, path
     };
   }
   const result = {prices, facts};

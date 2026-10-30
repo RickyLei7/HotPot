@@ -41,7 +41,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Calgary Hot Pot | $28.99 AYCE | Centre Street Japanese HotPot",
     description:
-      "Calgary hot pot with 15 soup bases: $28.99 AYCE + tax or $19.99 personal hot pot. View the menu and book online.",
+      "Calgary hot pot with 15 soup bases: $28.99 AYCE or $19.99 personal hot pot. View the menu and book online.",
     url: "https://centrestjhotpot.ca/",
     siteName: "Centre Street Japanese HotPot",
     images: ["/assets/dish-spicy.webp"],

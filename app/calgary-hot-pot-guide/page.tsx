@@ -26,7 +26,7 @@ export const metadata: Metadata = {
 const guideFaqs = [
   [
     "What is the difference between AYCE and personal hot pot?",
-    "AYCE is $28.99 + tax with soup base included and server-ordered meats. The $19.99 personal hot pot includes one soup base, a large vegetable set, one meat, and rice or noodles.",
+    "AYCE is $28.99 with soup base included and server-ordered meats. The $19.99 personal hot pot includes one soup base, a large vegetable set, one meat, and rice or noodles.",
   ],
   [
     "Which Calgary hot pot option should I choose?",
@@ -115,11 +115,11 @@ export default function CalgaryHotPotGuidePage() {
           <article className="guide-copy">
             <p className="eyebrow">Compare the two options</p>
             <h2>Choose Your Hot Pot</h2>
-            <h3>$28.99 AYCE · per person + tax</h3>
+            <h3>$28.99 AYCE · per person</h3>
             <p>Choose one of 15 soup bases, included in the price. Order AAA beef, lamb, pork or chicken through your server during the meal.</p>
             <p>Add 19 all-you-can-eat snacks for +$5.99 per person when everyone at the table upgrades.</p>
             <p><Link className="text-action" href="/ayce-hot-pot-calgary/">See AYCE details and children's prices</Link></p>
-            <h3>$19.99 Personal Hot Pot · + tax</h3>
+            <h3>$19.99 Personal Hot Pot</h3>
             <p>A complete set: one of 15 soup bases, a large vegetable set, one meat, and rice or noodles.</p>
             <p>The $24.99 Solo Combo adds one drink. The $58.99 Couple Combo includes two personal hot pots, two drinks and one appetizer.</p>
             <p><Link className="text-action" href="/menu/#hotpot-set">See personal hot pot and combos</Link></p>
@@ -129,7 +129,7 @@ export default function CalgaryHotPotGuidePage() {
             <p><strong>Restaurant:</strong> Centre Street Japanese HotPot</p>
             <p><strong>Style:</strong> Taiwanese and Japanese-style individual hot pot</p>
             <p><strong>Personal hot pot:</strong> $19.99</p>
-            <p><strong>AYCE:</strong> $28.99 + tax, soup base included</p>
+            <p><strong>AYCE:</strong> $28.99, soup base included</p>
             <p><strong>Address:</strong> 2213 Centre St N #2243, Calgary, AB T2E 2T4</p>
             <p><strong>Reserve:</strong> <a href="https://reservation.centrestjhotpot.ca/book" data-track-label="online_booking" aria-haspopup="dialog" data-reservation-launcher>Book online</a> or <a href="tel:+14034553188">call (403) 455-3188</a></p>
           </aside>

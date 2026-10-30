@@ -25,25 +25,25 @@ export const metadata: Metadata = {
 const faqs = [
   [
     "How much is all-you-can-eat hot pot in Calgary?",
-    "AYCE hot pot is $28.99 per person plus tax. Choose from 15 soup bases; soup base is included. Order AAA beef, lamb, pork or chicken through your server.",
+    "AYCE hot pot is $28.99 per person. Choose from 15 soup bases; soup base is included. Order AAA beef, lamb, pork or chicken through your server.",
     "/ayce-hot-pot-calgary/",
     "See AYCE details"
   ],
   [
     "How much is personal hot pot?",
-    "Personal hot pot is $19.99 plus tax. It includes one soup base, a large vegetable set, one meat and one rice or noodle side.",
+    "Personal hot pot is $19.99. It includes one soup base, a large vegetable set, one meat and one rice or noodle side.",
     "/menu/#hotpot-set",
     "View personal hot pot"
   ],
   [
     "What does the $5.99 snack upgrade include?",
-    "Add 19 all-you-can-eat snacks for $5.99 plus tax per person. Everyone at the same table must upgrade. Choices include Taiwanese fried chicken, takoyaki and golden fried buns.",
+    "Add 19 all-you-can-eat snacks for $5.99 per person. Everyone at the same table must upgrade. Choices include Taiwanese fried chicken, takoyaki and golden fried buns.",
     "/ayce-hot-pot-calgary/#ayce-snacks",
     "See all 19 snacks"
   ],
   [
     "How much is AYCE for children?",
-    "Children under 100 cm eat free. Children 100–140 cm are $12.99 plus tax. Over 140 cm, the adult price applies.",
+    "Children under 100 cm eat free. Children 100–140 cm are $12.99. Over 140 cm, the adult price applies.",
     "/ayce-hot-pot-calgary/",
     "View AYCE pricing"
   ],
@@ -73,13 +73,13 @@ const faqs = [
   ],
   [
     "Do you have solo and couple combos?",
-    "The $24.99 Solo Combo includes one personal hot pot and one drink. The $58.99 Couple Combo includes two personal hot pots, two drinks and one appetizer. Prices are before tax.",
+    "The $24.99 Solo Combo includes one personal hot pot and one drink. The $58.99 Couple Combo includes two personal hot pots, two drinks and one appetizer.",
     "/menu/#combo-specials",
     "View combos"
   ],
   [
     "What should I order on my first visit?",
-    "Choose the $19.99 personal hot pot for a complete set, or $28.99 AYCE if you want to order more meat. Then choose your soup base. Prices are before tax.",
+    "Choose the $19.99 personal hot pot for a complete set, or $28.99 AYCE if you want to order more meat. Then choose your soup base.",
     "/first-time-hot-pot-calgary/",
     "Read the first-visit guide"
   ]

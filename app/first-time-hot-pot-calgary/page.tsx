@@ -34,7 +34,7 @@ const faqs = [
   ],
   [
     "Does Centre Street Japanese HotPot have all-you-can-eat hot pot?",
-    "Yes. AYCE Hot Pot is $28.99 + tax with soup base included. Meat is ordered through the server, and a 19-item snack upgrade is available for +$5.99 per person when everyone at the table upgrades.",
+    "Yes. AYCE Hot Pot is $28.99 with soup base included. Meat is ordered through the server, and a 19-item snack upgrade is available for +$5.99 per person when everyone at the table upgrades.",
   ],
   [
     "Is hot pot suitable for a group or a first-time guest?",
@@ -103,7 +103,7 @@ export default function FirstTimeHotPotCalgaryPage() {
             <h2>First-visit facts</h2>
             <p><strong>Style:</strong> Taiwanese and Japanese-style individual hot pot</p>
             <p><strong>Soup bases:</strong> 15 choices</p>
-            <p><strong>AYCE:</strong> $28.99 + tax, soup base included</p>
+            <p><strong>AYCE:</strong> $28.99, soup base included</p>
             <p><strong>Address:</strong> 2213 Centre St N #2243, Calgary, AB T2E 2T4</p>
             <p><strong>Reserve:</strong> <a href="tel:+14034553188">(403) 455-3188</a></p>
           </aside>

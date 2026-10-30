@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { access, mkdtemp, readFile, rm } from "node:fs/promises";
+import { access, mkdtemp, readFile, rm, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { pathToFileURL } from "node:url";
 import { flattenMenuItems } from "../scripts/lib/table-menu-data.mjs";
@@ -113,6 +113,39 @@ test("builder rejects invalid focal positions with a clear error", async () => {
       }),
       /Invalid focal position for sample-dish: middle-ish/u,
     );
+  } finally {
+    await rm(tempDir, { recursive: true, force: true });
+  }
+});
+
+
+test("contained menu posters preserve their top and bottom content", async () => {
+  const tempDir = await makeRepoTempDir("poster");
+  const sharp = await loadSharp();
+  assert.ok(sharp, "sharp is required to verify poster content");
+
+  try {
+    const poster = `<svg width="120" height="240" xmlns="http://www.w3.org/2000/svg">
+      <rect width="120" height="240" fill="white"/>
+      <rect width="120" height="40" fill="red"/>
+      <rect y="200" width="120" height="40" fill="blue"/>
+    </svg>`;
+    await writeFile(path.join(tempDir, "poster.svg"), poster);
+    const { buildImages } = await import(pathToFileURL(path.join(root, "scripts/build-table-menu-images.mjs")));
+    await buildImages({
+      rootDir: tempDir,
+      manifest: { images: [{ imageId: "poster", source: "poster.svg", position: "center", fit: "contain" }] },
+    });
+
+    for (const width of [320, 640]) {
+      const { data, info } = await sharp(path.join(tempDir, `public/assets/table-menu/poster-${width}.webp`))
+        .removeAlpha().raw().toBuffer({ resolveWithObject: true });
+      const pixel = (x, y) => [...data.subarray((y * info.width + x) * info.channels, (y * info.width + x) * info.channels + 3)];
+      const [topRed, topGreen, topBlue] = pixel(width / 2, Math.round(info.height * 0.05));
+      const [bottomRed, bottomGreen, bottomBlue] = pixel(width / 2, Math.round(info.height * 0.95));
+      assert.ok(topRed > 200 && topGreen < 50 && topBlue < 50, "top price/header content must remain visible");
+      assert.ok(bottomBlue > 200 && bottomRed < 50 && bottomGreen < 50, "bottom price/footer content must remain visible");
+    }
   } finally {
     await rm(tempDir, { recursive: true, force: true });
   }

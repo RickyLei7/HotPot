@@ -1,24 +1,22 @@
-# Table Menu QR Card Usage Guide
+# Menu QR Card Usage Guide
 
-## Final destination
+## Current destination
 
-All tables use the same QR card. The encoded destination is:
+All tables use the same QR card. The encoded destination is the original website menu:
 
-`https://centrestjhotpot.ca/table-menu/?utm_source=table_qr&utm_medium=offline&utm_campaign=dine_in_menu`
+`https://centrestjhotpot.ca/menu/?utm_source=table_qr&utm_medium=offline&utm_campaign=dine_in_menu`
 
-The page is a view-only menu. Guests must order with their server; the QR code does not include a table number and cannot submit an order.
+Guests can browse the original English and Traditional Chinese menus, open the full-menu PDF, and book online. Dine-in orders are placed with a server.
 
-## Replacement sequence
+The separate Table Menu page was retired on 2026-10-30. Previously printed `/table-menu/` QR codes continue to redirect to `/menu/` with their tracking query preserved. Do not restore the retired page or print new cards pointing to it.
 
-Keep the existing `/menu/` cards on tables until the new `/table-menu/` route has passed production verification. Do not mix old and new cards during the final replacement.
+## Before batch printing
 
-Before batch printing:
-
-1. Print one 4 × 6 inch proof at 100% scale.
-2. Scan the printed proof with an iPhone and an Android phone.
-3. Confirm both phones land on `/table-menu/` with the complete UTM query.
-4. Confirm English loads first, Traditional Chinese switching works, photos load, and the menu contains no order-submission controls.
-5. Only after both scans pass, print the full table set and remove the old `/menu/` cards.
+1. Generate the current cards with `npm run generate:table-menu-qr`.
+2. Print one 4 × 6 inch proof at 100% scale.
+3. Scan the proof and confirm it opens `/menu/` with the complete UTM query.
+4. Confirm the original menu, language switch, full-menu PDF, and online booking work.
+5. Only after the physical proof passes, print replacement cards. Existing cards that redirect correctly can stay in use.
 
 ## Generated files
 
@@ -26,10 +24,8 @@ Before batch printing:
 - `marketing/qr-cards/table-menu-qr-card-4x6.png` — 1200 × 1800 raster at 300 DPI metadata
 - `marketing/qr-cards/table-menu-qr-card-4x6.pdf` — 4 × 6 inch print PDF
 
-## Release evidence
+The historical filenames are retained for existing print workflows. The QR destination is `/menu/`.
 
-- Deployed from `main` in GitHub Actions run [33739821382](https://github.com/RickyLei7/HotPot/actions/runs/33739821382).
-- Production verified at 2026-09-03 03:39 MDT: the QR destination, menu page, CSS, JavaScript, analytics script, and a representative menu image returned HTTP 200.
-- Automated mobile verification passed in Chromium at 390 × 844 and 430 × 932: English default, Traditional Chinese switching, Chinese search, approved featured order, image loading, zero page overflow, and no order-submission controls.
-- The committed PNG decoded to the complete UTM destination above.
-- Physical 4 × 6 inch proof scans on iPhone and Android remain pending before batch printing.
+## Verification
+
+The retired-page removal and original-menu QR destination were released in [PR #23](https://github.com/RickyLei7/HotPot/pull/23). Public route, menu PDF, and bilingual menu checks passed on 2026-10-30. Physical proof scans are still required before batch printing.

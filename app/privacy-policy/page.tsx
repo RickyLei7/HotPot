@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description:
     "Privacy policy for the Centre Street Japanese HotPot website and its internal Google Business Profile publishing tool.",
   alternates: {
-    canonical: "/privacy-policy",
+    canonical: "/privacy-policy/",
   },
 };
 

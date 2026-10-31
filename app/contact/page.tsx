@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description:
     "Book a table online at Centre Street Japanese HotPot in Calgary. Find our phone, Centre Street address, opening hours and Google Maps directions.",
   alternates: {
-    canonical: "/contact",
+    canonical: "/contact/",
     languages: {
       "en-CA": "/contact/",
       "zh-Hant-CA": "/zh-hant/contact/",

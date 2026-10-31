@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description:
     "Find Centre Street Japanese HotPot hours, address, phone, menu, directions and reservation details for our Calgary hot pot restaurant.",
   alternates: {
-    canonical: "/restaurant-info",
+    canonical: "/restaurant-info/",
     languages: {
       "en-CA": "/restaurant-info/",
       "zh-Hant-CA": "/zh-hant/restaurant-info/",

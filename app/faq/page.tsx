@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description:
     "Plan your visit to Centre Street Japanese HotPot: $28.99 AYCE, $19.99 personal hot pot, kids prices, soup bases, hours, directions and online booking.",
   alternates: {
-    canonical: "/faq",
+    canonical: "/faq/",
     languages: {
       "en-CA": "/faq/",
       "zh-Hant-CA": "/zh-hant/faq/",

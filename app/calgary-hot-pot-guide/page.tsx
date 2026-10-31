@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description:
     "Compare $28.99 AYCE and $19.99 personal hot pot in Calgary. See what each includes, choose from 15 soup bases, view the menu and book online.",
   alternates: {
-    canonical: "/calgary-hot-pot-guide",
+    canonical: "/calgary-hot-pot-guide/",
     languages: {
       "en-CA": "/calgary-hot-pot-guide/",
       "zh-Hant-CA": "/zh-hant/calgary-hot-pot-guide/",

@@ -25,6 +25,15 @@ for (const url of urls) {
   const title = clean(html.match(/<title>(.*?)<\/title>/s)?.[1] ?? '');
   assert.ok(title && !titles.has(title), `${url}: missing or duplicate title`);
   titles.add(title);
+  const route = new URL(url).pathname;
+  if (!route.startsWith('/zh-hant/')) {
+    const sourcePath = route === '/' ? path.resolve('app/layout.tsx') : path.resolve('app', route.slice(1), 'page.tsx');
+    const source = await readFile(sourcePath, 'utf8');
+    assert.equal(source.match(/\bcanonical:\s*"([^"]+)"/)?.[1], route, `${url}: source canonical differs from the published route`);
+    assert.equal(source.match(/\btitle:\s*"([^"]+)"/)?.[1], title, `${url}: source and published titles differ`);
+    const description = clean(html.match(/<meta\s+name="description"\s+content="([^"]*)"/)?.[1] ?? '');
+    assert.equal(source.match(/\bdescription:\s*"([^"]+)"/)?.[1], description, `${url}: source and published descriptions differ`);
+  }
   assert.match(html, /<meta\s+name="description"\s+content="[^"]+"/s, `${url}: missing description`);
   assert.equal((html.match(/<h1\b/g) ?? []).length, 1, `${url}: expected one H1`);
   assert.ok(html.includes(`rel="canonical" href="${url}"`), `${url}: canonical mismatch`);

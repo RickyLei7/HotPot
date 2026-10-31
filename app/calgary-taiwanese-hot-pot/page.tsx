@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description:
     "Taiwanese food in Calgary: $16.99 beef noodle soup, $12.99 braised pork rice, personal hot pot and AYCE. See prices, the full menu and book online.",
   alternates: {
-    canonical: "/calgary-taiwanese-hot-pot",
+    canonical: "/calgary-taiwanese-hot-pot/",
     languages: {
       "en-CA": "/calgary-taiwanese-hot-pot/",
       "zh-Hant-CA": "/zh-hant/calgary-taiwanese-hot-pot/",

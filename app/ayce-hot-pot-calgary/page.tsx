@@ -3,11 +3,11 @@ import Link from "next/link";
 import { SiteNav } from "../site-nav";
 
 export const metadata: Metadata = {
-  title: "$28.99 All You Can Eat Hot Pot Calgary | 15 Soup Bases",
+  title: "$28.99 AYCE Hot Pot Calgary | 15 Soup Bases",
   description:
-    "Calgary AYCE hot pot: $28.99, soup base included, 15 broths and server-ordered meats. Add 19 snacks for +$5.99 per person. View the menu and book online.",
+    "Enjoy $28.99 all-you-can-eat hot pot in Calgary at Centre Street Japanese HotPot. Soup base included; add 19 AYCE snacks for +$5.99 per person. Book online.",
   alternates: {
-    canonical: "/ayce-hot-pot-calgary",
+    canonical: "/ayce-hot-pot-calgary/",
     languages: {
       "en-CA": "/ayce-hot-pot-calgary/",
       "zh-Hant-CA": "/zh-hant/ayce-hot-pot-calgary/",
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "$28.99 All You Can Eat Hot Pot Calgary | 15 Soup Bases",
+    title: "$28.99 AYCE Hot Pot Calgary | 15 Soup Bases",
     description:
       "Calgary all-you-can-eat hot pot for $28.99 with 15 soup bases, AAA beef, lamb, pork and chicken. Soup base included.",
     url: "https://centrestjhotpot.ca/ayce-hot-pot-calgary/",
@@ -107,7 +107,7 @@ const ayceSchema = {
     {
       "@type": "WebPage",
       "@id": "https://centrestjhotpot.ca/ayce-hot-pot-calgary/#webpage",
-      dateModified: "2026-10-26",
+      dateModified: "2026-10-31",
       name: "All You Can Eat Hot Pot Calgary | AYCE $28.99",
       description:
         "Calgary all-you-can-eat hot pot for $28.99 with 15 soup bases, AAA beef, lamb, pork and chicken, an optional 19-snack upgrade, kids pricing, and reservation details.",
@@ -171,8 +171,7 @@ export default function AyceHotPotCalgaryPage() {
           <p className="eyebrow">All-you-can-eat hot pot in Calgary</p>
           <h1>All-You-Can-Eat Hot Pot Calgary · $28.99</h1>
           <p className="hero-text">
-            Soup base included. Choose from 15 broths and order AAA beef, lamb,
-            pork, or chicken through your server.
+            $28.99 per person includes your own pot and 1 of 15 soup bases. Order AAA beef, lamb, pork or chicken through your server. Add 19 AYCE snacks for +$5.99 per person; everyone at the table must upgrade.
           </p>
           <div className="hero-actions">
             <a className="primary-action" href="https://reservation.centrestjhotpot.ca/book" data-track-label="online_booking" aria-haspopup="dialog" data-reservation-launcher>

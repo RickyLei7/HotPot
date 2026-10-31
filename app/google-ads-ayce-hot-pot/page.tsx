@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     follow: true,
   },
   alternates: {
-    canonical: "/google-ads-ayce-hot-pot",
+    canonical: "/google-ads-ayce-hot-pot/",
   },
   openGraph: {
     title: "$28.99 AYCE Hot Pot Calgary | Centre Street Japanese HotPot",

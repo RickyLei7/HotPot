@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description:
     "Meet Centre Street Japanese HotPot, a Calgary restaurant serving Taiwanese and Japanese-style hot pot, 15 soup bases, snacks and milk tea.",
   alternates: {
-    canonical: "/about",
+    canonical: "/about/",
     languages: {
       "en-CA": "/about/",
       "zh-Hant-CA": "/zh-hant/about/",

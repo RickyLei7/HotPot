@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description:
     "New to hot pot in Calgary? Learn how personal and AYCE hot pot work, which soup base to choose, what to order and how to reserve a table.",
   alternates: {
-    canonical: "/first-time-hot-pot-calgary",
+    canonical: "/first-time-hot-pot-calgary/",
     languages: {
       "en-CA": "/first-time-hot-pot-calgary/",
       "zh-Hant-CA": "/zh-hant/first-time-hot-pot-calgary/",

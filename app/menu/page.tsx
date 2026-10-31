@@ -3,7 +3,7 @@ import Link from "next/link";
 import { SiteNav } from "../site-nav";
 
 export const metadata: Metadata = {
-  title: "Calgary Hot Pot Menu & Prices | Centre Street Japanese HotPot",
+  title: "Centre Street Japanese HotPot Menu & Prices | Calgary",
   description:
     "View Centre Street Japanese HotPot menu and prices: $28.99 AYCE, $19.99 personal hot pot, 15 soup bases and +$5.99 AYCE snacks.",
   alternates: {
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "Calgary Hot Pot Menu & Prices | Centre Street Japanese HotPot",
+    title: "Centre Street Japanese HotPot Menu & Prices | Calgary",
     description:
       "View Centre Street Japanese HotPot menu and prices: $28.99 AYCE, $19.99 personal hot pot, 15 soup bases and +$5.99 AYCE snacks.",
     url: "https://centrestjhotpot.ca/menu/",

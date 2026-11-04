@@ -29,8 +29,8 @@ const taiwaneseHotPotFaqs = [
     "Centre Street Japanese HotPot serves Taiwanese-style and Japanese-style individual hot pot at 2213 Centre St N #2243 in Calgary.",
   ],
   [
-    "What Taiwanese food can I order besides hot pot?",
-    "The menu includes Taiwanese beef noodle soup, braised pork rice, fried chicken with rice or noodles, wonton soup, fried snacks, milk tea, and other drinks.",
+    "Can I order Taiwanese food without having hot pot?",
+    "Yes. Order Taiwanese beef noodle soup for $16.99, braised pork rice for $12.99, or Taiwanese fried chicken with rice or noodles for $14.99. Snacks and drinks can also be ordered individually.",
   ],
   [
     "How does personal hot pot work?",
@@ -57,7 +57,7 @@ const pageSchema = {
         "Taiwanese food and hot pot in Calgary, including personal hot pot, AYCE, beef noodle soup, rice bowls, fried snacks, milk tea, and reservations.",
       url: "https://centrestjhotpot.ca/calgary-taiwanese-hot-pot/",
       datePublished: "2026-08-08",
-      dateModified: "2026-10-20",
+      dateModified: "2026-11-03",
       author: { "@id": "https://centrestjhotpot.ca/#restaurant" },
       image: "https://centrestjhotpot.ca/assets/dish-sukiyaki.webp",
       inLanguage: "en-CA",
@@ -161,6 +161,29 @@ export default function CalgaryTaiwaneseHotPotPage() {
           </article>
         </div>
         <div className="menu-download-actions"><Link className="text-action" href="/menu/#rice-noodles">See all rice and noodle dishes</Link></div>
+      </section>
+
+      <section className="weekly-picks" id="snacks-and-milk-tea" aria-labelledby="taiwanese-snacks-title">
+        <div>
+          <p className="eyebrow">Add a snack or drink</p>
+          <h2 id="taiwanese-snacks-title">Taiwanese Snacks &amp; Milk Tea</h2>
+          <p>Share a snack or enjoy one with your rice or noodles. These are individual menu prices.</p>
+        </div>
+        <div className="weekly-picks-grid">
+          <article>
+            <img src="/assets/ayce-signature-fried-chicken-2026-09-21-320.webp" srcSet="/assets/ayce-signature-fried-chicken-2026-09-21-224.webp 224w, /assets/ayce-signature-fried-chicken-2026-09-21-320.webp 320w, /assets/ayce-signature-fried-chicken-2026-09-21-480.webp 480w" sizes="(max-width: 560px) 112px, (max-width: 1100px) 50vw, 33vw" alt="Signature Taiwanese fried chicken at Centre Street Japanese HotPot" width="320" height="180" loading="lazy" decoding="async" />
+            <div><h3>Signature Taiwanese Fried Chicken · $9.89</h3><p>Crispy, bite-sized chicken to share or enjoy as a snack.</p></div>
+          </article>
+          <article>
+            <img src="/assets/table-menu/takoyaki-320.webp" srcSet="/assets/table-menu/takoyaki-320.webp 320w, /assets/table-menu/takoyaki-640.webp 640w" sizes="(max-width: 560px) 112px, (max-width: 1100px) 50vw, 33vw" alt="Takoyaki snack at Centre Street Japanese HotPot" width="320" height="240" loading="lazy" decoding="async" />
+            <div><h3>Takoyaki · $8.89</h3><p>Six pieces for a side dish or a shared snack.</p></div>
+          </article>
+          <article>
+            <img src="/assets/milk-tea-photo-320.webp" srcSet="/assets/milk-tea-photo-320.webp 320w, /assets/milk-tea-photo-640.webp 640w, /assets/milk-tea-photo.webp 900w" sizes="(max-width: 560px) 112px, (max-width: 1100px) 50vw, 33vw" alt="Milk tea served with Taiwanese food in Calgary" width="320" height="427" loading="lazy" decoding="async" />
+            <div><h3>Milk Tea · $5.95</h3><p>Choose your sweetness and ice level. Toppings are extra.</p></div>
+          </article>
+        </div>
+        <div className="menu-download-actions"><a className="text-action" href="/menu/#appetizers">See all snacks and prices</a><a className="text-action" href="/menu/#drinks">Browse drinks and toppings</a></div>
       </section>
 
       <section className="content-section">

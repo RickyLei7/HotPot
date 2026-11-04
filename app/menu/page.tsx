@@ -300,6 +300,7 @@ export default function MenuPage() {
               <div key={item}><span>{item}</span><strong>{price}</strong></div>
             ))}
           </div>
+          <p><Link className="text-action" href="/calgary-taiwanese-hot-pot/">Explore Taiwanese food and snacks</Link></p>
         </div>
         <div id="appetizers">
           <div className="section-heading compact">

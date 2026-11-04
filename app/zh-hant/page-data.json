@@ -317,7 +317,14 @@
           ]
         ],
         "id": "rice-noodles",
-        "navLabel": "飯麵"
+        "navLabel": "飯麵",
+        "actions": [
+          {
+            "label": "探索台式飯麵與小吃",
+            "href": "/zh-hant/calgary-taiwanese-hot-pot/",
+            "style": "primary-action"
+          }
+        ]
       },
       {
         "eyebrow": "台式小吃",
@@ -963,6 +970,40 @@
         ]
       },
       {
+        "id": "snacks-and-milk-tea",
+        "eyebrow": "單點小吃與飲品",
+        "title": "台式小吃與奶茶",
+        "paragraphs": [
+          "小吃可以單點，也能搭配飯麵一起享用。以下為單點價格。"
+        ],
+        "cards": [
+          {
+            "title": "招牌台式鹽酥雞 $9.89",
+            "text": "香酥雞塊，適合分享或單點。"
+          },
+          {
+            "title": "章魚小丸子 $8.89",
+            "text": "每份 6 顆，可作配菜或與朋友分享。"
+          },
+          {
+            "title": "奶茶 $5.95",
+            "text": "可選甜度與冰量，配料另計。"
+          }
+        ],
+        "actions": [
+          {
+            "label": "查看小吃與價格",
+            "href": "/zh-hant/menu/#appetizers",
+            "style": "primary-action"
+          },
+          {
+            "label": "查看飲品與配料",
+            "href": "/zh-hant/menu/#drinks",
+            "style": "secondary-action dark"
+          }
+        ]
+      },
+      {
         "eyebrow": "店鋪位置",
         "title": "在卡加利哪裡可以吃台式火鍋",
         "paragraphs": [
@@ -978,9 +1019,13 @@
       {
         "question": "可以每個人選不同湯底嗎？",
         "answer": "可以。一人一鍋讓每位客人各自選擇湯底與辣度。"
+      },
+      {
+        "question": "不吃火鍋也能單點台式飯麵嗎？",
+        "answer": "可以。台灣傳統牛肉麵 $16.99、台式滷肉飯 $12.99、台式鹽酥雞飯或麵 $14.99。小吃與飲品也能單點。"
       }
     ],
-    "dateModified": "2026-10-20",
+    "dateModified": "2026-11-03",
     "imageSrcSet": "/assets/dish-spicy-320.webp 320w, /assets/dish-spicy-640-perf.webp 640w, /assets/dish-spicy.webp 1024w",
     "imageSizes": "(max-width: 760px) min(360px, calc(100vw - 36px)), (max-width: 1100px) 520px, (max-width: 1400px) 42vw, 560px"
   },

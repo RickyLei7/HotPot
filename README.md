@@ -36,6 +36,10 @@ centrestjhotpot.ca
 
 6. Save, then enable `Enforce HTTPS` after GitHub finishes checking the domain.
 
+### Re-running a deployment
+
+The Pages workflow gives every run attempt a unique artifact name and passes that same name to the upload and deploy actions. Re-run the current workflow after a transient provider failure; do not re-run older revisions to publish current changes. Confirm the `deploy` job succeeds, then check the homepage, `/menu/`, and the online booking form on the live domain. A successful upload alone does not confirm publication.
+
 ## DNS Records For CENTRESTJHOTPOT.CA
 
 Set these records at the company where the domain was purchased.

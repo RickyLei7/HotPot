@@ -11,6 +11,10 @@ permissions:
   pages: write
   id-token: write
 
+# Give each attempt its own artifact so re-runs cannot select an older upload.
+env:
+  PAGES_ARTIFACT_NAME: github-pages-${{ github.run_id }}-${{ github.run_attempt }}
+
 concurrency:
   group: pages
   cancel-in-progress: false
@@ -37,10 +41,13 @@ jobs:
       - name: Upload static files
         uses: actions/upload-pages-artifact@v3
         with:
+          name: ${{ env.PAGES_ARTIFACT_NAME }}
           path: public
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+        with:
+          artifact_name: ${{ env.PAGES_ARTIFACT_NAME }}
       - name: Notify IndexNow about updated pages
         continue-on-error: true
         run: node scripts/submit-indexnow.mjs

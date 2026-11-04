@@ -138,7 +138,10 @@ export function HomepageMenu({ language }: { language: HomepageLanguage }) {
             </article>
           ))}
         </div>
-        <Link className="primary-action" href={menuPath}>{content.lightMeals.menu}</Link>
+        <div className="menu-download-actions">
+          <Link className="primary-action" href={menuPath}>{content.lightMeals.menu}</Link>
+          <Link className="secondary-action dark" href={isZh ? "/zh-hant/calgary-taiwanese-hot-pot/" : "/calgary-taiwanese-hot-pot/"}>{isZh ? "探索台式飯麵與小吃" : "Explore Taiwanese Food & Snacks"}</Link>
+        </div>
       </section>
 
       <section id="drinks" className="drink-feature">

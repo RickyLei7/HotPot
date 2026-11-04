@@ -22,7 +22,7 @@ export function HomepageMenu({ language }: { language: HomepageLanguage }) {
         { href: "/calgary-hot-pot-guide/", label: "Calgary Hot Pot Guide" },
         { href: "/calgary-taiwanese-hot-pot/", label: "Taiwanese Food & Hot Pot Calgary" },
         { href: "/first-time-hot-pot-calgary/", label: "First-Time Hot Pot Guide" },
-        { href: "/ayce-hot-pot-calgary/", label: "AYCE Hot Pot Calgary" },
+        { href: "/ayce-hot-pot-calgary/", label: "All-You-Can-Eat Hot Pot Calgary" },
       ];
   const snackImages = [
     { src: "/assets/ayce-signature-fried-chicken-2026-09-21-320.webp", srcSet: "/assets/ayce-signature-fried-chicken-2026-09-21-224.webp 224w, /assets/ayce-signature-fried-chicken-2026-09-21-320.webp 320w, /assets/ayce-signature-fried-chicken-2026-09-21-480.webp 480w" },
@@ -39,7 +39,7 @@ export function HomepageMenu({ language }: { language: HomepageLanguage }) {
       <section id="ayce" className="homepage-ayce">
         <div className="homepage-ayce-copy">
           <p className="eyebrow">{content.ayce.eyebrow}</p>
-          <h1>{isZh ? <><span className="heading-unit">$28.99</span>{" "}<span className="heading-unit">火鍋自助</span></> : content.ayce.title}</h1><p className="offer-tax">{isZh ? "每位 · 鍋底已包含" : "Per person · Soup base included"}</p>
+          <h1>{isZh ? <><span className="heading-unit">$28.99</span>{" "}<span className="heading-unit">火鍋自助</span></> : content.ayce.title.split(/(Hot Pot)/).map((part, index) => part === "Hot Pot" ? <span className="heading-unit" key={index}>{part}</span> : part)}</h1><p className="offer-tax">{isZh ? "每位 · 鍋底已包含" : "Per person · Soup base included"}</p>
           <p className="homepage-lead">{content.ayce.lead}</p>
 
           <div className="hero-actions booking-actions">
@@ -77,6 +77,7 @@ export function HomepageMenu({ language }: { language: HomepageLanguage }) {
           ))}
         </div>
         <p className="snack-rule"><strong>{content.ayce.snackRule}</strong> {content.ayce.individualNote}</p>
+        {!isZh && <Link className="text-action" href="/ayce-hot-pot-calgary/">See AYCE prices &amp; inclusions</Link>}
         <Link className="text-action" href={menuPath}>{content.lightMeals.menu}</Link>
       </section>
 

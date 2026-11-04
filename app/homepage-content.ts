@@ -96,9 +96,9 @@ export const homepageContent: { en: HomepageContent; zhHant: HomepageContent } =
   en: {
     navPath: "/",
     ayce: {
-      eyebrow: "All-you-can-eat hot pot in Calgary",
-      title: "$28.99 AYCE Hot Pot",
-      lead: "Choose 1 of 15 soup bases. Order AAA beef, lamb, pork, or chicken through your server.",
+      eyebrow: "All-you-can-eat hot pot",
+      title: "$28.99 Hot Pot in Calgary",
+      lead: "Your own pot. Choose 1 of 15 soup bases, then order AAA beef, lamb, pork or chicken through your server.",
       detail: "Your soup base is included. Come for a relaxed family dinner, a table with friends, or a group meal on Centre Street.",
       reserve: "Book Online",
       menu: "View Menu",

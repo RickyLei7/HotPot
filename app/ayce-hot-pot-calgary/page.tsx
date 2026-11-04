@@ -3,9 +3,9 @@ import Link from "next/link";
 import { SiteNav } from "../site-nav";
 
 export const metadata: Metadata = {
-  title: "$28.99 AYCE Hot Pot Calgary | 15 Soup Bases",
+  title: "$28.99 All-You-Can-Eat Hot Pot Calgary | Soup Included",
   description:
-    "Enjoy $28.99 all-you-can-eat hot pot in Calgary at Centre Street Japanese HotPot. Soup base included; add 19 AYCE snacks for +$5.99 per person. Book online.",
+    "All-you-can-eat hot pot in Calgary for $28.99 per person. Soup base included, 15 choices, AAA beef, lamb, pork and chicken. View the menu and book online.",
   alternates: {
     canonical: "/ayce-hot-pot-calgary/",
     languages: {
@@ -15,9 +15,9 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "$28.99 AYCE Hot Pot Calgary | 15 Soup Bases",
+    title: "$28.99 All-You-Can-Eat Hot Pot Calgary | Soup Included",
     description:
-      "Calgary all-you-can-eat hot pot for $28.99 with 15 soup bases, AAA beef, lamb, pork and chicken. Soup base included.",
+      "All-you-can-eat hot pot in Calgary for $28.99 per person. Soup base included, 15 choices, AAA beef, lamb, pork and chicken. View the menu and book online.",
     url: "https://centrestjhotpot.ca/ayce-hot-pot-calgary/",
     images: ["/assets/ayce-menu-2026-08-25-fast-480.webp"],
   },
@@ -107,10 +107,10 @@ const ayceSchema = {
     {
       "@type": "WebPage",
       "@id": "https://centrestjhotpot.ca/ayce-hot-pot-calgary/#webpage",
-      dateModified: "2026-10-31",
-      name: "All You Can Eat Hot Pot Calgary | AYCE $28.99",
+      dateModified: "2026-11-04",
+      name: "$28.99 All-You-Can-Eat Hot Pot Calgary | Soup Included",
       description:
-        "Calgary all-you-can-eat hot pot for $28.99 with 15 soup bases, AAA beef, lamb, pork and chicken, an optional 19-snack upgrade, kids pricing, and reservation details.",
+        "All-you-can-eat hot pot in Calgary for $28.99 per person. Soup base included, 15 choices, AAA beef, lamb, pork and chicken. View the menu and book online.",
       url: "https://centrestjhotpot.ca/ayce-hot-pot-calgary/",
       about: [
         "AYCE hot pot Calgary",
@@ -166,12 +166,12 @@ export default function AyceHotPotCalgaryPage() {
       />
       <SiteNav currentPath="/ayce-hot-pot-calgary/" />
 
-      <section className="page-hero guide-page-hero">
+      <section className="page-hero menu-page-hero">
         <div>
           <p className="eyebrow">All-you-can-eat hot pot in Calgary</p>
-          <h1>All-You-Can-Eat Hot Pot Calgary · $28.99</h1>
+          <h1>All-You-Can-Eat Hot Pot in Calgary</h1>
           <p className="hero-text">
-            $28.99 per person includes your own pot and 1 of 15 soup bases. Order AAA beef, lamb, pork or chicken through your server. Add 19 AYCE snacks for +$5.99 per person; everyone at the table must upgrade.
+            <strong>$28.99 per person · Soup base included.</strong> Choose 1 of 15 soup bases and order AAA beef, lamb, pork or chicken through your server.
           </p>
           <div className="hero-actions">
             <a className="primary-action" href="https://reservation.centrestjhotpot.ca/book" data-track-label="online_booking" aria-haspopup="dialog" data-reservation-launcher>
@@ -180,7 +180,7 @@ export default function AyceHotPotCalgaryPage() {
             <a className="secondary-action" href={directionsUrl} target="_blank" rel="noreferrer">
               Get Directions
             </a>
-            <Link className="secondary-action" href="/menu#ayce-hotpot">
+            <Link className="secondary-action" href="/menu/#ayce-hotpot">
               View AYCE Menu
             </Link>
           </div>

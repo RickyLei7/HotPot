@@ -1,8 +1,9 @@
 # Booking security recovery — 2026-10-20
 
-The public booking application is deployed from the separate, reviewed daily
-release builder in `Documents/HotPot/tmp/pos-daily-release-20261016/daily-build.mjs`.
-The older `seat-manager/src` snapshot in this checkout is not that release.
+The daily release builder formerly used at
+`Documents/HotPot/tmp/pos-daily-release-20261016/daily-build.mjs` is retired.
+The older `seat-manager/src` snapshot is also not the current release.
+Export and verify the active production modules and apply only reviewed text-module changes; preserve the other modules, bindings and assets.
 
 `booking-security.mjs` updates only the reviewed booking client. It offers retry
 after challenge expiry, timeout or unsupported-browser failures, clears obsolete
@@ -39,3 +40,7 @@ asserts both exact transformations. The recovered source has the same copy
 changes while retaining its separate, previously pending paused-booking UI.
 Release evidence and isolated flow checks are retained in
 `Documents/HotPot/tmp/reservation-booking-copy-20261020-release/`.
+
+## Stalled security check recovery — 2026-11-04
+
+`booking-security-recovery.mjs` transforms the current production booking client. It adds inline progress and interactive instructions, a 30-second manual retry offer, and lifecycle cleanup. It never enables submission without a valid token. The expanded callback suite has 13 checks; together with the 8 keyboard/IME checks it gives 21 isolated checks. See [release evidence and physical-device limits](../../docs/booking-security-recovery-2026-11-04.md).

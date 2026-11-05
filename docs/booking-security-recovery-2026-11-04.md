@@ -1,0 +1,11 @@
+# Booking security recovery — 2026-11-04
+
+The public booking client previously offered no bounded recovery when Turnstile rendered but never returned a callback. Guests could see a disabled submission button indefinitely. The client now announces verification progress at the widget, provides interactive instructions, and offers manual retry after 30 seconds. A late valid result still completes normally. Retry preserves guest fields and keeps submission blocked until a valid token arrives.
+
+Production: `hotpot-seat-manager-production`, version `4d7a5ba2-1dcc-4742-90da-d38b0fc60a80`. Only `server/booking-measurement-booking.txt` changed. All other 28 module hashes, resource bindings, assets, settings, data namespace and server-side verification were preserved. Public client SHA-256: `a41b12ee4a6807fd6bb074fa34218fb8ffee394ebce7852beb14cb65c63c4ae3`.
+
+Validation: 13 security lifecycle regression checks passed, including stalled-widget recovery, expired/error callbacks, stale-callback rejection and field preservation. The unmodified baseline fails the new stall tests. Eight existing Safari keyboard/IME checks also passed. A 390px isolated browser fixture retained all fields through retry and reached a local-only booking confirmation. No real booking, SMS or business-data write was made. Original menu content and both menu PDF hashes were unchanged. Cloudflare injects per-request ray/time values into HTML; only those dynamic values were normalized for comparison.
+
+Native macOS Safari passed automatically before the change. After deployment it displayed the real interactive challenge and new inline instructions; completing that CAPTCHA requires action-time permission. The iPhone Duo simulator loaded dates and availability, but the simulator switched to another app during QA. Physical iPhone Safari completion is not yet independently confirmed.
+
+Deployment safety: derive the candidate from the currently deployed client text module using `bookingSecurityRecovery`. The transformer rejects drift in reviewed anchors. Recheck active/latest Worker versions before staging and activation, preserve all existing modules/assets/bindings, and read the public client back after release. Do not rebuild from the retired POS daily bundle.

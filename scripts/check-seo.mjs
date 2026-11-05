@@ -17,6 +17,7 @@ async function documentFor(url) {
   if (!files.has(filename)) files.set(filename, await readFile(filename, 'utf8'));
   return files.get(filename);
 }
+const zhPages = Object.values(JSON.parse(await readFile('app/zh-hant/page-data.json', 'utf8')));
 const titles = new Set();
 const inbound = new Set();
 let links = 0, answers = 0;
@@ -34,6 +35,13 @@ for (const url of urls) {
     const description = clean(html.match(/<meta\s+name="description"\s+content="([^"]*)"/)?.[1] ?? '');
     assert.equal(source.match(/\bdescription:\s*"([^"]+)"/)?.[1], description, `${url}: source and published descriptions differ`);
   }
+  if (route.startsWith('/zh-hant/')) {
+    const source = zhPages.find(page => page.path === route);
+    assert.ok(source, `${url}: missing Chinese page source`);
+    assert.equal(title, source.title, `${url}: Chinese source and published titles differ`);
+    assert.equal(clean(html.match(/<meta\s+name="description"\s+content="([^"]*)"/)?.[1] ?? ''), source.description, `${url}: Chinese source and published descriptions differ`);
+  }
+  if (html.includes('data-dining-helper')) assert.match(html, /<section\b[^>]*\bdata-dining-helper\b[^>]*\bdata-nosnippet(?:\s|=|>)/, `${url}: chat boilerplate can leak into search snippets`);
   assert.match(html, /<meta\s+name="description"\s+content="[^"]+"/s, `${url}: missing description`);
   assert.equal((html.match(/<h1\b/g) ?? []).length, 1, `${url}: expected one H1`);
   assert.ok(html.includes(`rel="canonical" href="${url}"`), `${url}: canonical mismatch`);

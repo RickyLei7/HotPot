@@ -1424,7 +1424,7 @@ a.beef-noodle-feature-media {
   .light-meal-card p { margin: 5px 0 0; }
 }
 
-.homepage-ayce h1 .heading-unit { display: inline-block; white-space: nowrap; }
+.homepage-ayce h1 .heading-unit, .localized-hero h1 .heading-unit { display: inline-block; white-space: nowrap; }
 
 /* Keep menu prices and category links together above the fold. */
 .menu-page-hero { min-height: auto; padding: 36px clamp(16px, 5vw, 76px); grid-template-columns: 1fr; }

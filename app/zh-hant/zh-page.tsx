@@ -135,7 +135,7 @@ export function ZhPage({ data }: { data: ZhPageData }) {
       <SiteNav currentPath={data.path} language="zh-Hant" />
       <section className={`localized-hero${data.path === "/zh-hant/menu/" ? " menu-page-hero" : ""}`}>
         <div className="localized-hero-copy">
-          <p className="eyebrow">{data.eyebrow}</p><h1>{data.h1}</h1><p className="hero-text">{data.lead}</p>
+          <p className="eyebrow">{data.eyebrow}</p><h1>{data.path === "/zh-hant/ayce-hot-pot-calgary/" ? data.h1.split(" ").map((unit, index) => <span key={unit}>{index > 0 ? " " : ""}<span className="heading-unit">{unit}</span></span>) : data.h1}</h1><p className="hero-text">{data.lead}</p>
           {data.path === "/zh-hant/menu/" ? <nav className="menu-quick-links" aria-label="菜單分類">{data.sections.map(section => <a href={`#${section.id}`} key={section.id}>{section.navLabel}</a>)}</nav> : null}
           {data.path === "/zh-hant/menu/" ? <aside className="table-menu-notice" data-table-menu-notice aria-label="店內點單說明"><strong>菜單僅供查看</strong><span>請向服務員點單。</span></aside> : null}
           <div className="hero-actions">{data.actions.map((action) => <a className={action.style} href={action.href} key={action.label}>{action.label}</a>)}</div>

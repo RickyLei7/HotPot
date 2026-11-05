@@ -16,7 +16,7 @@ export function HomepageMenu({ language }: { language: HomepageLanguage }) {
         { href: "/zh-hant/calgary-hot-pot-guide/", label: "卡加利火鍋指南" },
         { href: "/zh-hant/calgary-taiwanese-hot-pot/", label: "卡加利台灣美食與火鍋" },
         { href: "/zh-hant/first-time-hot-pot-calgary/", label: "第一次吃火鍋指南" },
-        { href: "/zh-hant/ayce-hot-pot-calgary/", label: "卡加利火鍋自助" },
+        { href: "/zh-hant/ayce-hot-pot-calgary/", label: "卡加利火鍋吃到飽" },
       ]
     : [
         { href: "/calgary-hot-pot-guide/", label: "Calgary Hot Pot Guide" },
@@ -39,7 +39,7 @@ export function HomepageMenu({ language }: { language: HomepageLanguage }) {
       <section id="ayce" className="homepage-ayce">
         <div className="homepage-ayce-copy">
           <p className="eyebrow">{content.ayce.eyebrow}</p>
-          <h1>{isZh ? <><span className="heading-unit">$28.99</span>{" "}<span className="heading-unit">火鍋自助</span></> : content.ayce.title.split(/(Hot Pot)/).map((part, index) => part === "Hot Pot" ? <span className="heading-unit" key={index}>{part}</span> : part)}</h1><p className="offer-tax">{isZh ? "每位 · 鍋底已包含" : "Per person · Soup base included"}</p>
+          <h1>{isZh ? <><span className="heading-unit">$28.99</span>{" "}<span className="heading-unit">火鍋吃到飽</span></> : content.ayce.title.split(/(Hot Pot)/).map((part, index) => part === "Hot Pot" ? <span className="heading-unit" key={index}>{part}</span> : part)}</h1><p className="offer-tax">{isZh ? "每位 · 鍋底已包含" : "Per person · Soup base included"}</p>
           <p className="homepage-lead">{content.ayce.lead}</p>
 
           <div className="hero-actions booking-actions">

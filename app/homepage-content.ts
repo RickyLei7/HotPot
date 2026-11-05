@@ -170,8 +170,8 @@ export const homepageContent: { en: HomepageContent; zhHant: HomepageContent } =
   zhHant: {
     navPath: "/zh-hant/",
     ayce: {
-      eyebrow: "卡加利火鍋自助",
-      title: "$28.99 火鍋自助",
+      eyebrow: "卡加利一人一鍋",
+      title: "$28.99 火鍋吃到飽",
       lead: "15 款湯底任選，AAA 牛肉、羊肉、豬肉或雞肉由服務員協助下單。",
       detail: "鍋底已包含在價格內，適合家庭聚餐、朋友相聚與多人用餐。",
       reserve: "網上訂位",

@@ -53,7 +53,7 @@ const schema = {
         "A practical guide to individual hot pot, first-time ordering, AYCE hot pot, soup bases, reservations, and location details at Centre Street Japanese HotPot in Calgary.",
       url: "https://centrestjhotpot.ca/first-time-hot-pot-calgary/",
       datePublished: "2026-08-08",
-      dateModified: "2026-09-20",
+      dateModified: "2026-11-05",
       author: { "@id": "https://centrestjhotpot.ca/#restaurant" },
       about: [
         "first time hot pot Calgary",
@@ -96,7 +96,7 @@ export default function FirstTimeHotPotCalgaryPage() {
           <article className="guide-copy">
             <p className="eyebrow">Quick answer</p>
             <h2>Start with Your Soup Base</h2>
-            <p>Each guest gets a personal pot and can choose from 15 soup bases.</p>
+            <p>At <Link href="/">Centre Street Japanese HotPot in Calgary</Link>, each guest gets a personal pot and can choose from 15 soup bases.</p>
             <p>Pick a Hot Pot Set for a complete meal, or choose AYCE if you want to order more meat. Add snacks or milk tea to share.</p>
           </article>
           <aside className="guide-card">

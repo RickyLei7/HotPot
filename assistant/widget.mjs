@@ -24,7 +24,7 @@ export function widget(language = 'en') {
     book:'Book Online', menu:'View menu', call:'Call restaurant', disabled:'Chat needs JavaScript. You can still view the menu, book online or call (403) 455-3188.'
   };
   const menu = zh ? '/zh-hant/menu/' : '/menu/';
-  return `<section class="dining-helper" data-dining-helper data-language="${language}" aria-label="${c.title}">
+  return `<section class="dining-helper" data-dining-helper data-nosnippet data-language="${language}" aria-label="${c.title}">
   <button class="dining-chat-launcher" type="button" data-chat-launcher data-chat-open hidden aria-controls="dining-chat-panel" aria-expanded="false">${c.title}</button>
   <button class="dining-chat-backdrop" type="button" data-chat-close hidden tabindex="-1" aria-label="${c.close}"></button>
   <div class="dining-chat-panel" id="dining-chat-panel" data-chat-panel role="dialog" aria-labelledby="dining-helper-title" aria-describedby="dining-chat-notice" tabindex="-1" hidden>

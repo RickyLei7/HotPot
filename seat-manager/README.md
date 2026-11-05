@@ -14,7 +14,9 @@
 BOOKING_CLIENT=/absolute/path/to/booking-client.js node --test e2e/booking-keyboard.mjs e2e/booking-security-callbacks.mjs
 ```
 
-这 16 项检查直接执行客户端的键盘处理和验证码回调。验证码提供商、DOM 和网络在隔离环境中模拟，检查不会创建订位或发送短信；它们不能替代真机 Safari 的验证码通关与完整订位验收。
+这 21 项检查直接执行客户端的键盘处理和验证码回调。验证码提供商、DOM 和网络在隔离环境中模拟，检查不会创建订位或发送短信；它们不能替代真机 Safari 的验证码通关与完整订位验收。
+
+2026-11-04：`patches/booking-security-recovery.mjs` 基于当前正式客户端补齐验证进度、30 秒等待后的手动重试和就近提示，保留已填资料及验证码验证要求。发布及验收范围见 [安全验证恢复记录](../docs/booking-security-recovery-2026-11-04.md)。
 
 ## 本地开发与测试
 

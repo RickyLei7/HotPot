@@ -83,6 +83,8 @@ const referencePages = [
   ['llms.txt', await readFile(path.join(root, 'llms.txt'), 'utf8')],
   ...await Promise.all(['/restaurant-info/', '/zh-hant/restaurant-info/'].map(async route => [route, clean((await documentFor(origin + route)).split('</head>')[1])])),
 ];
+assert.match(referencePages[0][1], /^#\s+\S/m, 'llms.txt: missing document heading');
+assert.match(referencePages[0][1], /\[[^\]]+\]\(https:\/\/centrestjhotpot\.ca\/[^)\s]*\)/, 'llms.txt: official sources must be Markdown links');
 for (const [label, text] of referencePages) {
   for (const key of ['ayce', 'personal', 'snacks', 'solo', 'couple']) {
     const price = `$${(diningPrices[key] / 100).toFixed(2)}`;

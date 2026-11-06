@@ -628,7 +628,7 @@ body.poster-open { overflow: hidden; }
   .nav-call { min-height: 44px; min-width: 72px; padding-inline: 16px; }
   .nav-links { display: grid; gap: 7px; grid-column: 1 / -1; grid-row: 2; grid-template-columns: repeat(4, minmax(0, 1fr)); padding: 0; width: 100%; }
   .nav-links > a, .nav-more summary { align-items: center; background: rgba(255, 248, 234, 0.075); border-color: rgba(246, 201, 76, 0.2); display: flex; font-size: 0.82rem; justify-content: center; min-height: 34px; min-width: 0; padding: 7px 8px; text-align: center; }
-  .nav-more summary { border: 1px solid rgba(246, 201, 76, 0.2); border-radius: 999px; }
+  .nav-more summary { border: 1px solid rgba(246, 201, 76, 0.2); border-radius: 999px; height: 100%; }
   .ayce-hero, .menu-page-hero, .ayce-promo { background-image: linear-gradient(90deg, rgba(18, 13, 11, 0.96), rgba(90, 19, 15, 0.9)), url("assets/dish-sukiyaki-768.webp"); }
   .ads-hero { background-image: linear-gradient(90deg, rgba(18, 13, 11, 0.96), rgba(74, 16, 13, 0.92)), url("assets/dish-spicy-640-perf.webp"); }
   .ads-photo-band { background-image: linear-gradient(90deg, rgba(31, 22, 17, 0.96), rgba(127, 23, 22, 0.9)), url("assets/dish-spicy-640-perf.webp"); }

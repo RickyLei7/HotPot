@@ -21,12 +21,21 @@ assert.ok(htmlFiles.length > 0, "No deployable HTML files found in public/");
 // OAuth callbacks and legacy redirects intentionally do not load analytics.
 // The redirect destination records the visit, avoiding a duplicate page view.
 const nonContentPages = new Set([
+  "public/apple-maps.html",
   "public/table-menu/index.html",
   "public/facebook-auth/index.html",
   "public/google-business-auth/index.html",
   "public/instagram-auth/index.html",
   "public/threads-auth/index.html",
 ]);
+
+// This source-preserving redirect has no analytics: only its destination counts a page view.
+const appleEntry = await readFile(path.join(publicDir, "apple-maps.html"), "utf8");
+const appleTarget = "https://centrestjhotpot.ca/ayce-hot-pot-calgary/?utm_source=apple_maps&amp;utm_medium=referral&amp;utm_campaign=place_card&amp;utm_content=website";
+assert.ok(appleEntry.includes('<meta name="robots" content="noindex,follow">'), "Apple entry must stay out of the search index");
+assert.ok(appleEntry.includes('<meta http-equiv="refresh" content="0;url=' + appleTarget + '">'), "Apple entry must redirect to the exact source-preserving first-party target");
+assert.ok(appleEntry.includes('<a href="' + appleTarget + '">'), "Apple entry needs an identical no-JS fallback");
+assert.equal(/<script|<iframe|<form/i.test(appleEntry), false, "Apple redirect must not collect or send anything itself");
 
 for (const file of htmlFiles) {
   const html = await readFile(file, "utf8");

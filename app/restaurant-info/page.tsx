@@ -85,7 +85,7 @@ const restaurantInfoSchema = {
       "https://www.instagram.com/centrestreetjapanesehotpot/",
       "https://www.facebook.com/CentreStreetJapaneseHotPot",
       "https://www.threads.com/@centrestreetjapanesehotpot",
-      "https://www.tiktok.com/@stjapanesehotpot",
+      "https://www.tiktok.com/@centrestjhotpot",
       "https://www.xiaohongshu.com/user/profile/65408e340000000030030828",
     ],
   },

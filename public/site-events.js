@@ -158,7 +158,7 @@
 
   function trafficSourceAttribution() {
     var host = referrerHost();
-    if (!host || host === window.location.hostname.replace(/^www\./, "")) {
+    if (!host || host === window.location.hostname.replace(/^www\./, "") || host === "reservation.centrestjhotpot.ca") {
       return { campaign_source: "direct", campaign_medium: "none" };
     }
     if (/(^|\.)google\.(com|ca|co\.uk|com\.au|co\.jp|de|fr|com\.tw|com\.hk)$/.test(host)) return { campaign_source: "google", campaign_medium: "organic" };

@@ -115,6 +115,10 @@
   function campaignFromUrl(params) {
     var source = cleanValue(params.get("utm_source"), 50).toLowerCase();
     if (source === "google_ads") source = "google";
+    if (source === "ig") source = "instagram";
+    if (source === "fb") source = "facebook";
+    if (source === "applemaps" || source === "apple-maps") source = "apple_maps";
+    if (source === "openai" || source === "chatgpt.com") source = "chatgpt";
     var googleClickType = clickIdType(params);
     var metaClickId = cleanValue(params.get("fbclid"), 200);
     if (!source && googleClickType) source = "google";
@@ -157,11 +161,14 @@
     if (!host || host === window.location.hostname.replace(/^www\./, "")) {
       return { campaign_source: "direct", campaign_medium: "none" };
     }
-    if (/(^|\.)google\./.test(host)) return { campaign_source: "google", campaign_medium: "organic" };
+    if (/(^|\.)google\.(com|ca|co\.uk|com\.au|co\.jp|de|fr|com\.tw|com\.hk)$/.test(host)) return { campaign_source: "google", campaign_medium: "organic" };
     if (/(^|\.)bing\.com$/.test(host)) return { campaign_source: "bing", campaign_medium: "organic" };
     if (/(^|\.)(facebook|instagram)\.com$/.test(host)) {
       return { campaign_source: host.indexOf("instagram") !== -1 ? "instagram" : "facebook", campaign_medium: "social" };
     }
+    if (/(^|\.)maps\.apple\.com$/.test(host)) return { campaign_source: "apple_maps", campaign_medium: "referral" };
+    if (/(^|\.)(chatgpt\.com|chat\.openai\.com)$/.test(host)) return { campaign_source: "chatgpt", campaign_medium: "referral" };
+    if (/(^|\.)nextdoor\.(com|ca)$/.test(host)) return { campaign_source: "nextdoor", campaign_medium: "referral" };
     return { campaign_source: host, campaign_medium: "referral" };
   }
 
@@ -216,11 +223,13 @@
   }
   var incomingRecord = traffic.campaign_source !== "direct"
     ? attributionRecord(traffic, window.location.pathname, referrerHost()) : null;
-  var activeRecord = directRecord || storedRecord || incomingRecord || sessionRecord;
+  // Latest explicit campaign or fresh external referral supersedes an older campaign.
+  var activeRecord = directRecord || incomingRecord || storedRecord || sessionRecord;
   var attribution = activeRecord ? activeRecord.data : traffic;
-  if (hasCampaignData(directAttribution)) {
-    writeLocal(attributionStorageKey, JSON.stringify(directRecord));
-    writeSession(attributionStorageKey, JSON.stringify(directRecord));
+  var freshRecord = directRecord || incomingRecord;
+  if (freshRecord) {
+    writeLocal(attributionStorageKey, JSON.stringify(freshRecord));
+    writeSession(attributionStorageKey, JSON.stringify(freshRecord));
   }
   var trafficRecord = incomingRecord || sessionRecord || attributionRecord(traffic, window.location.pathname, referrerHost());
   writeSession(trafficStorageKey, JSON.stringify(Object.assign({}, trafficRecord, { capturedAt: Date.now() })));

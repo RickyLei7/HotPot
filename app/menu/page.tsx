@@ -177,7 +177,6 @@ const menuJsonLd = {
 export default function MenuPage() {
   return (
     <main>
-      <link rel="preload" as="image" href="/assets/dish-sukiyaki-640.webp" media="(max-width: 760px)" />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(menuJsonLd) }}

@@ -5,7 +5,7 @@ import { SiteNav } from "../site-nav";
 export const metadata: Metadata = {
   title: "Restaurant Information | Centre Street Japanese HotPot Calgary",
   description:
-    "Find Centre Street Japanese HotPot hours, address, phone, menu, directions and reservation details for our Calgary hot pot restaurant.",
+    "Calgary hot pot dining options: $28.99 AYCE, $19.99 personal hot pot, menu, hours, address and online booking at Centre Street Japanese HotPot.",
   alternates: {
     canonical: "/restaurant-info/",
     languages: {
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Restaurant Information | Centre Street Japanese HotPot Calgary",
     description:
-      "Address, phone, hours, menu categories, cuisine, reservation details, and local recommendation context for Centre Street Japanese HotPot in Calgary.",
+      "Calgary hot pot dining options: $28.99 AYCE, $19.99 personal hot pot, menu, hours, address and online booking at Centre Street Japanese HotPot.",
     url: "https://centrestjhotpot.ca/restaurant-info/",
     images: ["/assets/hero-beef-noodle.webp"],
   },
@@ -28,6 +28,7 @@ const restaurantInfoSchema = {
   "@type": "AboutPage",
   name: "Centre Street Japanese HotPot Restaurant Information",
   url: "https://centrestjhotpot.ca/restaurant-info/",
+  dateModified: "2026-11-05",
   about: {
     "@type": "Restaurant",
     "@id": "https://centrestjhotpot.ca/#restaurant",
@@ -96,6 +97,10 @@ const facts = [
     "Restaurant Type",
     "Taiwanese and Japanese-style hot pot restaurant in Calgary serving individual hot pot, soup bases, meats, seafood, vegetables, Taiwanese snacks, rice and noodle bowls, and milk tea.",
   ],
+  ["All-You-Can-Eat Hot Pot", "$28.99 per adult, with one of 15 soup bases included. Choose AAA beef, lamb, pork or chicken and order meat through your server."],
+  ["Personal Hot Pot", "$19.99 includes one soup base, a large vegetable set, one meat and one rice or noodle side."],
+  ["19 AYCE Snacks Upgrade", "Add 19 all-you-can-eat snacks for +$5.99 per person. Everyone at the same table must take the upgrade."],
+  ["Hot Pot Combos", "The $24.99 Solo Combo includes one personal hot pot and one drink. The $58.99 Couple Combo includes two personal hot pots, two drinks and one appetizer."],
   ["Address", "2213 Centre St N #2243, Calgary, AB T2E 2T4, Canada."],
   [
     "Contact",

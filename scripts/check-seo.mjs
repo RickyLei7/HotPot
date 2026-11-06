@@ -2,6 +2,7 @@ import assert from 'node:assert/strict';
 import { readFile, stat } from 'node:fs/promises';
 import path from 'node:path';
 import { execFileSync } from 'node:child_process';
+import { menuPrices } from '../assistant/facts.mjs';
 
 execFileSync(process.execPath, ['scripts/build-bilingual-sitemap.mjs', '--check'], { stdio: 'inherit' });
 
@@ -71,6 +72,21 @@ for (const url of urls) {
         answers++;
       }
     }
+  }
+}
+// Keep public restaurant reference pages and AI-readable facts aligned with menu rates.
+const menuHtml = await documentFor(`${origin}/menu/`);
+const menuSchema = [...menuHtml.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)]
+  .map(([, json]) => JSON.parse(json)).find(schema => schema['@type'] === 'Menu');
+const diningPrices = menuPrices(menuSchema);
+const referencePages = [
+  ['llms.txt', await readFile(path.join(root, 'llms.txt'), 'utf8')],
+  ...await Promise.all(['/restaurant-info/', '/zh-hant/restaurant-info/'].map(async route => [route, clean((await documentFor(origin + route)).split('</head>')[1])])),
+];
+for (const [label, text] of referencePages) {
+  for (const key of ['ayce', 'personal', 'snacks', 'solo', 'couple']) {
+    const price = `$${(diningPrices[key] / 100).toFixed(2)}`;
+    assert.ok(text.includes(price), `${label}: missing current ${key} price ${price}`);
   }
 }
 for (const url of urls) assert.ok(inbound.has(url), `${url}: indexed page has no incoming link from another sitemap page`);

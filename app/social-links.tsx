@@ -20,7 +20,7 @@ const socialLinks = [
   {
     label: "TikTok",
     shortLabel: "♪",
-    href: "https://www.tiktok.com/@stjapanesehotpot",
+    href: "https://www.tiktok.com/@centrestjhotpot",
     className: "social-tiktok",
   },
   {

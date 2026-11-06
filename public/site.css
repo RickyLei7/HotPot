@@ -137,7 +137,7 @@ h3 { font-size: 1.08rem; margin-bottom: 10px; }
 .ayce-hero {
   background:
     linear-gradient(90deg, rgba(18, 13, 11, 0.96), rgba(90, 19, 15, 0.9)),
-    url("assets/dish-sukiyaki.webp") center / cover;
+    url("assets/dish-sukiyaki-1024-perf.webp") center / cover;
   min-height: min(760px, calc(100vh - 79px));
 }
 .ayce-hero .hero-copy { max-width: 720px; }
@@ -236,7 +236,7 @@ h3 { font-size: 1.08rem; margin-bottom: 10px; }
   align-items: center;
   background:
     linear-gradient(90deg, rgba(42, 19, 15, 0.96), rgba(127, 23, 22, 0.92)),
-    url("assets/dish-sukiyaki.webp") center / cover;
+    url("assets/dish-sukiyaki-1024-perf.webp") center / cover;
   display: grid;
   gap: clamp(24px, 5vw, 58px);
   grid-template-columns: minmax(0, 1fr) minmax(260px, 420px);
@@ -340,7 +340,7 @@ body.poster-open { overflow: hidden; }
 .about-section {
   background:
     linear-gradient(90deg, rgba(127, 23, 22, 0.94), rgba(31, 22, 17, 0.96)),
-    url("assets/soup-lineup.webp") center / cover;
+    url("assets/soup-lineup-1024.webp") center / cover;
   display: grid;
   gap: clamp(24px, 4vw, 48px);
   grid-template-columns: minmax(260px, 0.72fr) minmax(520px, 1.28fr);
@@ -423,11 +423,11 @@ body.poster-open { overflow: hidden; }
 .social-threads .social-icon { background: #fff; color: #111; font-family: Arial, Helvetica, sans-serif; font-size: 1rem; }
 .social-tiktok .social-icon { background: #010101; color: #25f4ee; font-family: Arial, Helvetica, sans-serif; font-size: 1.05rem; text-shadow: 1px 1px 0 #fe2c55; }
 .social-red .social-icon { background: #c91431; color: #fff; }
-.page-hero { align-items: center; background: linear-gradient(90deg, rgba(18, 13, 11, 0.94), rgba(127, 23, 22, 0.78)), url("assets/soup-lineup.webp") center / cover; display: grid; min-height: 52vh; }
-.menu-page-hero { background: linear-gradient(90deg, rgba(18, 13, 11, 0.94), rgba(127, 23, 22, 0.74)), url("assets/dish-sukiyaki.webp") center / cover; }
+.page-hero { align-items: center; background: linear-gradient(90deg, rgba(18, 13, 11, 0.94), rgba(127, 23, 22, 0.78)), url("assets/soup-lineup-1024.webp") center / cover; display: grid; min-height: 52vh; }
+.menu-page-hero { background: linear-gradient(90deg, rgba(18, 13, 11, 0.94), rgba(127, 23, 22, 0.74)), url("assets/dish-sukiyaki-1024-perf.webp") center / cover; }
 .faq-page-hero { background: linear-gradient(90deg, rgba(18, 13, 11, 0.94), rgba(31, 22, 17, 0.82)), url("assets/snack-lineup.webp") center / cover; }
 .contact-page-hero { background: linear-gradient(90deg, rgba(18, 13, 11, 0.94), rgba(127, 23, 22, 0.78)), url("assets/hero-beef-noodle.webp") center / cover; }
-.guide-page-hero { background: linear-gradient(90deg, rgba(18, 13, 11, 0.94), rgba(127, 23, 22, 0.72)), url("assets/dish-sukiyaki.webp") center / cover; }
+.guide-page-hero { background: linear-gradient(90deg, rgba(18, 13, 11, 0.94), rgba(127, 23, 22, 0.72)), url("assets/dish-sukiyaki-1024-perf.webp") center / cover; }
 .content-section { background: var(--paper); color: var(--ink); }
 .guide-layout { display: grid; gap: 22px; grid-template-columns: minmax(0, 1fr) minmax(280px, 420px); }
 .guide-copy, .guide-card { background: rgba(255, 248, 234, 0.98); border: 1px solid rgba(127, 23, 22, 0.16); border-radius: 8px; color: var(--ink); padding: clamp(22px, 3vw, 34px); }
@@ -629,7 +629,7 @@ body.poster-open { overflow: hidden; }
   .nav-links { display: grid; gap: 7px; grid-column: 1 / -1; grid-row: 2; grid-template-columns: repeat(4, minmax(0, 1fr)); padding: 0; width: 100%; }
   .nav-links > a, .nav-more summary { align-items: center; background: rgba(255, 248, 234, 0.075); border-color: rgba(246, 201, 76, 0.2); display: flex; font-size: 0.82rem; justify-content: center; min-height: 34px; min-width: 0; padding: 7px 8px; text-align: center; }
   .nav-more summary { border: 1px solid rgba(246, 201, 76, 0.2); border-radius: 999px; }
-  .ayce-hero, .menu-page-hero, .ayce-promo { background-image: linear-gradient(90deg, rgba(18, 13, 11, 0.96), rgba(90, 19, 15, 0.9)), url("assets/dish-sukiyaki-640.webp"); }
+  .ayce-hero, .menu-page-hero, .ayce-promo { background-image: linear-gradient(90deg, rgba(18, 13, 11, 0.96), rgba(90, 19, 15, 0.9)), url("assets/dish-sukiyaki-768.webp"); }
   .ads-hero { background-image: linear-gradient(90deg, rgba(18, 13, 11, 0.96), rgba(74, 16, 13, 0.92)), url("assets/dish-spicy-640-perf.webp"); }
   .ads-photo-band { background-image: linear-gradient(90deg, rgba(31, 22, 17, 0.96), rgba(127, 23, 22, 0.9)), url("assets/dish-spicy-640-perf.webp"); }
 }
@@ -1489,4 +1489,27 @@ section, #combo-specials, #hotpot-set, #soup-bases, #rice-noodles, #drinks, #app
 }
 @media (max-width: 1100px) and (max-height: 450px) {
   .site-nav { position: relative; }
+}
+
+/* Show the current page without changing navigation or booking placement. */
+.nav-links a[aria-current="page"], .nav-more:has(a[aria-current="page"]) > summary {
+  color: var(--gold);
+  text-decoration: underline;
+  text-underline-offset: 5px;
+  text-decoration-thickness: 2px;
+}
+@media (max-width: 760px) {
+  .nav-links > a[aria-current="page"], .nav-more:has(a[aria-current="page"]) > summary {
+    background: rgba(246, 201, 76, 0.14);
+    border-color: var(--gold);
+  }
+  .page-hero:not(.menu-page-hero):not(.guide-page-hero):not(.faq-page-hero):not(.contact-page-hero) {
+    background-image: linear-gradient(90deg, rgba(18, 13, 11, 0.94), rgba(127, 23, 22, 0.78)), url("assets/soup-lineup-640.webp");
+  }
+  .about-section {
+    background-image: linear-gradient(90deg, rgba(127, 23, 22, 0.94), rgba(31, 22, 17, 0.96)), url("assets/soup-lineup-640.webp");
+  }
+  .guide-page-hero {
+    background-image: linear-gradient(90deg, rgba(18, 13, 11, 0.94), rgba(127, 23, 22, 0.72)), url("assets/dish-sukiyaki-768.webp");
+  }
 }

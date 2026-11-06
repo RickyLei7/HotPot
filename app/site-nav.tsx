@@ -26,15 +26,15 @@ export function SiteNav({ currentPath = "/", language = "en" }: SiteNavProps) {
         />
       </Link>
       <div className="nav-links">
-        <Link href={localizedPath("/", language)}>{labels.home}</Link>
-        <Link href={localizedPath("/ayce-hot-pot-calgary/", language)}>{labels.ayce}</Link>
-        <Link href={localizedPath("/menu/", language)}>{labels.menu}</Link>
+        <Link href={localizedPath("/", language)} aria-current={pair.en === "/" ? "page" : undefined}>{labels.home}</Link>
+        <Link href={localizedPath("/ayce-hot-pot-calgary/", language)} aria-current={pair.en === "/ayce-hot-pot-calgary/" ? "page" : undefined}>{labels.ayce}</Link>
+        <Link href={localizedPath("/menu/", language)} aria-current={pair.en === "/menu/" ? "page" : undefined}>{labels.menu}</Link>
         <details className="nav-more">
           <summary>{labels.more}</summary>
           <div className="nav-more-links">
-            <Link href={localizedPath("/about/", language)}>{labels.about}</Link>
-            <Link href={localizedPath("/faq/", language)}>{labels.faq}</Link>
-            <Link href={localizedPath("/contact/", language)}>{labels.contact}</Link>
+            <Link href={localizedPath("/about/", language)} aria-current={pair.en === "/about/" ? "page" : undefined}>{labels.about}</Link>
+            <Link href={localizedPath("/faq/", language)} aria-current={pair.en === "/faq/" ? "page" : undefined}>{labels.faq}</Link>
+            <Link href={localizedPath("/contact/", language)} aria-current={pair.en === "/contact/" ? "page" : undefined}>{labels.contact}</Link>
             <Link href={`${localizedPath("/", language)}#visit`}>{labels.visit}</Link>
             <a href="tel:+14034553188">{labels.phone}</a>
           </div>

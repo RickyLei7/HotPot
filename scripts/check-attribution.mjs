@@ -23,6 +23,7 @@ assert.ok(htmlFiles.length > 0, "No deployable HTML files found in public/");
 const nonContentPages = new Set([
   "public/apple-maps.html",
   "public/table-menu/index.html",
+  "public/zh-hant/table-menu/index.html",
   "public/facebook-auth/index.html",
   "public/google-business-auth/index.html",
   "public/instagram-auth/index.html",

@@ -12,7 +12,7 @@ export async function checkTableMenu() {
     assert.ok(redirect.includes(`window.location.replace("${menu}" + window.location.search)`), `${route}: redirect must preserve query parameters`);
     assert.ok(redirect.includes(`href="https://centrestjhotpot.ca${menu}"`), `${route}: canonical must point to the original menu`);
     assert.match(redirect, /name="robots" content="noindex, follow"/);
-    assert.doesNotMatch(redirect, /data-table-menu-root|table-menu\.(?:js|css)/);
+    assert.doesNotMatch(redirect, /data-table-menu-root|table-menu\.(?:js|css)|site-events\.js/);
   }
   const publicDir = path.join(root, "public");
   const files = await readdir(publicDir, { recursive: true });

@@ -6,10 +6,14 @@ import { fileURLToPath } from "node:url";
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 
 export async function checkTableMenu() {
-  const redirect = await readFile(path.join(root, "public/table-menu/index.html"), "utf8");
-  assert.match(redirect, /content="0; url=\/menu\/"/);
-  assert.match(redirect, /window\.location\.replace\("\/menu\/" \+ window\.location\.search\)/);
-  assert.doesNotMatch(redirect, /data-table-menu-root|table-menu\.(?:js|css)/);
+  for (const [route, menu] of [["table-menu", "/menu/"], ["zh-hant/table-menu", "/zh-hant/menu/"]]) {
+    const redirect = await readFile(path.join(root, "public", route, "index.html"), "utf8");
+    assert.ok(redirect.includes(`content="0; url=${menu}"`), `${route}: missing no-JavaScript redirect`);
+    assert.ok(redirect.includes(`window.location.replace("${menu}" + window.location.search)`), `${route}: redirect must preserve query parameters`);
+    assert.ok(redirect.includes(`href="https://centrestjhotpot.ca${menu}"`), `${route}: canonical must point to the original menu`);
+    assert.match(redirect, /name="robots" content="noindex, follow"/);
+    assert.doesNotMatch(redirect, /data-table-menu-root|table-menu\.(?:js|css)/);
+  }
   const publicDir = path.join(root, "public");
   const files = await readdir(publicDir, { recursive: true });
   for (const file of files.filter(file => file.endsWith(".html"))) {
@@ -18,7 +22,7 @@ export async function checkTableMenu() {
     for (const [, , href] of html.matchAll(/<a\b[^>]*\bhref\s*=\s*(["'])(.*?)\1/gi)) {
       const target = new URL(href.replace(/&amp;/g, "&"), pageUrl);
       if (!["centrestjhotpot.ca", "www.centrestjhotpot.ca"].includes(target.hostname)) continue;
-      assert.doesNotMatch(target.pathname, /^\/table-menu(?:\/|$)/i, `${file}: retired Table Menu link ${href}`);
+      assert.doesNotMatch(target.pathname, /^\/(?:zh-hant\/)?table-menu(?:\/|$)/i, `${file}: retired Table Menu link ${href}`);
     }
   }
   for (const asset of ["table-menu.js", "table-menu.css"]) {

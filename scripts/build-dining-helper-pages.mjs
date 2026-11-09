@@ -10,7 +10,7 @@ for (const route of chatRoutes) {
   updated = updated.replace(/\s*<script defer src="\/dining-(?:helper|chat)\.js[^\"]*"><\/script>/g, '');
   updated = updated.replace('  </head>', `    <link rel="stylesheet" href="/dining-helper.css?v=${chatVersion}" />\n    <script defer src="/dining-helper.js?v=${chatVersion}"></script>\n    <script defer src="/dining-chat.js?v=${chatVersion}"></script>\n  </head>`);
   if (route === '' || route === 'zh-hant') {
-    updated = updated.replace(/<button class="home-chat-entry"[\s\S]*?<\/button>/g, '');
+    updated = updated.replace(/<(?:button|a) class="home-chat-entry"[\s\S]*?<\/(?:button|a)>/g, '');
     updated = updated.replace('<a class="hero-phone"', `${homeChatEntry(language)}<a class="hero-phone"`);
   }
   const anchor = '  </body>';

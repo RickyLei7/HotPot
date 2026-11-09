@@ -1,8 +1,8 @@
 // One shared chat UI for static pages and React routes. Opening never sends a request.
 export const chatRoutes = ['', 'menu', 'contact', 'ayce-hot-pot-calgary', 'zh-hant', 'zh-hant/menu', 'zh-hant/contact', 'zh-hant/ayce-hot-pot-calgary'];
-export const chatVersion = '20261029-iphone';
+export const chatVersion = '20261109-stable-entry';
 export function homeChatEntry(language = 'en') {
-  return `<button class="home-chat-entry" type="button" data-chat-open hidden aria-controls="dining-chat-panel" aria-expanded="false">${language === 'zh-Hant' ? '有問題？餐廳小幫手' : 'Questions? Chat with us'}</button>`;
+  return `<a class="home-chat-entry" href="#visit" data-chat-open aria-controls="dining-chat-panel" aria-expanded="false">${language === 'zh-Hant' ? '有問題？餐廳小幫手' : 'Questions? Chat with us'}</a>`;
 }
 export function widget(language = 'en') {
   const zh = language === 'zh-Hant';

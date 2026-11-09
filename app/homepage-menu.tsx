@@ -46,7 +46,7 @@ export function HomepageMenu({ language }: { language: HomepageLanguage }) {
             <a className="primary-action" href="https://reservation.centrestjhotpot.ca/book" data-track-label="online_booking" aria-haspopup="dialog" data-reservation-launcher>{content.ayce.reserve}</a>
             <Link className="secondary-action" href={menuPath}>{content.ayce.menu}</Link>
           </div>
-          <button className="home-chat-entry" type="button" data-chat-open hidden aria-controls="dining-chat-panel" aria-expanded="false">{isZh ? "有問題？餐廳小幫手" : "Questions? Chat with us"}</button>
+          <a className="home-chat-entry" href="#visit" data-chat-open aria-controls="dining-chat-panel" aria-expanded="false">{isZh ? "有問題？餐廳小幫手" : "Questions? Chat with us"}</a>
           <a className="hero-phone" href="tel:+14034553188">{isZh ? "致電 (403) 455-3188" : "Call (403) 455-3188"}</a>
           <div className="hero-visit"><a href={directionsUrl} target="_blank" rel="noreferrer">2213 Centre St N #2243 · {isZh ? "導航" : "Directions"}</a><p>{isZh ? "週一至週五 17:00–22:30 · 週六及週日 12:00–22:30" : "Mon–Fri 5–10:30 PM · Sat–Sun noon–10:30 PM"}</p></div>
         </div>
@@ -160,6 +160,7 @@ export function HomepageMenu({ language }: { language: HomepageLanguage }) {
 
       <section id="visit" className="homepage-visit">
         <div className="section-heading compact"><p className="eyebrow">{content.visit.eyebrow}</p><h2>{content.visit.title}</h2></div>
+        <p className="visit-intro">{isZh ? <>鼎鑽火鍋位於卡加利 Centre Street North，平日供應晚餐，週末供應午餐及晚餐。出發前可<Link href="/zh-hant/calgary-hot-pot-guide/">比較吃到飽與個人鍋</Link>，或<Link href="/zh-hant/first-time-hot-pot-calgary/">了解點餐方式</Link>。</> : <>Find us on Centre Street North in Calgary for weekday dinner or weekend lunch and dinner. <Link href="/calgary-hot-pot-guide/">Compare AYCE and personal hot pot</Link>, or <Link href="/first-time-hot-pot-calgary/">see how ordering works</Link> before your visit.</>}</p>
         <div className="visit-grid">
           <article><h3>{content.visit.hoursTitle}</h3>{content.visit.hours.map((hours) => <p key={hours}>{hours}</p>)}<Link href={restaurantInfoPath}>{content.visit.details}</Link></article>
           <article><h3>{content.visit.contactTitle}</h3><p>{content.visit.contactCopy}</p><a href="https://reservation.centrestjhotpot.ca/book" data-track-label="online_booking" aria-haspopup="dialog" data-reservation-launcher>{content.visit.reserve}</a><p><a href="tel:+14034553188">{language === "zh-Hant" ? "致電 (403) 455-3188" : "Call (403) 455-3188"}</a></p></article>

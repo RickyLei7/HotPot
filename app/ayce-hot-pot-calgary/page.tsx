@@ -3,9 +3,9 @@ import Link from "next/link";
 import { SiteNav } from "../site-nav";
 
 export const metadata: Metadata = {
-  title: "$28.99 All-You-Can-Eat Hot Pot Calgary | Soup Included",
+  title: "All You Can Eat Hot Pot Calgary | $28.99 | Centre Street",
   description:
-    "All-you-can-eat hot pot in Calgary for $28.99 per person. Soup base included, 15 choices, AAA beef, lamb, pork and chicken. View the menu and book online.",
+    "All-you-can-eat hot pot in Calgary for $28.99. Your own pot, 1 of 15 soup bases included, and AAA beef, lamb, pork or chicken. View menu & book online.",
   alternates: {
     canonical: "/ayce-hot-pot-calgary/",
     languages: {
@@ -15,9 +15,9 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "$28.99 All-You-Can-Eat Hot Pot Calgary | Soup Included",
+    title: "All You Can Eat Hot Pot Calgary | $28.99 | Centre Street",
     description:
-      "All-you-can-eat hot pot in Calgary for $28.99 per person. Soup base included, 15 choices, AAA beef, lamb, pork and chicken. View the menu and book online.",
+      "All-you-can-eat hot pot in Calgary for $28.99. Your own pot, 1 of 15 soup bases included, and AAA beef, lamb, pork or chicken. View menu & book online.",
     url: "https://centrestjhotpot.ca/ayce-hot-pot-calgary/",
     images: ["/assets/ayce-menu-2026-08-25-fast-480.webp"],
   },
@@ -107,10 +107,10 @@ const ayceSchema = {
     {
       "@type": "WebPage",
       "@id": "https://centrestjhotpot.ca/ayce-hot-pot-calgary/#webpage",
-      dateModified: "2026-11-04",
-      name: "$28.99 All-You-Can-Eat Hot Pot Calgary | Soup Included",
+      dateModified: "2026-11-09",
+      name: "All You Can Eat Hot Pot Calgary | $28.99 | Centre Street",
       description:
-        "All-you-can-eat hot pot in Calgary for $28.99 per person. Soup base included, 15 choices, AAA beef, lamb, pork and chicken. View the menu and book online.",
+        "All-you-can-eat hot pot in Calgary for $28.99. Your own pot, 1 of 15 soup bases included, and AAA beef, lamb, pork or chicken. View menu & book online.",
       url: "https://centrestjhotpot.ca/ayce-hot-pot-calgary/",
       about: [
         "AYCE hot pot Calgary",

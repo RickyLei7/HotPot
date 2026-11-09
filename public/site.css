@@ -1513,3 +1513,7 @@ section, #combo-specials, #hotpot-set, #soup-bases, #rice-noodles, #drinks, #app
     background-image: linear-gradient(90deg, rgba(18, 13, 11, 0.94), rgba(127, 23, 22, 0.72)), url("assets/dish-sukiyaki-768.webp");
   }
 }
+
+/* Keep local visit guidance easy to scan in both languages. */
+.visit-intro { max-width: 70ch; margin: 0 0 24px; line-height: 1.65; }
+.visit-intro a { color: var(--gold); text-decoration: underline; text-underline-offset: 3px; }

@@ -16,9 +16,9 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://centrestjhotpot.ca"),
-  title: "Hot Pot Calgary | $28.99 AYCE | Centre Street Japanese HotPot",
+  title: "Hot Pot Calgary | $28.99 All You Can Eat | Centre Street",
   description:
-    "Hot pot in Calgary on Centre Street: $28.99 all you can eat with soup base included, or $19.99 personal hot pot. Choose from 15 soup bases. Book online.",
+    "Your own hot pot in Calgary: $28.99 all you can eat with soup base included, or a $19.99 personal set. 15 soup bases on Centre Street North. Book online.",
   robots: {
     index: true,
     follow: true,
@@ -39,20 +39,20 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "Hot Pot Calgary | $28.99 AYCE | Centre Street Japanese HotPot",
+    title: "Hot Pot Calgary | $28.99 All You Can Eat | Centre Street",
     description:
-      "Hot pot in Calgary on Centre Street: $28.99 all you can eat with soup base included, or $19.99 personal hot pot. Choose from 15 soup bases. Book online.",
+      "Your own hot pot in Calgary: $28.99 all you can eat with soup base included, or a $19.99 personal set. 15 soup bases on Centre Street North. Book online.",
     url: "https://centrestjhotpot.ca/",
     siteName: "Centre Street Japanese HotPot",
-    images: ["/assets/dish-spicy.webp"],
+    images: ["/assets/dish-sukiyaki.webp"],
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Hot Pot Calgary | $28.99 AYCE | Centre Street Japanese HotPot",
+    title: "Hot Pot Calgary | $28.99 All You Can Eat | Centre Street",
     description:
-      "Hot pot in Calgary on Centre Street: $28.99 all you can eat with soup base included, or $19.99 personal hot pot. Choose from 15 soup bases. Book online.",
-    images: ["/assets/dish-spicy.webp"],
+      "Your own hot pot in Calgary: $28.99 all you can eat with soup base included, or a $19.99 personal set. 15 soup bases on Centre Street North. Book online.",
+    images: ["/assets/dish-sukiyaki.webp"],
   },
   icons: {
     icon: [

@@ -959,6 +959,8 @@ a.beef-noodle-feature-media {
   text-underline-offset: 4px;
 }
 
+.two-column .text-action { color: var(--gold); }
+
 .personal-value {
   background:
     radial-gradient(circle at 14% 14%, rgba(127, 23, 22, 0.1), transparent 30%),

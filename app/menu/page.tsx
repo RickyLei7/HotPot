@@ -188,7 +188,7 @@ export default function MenuPage() {
           <p className="eyebrow">Menu</p>
           <h1>Menu &amp; Prices</h1>
           <p className="hero-text">$28.99 all-you-can-eat or $19.99 personal hot pot in Calgary. Prices in CAD.</p>
-          <nav className="menu-quick-links" aria-label="Browse menu categories"><a href="#ayce-hotpot">AYCE</a><a href="#hotpot-set">Personal Hot Pot</a><a href="#combo-specials">Combos</a><a href="#soup-bases">Soup Bases</a><a href="#rice-noodles">Rice &amp; Noodles</a><a href="#appetizers">Snacks</a><a href="#drinks">Drinks</a><a href="#full-menu">Full Menu</a></nav>
+          <nav className="menu-quick-links" aria-label="Browse menu categories"><a href="#ayce-hotpot">AYCE Menu</a><a href="#hotpot-set">Personal Hot Pot</a><a href="#combo-specials">Combos</a><a href="#soup-bases">Soup Bases</a><a href="#rice-noodles">Rice &amp; Noodles</a><a href="#appetizers">Snacks</a><a href="#drinks">Drinks</a><a href="#full-menu">Full Menu</a></nav>
           <aside className="table-menu-notice" data-table-menu-notice aria-label="Dine-in ordering instructions">
             <strong>View Menu Only</strong>
             <span>Please order with your server.</span>

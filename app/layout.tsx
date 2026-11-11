@@ -16,9 +16,9 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://centrestjhotpot.ca"),
-  title: "Hot Pot Calgary | $28.99 All You Can Eat | Centre Street",
+  title: "Calgary Hot Pot | Centre Street Japanese HotPot",
   description:
-    "Your own hot pot in Calgary: $28.99 all you can eat with soup base included, or a $19.99 personal set. 15 soup bases on Centre Street North. Book online.",
+    "Choose $28.99 all-you-can-eat hot pot with broth included or a $19.99 personal hot pot. Pick from 15 soup bases. View the menu and book online.",
   robots: {
     index: true,
     follow: true,
@@ -39,9 +39,9 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "Hot Pot Calgary | $28.99 All You Can Eat | Centre Street",
+    title: "Calgary Hot Pot | Centre Street Japanese HotPot",
     description:
-      "Your own hot pot in Calgary: $28.99 all you can eat with soup base included, or a $19.99 personal set. 15 soup bases on Centre Street North. Book online.",
+      "Choose $28.99 all-you-can-eat hot pot with broth included or a $19.99 personal hot pot. Pick from 15 soup bases. View the menu and book online.",
     url: "https://centrestjhotpot.ca/",
     siteName: "Centre Street Japanese HotPot",
     images: ["/assets/dish-sukiyaki.webp"],
@@ -49,9 +49,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Hot Pot Calgary | $28.99 All You Can Eat | Centre Street",
+    title: "Calgary Hot Pot | Centre Street Japanese HotPot",
     description:
-      "Your own hot pot in Calgary: $28.99 all you can eat with soup base included, or a $19.99 personal set. 15 soup bases on Centre Street North. Book online.",
+      "Choose $28.99 all-you-can-eat hot pot with broth included or a $19.99 personal hot pot. Pick from 15 soup bases. View the menu and book online.",
     images: ["/assets/dish-sukiyaki.webp"],
   },
   icons: {

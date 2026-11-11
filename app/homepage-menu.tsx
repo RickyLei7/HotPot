@@ -77,7 +77,7 @@ export function HomepageMenu({ language }: { language: HomepageLanguage }) {
           ))}
         </div>
         <p className="snack-rule"><strong>{content.ayce.snackRule}</strong> {content.ayce.individualNote}</p>
-        {!isZh && <Link className="text-action" href="/ayce-hot-pot-calgary/">See AYCE prices &amp; inclusions</Link>}
+        <Link className="text-action" href={isZh ? "/zh-hant/ayce-hot-pot-calgary/" : "/ayce-hot-pot-calgary/"}>{isZh ? "查看吃到飽價格與內容" : "See AYCE prices & inclusions"}</Link>
         <Link className="text-action" href={menuPath}>{content.lightMeals.menu}</Link>
       </section>
 

@@ -1160,8 +1160,8 @@
         "style": "secondary-action"
       },
       {
-        "label": "查看繁中菜單",
-        "href": "/zh-hant/menu/",
+        "label": "查看吃到飽菜單",
+        "href": "/zh-hant/menu/#ayce-hotpot",
         "style": "secondary-action"
       }
     ],

@@ -92,7 +92,7 @@ export function HomepageMenu({ language }: { language: HomepageLanguage }) {
           </div>
           <p className="split-pot-note">{content.personal.splitPot}</p>
           <small>{content.personal.comboNote}</small></details>
-          <div className="hero-actions"><Link className="primary-action" href={menuPath}>{content.personal.menu}</Link></div>
+          <div className="hero-actions"><Link className="primary-action" href={`${menuPath}#hotpot-set`}>{content.personal.menu}</Link></div>
           <Link className="text-action" href={isZh ? "/zh-hant/calgary-hot-pot-guide/" : "/calgary-hot-pot-guide/"}>{isZh ? "比較個人鍋與火鍋自助" : "Compare personal hot pot and AYCE"}</Link>
         </div>
         <a className="soup-preview-strip poster-thumbnail" href="#personal-menu-image">

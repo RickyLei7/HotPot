@@ -107,7 +107,7 @@ const ayceSchema = {
     {
       "@type": "WebPage",
       "@id": "https://centrestjhotpot.ca/ayce-hot-pot-calgary/#webpage",
-      dateModified: "2026-11-09",
+      dateModified: "2026-11-17",
       name: "All You Can Eat Hot Pot Calgary | $28.99 | Centre Street",
       description:
         "All-you-can-eat hot pot in Calgary for $28.99. Your own pot, 1 of 15 soup bases included, and AAA beef, lamb, pork or chicken. View menu & book online.",
@@ -193,8 +193,10 @@ export default function AyceHotPotCalgaryPage() {
           <p className="eyebrow">All-you-can-eat hot pot</p>
           <h2>What the $28.99 AYCE Includes</h2>
           <p>
-            Choose a soup base, then order AAA beef, lamb, pork, or chicken through your server.
+            Choose your soup base and order AAA beef, lamb, pork or chicken through your server.
+            Meat is served in 100 g portions.
           </p>
+          <p><strong>Children’s prices by height.</strong> Under 100 cm: free. 100–140 cm: $12.99. Over 140 cm: adult price.</p>
           <div className="combo-price-grid">
             <article>
               <span>$28.99</span>
@@ -206,6 +208,9 @@ export default function AyceHotPotCalgaryPage() {
               <h3>Snack Upgrade</h3>
               <p>Choose from 19 all-you-can-eat appetizers. Everyone at the table must upgrade.</p>
             </article>
+          </div>
+          <div className="ayce-actions">
+            <a className="secondary-action" href="#ayce-snacks">See All 19 Snacks</a>
           </div>
         </div>
         <a className="ayce-card poster-thumbnail" href="#ayce-poster" aria-label="View the complete AYCE menu poster">

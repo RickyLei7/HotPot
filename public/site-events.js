@@ -731,6 +731,15 @@
   setupOfferViews();
   setupPosterModals();
 
+  document.addEventListener("keydown", function (event) {
+    if (event.defaultPrevented || event.key !== "Escape") return;
+    var more = event.target.closest && event.target.closest(".nav-more[open]");
+    if (!more) return;
+    event.preventDefault();
+    more.open = false;
+    more.querySelector("summary").focus({ preventScroll: true });
+  });
+
   document.addEventListener("click", function (event) {
     var openMore = document.querySelector(".nav-more[open]");
     if (openMore && !(event.target.closest && event.target.closest(".nav-more"))) {

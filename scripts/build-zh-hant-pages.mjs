@@ -207,7 +207,7 @@ function renderHomePage(data) {
     <link rel="preload" as="image" fetchpriority="high" href="/assets/dish-sukiyaki-640.webp" imagesrcset="/assets/dish-sukiyaki-320.webp 320w, /assets/dish-sukiyaki-640.webp 640w, /assets/dish-sukiyaki-768.webp 768w, /assets/dish-sukiyaki-1024-perf.webp 1024w" imagesizes="(max-width: 592px) calc(100vw - 32px), (max-width: 760px) 560px, (max-width: 1333px) 42vw, 560px" />
     <link rel="stylesheet" href="/site.css?v=20261110-menu-readability" />
     <script defer src="/language-routes.js?v=20260813-bilingual"></script>
-    <script defer src="/site-events.js?v=20261117-nav-keyboard"></script>
+    <script defer src="/site-events.js?v=20261118-reuse-gateway"></script>
     <script type="application/ld+json">${jsonLd(data)}</script>
   </head>
   <body>
@@ -271,7 +271,7 @@ function renderPage(data) {
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     ${data.path === "/zh-hant/menu/" ? '<link rel="preload" as="image" href="/assets/dish-sukiyaki-768.webp" media="(max-width: 760px)" fetchpriority="high" />\n    ' : ""}<link rel="stylesheet" href="/site.css?v=20261110-menu-readability" />
     <script defer src="/language-routes.js?v=20260813-bilingual"></script>
-    <script defer src="/site-events.js?v=20261117-nav-keyboard"></script>
+    <script defer src="/site-events.js?v=20261118-reuse-gateway"></script>
     <script type="application/ld+json">${jsonLd(data)}</script>
   </head>
   <body>

@@ -296,8 +296,18 @@
 
   function loadGoogleTag() {
     if (window.__hotpotGoogleTagLoading) return;
+
+    // Cloudflare can insert this same tag before the site's script runs.
+    var gatewayTag = document.querySelector('script[src="/t662/"]');
+    if (gatewayTag && document.readyState !== "complete") {
+      window.addEventListener("load", loadGoogleTag, { once: true });
+      return;
+    }
     window.__hotpotGoogleTagLoading = true;
 
+    if (gatewayTag && window.google_tag_manager && window.google_tag_manager[measurementId]) {
+      return;
+    }
     if (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1") {
       return;
     }

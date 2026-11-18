@@ -269,7 +269,7 @@ function renderPage(data) {
     <link rel="icon" href="/favicon.ico" sizes="any" />
     <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-    <link rel="stylesheet" href="/site.css?v=20261110-menu-readability" />
+    ${data.path === "/zh-hant/menu/" ? '<link rel="preload" as="image" href="/assets/dish-sukiyaki-768.webp" media="(max-width: 760px)" fetchpriority="high" />\n    ' : ""}<link rel="stylesheet" href="/site.css?v=20261110-menu-readability" />
     <script defer src="/language-routes.js?v=20260813-bilingual"></script>
     <script defer src="/site-events.js?v=20261117-nav-keyboard"></script>
     <script type="application/ld+json">${jsonLd(data)}</script>

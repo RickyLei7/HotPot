@@ -160,6 +160,7 @@ export default function AyceHotPotCalgaryPage() {
 
   return (
     <main>
+      <link rel="preload" as="image" href="/assets/dish-sukiyaki-768.webp" media="(max-width: 760px)" fetchPriority="high" />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(ayceSchema) }}

@@ -131,6 +131,7 @@ function schemaFor(data: ZhPageData) {
 export function ZhPage({ data }: { data: ZhPageData }) {
   return (
     <main id="top">
+      {data.path === "/zh-hant/menu/" && <link rel="preload" as="image" href="/assets/dish-sukiyaki-768.webp" media="(max-width: 760px)" fetchPriority="high" />}
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaFor(data)) }} />
       <SiteNav currentPath={data.path} language="zh-Hant" />
       <section className={`localized-hero${data.path === "/zh-hant/menu/" ? " menu-page-hero" : ""}`}>

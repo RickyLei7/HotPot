@@ -2792,6 +2792,12 @@ a.beef-noodle-feature-media {
     url("/assets/milk-tea-photo.webp") center / cover;
 }
 
+@media (max-width: 760px) {
+  .drink-feature {
+    background: linear-gradient(120deg, #4a100d, #7f1716);
+  }
+}
+
 .drink-feature > img {
   border: 1px solid rgba(246, 201, 76, 0.42);
   border-radius: 18px;

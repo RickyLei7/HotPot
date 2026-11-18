@@ -51,7 +51,7 @@ export function HomepageMenu({ language }: { language: HomepageLanguage }) {
           <div className="hero-visit"><a href={directionsUrl} target="_blank" rel="noreferrer">2213 Centre St N #2243 · {isZh ? "導航" : "Directions"}</a><p>{isZh ? "週一至週五 17:00–22:30 · 週六及週日 12:00–22:30" : "Mon–Fri 5–10:30 PM · Sat–Sun noon–10:30 PM"}</p></div>
         </div>
         <a className="homepage-ayce-media poster-thumbnail homepage-food-preview" href="#homepage-ayce-image">
-          <img src="/assets/dish-sukiyaki-640.webp" srcSet="/assets/dish-sukiyaki-320.webp 320w, /assets/dish-sukiyaki-640.webp 640w, /assets/dish-sukiyaki-768.webp 768w, /assets/dish-sukiyaki-1024-perf.webp 1024w" sizes="(max-width: 592px) calc(100vw - 32px), (max-width: 760px) 560px, (max-width: 1333px) 42vw, 560px" alt={isZh ? "鼎鑽火鍋日式壽喜鍋" : "Sukiyaki hot pot at Centre Street Japanese HotPot"} width="1024" height="910" fetchPriority="high" loading="eager" decoding="async" />
+          <img src="/assets/dish-sukiyaki-640.webp" srcSet="/assets/dish-sukiyaki-320.webp 320w, /assets/dish-sukiyaki-640.webp 640w, /assets/dish-sukiyaki-768.webp 768w, /assets/dish-sukiyaki-1024-home.webp 1024w" sizes="(max-width: 560px) calc(100vw - 32px), (max-width: 622px) 90vw, (max-width: 1100px) 560px, (max-width: 1333px) 42vw, 560px" alt={isZh ? "鼎鑽火鍋日式壽喜鍋" : "Sukiyaki hot pot at Centre Street Japanese HotPot"} width="1024" height="910" fetchPriority="high" loading="eager" decoding="async" />
           <span>15 {isZh ? "款湯底" : "soup bases"}</span>
           <strong className="poster-open-label">{isZh ? "查看自助菜單" : "View AYCE Menu"}</strong>
         </a>
@@ -96,7 +96,7 @@ export function HomepageMenu({ language }: { language: HomepageLanguage }) {
           <Link className="text-action" href={isZh ? "/zh-hant/calgary-hot-pot-guide/" : "/calgary-hot-pot-guide/"}>{isZh ? "比較個人鍋與火鍋自助" : "Compare personal hot pot and AYCE"}</Link>
         </div>
         <a className="soup-preview-strip poster-thumbnail" href="#personal-menu-image">
-          <img src="/assets/personal-hot-pot-menu-full-480-perf.webp" srcSet="/assets/personal-hot-pot-menu-full-280.webp 280w, /assets/personal-hot-pot-menu-full-480-perf.webp 480w, /assets/personal-hot-pot-menu-full-560-preview.webp 560w, /assets/personal-hot-pot-menu-full-800-preview.webp 800w, /assets/personal-hot-pot-menu-full.webp 1400w" sizes="(max-width: 760px) 260px, 480px" alt={isZh ? "鼎鑽火鍋完整個人火鍋菜單與 15 款湯底" : "Full personal hot pot menu with fifteen soup base choices at Centre Street Japanese HotPot"} width="1400" height="2096" loading="lazy" decoding="async" />
+          <img src="/assets/personal-hot-pot-menu-full-480-perf.webp" srcSet="/assets/personal-hot-pot-menu-full-280.webp 280w, /assets/personal-hot-pot-menu-full-480-perf.webp 480w, /assets/personal-hot-pot-menu-full-560-preview.webp 560w, /assets/personal-hot-pot-menu-full-800-home.webp 800w, /assets/personal-hot-pot-menu-full.webp 1400w" sizes="(max-width: 560px) 258px, 478px" alt={isZh ? "鼎鑽火鍋完整個人火鍋菜單與 15 款湯底" : "Full personal hot pot menu with fifteen soup base choices at Centre Street Japanese HotPot"} width="1400" height="2096" loading="lazy" decoding="async" />
           <strong className="poster-open-label">{isZh ? "查看完整菜單" : "View full menu"}</strong>
         </a>
       </section>
@@ -108,7 +108,7 @@ export function HomepageMenu({ language }: { language: HomepageLanguage }) {
 
       <section id="beef-noodle" className="beef-noodle-feature">
         <a className="beef-noodle-feature-media poster-thumbnail" href="#beef-noodle-story-image">
-          <img src="/assets/taiwanese-beef-noodle-story-480-perf.webp" srcSet="/assets/taiwanese-beef-noodle-story-280.webp 280w, /assets/taiwanese-beef-noodle-story-480-perf.webp 480w, /assets/taiwanese-beef-noodle-story-560-preview.webp 560w, /assets/taiwanese-beef-noodle-story-720.webp 720w" sizes="(max-width: 760px) 250px, 520px" alt={content.beefNoodle.alt} width="1122" height="1402" loading="lazy" decoding="async" />
+          <img src="/assets/taiwanese-beef-noodle-story-480-perf.webp" srcSet="/assets/taiwanese-beef-noodle-story-280.webp 280w, /assets/taiwanese-beef-noodle-story-480-perf.webp 480w, /assets/taiwanese-beef-noodle-story-560-preview.webp 560w, /assets/taiwanese-beef-noodle-story-720-home.webp 720w" sizes="(max-width: 560px) 250px, (max-width: 577px) 90vw, 520px" alt={content.beefNoodle.alt} width="1122" height="1402" loading="lazy" decoding="async" />
           <strong className="poster-open-label">{isZh ? "查看完整圖片" : "View full image"}</strong>
         </a>
         <div className="beef-noodle-feature-copy">
@@ -155,7 +155,7 @@ export function HomepageMenu({ language }: { language: HomepageLanguage }) {
             {content.drinks.categories.map((drink) => <p key={drink.name}><span>{drink.name}</span><strong>{drink.price}</strong></p>)}
           </div></details>
         </div>
-        <img src="/assets/milk-tea-photo-480-perf.webp" srcSet="/assets/milk-tea-photo-320.webp 320w, /assets/milk-tea-photo-480-perf.webp 480w, /assets/milk-tea-photo-640.webp 640w, /assets/milk-tea-photo.webp 900w" sizes="(max-width: 760px) min(74vw, 250px), 380px" alt={content.drinks.alt} width="900" height="1200" loading="lazy" decoding="async" />
+        <img src="/assets/milk-tea-photo-480-perf.webp" srcSet="/assets/milk-tea-photo-320.webp 320w, /assets/milk-tea-photo-480-perf.webp 480w, /assets/milk-tea-photo-640.webp 640w, /assets/milk-tea-photo-768-home.webp 768w, /assets/milk-tea-photo.webp 900w" sizes="(max-width: 560px) min(72vw, 250px), (max-width: 666px) 90vw, (max-width: 1100px) 600px, 430px" alt={content.drinks.alt} width="900" height="1200" loading="lazy" decoding="async" />
       </section>
 
       <section id="visit" className="homepage-visit">

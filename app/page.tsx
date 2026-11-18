@@ -80,7 +80,7 @@ const restaurantJsonLd = {
 export default function Home() {
   return (
     <>
-      <link rel="preload" as="image" fetchPriority="high" href="/assets/dish-sukiyaki-640.webp" imageSrcSet="/assets/dish-sukiyaki-320.webp 320w, /assets/dish-sukiyaki-640.webp 640w, /assets/dish-sukiyaki-768.webp 768w, /assets/dish-sukiyaki-1024-perf.webp 1024w" imageSizes="(max-width: 592px) calc(100vw - 32px), (max-width: 760px) 560px, (max-width: 1333px) 42vw, 560px" />
+      <link rel="preload" as="image" fetchPriority="high" href="/assets/dish-sukiyaki-640.webp" imageSrcSet="/assets/dish-sukiyaki-320.webp 320w, /assets/dish-sukiyaki-640.webp 640w, /assets/dish-sukiyaki-768.webp 768w, /assets/dish-sukiyaki-1024-home.webp 1024w" imageSizes="(max-width: 560px) calc(100vw - 32px), (max-width: 622px) 90vw, (max-width: 1100px) 560px, (max-width: 1333px) 42vw, 560px" />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(restaurantJsonLd) }} />
       <HomepageMenu language="en" />
     </>

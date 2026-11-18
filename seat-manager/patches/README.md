@@ -44,3 +44,11 @@ Release evidence and isolated flow checks are retained in
 ## Stalled security check recovery — 2026-11-04
 
 `booking-security-recovery.mjs` transforms the current production booking client. It adds inline progress and interactive instructions, a 30-second manual retry offer, and lifecycle cleanup. It never enables submission without a valid token. The expanded callback suite has 13 checks; together with the 8 keyboard/IME checks it gives 21 isolated checks. See [release evidence and physical-device limits](../../docs/booking-security-recovery-2026-11-04.md).
+
+## Public booking page loading
+
+`booking-mobile-load.mjs` transforms the public and embedded booking pages
+before the Worker applies its security headers. It adds modulepreload hints and
+sets the telephone keyboard action. The public form uses `booking-base.css`
+for its base styles. Serve it as a text module at the versioned path exported
+by the transformer and change the path when the stylesheet changes.

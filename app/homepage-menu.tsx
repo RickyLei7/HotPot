@@ -96,7 +96,7 @@ export function HomepageMenu({ language }: { language: HomepageLanguage }) {
           <Link className="text-action" href={isZh ? "/zh-hant/calgary-hot-pot-guide/" : "/calgary-hot-pot-guide/"}>{isZh ? "比較個人鍋與火鍋自助" : "Compare personal hot pot and AYCE"}</Link>
         </div>
         <a className="soup-preview-strip poster-thumbnail" href="#personal-menu-image">
-          <img src="/assets/personal-hot-pot-menu-full-480-perf.webp" srcSet="/assets/personal-hot-pot-menu-full-280.webp 280w, /assets/personal-hot-pot-menu-full-480-perf.webp 480w, /assets/personal-hot-pot-menu-full-720.webp 720w, /assets/personal-hot-pot-menu-full.webp 1400w" sizes="(max-width: 760px) 260px, 42vw" alt={isZh ? "鼎鑽火鍋完整個人火鍋菜單與 15 款湯底" : "Full personal hot pot menu with fifteen soup base choices at Centre Street Japanese HotPot"} width="1400" height="2096" loading="lazy" decoding="async" />
+          <img src="/assets/personal-hot-pot-menu-full-480-perf.webp" srcSet="/assets/personal-hot-pot-menu-full-280.webp 280w, /assets/personal-hot-pot-menu-full-480-perf.webp 480w, /assets/personal-hot-pot-menu-full-560-preview.webp 560w, /assets/personal-hot-pot-menu-full-800-preview.webp 800w, /assets/personal-hot-pot-menu-full.webp 1400w" sizes="(max-width: 760px) 260px, 480px" alt={isZh ? "鼎鑽火鍋完整個人火鍋菜單與 15 款湯底" : "Full personal hot pot menu with fifteen soup base choices at Centre Street Japanese HotPot"} width="1400" height="2096" loading="lazy" decoding="async" />
           <strong className="poster-open-label">{isZh ? "查看完整菜單" : "View full menu"}</strong>
         </a>
       </section>
@@ -108,7 +108,7 @@ export function HomepageMenu({ language }: { language: HomepageLanguage }) {
 
       <section id="beef-noodle" className="beef-noodle-feature">
         <a className="beef-noodle-feature-media poster-thumbnail" href="#beef-noodle-story-image">
-          <img src="/assets/taiwanese-beef-noodle-story-480-perf.webp" srcSet="/assets/taiwanese-beef-noodle-story-280.webp 280w, /assets/taiwanese-beef-noodle-story-480-perf.webp 480w, /assets/taiwanese-beef-noodle-story-720.webp 720w" sizes="(max-width: 760px) 250px, 520px" alt={content.beefNoodle.alt} width="1122" height="1402" loading="lazy" decoding="async" />
+          <img src="/assets/taiwanese-beef-noodle-story-480-perf.webp" srcSet="/assets/taiwanese-beef-noodle-story-280.webp 280w, /assets/taiwanese-beef-noodle-story-480-perf.webp 480w, /assets/taiwanese-beef-noodle-story-560-preview.webp 560w, /assets/taiwanese-beef-noodle-story-720.webp 720w" sizes="(max-width: 760px) 250px, 520px" alt={content.beefNoodle.alt} width="1122" height="1402" loading="lazy" decoding="async" />
           <strong className="poster-open-label">{isZh ? "查看完整圖片" : "View full image"}</strong>
         </a>
         <div className="beef-noodle-feature-copy">

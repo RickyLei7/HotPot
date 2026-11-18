@@ -1145,6 +1145,7 @@
     "h1": "火鍋吃到飽 $28.99",
     "lead": "每位已含鍋底。15 款湯底任選，AAA 牛肉、羊肉、豬肉或雞肉由服務員協助下單。每位 +$5.99 可升級 19 款小吃任點，同桌須一起升級。",
     "image": "/assets/ayce-menu-2026-08-25-fast-480.webp",
+    "imageMobile": "/assets/ayce-menu-420-mobile.webp",
     "imageFull": "/assets/ayce-menu-2026-08-24-599.webp",
     "imageActionLabel": "點擊查看完整火鍋自助菜單",
     "imageAlt": "鼎鑽火鍋卡加利 $28.99 火鍋自助完整菜單",

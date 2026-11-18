@@ -24,8 +24,8 @@
     <link rel="icon" href="/favicon.ico" sizes="any" />
     <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-    <link rel="preload" as="image" href="/assets/dish-sukiyaki-768.webp" media="(max-width: 760px)" fetchpriority="high" />
-    <link rel="stylesheet" href="/site.css?v=20261110-menu-readability" />
+    <link rel="preload" as="image" href="/assets/dish-sukiyaki-540-menu.webp" media="(max-width: 760px)" fetchpriority="high" />
+    <link rel="stylesheet" href="/site.css?v=20261118-menu-media" />
     <script defer src="/language-routes.js?v=20260813-bilingual"></script>
     <script defer src="/site-events.js?v=20261118-reuse-gateway"></script>
     <script type="application/ld+json">
@@ -133,7 +133,7 @@
   <body>
     <nav class="site-nav" aria-label="Main navigation">
       <a class="brand-mark" href="/" aria-label="Centre Street Japanese Hotpot home">
-        <img src="/assets/brand-logo-wide-300.webp" srcset="/assets/brand-logo-wide-300.webp 300w, /assets/brand-logo-wide-480.webp 480w, /assets/brand-logo-wide.webp 600w" sizes="(max-width: 760px) 52vw, 260px" alt="Centre Street Japanese Hotpot" width="600" height="184" />
+        <img src="/assets/brand-logo-wide-300.webp" srcset="/assets/brand-logo-wide-300.webp 300w, /assets/brand-logo-wide-480.webp 480w, /assets/brand-logo-wide.webp 600w" sizes="(max-width: 560px) 34vw, (max-width: 760px) 52vw, 260px" alt="Centre Street Japanese Hotpot" width="600" height="184" />
       </a>
       <div class="nav-links">
         <a href="/">Home</a>
@@ -321,8 +321,8 @@
           </div>
         </div>
         <div class="menu-images">
-          <a class="poster-thumbnail" href="#hotpot-menu-poster"><img src="/menu/hotpot-menu-preview.webp" alt="Full hot pot set and appetizer menu page" width="601" height="900" loading="lazy" decoding="async" /><strong class="poster-open-label">View full page</strong></a>
-          <a class="poster-thumbnail" href="#drink-menu-poster"><img src="/menu/drink-menu-preview.webp" alt="Full rice noodle and drink menu page" width="601" height="900" loading="lazy" decoding="async" /><strong class="poster-open-label">View full page</strong></a>
+          <a class="poster-thumbnail" href="#hotpot-menu-poster"><picture><source media="(max-width: 560px)" srcset="/menu/hotpot-menu-preview-480.webp" /><img src="/menu/hotpot-menu-preview.webp" alt="Full hot pot set and appetizer menu page" width="601" height="900" loading="lazy" decoding="async" /></picture><strong class="poster-open-label">View full page</strong></a>
+          <a class="poster-thumbnail" href="#drink-menu-poster"><picture><source media="(max-width: 560px)" srcset="/menu/drink-menu-preview-480.webp" /><img src="/menu/drink-menu-preview.webp" alt="Full rice noodle and drink menu page" width="601" height="900" loading="lazy" decoding="async" /></picture><strong class="poster-open-label">View full page</strong></a>
         </div>
       </section>
       <section class="poster-modal" id="hotpot-menu-poster" role="dialog" aria-modal="true" aria-labelledby="hotpot-menu-poster-title" data-close-target="full-menu"><a class="modal-backdrop" href="#full-menu" aria-label="Close hot pot menu page"></a><div class="poster-frame"><span class="modal-label" id="hotpot-menu-poster-title">Hot pot and appetizers</span><a class="modal-close" href="#full-menu" aria-label="Close hot pot menu page">Close</a><img src="/menu/hotpot-menu-preview.webp" data-full-src="/menu/hotpot-menu.jpg" alt="Complete hot pot set and appetizer menu page" width="1202" height="1800" loading="lazy" decoding="async" /></div></section>

@@ -160,7 +160,7 @@ export default function AyceHotPotCalgaryPage() {
 
   return (
     <main>
-      <link rel="preload" as="image" href="/assets/dish-sukiyaki-768.webp" media="(max-width: 760px)" fetchPriority="high" />
+      <link rel="preload" as="image" href="/assets/dish-sukiyaki-540-menu.webp" media="(max-width: 760px)" fetchPriority="high" />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(ayceSchema) }}
@@ -216,7 +216,10 @@ export default function AyceHotPotCalgaryPage() {
         </div>
         <a className="ayce-card poster-thumbnail" href="#ayce-poster" aria-label="View the complete AYCE menu poster">
           <span className="price-badge">$28.99</span>
-          <img src="/assets/ayce-menu-2026-08-25-fast-360.webp" srcSet="/assets/ayce-menu-2026-08-25-fast-360.webp 360w, /assets/ayce-menu-2026-08-25-fast-480.webp 480w" sizes="(max-width: 760px) calc(100vw - 32px), 420px" alt="AYCE Hot Pot poster with $28.99 pricing and all 19 appetizer upgrade items" width="480" height="622" loading="lazy" decoding="async" />
+          <picture>
+            <source media="(max-width: 560px)" srcSet="/assets/ayce-menu-420-mobile.webp" />
+            <img src="/assets/ayce-menu-2026-08-25-fast-360.webp" srcSet="/assets/ayce-menu-2026-08-25-fast-360.webp 360w, /assets/ayce-menu-2026-08-25-fast-480.webp 480w" sizes="(max-width: 760px) calc(100vw - 32px), 420px" alt="AYCE Hot Pot poster with $28.99 pricing and all 19 appetizer upgrade items" width="480" height="622" loading="lazy" decoding="async" />
+          </picture>
           <strong className="poster-open-label">View full menu</strong>
         </a>
       </section>

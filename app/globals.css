@@ -1896,12 +1896,21 @@ body.poster-open { overflow: hidden; }
     height: 100%;
   }
 
-  .ayce-hero,
+  .ayce-hero {
+    background-image:
+      linear-gradient(90deg, rgba(18, 13, 11, 0.96), rgba(90, 19, 15, 0.9)),
+      url("/assets/dish-sukiyaki-768.webp");
+  }
+
   .menu-page-hero,
   .ayce-promo {
     background-image:
       linear-gradient(90deg, rgba(18, 13, 11, 0.96), rgba(90, 19, 15, 0.9)),
-      url("/assets/dish-sukiyaki-768.webp");
+      url("/assets/dish-sukiyaki-540-menu.webp");
+  }
+
+  body:has(.menu-page-hero, #localized-menu-poster) {
+    background-image: none;
   }
 
   .ads-hero {

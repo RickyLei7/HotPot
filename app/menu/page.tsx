@@ -177,7 +177,7 @@ const menuJsonLd = {
 export default function MenuPage() {
   return (
     <main>
-      <link rel="preload" as="image" href="/assets/dish-sukiyaki-768.webp" media="(max-width: 760px)" fetchPriority="high" />
+      <link rel="preload" as="image" href="/assets/dish-sukiyaki-540-menu.webp" media="(max-width: 760px)" fetchPriority="high" />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(menuJsonLd) }}
@@ -341,11 +341,17 @@ export default function MenuPage() {
         </div>
         <div className="menu-images">
           <a className="poster-thumbnail" href="#hotpot-menu-poster">
-            <img src="/menu/hotpot-menu-preview.webp" alt="Full hot pot set and appetizer menu page" width="601" height="900" loading="lazy" decoding="async" />
+            <picture>
+              <source media="(max-width: 560px)" srcSet="/menu/hotpot-menu-preview-480.webp" />
+              <img src="/menu/hotpot-menu-preview.webp" alt="Full hot pot set and appetizer menu page" width="601" height="900" loading="lazy" decoding="async" />
+            </picture>
             <strong className="poster-open-label">View full page</strong>
           </a>
           <a className="poster-thumbnail" href="#drink-menu-poster">
-            <img src="/menu/drink-menu-preview.webp" alt="Full rice noodle and drink menu page" width="601" height="900" loading="lazy" decoding="async" />
+            <picture>
+              <source media="(max-width: 560px)" srcSet="/menu/drink-menu-preview-480.webp" />
+              <img src="/menu/drink-menu-preview.webp" alt="Full rice noodle and drink menu page" width="601" height="900" loading="lazy" decoding="async" />
+            </picture>
             <strong className="poster-open-label">View full page</strong>
           </a>
         </div>

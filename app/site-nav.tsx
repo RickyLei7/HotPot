@@ -19,7 +19,7 @@ export function SiteNav({ currentPath = "/", language = "en" }: SiteNavProps) {
         <img
           src="/assets/brand-logo-wide-300.webp"
           srcSet="/assets/brand-logo-wide-300.webp 300w, /assets/brand-logo-wide-480.webp 480w, /assets/brand-logo-wide.webp 600w"
-          sizes="(max-width: 760px) 52vw, 260px"
+          sizes="(max-width: 560px) 34vw, (max-width: 760px) 52vw, 260px"
           alt="Centre Street Japanese Hotpot"
           width="600"
           height="184"
